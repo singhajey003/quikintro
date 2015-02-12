@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
+<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
+<link rel="import" href="../../bower_components/core-field/core-field.html" >
+<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
+<link rel="import" href="../../bower_components/core-input/core-input.html" >
+<link rel="import" href="../../bower_components/core-item/core-item.html" >
+<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
+<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
+<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
+
+<polymer-element name="qi-contact-card" attributes="firstName lastName contactTitle company">
+
+	
+	<template>
+	<link rel="stylesheet" href="qi-contact-card.css" >
+
+	<div id="card">
+		<div >
+			<div id="titleBlock" on-click="{{toggleAction}}">{{firstName}} {{lastName}}</div>
+			<div id="summaryBlock">{{contactTitle} {{company}}</div><core-icon icon="track-changes" />
+		</div>
+		<core-collapse id="collapse" opened="false">
+			
+		      
+		    
+
+	    
+		</core-collapse>
+	</div>
+
+	</template>
+
+	<script>
+	Polymer('qi-contact-card',{
+		eventTitle:'Event Title',
+		startTime: '',
+		endTime: '',
+		location: 'Moscone Center',
+		notification: '15 mins before',
+	    toggleAction: function(evt){
+	    	console.log("Got here");
+	     	this.$.collapse.toggle();
+	     }
+
+	    });
+
+
+	</script>
+
+
+</polymer-element>
