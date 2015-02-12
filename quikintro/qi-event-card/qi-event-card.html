@@ -15,8 +15,8 @@
 	<link rel="stylesheet" href="qi-event-card.css" >
 
 	<div id="card">
-		<div >
-			<div id="titleBlock" on-click="{{toggleAction}}">{{eventTitle}}</div>
+		<div on-click="{{toggleAction}}" >
+			<div id="titleBlock" >{{eventTitle}}</div>
 			<div id="summaryBlock">{{startTime}} at {{location}}</div>
 		</div>
 		<core-collapse id="collapse" opened="false">
@@ -52,9 +52,10 @@
 
 
 		    <core-icon icon="supervisor-account" id="core_icon4"></core-icon>Guests
-		      
-		    
-
+		    <div>
+		    	<qi-contact-card firstName="Dimitri" lastName="Arges" company="Aspen Biosciences" contactTitle="CBO" mobile="555-123-5555"></qi-contact-card>
+                <qi-contact-card firstName="Mark" lastName="Fortner" company="Aspen Biosciences" contactTitle="CTO" mobile="555-123-4567"></qi-contact-card>
+		    </div>
 	    
 		</core-collapse>
 	</div>

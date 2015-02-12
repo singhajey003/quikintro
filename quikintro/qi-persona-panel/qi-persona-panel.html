@@ -1,0 +1,47 @@
+<link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+
+<link rel="import" href="../qi-persona-card/qi-persona-card.html">
+
+<polymer-element name="qi-persona-panel">
+  <template>
+
+  <style>
+	core-scroll-header-panel{
+        width: 380px;
+        height: 460px;
+        left: 10px;
+        top: 0px;
+        position: relative;
+        display: block;
+        visibility: visible;
+      }
+  </style>
+	<core-scroll-header-panel headermargin="128" condenses headerheight="192"  >
+            <div class="core-header medium-tall">
+              <div layout horizontal>
+              <div>Personas</div>
+              <div flex><input type="text" id="searchText"><core-icon icon="search"></core-icon></div>
+              </div>
+            </div>
+            <div class="content">
+            
+              <qi-persona-card name="Default LinkedIn Persona" skills="java, groovy, grails, bioinformatics" interests="bioinformatics, cancer biology"></qi-persona-card>
+              <qi-persona-card name="Default Facebook Persona" interests="reading, mysteries, historical fiction, movies, science fiction, programming"></qi-persona-card>
+              <qi-persona-card name="Developer Persona" skills="html5, javascript, polymer, groovy, grails"></qi-persona-card>
+              
+            </div>
+
+     </core-scroll-header-panel>
+   </template>
+
+   <script>
+	Polymer('qi-persona-panel',{
+		
+	    });
+
+   </script>
+
+</polymer-element>

@@ -13,6 +13,7 @@
 <link rel="import" href="qi-event-panel/qi-event-panel.html">
 <link rel="import" href="qi-connect-panel/qi-connect-panel.html">
 <link rel="import" href="qi-contact-panel/qi-contact-panel.html">
+<link rel="import" href="qi-persona-panel/qi-persona-panel.html">
 
 <polymer-element name="quik-intro" attributes="">
 
@@ -81,6 +82,12 @@
     <core-scaffold id="core_scaffold">
       <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
         <core-toolbar id="core_toolbar"></core-toolbar>
+        
+        <core-menu selected="{{page}}" valueattr="pageId" >
+          <core-item id="events" icon="event" horizontal layout start center pageId="events">Events</core-item>
+          <core-item id="contact" icon="face" horizontal center layout pageId="contacts">Contacts</core-item>
+        </core-menu>
+
         <core-menu  id="menu" theme="core-light-theme" >
 
           <core-submenu selected="{{page}}" valueattr="pageId" active id="core_submenu" icon="settings" label="Settings">
@@ -93,10 +100,6 @@
           </core-submenu>
     
           
-        </core-menu>
-        <core-menu selected="{{page}}" valueattr="pageId" >
-          <core-item id="events" icon="event" horizontal layout start center pageId="events">Events</core-item>
-          <core-item id="contact" icon="face" horizontal center layout pageId="contacts">Contacts</core-item>
         </core-menu>
       </core-header-panel>
       <div id="div" tool>QuikIntro</div>
@@ -117,7 +120,11 @@
         <section id="eventBritePage" pageId="eventBrite">
           <qi-connect-panel panelTitle="EventBrite"></qi-connect-panel>
         </section>
-        <section id="personaPage" pageId="personas">Personas</section>
+        <section id="personaPage" pageId="personas">
+          <qi-persona-panel></qi-persona-panel>
+
+
+        </section>
         <section id="eventsPage" pageId="events" >
           <qi-event-panel></qi-event-panel>
 

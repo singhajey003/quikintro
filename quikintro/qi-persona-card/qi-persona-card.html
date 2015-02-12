@@ -8,52 +8,22 @@
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
 
-<polymer-element name="qi-event-card" attributes="eventTitle startTime endTime location notification">
+<polymer-element name="qi-persona-card" attributes="name tags skills interests">
 
 	
 	<template>
-	<link rel="stylesheet" href="qi-event-card.css" >
+	<link rel="stylesheet" href="qi-persona-card.css" >
 
 	<div id="card">
 		<div >
-			<div id="titleBlock" on-click="{{toggleAction}}">{{eventTitle}}</div>
-			<div id="summaryBlock">{{startTime}} at {{location}}</div>
+			<div id="titleBlock" on-click="{{toggleAction}}">{{name}}</div>
 		</div>
 		<core-collapse id="collapse" opened="false">
-			<core-field id="scheduleField" icon="schedule" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="schedule" id="core_icon1"></core-icon>
-		      <label>{{startTime}} - {{endTime}}</label>
-		      <core-input id="core_input" flex>{{startTime}}</core-input>
-		    </core-field>
+			
 
-		    <core-field id="locationField" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="room" id="core_icon2"></core-icon>
-		      <core-input id="core_input" flex>{{location}}</core-input>
-		    </core-field>
-
-			<core-field id="notificationField" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="schedule" id="core_icon3"></core-icon>
-		      <core-input id="core_input" flex>{{notification}}</core-input>
-		    </core-field>
-
-
-		    <core-field id="personaField" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="perm-identity" id="core_icon4"></core-icon>
-		      <core-dropdown-menu>
-		        <core-dropdown class="dropdown">
-		        <core-selector selected="{{persona}}" valueattr="personaId">
-		      	<core-item personaId="defLinkedIn">Default LinkedIn Persona</core-item>
-		      	<core-item personaId="devPersona">Developer Persona</core-item>
-		      	<core-item personaId="defFacebook">Default Facebook Persona</core-item>
-		      	</core-selector>
-		      	</core-dropdown>
-		      </core-dropdown-menu>
-		    </core-field>
-
-
-		    <core-icon icon="supervisor-account" id="core_icon4"></core-icon>Guests
-		      
-		    
+		    <core-field><core-icon icon="loyalty" ></core-icon><label>Tags:</label><input placeholder="Tags" value="{{tags}}" flex></core-field>
+		    <core-field><core-icon icon="bookmark" ></core-icon><label>Skills:</label><input placeholder="Skills" value="{{skills}}" flex></core-field>
+		    <core-field><core-icon icon="label" ></core-icon><label>Interests:</label><input placeholder="Tags" value="{{interests}}" flex></core-field>
 
 	    
 		</core-collapse>
@@ -62,12 +32,11 @@
 	</template>
 
 	<script>
-	Polymer('qi-event-card',{
-		eventTitle:'Event Title',
-		startTime: '',
-		endTime: '',
-		location: 'Moscone Center',
-		notification: '15 mins before',
+	Polymer('qi-persona-card',{
+		name:'',
+		skills:'',
+		tags:'',
+		interests:'',
 	    toggleAction: function(evt){
 	    	console.log("Got here");
 	     	this.$.collapse.toggle();

@@ -10,7 +10,7 @@
   <template>
 
   <style>
-	#eventHeaderPanel{
+	core-scroll-header-panel{
         width: 380px;
         height: 460px;
         left: 10px;
@@ -21,23 +21,30 @@
       }
     input{ visibility: visible}
     button{background-color: #526E9C; color: white;}
+    input{background-color: white;}
+
+    .content{
+      margin-top: 10px;
+      border-top-style: 1px solid black;
+
+    }
   </style>
 	<core-scroll-header-panel headermargin="128" condenses headerheight="192" id="eventHeaderPanel" >
             <div class="core-header medium-tall">
               <div>Contacts</div>
-              <core-field><core-icon icon="search"></core-icon><label>Search:</label><core-input type="text" id="searchText"></core-input></core-field>
-              <core-field><core-icon icon="loyalty"></core-icon><label>Tags:</label><input type="text" id="tags"/></core-field>
-              <core-field><core-icon icon="store"></core-icon><label>Company:</label><input type="text" id="tags"/></core-field>
-              <core-field><core-icon icon="room"></core-icon><label>Location:</label><input type="text" id="tags"/></core-field>
-              <core-field><core-icon icon="work"></core-icon><label>Title:</label><input type="text" id="tags"></core-field>
-              <core-field><core-icon icon="bookmark-outline"></core-icon><label>Interests:</label><input type="text" id="tags"/></core-field>
-              <core-field><core-icon icon="label"></core-icon><label>Skills:</label><input type="text" id="tags"/></core-field>
+              <core-field><core-icon icon="search"></core-icon><label>Search:</label><input type="text" id="searchText" placeholder="Search Text" flex/></core-field>
+              <core-field><core-icon icon="loyalty"></core-icon><label>Tags:</label><input type="text" placeholder="Tags" id="tags"/></core-field>
+              <core-field><core-icon icon="store"></core-icon><label>Company:</label><input type="text" placeholder="Company" id="tags"/></core-field>
+              <core-field><core-icon icon="room"></core-icon><label>Location:</label><input type="text" placeholder="Location" id="tags"/></core-field>
+              <core-field><core-icon icon="work"></core-icon><label>Title:</label><input type="text" placeholder="Title" id="tags"></core-field>
+              <core-field><core-icon icon="bookmark-outline"></core-icon><label>Interests:</label><input type="text" placeholder="Interests" id="tags" flex/></core-field>
+              <core-field><core-icon icon="label" title="Send ping"></core-icon><label>Skills:</label><input type="text" id="tags" placeholder="Skills"/></core-field>
               <button>Search</core-field>
             </div>
             <div class="content">
             
-
-             
+              <qi-contact-card firstName="Dimitri" lastName="Arges" company="Aspen Biosciences" contactTitle="CBO" mobile="555-123-5555"></qi-contact-card>
+              <qi-contact-card firstName="Mark" lastName="Fortner" company="Aspen Biosciences" contactTitle="CTO" mobile="555-123-4567"></qi-contact-card>
               
             </div>
 

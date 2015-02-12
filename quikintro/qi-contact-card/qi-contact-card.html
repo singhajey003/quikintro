@@ -8,7 +8,7 @@
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
 
-<polymer-element name="qi-contact-card" attributes="firstName lastName contactTitle company">
+<polymer-element name="qi-contact-card" attributes="firstName lastName contactTitle company address">
 
 	
 	<template>
@@ -21,8 +21,14 @@
 		</div>
 		<core-collapse id="collapse" opened="false">
 			
-		      
-		    
+		      <core-field><label>Name:</label><span>{{firstName}} {{lastName}}</span></core-field>
+		      <core-field><label>Title:</label><span>{{contactTitle}}</span></core-field>
+		      <core-field><label>Company:</label><span>{{company}}</span></core-field>
+		      <core-field><label>Mobile:</label><span>{{mobile}}</span></core-field>
+		      <core-field><label>Office:</label><span>{{office}}</span></core-field>
+		      <core-field><label>Email:</label><span>{{email}}</span></core-field>
+		      <core-field><label>Address:</label><span>{{address}}</span></core-field>
+		      <core-field><label>Tags:</label><span>{{tags}}</span></core-field>
 
 	    
 		</core-collapse>
@@ -32,13 +38,16 @@
 
 	<script>
 	Polymer('qi-contact-card',{
-		eventTitle:'Event Title',
-		startTime: '',
-		endTime: '',
-		location: 'Moscone Center',
-		notification: '15 mins before',
+		firstName:'',
+		lastName:'',
+		company:'QuikIntro',
+		office:'',
+		mobile:'',
+		email:'',
+		contactTitle:'',
+		address:'123 Elm Street, San Jose, CA 95123',
+		
 	    toggleAction: function(evt){
-	    	console.log("Got here");
 	     	this.$.collapse.toggle();
 	     }
 
