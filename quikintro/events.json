@@ -6,6 +6,7 @@
 		"location":"Pennsylvania Convention Center 1103-1131 Arch Street, Philadelphia, PA 19107, USA",
 		"notification":"15 minutes before",
 		"cloakingMode":true,
+		"hashtag":"#aacr15",
 		"guests":[
 
 			{
@@ -64,6 +65,7 @@
  		"startTime":"29 May 2015",
  		 "endTime":"02 Jun 2015",
  		 "location":"McCormick Place",
+ 		 "hashtag" : "#asco15",
  		 "cloakingMode":true
 	},
 
@@ -72,6 +74,7 @@
 	 	"startTime":"28 May 2015",
 	 	"endTime":"29 May 2015",
 	 	"location":"Moscone Center West, San Francisco, CA",
+	 	"hashtag":"#io2015",
 	 	"cloakingMode":false
 	 },
 
@@ -80,6 +83,7 @@
      	"startTime":"25 Oct 2015",
      	"endTime":"29 Oct 2015",
      	"location":"Moscone Center, San Francisco, CA",
+     	"hashtag":"#javaone",
      	"cloakingMode":false
 
      } 
