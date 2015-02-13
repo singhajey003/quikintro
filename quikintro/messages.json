@@ -1,0 +1,17 @@
+[
+	{
+		"title":"Meet me at the coffee stand at the break.",
+		"msg":"This session on ADCs is really impressive.",
+		"sender": "John Smith",
+		"sentTime":"25 Jan 2015 09:00"
+	},
+
+	{
+		"title":"Great poster session!",
+		"msg":"Loved your poster session.  Can you send me a link with the paper?",
+		"sender":"Jane Doe",
+		"sentTime":"1 Feb 2015 09:00"
+	}
+
+
+]

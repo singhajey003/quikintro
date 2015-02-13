@@ -1,0 +1,47 @@
+<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
+<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
+<link rel="import" href="../../bower_components/core-field/core-field.html" >
+<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
+<link rel="import" href="../../bower_components/core-input/core-input.html" >
+<link rel="import" href="../../bower_components/core-item/core-item.html" >
+<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
+<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
+<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
+
+<polymer-element name="qi-msg-card" attributes="msg">
+
+	
+	<template>
+	<link rel="stylesheet" href="qi-msg-card.css" >
+
+	<div id="card" on-click="{{toggleAction}}">
+		<div >
+			<div id="senderBlock"><span class="senderName">{{msg.sender}}</span> <span class="time">{{msg.sentTime}}</span></div>
+			<div id="titleBlock" >{{msg.title}}</div>
+			
+		</div>
+		<core-collapse id="collapse" opened="false">
+			
+		     {{msg.txt}}
+	    
+		</core-collapse>
+	</div>
+
+	</template>
+
+	<script>
+	Polymer('qi-msg-card',{
+		
+		
+	    toggleAction: function(evt){
+	     	this.$.collapse.toggle();
+	     }
+
+	    });
+
+
+	</script>
+
+
+</polymer-element>
