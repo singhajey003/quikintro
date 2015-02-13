@@ -1,0 +1,48 @@
+[
+	{
+		"firstName": "Dimitri",
+		"lastName": "Arges",
+		"title":"CTO",
+		"company":"Aspen Biosciences",
+		"mobile":"555-123-4569",
+		"email":"darges@aspenbiosciences.com",
+		"address": "123 Elm Street, San Jose, CA 95123",
+		"skills":"business development, investor relations",
+		"interests":"startups"
+	},
+
+	{
+		"firstName": "Mark",
+		"lastName": "Fortner",
+		"title":"CTO",
+		"company":"Aspen Biosciences",
+		"mobile":"555-123-4567",
+		"email":"mark.fortner@aspenbiosciences.com",
+		"address": "123 Elm Street, San Jose, CA 95123",
+		"skills":"groovy, grails, java, research informatics",
+		"interests":"programming, cancer biology, startups"
+	},
+
+	{
+		"firstName": "John",
+		"lastName": "Smith",
+		"title":"VP",
+		"company":"Genentech",
+		"mobile":"555-123-4567",
+		"email":"john.smith@gene.com",
+		"address": "123 Elm Street, San Francisco, CA 95123",
+		"tags":"biotech,cancer"
+	},
+
+	{
+		"firstName": "Jane",
+		"lastName": "Doe",
+		"title":"VP",
+		"company":"Mirati Therapeutics",
+		"mobile":"555-123-4567",
+		"email":"jane.doe@mirati.com",
+		"address": "123 Elm Street, San Diego, CA 95123",
+		"tags":"biotech,cancer"
+	}
+
+]

@@ -19,6 +19,8 @@
         visibility: visible;
       }
   </style>
+  <core-ajax auto url="../contacts.json" response="{{response}}" handleAs="json"></core-ajax>
+  
 	<core-scroll-header-panel headermargin="128" condenses headerheight="192" id="eventHeaderPanel" >
             <div class="core-header medium-tall">
               <div layout horizontal>
@@ -28,7 +30,7 @@
             </div>
             <div class="content">
             
-              <qi-event-card eventTitle="AACR" startTime="18-Apr-2015" endTime="22 Apr 2015" location="Pennsylvania Convention Center 1103-1131 Arch Street, Philadelphia, PA 19107, USA"></qi-event-card>
+              <qi-event-card eventTitle="AACR" startTime="18-Apr-2015" endTime="22 Apr 2015" location="Pennsylvania Convention Center 1103-1131 Arch Street, Philadelphia, PA 19107, USA" guests="{{response}}"></qi-event-card>
               <qi-event-card eventTitle="ASCO" startTime="29 May 2015" endTime="02 Jun 2015" location="McCormick Place"></qi-event-card>
               <qi-event-card eventTitle="Google IO" startTime="28 May 2015" endTime="29 May 2015" location="Moscone Center West, San Francisco, CA"></qi-event-card>
               <qi-event-card eventTitle="JavaOne" startTime="25 Oct 2015" endTime="29 Oct 2015" location="Moscone Center, San Francisco, CA"></qi-event-card>

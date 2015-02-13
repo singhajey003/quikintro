@@ -7,8 +7,9 @@
 <link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
+<link rel="import" href="../../bower_components/paper-slider/paper-slider.html" >
 
-<polymer-element name="qi-event-card" attributes="eventTitle startTime endTime location notification">
+<polymer-element name="qi-event-card" attributes="eventTitle startTime endTime location notification guests">
 
 	
 	<template>
@@ -41,8 +42,8 @@
 		      <core-icon icon="perm-identity" id="core_icon4"></core-icon>
 		      <core-dropdown-menu>
 		        <core-dropdown class="dropdown">
-		        <core-selector selected="{{persona}}" valueattr="personaId">
-		      	<core-item personaId="defLinkedIn">Default LinkedIn Persona</core-item>
+		        <core-selector selected="{{persona}}" valueattr="personaId" selectedIndex="1">
+		      	<core-item personaId="defLinkedIn" select>Default LinkedIn Persona</core-item>
 		      	<core-item personaId="devPersona">Developer Persona</core-item>
 		      	<core-item personaId="defFacebook">Default Facebook Persona</core-item>
 		      	</core-selector>
@@ -51,10 +52,12 @@
 		    </core-field>
 
 
-		    <core-icon icon="supervisor-account" id="core_icon4"></core-icon>Guests
+		    <core-field><core-icon icon="supervisor-account" id="core_icon4"></core-icon><label>Guests:</label> <paper-slider flex min="0" max="10" value="5"></paper-slider></core-field>
 		    <div>
-		    	<qi-contact-card firstName="Dimitri" lastName="Arges" company="Aspen Biosciences" contactTitle="CBO" mobile="555-123-5555"></qi-contact-card>
-                <qi-contact-card firstName="Mark" lastName="Fortner" company="Aspen Biosciences" contactTitle="CTO" mobile="555-123-4567"></qi-contact-card>
+		    	<template repeat="{{contact in guests}}">
+		    		<qi-contact-card contact="{{contact}}"></qi-contact-card>
+		    	</template>
+                
 		    </div>
 	    
 		</core-collapse>
