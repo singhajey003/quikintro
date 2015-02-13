@@ -85,6 +85,7 @@
         
         <core-menu selected="{{page}}" valueattr="pageId" >
           <core-item id="events" icon="event" horizontal layout start center pageId="events">Events</core-item>
+          <core-item id="messages" icon="communication:forum" horizontal layout start center pageId="messages">Messages</core-item>
           <core-item id="contact" icon="face" horizontal center layout pageId="contacts">Contacts</core-item>
         </core-menu>
 
@@ -106,7 +107,6 @@
       <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed layout vertical >
         <section id="linkedInPage" pageId="linkedIn">
           <qi-connect-panel panelTitle="LinkedIn"></qi-connect-panel>
-
         </section>
         <section id="facebookPage" pageId="facebook">
           <qi-connect-panel panelTitle="Facebook"></qi-connect-panel>

@@ -9,6 +9,7 @@
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
 <link rel="import" href="../../bower_components/paper-slider/paper-slider.html" >
 <link rel="import" href="../../bower_components/core-icons/social-icons.html" >
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
 
 <polymer-element name="qi-event-card" attributes="event">
 
@@ -17,11 +18,11 @@
 	<link rel="stylesheet" href="qi-event-card.css" >
 
 	<div id="card">
-		<div on-click="{{toggleAction}}" >
-			<div id="titleBlock" >{{event.title}}</div>
-			<div id="summaryBlock">{{event.startTime}} at {{event.location}}</div>
+		<div  >
+			<div id="titleBlock" on-click="{{toggleAction}}">{{event.title}}</div>
+			<div id="summaryBlock" on-click="{{toggleAction}}">{{event.startTime}} at {{event.location}}</div>
 			<div>
-				<core-field><core-icon icon="social:person-outline"></core-icon><input placeholder="Cloaking mode {{event.cloakingMode}}"/></core-field>
+				<core-field><core-icon icon="social:person-outline"></core-icon><label>Cloaking Mode: </label><paper-toggle-button checked="{{event.cloakingMode}}"></paper-toggle-button></core-field>
 			</div>
 		</div>
 		<core-collapse id="collapse" opened="false">
