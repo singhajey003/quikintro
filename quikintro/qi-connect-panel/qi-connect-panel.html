@@ -32,9 +32,10 @@
 		<h1>{{panelTitle}}</h1>
 
 		<div id="panelContent">
-		<div flex layout horizontal><label for="userId">User ID:</label><input type="text" id="userId" /></div>
+		<core-field ><label for="userId">User ID:</label><input flex type="text" id="userId" placeholder="User ID"/></core-field>
 		
-		<div flex layout horizontal><label for="password">Password</label><input type="password" id="password"/></div>
+		<core-field><label for="password">Password:</label><input flex type="password" id="password" placeholder="Password"/></core-field>
+		<p/>
 		<button>Connect</button>
 		</div>
 
