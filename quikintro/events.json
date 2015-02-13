@@ -4,6 +4,7 @@
 		"startTime":"18-Apr-2015",
 		"endTime":"22 Apr 2015",
 		"location":"Pennsylvania Convention Center 1103-1131 Arch Street, Philadelphia, PA 19107, USA",
+		"notification":"15 minutes before",
 		"cloakingMode":true,
 		"guests":[
 
@@ -39,7 +40,8 @@
 				"mobile":"555-123-4567",
 				"email":"john.smith@gene.com",
 				"address": "123 Elm Street, San Francisco, CA 95123",
-				"tags":"biotech,cancer"
+				"tags":"biotech, cancer, product/pipeine, followup",
+				"notes":"Interested in Drug Pipeline dashboard"
 			},
 
 			{
@@ -50,7 +52,8 @@
 				"mobile":"555-123-4567",
 				"email":"jane.doe@mirati.com",
 				"address": "123 Elm Street, San Diego, CA 95123",
-				"tags":"biotech,cancer"
+				"tags":"biotech, cancer",
+				"notes":"Interested in Drug Cocktail application"
 			}
 
 		]
