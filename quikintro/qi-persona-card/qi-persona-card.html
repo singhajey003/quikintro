@@ -7,6 +7,7 @@
 <link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
 
 <polymer-element name="qi-persona-card" attributes="name tags skills interests">
 
@@ -17,6 +18,8 @@
 	<div id="card">
 		<div >
 			<div id="titleBlock" on-click="{{toggleAction}}">{{name}}</div>
+			<core-tooltip label="Clone Persona"><core-icon icon="content-copy"></core-icon></core-tooltip>
+			<core-tooltip label="Delete Persona"><core-icon icon="delete"></core-icon></core-tooltip>
 		</div>
 		<core-collapse id="collapse" opened="false">
 			

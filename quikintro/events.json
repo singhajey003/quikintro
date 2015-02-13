@@ -1,4 +1,29 @@
 [
+
+	{
+ 		"title":"JP Morgan Healthcare",
+ 		"startTime":"12 Jan 2015",
+ 		 "endTime":"15 Jan 2015",
+ 		 "location":"McCormick Place",
+ 		 "hashtag" : "#asco15",
+ 		 "notification" : "15 minutes before",
+ 		 "cloakingMode":true,
+ 		 "guests":[
+			{
+				"firstName": "Dimitri",
+				"lastName": "Arges",
+				"title":"CBO",
+				"company":"Aspen Biosciences",
+				"mobile":"555-123-4569",
+				"email":"darges@aspenbiosciences.com",
+				"address": "123 Elm Street, San Jose, CA 95123",
+				"skills":"business development, investor relations",
+				"gravatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+				"interests":"startups"
+			}
+
+ 		 ]
+	},
 	{
 		"title":"AACR",
 		"startTime":"18-Apr-2015",
@@ -9,17 +34,7 @@
 		"hashtag":"#aacr15",
 		"guests":[
 
-			{
-				"firstName": "Dimitri",
-				"lastName": "Arges",
-				"title":"CTO",
-				"company":"Aspen Biosciences",
-				"mobile":"555-123-4569",
-				"email":"darges@aspenbiosciences.com",
-				"address": "123 Elm Street, San Jose, CA 95123",
-				"skills":"business development, investor relations",
-				"interests":"startups"
-			},
+			
 
 			{
 				"firstName": "Mark",
@@ -30,7 +45,8 @@
 				"email":"mark.fortner@aspenbiosciences.com",
 				"address": "123 Elm Street, San Jose, CA 95123",
 				"skills":"groovy, grails, java, research informatics",
-				"interests":"programming, cancer biology, startups"
+				"interests":"programming, cancer biology, startups",
+				"gravatar":"http://www.gravatar.com/avatar/510171196ef2d357b0fe2326df704ddd.png"
 			},
 
 			{
@@ -66,7 +82,22 @@
  		 "endTime":"02 Jun 2015",
  		 "location":"McCormick Place",
  		 "hashtag" : "#asco15",
- 		 "cloakingMode":true
+ 		 "cloakingMode":true,
+ 		 "guests":[
+			{
+				"firstName": "Dimitri",
+				"lastName": "Arges",
+				"title":"CBO",
+				"company":"Aspen Biosciences",
+				"mobile":"555-123-4569",
+				"email":"darges@aspenbiosciences.com",
+				"address": "123 Elm Street, San Jose, CA 95123",
+				"skills":"business development, investor relations",
+				"gravatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+				"interests":"startups"
+			}
+
+ 		 ]
 	},
 
 	 {         

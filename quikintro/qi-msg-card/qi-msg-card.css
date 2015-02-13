@@ -13,6 +13,7 @@
 	border-radius: 5px;
 	padding: 5px;
 	margin-bottom: 3px;
+	min-height: 50px;
 }
 
 core-field > label {
@@ -34,4 +35,11 @@ core-field > span{
 }
 #collapse{
 	font-size: 8pt;
+}
+
+.senderAvatar{
+	height: 50px;
+	width: 50px;
+	border-radius: 5px;
+	padding-right: 5px;
 }

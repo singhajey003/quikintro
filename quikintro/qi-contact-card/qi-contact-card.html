@@ -8,6 +8,7 @@
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
+<link rel="import" href="../../bower_components/polymer-ui-ratings/polymer-ui-ratings.html" >
 
 <polymer-element name="qi-contact-card" attributes="contact">
 
@@ -16,11 +17,13 @@
 	<link rel="stylesheet" href="qi-contact-card.css" >
 
 	<div id="card">
-		<div >
+		<div ><img src="{{contact.gravatar}}" class="avatar" align="left">
 			<div id="titleBlock" on-click="{{toggleAction}}">{{contact.firstName}} {{contact.lastName}}</div>
 			<div id="summaryBlock">{{contact.title}} {{contact.company}}</div>
-			<core-tooltip label="Ping"><core-icon icon="communication:messenger" /></core-icon>
-			<core-tooltip label="Blacklist"><core-icon icon="view-list" /></core-icon>
+			<core-tooltip label="Ping"><core-icon icon="communication:messenger" /></core-icon></core-tooltip>
+			<core-tooltip label="Blacklist"><core-icon icon="view-list" /></core-icon></core-tooltip>
+			<core-tooltip label="Create Meeting"><core-icon icon="event" /></core-icon></core-tooltip>
+			<core-tooltip label="Rate Contact"><polymer-ui-ratings value="{{contact.rating}}"></polymer-ui-ratings></core-icon></core-tooltip>
 		</div>
 		<core-collapse id="collapse" opened="false">
 			
@@ -33,9 +36,7 @@
 		      <core-field><label>Skills:</label><span>{{contact.skills}}</span></core-field>
 			  <core-field><label>Interests:</label><span>{{contact.interests}}</span></core-field>
 			  <core-field><label>Notes:</label><br/>
-			  	
     				<textarea flex id="t1">{{contact.notes}}</textarea>
-			  
 			  </core-field>
 	    
 		</core-collapse>

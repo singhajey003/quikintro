@@ -6,6 +6,7 @@
 <link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../bower_components/core-icons/communication-icons.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 
 <link rel="import" href="../qi-contact-card/qi-contact-card.html">
 
@@ -46,12 +47,15 @@
               <button>Search</core-field>
             </div>
             <div class="content">
-            
+              
               <template repeat="{{contact in response}}">
                 <qi-contact-card contact="{{contact}}"></qi-contact-card>
               </template>
+
+              
             
             </div>
+
 
      </core-scroll-header-panel>
    </template>
