@@ -9,7 +9,7 @@
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
 
-<polymer-element name="qi-persona-card" attributes="name tags skills interests">
+<polymer-element name="qi-persona-card" attributes="persona">
 
 	
 	<template>
@@ -17,16 +17,30 @@
 
 	<div id="card">
 		<div >
-			<div id="titleBlock" on-click="{{toggleAction}}">{{name}}</div>
+			<div id="titleBlock" on-click="{{toggleAction}}">{{persona.name}}</div>
 			<core-tooltip label="Clone Persona"><core-icon icon="content-copy"></core-icon></core-tooltip>
 			<core-tooltip label="Delete Persona"><core-icon icon="delete"></core-icon></core-tooltip>
 		</div>
 		<core-collapse id="collapse" opened="false">
 			
+			<fieldset>
+			 <legend>Seeking</legend>
 
-		    <core-field><core-icon icon="loyalty" ></core-icon><label>Tags:</label><input placeholder="Tags" value="{{tags}}" flex></core-field>
-		    <core-field><core-icon icon="bookmark" ></core-icon><label>Skills:</label><input placeholder="Skills" value="{{skills}}" flex></core-field>
-		    <core-field><core-icon icon="label" ></core-icon><label>Interests:</label><input placeholder="Tags" value="{{interests}}" flex></core-field>
+			 <core-field><core-icon icon="question-answer" ></core-icon><label>Interactions:</label><input placeholder="Tags" value="{{persona.seeking.interactions}}" flex></core-field>
+
+		    <core-field><core-icon icon="loyalty" ></core-icon><label>Tags:</label><input placeholder="Tags" value="{{persona.seeking.tags}}" flex></core-field>
+		    <core-field><core-icon icon="bookmark" ></core-icon><label>Skills:</label><input placeholder="Skills" value="{{persona.seeking.skills}}" flex></core-field>
+		    <core-field><core-icon icon="label" ></core-icon><label>Interests:</label><input placeholder="Interests" value="{{persona.seeking.interests}}" flex></core-field>
+		    </fieldset>
+
+		    <fieldset>
+			 <legend>Offering</legend>
+				<core-field><core-icon icon="question-answer" ></core-icon><label>Interactions:</label><input placeholder="Interations" value="{{persona.offering.interactions}}" flex></core-field>
+			    <core-field><core-icon icon="loyalty" ></core-icon><label>Tags:</label><input placeholder="Tags" value="{{persona.offering.tags}}" flex></core-field>
+			    <core-field><core-icon icon="bookmark" ></core-icon><label>Skills:</label><input placeholder="Skills" value="{{persona.offering.skills}}" flex></core-field>
+			    <core-field><core-icon icon="label" ></core-icon><label>Interests:</label><input placeholder="Interests" value="{{persona.offering.interests}}" flex></core-field>
+		    </fieldset>
+
 
 	    
 		</core-collapse>

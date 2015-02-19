@@ -19,6 +19,7 @@
         visibility: visible;
       }
   </style>
+  <core-ajax auto url="../personas.json" response="{{response}}" handleAs="json"></core-ajax>
 	<core-scroll-header-panel headermargin="128" condenses headerheight="192"  >
             <div class="core-header medium-tall">
               <div layout horizontal>
@@ -29,10 +30,9 @@
             </div>
             <div class="content">
             
-              <qi-persona-card name="Default LinkedIn Persona" skills="java, groovy, grails, bioinformatics" interests="bioinformatics, cancer biology"></qi-persona-card>
-              <qi-persona-card name="Default Facebook Persona" interests="reading, mysteries, historical fiction, movies, science fiction, programming"></qi-persona-card>
-              <qi-persona-card name="Developer Persona" skills="html5, javascript, polymer, groovy, grails"></qi-persona-card>
-              
+              <template repeat="{{persona in response}}">
+                <qi-persona-card persona="{{persona}}"></qi-persona-card>
+              </template>
             </div>
 
      </core-scroll-header-panel>
