@@ -8,4 +8,4 @@ The index.html page is the main entry point.  Polymer (and other 3rd party) comp
 
 ### Setup ###
 To run the application, simply type:
-python -M SimpleHTTPServer
+**python -M SimpleHTTPServer**
