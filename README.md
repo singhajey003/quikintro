@@ -11,3 +11,9 @@ The root directory contains data files like **contacts.json** which give you an 
 ### Setup ###
 To run the application, simply type:
 **python -M SimpleHTTPServer**
+
+### Useful Docs ###
+* ApiGee LinkedIn API: https://apigee.com/console/linkedin
+* LinkedIn Basic Profile Fields: https://developer.linkedin.com/docs/fields/basic-profile
+* LinkedIn Position Fields https://developer.linkedin.com/docs/fields/positions
+* LinkedIn Company Fields: https://developer.linkedin.com/docs/fields/companies
