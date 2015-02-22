@@ -3,6 +3,8 @@
 <link rel="import" href="../../bower_components/core-label/core-label.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../qi-job-card/qi-job-card.html">
+
 
 <polymer-element name="qi-profile-panel" attributes="panelTitle url">
 
@@ -29,9 +31,17 @@
 			font-size: 10pt;
 		}
 
-		skill{
+		.skill{
 			background-color: green;
-			border-radius: 5;
+			border-radius: 5px;
+			padding: 2px;
+		}
+		.textfield{
+			font-size: 9pt;
+			margin-left: 5px;
+		}
+		section{
+			margin-left: 5px;
 		}
 	</style>
 
@@ -53,24 +63,29 @@
 		<paper-input id="firstname" label="First Name" floatingLabel="true" value="{{profile.firstName}}"></paper-input>
 		<paper-input id="lastname" label="Last Name" floatingLabel="true" value="{{profile.lastName}}"></paper-input><br/>
 
-		<label>Summary:</label><br/>
+		<label>Summary:</label>
 		<div class="textfield">
 		{{profile.summary}}
 		</div>
 		<p/>
 
-		<label>Interests:</label><br/>
-		<div>
+		<label>Interests:</label>
+		<div class="textfield">
 		{{profile.interests}}
 		</div>
 
-
-		<label>Skills:</label><br/>
+		<p/>
+		<label>Skills:</label>
 		<div class="textfield">
 		<template repeat="{{skill in profile.skills.values}}">
-			<span class="skill">{{skill.name}}</span>
+			<span class="skill">{{skill.skill.name}}</span>
 		</template>
 		</div>
+
+		<template repeat="{{job in profile.positions.values}}">
+			<qi-job-card job="{{job}}"></qi-job-card>
+		</template>
+
 	</section>
 	</core-animated-pages>
 

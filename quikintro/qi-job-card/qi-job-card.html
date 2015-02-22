@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
+<link rel="import" href="../../bower_components/core-field/core-field.html" >
+
+<polymer-element name="qi-job-card" attributes="job">
+
+	
+	<template>
+	<link rel="stylesheet" href="qi-job-card.css" >
+
+	<div id="card">
+		<core-field><label>Title:</label><span>{{job.title}}</span></core-field>
+		<core-field><label>Company:</label><span>{{job.company.name}}</span></core-field>
+		<p/>
+		<label>Summary:</label><br/>
+		<div>{{job.summary}}</div>
+		 
+	</div>
+
+	</template>
+
+	<script>
+	Polymer('qi-job-card',{
+		
+
+	    });
+
+
+	</script>
+
+
+</polymer-element>

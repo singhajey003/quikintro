@@ -14,6 +14,27 @@
 	margin-bottom: 3px;
 }
 
-fieldset{
+label {
+	font-size: 11pt;
+	color: #526E9C;
+}
+
+core-field > span{
+	padding-left: 5px;
+	font-size: 9pt;
+}
+
+.avatar{
+	height: 50px;
+	width: 50px;
+	padding-right: 5px;
 	border-radius: 5px;
+}
+polymer-ui-ratings{
+	width: 80px;
+}
+
+
+div {
+	font-size: 9pt;
 }
