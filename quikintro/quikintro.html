@@ -11,7 +11,7 @@
 <link rel="import" href="../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 
 <link rel="import" href="qi-event-panel/qi-event-panel.html">
-<link rel="import" href="qi-connect-panel/qi-connect-panel.html">
+<link rel="import" href="qi-profile-panel/qi-profile-panel.html">
 <link rel="import" href="qi-contact-panel/qi-contact-panel.html">
 <link rel="import" href="qi-persona-panel/qi-persona-panel.html">
 <link rel="import" href="qi-msg-panel/qi-msg-panel.html">
@@ -48,19 +48,19 @@
       <div id="div" tool>QuikIntro</div>
       <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed flex layout vertical >
         <section id="linkedInPage" pageId="linkedIn">
-          <qi-connect-panel panelTitle="LinkedIn"></qi-connect-panel>
+          <qi-profile-panel panelTitle="LinkedIn" url="data/linkedin-profile.json"></qi-profile-panel>
         </section>
         <section id="facebookPage" pageId="facebook">
-          <qi-connect-panel panelTitle="Facebook"></qi-connect-panel>
+          <qi-profile-panel panelTitle="Facebook"></qi-profile-panel>
         </section>
         <section id="gmailPage" pageId="gmail">
-          <qi-connect-panel panelTitle="GMail"></qi-connect-panel>
+          <qi-profile-panel panelTitle="GMail"></qi-profile-panel>
         </section>
         <section id="meetupPage" pageId="meetup">
-          <qi-connect-panel panelTitle="Meetup"></qi-connect-panel>
+          <qi-profile-panel panelTitle="Meetup"></qi-profile-panel>
         </section>
         <section id="eventBritePage" pageId="eventBrite" flex>
-          <qi-connect-panel panelTitle="EventBrite"></qi-connect-panel>
+          <qi-profile-panel panelTitle="EventBrite"></qi-profile-panel>
         </section>
         <section id="personaPage" pageId="personas">
           <qi-persona-panel></qi-persona-panel>

@@ -1,0 +1,35 @@
+#titleBlock{
+    color: #526E9C;
+}
+#summaryBlock{
+	font-size: 8pt;
+	color: #505050;
+}
+
+#card{
+	background-color: white;
+	border: 1px solid #505050;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 3px;
+}
+
+core-field > label {
+	font-size: 11pt;
+	color: #526E9C;
+}
+
+core-field > span{
+	padding-left: 5px;
+	font-size: 9pt;
+}
+
+.avatar{
+	height: 50px;
+	width: 50px;
+	padding-right: 5px;
+	border-radius: 5px;
+}
+polymer-ui-ratings{
+	width: 80px;
+}
