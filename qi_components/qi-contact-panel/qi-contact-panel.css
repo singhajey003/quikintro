@@ -1,0 +1,27 @@
+core-scroll-header-panel{
+    width: 380px;
+    height: 460px;
+    left: 10px;
+    top: 0px;
+    position: relative;
+    display: block;
+    visibility: visible;
+}
+
+input{
+    visibility: visible;
+}
+
+button{
+    background-color: #526E9C;
+    color: white;
+}
+
+input{
+    background-color: white;
+}
+
+.content{
+  margin-top: 10px;
+  border-top-style: 1px solid black;
+}

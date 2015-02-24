@@ -1,0 +1,77 @@
+<link rel="import" href="../../bower_components/core-input/core-input.html">
+<link rel="import" href="../../bower_components/core-field/core-field.html">
+<link rel="import" href="../../bower_components/core-label/core-label.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../qi-job-card/qi-job-card.html">
+
+
+<polymer-element name="qi-profile-panel" attributes="panelTitle url">
+
+
+	<template>
+
+	<link rel="stylesheet" href="qi-profile-panel.css">
+
+	<core-ajax id="ajax" url="{{url}}" handleAs="json" response="{{profile}}"></core-ajax>
+
+	<core-animated-pages id="pages" transitions="hero-transition cross-fade" selected="0">
+	<section id="login" vertical layout hero-id="hero" cross-fade>
+		<h1>{{panelTitle}}</h1>
+
+		<div id="panelContent">
+		<paper-input label="User ID:" floatingLabel="true"></paper-input>
+		<paper-input label="Password:" floatingLabel="true"></paper-input>
+		<br/>
+		<button on-click="{{fetchData}}">Connect</button>
+		</div>
+
+	</section>
+	<section id="profile"  hero-id="hero" cross-fade>
+		<paper-input id="firstname" label="First Name" floatingLabel="true" value="{{profile.firstName}}"></paper-input>
+		<paper-input id="lastname" label="Last Name" floatingLabel="true" value="{{profile.lastName}}"></paper-input><br/>
+
+		<label>Summary:</label>
+		<div class="textfield">
+		{{profile.summary}}
+		</div>
+		<p/>
+
+		<label>Interests:</label>
+		<div class="textfield">
+		{{profile.interests}}
+		</div>
+
+		<p/>
+		<label>Skills:</label>
+		<div class="textfield">
+		<template repeat="{{skill in profile.skills.values}}">
+			<span class="skill">{{skill.skill.name}}</span>
+		</template>
+		</div>
+		<p/>
+		
+		<template repeat="{{job in profile.positions.values}}">
+			<qi-job-card job="{{job}}"></qi-job-card>
+		</template>
+
+	</section>
+	</core-animated-pages>
+
+
+
+	</template>
+
+	<script>
+	Polymer('qi-profile-panel',{
+			
+			fetchData: function(){
+				this.$.pages.selected = 1;
+				this.$.ajax.go();
+			}
+			
+	});
+
+	</script>
+
+</polymer-element>

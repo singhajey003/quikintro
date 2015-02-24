@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
+<link rel="import" href="../../bower_components/core-field/core-field.html" >
+<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
+
+<polymer-element name="qi-job-card" attributes="job">
+
+	
+	<template>
+	<link rel="stylesheet" href="qi-job-card.css" >
+
+	<div id="card" flex>
+		<core-field on-click="{{toggleAction}}"><label>Title:</label><span>{{job.title}}</span></core-field>
+		<core-field on-click="{{toggleAction}}"><label>Company:</label><span>{{job.company.name}}</span></core-field>
+		<p/>
+		<core-collapse id="collapse" opened="false">
+			
+			<label flex>Summary:</label>
+			<span>{{job.summary}}</span>
+			
+		</core-collapse>
+		 
+	</div>
+
+	</template>
+
+	<script>
+	Polymer('qi-job-card',{
+		toggleAction: function(){
+			this.$.collapse.toggle();
+		}
+
+	    });
+
+
+	</script>
+
+
+</polymer-element>

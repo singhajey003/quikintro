@@ -1,0 +1,31 @@
+h1{ 
+	padding-left: 5px; 
+	font-size: 14pt;
+	color: #505050;
+}
+label{
+	font-size: 10pt;
+	padding-right: 5px;
+}
+#panelContent{
+	padding-left: 5px;
+
+}
+button{ 
+	background-color: #526E9C;
+	color: white;
+	font-size: 10pt;
+}
+
+.skill{
+	background-color: green;
+	border-radius: 5px;
+	padding: 2px;
+}
+.textfield{
+	font-size: 9pt;
+	margin-left: 5px;
+}
+section{
+	margin-left: 5px;
+}

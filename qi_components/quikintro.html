@@ -3,6 +3,7 @@
 <link rel="import" href="../bower_components/core-menu/core-menu.html">
 <link rel="import" href="../bower_components/core-item/core-item.html">
 <link rel="import" href="../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../bower_components/core-icons/core-icons.html">
 <link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../bower_components/core-menu/core-submenu.html">
 <link rel="import" href="../bower_components/core-pages/core-pages.html">
@@ -21,32 +22,34 @@
   <template>
     <link rel="stylesheet" href="quikintro.css" >
 
-    <core-scaffold id="core_scaffold">
+    <core-scaffold id="coreScaffold" responsiveWidth="480px" force-narrow>
+
       <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
         <core-toolbar id="core_toolbar"></core-toolbar>
-        
-        <core-menu selected="{{page}}" valueattr="pageId" >
-          <core-item id="events" icon="event" horizontal layout start center pageId="events">Events</core-item>
-          <core-item id="messages" icon="communication:forum" horizontal layout start center pageId="messages">Messages</core-item>
-          <core-item id="contact" icon="face" horizontal center layout pageId="contacts">Contacts</core-item>
-        </core-menu>
-
         <core-menu  id="menu" theme="core-light-theme" >
 
+          <core-menu selected="{{page}}" valueattr="pageId" >
+            <core-item id="events" icon="event"  pageId="events">Events</core-item>
+            <core-item id="messages" icon="communication:forum"  pageId="messages">Messages</core-item>
+            <core-item id="contact" icon="face" pageId="contacts">Contacts</core-item>
+          </core-menu>
+
           <core-submenu selected="{{page}}" valueattr="pageId" active id="core_submenu" icon="settings" label="Settings">
-              <core-item id="linkedInItem" pageId="linkedIn" horizontal center layout>LinkedIn</core-item>
-              <core-item id="facebookItem" pageId="facebook" horizontal center layout>Facebook</core-item>
-              <core-item id="gmailItem" pageId="gmail" horizontal center layout >Gmail</core-item>
-              <core-item id="meetupItem" pageId="meetup" horizontal center layout >Meetup</core-item>
-              <core-item id="eventBriteItem" pageId="eventBrite" horizontal center layout >EventBrite</core-item>
-              <core-item id="personaItem" pageId="personas" horizontal center layout >Personas</core-item>
+              <core-item id="linkedInItem" pageId="linkedIn" >LinkedIn</core-item>
+              <core-item id="facebookItem" pageId="facebook" >Facebook</core-item>
+              <core-item id="gmailItem" pageId="gmail"  >Gmail</core-item>
+              <core-item id="meetupItem" pageId="meetup"  >Meetup</core-item>
+              <core-item id="eventBriteItem" pageId="eventBrite"  >EventBrite</core-item>
+              <core-item id="personaItem" pageId="personas"  >Personas</core-item>
           </core-submenu>
-    
-          
         </core-menu>
+        
       </core-header-panel>
+
       <div id="div" tool>QuikIntro</div>
-      <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed flex layout vertical >
+      
+      <div class="content">
+      <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit layout vertical >
         <section id="linkedInPage" pageId="linkedIn">
           <qi-profile-panel panelTitle="LinkedIn" url="data/linkedin-profile.json"></qi-profile-panel>
         </section>
@@ -76,6 +79,7 @@
 
         </section>
       </core-pages>
+      </div>
     </core-scaffold>
   </template>
 
@@ -83,7 +87,10 @@
 
     Polymer('quik-intro',{
       pageChanged: function(oldValue, newValue){
-        console.log(newValue);
+        this.$.coreScaffold.closeDrawer();
+      },
+      handleToggle: function(){
+        this.$.coreScaffold.openDrawer();
       }
 
     });

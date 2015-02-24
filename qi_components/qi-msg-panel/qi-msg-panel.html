@@ -13,42 +13,23 @@
 <polymer-element name="qi-msg-panel">
   <template>
 
-  <style>
-	core-scroll-header-panel{
-        width: 380px;
-        height: 460px;
-        left: 10px;
-        top: 0px;
-        position: relative;
-        display: block;
-        visibility: visible;
-      }
-    input{ visibility: visible}
-    button{background-color: #526E9C; color: white;}
-    input{background-color: white;}
-
-    .content{
-      margin-top: 10px;
-      border-top-style: 1px solid black;
-
-    }
-  </style>
+  <link rel="stylesheet" href="qi-msg-panel.css">
   <core-ajax auto url="../data/messages.json" response="{{response}}" handleAs="json"></core-ajax>
 	<core-scroll-header-panel headermargin="128" condenses headerheight="192" id="eventHeaderPanel" >
-            <div class="core-header medium-tall">
-              <div>Messages</div>
-              <core-field><core-icon icon="search"></core-icon><label>Search:</label><input type="text" id="searchText" placeholder="Search Text" flex/></core-field>
+      <div class="core-header medium-tall">
+        <div>Messages</div>
+        <core-field><core-icon icon="search"></core-icon><label>Search:</label><input type="text" id="searchText" placeholder="Search Text" flex/></core-field>
 
-            </div>
-            <div class="content">
-              
-              <template repeat="{{msg in response}}">
-                <qi-msg-card msg="{{msg}}"></qi-msg-card>
-              </template>
+      </div>
+      <div class="content">
+        
+        <template repeat="{{msg in response}}">
+          <qi-msg-card msg="{{msg}}"></qi-msg-card>
+        </template>
 
-              
-            
-            </div>
+        
+      
+      </div>
 
 
      </core-scroll-header-panel>
