@@ -17,3 +17,4 @@ To run the application, simply type:
 * LinkedIn Basic Profile Fields: https://developer.linkedin.com/docs/fields/basic-profile
 * LinkedIn Position Fields https://developer.linkedin.com/docs/fields/positions
 * LinkedIn Company Fields: https://developer.linkedin.com/docs/fields/companies
+* Meetup.com API: http://www.meetup.com/meetup_api/
