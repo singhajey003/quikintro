@@ -15,32 +15,29 @@
 #core_header_panel {
   background-color: rgb(255, 255, 255);
 }
-#core_toolbar {
+core_toolbar {
   color: rgb(255, 255, 255);
   background-color: rgb(79, 125, 201);
 }
-#core_menu {
+
+core-menu {
   font-size: 16px;
   font-family: 'RobotoDraft';
+  color: #505050;
 }
-#core_item1 {
-  position: relative;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-}
+
 #core_menu_button {
   left: 68px;
   top: 14px;
   position: absolute;
 }
-#core_submenu {
-  left: 0px;
+core-submenu {
+  left: 12px;
   top: 0px;
   position: relative;
+  color: #505050;
 }
-#core_submenu > core-item {
+core-submenu > core-item {
   padding-left: 10px;
   font-size: 10pt;
   color: #505050;

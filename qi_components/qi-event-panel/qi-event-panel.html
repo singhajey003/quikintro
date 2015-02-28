@@ -19,7 +19,10 @@
         visibility: visible;
       }
   </style>
+
+  
   <core-ajax auto url="../data/events.json" response="{{response}}" handleAs="json"></core-ajax>
+  <core-ajax auto url="../data/personas.json" response="{{personas}}" handleAs="json"></core-ajax>
   
 	<core-scroll-header-panel headermargin="128" condenses headerheight="192" id="eventHeaderPanel" >
             <div class="core-header medium-tall">
@@ -31,8 +34,7 @@
             <div class="content">
             
               <template repeat="{{event in response}}">
-                <qi-event-card event="{{event}}"></qi-event-card>
-              
+                <qi-event-card event="{{event}}" personas="{{personas}}"></qi-event-card>
               </template>
               
             </div>

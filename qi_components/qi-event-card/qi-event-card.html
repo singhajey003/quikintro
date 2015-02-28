@@ -11,12 +11,12 @@
 <link rel="import" href="../../bower_components/core-icons/social-icons.html" >
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
 
-<polymer-element name="qi-event-card" attributes="event">
+<polymer-element name="qi-event-card" attributes="event, personas">
 
 	
 	<template>
 	<link rel="stylesheet" href="qi-event-card.css" >
-
+	
 	<div id="card">
 		<div  >
 			<div id="titleBlock" on-click="{{toggleAction}}">{{event.title}}</div>
@@ -28,34 +28,35 @@
 		<core-collapse id="collapse" opened="false">
 			<core-field id="scheduleField" icon="schedule" theme="core-light-theme" center horizontal layout>
 		      <core-icon icon="schedule" id="core_icon1"></core-icon>
-		      <core-input id="core_input" flex>{{event.startTime}} - {{event.endTime}}</core-input>
+		      <core-input id="schedule" flex>{{event.startTime}} - {{event.endTime}}</core-input>
 		    </core-field>
 
 		    <core-field id="locationField" icon="room" theme="core-light-theme" center horizontal layout>
 		      <core-icon icon="room" id="core_icon2"></core-icon>
-		      <core-input id="core_input" flex>{{event.location}}</core-input>
+		      <core-input id="location" flex>{{event.location}}</core-input>
 		    </core-field>
 
 			<core-field id="notificationField" icon="room" theme="core-light-theme" center horizontal layout>
 		      <core-icon icon="alarm" id="core_icon3"></core-icon>
-		      <core-input id="core_input" flex>{{event.notification}}</core-input>
+		      <core-input id="alarm" flex>{{event.notification}}</core-input>
 		    </core-field>
 
 		    <core-field id="hashTagField" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="social:whatshot" id="core_icon3"></core-icon>
-		      <core-input id="core_input" flex>{{event.hashtag}}</core-input>
+		      <core-icon icon="social:whatshot" id="core_icon4" on-click="{{event.twitter}}"></core-icon>
+		      <core-input id="twitter" flex>{{event.hashtag}}</core-input>
 		    </core-field>
 
 
 		    <core-field id="personaField" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="perm-identity" id="core_icon4"></core-icon>
+		      <core-icon icon="perm-identity" id="core_icon5"></core-icon>
 		      <core-dropdown-menu>
 		        <core-dropdown class="dropdown">
-		        <core-selector selected="{{persona}}" valueattr="personaId" selectedIndex="1">
-		      	<core-item personaId="defLinkedIn" select>Default LinkedIn Persona</core-item>
-		      	<core-item personaId="devPersona">Developer Persona</core-item>
-		      	<core-item personaId="defFacebook">Default Facebook Persona</core-item>
-		      	</core-selector>
+		        <core-selector selected="{{event.persona}}" valueattr="personaId" >
+		           <template repeat="{{persona in personas}}">
+			      	<core-item personaId="{{persona.id}}">{{persona.name}}</core-item>
+			       </template>
+			      	
+			     </core-selector>
 		      	</core-dropdown>
 		      </core-dropdown-menu>
 		    </core-field>
@@ -65,7 +66,7 @@
 		    </core-field>
 
 
-		    <core-field><core-icon icon="supervisor-account" id="core_icon4"></core-icon><label>Guests:</label></core-field>
+		    <core-field><core-icon icon="supervisor-account" id="core_icon6"></core-icon><label>Guests:</label></core-field>
 		    <div id="contactList">
 		    	<template repeat="{{contact in event.guests}}">
 		    		<qi-contact-card contact="{{contact}}"></qi-contact-card>
@@ -80,14 +81,14 @@
 
 	<script>
 	Polymer('qi-event-card',{
-		eventTitle:'Event Title',
-		startTime: '',
-		endTime: '',
-		location: 'Moscone Center',
-		notification: '15 mins before',
+		
 	    toggleAction: function(evt){
 	    	console.log("Got here");
 	     	this.$.collapse.toggle();
+	     },
+	     twitter: function(){
+	     	var url = "http://twitter.com/" + this.$.twitter.value;
+	     	console.log("url: " + url);
 	     }
 
 	    });

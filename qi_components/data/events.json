@@ -5,7 +5,8 @@
  		"startTime":"12 Jan 2015",
  		 "endTime":"15 Jan 2015",
  		 "location":"McCormick Place",
- 		 "hashtag" : "#asco15",
+ 		 "hashtag" : "#jpm15",
+ 		 "persona": "defLinkedIn",
  		 "notification" : "15 minutes before",
  		 "cloakingMode":true,
  		 "guests":[
@@ -32,6 +33,7 @@
 		"notification":"15 minutes before",
 		"cloakingMode":true,
 		"hashtag":"#aacr15",
+		"persona":"defCancerBio",
 		"guests":[
 
 			
@@ -83,6 +85,7 @@
  		 "location":"McCormick Place",
  		 "hashtag" : "#asco15",
  		 "cloakingMode":true,
+ 		 "persona":"defCancerBio",
  		 "guests":[
 			{
 				"firstName": "Dimitri",
@@ -106,7 +109,8 @@
 	 	"endTime":"29 May 2015",
 	 	"location":"Moscone Center West, San Francisco, CA",
 	 	"hashtag":"#io2015",
-	 	"cloakingMode":false
+	 	"cloakingMode":false,
+	 	"persona":"defDev"
 	 },
 
      {
@@ -115,7 +119,8 @@
      	"endTime":"29 Oct 2015",
      	"location":"Moscone Center, San Francisco, CA",
      	"hashtag":"#javaone",
-     	"cloakingMode":false
+     	"cloakingMode":false,
+     	"persona":"defDev"
 
      } 
 
