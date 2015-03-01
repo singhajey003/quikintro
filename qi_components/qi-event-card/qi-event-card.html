@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
 <link rel="import" href="../../bower_components/core-field/core-field.html" >
 <link rel="import" href="../../bower_components/core-icon/core-icon.html" >
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
 <link rel="import" href="../../bower_components/core-input/core-input.html" >
 <link rel="import" href="../../bower_components/core-item/core-item.html" >
 <link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
@@ -42,8 +43,8 @@
 		    </core-field>
 
 		    <core-field id="hashTagField" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="social:whatshot" id="core_icon4" on-click="{{event.twitter}}"></core-icon>
-		      <core-input id="twitter" flex>{{event.hashtag}}</core-input>
+		      <core-icon-button icon="social:whatshot" id="core_icon4" on-click="{{twitter}}"></core-icon-button>
+		      <core-input id="twitter" value="{{event.hashtag}}"flex>{{event.hashtag}}</core-input>
 		    </core-field>
 
 
@@ -62,7 +63,7 @@
 		    </core-field>
 
 		    <core-field>
-		      <core-icon icon="filter-list"></core-icon><label>Filter:</label><paper-slider flex min="0" max="10" value="5"></paper-slider>
+		      <core-icon icon="filter-list"></core-icon><label>Filter:</label><paper-slider flex min="0" max="5" value="5" on-change="{{filterAction}}"></paper-slider>
 		    </core-field>
 
 
@@ -83,12 +84,15 @@
 	Polymer('qi-event-card',{
 		
 	    toggleAction: function(evt){
-	    	console.log("Got here");
 	     	this.$.collapse.toggle();
 	     },
-	     twitter: function(){
-	     	var url = "http://twitter.com/" + this.$.twitter.value;
-	     	console.log("url: " + url);
+	     twitter: function(evt){
+	     	var url = "http://twitter.com/" + this.event.hashtag;
+	     	window.location = url;
+	     },
+	     filterAction: function(evt){
+	     	console.log("evt: " + evt);
+	     	console.log("val: " + evt.target.value);
 	     }
 
 	    });

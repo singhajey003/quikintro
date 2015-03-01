@@ -18,9 +18,9 @@ button{
 }
 
 .skill{
-	background-color: green;
+	background-color: rgba(0, 128, 0, 0.17);
 	border-radius: 5px;
-	padding: 2px;
+	margin: 2px;
 }
 .textfield{
 	font-size: 9pt;

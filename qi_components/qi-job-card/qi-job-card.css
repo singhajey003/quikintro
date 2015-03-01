@@ -25,6 +25,10 @@ core-field > span{
 	font-size: 9pt;
 }
 
+core-collapse > span{
+	font-size: 9pt;
+}
+
 
 polymer-ui-ratings{
 	width: 80px;
