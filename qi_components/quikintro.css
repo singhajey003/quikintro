@@ -42,13 +42,8 @@ core-submenu > core-item {
   font-size: 10pt;
   color: #505050;
 }
-#core_pages {
-  width: 400px;
-  height: 400px;
-  border: 1px solid silver;
-  left: 260px;
-  top: 70px;
-  position: absolute;
+core_pages > section {
+  background-color: #eeeeee;
 }
 
 /* some default styles for mode="cover" on core-scaffold */

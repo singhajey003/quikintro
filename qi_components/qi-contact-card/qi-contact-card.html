@@ -10,7 +10,7 @@
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
 <link rel="import" href="../../bower_components/polymer-ui-ratings/polymer-ui-ratings.html" >
 
-<polymer-element name="qi-contact-card" attributes="contact">
+<polymer-element name="qi-contact-card" attributes="contact visibility filter">
 
 	
 	<template>
@@ -48,10 +48,30 @@
 	<script>
 	Polymer('qi-contact-card',{
 		
-		
+		visibility:'visible',
+		score: 0.0,
+		filterChanged: function(oldFilter, newFilter){
+			console.log("newFilter: " + newFilter);
+			this.visibility = (this.score >= newFilter )? "visible":"hidden";
+			console.log("visible: " + this.visibility);
+		},
+		contactChanged: function(oldContact, newContact){
+			this.score = newContact.score;
+		},
 	    toggleAction: function(evt){
 	     	this.$.collapse.toggle();
+	     },
+
+	    visibilityChanged: function(oldValue, newValue){
+	     	this.$.card.style.display = (newValue == 'visible')?'block':'none';
+	     	console.log("got here")
+	     },
+
+	     setVisibility: function(vis){
+	     	this.visibility = vis;
+	     	console.log("vis: " + vis);
 	     }
+
 
 	    });
 

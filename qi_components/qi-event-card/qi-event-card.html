@@ -12,7 +12,7 @@
 <link rel="import" href="../../bower_components/core-icons/social-icons.html" >
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
 
-<polymer-element name="qi-event-card" attributes="event, personas">
+<polymer-element name="qi-event-card" attributes="event personas">
 
 	
 	<template>
@@ -63,14 +63,14 @@
 		    </core-field>
 
 		    <core-field>
-		      <core-icon icon="filter-list"></core-icon><label>Filter:</label><paper-slider flex min="0" max="5" value="5" on-change="{{filterAction}}"></paper-slider>
+		      <core-icon icon="filter-list"></core-icon><label>Filter:</label><paper-slider flex min="0" max="{{event.guests.length}}" value="{{filterCutoff}}" on-change="{{filterAction}}"></paper-slider>
 		    </core-field>
 
 
 		    <core-field><core-icon icon="supervisor-account" id="core_icon6"></core-icon><label>Guests:</label></core-field>
 		    <div id="contactList">
-		    	<template repeat="{{contact in event.guests}}">
-		    		<qi-contact-card contact="{{contact}}"></qi-contact-card>
+		    	<template repeat="{{contact,i  in event.guests}}">
+		    		<qi-contact-card id="{{i}}" filter="{{filterCutoff}}" contact="{{contact}}"></qi-contact-card>
 		    	</template>
                 
 		    </div>
@@ -91,8 +91,10 @@
 	     	window.location = url;
 	     },
 	     filterAction: function(evt){
-	     	console.log("evt: " + evt);
-	     	console.log("val: " + evt.target.value);
+	     	console.log("evt: " + evt.target.value);
+	     	var currScore = evt.target.value;
+
+	     	
 	     }
 
 	    });
