@@ -54,3 +54,13 @@ core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
 core-scaffold[mode=cover] .content {
   margin: 20px 100px 20px 0;
 }
+
+paper-button[raised]{
+  background: #4285f4;
+  color: #fff;
+}
+
+paper-button{
+  background: #4285f4;
+  color: #fff;
+}
