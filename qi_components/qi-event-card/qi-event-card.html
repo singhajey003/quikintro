@@ -63,7 +63,7 @@
 		    </core-field>
 
 		    <core-field>
-		      <core-icon icon="filter-list"></core-icon><label>Filter:</label><paper-slider flex min="0" max="{{event.guests.length}}" value="{{filterCutoff}}" on-change="{{filterAction}}"></paper-slider>
+		      <core-icon icon="filter-list"></core-icon><label>Filter:</label><paper-slider flex min="0" max="10" value="{{filterCutoff}}" editable="true"></paper-slider>
 		    </core-field>
 
 
@@ -89,12 +89,6 @@
 	     twitter: function(evt){
 	     	var url = "http://twitter.com/" + this.event.hashtag;
 	     	window.location = url;
-	     },
-	     filterAction: function(evt){
-	     	console.log("evt: " + evt.target.value);
-	     	var currScore = evt.target.value;
-
-	     	
 	     }
 
 	    });

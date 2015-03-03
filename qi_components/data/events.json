@@ -50,7 +50,7 @@
 				"skills":"groovy, grails, java, research informatics",
 				"interests":"programming, cancer biology, startups",
 				"gravatar":"http://www.gravatar.com/avatar/510171196ef2d357b0fe2326df704ddd.png",
-				"score": 3
+				"score": 8
 			},
 
 			{
@@ -63,7 +63,7 @@
 				"address": "123 Elm Street, San Francisco, CA 95123",
 				"tags":"biotech, cancer, product/pipeine, followup",
 				"notes":"Interested in Drug Pipeline dashboard",
-				"score": 1
+				"score": 5
 			},
 
 			{
@@ -76,7 +76,7 @@
 				"address": "123 Elm Street, San Diego, CA 95123",
 				"tags":"biotech, cancer",
 				"notes":"Interested in Drug Cocktail application",
-				"score": 2
+				"score": 5
 			},
 
 			{
@@ -89,7 +89,7 @@
 				"address": "123 Elm Street, San Diego, CA 95123",
 				"tags":"biotech, cancer",
 				"notes":"Interested in Drug Cocktail application",
-				"score": 1
+				"score": 9
 			}
 
 

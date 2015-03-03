@@ -49,11 +49,9 @@
 	Polymer('qi-contact-card',{
 		
 		visibility:'visible',
-		score: 0.0,
+		score: 0,
 		filterChanged: function(oldFilter, newFilter){
-			console.log("newFilter: " + newFilter);
 			this.visibility = (this.score >= newFilter )? "visible":"hidden";
-			console.log("visible: " + this.visibility);
 		},
 		contactChanged: function(oldContact, newContact){
 			this.score = newContact.score;
@@ -64,12 +62,10 @@
 
 	    visibilityChanged: function(oldValue, newValue){
 	     	this.$.card.style.display = (newValue == 'visible')?'block':'none';
-	     	console.log("got here")
 	     },
 
 	     setVisibility: function(vis){
 	     	this.visibility = vis;
-	     	console.log("vis: " + vis);
 	     }
 
 
