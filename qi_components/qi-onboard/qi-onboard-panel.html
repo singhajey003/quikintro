@@ -1,0 +1,35 @@
+
+<link rel="import" href="qi-onboard-card.html">
+
+<polymer-element name="qi-onboard-panel">
+<link rel="stylesheet" href="qi-onboard.css">
+
+<template>
+
+	<div id="onboardpanel">
+
+		<qi-onboard-card icon="linkedin" clazz="linkedin" service="LinkedIn"></qi-onboard-card><br/>
+		<qi-onboard-card icon="facebook" clazz="facebook" service="Facebook"></qi-onboard-card><br/>
+		<qi-onboard-card icon="twitter" clazz="twitter" service="Twitter"></qi-onboard-card><br/>
+
+	</div>
+
+
+
+
+</template>
+
+<script >
+	
+Polymer('qi-onboard-panel',{
+
+      responseChanged: function(oldValue, newValue){
+        console.log("response:" + newValue);
+      }
+		
+});
+
+
+</script>
+
+</polymer-element>

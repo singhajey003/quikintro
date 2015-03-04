@@ -1,0 +1,59 @@
+
+#onboardpanel{
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+#iconPanel{
+	width: 200px;
+	margin-left: 50px;
+}
+
+qi-onboard-card{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+
+core-collapse{
+	margin-left: 50px;
+	background-color: white;
+}
+
+.linkedin{
+	background-color: #565656;
+	color: white;
+	border: 1px solid #565656;
+}
+
+.linkedin > .buttonPanel{
+	background-color: #565656;
+}
+
+
+.facebook{
+	background-color: #44619D;
+	color: white;
+	border: 1px solid #44619D;
+}
+
+.facebook > .buttonPanel{
+	background-color: #44619D;
+}
+
+.twitter{
+	background-color: #55ACEE;
+	color: white;
+	border: 1px solid #55ACEE;
+}
+
+.twitter > .buttonPanel{
+	background-color: #55ACEE;
+}
+
+
+.meetup{
+	background-color: white;
+	color: black;
+	border: 1px solid white;
+}
