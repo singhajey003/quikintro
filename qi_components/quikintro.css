@@ -59,6 +59,28 @@ core_pages > section {
 }
 
 
+core-scroll-header-panel {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        display: block;
+        visibility: visible;
+}
+.content {
+  padding: 30px;
+  background-color: #E0E4CC;
+}
+input#searchText[is=core-input] {
+  width:100px;
+  background-color: #fff;
+  font-size: 16px;
+  padding: 4px 16px;
+}
+
+
+
 /* some default styles for mode="cover" on core-scaffold */
 core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
   left: 120px;

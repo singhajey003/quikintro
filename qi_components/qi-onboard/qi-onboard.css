@@ -31,6 +31,10 @@ core-collapse{
 	min-height: 200px;
 }
 
+html /deep/ core-icon[src] div {
+	background-repeat: no-repeat;
+}
+
 .linkedin{
 	background-color: #565656;
 	color: white;
@@ -90,6 +94,22 @@ core-collapse{
 
 .google > #collapse > paper-button{
 	background-color: #DD4B39;
+	color: white;
+}
+
+
+.eventbrite{
+	background-color: #6C9646;
+	color: white;
+	border: 1px solid #6C9646;
+}
+
+.eventbrite > .buttonPanel{
+	background-color: #6C9646;
+}
+
+.eventbrite > #collapse > paper-button{
+	background-color: #6C9646;
 	color: white;
 }
 
