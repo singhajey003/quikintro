@@ -7,6 +7,7 @@
 <link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../bower_components/core-icons/communication-icons.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 
 <link rel="import" href="../qi-contact-card/qi-contact-card.html">
@@ -14,6 +15,7 @@
 <polymer-element name="qi-contact-panel">
   <template>
 
+  <link rel="stylesheet" href="../quikintro.css">
   <link rel="stylesheet" href="qi-contact-panel.css">
   <core-ajax auto url="../data/contacts.json" response="{{response}}" handleAs="json"></core-ajax>
 	<core-scroll-header-panel headermargin="128" condenses headerheight="192" id="eventHeaderPanel" >
@@ -26,7 +28,9 @@
         <core-field><core-icon icon="work"></core-icon><label>Title:</label><input type="text" placeholder="Title" id="tags"></core-field>
         <core-field><core-icon icon="bookmark-outline"></core-icon><label>Interests:</label><input type="text" placeholder="Interests" id="tags" flex/></core-field>
         <core-field><core-icon icon="label" title="Send ping"></core-icon><label>Skills:</label><input type="text" id="tags" placeholder="Skills"/></core-field>
-        <button>Search</button>
+
+        <paper-button raised>Search</paper-button></core-field>
+
       </div>
 
       <div class="content">

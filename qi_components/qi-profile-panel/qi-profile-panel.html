@@ -2,7 +2,8 @@
 <link rel="import" href="../../bower_components/core-field/core-field.html">
 <link rel="import" href="../../bower_components/core-label/core-label.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../bower_components/core-pages/core-pages.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../qi-job-card/qi-job-card.html">
 
 
@@ -11,11 +12,12 @@
 
 	<template>
 
+	<link rel="stylesheet" href="../quikintro.css">
 	<link rel="stylesheet" href="qi-profile-panel.css">
 
 	<core-ajax id="ajax" url="{{url}}" handleAs="json" response="{{profile}}"></core-ajax>
 
-	<core-animated-pages id="pages" transitions="hero-transition cross-fade" selected="0">
+	<core-pages id="pages" selected="0">
 	<section id="login" vertical layout hero-id="hero" cross-fade>
 		<h1>{{panelTitle}}</h1>
 
@@ -23,7 +25,7 @@
 		<paper-input label="User ID:" floatingLabel="true"></paper-input>
 		<paper-input label="Password:" floatingLabel="true"></paper-input>
 		<br/>
-		<button on-click="{{fetchData}}">Connect</button>
+		<paper-button on-click="{{fetchData}}">Connect</paper-button>
 		</div>
 
 	</section>
@@ -56,7 +58,7 @@
 		</template>
 
 	</section>
-	</core-animated-pages>
+	</core-pages>
 
 
 

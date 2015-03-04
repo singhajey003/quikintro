@@ -42,7 +42,6 @@ core-submenu > core-item {
   font-size: 10pt;
   color: #505050;
 }
-
 core-pages {
   left: 260px;
   top: 70px;
@@ -55,6 +54,9 @@ core-pages {
 core-pages .content {
   padding: 30px;
 }
+core_pages > section {
+  background-color: #eeeeee;
+}
 
 
 /* some default styles for mode="cover" on core-scaffold */
@@ -64,4 +66,14 @@ core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
 
 core-scaffold[mode=cover] .content {
   margin: 20px 100px 20px 0;
+}
+
+paper-button[raised]{
+  background: #4285f4;
+  color: #fff;
+}
+
+paper-button{
+  background: #4285f4;
+  color: #fff;
 }
