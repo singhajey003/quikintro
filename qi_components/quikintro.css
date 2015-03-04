@@ -15,9 +15,9 @@
 #core_header_panel {
   background-color: rgb(255, 255, 255);
 }
-core_toolbar {
+core-scaffold core-toolbar {
   color: rgb(255, 255, 255);
-  background-color: rgb(79, 125, 201);
+  background-color: #F38630;
 }
 
 core-menu {
@@ -42,14 +42,20 @@ core-submenu > core-item {
   font-size: 10pt;
   color: #505050;
 }
-#core_pages {
-  width: 400px;
-  height: 400px;
-  border: 1px solid silver;
+
+core-pages {
   left: 260px;
   top: 70px;
+  bottom: 0;
+  right: 0;
   position: absolute;
+  background-color: #E0E4CC;
 }
+
+core-pages .content {
+  padding: 30px;
+}
+
 
 /* some default styles for mode="cover" on core-scaffold */
 core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {

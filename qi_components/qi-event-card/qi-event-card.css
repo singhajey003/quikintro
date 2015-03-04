@@ -1,19 +1,23 @@
 #titleBlock{
-    color: #526E9C;
+  color: #526E9C;
+	font-size: 20px;
 }
 #summaryBlock{
 	font-size: 8pt;
 	color: #505050;
+	margin-top: 4px;
 }
 
 #card{
 	background-color: white;
-	border: 1px solid #505050;
 	border-radius: 5px;
-	padding: 5px;
-	margin-bottom: 3px;
+	padding: 15px;
+	margin-bottom: 20px;
 }
 
 core-dropdown-menu{
 	border: 1px solid #cacaca;
+}
+
+core-item {
 }
