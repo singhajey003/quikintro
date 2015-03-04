@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/core-collapse/core-collapse.html">
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 
 <polymer-element name="qi-onboard-card" attributes="icon service clazz">
@@ -10,18 +11,14 @@
 	<div id="iconPanel" class="{{clazz}}">
 
 		<div id="buttonPanel">
-			<paper-button class="button" on-click="{{toggleAction}}">
-				<core-icon icon="{{icon}}"></core-icon>
-				<div>{{service}}</div>
-			</paper-button>
-			
+			<core-icon-button src="{{icon}}" on-click="{{toggleAction}}">&nbsp;{{service}}</core-icon-button>
 		</div>
 
 		<core-collapse id="collapse">
 			<paper-input label="User ID:" floatingLabel="true"></paper-input>
 			<paper-input label="Password:" floatingLabel="true"></paper-input>
-			<br/>
-			<paper-button on-click="{{fetchData}}">Connect</paper-button>
+			
+			<paper-button>Import</paper-button>
 
 		</core-collapse>
 

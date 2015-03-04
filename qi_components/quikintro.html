@@ -36,13 +36,8 @@
           </core-menu>
 
           <core-submenu selected="{{page}}" valueattr="pageId" active id="core_submenu" icon="settings" label="Settings">
-              <core-item id="onboardItem" pageId="onboard" >Onboarding</core-item>
-              <core-item id="linkedInItem" pageId="linkedIn" >LinkedIn</core-item>
-              <core-item id="facebookItem" pageId="facebook" >Facebook</core-item>
-              <core-item id="gmailItem" pageId="gmail"  >Gmail</core-item>
-              <core-item id="meetupItem" pageId="meetup"  >Meetup</core-item>
-              <core-item id="eventBriteItem" pageId="eventBrite"  >EventBrite</core-item>
-              <core-item id="personaItem" pageId="personas"  >Personas</core-item>
+              <core-item id="onboardItem" pageId="onboard" >Accounts</core-item>
+              <core-item id="personaItem" pageId="personas">Personas</core-item>
           </core-submenu>
         </core-menu>
         
@@ -54,21 +49,6 @@
       <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit layout vertical >
         <section id="onboardPage" pageId="onboard">
           <qi-onboard-panel></qi-onboard-panel>
-        </section>
-        <section id="linkedInPage" pageId="linkedIn">
-          <qi-profile-panel panelTitle="LinkedIn" url="data/linkedin-profile.json"></qi-profile-panel>
-        </section>
-        <section id="facebookPage" pageId="facebook">
-          <qi-profile-panel panelTitle="Facebook"></qi-profile-panel>
-        </section>
-        <section id="gmailPage" pageId="gmail">
-          <qi-profile-panel panelTitle="GMail"></qi-profile-panel>
-        </section>
-        <section id="meetupPage" pageId="meetup">
-          <qi-profile-panel panelTitle="Meetup"></qi-profile-panel>
-        </section>
-        <section id="eventBritePage" pageId="eventBrite" flex>
-          <qi-profile-panel panelTitle="EventBrite"></qi-profile-panel>
         </section>
         <section id="personaPage" pageId="personas">
           <qi-persona-panel></qi-persona-panel>
