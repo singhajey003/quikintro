@@ -22,26 +22,25 @@
 		<paper-input id="firstname" label="First Name" floatingLabel="true" value="{{profile.firstName}}"></paper-input>
 		<paper-input id="lastname" label="Last Name" floatingLabel="true" value="{{profile.lastName}}"></paper-input><br/>
 
-		<label>Summary:</label>
+		<h4>Summary:</h4>
 		<div class="textfield">
 		{{profile.summary}}
 		</div>
 		<p/>
 
-		<label>Interests:</label>
+		<h4>Interests:</h4>
 		<div class="textfield">
 		{{profile.interests}}
 		</div>
 
-		<p/>
-		<label>Skills:</label>
+		<h4>Skills:</h4>
 		<div class="textfield">
 		<template repeat="{{skill in profile.skills.values}}">
 			<span class="skill">{{skill.skill.name}}</span>
 		</template>
 		</div>
-		<p/>
 		
+		<h4>Work History:</h4>
 		<template repeat="{{job in profile.positions.values}}">
 			<qi-job-card job="{{job}}"></qi-job-card>
 		</template>

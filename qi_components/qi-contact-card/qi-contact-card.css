@@ -6,13 +6,14 @@
 	color: #505050;
 }
 
+
 #card{
 	background-color: white;
-	border: 1px solid #505050;
 	border-radius: 5px;
-	padding: 5px;
-	margin-bottom: 3px;
+	padding: 15px;
+	margin-bottom: 20px;
 }
+
 
 core-field > label {
 	font-size: 11pt;

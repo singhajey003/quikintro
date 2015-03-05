@@ -8,14 +8,14 @@
 	margin-top: 4px;
 }
 
-#card{
-	background-color: white;
-	border-radius: 5px;
-	padding: 15px;
-	margin-bottom: 20px;
-}
-
 core-dropdown-menu{
 	border: 1px solid #cacaca;
 }
 
+#card{
+	background-color: rgba(255,255,255,0.7);
+	border-radius: 5px;
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid #fff;
+}

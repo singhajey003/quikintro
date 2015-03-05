@@ -53,6 +53,9 @@ core-submenu > core-submenu[label]{
   font-size: 10pt;
 }
 
+core-toolbar {
+  background-color: #bce6d5;
+}
 
 core-pages {
   left: 260px;
@@ -60,7 +63,10 @@ core-pages {
   bottom: 0;
   right: 0;
   position: absolute;
-  background-color: #E0E4CC;
+  background-color: #c1e5db;
+  background-image: url(../images/radar.png);
+  background-repeat: no-repeat;
+  background-position: -500px -25px;
 }
 
 core-pages .content {
@@ -72,18 +78,25 @@ core_pages > section {
 
 
 core-scroll-header-panel {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        position: absolute;
-        display: block;
-        visibility: visible;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+  visibility: visible;
+  padding: 20px;
+  overflow: auto;
 }
+
 .content {
-  padding: 30px;
-  background-color: #E0E4CC;
+  padding: 20px 30px;
+  background-color: #c1e5db;
+  background-image: url(../images/radar.png);
+  background-repeat: no-repeat;
+  background-position: -500px -100px;
 }
+
 input#searchText[is=core-input] {
   width:100px;
   background-color: #fff;
@@ -91,7 +104,19 @@ input#searchText[is=core-input] {
   padding: 4px 16px;
 }
 
+.search-panel {
+	background-color: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
 
+#card{
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 15px;
+	margin-bottom: 20px;
+}
 
 /* some default styles for mode="cover" on core-scaffold */
 core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
@@ -110,4 +135,8 @@ paper-button[raised]{
 paper-button{
   background: #4285f4;
   color: #fff;
+}
+
+section {
+	overflow: auto;
 }

@@ -8,6 +8,7 @@
 <link rel="import" href="../../bower_components/core-icons/communication-icons.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 
 
 <link rel="import" href="../qi-contact-card/qi-contact-card.html">
@@ -17,11 +18,21 @@
 
   <link rel="stylesheet" href="../quikintro.css">
   <link rel="stylesheet" href="qi-contact-panel.css">
+
   <core-ajax auto url="../data/contacts.json" response="{{response}}" handleAs="json"></core-ajax>
-	<core-scroll-header-panel headermargin="128" condenses headerheight="192" id="eventHeaderPanel" >
-      <div class="core-header medium-tall">
-        <div>Contacts</div>
-        <core-field><core-icon icon="search"></core-icon><label>Search:</label><input type="text" id="searchText" placeholder="Search Text" flex/></core-field>
+
+	<core-scroll-header-panel headermargin="128" fixed headerheight="192" id="eventHeaderPanel" >
+    <core-toolbar>
+      <div>Contacts</div>
+    </core-toolbar>
+
+    <div class="content">
+      <div class="search-panel">
+        <core-field>
+          <core-icon icon="search"></core-icon>
+          <label>Search:</label>
+          <input type="text" id="searchText" placeholder="Search Text" flex/>
+        </core-field>
         <core-field><core-icon icon="loyalty"></core-icon><label>Tags:</label><input type="text" placeholder="Tags" id="tags"/></core-field>
         <core-field><core-icon icon="communication:business"></core-icon><label>Company:</label><input type="text" placeholder="Company" id="tags"/></core-field>
         <core-field><core-icon icon="room"></core-icon><label>Location:</label><input type="text" placeholder="Location" id="tags"/></core-field>
@@ -30,18 +41,15 @@
         <core-field><core-icon icon="label" title="Send ping"></core-icon><label>Skills:</label><input type="text" id="tags" placeholder="Skills"/></core-field>
 
         <paper-button raised>Search</paper-button></core-field>
-
       </div>
 
-      <div class="content">
-        
-        <template repeat="{{contact in response}}">
-          <qi-contact-card contact="{{contact}}"></qi-contact-card>
-        </template>
 
-        
       
-      </div>
+      <template repeat="{{contact in response}}">
+        <qi-contact-card contact="{{contact}}"></qi-contact-card>
+      </template>
+
+    </div>
 
 
      </core-scroll-header-panel>

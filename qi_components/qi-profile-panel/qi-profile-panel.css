@@ -3,6 +3,9 @@ h1{
 	font-size: 14pt;
 	color: #505050;
 }
+h4 {
+	margin-bottom: 6px;
+}
 label{
 	font-size: 10pt;
 	padding-right: 5px;
@@ -19,13 +22,15 @@ button{
 
 .skill{
 	background-color: rgba(0, 128, 0, 0.17);
-	border-radius: 5px;
-	margin: 2px;
+	border-radius: 4px;
+	margin: 4px;
+	padding: 5px;
+	display: inline-block;
 }
 .textfield{
 	font-size: 9pt;
 	margin-left: 5px;
 }
 section{
-	margin-left: 5px;
+	padding: 20px 30px;
 }
