@@ -35,8 +35,9 @@
             <core-item id="contact" icon="face" pageId="contacts">Contacts</core-item>
           </core-menu>
 
-          <core-submenu selected="{{page}}" valueattr="pageId" active id="core_submenu" icon="settings" label="Settings">
+          <core-submenu selected="{{page}}" valueattr="pageId" icon="settings" label="Settings">
               <core-item id="onboardItem" pageId="onboard" >Accounts</core-item>
+              <core-item id="profileItem" pageId="profile">Profile</core-item>
               <core-item id="personaItem" pageId="personas">Personas</core-item>
           </core-submenu>
         </core-menu>
@@ -50,6 +51,10 @@
         <section id="onboardPage" pageId="onboard">
           <qi-onboard-panel></qi-onboard-panel>
         </section>
+        <section id="profilePage" pageId="profile">
+          <qi-profile-panel url="data/linkedin-profile.json"></qi-profile-panel>
+        </section>
+        
         <section id="personaPage" pageId="personas">
           <qi-persona-panel></qi-persona-panel>
         </section>

@@ -42,6 +42,18 @@ core-submenu > core-item {
   font-size: 10pt;
   color: #505050;
 }
+
+core-submenu > core-submenu{
+  font-size: 8pt;
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+core-submenu > core-submenu[label]{
+  font-size: 10pt;
+}
+
+
 core-pages {
   left: 260px;
   top: 70px;
