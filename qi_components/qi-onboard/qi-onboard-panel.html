@@ -2,9 +2,16 @@
 <link rel="import" href="qi-onboard-card.html">
 
 <polymer-element name="qi-onboard-panel">
-<link rel="stylesheet" href="qi-onboard.css">
+
 
 <template>
+	<style>
+		paper-button{
+			background-color: #7DD0B6;
+			color: white;
+			margin-left: 50px;
+		}
+	</style>
 
 	<div id="onboardpanel">
 		<br/>
@@ -19,6 +26,8 @@
 		<qi-onboard-card icon="/qi_components/qi-onboard/meetup.png" clazz="meetup" service="Meetup"></qi-onboard-card><br/>
 
 		<qi-onboard-card icon="/qi_components/qi-onboard/eventbrite.png" clazz="eventbrite" service="EventBrite"></qi-onboard-card><br/>
+
+		<paper-button>Import</paper-button>
 
 	</div>
 
