@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/paper-input-decorator/paper-input-decorator.html">
+
+
+<polymer-element name="qi-security">
+  <template>
+
+  <style>
+	core-scroll-header-panel{
+        width: 380px;
+        height: 460px;
+        left: 10px;
+        top: 0px;
+        position: relative;
+        display: block;
+        visibility: visible;
+      }
+  </style>
+  
+	<core-scroll-header-panel headermargin="128" condenses headerheight="192"  >
+        <fieldset>
+          <legend>Change Password</legend>
+            <paper-input-decorator floatingLabel label="New Password:">
+              <input type="password" name="password" >
+            </paper-input-decorator>
+
+            <paper-input-decorator floatingLabel label="Confirm Password:">
+              <input type="password" name="password" >
+            </paper-input-decorator>
+
+
+        </fieldset><br/>
+
+        <fieldset>
+          <legend>Authentication Scheme</legend>
+
+          
+           
+
+        </fieldset>
+
+     </core-scroll-header-panel>
+</template>
+
+<script>
+	Polymer('qi-security',{
+		
+	    });
+
+</script>
+
+</polymer-element>

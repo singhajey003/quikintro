@@ -11,9 +11,9 @@
 <link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 
-<link rel="import" href="qi-event-panel/qi-event-panel.html">
-<link rel="import" href="qi-profile-panel/qi-profile-panel.html">
-<link rel="import" href="qi-contact-panel/qi-contact-panel.html">
+<link rel="import" href="qi-event/qi-event-panel.html">
+<link rel="import" href="qi-profile/qi-profile-panel.html">
+<link rel="import" href="qi-contact/qi-contact-panel.html">
 <link rel="import" href="qi-persona/qi-persona-panel.html">
 <link rel="import" href="qi-msg/qi-msg-panel.html">
 <link rel="import" href="qi-onboard/qi-onboard-panel.html">
@@ -36,8 +36,9 @@
           </core-menu>
 
           <core-submenu selected="{{page}}" valueattr="pageId" icon="settings" label="Settings">
-              <core-item id="onboardItem" pageId="onboard" >Accounts</core-item>
-              <core-item id="profileItem" pageId="profile">Profile</core-item>
+              <core-item id="onboardItem" pageId="security"> Security</core-item>
+              <core-item id="onboardItem" pageId="onboard"> Accounts</core-item>
+              <core-item id="profileItem" pageId="profile"> Profile</core-item>
               <core-item id="personaItem" pageId="personas">Personas</core-item>
           </core-submenu>
         </core-menu>
@@ -48,6 +49,17 @@
       
       <div class="content">
       <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit layout vertical >
+        <section id="login">
+            <paper-input label="User ID:" floatingLabel="true"></paper-input>
+            <paper-input-decorator floatingLabel label="Password:">
+              <input type="password" name="password" >
+            </paper-input-decorator>
+
+        </section>
+
+        <section id="security">
+          <qi-security-panel></qi-security-panel>
+        </section>
         <section id="onboardPage" pageId="onboard">
           <qi-onboard-panel></qi-onboard-panel>
         </section>
