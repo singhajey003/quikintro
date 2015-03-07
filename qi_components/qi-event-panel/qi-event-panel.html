@@ -17,12 +17,7 @@
       padding: 30px;
       background-color: #c1e5db;
     }
-    input#searchText[is=core-input] {
-      width:100px;
-      background-color: #fff;
-      font-size: 16px;
-      padding: 4px 16px;
-    }
+    
   </style>
 
   
@@ -32,7 +27,7 @@
 	<core-scroll-header-panel headermargin="128" id="eventHeaderPanel" fixed>
     <core-toolbar>
       <div flex>Events</div>
-      <input id="searchText" placeholder="Search..." is="core-input" />
+      <input id="searchText" type="search" placeholder="Search..." />
       <core-icon-button icon="search"></core-icon-button>
     </core-toolbar>
     <div class="content" layout vertical flex>

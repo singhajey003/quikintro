@@ -34,3 +34,6 @@ core-field > span{
 polymer-ui-ratings{
 	width: 80px;
 }
+core-icon{
+	color: #505050;
+}

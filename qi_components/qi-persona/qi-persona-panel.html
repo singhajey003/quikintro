@@ -2,32 +2,22 @@
 <link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 
-<link rel="import" href="../qi-persona-card/qi-persona-card.html">
+<link rel="import" href="qi-persona-card.html">
 
 <polymer-element name="qi-persona-panel">
   <template>
-
-  <style>
-	core-scroll-header-panel{
-        width: 380px;
-        height: 460px;
-        left: 10px;
-        top: 0px;
-        position: relative;
-        display: block;
-        visibility: visible;
-      }
-  </style>
-  <core-ajax auto url="../data/personas.json" response="{{response}}" handleAs="json"></core-ajax>
-	<core-scroll-header-panel headermargin="128" condenses headerheight="192"  >
-        <div class="core-header medium-tall">
-          <div layout horizontal>
-          <div>Personas</div>
-          <div flex><input type="text" id="searchText"><core-icon icon="search"></core-icon></div>
+    <link rel="stylesheet" href="../quikintro.css">
+  
+    <core-ajax auto url="../data/personas.json" response="{{response}}" handleAs="json"></core-ajax>
+  	<core-scroll-header-panel headermargin="128" condenses headerheight="192"  >
+        <core-toolbar>
+          <div flex>Personas</div>
+          <input type="search" id="searchText" placeholder="Search..."/><core-icon icon="search"></core-icon>
           <core-tooltip label="Create"><core-icon icon="create"></core-icon></core-tooltip>
-          </div>
-        </div>
+         </core-toolbar> 
+
         <div class="content">
         
           <template repeat="{{persona in response}}">

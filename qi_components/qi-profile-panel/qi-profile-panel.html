@@ -30,7 +30,9 @@
 
 		<h4>Interests:</h4>
 		<div class="textfield">
-		{{profile.interests}}
+		 <template repeat="{{interest in profile.interests}}">
+		 	<span class="skill">{{interest}}</span>
+		 </template>
 		</div>
 
 		<h4>Skills:</h4>

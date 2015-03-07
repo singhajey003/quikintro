@@ -1,12 +1,9 @@
-input{
-    visibility: visible;
-}
 
 button{
     background-color: #526E9C;
     color: white;
 }
 
-input{
-    background-color: white;
+core-icon{
+	color: #505050;
 }

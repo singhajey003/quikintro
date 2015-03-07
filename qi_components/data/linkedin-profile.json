@@ -2,7 +2,11 @@
   "firstName": "Mark",
   "id": "eIRGNXnThL",
   "industry": "Biotechnology",
-  "interests": "Writing software, hiking, traveling, astronomy, genetics, genomics, virology, oncology, semantic web, ontologies, open source software, linux, java, bioinformatics",
+  "interests": [
+    "programming", "hiking", 
+    "traveling", "astronomy", "genetics", "genomics", "virology", "oncology", "semantic web", "ontologies","linked open data", "open source software", 
+    "linux", "java", "bioinformatics"
+    ],
   "lastName": "Fortner",
   "positions":  {
     "_total": 10,
@@ -221,7 +225,7 @@
        {
         "id": 10,
         "skill":  {
-          "name": "HTML + CSS"
+          "name": "HTML5"
         }
       },
        {
@@ -480,6 +484,13 @@
         "id": 79,
         "skill":  {
           "name": "Drug Discovery"
+        }
+      },
+
+        {
+        "id": 80,
+        "skill":  {
+          "name": "CSS"
         }
       }
     ]
