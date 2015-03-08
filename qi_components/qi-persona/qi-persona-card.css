@@ -9,3 +9,10 @@
 fieldset{
 	border-radius: 5px;
 }
+
+.cardWhite{
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 15px;
+	margin-bottom: 20px;
+}

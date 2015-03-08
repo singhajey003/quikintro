@@ -8,20 +8,10 @@
 
 <polymer-element name="qi-persona-panel">
   <template>
-    <!--<link rel="stylesheet" href="../quikintro.css">-->
-    <style>
-      .content {
-        padding: 20px 30px;
-        background-color: #c1e5db;
-        background-image: url(../../images/radar.png);
-        background-repeat: no-repeat;
-        background-position: -500px -100px;
-        overflow: auto;
-      }
-    </style>
-  
+    <link rel="stylesheet" href="../quikintro.css">
+    
     <core-ajax auto url="../data/personas.json" response="{{response}}" handleAs="json"></core-ajax>
-  	<core-scroll-header-panel headermargin="128" fixed headerheight="192" >
+  	<core-scroll-header-panel headermargin="128" fixed headerheight="192" layout vertical>
         <core-toolbar>
           <div flex>Personas</div>
           <input type="search" id="searchText" placeholder="Search..."/><core-icon icon="search"></core-icon>
