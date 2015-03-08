@@ -1,17 +1,14 @@
-#titleBlock{
+
+/** The block containing the first and last names. */
+#nameBlock{
+	font-size: 8pt;
     color: #526E9C;
 }
-#summaryBlock{
+
+/** The title block containing the title and company. */
+#titleBlock{
 	font-size: 8pt;
 	color: #505050;
-}
-
-
-#card{
-	background-color: white;
-	border-radius: 5px;
-	padding: 15px;
-	margin-bottom: 20px;
 }
 
 
@@ -25,6 +22,7 @@ core-field > span{
 	font-size: 9pt;
 }
 
+/** The avatar image used for the contact. */
 .avatar{
 	height: 50px;
 	width: 50px;
@@ -34,6 +32,11 @@ core-field > span{
 polymer-ui-ratings{
 	width: 80px;
 }
-core-icon{
-	color: #505050;
+
+.cardWhite{
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 15px;
+	margin-bottom: 20px;
+  display: block;
 }

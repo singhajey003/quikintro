@@ -5,16 +5,16 @@
   box-sizing: border-box;
   font-family: 'RobotoDraft';
 }
-#core_scaffold {
+
+core_scaffold {
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
 }
-#core_header_panel {
-  background-color: rgb(255, 255, 255);
-}
+
+
 core-scaffold core-toolbar {
   color: rgb(255, 255, 255);
   background-color: #F38630;
@@ -69,9 +69,12 @@ core-pages {
   background-position: -500px -25px;
 }
 
+
 core-pages .content {
   padding: 30px;
 }
+
+
 core_pages > section {
   background-color: #eeeeee;
 }
@@ -95,6 +98,7 @@ core-scroll-header-panel {
   background-image: url(../images/radar.png);
   background-repeat: no-repeat;
   background-position: -500px -100px;
+  overflow: auto;
 }
 
 input#searchText[is=core-input] {
@@ -111,12 +115,14 @@ input#searchText[is=core-input] {
   margin-bottom: 20px;
 }
 
-#card{
+.cardWhite{
 	background-color: #fff;
 	border-radius: 5px;
 	padding: 15px;
 	margin-bottom: 20px;
+  display: block;
 }
+
 
 /* some default styles for mode="cover" on core-scaffold */
 core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
@@ -151,7 +157,9 @@ input[type=search]{
   padding: 4px 16px;
 }
 
-
+/** Default icon styling. */
 core-icon{
   color: #505050;
+  height: 20px;
+  width: 20px;
 }

@@ -14,12 +14,13 @@
 
 	
 	<template>
+	
 	<link rel="stylesheet" href="qi-contact-card.css" >
 
-	<div id="card">
+	<div id="card" class="cardWhite">
 		<div ><img src="{{contact.gravatar}}" class="avatar" align="left">
-			<div id="titleBlock" on-click="{{toggleAction}}">{{contact.firstName}} {{contact.lastName}}</div>
-			<div id="summaryBlock">{{contact.title}} {{contact.company}}</div>
+			<div id="nameBlock" on-click="{{toggleAction}}">{{contact.firstName}} {{contact.lastName}}</div>
+			<div id="titleBlock">{{contact.title}} {{contact.company}}</div>
 			<core-tooltip label="Ping"><core-icon icon="communication:messenger" /></core-icon></core-tooltip>
 			<core-tooltip label="Blacklist"><core-icon icon="view-list" /></core-icon></core-tooltip>
 			<core-tooltip label="Create Meeting"><core-icon icon="event" /></core-icon></core-tooltip>

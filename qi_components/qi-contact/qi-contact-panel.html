@@ -22,11 +22,11 @@
   <core-ajax auto url="../data/contacts.json" response="{{response}}" handleAs="json"></core-ajax>
 
 	<core-scroll-header-panel headermargin="128" fixed headerheight="192" id="eventHeaderPanel" >
-    <core-toolbar>
-      <div>Contacts</div>
+    <core-toolbar fixed>
+      <div flex>Contacts</div>
     </core-toolbar>
 
-    <div class="content">
+    <div class="content" layout vertical>
       <div class="search-panel">
 
         <core-field>

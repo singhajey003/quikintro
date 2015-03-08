@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="../quikintro.css" >
 	<link rel="stylesheet" href="qi-persona-card.css" >
 
-	<div id="card">
+	<div id="card" class="cardWhite">
 		<div >
 			<div id="titleBlock" on-click="{{toggleAction}}">{{persona.name}}</div>
 			<core-tooltip label="Clone Persona"><core-icon icon="content-copy"></core-icon></core-tooltip>
@@ -49,12 +49,8 @@
 
 	<script>
 	Polymer('qi-persona-card',{
-		name:'',
-		skills:'',
-		tags:'',
-		interests:'',
+		
 	    toggleAction: function(evt){
-	    	console.log("Got here");
 	     	this.$.collapse.toggle();
 	     }
 
