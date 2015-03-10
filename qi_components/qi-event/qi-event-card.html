@@ -11,6 +11,7 @@
 <link rel="import" href="../../bower_components/paper-slider/paper-slider.html" >
 <link rel="import" href="../../bower_components/core-icons/social-icons.html" >
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
+<link rel="import" href="../../bower_components/google-map/google-map.html">
 
 <polymer-element name="qi-event-card" attributes="event personas">
 
@@ -32,10 +33,17 @@
 		      <core-input id="schedule" flex>{{event.startTime}} - {{event.endTime}}</core-input>
 		    </core-field>
 
-		    <core-field id="locationField" icon="room" theme="core-light-theme" center horizontal layout>
+		    <core-field id="locationField" on-click="{{toggleLocation}}" icon="room" theme="core-light-theme" center horizontal layout>
 		      <core-icon icon="room" id="core_icon2"></core-icon>
 		      <core-input id="location" flex>{{event.location}}</core-input>
 		    </core-field>
+
+		    <core-collapse id="mapContainer" opened="false">
+		      <google-map fitToMarkers zoom="10">
+			    <google-map-marker latitude={{event.coordinates.latitude}} longitude={{event.coordinates.longitude}}>
+				</google-map-marker>
+			  </google-map>
+		    </core-collapse>
 
 			<core-field id="notificationField" icon="room" theme="core-light-theme" center horizontal layout>
 		      <core-icon icon="alarm" id="core_icon3"></core-icon>
@@ -82,16 +90,25 @@
 
 	<script>
 	Polymer('qi-event-card',{
-		
+		ready: function(evt){
+		},
 	    toggleAction: function(evt){
 	     	this.$.collapse.toggle();
+	     },
+	     toggleLocation: function(evt){
+	     	this.$.mapContainer.toggle();
 	     },
 	     twitter: function(evt){
 	     	var url = "http://twitter.com/" + this.event.hashtag;
 	     	window.location = url;
 	     }
 
-	    });
+	});
+
+	var map = document.querySelector('google-map');
+
+	console.log(map);
+
 
 
 	</script>

@@ -21,3 +21,12 @@ core-dropdown-menu{
 	margin-bottom: 20px;
 	border: 1px solid #fff;
 }
+
+#mapContainer {
+  margin-left: 20px;
+}
+
+google-map {
+  height: 400px;
+  width: 400px;
+}

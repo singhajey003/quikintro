@@ -5,6 +5,10 @@
  		"startTime":"12 Jan 2015",
  		 "endTime":"15 Jan 2015",
  		 "location":"McCormick Place",
+ 		 "coordinates":{
+ 		 	"latitude": "41.851389",
+ 		 	"longitude": "-87.616389"
+ 		 },
  		 "hashtag" : "#jpm15",
  		 "persona": "defLinkedIn",
  		 "notification" : "15 minutes before",
@@ -71,6 +75,10 @@
 		"startTime":"18-Apr-2015",
 		"endTime":"22 Apr 2015",
 		"location":"Pennsylvania Convention Center 1103-1131 Arch Street, Philadelphia, PA 19107, USA",
+		"coordinates":{
+ 		 	"latitude": "39.948421",
+ 		 	"longitude": "-75.192167"
+ 		 },
 		"notification":"15 minutes before",
 		"cloakingMode":true,
 		"hashtag":"#aacr15",
@@ -141,6 +149,10 @@
  		"startTime":"29 May 2015",
  		 "endTime":"02 Jun 2015",
  		 "location":"McCormick Place",
+ 		 "coordinates":{
+ 		 	"latitude": "41.851389",
+ 		 	"longitude": "-87.616389"
+ 		 },
  		 "hashtag" : "#asco15",
  		 "cloakingMode":true,
  		 "persona":"defCancerBio",
@@ -167,6 +179,10 @@
 	 	"startTime":"28 May 2015",
 	 	"endTime":"29 May 2015",
 	 	"location":"Moscone Center West, San Francisco, CA",
+	 	"coordinates":{
+ 		 	"latitude": "37.784173",
+ 		 	"longitude": "-122.401557"
+ 		 },
 	 	"hashtag":"#io2015",
 	 	"cloakingMode":false,
 	 	"persona":"defDev"
@@ -177,6 +193,10 @@
      	"startTime":"25 Oct 2015",
      	"endTime":"29 Oct 2015",
      	"location":"Moscone Center, San Francisco, CA",
+     	"coordinates":{
+ 		 	"latitude": "37.784173",
+ 		 	"longitude": "-122.401557"
+ 		 },
      	"hashtag":"#javaone",
      	"cloakingMode":false,
      	"persona":"defDev"
