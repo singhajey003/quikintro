@@ -33,19 +33,9 @@
 		      <core-input id="schedule" flex>{{event.startTime}} - {{event.endTime}}</core-input>
 		    </core-field>
 
-		    <core-field id="locationField" on-click="{{toggleLocation}}" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="room" id="core_icon2"></core-icon>
-		      <core-input id="location" flex>{{event.location}}</core-input>
-		    </core-field>
+		    
 
-		    <core-collapse id="mapContainer" opened="false">
-		      <google-map fitToMarkers zoom="10">
-			    <google-map-marker latitude={{event.coordinates.latitude}} longitude={{event.coordinates.longitude}}>
-				</google-map-marker>
-			  </google-map>
-		    </core-collapse>
-
-			<core-field id="notificationField" icon="room" theme="core-light-theme" center horizontal layout>
+		    <core-field id="notificationField" icon="room" theme="core-light-theme" center horizontal layout>
 		      <core-icon icon="alarm" id="core_icon3"></core-icon>
 		      <core-input id="alarm" flex>{{event.notification}}</core-input>
 		    </core-field>
@@ -69,6 +59,19 @@
 		      	</core-dropdown>
 		      </core-dropdown-menu>
 		    </core-field>
+
+		    <core-field id="locationField" on-click="{{toggleLocation}}" icon="room" theme="core-light-theme" center horizontal layout>
+		      <core-icon icon="room" id="core_icon2"></core-icon>
+		      <core-input id="location" flex>{{event.location}}</core-input>
+		    </core-field>
+
+		    <core-collapse id="mapContainer" width="200" height="200" >
+		      <google-map id="map" zoom="8" style="width:200px; height: 200px" fitToMarkers >
+			    <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
+				</google-map-marker>
+			  </google-map>
+			<core-collapse>
+		    
 
 		    <core-field>
 		      <core-icon icon="filter-list"></core-icon><label>Filter:</label><paper-slider pin min="0" max="10" value="{{filterCutoff}}"></paper-slider>
@@ -94,10 +97,45 @@
 		},
 	    toggleAction: function(evt){
 	     	this.$.collapse.toggle();
+	     	
 	     },
 	     toggleLocation: function(evt){
 	     	this.$.mapContainer.toggle();
+
+	        if(this.$.mapContainer.opened == true){
+	        	//setTimeout(this.fixMap(), 100);
+	        	this.fixMap();
+	     	}
 	     },
+
+	    fixMap: function(){
+				var map = this.$.map; // google map web component
+                var gmap = map.map;   // google.maps.Map instance
+                var lat = gmap.getCenter().lat();
+                var lng = gmap.getCenter().lng();
+
+                var bnds = gmap.getBounds();
+                console.log("bnds: " + bnds);
+
+                // at this point, everything is ok
+                // before resize latitude 45.63 longitude 16.159999999999968
+                console.log('before resize', 'latitude', lat, 'longitude', lng);
+                
+
+
+                // fix size for core-animated-pages
+                map.resize();
+
+                // at this point latitude and longitude ar wrong
+                // after resize latitude 19.16672805677583 longitude 42.878749999999954
+                console.log('after resize', 'latitude', gmap.getCenter().lat(), 'longitude', gmap.getCenter().lng());
+
+                // fix center because of resize
+                console.log(this.event.coordinates);
+                gmap.setCenter({"latitude":this.event.coordinates.latitude, "longitude":this.event.coordinates.longitude});
+	     		
+	    },
+
 	     twitter: function(evt){
 	     	var url = "http://twitter.com/" + this.event.hashtag;
 	     	window.location = url;
@@ -105,9 +143,7 @@
 
 	});
 
-	var map = document.querySelector('google-map');
-
-	console.log(map);
+	
 
 
 
