@@ -66,7 +66,7 @@
 		    </core-field>
 
 		    <core-collapse id="mapContainer" width="200" height="200" >
-		      <google-map id="map" zoom="8" style="width:200px; height: 200px" fitToMarkers >
+		      <google-map id="map" zoom="6" style="width:200px; height: 200px" fitToMarkers >
 			    <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
 				</google-map-marker>
 			  </google-map>
@@ -113,6 +113,8 @@
                 var gmap = map.map;   // google.maps.Map instance
                 var lat = gmap.getCenter().lat();
                 var lng = gmap.getCenter().lng();
+                var locationLat = parseFloat(this.event.coordinates.latitude);
+                var locationLong = parseFloat(this.event.coordinates.longitude);
 
                 var bnds = gmap.getBounds();
                 console.log("bnds: " + bnds);
@@ -124,7 +126,7 @@
 
 
                 // fix size for core-animated-pages
-                map.resize();
+                //map.resize();
 
                 // at this point latitude and longitude ar wrong
                 // after resize latitude 19.16672805677583 longitude 42.878749999999954
@@ -132,7 +134,14 @@
 
                 // fix center because of resize
                 console.log(this.event.coordinates);
-                gmap.setCenter({"latitude":this.event.coordinates.latitude, "longitude":this.event.coordinates.longitude});
+                //gmap.setCenter({"latitude":parseFloat(this.event.coordinates.latitude), "longitude":parseFloat(this.event.coordinates.longitude)});
+                //gmap.setCenter(new google.maps.LatLng(locationLat, locationLong));
+
+                setTimeout(function(){
+                  window.dispatchEvent(new Event('resize'));
+                  map.latitude = locationLat;
+                  map.longitude = locationLong;
+                },100);
 	     		
 	    },
 
