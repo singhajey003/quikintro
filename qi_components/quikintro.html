@@ -4,6 +4,7 @@
 <link rel="import" href="../bower_components/core-item/core-item.html">
 <link rel="import" href="../bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="../bower_components/core-icons/core-icons.html">
+<link rel="import" href="../bower_components/core-icons/maps-icons.html">
 <link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../bower_components/core-menu/core-submenu.html">
 <link rel="import" href="../bower_components/core-pages/core-pages.html">
@@ -12,6 +13,7 @@
 <link rel="import" href="../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 
 <link rel="import" href="qi-event/qi-event-panel.html">
+<link rel="import" href="qi-aroundme/qi-aroundme-panel.html">
 <link rel="import" href="qi-profile/qi-profile-panel.html">
 <link rel="import" href="qi-contact/qi-contact-panel.html">
 <link rel="import" href="qi-persona/qi-persona-panel.html">
@@ -31,6 +33,7 @@
 
           <core-menu selected="{{page}}" valueattr="pageId" >
             <core-item id="events" icon="event"  pageId="events">Events</core-item>
+            <core-item id="aroundme" icon="maps:my-location" pageId="aroundme">Around Me</core-item>
             <core-item id="messages" icon="communication:forum"  pageId="messages">Messages</core-item>
             <core-item id="contact" icon="face" pageId="contacts">Contacts</core-item>
           </core-menu>
@@ -72,6 +75,9 @@
         </section>
         <section id="eventsPage" pageId="events" >
           <qi-event-panel></qi-event-panel>
+        </section>
+        <section id="aroundmePage" pageId="aroundme" >
+          <qi-aroundme-panel></qi-aroundme-panel>
         </section>
         <section id="msgsPage" pageId="messages">
           <qi-msg-panel></qi-msg-panel>

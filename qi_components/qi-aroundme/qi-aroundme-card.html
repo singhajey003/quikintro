@@ -1,0 +1,109 @@
+<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
+<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
+<link rel="import" href="../../bower_components/core-field/core-field.html" >
+<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
+<link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html" >
+
+
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
+<link rel="import" href="../../bower_components/polymer-ui-ratings/polymer-ui-ratings.html" >
+<link rel="import" href="../../bower_components/core-icons/social-icons.html" >
+
+<polymer-element name="qi-aroundme-card" attributes="contact visibility filter">
+
+	
+	<template>
+	
+	<link rel="stylesheet" href="qi-aroundme-card.css" >
+
+	<div id="card" class="cardWhite" flip="front">
+		<div id="front">
+		<div >
+			<template if="{{contact.gravatar != null}}">
+				<img src="{{contact.gravatar}}" class="avatar" align="left">
+			</template>
+			<template if="{{contact.gravatar == null}}">
+				<core-icon icon="social:person"></core-icon>
+			</template>
+
+			<div id="nameBlock" on-click="{{toggleAction}}">{{contact.firstName}} {{contact.lastName}}</div>
+			<div id="titleBlock">{{contact.title}} {{contact.company}}</div>
+			<core-tooltip label="Ping"><core-icon icon="communication:messenger" /></core-icon></core-tooltip>
+			<core-tooltip label="Blacklist"><core-icon icon="view-list" /></core-icon></core-tooltip>
+			<core-tooltip label="Create Meeting"><core-icon icon="event" /></core-icon></core-tooltip>
+			<core-tooltip label="Share Contact"><core-icon icon="account-box" /></core-icon></core-tooltip>
+			<core-tooltip label="View Notes/Matches"><core-icon-button src="flip.jpg" on-click="{{flipAction}}"/></core-icon-button></core-tooltip>
+			<core-tooltip label="Rate Contact"><polymer-ui-ratings value="{{contact.rating}}"></polymer-ui-ratings></core-icon></core-tooltip>
+		</div>
+		<core-collapse id="collapse" opened="false">
+			
+		      <core-field><label>Company:</label><span>{{contact.company}}</span></core-field>
+		      <core-field><label>Mobile:</label><span>{{contact.mobile}}</span></core-field>
+		      <core-field><label>Office:</label><span>{{contact.office}}</span></core-field>
+		      <core-field><label>Email:</label><span>{{contact.email}}</span></core-field>
+		      <core-field><label>Address:</label><span>{{contract.address}}</span></core-field>
+		      <core-field><label>Tags:</label><span>{{contact.tags}}</span></core-field>
+		      <core-field><label>Skills:</label><span>{{contact.skills}}</span></core-field>
+			  <core-field><label>Interests:</label><span>{{contact.interests}}</span></core-field>
+		      
+		</core-collapse>
+		</div>
+		<div id="back">
+			<div id="back-container" layout horizontal>
+			<div flex></div><core-tooltip label="View Notes/Matches"><core-icon-button src="flip.jpg" on-click="{{flipAction}}"/></core-icon-button></core-tooltip></div>
+			<core-field><label>Tags:</label><span>{{contact.tags}}</span></core-field>
+		    <core-field><label>Skills:</label><span>{{contact.skills}}</span></core-field>
+			<core-field><label>Interests:</label><span>{{contact.interests}}</span></core-field>
+			
+			<core-field><label>Notes:</label><br/>
+				<paper-autogrow-textarea id="a1">
+				  <textarea flex id="a1">{{contact.notes}}</textarea>
+				<paper-autogrow-textarea>
+    			
+			</core-field>
+		</div>
+
+	</div>
+
+	</template>
+
+	<script>
+	Polymer('qi-aroundme-card',{
+		
+		visibility:'visible',
+		score: 0,
+		flip: 'front',
+		filterChanged: function(oldFilter, newFilter){
+			this.visibility = (this.score >= newFilter )? "visible":"hidden";
+		},
+		contactChanged: function(oldContact, newContact){
+			this.score = newContact.score;
+		},
+	    toggleAction: function(evt){
+	     	this.$.collapse.toggle();
+	     },
+
+	    visibilityChanged: function(oldValue, newValue){
+	     	this.$.card.style.display = (newValue == 'visible')?'block':'none';
+	     },
+
+	     setVisibility: function(vis){
+	     	this.visibility = vis;
+	     },
+
+	     flipAction: function(evt){
+	     	var flip = this.$.card.getAttribute("flip");
+	     	this.flip = (flip == 'front')?'back':'front';
+	     	this.$.card.setAttribute("flip",this.flip);
+	     	console.log(this.flip);
+	     }
+
+
+	    });
+
+
+	</script>
+
+
+</polymer-element>
