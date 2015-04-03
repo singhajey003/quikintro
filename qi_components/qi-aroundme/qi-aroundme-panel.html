@@ -12,7 +12,7 @@
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
 
-<link rel="import" href="qi-aroundme-card.html">
+<link rel="import" href="../qi-contact/qi-contact-card.html">
 
 <polymer-element name="qi-aroundme-panel">
   <template>
@@ -21,6 +21,9 @@
   <link rel="stylesheet" href="qi-aroundme-panel.css">
 
   <core-ajax auto url="../data/contacts.json" response="{{response}}" handleAs="json"></core-ajax>
+  <template is="auto-binding">
+    <core-ajax auto url="../data/heatmap.json" response="{{heatmap}}" on-core-response="{{ajaxResponse}}" handleAs="json"></core-ajax>
+  </template>
 
 	<core-scroll-header-panel headermargin="128" fixed headerheight="192" id="eventHeaderPanel" >
     <core-toolbar fixed>
@@ -30,7 +33,7 @@
     <div class="content" layout vertical>
       
       <div class="maps-panel">
-        <google-map id="map" zoom="12" style="width:400px; height: 400px" libraries="visualization" fitToMarkers >
+        <google-map id="map" zoom="11" style="width:400px; height: 400px" libraries="visualization" fitToMarkers >
           <google-map-marker latitude="37.779" longitude="-122.3892">
           </google-map-marker>
         </google-map>
@@ -52,16 +55,66 @@
 
    <script>
 	Polymer('qi-aroundme-panel',{
-    ready: function(evt){
-      this.heatMap();
+    ready: function(evt){     
     },
-    heatMap: function(){
+    ajaxResponse: function(event, response) {
+        this.heatMap(response.response); 
+        console.log(response);
+    },
+    generateData: function(data){
+      var self = this;
+
+
+    },
+    heatMap: function(data){
         var map = this.$.map; // google map web component
 
         map.addEventListener('api-load', function(e) {
-          var gmap = map.map;   // google.maps.Map instance
+          var gmap = map.map;  // google.maps.Map instance
+          var heatmaptype1data=[],heatmaptype2data=[];
+          var heatmaptype1, heatmaptype2;
 
-          var testData = [
+        data.forEach(function(element, index, array){
+          
+          if(index === 0) {
+            element.coordinates.forEach(function(element, index, array){
+            //console.log(element + " " + index + " " + array);
+              heatmaptype1data[index] = new google.maps.LatLng(element.split(",")[0],element.split(",")[1]);
+              if(index === (array.length - 1)) {
+                //console.log(heatmaptype1data);
+                var pointArray1 = new google.maps.MVCArray(heatmaptype1data);
+                heatmaptype1 = new google.maps.visualization.HeatmapLayer({
+                  data: pointArray1
+                });
+                heatmaptype1.setMap(gmap);
+              }
+            });
+          }
+
+          if(index === 1) {
+            element.coordinates.forEach(function(element, index, array){
+            //console.log(element + " " + index + " " + array);
+              heatmaptype2data[index] = new google.maps.LatLng(element.split(",")[0],element.split(",")[1]);
+              if(index === (array.length - 1)) {
+                //console.log(heatmaptype2data);
+                var pointArray2 = new google.maps.MVCArray(heatmaptype2data);
+                heatmaptype2 = new google.maps.visualization.HeatmapLayer({
+                  data: pointArray2
+                });
+                heatmaptype2.setMap(gmap);
+                var gradient = [
+                  'rgba(0, 255, 255, 0)',
+                  'rgba(46, 139, 87, 1)'
+                ];
+                heatmaptype2.set('gradient', heatmaptype2.get('gradient') ? null : gradient);
+              }
+            });
+          }
+          
+        });
+
+
+          /*var testData = [
               new google.maps.LatLng(37.782551, -122.445368),
               new google.maps.LatLng(37.782745, -122.444586),
               new google.maps.LatLng(37.782842, -122.443688),
@@ -123,7 +176,24 @@
               new google.maps.LatLng(37.787056, -122.418034)
             ];
 
+          var testData1 = [
+              new google.maps.LatLng(37.781201,-122.488461),
+              new google.maps.LatLng(37.781472,-122.486057),
+              new google.maps.LatLng(37.781065,-122.491035),
+              new google.maps.LatLng(37.780251,-122.490692),
+              new google.maps.LatLng(37.778623,-122.489662),
+              new google.maps.LatLng(37.780251,-122.487946),
+              new google.maps.LatLng(37.780793,-122.487087),
+              new google.maps.LatLng(37.780386,-122.484341),
+              new google.maps.LatLng(37.778894,-122.485542),
+              new google.maps.LatLng(37.778894,-122.488117),
+              new google.maps.LatLng(37.779301,-122.486744),
+              new google.maps.LatLng(37.778894,-122.486916)
+            ];
+
+
           var pointArray = new google.maps.MVCArray(testData);
+          var pointArray1 = new google.maps.MVCArray(testData1);
 
           //console.log(pointArray);
 
@@ -131,9 +201,22 @@
             data: pointArray
           });
 
+          heatmap1 = new google.maps.visualization.HeatmapLayer({
+            data: pointArray1
+          });
+
           //console.log(heatmap);
 
           heatmap.setMap(gmap);
+          heatmap1.setMap(gmap);
+
+          var gradient = [
+            'rgba(0, 255, 255, 0)',
+            'rgba(46, 139, 87, 1)'
+          ];
+          
+          heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);*/
+
         });
         
           
