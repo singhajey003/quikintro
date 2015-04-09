@@ -19,3 +19,4 @@ To run the application, simply type:
 * LinkedIn Company Fields: https://developer.linkedin.com/docs/fields/companies
 * Meetup.com API: http://www.meetup.com/meetup_api/
 * Android Beacon Library: http://altbeacon.github.io/android-beacon-library/
+* Cordova Beacon API: http://plugins.cordova.io/#/package/com.unarin.cordova.beacon
