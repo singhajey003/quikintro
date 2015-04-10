@@ -24,27 +24,41 @@
   <core-ajax auto url="../data/events.json" response="{{response}}" handleAs="json"></core-ajax>
   <core-ajax auto url="../data/personas.json" response="{{personas}}" handleAs="json"></core-ajax>
   
-	<core-scroll-header-panel headermargin="128" id="eventHeaderPanel" fixed>
-    <core-toolbar>
-      <div flex>Events</div>
-      <input id="searchText" type="search" placeholder="Search..." />
-      <core-icon-button icon="search"></core-icon-button>
-    </core-toolbar>
-    <div class="content" layout vertical flex>
-    
-      <template repeat="{{event in response}}">
-        <qi-event-card event="{{event}}" personas="{{personas}}"></qi-event-card>
-      </template>
+	<core-pages selected="0" id="first">
+  <div>
+    <core-scroll-header-panel headermargin="128" id="eventHeaderPanel" fixed>
+      <core-toolbar>
+        <div flex>Events</div>
+        <input id="searchText" type="search" placeholder="Search..." />
+        <core-icon-button icon="search"></core-icon-button>
+      </core-toolbar>
+      <div class="content" layout vertical flex>
       
-    </div>
+        <template repeat="{{event in response}}">
+          <qi-event-card event="{{event}}" personas="{{personas}}"></qi-event-card>
+        </template>
+        
+      </div>
 
-   </core-scroll-header-panel>
+     </core-scroll-header-panel>
+   </div>
+   <div>Chase Event Page</div>
+  <div>Two</div>
+  <div>Three</div>
+   </core-pages> 
    </template>
 
    <script>
+   
 	Polymer('qi-event-panel',{
-		
-	    });
+		ready: function(e){
+      this.$.first.onclick = function(e) {
+        if(e.target.$.titleBlock.innerHTML === "JP Morgan Healthcare") {
+         this.selected = 1;
+        }
+      };
+    }
+	});
 
    </script>
 

@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="qi-event-card.css" >
 	
 	<div id="card">
-		<div  >
+		<div>
 			<div id="titleBlock" on-click="{{toggleAction}}">{{event.title}}</div>
 			<div id="summaryBlock" on-click="{{toggleAction}}">{{event.startTime}} at {{event.location}}</div>
 			<div>
@@ -97,8 +97,7 @@
 		ready: function(evt){
 		},
 	    toggleAction: function(evt){
-	     	this.$.collapse.toggle();
-	     	
+	     	this.$.collapse.toggle();	     	
 	     },
 	     toggleLocation: function(evt){
 	     	this.$.mapContainer.toggle();
