@@ -60,9 +60,7 @@
     <div class="content" layout vertical flex>
     <core-pages selected="{{selected}}">
       <div>
-        <template repeat="{{event in response}}">
-          <qi-event-card event="{{event}}" personas="{{personas}}"></qi-event-card>
-        </template>
+        <qi-event-summary event="{{event}}"></qi-event-summary>
       </div>
       <div>
         <template repeat="{{matches in matches}}">
@@ -117,9 +115,16 @@
    <script>
 
   Polymer('qi-event-detail',{
-    ready: function(){
-      this.$.scrollableTabs.selected = 0;
-    }
+        event: null,
+
+        ready: function(){
+          this.$.scrollableTabs.selected = 0;
+        },
+
+        responseChanged: function(oldResponse, newResponse){
+          this.event = newResponse[0];
+        }
+
     
       });
 

@@ -1,0 +1,61 @@
+
+<link rel="../../bower_components/core-ajax/core-ajax.html" type="import">
+
+<polymer-element  name="qi-ajax"  attributes="key configUrl mode">
+
+	<template>
+		<script src="{{configUrl}}"></script>
+
+	</template>
+	
+	<script>
+	Polymer('qi-ajax', {
+
+		/**
+		 * The key to the value stored in the config.json file.
+		 * @attribute key
+		 * @type string
+		 * @default ''
+		 */
+		key:'',
+
+
+		/**
+		 * The URL of the config.json file.  You can create your own custom file and place it elsewhere.
+		 * @attribute configUrl
+		 * @type string
+		 * @default 'config.json'
+		 */
+		configUrl:'./config.json',
+
+		config: null,
+
+
+		/**
+		 * Indicating the mode to be used when selecting URLs.  Either 'client' or 'server'.
+		 */
+		mode:'client',
+
+
+		ready:function(){
+			this.config = (this.mode == 'client')? this.client : this.server;
+			console.log("config: " + this.config);
+		},
+
+		configUrlChanged:function(oldUrl, newUrl){
+			console.log(newUrl)
+		},
+
+		configRespChanged:function(oldConfigResp, newConfigResp){
+			
+				
+			
+		}
+
+
+
+	});
+
+	</script>
+
+</polymer-element>

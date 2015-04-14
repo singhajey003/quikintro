@@ -11,7 +11,9 @@
 <link rel="import" href="../../bower_components/paper-slider/paper-slider.html" >
 <link rel="import" href="../../bower_components/core-icons/social-icons.html" >
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
-<link rel="import" href="../../bower_components/google-map/google-map.html">
+
+<link rel="import" href="qi-event-summary.html" >
+
 
 <polymer-element name="qi-event-card" attributes="event personas">
 
@@ -20,64 +22,20 @@
 	<link rel="stylesheet" href="qi-event-card.css" >
 	
 	<div id="card">
-		<div>
-			<div id="titleBlock" on-click="{{toggleAction}}">{{event.title}}</div>
-			<div id="summaryBlock" on-click="{{toggleAction}}">{{event.startTime}} at {{event.location}}</div>
+		<div on-click="{{toggleAction}}">
+			<div id="titleBlock" >{{event.title}}</div>
+			<div id="summaryBlock" >{{event.startTime}} at {{event.location}}</div>
+			<div >{{event.registrantCount}} Registrants</div>
 			<div>
 				<core-field><core-icon icon="social:person-outline"></core-icon><label>Invisible Mode: </label><paper-toggle-button checked="{{event.cloakingMode}}"></paper-toggle-button></core-field>
 			</div>
 		</div>
 		<core-collapse id="collapse" opened="false">
-			<core-field id="scheduleField" icon="schedule" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="schedule" id="core_icon1"></core-icon>
-		      <core-input id="schedule" flex>{{event.startTime}} - {{event.endTime}}</core-input>
-		    </core-field>
-
-		    
-
-		    <core-field id="notificationField" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="alarm" id="core_icon3"></core-icon>
-		      <core-input id="alarm" flex>{{event.notification}}</core-input>
-		    </core-field>
-
-		    <core-field id="hashTagField" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon-button icon="social:whatshot" id="core_icon4" on-click="{{twitter}}"></core-icon-button>
-		      <core-input id="twitter" value="{{event.hashtag}}"flex>{{event.hashtag}}</core-input>
-		    </core-field>
-
-
-		    <core-field id="personaField" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="perm-identity" id="core_icon5"></core-icon>
-		      <core-dropdown-menu>
-		        <core-dropdown class="dropdown">
-		        <core-selector selected="{{event.persona}}" valueattr="personaId" >
-		           <template repeat="{{persona in personas}}">
-			      	<core-item personaId="{{persona.id}}">{{persona.name}}</core-item>
-			       </template>
-			      	
-			     </core-selector>
-		      	</core-dropdown>
-		      </core-dropdown-menu>
-		    </core-field>
-
-		    <core-field id="locationField" on-click="{{toggleLocation}}" icon="room" theme="core-light-theme" center horizontal layout>
-		      <core-icon icon="room" id="core_icon2"></core-icon>
-		      <core-input id="location" flex>{{event.location}}</core-input>
-		    </core-field>
-
-		    <core-collapse id="mapContainer" width="200" height="200" >
-		      <google-map id="map" zoom="14" style="width:200px; height: 200px" libraries="visualization" fitToMarkers >
-			    <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
-				</google-map-marker>
-
-			  </google-map>
-			</core-collapse>
-		    
-
+			<qi-event-summary event="{{event}}"></qi-event-summary>	
+		
 		    <core-field>
 		      <core-icon icon="filter-list"></core-icon><label>Filter:</label><paper-slider pin min="0" max="10" value="{{filterCutoff}}"></paper-slider>
 		    </core-field>
-
 
 		    <core-field><core-icon icon="supervisor-account" id="core_icon6"></core-icon><label>Guests:</label></core-field>
 		    <div id="contactList">
@@ -97,7 +55,9 @@
 		ready: function(evt){
 		},
 	    toggleAction: function(evt){
-	     	this.$.collapse.toggle();	     	
+	     	//this.$.collapse.toggle();	  
+	     	this.fire('toggle-card');
+	     	console.log("Toggled");  	
 	     },
 	     toggleLocation: function(evt){
 	     	this.$.mapContainer.toggle();

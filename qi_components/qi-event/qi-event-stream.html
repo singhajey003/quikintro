@@ -1,0 +1,33 @@
+
+<link rel="import" href="qi-event-card">
+<polymer-element name="qi-event-stream" attributes="notifications events">
+
+	<template>
+		<div layout vertical>
+		<label>Notifications</label>
+		<div >
+			<template repeat="{{notice in notifications}}">
+				<qi-event-notice>{{notice.text}}</qi-event-notice>
+			</template>
+		</div>
+
+		<label>My Scheduled Events</label>
+		<div>
+			<template repeat="{{event in events }}">
+				<qi-event-card event="{{event}}"></qi-event-card>
+			</template>
+		</div>
+		</div>
+	</template>
+
+	<script>
+		Polymer('qi-event-stream',{
+
+		});
+
+
+	</script>
+
+
+
+</polymer-element>

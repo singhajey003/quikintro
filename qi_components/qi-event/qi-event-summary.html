@@ -1,0 +1,64 @@
+<link rel="import" href="../../bower_components/core-field/core-field.html" >
+<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
+<link rel="import" href="../../bower_components/core-input/core-input.html" >
+<link rel="import" href="../../bower_components/core-item/core-item.html" >
+<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
+<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
+<link rel="import" href="../../bower_components/google-map/google-map.html">
+
+<polymer-element name="qi-event-summary" attributes="event">
+
+		<template>
+			<core-field id="scheduleField" icon="schedule" theme="core-light-theme" center horizontal layout>
+		      <core-icon icon="schedule" id="core_icon1"></core-icon>
+		      <core-input id="schedule" flex>{{event.startTime}} - {{event.endTime}}</core-input>
+		    </core-field>
+
+		    
+		    <core-field id="notificationField" icon="room" theme="core-light-theme" center horizontal layout>
+		      <core-icon icon="alarm" id="core_icon3"></core-icon>
+		      <core-input id="alarm" flex>{{event.notification}}</core-input>
+		    </core-field>
+
+		    <core-field id="hashTagField" icon="room" theme="core-light-theme" center horizontal layout>
+		      <core-icon-button icon="social:whatshot" id="core_icon4" on-click="{{twitter}}"></core-icon-button>
+		      <core-input id="twitter" value="{{event.hashtag}}"flex>{{event.hashtag}}</core-input>
+		    </core-field>
+
+
+		    <core-field id="personaField" icon="room" theme="core-light-theme" center horizontal layout>
+		      <core-icon icon="perm-identity" id="core_icon5"></core-icon>
+		      <core-dropdown-menu>
+		        <core-dropdown class="dropdown">
+		        <core-selector selected="{{event.persona}}" valueattr="personaId" >
+		           <template repeat="{{persona in personas}}">
+			      	<core-item personaId="{{persona.id}}">{{persona.name}}</core-item>
+			       </template>
+			      	
+			     </core-selector>
+		      	</core-dropdown>
+		      </core-dropdown-menu>
+		    </core-field>
+
+		    <core-field id="locationField" on-click="{{toggleLocation}}" icon="room" theme="core-light-theme" center horizontal layout>
+		      <core-icon icon="room" id="core_icon2"></core-icon>
+		      <core-input id="location" flex>{{event.location}}</core-input>
+		    </core-field>
+
+		    <core-collapse id="mapContainer" width="200" height="200" >
+		      <google-map id="map" zoom="14" style="width:200px; height: 200px" libraries="visualization" fitToMarkers >
+			    <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
+				</google-map-marker>
+
+			  </google-map>
+
+</template>
+
+<script>
+	Polymer('qi-event-summary',{
+
+		});
+</script>
+
+</polymer-element>
