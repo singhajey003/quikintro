@@ -19,6 +19,7 @@
 <link rel="import" href="qi-persona/qi-persona-panel.html">
 <link rel="import" href="qi-msg/qi-msg-panel.html">
 <link rel="import" href="qi-onboard/qi-onboard-panel.html">
+<link rel="import" href="qi-event/qi-event-detail.html">
 
 <polymer-element name="quik-intro" >
 
@@ -36,6 +37,7 @@
             <core-item id="aroundme" icon="maps:my-location" pageId="aroundme">Around Me</core-item>
             <core-item id="messages" icon="communication:forum"  pageId="messages">Messages</core-item>
             <core-item id="contact" icon="face" pageId="contacts">Contacts</core-item>
+            <core-item id="eventDetail" icon="face" pageId="eventDetail">Event Detail (Test only)</core-item>
           </core-menu>
 
           <core-submenu selected="{{page}}" valueattr="pageId" icon="settings" label="Settings">
@@ -84,6 +86,9 @@
         </section>
         <section id="contactsPage" pageId="contacts">
           <qi-contact-panel></qi-contact-panel>
+        </section>
+        <section id="eventDetailsPage" pageId="eventDetail">
+          <qi-event-detail></qi-event-detail>
         </section>
       </core-pages>
       </div>

@@ -1,0 +1,20 @@
+[
+	{
+		"title": "Agenda",
+		"description": "Agenda:\n6:30pm Doors open 7:00pm Intros 7:10pm Babel by Sebastian McKenzie & James Kyle 7:40pm Routing in React by Michael Jackson and Ryan Florence 8:10pm 15 Seconds of Fame 8:45pm Meetup Over!",
+		"author":"Dimitri",
+    "time": "04/13/2015 4:55PM"
+	},
+  {
+    "title": "Details",
+    "description": "Door Prizes: • 3 tickets to Forward 3 Web Technology Summit \n • Soft Skills: The software developer's life manual by John Somnez • Mobile HTML5 by Estelle Weyl Babel \n In this talk Sebastian McKenzie (@sebmck, Creator of @babeljs) and James Kyle (Contributor to Babel) will give an intro to Babel, talk about the future of JavaScript tooling, and cover some of the advanced features and internals of Babel. Routing in React ReactRouter helps you build large applications entirely in React.js by letting you describe your component hierarchy in a declarative way. In this talk we'll discuss using ReactRouter in a traditional client-side web app, in a node.js server app, and even on React Native! Michael Jackson (@mjackson) and Ryan Florence (@ryanflorence) present.  Become a React.js expert in two days on April 16-17! Save $300 with this special link for SF JavaScript meetup members: https://reactjs-training.com/register/sf-2015-04?c=sfjs",
+    "author":"Dimitri",
+    "time": "04/11/2015 4:55PM"
+  },
+  {
+    "title": "Description",
+    "description": "Hang out and discuss JavaScript tips, tricks, hacks, and frameworks with some of the best scripters around. Show off cool stuff you've done and learn about what else is going on in the JS community. No pressure, no mandatory presentations. Come, hang out, and hear great people talk about cutting edge scripting.The SF JavaScript Meetup is committed to maintaining an inclusive, harassment-free atmosphere. Attendees, speakers and sponsors must all abide by our Code of Conduct. Please do not spam the group with job postings/contact info or bring collateral to the events.",
+    "author":"Venkat",
+    "time": "04/10/2015 4:55PM"
+  }
+]

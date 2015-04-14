@@ -1,0 +1,128 @@
+<link rel="import" href="../../bower_components/polymer/layout.html">
+<link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../../bower_components/core-input/core-input.html">
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+
+<link rel="import" href="qi-event-card.html">
+<link rel="import" href="qi-event-detail-matches.html">
+<link rel="import" href="qi-event-detail-notes.html">
+
+<polymer-element name="qi-event-detail">
+  <template>
+
+  <link rel="stylesheet" href="../quikintro.css">
+  <style>
+    .content {
+      padding: 30px;
+      background-color: #c1e5db;
+    }
+
+    paper-tabs{
+      width: 100%;
+    }
+
+    core-pages {
+      top: 20px;
+      left: 20px;
+      background: none;
+    }
+    paper-checkbox {
+      margin-top: 22px;
+      padding-right: 15px;
+    }
+    
+  </style>
+
+  
+  <core-ajax auto url="../data/events.json" response="{{response}}" handleAs="json"></core-ajax>
+  <core-ajax auto url="../data/personas.json" response="{{personas}}" handleAs="json"></core-ajax>
+  <core-ajax auto url="../data/matches.json" response="{{matches}}" handleAs="json"></core-ajax>
+  <core-ajax auto url="../data/notes.json" response="{{notes}}" handleAs="json"></core-ajax>
+  
+  <core-scroll-header-panel headermargin="128" id="eventDetailHeaderPanel" fixed>
+    
+    <core-toolbar>
+    <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" horizontal="" center="" layout="">
+    
+      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="" class="core-selected" active="">Summary</paper-tab>
+      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="">Matches</paper-tab>
+      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="">Tweets</paper-tab>
+      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="">Traits</paper-tab>
+      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="">Notes</paper-tab>      
+    </paper-tabs>
+    </core-toolbar>
+
+    <div class="content" layout vertical flex>
+    <core-pages selected="{{selected}}">
+      <div>
+        <template repeat="{{event in response}}">
+          <qi-event-card event="{{event}}" personas="{{personas}}"></qi-event-card>
+        </template>
+      </div>
+      <div>
+        <template repeat="{{matches in matches}}">
+          <qi-event-detail-matches matches="{{matches}}"></qi-event-detail-matches>
+        </template>        
+      </div>
+      <div>
+        <iframe border=0 frameborder=0 height=430 width=550 src="http://twitframe.com/show?url=https://twitter.com/Tech_in_Motion/status/474616763976794112"></iframe>
+        <iframe border=0 frameborder=0 height=250 width=550 src="http://twitframe.com/show?url=https://twitter.com/LauraHelenWinn/status/141648765940539392"></iframe>
+        <iframe border=0 frameborder=0 height=250 width=550 src="http://twitframe.com/show?url=https://twitter.com/causes/status/220894908985257984"></iframe>
+        <iframe border=0 frameborder=0 height=250 width=550 src="http://twitframe.com/show?url=https://twitter.com/ActiveRain/status/587691903988137985"></iframe>
+        
+      </div>
+      <div>
+        <core-label horizontal layout>
+          <paper-checkbox for disabled checked></paper-checkbox>
+          <div vertical layout>
+            <h4>groovy - 64%</h4>
+          </div>
+        </core-label>
+        <core-label horizontal layout>
+          <paper-checkbox for disabled checked></paper-checkbox>
+          <div vertical layout>
+            <h4>grails - 34%</h4>
+          </div>
+        </core-label>
+        <core-label horizontal layout>
+          <paper-checkbox for disabled checked></paper-checkbox>
+          <div vertical layout>
+            <h4>java - 12%</h4>
+          </div>
+        </core-label>
+        <core-label horizontal layout>
+          <paper-checkbox for disabled checked></paper-checkbox>
+          <div vertical layout>
+            <h4>research - 62%</h4>
+          </div>
+        </core-label>
+      </div>
+      <div>
+        <template repeat="{{notes in notes}}">
+          <qi-event-detail-notes notes="{{notes}}"></qi-event-detail-notes>
+        </template> 
+      </div>
+    </core-pages>
+    </div>
+
+    
+
+   </template>
+
+   <script>
+
+  Polymer('qi-event-detail',{
+    ready: function(){
+      this.$.scrollableTabs.selected = 0;
+    }
+    
+      });
+
+   </script>
+
+</polymer-element>
