@@ -1,0 +1,16 @@
+[
+	{
+		"type":"invitation_acceptance",
+		"text":"Invitation Accepted \n by Manuel Curtis"
+	},
+	{
+		"type":"interest",
+		"text":"There are 2 new events that might interest you."
+	},
+
+	{
+		"type":"rsvp",
+		"text":"CS is in 5 days"
+	}
+
+]

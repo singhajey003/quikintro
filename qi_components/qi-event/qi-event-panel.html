@@ -6,6 +6,8 @@
 <link rel="import" href="../../bower_components/core-input/core-input.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 
+<link rel="import" href="../qi-search/qi-search.html">
+
 <link rel="import" href="qi-event-card.html">
 
 <polymer-element name="qi-event-panel">
@@ -27,8 +29,7 @@
 	<core-scroll-header-panel headermargin="128" id="eventHeaderPanel" fixed>
     <core-toolbar>
       <div flex>Events</div>
-      <input id="searchText" type="search" placeholder="Search..." />
-      <core-icon-button icon="search"></core-icon-button>
+      <qi-search></qi-search>
     </core-toolbar>
     <div class="content" layout vertical flex>
     
@@ -43,6 +44,17 @@
 
    <script>
 	Polymer('qi-event-panel',{
+
+      created:function(){
+        var cards = document.querySelectorAll('qi-event-card');
+        for(var i=0; i < cards.length; i++){
+          console.log("added");
+          cards[i].addEventListener('toggle-card', function(e){
+            console.log("triggered");
+          });
+        }
+
+      }
 		
 	    });
 

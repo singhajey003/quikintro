@@ -1,0 +1,38 @@
+<link type="import" href="bower_components/core-icon/core-icon.html">
+
+<polymer-element name="qi-event-notice" attributes="notice">
+
+	<template>
+
+		<div>
+			<template if="{{notice.type == 'invitation_acceptance'">
+				<img src="{{notice.avatar}}" class="avatar" align="left">
+			</template>
+			<template if="{{notice.type == 'interest'}}">
+				<core-icon icon="event"></core-icon>
+			</template>
+
+			<template if="{{notice.type == 'rsvp'}}">
+				<core-icon icon="language"></core-icon>
+			</template>
+
+			<div>
+				<content></content>
+			</div>
+
+		</div>
+
+
+	</template>
+
+
+
+	<script>
+	Polymer('qi-event-notice',{
+
+	});
+
+	</script>
+
+
+</polymer-element>

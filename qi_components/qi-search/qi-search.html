@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/core-field/core-field.html">
+
+<polymer-element name="qi-search" attributes="search placeholder">
+
+<template>
+	<link rel="style" href="qi-search.css">
+
+	<core-field center horizontal layout>
+		<input id="searchText" type="search" placeholder="{{placeholder}}" value="{{searchText}}" flex/>
+	    <core-icon-button icon="search" on-click="{{handleSearch}}"></core-icon-button>
+    </core-field>
+
+</template>
+
+<script>
+	Polymer('qi-search',{
+
+		searchText:'',
+
+		searchTextChanged: function(oldValue, newValue){
+
+		},
+
+		handleSearch: function(){
+
+		}
+		
+	});
+
+</script>
+
+</polymer-element>
