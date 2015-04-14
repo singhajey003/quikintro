@@ -1,0 +1,103 @@
+<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
+<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
+<link rel="import" href="../../bower_components/core-field/core-field.html" >
+<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
+<link rel="import" href="../../bower_components/core-input/core-input.html" >
+<link rel="import" href="../../bower_components/core-item/core-item.html" >
+<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
+<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
+<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
+<link rel="import" href="../../bower_components/paper-slider/paper-slider.html" >
+<link rel="import" href="../../bower_components/core-icons/social-icons.html" >
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
+<link rel="import" href="../../bower_components/google-map/google-map.html">
+
+<polymer-element name="qi-event-detail-matches" attributes="matches">
+
+	
+	<template>
+	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" >
+	<style>
+	  #matchBlock {
+	  	margin: 10px 10px 0 10px;
+	  }
+	  #matchPercentage {
+	  	font-size: 24px;
+	  }
+	  #distanceAway {
+	  	float: right;
+	  	color: rgb(231, 221, 221);
+	  }
+	  #invite {
+	  	margin-top: 10px;
+		padding-top: 5px;
+	    border-top: 1px solid rgb(231, 221, 221);
+	  }
+	  .cardWhite {
+	  	margin-right: 25px;
+	  }
+	</style>
+	
+	<div id="card" class="cardWhite" flip="front">
+		<div id="front">
+		<div >
+			<template if="{{matches.gravatar != null}}">
+				<img src="{{matches.gravatar}}" class="avatar" align="left">
+			</template>
+			<template if="{{matches.gravatar == null}}">
+				<core-icon icon="social:person"></core-icon>
+			</template>
+			
+			<div id="nameBlock" >{{matches.firstName}} {{matches.lastName}}</div>
+			<div id="titleBlock">{{matches.title}} {{matches.company}}</div>
+
+			<div id="matchBlock">
+			  <span id="matchPercentage">{{matches.match}}% match</span>
+			  <span id="distanceAway"> less than {{matches.distanceAway}} miles away</span>
+			</div>
+
+			<div id="invite">
+			INVITE  <core-icon icon="expand-more" style="float:right"></core-icon>
+			</div>
+
+			
+		</div>
+		
+		</div>
+
+	</div>
+
+	</template>
+
+	<script>
+	Polymer('qi-event-detail-matches',{
+		ready: function(evt){
+		},
+	    toggleAction: function(evt){
+	     	     	
+	     },
+	     toggleLocation: function(evt){
+	
+	     },
+
+	    fixMap: function(){
+				
+	     		
+	    },
+
+	     twitter: function(evt){
+	     	var url = "http://twitter.com/" + this.event.hashtag;
+	     	window.location = url;
+	     }
+
+	});
+
+	
+
+
+
+	</script>
+
+
+</polymer-element>

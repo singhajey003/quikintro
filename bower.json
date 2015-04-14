@@ -17,6 +17,8 @@
   "dependencies": {
     "core-component-page": "Polymer/core-component-page#^0.5",
     "polymer": "Polymer/polymer#~0.5.4",
-    "google-map": "GoogleWebComponents/google-map#^0.4.2"
+    "google-map": "GoogleWebComponents/google-map#^0.4.2",
+    "paper-tabs": "Polymer/paper-tabs#^0.5",
+    "paper-checkbox": "Polymer/paper-checkbox#^0.5"
   }
 }
