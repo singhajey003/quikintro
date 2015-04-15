@@ -12,6 +12,15 @@ The **data** directory contains data files like **contacts.json** which give you
 To run the application, simply type:
 **python -M SimpleHTTPServer**
 
+### for LESS to CSS conversion ####
+Needed only one time ( Requirement nodeJS installed on your machine)
+**npm install**
+**npm install grunt-cli -g**
+
+Everytime
+**grunt less**
+
+
 ### Useful Docs ###
 * ApiGee LinkedIn API: https://apigee.com/console/linkedin
 * LinkedIn Basic Profile Fields: https://developer.linkedin.com/docs/fields/basic-profile
