@@ -14,11 +14,13 @@ To run the application, simply type:
 
 ### for LESS to CSS conversion ####
 Needed only one time ( Requirement nodeJS installed on your machine)
-**npm install**
-**npm install grunt-cli -g**
+
+    npm install
+    npm install grunt-cli -g
 
 Everytime
-**grunt less**
+
+    grunt less
 
 
 ### Useful Docs ###

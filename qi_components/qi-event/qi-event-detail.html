@@ -7,6 +7,7 @@
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../bower_components/paper-progress/paper-progress.html">
 
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail-matches.html">
@@ -19,7 +20,6 @@
   <style>
     .content {
       padding: 30px;
-      background-color: #c1e5db;
     }
 
     paper-tabs{
@@ -36,6 +36,31 @@
       padding-right: 15px;
     }
     
+    paper-tabs::shadow #selectionBar {
+      background-color: transparent;
+    }
+    
+    paper-tabs{
+      height: 32px;
+    }
+    
+    core-toolbar::shadow .toolbar-tools {
+      height: 48px;
+    }
+    
+    paper-progress {
+      height: 14px;
+    }
+    
+    paper-progress.type1::shadow #activeProgress {
+      background-color: #2fd0ae;
+    }
+    
+    paper-progress.type2::shadow #activeProgress {
+      background-color: #F0B84C;
+    }
+    
+    
   </style>
 
   
@@ -47,7 +72,7 @@
   <core-scroll-header-panel headermargin="128" id="eventDetailHeaderPanel" fixed>
     
     <core-toolbar>
-    <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" horizontal="" center="" layout="">
+    <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" horizontal="" center="" layout="" noink="">
     
       <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="" class="core-selected" active="">Summary</paper-tab>
       <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="">Matches</paper-tab>
@@ -75,6 +100,16 @@
         
       </div>
       <div>
+        <div class="keyword">Groovy </div>
+        <paper-progress class="type1" value="64"></paper-progress> 64%
+        <div class="keyword">Grails</div>
+        <paper-progress value="34"></paper-progress> 34%
+        <div class="keyword">Java</div>
+        <paper-progress value="12" class="type2"></paper-progress> 12%
+        <div class="keyword">Research</div>
+        <paper-progress value="62" class="type2"></paper-progress> 62%
+        
+        <!--
         <core-label horizontal layout>
           <paper-checkbox for disabled checked></paper-checkbox>
           <div vertical layout>
@@ -98,7 +133,7 @@
           <div vertical layout>
             <h4>research - 62%</h4>
           </div>
-        </core-label>
+        </core-label> -->
       </div>
       <div>
         <template repeat="{{notes in notes}}">

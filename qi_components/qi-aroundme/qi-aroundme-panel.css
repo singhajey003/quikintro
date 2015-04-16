@@ -7,3 +7,11 @@ button{
 core-icon{
 	color: #505050;
 }
+
+.maps-panel {
+ margin-bottom: 10px;   
+}
+
+core-toolbar {
+ background-color: #7ca3b2;
+}

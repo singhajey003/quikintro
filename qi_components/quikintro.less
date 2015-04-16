@@ -4,7 +4,8 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  font-family: 'RobotoDraft';
+  font-family: 'FirasansBook' 'FirasansUltralight' 'RobotoDraft';
+  color: @black01;
 }
 
 core_scaffold {
@@ -21,14 +22,27 @@ core-scaffold core-toolbar {
   background-color: #F38630;
 }
 
-core-scaffold /deep/ core-toolbar {
+
+core-scaffold /deep/ #headerPanel core-toolbar {
   color: rgb(255, 255, 255);
   background-color: @header;
 }
 
+core-scaffold /deep/ core-toolbar {
+  color: rgb(255, 255, 255);
+  background-color: @papertabs;
+}
+
+
+core-scaffold /deep/ #eventDetailHeaderPanel core-toolbar {
+  color: rgb(255, 255, 255);
+  background-color: @papertabs;
+  height: 48px;
+}
+
 core-menu {
   font-size: 16px;
-  font-family: 'RobotoDraft';
+  font-family:  'FirasansUltralight' 'RobotoDraft';
   color: #505050;
 }
 
@@ -69,8 +83,8 @@ core-pages {
   bottom: 0;
   right: 0;
   position: absolute;
-  background-color: #c1e5db;
-  background-image: url(../images/radar.png);
+  background-color: @background;
+  background-image: @backgroundImage;
   background-repeat: no-repeat;
   background-position: -500px -25px;
 }
@@ -100,8 +114,8 @@ core-scroll-header-panel {
 
 .content {
   padding: 20px 30px;
-  background-color: #c1e5db;
-  background-image: url(../images/radar.png);
+  background-color: @background;
+  background-image: @backgroundImage;
   background-repeat: no-repeat;
   background-position: -500px -100px;
   overflow: auto;
@@ -115,7 +129,7 @@ input#searchText[is=core-input] {
 }
 
 .search-panel {
-	background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.7);
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 20px;

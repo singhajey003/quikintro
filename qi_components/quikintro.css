@@ -3,7 +3,8 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  font-family: 'RobotoDraft';
+  font-family: 'FirasansBook' 'FirasansUltralight' 'RobotoDraft';
+  color: #2f4147;
 }
 core_scaffold {
   position: absolute;
@@ -16,13 +17,22 @@ core-scaffold core-toolbar {
   color: #ffffff;
   background-color: #F38630;
 }
-core-scaffold /deep/ core-toolbar {
+core-scaffold /deep/ #headerPanel core-toolbar {
   color: #ffffff;
   background-color: #17a8cc;
 }
+core-scaffold /deep/ core-toolbar {
+  color: #ffffff;
+  background-color: #7ca3b2;
+}
+core-scaffold /deep/ #eventDetailHeaderPanel core-toolbar {
+  color: #ffffff;
+  background-color: #7ca3b2;
+  height: 48px;
+}
 core-menu {
   font-size: 16px;
-  font-family: 'RobotoDraft';
+  font-family: 'FirasansUltralight' 'RobotoDraft';
   color: #505050;
 }
 #core_menu_button {
@@ -58,8 +68,8 @@ core-pages {
   bottom: 0;
   right: 0;
   position: absolute;
-  background-color: #c1e5db;
-  background-image: url(../images/radar.png);
+  background-color: #ebebeb;
+  background-image: none;
   background-repeat: no-repeat;
   background-position: -500px -25px;
 }
@@ -82,8 +92,8 @@ core-scroll-header-panel {
 }
 .content {
   padding: 20px 30px;
-  background-color: #c1e5db;
-  background-image: url(../images/radar.png);
+  background-color: #ebebeb;
+  background-image: none;
   background-repeat: no-repeat;
   background-position: -500px -100px;
   overflow: auto;
