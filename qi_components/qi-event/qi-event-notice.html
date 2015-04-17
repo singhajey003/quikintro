@@ -1,10 +1,15 @@
-<link type="import" href="bower_components/core-icon/core-icon.html">
+<link type="import" href="../../bower_components/core-icon/core-icon.html">
 
 <polymer-element name="qi-event-notice" attributes="notice">
 
 	<template>
 
-		<div>
+		<link rel="stylesheet" href="qi-event-card.css" >
+		<style>
+			core-icon{width: 32px; height: 32px; color: #505050;}
+		</style>
+
+		<div class="card" horizontal layout>
 			<template if="{{notice.type == 'invitation_acceptance'">
 				<img src="{{notice.avatar}}" class="avatar" align="left">
 			</template>
@@ -16,7 +21,7 @@
 				<core-icon icon="language"></core-icon>
 			</template>
 
-			<div>
+			<div class="noticeContent">
 				<content></content>
 			</div>
 

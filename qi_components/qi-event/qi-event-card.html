@@ -15,37 +15,40 @@
 <link rel="import" href="qi-event-summary.html" >
 
 
-<polymer-element name="qi-event-card" attributes="event personas">
+<polymer-element name="qi-event-card" attributes="event">
 
 	
 	<template>
 	<link rel="stylesheet" href="qi-event-card.css" >
+	<style>
+	#eventNewMatches {margin-right: 5px; min-width: 80px}
+	#eventNewMatches div{ text-align: center}
+	#event1 {font-size: 25pt; text-align: center}
+
+	#eventStats{padding-top: 25px;}
+	</style>
 	
 	<div id="card">
 		<div on-click="{{toggleAction}}">
 			<div id="titleBlock" >{{event.title}}</div>
-			<div id="summaryBlock" >{{event.startTime}} at {{event.location}}</div>
-			<div >{{event.registrantCount}} Registrants</div>
-			<div>
-				<core-field><core-icon icon="social:person-outline"></core-icon><label>Invisible Mode: </label><paper-toggle-button checked="{{event.cloakingMode}}"></paper-toggle-button></core-field>
+			<div class="cardSubHead" >{{event.startTime}} at {{event.location}}</div>
+			<div class="cardSubHead">{{event.registrantCount}} Registrants</div>
+			
+			<div horizontal layout flex>
+				<div id="eventNewMatches">
+				  <div id="event1">{{event.newMatches}}</div>
+				  <div>New</div>
+				  <div>Matches</div>
+				</div>
+
+				<div id="eventStats">
+					<div class="eventItem">{{event.numExistingContacts}} Existing Contacts</div>
+					<div class="eventItem">{{event.numMeetings}} Meetings</div>
+					<div class="eventItem">{{event.numOnsiteMeetings}} On-site Events</div>
+				</div>
 			</div>
 		</div>
-		<core-collapse id="collapse" opened="false">
-			<qi-event-summary event="{{event}}"></qi-event-summary>	
 		
-		    <core-field>
-		      <core-icon icon="filter-list"></core-icon><label>Filter:</label><paper-slider pin min="0" max="10" value="{{filterCutoff}}"></paper-slider>
-		    </core-field>
-
-		    <core-field><core-icon icon="supervisor-account" id="core_icon6"></core-icon><label>Guests:</label></core-field>
-		    <div id="contactList">
-		    	<template repeat="{{contact,i  in event.guests}}">
-		    		<qi-contact-card id="{{i}}" filter="{{filterCutoff}}" contact="{{contact}}"></qi-contact-card>
-		    	</template>
-                
-		    </div>
-	    
-		</core-collapse>
 	</div>
 
 	</template>
@@ -59,51 +62,9 @@
 	     	this.fire('toggle-card');
 	     	console.log("Toggled");  	
 	     },
-	     toggleLocation: function(evt){
-	     	this.$.mapContainer.toggle();
+	     
 
-	        if(this.$.mapContainer.opened == true){
-	        	//setTimeout(this.fixMap(), 100);
-	        	this.fixMap();
-	     	}
-	     },
-
-	    fixMap: function(){
-				var map = this.$.map; // google map web component
-                var gmap = map.map;   // google.maps.Map instance
-                var lat = gmap.getCenter().lat();
-                var lng = gmap.getCenter().lng();
-                var locationLat = parseFloat(this.event.coordinates.latitude);
-                var locationLong = parseFloat(this.event.coordinates.longitude);
-
-                var bnds = gmap.getBounds();
-                console.log("bnds: " + bnds);
-
-                // at this point, everything is ok
-                // before resize latitude 45.63 longitude 16.159999999999968
-                console.log('before resize', 'latitude', lat, 'longitude', lng);
-                
-
-
-                // fix size for core-animated-pages
-                //map.resize();
-
-                // at this point latitude and longitude ar wrong
-                // after resize latitude 19.16672805677583 longitude 42.878749999999954
-                console.log('after resize', 'latitude', gmap.getCenter().lat(), 'longitude', gmap.getCenter().lng());
-
-                // fix center because of resize
-                console.log(this.event.coordinates);
-                //gmap.setCenter({"latitude":parseFloat(this.event.coordinates.latitude), "longitude":parseFloat(this.event.coordinates.longitude)});
-                //gmap.setCenter(new google.maps.LatLng(locationLat, locationLong));
-
-                setTimeout(function(){
-                  window.dispatchEvent(new Event('resize'));
-                  map.latitude = locationLat;
-                  map.longitude = locationLong;
-                },100);
-	     		
-	    },
+	    
 
 	     twitter: function(evt){
 	     	var url = "http://twitter.com/" + this.event.hashtag;

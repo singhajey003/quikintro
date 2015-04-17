@@ -20,6 +20,8 @@
 <link rel="import" href="qi-msg/qi-msg-panel.html">
 <link rel="import" href="qi-onboard/qi-onboard-panel.html">
 <link rel="import" href="qi-event/qi-event-detail.html">
+<link rel="import" href="qi-splash/qi-splash.html">
+<link rel="import" href="qi-event/qi-event-stream.html">
 
 <polymer-element name="quik-intro" >
 
@@ -54,7 +56,11 @@
       
       <div class="content">
       <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit layout vertical >
-        <section id="login">
+        <section id="login" selected>
+
+            <qi-splash></qi-splash>
+
+
             <paper-input label="User ID:" floatingLabel="true"></paper-input>
             <paper-input-decorator floatingLabel label="Password:">
               <input type="password" name="password" >
@@ -76,7 +82,7 @@
           <qi-persona-panel></qi-persona-panel>
         </section>
         <section id="eventsPage" pageId="events" >
-          <qi-event-panel></qi-event-panel>
+          <qi-event-stream></qi-event-stream>
         </section>
         <section id="aroundmePage" pageId="aroundme" >
           <qi-aroundme-panel></qi-aroundme-panel>
