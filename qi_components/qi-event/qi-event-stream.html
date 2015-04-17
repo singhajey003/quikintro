@@ -34,7 +34,7 @@
 		</section>
 
 		<section>
-			<qi-event-detail></qi-event-detail>
+			<qi-event-detail id="detail"></qi-event-detail>
 		</section>
 		</div>
 		</core-pages>
@@ -43,11 +43,12 @@
 	<script>
 		Polymer('qi-event-stream',{
 			selected:0,
-			cardClickHandler: function(){
-				var detail = document.querySelector("qi-event-detail");
-				var event = this.events[detail.id]
-
+			cardClickHandler: function(e){
+				var event = e.srcElement.event;
+				var detail = this.$.detail;
+				detail.event = event;
 				console.log(event);
+				selected = 1;
 			}
 
 		});
