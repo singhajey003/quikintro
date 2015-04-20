@@ -7,31 +7,33 @@
 
 	<template>
 
-		<style>
-			
+		<style>	
 			.container{padding: 20px;}
 		</style>
-		<div class="container">
+
 		<core-ajax auto url="../data/notices.json" response="{{notifications}}" handleAs="json"></core-ajax>
 		<core-ajax auto url="../data/events.json" response="{{events}}" handleAs="json"></core-ajax>
-		<core-pages selected="{{selected}}">
-		  <section>
-		<div layout vertical flex>
-		<label>Notifications</label>
-		<div>
-			<template repeat="{{notice in notifications}}">
-				<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
-			</template>
-		</div>
 
-		<label>My Scheduled Events</label>
-		<div>
-			<template repeat="{{event, i in events }}">
-				<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
-			</template>
-		</div>
-		</div>
-		</section>
+		<div class="container">
+
+		<core-pages selected="{{selectedEventPage}}">
+		  <section>
+			<div layout vertical flex>
+			<label>Notifications</label>
+			<div>
+				<template repeat="{{notice in notifications}}">
+					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
+				</template>
+			</div>
+
+			<label>My Scheduled Events</label>
+			<div>
+				<template repeat="{{event, i in events }}">
+					<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
+				</template>
+			</div>
+			</div>
+		 </section>
 
 		<section>
 			<qi-event-detail id="detail"></qi-event-detail>
@@ -42,13 +44,13 @@
 
 	<script>
 		Polymer('qi-event-stream',{
-			selected:0,
+			selectedEventPage:0,
 			cardClickHandler: function(e){
 				var event = e.srcElement.event;
 				var detail = this.$.detail;
 				detail.event = event;
 				console.log(event);
-				selected = 1;
+				this.selectedEventPage = 1;
 			}
 
 		});

@@ -22,9 +22,7 @@
   <style>
     .content {
       padding: 30px;
-
       background-color: #c1e5db;
-
     }
 
     paper-tabs{
@@ -69,8 +67,6 @@
 
   </style>
 
-  
-  
   <core-ajax auto url="../data/personas.json" response="{{personas}}" handleAs="json"></core-ajax>
   <core-ajax auto url="../data/matches.json" response="{{matches}}" handleAs="json"></core-ajax>
   <core-ajax auto url="../data/notes.json" response="{{notes}}" handleAs="json"></core-ajax>
@@ -81,15 +77,15 @@
 
     <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" >
     
-      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="" class="core-selected" active="">Summary</paper-tab>
-      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="">Matches</paper-tab>
-      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="">Tweets</paper-tab>
-      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="">Traits</paper-tab>
-      <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="">Notes</paper-tab>      
+      <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
+      <paper-tab role="tab" >Matches</paper-tab>
+      <paper-tab role="tab" >Tweets</paper-tab>
+      <paper-tab role="tab" >Traits</paper-tab>
+      <paper-tab role="tab" >Notes</paper-tab>      
     </paper-tabs>
     </core-toolbar>
 
-    <div class="content" layout vertical flex>
+    <div class="content" flex>
     <core-pages selected="{{selected}}">
       <div>
         <qi-event-summary event="{{event}}"></qi-event-summary>
@@ -141,12 +137,12 @@
             <h4>research - 62%</h4>
           </div>
 
-        </core-label> -->
+        </core-label>
 
       </div>
       <div>
-        <template repeat="{{notes in notes}}">
-          <qi-event-detail-notes notes="{{notes}}"></qi-event-detail-notes>
+        <template repeat="{{note in notes}}">
+          <qi-event-detail-notes notes="{{note}}"></qi-event-detail-notes>
         </template> 
       </div>
     </core-pages>
@@ -160,6 +156,8 @@
 
   Polymer('qi-event-detail',{
         event: null,
+
+        selected: 0,
 
         ready: function(){
           this.$.scrollableTabs.selected = 0;
