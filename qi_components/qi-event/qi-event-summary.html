@@ -10,6 +10,9 @@
 <polymer-element name="qi-event-summary" attributes="event">
 
 		<template>
+		    <core-field>
+		    	<label>{{event.title}}</label>
+		    </core-field>
 			<core-field id="scheduleField" icon="schedule" theme="core-light-theme" center horizontal layout>
 		      <core-icon icon="schedule" id="core_icon1"></core-icon>
 		      <core-input id="schedule" flex>{{event.startTime}} - {{event.endTime}}</core-input>
@@ -46,14 +49,14 @@
 		      <core-input id="location" flex>{{event.location}}</core-input>
 		    </core-field>
 
-<!--
+
 		    
 		      <google-map id="map" zoom="14" style="width:200px; height: 200px" libraries="visualization" fitToMarkers >
 			    <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
 				</google-map-marker>
 
 			  </google-map>
--->			 
+		 
 
 </template>
 

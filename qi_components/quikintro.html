@@ -39,7 +39,6 @@
             <core-item id="aroundme" icon="maps:my-location" pageId="aroundme">Around Me</core-item>
             <core-item id="messages" icon="communication:forum"  pageId="messages">Messages</core-item>
             <core-item id="contact" icon="face" pageId="contacts">Contacts</core-item>
-            <core-item id="eventDetail" icon="face" pageId="eventDetail">Event Detail (Test only)</core-item>
           </core-menu>
 
           <core-submenu selected="{{page}}" valueattr="pageId" icon="settings" label="Settings">
@@ -55,13 +54,13 @@
       <div id="div" tool>QuikIntro</div>
       
       <div class="content">
-      <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit layout vertical >
+      <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit >
         <section id="login" selected>
 
             <qi-splash></qi-splash>
 
-            <paper-input label="User ID:" floatingLabel="true"></paper-input>
-            <paper-input-decorator floatingLabel label="Password:">
+            <paper-input label="User ID:" floatingLabel="true"></paper-input><br/>
+            <paper-input-decorator floatingLabel label="Password:" >
               <input type="password" name="password" >
             </paper-input-decorator>
 
@@ -92,9 +91,6 @@
         <section id="contactsPage" pageId="contacts">
           <qi-contact-panel></qi-contact-panel>
         </section>
-        <section id="eventDetailsPage" pageId="eventDetail">
-          <qi-event-detail></qi-event-detail>
-        </section>
       </core-pages>
       </div>
     </core-scaffold>
@@ -103,6 +99,7 @@
   <script>
 
     Polymer('quik-intro',{
+      page: 0,
       pageChanged: function(oldValue, newValue){
         this.$.coreScaffold.closeDrawer();
       },

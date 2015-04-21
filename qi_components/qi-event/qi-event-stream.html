@@ -1,4 +1,8 @@
 
+<link rel="import" href="../../bower_components/core-pages/core-pages.html">
+<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail.html">
 <link rel="import" href="qi-event-notice.html">
@@ -8,15 +12,18 @@
 	<template>
 
 		<style>	
-			.container{padding: 20px;}
+			.container{
+				padding: 20px;
+				height: 100%;
+			}
 		</style>
 
 		<core-ajax auto url="../data/notices.json" response="{{notifications}}" handleAs="json"></core-ajax>
 		<core-ajax auto url="../data/events.json" response="{{events}}" handleAs="json"></core-ajax>
 
-		<div class="container">
+		<div class="container" layout vertical flex>
 
-		<core-pages selected="{{selectedEventPage}}">
+		<core-pages id="pages" selected="{{selectedEventPage}}" layout vertical flex>
 		  <section>
 			<div layout vertical flex>
 			<label>Notifications</label>
@@ -51,6 +58,14 @@
 				detail.event = event;
 				console.log(event);
 				this.selectedEventPage = 1;
+			},
+
+			ready:function(){
+				var pages = this.$.pages;
+				pages.addEventListener('back-event', function(e){
+					e.currentTarget.selected = 0;
+					
+				});
 			}
 
 		});

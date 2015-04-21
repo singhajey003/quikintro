@@ -5,6 +5,8 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-input/core-input.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
 
@@ -23,6 +25,7 @@
     .content {
       padding: 30px;
       background-color: #c1e5db;
+      height: 100%;
     }
 
     paper-tabs{
@@ -73,16 +76,20 @@
   
   <core-scroll-header-panel headermargin="128" id="eventDetailHeaderPanel" fixed>
     
-    <core-toolbar>
 
-    <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" >
-    
-      <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
-      <paper-tab role="tab" >Matches</paper-tab>
-      <paper-tab role="tab" >Tweets</paper-tab>
-      <paper-tab role="tab" >Traits</paper-tab>
-      <paper-tab role="tab" >Notes</paper-tab>      
-    </paper-tabs>
+    <core-toolbar>
+      <core-icon-button icon="chevron-left" on-click="{{backHandler}}"></core-icon-button>
+      <core-label>Events</core-label>
+    </core-toolbar>
+
+    <core-toolbar>
+      <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" >
+        <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
+        <paper-tab role="tab" >Matches</paper-tab>
+        <paper-tab role="tab" >Tweets</paper-tab>
+        <paper-tab role="tab" >Traits</paper-tab>
+        <paper-tab role="tab" >Notes</paper-tab>      
+      </paper-tabs>
     </core-toolbar>
 
     <div class="content" flex>
@@ -161,7 +168,14 @@
 
         ready: function(){
           this.$.scrollableTabs.selected = 0;
+        },
+
+        backHandler: function(){
+          this.fire('back-event');
+          console.log("fired back-event");
         }
+
+
 
        
     
