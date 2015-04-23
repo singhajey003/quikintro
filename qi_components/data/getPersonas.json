@@ -1,0 +1,73 @@
+[{
+    "name": "Developer Persona",
+    "blurb": "I'm a full-stack developer with experience in both web, webmobile, desktop, and cloud application development.",
+    "aboutMe": {
+        "skills": ["polymer", "groovy", "java", "html5", "javafx", "grails", "javascript"],
+        "interests": [],
+        "interactions": ["I'm Open"]
+    },
+    "lookingFor": {
+        "skills": ["polymer", "groovy", "java", "html5", "javafx", "grails", "javascript"],
+        "interests": [],
+        "interactions": ["I'm Open"]
+    },
+    "notLookingFor": {
+        "skills": [],
+        "interests": [],
+        "interactions": ["Sales", "Recruiters"]
+    }
+}, {
+    "name": "Cancer Biologist",
+    "blurb": "I'm a toolbuilder, and entrepreneur with an abiding interest in using technology to solve problems in cancer biology and drug discovery",
+    "aboutMe": {
+        "skills": ["ArrayExpress", "gene expression analysis", "OMIM", "pathway analysis", "PubMed", "TCGA"],
+        "interests": ["integrative biology", "systems biology", "cancer biology", "oncology"],
+        "interactions": ["I'm Open"]
+    },
+    "lookingFor": {
+        "skills": ["cancer biology", "oncology"],
+        "interests": [],
+        "interactions": ["I'm Open"]
+    },
+    "notLookingFor": {
+        "skills": [],
+        "interests": [],
+        "interactions": ["Sales", "Recruiters"]
+    }
+}, {
+    "name": "Default LinkedIn Persona",
+    "blurb": "I'm a toolbuilder, and entrepreneur with an abiding interest in using technology to solve problems in cancer biology and drug discovery",
+    "aboutMe": {
+        "skills": ["polymer", "css", "groovy", "java", "html5", "bioinformatics", "grails", "javascript"],
+        "interests": ["bioinformatics", "cancer biology"],
+        "interactions": []
+    },
+    "lookingFor": {
+        "skills": ["html5", "java, groovy, grails, bioinformatics", "machine learning", "javascript"],
+        "interests": ["bioinformatics", "cancer biology"],
+        "interactions": ["I'm Open"]
+    },
+    "notLookingFor": {
+        "skills": [],
+        "interests": [],
+        "interactions": ["Sales", "Recruiters"]
+    }
+}, {
+    "name": "Default Facebook Persona",
+    "blurb": null,
+    "aboutMe": {
+        "skills": [],
+        "interests": ["historical fiction", "movies", "science fiction", "mysteries", "reading", "programming"],
+        "interactions": ["I'm Open"]
+    },
+    "lookingFor": {
+        "skills": [],
+        "interests": ["historical fiction", "movies", "science fiction", "mysteries", "reading", "programming"],
+        "interactions": ["I'm Open"]
+    },
+    "notLookingFor": {
+        "skills": [],
+        "interests": [],
+        "interactions": []
+    }
+}]
