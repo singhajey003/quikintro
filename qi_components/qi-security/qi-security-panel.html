@@ -1,10 +1,13 @@
-<link rel="import" href="../../bower_components/paper-input-decorator/paper-input-decorator.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 
 
-<polymer-element name="qi-security">
+<polymer-element name="qi-security-panel">
   <template>
 
+<!--
   <style>
+
 	core-scroll-header-panel{
         width: 380px;
         height: 460px;
@@ -12,11 +15,17 @@
         top: 0px;
         position: relative;
         display: block;
-        visibility: visible;
       }
+      
   </style>
+
+  -->
   
-	<core-scroll-header-panel headermargin="128" condenses headerheight="192"  >
+	<core-scroll-header-panel condenses flex>
+
+    <core-toolbar><div>Security</div></core-toolbar>
+
+    <div >
         <fieldset>
           <legend>Change Password</legend>
             <paper-input-decorator floatingLabel label="New Password:">
@@ -37,12 +46,13 @@
            
 
         </fieldset>
+    </div>
 
      </core-scroll-header-panel>
 </template>
 
 <script>
-	Polymer('qi-security',{
+	Polymer('qi-security-panel',{
 		
 	    });
 

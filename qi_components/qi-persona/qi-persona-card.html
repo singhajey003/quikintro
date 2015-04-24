@@ -62,7 +62,7 @@
 		personaChanged: function(oldPersona, newPersona){
 
 			if(newPersona != null){
-				console.log("persona changed");
+				
 				this.$.amSkills.value = newPersona.aboutMe.skills.join(", ");
 				this.$.amInterests.value = newPersona.aboutMe.interests.join(", ");
 				this.$.amInteractions.value = newPersona.aboutMe.interactions.join(", ");

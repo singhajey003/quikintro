@@ -74,7 +74,7 @@
   <core-ajax auto url="../data/matches.json" response="{{matches}}" handleAs="json"></core-ajax>
   <core-ajax auto url="../data/notes.json" response="{{notes}}" handleAs="json"></core-ajax>
   
-  <core-scroll-header-panel headermargin="128" id="eventDetailHeaderPanel" fixed>
+  <core-scroll-header-panel id="eventDetailHeaderPanel" fixed>
     
 
     <core-toolbar>
@@ -86,6 +86,7 @@
       <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" >
         <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
         <paper-tab role="tab" >Matches</paper-tab>
+        <paper-tab role="tab" >Contacts</paper-tab>
         <paper-tab role="tab" >Tweets</paper-tab>
         <paper-tab role="tab" >Traits</paper-tab>
         <paper-tab role="tab" >Notes</paper-tab>      
@@ -101,6 +102,9 @@
         <template repeat="{{matches in matches}}">
           <qi-event-detail-matches matches="{{matches}}"></qi-event-detail-matches>
         </template>        
+      </div>
+      <div>
+      <!-- Event Contacts Go Here -->
       </div>
       <div>
         <iframe border=0 frameborder=0 height=430 width=550 src="http://twitframe.com/show?url=https://twitter.com/Tech_in_Motion/status/474616763976794112"></iframe>

@@ -22,6 +22,7 @@
 <link rel="import" href="qi-event/qi-event-detail.html">
 <link rel="import" href="qi-splash/qi-splash.html">
 <link rel="import" href="qi-event/qi-event-stream.html">
+<link rel="import" href="qi-security/qi-security-panel.html">
 
 <polymer-element name="quik-intro" >
 
@@ -42,7 +43,7 @@
           </core-menu>
 
           <core-submenu selected="{{page}}" valueattr="pageId" icon="settings" label="Settings">
-              <core-item id="onboardItem" pageId="security"> Security</core-item>
+              <core-item id="securityItem" pageId="security"> Security</core-item>
               <core-item id="onboardItem" pageId="onboard"> Accounts</core-item>
               <core-item id="profileItem" pageId="profile"> Profile</core-item>
               <core-item id="personaItem" pageId="personas">Personas</core-item>
@@ -57,12 +58,9 @@
       <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit >
         <section id="login" selected>
 
-            <qi-splash></qi-splash>
+            <qi-splash id="splashPanel"></qi-splash>
 
-            <paper-input label="User ID:" floatingLabel="true"></paper-input><br/>
-            <paper-input-decorator floatingLabel label="Password:" >
-              <input type="password" name="password" >
-            </paper-input-decorator>
+
 
         </section>
 
@@ -103,6 +101,17 @@
       pageChanged: function(oldValue, newValue){
         this.$.coreScaffold.closeDrawer();
       },
+
+      ready: function(){
+        this.$.pages.addEventListener("login", function(e){
+
+          //TODO add login code here.
+
+          // after login is complete, segue to the events page
+          e.currentTarget.selected = 5;
+        });
+      },
+
       handleToggle: function(){
         this.$.coreScaffold.openDrawer();
       }

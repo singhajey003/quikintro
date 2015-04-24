@@ -2,14 +2,31 @@
 
 
 <template>
-<div>
+<style>
+.panel{ 
+	width: 300px; 
+	padding-left: 10px;
+	padding-right: 10px;
+}
+</Style>
+<div class="panel">
+	<img style="height: 200px; width: 100%" src="logo_slogan.svg" />
+ 		<paper-input label="User ID:" floatingLabel="true"></paper-input><br/>
+            <paper-input-decorator floatingLabel label="Password:" >
+              <input type="password" name="password" >
+            </paper-input-decorator>
 
+            <paper-button raised on-click="{{handleLogin}}">Login</paper-button>
 </div>
 
 </template>
 
 <script>
 Polymer('qi-splash',{
+
+	handleLogin: function(){
+		this.fire("login")
+	}
 	
 });
 
