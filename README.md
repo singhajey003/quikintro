@@ -31,4 +31,4 @@ Everytime
 * Meetup.com API: http://www.meetup.com/meetup_api/
 * Android Beacon Library: http://altbeacon.github.io/android-beacon-library/
 * Cordova Beacon API: http://plugins.cordova.io/#/package/com.unarin.cordova.beacon
-* Twitter API
+* Twitter API: https://dev.twitter.com/overview/documentation
