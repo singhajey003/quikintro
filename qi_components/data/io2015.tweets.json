@@ -1,0 +1,905 @@
+{
+  "statuses": [
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Fri Apr 24 14:14:00 +0000 2015",
+      "id": 591606015440748500,
+      "id_str": "591606015440748544",
+      "text": "Rome is burning because @imbody3 got that style. #calmdown #killinthemsoftly #suitandtie #io2015 #encore",
+      "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 190602911,
+        "id_str": "190602911",
+        "name": "Chandler Johnson",
+        "screen_name": "kalimizzou",
+        "location": "Kansas City, MO",
+        "profile_location": null,
+        "description": "Born in MO. Raised in KS. Thus, I'm Kalimizzou. Designer maestro, communcation enthusiast, Founder of Loudspeaker (@speechneverdies), and monopoly diehard.",
+        "url": "http://t.co/UzPyQGgv3w",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/UzPyQGgv3w",
+                "expanded_url": "http://www.kalimizzou.com",
+                "display_url": "kalimizzou.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 245,
+        "friends_count": 371,
+        "listed_count": 5,
+        "created_at": "Tue Sep 14 11:17:46 +0000 2010",
+        "favourites_count": 65,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 620,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FFFFFF",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/148737550/yo.jpg",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/148737550/yo.jpg",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/580562564158984192/Q3KZJk6Z_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/580562564158984192/Q3KZJk6Z_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/190602911/1427274034",
+        "profile_link_color": "29ABE2",
+        "profile_sidebar_border_color": "0EEB54",
+        "profile_sidebar_fill_color": "0C9668",
+        "profile_text_color": "4F4F4F",
+        "profile_use_background_image": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "calmdown",
+            "indices": [
+              49,
+              58
+            ]
+          },
+          {
+            "text": "killinthemsoftly",
+            "indices": [
+              59,
+              76
+            ]
+          },
+          {
+            "text": "suitandtie",
+            "indices": [
+              77,
+              88
+            ]
+          },
+          {
+            "text": "io2015",
+            "indices": [
+              89,
+              96
+            ]
+          },
+          {
+            "text": "encore",
+            "indices": [
+              97,
+              104
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "imbody3",
+            "name": "Bobby Imbody",
+            "id": 21311381,
+            "id_str": "21311381",
+            "indices": [
+              24,
+              32
+            ]
+          }
+        ],
+        "urls": []
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Tue Apr 21 19:21:11 +0000 2015",
+      "id": 590596157992259600,
+      "id_str": "590596157992259584",
+      "text": "You are welcome. See you at I/O #io2015 #WomenTechmakers @WomenTechmakers  https://t.co/d1Knzp4bwA",
+      "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 101921482,
+        "id_str": "101921482",
+        "name": "Laura Uzcátegui, PMP",
+        "screen_name": "laura_uzcategui",
+        "location": "Dublin, Ireland ",
+        "profile_location": null,
+        "description": "Software Developer Ellucian | Project Management La Salle | Telecom Management | Computer Scientist UCV | GDG Dublin | Women Techmakers Lead | Women 2.0",
+        "url": "http://t.co/rMpRldoJP7",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/rMpRldoJP7",
+                "expanded_url": "http://ie.linkedin.com/in/laurauzcategui/",
+                "display_url": "ie.linkedin.com/in/laurauzcate…",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 838,
+        "friends_count": 1246,
+        "listed_count": 37,
+        "created_at": "Tue Jan 05 01:42:25 +0000 2010",
+        "favourites_count": 175,
+        "utc_offset": 3600,
+        "time_zone": "Dublin",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 6031,
+        "lang": "en-gb",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "89C9FA",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/378800000168113497/yZjSgB2e.jpeg",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/378800000168113497/yZjSgB2e.jpeg",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/378800000175139251/30fa2fe8ab4032cac73d1022b0673ea9_normal.jpeg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/378800000175139251/30fa2fe8ab4032cac73d1022b0673ea9_normal.jpeg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/101921482/1423393374",
+        "profile_link_color": "9266CC",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "95E8EC",
+        "profile_text_color": "3C3940",
+        "profile_use_background_image": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweet_count": 0,
+      "favorite_count": 1,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "io2015",
+            "indices": [
+              32,
+              39
+            ]
+          },
+          {
+            "text": "WomenTechmakers",
+            "indices": [
+              40,
+              56
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "WomenTechmakers",
+            "name": "Women Techmakers",
+            "id": 2362618909,
+            "id_str": "2362618909",
+            "indices": [
+              57,
+              73
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/d1Knzp4bwA",
+            "expanded_url": "https://twitter.com/WomenTechmakers/status/590592407600816128",
+            "display_url": "twitter.com/WomenTechmaker…",
+            "indices": [
+              75,
+              98
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Tue Apr 21 12:29:47 +0000 2015",
+      "id": 590492623976009700,
+      "id_str": "590492623976009729",
+      "text": "If you're going to San Francisco... #io2015 #googleio http://t.co/AqtJjyEzQb",
+      "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 20502892,
+        "id_str": "20502892",
+        "name": "Michael Ivashchenko",
+        "screen_name": "aka_le_Mulder",
+        "location": "Bishkek, Kyrgyzstan",
+        "profile_location": null,
+        "description": "TRUST NO ONE",
+        "url": "http://t.co/gxUwpDcfUm",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/gxUwpDcfUm",
+                "expanded_url": "http://akalemulder.com",
+                "display_url": "akalemulder.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 1162,
+        "friends_count": 249,
+        "listed_count": 22,
+        "created_at": "Tue Feb 10 09:39:49 +0000 2009",
+        "favourites_count": 117,
+        "utc_offset": 21600,
+        "time_zone": "Almaty",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 9193,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "131516",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme14/bg.gif",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme14/bg.gif",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/656139444/av-12652_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/656139444/av-12652_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/20502892/1398249736",
+        "profile_link_color": "009999",
+        "profile_sidebar_border_color": "EEEEEE",
+        "profile_sidebar_fill_color": "EFEFEF",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweet_count": 0,
+      "favorite_count": 4,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "io2015",
+            "indices": [
+              36,
+              43
+            ]
+          },
+          {
+            "text": "googleio",
+            "indices": [
+              44,
+              53
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [],
+        "media": [
+          {
+            "id": 590492622478659600,
+            "id_str": "590492622478659586",
+            "indices": [
+              54,
+              76
+            ],
+            "media_url": "http://pbs.twimg.com/media/CDHZ6V1UUAI9zXg.png",
+            "media_url_https": "https://pbs.twimg.com/media/CDHZ6V1UUAI9zXg.png",
+            "url": "http://t.co/AqtJjyEzQb",
+            "display_url": "pic.twitter.com/AqtJjyEzQb",
+            "expanded_url": "http://twitter.com/aka_le_Mulder/status/590492623976009729/photo/1",
+            "type": "photo",
+            "sizes": {
+              "small": {
+                "w": 340,
+                "h": 269,
+                "resize": "fit"
+              },
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 600,
+                "h": 475,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1024,
+                "h": 812,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sat Apr 18 00:00:36 +0000 2015",
+      "id": 589216922278977500,
+      "id_str": "589216922278977536",
+      "text": "fanboi agnostic RT @sfdanb: Got my #WWDC ticket to go with my #IO2015 ticket. #CompleteSet",
+      "source": "<a href=\"http://tapbots.com/tweetbot\" rel=\"nofollow\">Tweetbot for iΟS</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 45735560,
+        "id_str": "45735560",
+        "name": "GoBucks!",
+        "screen_name": "d80buckeye",
+        "location": "ÜT: 40.059532,-82.897926",
+        "profile_location": null,
+        "description": "father, husband, enterprise iOS developer, sportsfan, snarktastic",
+        "url": "http://t.co/T21Jig25hp",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/T21Jig25hp",
+                "expanded_url": "http://d80buckeye.blogspot.com",
+                "display_url": "d80buckeye.blogspot.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 176,
+        "friends_count": 100,
+        "listed_count": 27,
+        "created_at": "Tue Jun 09 02:00:52 +0000 2009",
+        "favourites_count": 3,
+        "utc_offset": -14400,
+        "time_zone": "Eastern Time (US & Canada)",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 8056,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "352726",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme5/bg.gif",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme5/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/378800000303266531/81d25b600e005e1386c7193fdb2a0c5f_normal.jpeg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/378800000303266531/81d25b600e005e1386c7193fdb2a0c5f_normal.jpeg",
+        "profile_link_color": "D02B55",
+        "profile_sidebar_border_color": "829D5E",
+        "profile_sidebar_fill_color": "99CC33",
+        "profile_text_color": "3E4415",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweet_count": 0,
+      "favorite_count": 1,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "WWDC",
+            "indices": [
+              35,
+              40
+            ]
+          },
+          {
+            "text": "IO2015",
+            "indices": [
+              62,
+              69
+            ]
+          },
+          {
+            "text": "CompleteSet",
+            "indices": [
+              78,
+              90
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "sfdanb",
+            "name": "dan b",
+            "id": 141765867,
+            "id_str": "141765867",
+            "indices": [
+              19,
+              26
+            ]
+          }
+        ],
+        "urls": []
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Fri Apr 17 22:21:19 +0000 2015",
+      "id": 589191937082589200,
+      "id_str": "589191937082589184",
+      "text": "RT @sfdanb: Got my #WWDC ticket to go with my #IO2015 ticket. #CompleteSet",
+      "source": "<a href=\"http://tapbots.com/software/tweetbot/mac\" rel=\"nofollow\">Tweetbot for Mac</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 5696872,
+        "id_str": "5696872",
+        "name": "Tom Carroll",
+        "screen_name": "troutm8",
+        "location": "San Jose, CA",
+        "profile_location": null,
+        "description": "I am a rec league hockey player in San Jose, California that works in tech to support my hockey habit.",
+        "url": "http://t.co/BhEve2BpMl",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/BhEve2BpMl",
+                "expanded_url": "http://about.me/tomcarroll",
+                "display_url": "about.me/tomcarroll",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 257,
+        "friends_count": 799,
+        "listed_count": 13,
+        "created_at": "Tue May 01 22:39:14 +0000 2007",
+        "favourites_count": 14,
+        "utc_offset": -25200,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 4174,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "0F0A02",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/226753570/x6eb35731a0b4766f48ab6e849ecc6c3.jpg",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/226753570/x6eb35731a0b4766f48ab6e849ecc6c3.jpg",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/529797428765941761/Cn7Alodb_normal.jpeg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/529797428765941761/Cn7Alodb_normal.jpeg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/5696872/1415148665",
+        "profile_link_color": "8A7302",
+        "profile_sidebar_border_color": "BCB302",
+        "profile_sidebar_fill_color": "171106",
+        "profile_text_color": "473623",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status": {
+        "metadata": {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Fri Apr 17 22:19:56 +0000 2015",
+        "id": 589191591476113400,
+        "id_str": "589191591476113410",
+        "text": "Got my #WWDC ticket to go with my #IO2015 ticket. #CompleteSet",
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+          "id": 141765867,
+          "id_str": "141765867",
+          "name": "dan b",
+          "screen_name": "sfdanb",
+          "location": "SF",
+          "profile_location": null,
+          "description": "Android Developer and Eater of Food",
+          "url": "http://t.co/p8lqlbmefG",
+          "entities": {
+            "url": {
+              "urls": [
+                {
+                  "url": "http://t.co/p8lqlbmefG",
+                  "expanded_url": "http://zumper.com",
+                  "display_url": "zumper.com",
+                  "indices": [
+                    0,
+                    22
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "urls": []
+            }
+          },
+          "protected": false,
+          "followers_count": 59,
+          "friends_count": 229,
+          "listed_count": 4,
+          "created_at": "Sun May 09 00:30:18 +0000 2010",
+          "favourites_count": 362,
+          "utc_offset": -25200,
+          "time_zone": "Pacific Time (US & Canada)",
+          "geo_enabled": true,
+          "verified": false,
+          "statuses_count": 251,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "C0DEED",
+          "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+          "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+          "profile_background_tile": false,
+          "profile_image_url": "http://pbs.twimg.com/profile_images/3294036847/a5717f1d4f7a91b6a5881a1da054b72d_normal.jpeg",
+          "profile_image_url_https": "https://pbs.twimg.com/profile_images/3294036847/a5717f1d4f7a91b6a5881a1da054b72d_normal.jpeg",
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/141765867/1361578859",
+          "profile_link_color": "43BDE5",
+          "profile_sidebar_border_color": "C0DEED",
+          "profile_sidebar_fill_color": "DDEEF6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "default_profile": false,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 1,
+        "favorite_count": 1,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "WWDC",
+              "indices": [
+                7,
+                12
+              ]
+            },
+            {
+              "text": "IO2015",
+              "indices": [
+                34,
+                41
+              ]
+            },
+            {
+              "text": "CompleteSet",
+              "indices": [
+                50,
+                62
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+      },
+      "retweet_count": 1,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "WWDC",
+            "indices": [
+              19,
+              24
+            ]
+          },
+          {
+            "text": "IO2015",
+            "indices": [
+              46,
+              53
+            ]
+          },
+          {
+            "text": "CompleteSet",
+            "indices": [
+              62,
+              74
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "sfdanb",
+            "name": "dan b",
+            "id": 141765867,
+            "id_str": "141765867",
+            "indices": [
+              3,
+              10
+            ]
+          }
+        ],
+        "urls": []
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Fri Apr 17 22:19:56 +0000 2015",
+      "id": 589191591476113400,
+      "id_str": "589191591476113410",
+      "text": "Got my #WWDC ticket to go with my #IO2015 ticket. #CompleteSet",
+      "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 141765867,
+        "id_str": "141765867",
+        "name": "dan b",
+        "screen_name": "sfdanb",
+        "location": "SF",
+        "profile_location": null,
+        "description": "Android Developer and Eater of Food",
+        "url": "http://t.co/p8lqlbmefG",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/p8lqlbmefG",
+                "expanded_url": "http://zumper.com",
+                "display_url": "zumper.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 59,
+        "friends_count": 229,
+        "listed_count": 4,
+        "created_at": "Sun May 09 00:30:18 +0000 2010",
+        "favourites_count": 362,
+        "utc_offset": -25200,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 251,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/3294036847/a5717f1d4f7a91b6a5881a1da054b72d_normal.jpeg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/3294036847/a5717f1d4f7a91b6a5881a1da054b72d_normal.jpeg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/141765867/1361578859",
+        "profile_link_color": "43BDE5",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweet_count": 1,
+      "favorite_count": 1,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "WWDC",
+            "indices": [
+              7,
+              12
+            ]
+          },
+          {
+            "text": "IO2015",
+            "indices": [
+              34,
+              41
+            ]
+          },
+          {
+            "text": "CompleteSet",
+            "indices": [
+              50,
+              62
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": []
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "en"
+    }
+  ],
+  "search_metadata": {
+    "completed_in": 0.02,
+    "max_id": 591606015440748500,
+    "max_id_str": "591606015440748544",
+    "query": "%23io2015",
+    "refresh_url": "?since_id=591606015440748544&q=%23io2015&include_entities=1",
+    "count": 15,
+    "since_id": 0,
+    "since_id_str": "0"
+  }
+}

@@ -1,0 +1,32 @@
+
+<link rel="import" href="qi-twitter-card.html">
+<polymer-element name="qi-twitter-panel" attributes="dataUrl">
+
+	<template>
+	<core-ajax
+	  auto
+	  url="{{dataUrl}}"
+	  handleAs="json"
+	  response="{{response}}"></core-ajax>
+
+
+	  <template repeat="{{tweet in response.statuses}}">
+	  	
+	  	<qi-twitter-card tweet="{{tweet}}"></qi-twitter-card>
+
+	  </template>
+
+
+	</template>
+
+
+	<script>
+		Polymer('qi-twitter-panel',{
+
+			
+
+		});
+
+	</script>
+
+</polymer-element>

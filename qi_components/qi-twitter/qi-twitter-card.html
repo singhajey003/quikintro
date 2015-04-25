@@ -1,0 +1,86 @@
+<link rel="import" href="../../bower_components/core-icons/core-icons.html">
+<link rel="import" href="../../bower_components/core-icons/av-icons.html">
+
+
+<polymer-element name="qi-twitter-card" attributes="tweet">
+	
+	<template>
+
+	<style>
+	 .imageContainer{
+	 	float:left;
+	 	height: 100px;
+	 	padding-right: 5px;
+	 }
+	 .card{
+	 	background-color: white;
+	 	border: 1px solid #505050;
+	 	border-radius: 5px;
+	 	padding: 4px;
+	 	margin-bottom: 5px;
+	 }
+	 .card > div[0]{
+	 	padding-left: 5px;
+	 }
+	 .userName{
+	 	font-weight: bold;
+	 }
+	 .userId{
+	 	color: #8899A5;
+	 }
+	 core-icon{
+	 	color: #8899A5;
+	 	padding-right: 5px;
+	 	height: 15px;
+	 	width: 15px;
+	 	float-left;
+	 }
+	 a.conv{
+	 	float:right;
+	 	padding-right: 5px;
+	 }
+	 a.userName{
+	 	color: black;
+	 	text-decoration: none;
+	 }
+
+	</style>
+	
+
+	<div class="card">
+		
+		   <div class="imageContainer">
+		   <img src="{{tweet.user.profile_image_url}}"/>
+		   </div>
+		   
+		   <div>
+		    <div>
+			<div class="userName"><a class="userName" href="https://twitter.com/{{tweet.user.screen_name}}">{{tweet.user.name}}</a></div><div class="userId">{{tweet.user.screen_name}}</div>
+			</div>
+			<div >
+				{{tweet.text}}
+			</div>
+			<div class="toolbar">
+				<core-icon icon="reply"></core-icon> <core-icon icon="av-icons:repeat"></core-icon> <core-icon icon="star"></core-icon> <a class="conv" href="https://twitter.com/{{tweet.user.screen_name}}/status/{{tweet.id}}">View conversation</a>
+			</div>
+		
+		
+	</div>
+
+
+	</template>
+
+
+  <script>
+	Polymer('qi-twitter-card',{
+
+ 
+		
+	    });
+
+   </script>
+
+
+
+
+</polymer-element>

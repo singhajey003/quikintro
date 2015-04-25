@@ -12,6 +12,7 @@
 
 <link rel="import" href="../../bower_components/paper-progress/paper-progress.html">
 
+<link rel="import" href="../qi-twitter/qi-twitter-panel.html">
 
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail-matches.html">
@@ -107,10 +108,7 @@
       <!-- Event Contacts Go Here -->
       </div>
       <div>
-        <iframe border=0 frameborder=0 height=430 width=550 src="http://twitframe.com/show?url=https://twitter.com/Tech_in_Motion/status/474616763976794112"></iframe>
-        <iframe border=0 frameborder=0 height=250 width=550 src="http://twitframe.com/show?url=https://twitter.com/LauraHelenWinn/status/141648765940539392"></iframe>
-        <iframe border=0 frameborder=0 height=250 width=550 src="http://twitframe.com/show?url=https://twitter.com/causes/status/220894908985257984"></iframe>
-        <iframe border=0 frameborder=0 height=250 width=550 src="http://twitframe.com/show?url=https://twitter.com/ActiveRain/status/587691903988137985"></iframe>
+       <qi-twitter-panel dataUrl="{{event.tweetUrl}}"></qi-twitter-panel>
         
       </div>
       <div>

@@ -18,6 +18,7 @@
  		 "persona": "defLinkedIn",
  		 "notification" : "15 minutes before",
  		 "cloakingMode":true,
+ 		 "tweetUrl":"qi_components/data/jpm15.tweets.json",
  		 "guests":[
 			{
 				"firstName": "Dimitri",
@@ -92,6 +93,7 @@
 		"notification":"15 minutes before",
 		"cloakingMode":true,
 		"hashtag":"#aacr15",
+		"tweetUrl":"qi_components/data/aacr15.tweets.json",
 		"persona":"defCancerBio",
 		"guests":[
 
@@ -169,6 +171,7 @@
  		 "numMeetings":6,
  		 "numOnsiteMeetings":3,
  		 "hashtag" : "#asco15",
+ 		 "tweetUrl":"qi_components/data/asco15.tweets.json",
  		 "cloakingMode":true,
  		 "persona":"defCancerBio",
  		 "guests":[
@@ -204,6 +207,7 @@
  		 "numMeetings":10,
  		 "numOnsiteMeetings":15,
 	 	"hashtag":"#io2015",
+	 	"tweetUrl":"qi_components/data/io2015.tweets.json",
 	 	"cloakingMode":false,
 	 	"persona":"defDev"
 	 },
@@ -222,7 +226,8 @@
  		 "numExistingContacts":5,
  		 "numMeetings":6,
  		 "numOnsiteMeetings":3,
-     	"hashtag":"#javaone",
+     	"hashtag":"#javaone15",
+     	"tweetUrl":"qi_components/data/javaone15.tweets.json",
      	"cloakingMode":false,
      	"persona":"defDev"
 
