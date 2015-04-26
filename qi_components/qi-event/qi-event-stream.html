@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 
+<link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail.html">
 <link rel="import" href="qi-event-notice.html">
@@ -18,8 +19,9 @@
 			}
 		</style>
 
-		<core-ajax auto url="../data/notices.json" response="{{notifications}}" handleAs="json"></core-ajax>
-		<core-ajax auto url="../data/events.json" response="{{events}}" handleAs="json"></core-ajax>
+		<qi-globals id="globals"></qi-globals>
+		<core-ajax auto url="{{$.globals.urls.notices}}" response="{{notifications}}" handleAs="json"></core-ajax>
+		<core-ajax auto url="{{$.globals.urls.events}}" response="{{events}}" handleAs="json"></core-ajax>
 
 		<div class="container" layout vertical flex>
 

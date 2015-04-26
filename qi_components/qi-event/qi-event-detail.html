@@ -14,6 +14,7 @@
 
 <link rel="import" href="../qi-twitter/qi-twitter-panel.html">
 
+<link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail-matches.html">
 <link rel="import" href="qi-event-detail-notes.html">
@@ -71,9 +72,10 @@
 
   </style>
 
-  <core-ajax auto url="../data/personas.json" response="{{personas}}" handleAs="json"></core-ajax>
-  <core-ajax auto url="../data/matches.json" response="{{matches}}" handleAs="json"></core-ajax>
-  <core-ajax auto url="../data/notes.json" response="{{notes}}" handleAs="json"></core-ajax>
+  <qi-globals id="globals"></qi-globals>
+  <core-ajax auto url="{{$.globals.urls.personas}}" response="{{personas}}" handleAs="json"></core-ajax>
+  <core-ajax auto url="{{$.globals.urls.matches}}" response="{{matches}}" handleAs="json"></core-ajax>
+  <core-ajax auto url="{{$.globals.urls.notes}}" response="{{notes}}" handleAs="json"></core-ajax>
   
   <core-scroll-header-panel id="eventDetailHeaderPanel" fixed>
     

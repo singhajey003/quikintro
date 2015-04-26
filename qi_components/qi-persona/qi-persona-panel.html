@@ -4,13 +4,15 @@
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 
+<link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-persona-card.html">
 
 <polymer-element name="qi-persona-panel">
   <template>
     <link rel="stylesheet" href="../quikintro.css">
     
-    <core-ajax auto url="../data/getPersonas.json" response="{{response}}" handleAs="json"></core-ajax>
+    <qi-globals id="globals"></qi-globals>    
+    <core-ajax auto url="{{$.globals.urls.getPersonas}}" response="{{response}}" handleAs="json"></core-ajax>
   	<core-scroll-header-panel headermargin="128" fixed headerheight="192" layout vertical>
         <core-toolbar>
           <div flex>Personas</div>

@@ -12,22 +12,22 @@
 	<link rel="import" href="../../bower_components/core-icon/core-icon.html">
 
 	
-
+	<link rel="import" href="../qi-global/global.html">
 	<link rel="import" href="qi-event-detail.html">
 	<link rel="import" href="qi-event-stream.html">
 </head>
 <body>
 
-
+<qi-globals id="globals"></qi-globals>
 <core-ajax
   auto
-  url="../data/events.json"
+  url="{{$.globals.urls.events}}"
   handleAs="json"
   response="{{eventsResponse}}"></core-ajax>
 
 <core-ajax
   auto
-  url="../data/notices.json"
+  url="{{$.globals.urls.notices}}"
   handleAs="json"
   response="{{notifResponse}}"></core-ajax>
 

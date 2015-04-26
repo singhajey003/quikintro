@@ -11,7 +11,7 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
-
+<link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-contact/qi-contact-card.html">
 
 <polymer-element name="qi-aroundme-panel">
@@ -20,9 +20,10 @@
   <link rel="stylesheet" href="../quikintro.css">
   <link rel="stylesheet" href="qi-aroundme-panel.css">
 
-  <core-ajax auto url="../data/contacts.json" response="{{response}}" handleAs="json"></core-ajax>
+  <qi-globals id="globals"></qi-globals>
+  <core-ajax auto url="{{$.globals.urls.contacts}}" response="{{response}}" handleAs="json"></core-ajax>
   <template is="auto-binding">
-    <core-ajax auto url="../data/heatmap.json" response="{{heatmap}}" on-core-response="{{ajaxResponse}}" handleAs="json"></core-ajax>
+    <core-ajax auto url="{{$.globals.urls.heatmap}}" response="{{heatmap}}" on-core-response="{{ajaxResponse}}" handleAs="json"></core-ajax>
   </template>
 
 	<core-scroll-header-panel headermargin="128" fixed headerheight="192" id="eventHeaderPanel" >

@@ -1,0 +1,25 @@
+<polymer-element name="qi-globals">
+  <script>
+  (function() {
+    // these variables are shared by all instances of app-globals
+    var urls = {
+      events: '/qi_components/data/events.json',
+      personas: '/qi_components/data/personas.json',
+      contacts: '/qi_components/data/contacts.json',
+      getPersonas: '/qi_components/data/getPersonas.json',
+      heatmap: '/qi_components/data/heatmap.json',
+      matches: '/qi_components/data/matches.json',
+      messages: '/qi_components/data/messages.json',
+      notes: '/qi_components/data/notes.json',
+      notices: '/qi_components/data/notices.json'
+    }
+
+    Polymer({
+      ready: function() {
+        // make global values available on instance.
+        this.urls = urls;
+      }
+    });
+  })();
+  </script>
+</polymer-element>

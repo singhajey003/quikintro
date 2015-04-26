@@ -1,0 +1,25 @@
+<polymer-element name="qi-globals">
+  <script>
+  (function() {
+    // these variables are shared by all instances of app-globals
+    var urls = {
+      events: '/quikintro/profile/getEvents',
+      personas: '/quikintro/persona/get/',
+      contacts: '/quikintro/profile/getContacts',
+      getPersonas: '/quikintro/persona/get/',
+      heatmap: '/quikintro/profile/getHeatmap',
+      matches: '/quikintro/profile/getmatches',
+      messages: '/quikintro/profile/getMessages',
+      notes: '/quikintro/profile/getNotes',
+      notices: '/quikintro/profile/getNotices'
+    }
+
+    Polymer({
+      ready: function() {
+        // make global values available on instance.
+        this.urls = urls;
+      }
+    });
+  })();
+  </script>
+</polymer-element>

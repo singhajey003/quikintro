@@ -8,19 +8,28 @@ The index.html page is the main entry point.  Polymer (and other 3rd party) comp
 
 The **data** directory contains data files like **contacts.json** which give you an idea of what the data will look like coming from a RESTful request.  The corresponding **qi-contact-panel** is responsible for invoking the request, and binding the resultant response to individual **qi-contact-card** instances.
 
-### Setup ###
-To run the application, simply type:
-**python -M SimpleHTTPServer**
 
-### for LESS to CSS conversion ####
-Needed only one time ( Requirement nodeJS installed on your machine)
+### Install dependencies ####
+
+Task requires you to have [nodeJS](https://nodejs.org/download/),[Ruby](http://www.ruby-lang.org/en/downloads/) and [Sass](http://sass-lang.com/download.html) installed. If you're on OS X or Linux you probably already have Ruby installed; test with `ruby -v` in your terminal. When you've confirmed you have Ruby installed, run `gem install sass` to install Sass.
+
+Needed only one time
 
     npm install
     npm install grunt-cli -g
 
-Everytime
+Everytime (use any one of the following default: grunt server )
 
-    grunt less
+    grunt server
+    grunt server --target=production (to automatically update the ajax url to point to production)
+    grunt build (if you want to use python or other web server)
+
+
+### Development Information ###
+
+  1. Never edit css file directly, always make sure create/edit a scss file and import '../sass/_config'.
+  2. when you are running `grunt server` and editing scss file, grunt will recompile the scss to css ( No need to stop and run again)
+  3. Ajax urls can be edited from qi_components/qi-global/dev.html (or) qi_components/qi-global/dev.html ( dont edit global.html as it is gonna overwritten)
 
 
 ### Useful Docs ###
@@ -32,3 +41,8 @@ Everytime
 * Android Beacon Library: http://altbeacon.github.io/android-beacon-library/
 * Cordova Beacon API: http://plugins.cordova.io/#/package/com.unarin.cordova.beacon
 * Twitter API: https://dev.twitter.com/overview/documentation
+
+
+### Setup (Not needed anymore as we run server directly from grunt task) ###
+To run the application, simply type:
+**python -M SimpleHTTPServer**
