@@ -3,7 +3,7 @@
   height: 100%;
   box-sizing: border-box;
   font-family: 'FirasansBook' 'FirasansUltralight' 'RobotoDraft';
-  color: #2f4147; }
+  color: HSLA(195, 20%, 23%, 1); }
 
 core_scaffold {
   position: absolute;
@@ -18,15 +18,15 @@ core-scaffold core-toolbar {
 
 core-scaffold /deep/ #headerPanel core-toolbar {
   color: white;
-  background-color: #17a8cc; }
+  background-color: HSLA(192, 80%, 45%, 1); }
 
 core-scaffold /deep/ core-toolbar {
   color: white;
-  background-color: #7ca3b2; }
+  background-color: HSLA(197, 26%, 59%, 1); }
 
 core-scaffold /deep/ #eventDetailHeaderPanel core-toolbar {
   color: white;
-  background-color: #7ca3b2;
+  background-color: HSLA(197, 26%, 59%, 1);
   height: 48px; }
 
 core-menu {
@@ -67,7 +67,7 @@ core-pages {
   bottom: 0;
   right: 0;
   position: absolute;
-  background-color: #ebebeb;
+  background-color: HSLA(0, 0%, 92%, 1);
   background-image: none;
   background-repeat: no-repeat;
   background-position: -500px -25px; }
@@ -91,7 +91,7 @@ core-scroll-header-panel {
 
 .content {
   padding: 20px 30px;
-  background-color: #ebebeb;
+  background-color: HSLA(0, 0%, 92%, 1);
   background-image: none;
   background-repeat: no-repeat;
   background-position: -500px -100px;
@@ -145,4 +145,5 @@ input[type=search] {
 core-icon {
   color: #505050;
   height: 20px;
-  width: 20px; }
+  width: 20px;
+  border: 0; }

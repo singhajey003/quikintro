@@ -1,8 +1,27 @@
+
+
 // ------------------- Color Variables --------------------
-$header: #17a8cc;
-$papertabs: #7ca3b2;
-$links: #17a8cc;
-$background: #ebebeb;
+
+// Color definitions
+
+
+$white: HSLA(0, 0%, 100%, 1);
+$qi-blue: HSLA(192, 80%, 45%, 1);
+$qi-green: HSLA(167, 63%, 50%, 1);
+$qi-gray: HSLA(197, 26%, 59%, 1);
+$qi-gray-light: HSLA(0, 0%, 92%, 1);
+$qi-gray-dark: HSLA(195, 20%, 23%, 1);
+$qi-gray-dark2: HSLA(197, 18%, 39%, 1); //not sure where this is used yet - potentially remove
+
+// Color assignments
+$reverse: $white;
+$header: $qi-blue;
+$links: $qi-blue;
+$papertabs: $qi-gray;
+$lighttext: $qi-gray;
+$background: $qi-gray-light;
+$black01: $qi-gray-dark;
+
+
+
 $backgroundImage: none;
-$black01: #2f4147;
-$lighttext: #7ca3b2;

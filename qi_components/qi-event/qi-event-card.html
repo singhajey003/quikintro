@@ -20,19 +20,18 @@
 	
 	<template>
 	<link rel="stylesheet" href="qi-event-card.css" >
-	<style>
-	#eventNewMatches {margin-right: 5px; min-width: 80px}
-	#eventNewMatches div{ text-align: center}
-	#event1 {font-size: 25pt; text-align: center}
-
-	#eventStats{padding-top: 25px;}
-	</style>
+	<link rel="stylesheet" href="../quikintro.css" >
 	
 	<div id="card">
-		<div>
-			<div id="titleBlock" >{{event.title}}</div>
-			<div class="cardSubHead" >{{event.startTime}} at {{event.location}}</div>
-			<div class="cardSubHead">{{event.registrantCount}} Registrants</div>
+		<div class="background"></div>
+
+		<div class="eventInfo">
+			<h3 id="titleBlock">{{event.title}}</h3>
+			<p class="cardSubHead" >{{event.startTime}} at {{event.location}}</p>
+			<p class="cardSubHead">{{event.registrantCount}} Registrants</p>
+		</div>
+
+		<div class="activitySummary">
 			
 			<div horizontal layout flex>
 				<div id="eventNewMatches">
@@ -47,6 +46,9 @@
 					<div class="eventItem">{{event.numOnsiteMeetings}} On-site Events</div>
 				</div>
 			</div>
+		</div>
+		<div class="footer">
+
 		</div>
 		
 	</div>

@@ -2,22 +2,19 @@
 
 
 <template>
-<style>
-.panel{ 
-	width: 300px; 
-	padding-left: 10px;
-	padding-right: 10px;
-}
-</Style>
-<div class="panel">
-	<img style="height: 200px; width: 100%" src="logo_slogan.svg" />
- 		<paper-input label="User ID:" floatingLabel="true"></paper-input><br/>
-            <paper-input-decorator floatingLabel label="Password:" >
-              <input type="password" name="password" >
-            </paper-input-decorator>
+	<link rel="stylesheet" href="qi-splash.css" >
+	<link rel="stylesheet" href="../quikintro.css" >
+	<div class="panel">
+		<div class="logo"></div>
+		<div class="wrapper">
+			<paper-input class="reverse" label="User ID:" floatingLabel="true"></paper-input><br/>
+			<paper-input-decorator class="reverse" floatingLabel label="Password:" >
+			<input type="password" name="password">
+			</paper-input-decorator>
 
-            <paper-button raised on-click="{{handleLogin}}">Login</paper-button>
-</div>
+			<paper-button raised on-click="{{handleLogin}}">Login</paper-button>
+		</div>
+	</div>
 
 </template>
 
