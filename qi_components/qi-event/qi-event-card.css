@@ -1,7 +1,10 @@
 #card {
   background-color: HSLA(0, 0%, 100%, 1);
   margin-bottom: 20px;
-  position: relative; }
+  position: relative;
+  height: 215px;
+  mi-width: 215px;
+  max-width: 350px; }
 
 .background {
   position: absolute;
@@ -15,15 +18,46 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  bottom: 45px;
+  bottom: 0;
   left: 5px;
-  color: HSLA(0, 0%, 100%, 1); }
+  color: HSLA(0, 0%, 100%, 1);
+  border: 1px solid green;
+  text-align: center;
+  height: 65px; }
 
 #titleBlock {
-  font-size: 20px; }
+  font-size: 20px;
+  margin: 0; }
 
 .cardSubHead {
-  font-size: 10px; }
+  font-size: 10px;
+  margin: 0; }
+
+.activitySummary {
+  position: absolute;
+  top: 80px;
+  right: 5px;
+  bottom: 0;
+  left: 5px;
+  color: HSLA(0, 0%, 100%, 1);
+  height: 110px; }
+
+#eventNewMatches {
+  margin-right: 5px;
+  min-width: 80px;
+  text-align: center;
+  line-height: 1; }
+
+#event1 {
+  font-size: 40pt; }
+
+.bottomLabel {
+  text-transform: uppercase;
+  font-size: 10pt;
+  line-height: 1.5; }
+
+#eventStats {
+  padding-top: 25px; }
 
 label {
   padding-top: 5px;
@@ -56,17 +90,3 @@ core-dropdown-menu {
 google-map {
   height: 400px;
   width: 400px; }
-
-#eventNewMatches {
-  margin-right: 5px;
-  min-width: 80px; }
-
-#eventNewMatches div {
-  text-align: center; }
-
-#event1 {
-  font-size: 25pt;
-  text-align: center; }
-
-#eventStats {
-  padding-top: 25px; }
