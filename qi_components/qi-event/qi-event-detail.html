@@ -91,24 +91,29 @@
 
     <div class="content" flex>
     <core-pages selected="{{selected}}">
-      <div>
+
+      <div id="summary">
         <qi-event-summary event="{{event}}"></qi-event-summary>
       </div>
-      <div>
+
+      <div id="matches">
         <template repeat="{{matches in matches}}">
           <qi-event-detail-matches matches="{{matches}}"></qi-event-detail-matches>
         </template>        
       </div>
-      <div>
-      <!-- Event Contacts Go Here -->
+
+      <div id="contacts">
+        
       </div>
-      <div>
+
+
+      <div id="twitter">
        <qi-twitter-panel dataUrl="{{event.tweetUrl}}"></qi-twitter-panel>
         
       </div>
 
 
-      <div>
+      <div id="traits">
 
       <fieldset>
         <legend>My Interests</legend>
@@ -169,7 +174,8 @@
         </fieldset>
 
       </div>
-      <div>
+
+      <div id="notes">
         <template repeat="{{note in notes}}">
           <qi-event-detail-notes notes="{{note}}"></qi-event-detail-notes>
         </template> 
