@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+
+
+<link rel="import" href="../qi-global/global.html">
+<link rel="import" href="">
+<polymer-element name="qi-home">
+
+
+	<template>
+	 	<link rel="stylesheet" href="quikintro.css" >
+		<qi-globals id="globals"></qi-globals>
+		<core-ajax auto url="{{$.globals.urls.notices}}" response="{{notifications}}" handleAs="json"></core-ajax>
+
+		<div layout vertical flex>
+			<label>Notifications</label>
+			<div>
+				<template repeat="{{notice in notifications}}">
+					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
+				</template>
+			</div>
+
+	</template>
+
+	<script>
+	Polymer('qi-home',{
+
+
+
+	});
+
+	</script>
+
+
+</polymer-element>

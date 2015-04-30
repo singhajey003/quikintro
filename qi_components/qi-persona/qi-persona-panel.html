@@ -13,12 +13,8 @@
     
     <qi-globals id="globals"></qi-globals>    
     <core-ajax auto url="{{$.globals.urls.getPersonas}}" response="{{response}}" handleAs="json"></core-ajax>
-  	<core-scroll-header-panel headermargin="128" fixed headerheight="192" layout vertical>
-        <core-toolbar>
-          <div flex>Personas</div>
-          <input type="search" id="searchText" placeholder="Search..."/><core-icon icon="search"></core-icon>
-          <core-tooltip label="Create"><core-icon icon="create"></core-icon></core-tooltip>
-         </core-toolbar> 
+  	<core-scroll-header-panel headermargin="128" fixed layout vertical>
+       
 
         <div class="content">
         
