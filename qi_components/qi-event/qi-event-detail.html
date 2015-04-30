@@ -77,10 +77,10 @@
   <core-ajax auto url="{{$.globals.urls.matches}}" response="{{matches}}" handleAs="json"></core-ajax>
   <core-ajax auto url="{{$.globals.urls.notes}}" response="{{notes}}" handleAs="json"></core-ajax>
   
-  <core-scroll-header-panel id="eventDetailHeaderPanel" headerfixed>
+  <core-scroll-header-panel id="eventDetailHeaderPanel" fixed="" headerHeight="40" flex>
 
     <core-toolbar>
-      <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" >
+      <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" flex>
         <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
         <paper-tab role="tab" >Matches</paper-tab>
         <paper-tab role="tab" >Contacts</paper-tab>

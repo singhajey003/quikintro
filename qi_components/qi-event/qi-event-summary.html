@@ -6,8 +6,11 @@
 <link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html">
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html">
 <link rel="import" href="../../bower_components/google-map/google-map.html">
+
 <polymer-element name="qi-event-summary" attributes="event">
     <template>
+
+
         <core-field>
             <label>{{event.title}}</label>
         </core-field>
@@ -19,7 +22,7 @@
 
         <core-field id="notificationField" icon="room" theme="core-light-theme" center horizontal layout>
             <core-icon icon="alarm" id="core_icon3"></core-icon>
-            <core-input id="alarm" flex>{{event.notification}}</core-input>
+            <core-input id="alarm">{{event.notification}}</core-input>
         </core-field>
 
         <core-field id="hashTagField" icon="room" theme="core-light-theme" center horizontal layout>
@@ -45,7 +48,7 @@
             <core-input id="location" flex>{{event.location}}</core-input>
         </core-field>
 
-        <google-map id="map" zoom="14" style="width:300px; height: 300px" libraries="visualization" fitToMarkers>
+        <google-map id="map" zoom="14" style="width:250px; height: 250px" libraries="visualization" fitToMarkers >
             <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
             </google-map-marker>
         </google-map>
