@@ -27,13 +27,7 @@
 
 		<core-pages id="pages" selected="{{selectedEventPage}}" layout vertical flex>
 		  <section>
-			<div layout vertical flex>
-			<label>Notifications</label>
-			<div>
-				<template repeat="{{notice in notifications}}">
-					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
-				</template>
-			</div>
+			
 
 			<label>My Scheduled Events</label>
 			<div>

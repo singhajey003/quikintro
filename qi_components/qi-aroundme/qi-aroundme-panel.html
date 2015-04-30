@@ -26,18 +26,18 @@
     <core-ajax auto url="{{$.globals.urls.heatmap}}" response="{{heatmap}}" on-core-response="{{ajaxResponse}}" handleAs="json"></core-ajax>
   </template>
 
-	<core-scroll-header-panel headermargin="128" fixed headerheight="192" id="eventHeaderPanel" >
-    <core-toolbar fixed>
-      <div flex>Around Me</div>
-    </core-toolbar>
+	<core-scroll-header-panel headermargin="128" fixed id="eventHeaderPanel" >
+   
 
     <div class="content" layout vertical>
       
       <div class="maps-panel">
+      
         <google-map id="aroundmemap" zoom="11" style="width:275px; height: 360px" libraries="visualization" fitToMarkers >
           <google-map-marker latitude="37.779" longitude="-122.3892">
           </google-map-marker>
         </google-map>
+        
       </div>
 
 
