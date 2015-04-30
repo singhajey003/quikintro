@@ -13,9 +13,12 @@
 	<template>
 
 		<style>	
-			.container{
-				padding: 10px;
+			.container {
+/*			padding: 10px;  */
 				height: 100%;
+			}
+			.padding {
+				padding: 10px;
 			}
 		</style>
 
@@ -24,20 +27,20 @@
 
 		<div class="container" layout vertical flex>
 
-		<core-pages id="eventPages" selected="{{selectedEventPage}}" layout vertical flex>
-		  <section selected>
-			<label>My Scheduled Events</label>
-			<div>
-				<template repeat="{{event, i in events }}">
-					<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
-				</template>
-			</div>
-		
-		 </section>
+			<core-pages id="eventPages" selected="{{selectedEventPage}}" layout vertical flex>
+			  <section selected class="padding">
+				<label>My Scheduled Events</label>
+				<div>
+					<template repeat="{{event, i in events }}">
+						<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
+					</template>
+				</div>
+			
+			 </section>
 
-		<section>
-			<qi-event-detail id="detail"></qi-event-detail>
-		</section>
+			<section>
+				<qi-event-detail id="detail"></qi-event-detail>
+			</section>
 		
 		</div>
 		</core-pages>
