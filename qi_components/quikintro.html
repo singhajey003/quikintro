@@ -23,13 +23,15 @@
 <link rel="import" href="qi-splash/qi-splash.html">
 <link rel="import" href="qi-event/qi-event-stream.html">
 <link rel="import" href="qi-security/qi-security-panel.html">
+<link rel="import" href="qi-scaffold/qi-scaffold.html">
+<link rel="import" href="qi-home/qi-home.html">
 
 <polymer-element name="quik-intro" >
 
   <template>
     <link rel="stylesheet" href="quikintro.css" >
 
-    <core-scaffold id="coreScaffold" responsiveWidth="480px" force-narrow>
+    <qi-scaffold id="coreScaffold" responsiveWidth="480px" force-narrow>
 
       <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
         <core-toolbar id="core_toolbar"></core-toolbar>
@@ -52,52 +54,56 @@
         
       </core-header-panel>
 
-      <div id="div" tool>QuikIntro</div>
+      <div id="title" tool>{{panelTitle}}</div>
       
       <div class="content">
       <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit >
-        <section id="login" selected>
+        
+        <section id="Login" pageId="login" selected>
 
             <qi-splash id="splashPanel"></qi-splash>
 
-
-
         </section>
 
-        <section id="security">
+        <section id="Home" pageId="home">
+          <qi-home></qi-home>
+        </section>
+
+        <section id="Security" pageId="security">
           <qi-security-panel></qi-security-panel>
         </section>
-        <section id="onboardPage" pageId="onboard">
+        <section id="On Boarding" pageId="onboard">
           <qi-onboard-panel></qi-onboard-panel>
         </section>
-        <section id="profilePage" pageId="profile">
+        <section id="Profile" pageId="profile">
           <qi-profile-panel url="data/linkedin-profile.json"></qi-profile-panel>
         </section>
         
-        <section id="personaPage" pageId="personas">
+        <section id="Personas" pageId="personas">
           <qi-persona-panel></qi-persona-panel>
         </section>
-        <section id="eventsPage" pageId="events" >
+        <section id="Event Stream" pageId="events" >
           <qi-event-stream></qi-event-stream>
         </section>
-        <section id="aroundmePage" pageId="aroundme" >
+        <section id="Around Me" pageId="aroundme" >
           <qi-aroundme-panel></qi-aroundme-panel>
         </section>
-        <section id="msgsPage" pageId="messages">
+        <section id="Messages" pageId="messages">
           <qi-msg-panel></qi-msg-panel>
         </section>
-        <section id="contactsPage" pageId="contacts">
+        <section id="Contacts" pageId="contacts">
           <qi-contact-panel></qi-contact-panel>
         </section>
       </core-pages>
       </div>
-    </core-scaffold>
+    </qi-scaffold>
   </template>
 
   <script>
 
     Polymer('quik-intro',{
       page: 0,
+      panelTitle: 'QuikIntro',
       pageChanged: function(oldValue, newValue){
         this.$.coreScaffold.closeDrawer();
       },
@@ -110,11 +116,139 @@
           // after login is complete, segue to the events page
           e.currentTarget.selected = 5;
         });
+
+        this.$.pages.addEventListener("core-select", function(e){
+          
+          var qi = document.querySelector('quik-intro');
+          var scaffolding = qi.$.coreScaffold;
+          var menuButton = scaffolding.getMenuButton();
+
+          console.log(qi);
+
+          // if the event originated from a top-level
+          // page change event
+          if(e.srcElement.id == 'pages'){
+            var id = e.detail.item.id;
+            if(id != null &&  id != ""){
+              
+              var conf = qi.conf[id];
+          
+
+              // set the title
+              qi.panelTitle = conf.panelTitle;
+
+              // set the menu button icon
+              
+              menuButton.icon = conf.icon;
+
+              // set the click handler for the button
+              scaffolding.handleClick = conf.clickHandler;
+          }
+        }else {
+          //otherwise the event came from some sub-level page
+          // qi.panelTitle = e.panelTitle;
+          // menuButton.icon = e.icon;
+          // scaffolding.handleClick = e.clickHandler;
+        }
+        });
       },
 
       handleToggle: function(){
         this.$.coreScaffold.openDrawer();
+      },
+
+     
+
+      conf:{
+
+        "Login":{
+          panelTitle: 'QuikIntro',
+          icon: 'menu',
+          clickHandler: function(e){ 
+            var qi = document.querySelector('quik-intro');
+            qi.$.coreScaffold.openDrawer();
+          }
+        },
+
+        "Home":{
+          panelTitle:'Home',
+          icon: 'menu',
+          clickHandler: function(){
+            var qi = document.querySelector('quik-intro');
+            qi.$.coreScaffold.openDrawer();
+          }
+        },
+        "Security":{
+          panelTitle:'Security',
+          icon: 'arrow-back',
+          clickHandler: function(){
+            var qi = document.querySelector("quik-intro");
+            qi.$.pages.selected = 1;
+          }
+        },
+        "Personas":{
+          panelTitle: 'Personas',
+          icon: 'arrow-back',
+         clickHandler: function(){
+            var qi = document.querySelector("quik-intro");
+            qi.$.pages.selected = 1;
+          }
+        },
+        "On Boarding":{
+          panelTitle: 'On Boarding',
+          icon: 'arrow-back',
+         clickHandler: function(){
+            var qi = document.querySelector("quik-intro");
+            qi.$.pages.selected = 1;
+          }
+        },
+        "Profile":{
+          panelTitle: 'Profile',
+          icon: 'arrow-back',
+         clickHandler: function(){
+            var qi = document.querySelector("quik-intro");
+            qi.$.pages.selected = 1;
+          }
+        },
+        "Event Stream":{
+          panelTitle: 'Event Stream',
+          icon: 'arrow-back',
+          clickHandler: function(){
+            var qi = document.querySelector("quik-intro");
+            qi.$.pages.selected = 1;
+          }
+        },
+
+        "Around Me":{
+          panelTitle: 'Around Me',
+          icon: 'arrow-back',
+        clickHandler: function(){
+            var qi = document.querySelector("quik-intro");
+            qi.$.pages.selected = 1;
+          }
+        },
+        "Messages":{
+          panelTitle: 'Messages',
+          icon: 'arrow-back',
+        clickHandler: function(){
+            var qi = document.querySelector("quik-intro");
+            qi.$.pages.selected = 1;
+          }
+        },
+
+
+        "Contacts":{
+          panelTitle:'Contacts',
+          icon:'arrow-back',
+         clickHandler: function(){
+            var qi = document.querySelector("quik-intro");
+            qi.$.pages.selected = 1;
+          }
+        }
+
+       
       }
+      
 
     });
 
