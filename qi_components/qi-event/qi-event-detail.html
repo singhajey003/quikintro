@@ -39,7 +39,7 @@
       background: none;
     }
     paper-checkbox {
-      margin-top: 22px;
+      margin-top: 20px;
       padding-right: 15px;
     }
     
@@ -106,42 +106,67 @@
        <qi-twitter-panel dataUrl="{{event.tweetUrl}}"></qi-twitter-panel>
         
       </div>
+
+
       <div>
 
-        <div class="keyword">Groovy </div>
+      <fieldset>
+        <legend>My Interests</legend>
+      
+        <div class="keyword">drug discovery</div>
         <paper-progress class="type1" value="64"></paper-progress> 64%
-        <div class="keyword">Grails</div>
-        <paper-progress value="34"></paper-progress> 34%
-        <div class="keyword">Java</div>
-        <paper-progress value="12" class="type2"></paper-progress> 12%
-        <div class="keyword">Research</div>
+        <div class="keyword">clinical trials</div>
         <paper-progress value="62" class="type2"></paper-progress> 62%
+        <div class="keyword">cancer</div>
+        <paper-progress value="34"></paper-progress> 34%
+        <div class="keyword">systems biology</div>
+        <paper-progress value="12" class="type2"></paper-progress> 12%
+        
+
+      </fieldset>
+
+      <fieldset>
+        <legend>Attendee Interests</legend>
+      
+        <core-label horizontal layout>
+          <paper-checkbox for disabled ></paper-checkbox>
+          <div vertical layout>
+            <h4>investment - 64%</h4>
+          </div>
+        </core-label>
+
 
         <core-label horizontal layout>
-          <paper-checkbox for disabled checked></paper-checkbox>
+          <paper-checkbox for disabled ></paper-checkbox>
           <div vertical layout>
-            <h4>groovy - 64%</h4>
+            <h4>cancer immunotherapy - 62%</h4>
           </div>
         </core-label>
-        <core-label horizontal layout>
-          <paper-checkbox for disabled checked></paper-checkbox>
-          <div vertical layout>
-            <h4>grails - 34%</h4>
-          </div>
-        </core-label>
-        <core-label horizontal layout>
-          <paper-checkbox for disabled checked></paper-checkbox>
-          <div vertical layout>
-            <h4>java - 12%</h4>
-          </div>
-        </core-label>
-        <core-label horizontal layout>
-          <paper-checkbox for disabled checked></paper-checkbox>
-          <div vertical layout>
-            <h4>research - 62%</h4>
-          </div>
 
+        <core-label horizontal layout>
+          <paper-checkbox for disabled ></paper-checkbox>
+          <div vertical layout>
+            <h4>antibodies - 53%</h4>
+          </div>
         </core-label>
+
+        <core-label horizontal layout>
+          <paper-checkbox for disabled ></paper-checkbox>
+          <div vertical layout>
+            <h4>clinical trial collaborations - 34%</h4>
+          </div>
+        </core-label>
+
+        <core-label horizontal layout>
+          <paper-checkbox for disabled ></paper-checkbox>
+          <div vertical layout>
+            <h4>ADCs - 12%</h4>
+          </div>
+        </core-label>
+
+
+
+        </fieldset>
 
       </div>
       <div>
