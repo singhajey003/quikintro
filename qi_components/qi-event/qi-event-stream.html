@@ -14,34 +14,31 @@
 
 		<style>	
 			.container{
-				padding: 20px;
+				padding: 10px;
 				height: 100%;
 			}
 		</style>
 
 		<qi-globals id="globals"></qi-globals>
-		<core-ajax auto url="{{$.globals.urls.notices}}" response="{{notifications}}" handleAs="json"></core-ajax>
 		<core-ajax auto url="{{$.globals.urls.events}}" response="{{events}}" handleAs="json"></core-ajax>
 
 		<div class="container" layout vertical flex>
 
-		<core-pages id="pages" selected="{{selectedEventPage}}" layout vertical flex>
-		  <section>
-			
-
+		<core-pages id="eventPages" selected="{{selectedEventPage}}" layout vertical flex>
+		  <section selected>
 			<label>My Scheduled Events</label>
 			<div>
 				<template repeat="{{event, i in events }}">
 					<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
 				</template>
 			</div>
-			</div>
+		
 		 </section>
 
 		<section>
 			<qi-event-detail id="detail"></qi-event-detail>
 		</section>
-
+		
 		</div>
 		</core-pages>
 	</template>
@@ -49,19 +46,23 @@
 	<script>
 		Polymer('qi-event-stream',{
 			selectedEventPage:0,
+			selectedEventPageChanged: function(oldValue, newValue){
+				console.log("newValue: " + newValue);
+			},
 			cardClickHandler: function(e){
 				var event = e.srcElement.event;
+				console.log("event: " + event);
 				var detail = this.$.detail;
 				detail.event = event;
 				this.selectedEventPage = 1;
 			},
 
 			ready:function(){
-				var pages = this.$.pages;
-				pages.addEventListener('back-event', function(e){
-					e.currentTarget.selected = 0;
-					
-				});
+				console.log("selectedEventPage: " + this.selectedEventPage);
+				// var pages = this.$.eventPages;
+				// pages.addEventListener('back-event', function(e){
+				// 	e.currentTarget.selected = 0;
+				// });
 			}
 
 		});

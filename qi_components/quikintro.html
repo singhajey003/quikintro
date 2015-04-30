@@ -114,7 +114,7 @@
           //TODO add login code here.
 
           // after login is complete, segue to the events page
-          e.currentTarget.selected = 5;
+          e.currentTarget.selected = 1;
         });
 
         this.$.pages.addEventListener("core-select", function(e){
@@ -123,7 +123,6 @@
           var scaffolding = qi.$.coreScaffold;
           var menuButton = scaffolding.getMenuButton();
 
-          console.log(qi);
 
           // if the event originated from a top-level
           // page change event
@@ -133,7 +132,6 @@
               
               var conf = qi.conf[id];
           
-
               // set the title
               qi.panelTitle = conf.panelTitle;
 
