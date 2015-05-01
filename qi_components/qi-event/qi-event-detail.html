@@ -74,8 +74,6 @@
 
   <qi-globals id="globals"></qi-globals>
   <core-ajax auto url="{{$.globals.urls.personas}}" response="{{personas}}" handleAs="json"></core-ajax>
-
-  <core-ajax auto url="{{$.globals.urls.notes}}" response="{{notes}}" handleAs="json"></core-ajax>
   
   <core-scroll-header-panel id="eventDetailHeaderPanel" fixed="" headerHeight="40" flex>
 
@@ -137,7 +135,7 @@
         <legend>Attendee Interests</legend>
       
         <core-label horizontal layout>
-          <paper-checkbox for disabled ></paper-checkbox>
+          <paper-checkbox ></paper-checkbox>
           <div vertical layout>
             <h4>investment - 64%</h4>
           </div>
@@ -179,7 +177,7 @@
       </div>
 
       <div id="notes">
-        <template repeat="{{note in notes}}">
+        <template repeat="{{note in event.notes}}">
           <qi-event-detail-notes notes="{{note}}"></qi-event-detail-notes>
         </template> 
       </div>

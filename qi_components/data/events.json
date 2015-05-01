@@ -20,6 +20,21 @@
  		 "cloakingMode":true,
  		 "tweetUrl":"qi_components/data/jpm15.tweets.json",
 
+ 		 "notes":[
+ 		 {
+			"title": "Keynote Takeaways",
+			"description": "All pharmas are currently actively pursuing cancer immunotherapy approaches. Attrition rate at 90% - as high as ever. Costs $1.8 Bn/approved drug.",
+			"author":"Dimitri",
+    		"time": "04/13/2015 4:55PM"
+			},
+		  {
+		    "title": "Oncology Deal Room",
+		    "description": "Genentech MPDL3280A drug looks promising in PhIII.",
+		    "author":"Dimitri",
+		    "time": "04/11/2015 4:55PM"
+		  }
+		  ],
+
  		 "matches":[
  		 	{
  		 		"title":"CSO",
@@ -202,7 +217,17 @@
 		"tweetUrl":"qi_components/data/aacr15.tweets.json",
 		"persona":"defCancerBio",
 
- "matches":[
+		 "notes":[
+ 		 {
+			"title": "Keynote Takeaways",
+			"description": "Interesting talk on mutational signatures from Michael Stratton @ Sanger Inst. Tyler Jacks on 'Engineering the cancer genome'.",
+			"author":"Dimitri",
+    		"time": "04/13/2015 4:55PM"
+			}
+		 
+		  ],
+
+ 		"matches":[
  		 	{
  		 		"title":"CSO",
  		 		"company":"Genentech",
@@ -506,6 +531,16 @@
 	 	"tweetUrl":"qi_components/data/io2015.tweets.json",
 	 	"cloakingMode":false,
 	 	"persona":"defDev",
+	 	"notes":[
+ 		 {
+			"title": "Keynote Takeaways",
+			"description": "Interesting talk on polymer by Rob Dodson.",
+			"author":"Dimitri",
+    		"time": "04/13/2015 4:55PM"
+			}
+		 
+		  ],
+
 	 	 "matches":[
  		 	{
  		 		"title":"CTO",
@@ -624,6 +659,16 @@
      	"tweetUrl":"qi_components/data/javaone15.tweets.json",
      	"cloakingMode":false,
      	"persona":"defDev",
+     	"notes":[
+ 		 {
+			"title": "Keynote Takeaways",
+			"description": "Interesting talk on the use of JavaFX as a platform for cross-platform mobile development.",
+			"author":"Dimitri",
+    		"time": "04/13/2015 4:55PM"
+			}
+		 
+		  ],
+
      	 "matches":[
  		 	{
  		 		"title":"Sr Software Engineer",
