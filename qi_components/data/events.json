@@ -33,7 +33,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : "1.5",
+			     "distanceAway" : 1.5,
 			     "match": 82
  		 	},
 
@@ -49,7 +49,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : "1.5",
+			     "distanceAway" : 1.5,
 			     "match": 82
  		 	},
 
@@ -65,7 +65,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : "1.5",
+			     "distanceAway" : 1.5,
 			     "match": 75
  		 	},
  		 	{
@@ -80,7 +80,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : "1.5",
+			     "distanceAway" : 1.5,
 			     "match": 90
  		 	},
 
@@ -96,7 +96,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : "1.5",
+			     "distanceAway" : 1.5,
 			     "match": 93
  		 	},
 
@@ -112,7 +112,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : "1.5",
+			     "distanceAway" : 1.5,
 			     "match": 77
  		 	}
 		 	
@@ -201,6 +201,106 @@
 		"hashtag":"#aacr15",
 		"tweetUrl":"qi_components/data/aacr15.tweets.json",
 		"persona":"defCancerBio",
+
+ "matches":[
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Genentech",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 82
+ 		 	},
+
+  		 	{
+ 		 		"title":"CBO",
+ 		 		"company":"Genentech",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 82
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Novartis",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 75
+ 		 	},
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"5 Prime Therapeutics",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 90
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Merck",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 93
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Pfizer",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 77
+ 		 	}
+		 	
+
+ 		 ],
+
 		"contacts":[
 
 
@@ -270,6 +370,106 @@
  		 "tweetUrl":"qi_components/data/asco15.tweets.json",
  		 "cloakingMode":true,
  		 "persona":"defCancerBio",
+
+ 		"matches":[
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Genentech",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 82
+ 		 	},
+
+  		 	{
+ 		 		"title":"CBO",
+ 		 		"company":"Genentech",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 82
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Novartis",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 75
+ 		 	},
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"5 Prime Therapeutics",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 90
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Merck",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 93
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Pfizer",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 77
+ 		 	}
+		 	
+
+ 		 ],
+
  		 "contacts":[
 			{
 				"firstName": "Dimitri",
@@ -305,7 +505,105 @@
 	 	"hashtag":"#io2015",
 	 	"tweetUrl":"qi_components/data/io2015.tweets.json",
 	 	"cloakingMode":false,
-	 	"persona":"defDev"
+	 	"persona":"defDev",
+	 	 "matches":[
+ 		 	{
+ 		 		"title":"CTO",
+ 		 		"company":"Genentech",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 82
+ 		 	},
+
+  		 	{
+ 		 		"title":"CTO",
+ 		 		"company":"Merck",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 82
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CTO",
+ 		 		"company":"Novartis",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 75
+ 		 	},
+ 		 	{
+ 		 		"title":"CTO",
+ 		 		"company":"5 Prime Therapeutics",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 90
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CTO",
+ 		 		"company":"Merck",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 93
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CTO",
+ 		 		"company":"Pfizer",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 77
+ 		 	}
+		 	
+
+ 		 ]
 	 },
 
      {
@@ -325,7 +623,105 @@
      	"hashtag":"#javaone15",
      	"tweetUrl":"qi_components/data/javaone15.tweets.json",
      	"cloakingMode":false,
-     	"persona":"defDev"
+     	"persona":"defDev",
+     	 "matches":[
+ 		 	{
+ 		 		"title":"Sr Software Engineer",
+ 		 		"company":"Facebook",
+ 		 		"interests":["graph databases","cassandra", "hadoop","neo4j"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 82
+ 		 	},
+
+  		 	{
+ 		 		"title":"CBO",
+ 		 		"company":"Genentech",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 82
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Novartis",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 75
+ 		 	},
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"5 Prime Therapeutics",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 90
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Merck",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 93
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CTO",
+ 		 		"company":"Pfizer",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 1.5,
+			     "match": 77
+ 		 	}
+		 	
+
+ 		 ]
 
      } 
 
