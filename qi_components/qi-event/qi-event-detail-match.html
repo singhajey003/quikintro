@@ -13,7 +13,7 @@
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
-<polymer-element name="qi-event-detail-matches" attributes="matches">
+<polymer-element name="qi-event-detail-matches" attributes="match">
 
 	
 	<template>
@@ -49,19 +49,19 @@
 	<div id="card" class="cardWhite" flip="front">
 		<div id="front">
 		<div >
-			<template if="{{matches.gravatar != null}}">
-				<img src="{{matches.gravatar}}" class="avatar" align="left">
+			<template if="{{match.gravatar != null}}">
+				<img src="{{match.gravatar}}" class="avatar" align="left">
 			</template>
-			<template if="{{matches.gravatar == null}}">
+			<template if="{{match.gravatar == null}}">
 				<core-icon icon="social:person"></core-icon>
 			</template>
 			
-			<div id="nameBlock" >{{matches.firstName}} {{matches.lastName}}</div>
-			<div id="titleBlock">{{matches.title}} {{matches.company}}</div>
+			
+			<div id="titleBlock">{{match.title}} {{match.company}}</div>
 
 			<div id="matchBlock">
-			  <span id="matchPercentage">{{matches.match}}% match</span>
-			  <span id="distanceAway"> less than {{matches.distanceAway}} miles away</span>
+			  <span id="matchPercentage">{{match.match}}% match</span>
+			  <span id="distanceAway"> less than {{match.distanceAway}} miles away</span>
 			</div>
 
 			<div id="invite">

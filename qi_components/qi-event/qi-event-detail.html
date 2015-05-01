@@ -13,10 +13,11 @@
 <link rel="import" href="../../bower_components/paper-progress/paper-progress.html">
 
 <link rel="import" href="../qi-twitter/qi-twitter-panel.html">
+<link rel="import" href="../qi-contact/qi-contact-card.html">
 
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-event-card.html">
-<link rel="import" href="qi-event-detail-matches.html">
+<link rel="import" href="qi-event-detail-match.html">
 <link rel="import" href="qi-event-detail-notes.html">
 
 <polymer-element name="qi-event-detail" attributes="event">
@@ -73,7 +74,7 @@
 
   <qi-globals id="globals"></qi-globals>
   <core-ajax auto url="{{$.globals.urls.personas}}" response="{{personas}}" handleAs="json"></core-ajax>
-  <core-ajax auto url="{{$.globals.urls.matches}}" response="{{matches}}" handleAs="json"></core-ajax>
+
   <core-ajax auto url="{{$.globals.urls.notes}}" response="{{notes}}" handleAs="json"></core-ajax>
   
   <core-scroll-header-panel id="eventDetailHeaderPanel" fixed="" headerHeight="40" flex>
@@ -97,13 +98,15 @@
       </div>
 
       <div id="matches">
-        <template repeat="{{matches in matches}}">
-          <qi-event-detail-matches matches="{{matches}}"></qi-event-detail-matches>
+        <template repeat="{{match in event.matches}}">
+          <qi-event-detail-match match="{{match}}"></qi-event-detail-match>
         </template>        
       </div>
 
       <div id="contacts">
-        
+         <template repeat="{{contact in event.contacts}}">
+          <qi-contact-card contact="{{contact}}"></qi-contact-card>
+        </template>    
       </div>
 
 

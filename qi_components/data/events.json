@@ -19,18 +19,118 @@
  		 "notification" : "15 minutes before",
  		 "cloakingMode":true,
  		 "tweetUrl":"qi_components/data/jpm15.tweets.json",
- 		 "guests":[
+
+ 		 "matches":[
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Genentech",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : "1.5",
+			     "match": 82
+ 		 	},
+
+  		 	{
+ 		 		"title":"CBO",
+ 		 		"company":"Genentech",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : "1.5",
+			     "match": 82
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Novartis",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : "1.5",
+			     "match": 75
+ 		 	},
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"5 Prime Therapeutics",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : "1.5",
+			     "match": 90
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Merck",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : "1.5",
+			     "match": 93
+ 		 	},
+
+ 		 	{
+ 		 		"title":"CSO",
+ 		 		"company":"Pfizer",
+ 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "Biotechnology",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : "1.5",
+			     "match": 77
+ 		 	}
+		 	
+
+ 		 ],
+
+ 		 "contacts":[
 			{
 				"firstName": "Dimitri",
 				"lastName": "Arges",
-				"title":"",
+				"title":"CEO",
 				"company":"QuikIntro",
 				"mobile":"555-123-4569",
-				"email":"darges@aspenbiosciences.com",
-				"address": "123 Elm Street, San Jose, CA 95123",
+				"email":"darges@quikintro.com",
+				"address": "425 Broadway Street, Redwood City, CA 94063",
 				"skills":"business development, investor relations",
 				"gravatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
-				"interests":"startups",
+				"interests":["startups", "social media"],
 				"score":4,
 				"notes":"Remember to ask him about new personalized medicine startups."
 			},
@@ -43,9 +143,11 @@
 				"mobile":"555-123-4567",
 				"email":"john.smith@gene.com",
 				"address": "123 Elm Street, San Francisco, CA 95123",
-				"tags":"biotech, cancer, product/pipeine, followup",
+				"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
 				"notes":"Interested in Drug Pipeline dashboard",
-				"score": 5
+				"score": 5,
+				"rating":4
 			},
 
 			{
@@ -56,9 +158,11 @@
 				"mobile":"555-123-4567",
 				"email":"jane.doe@mirati.com",
 				"address": "123 Elm Street, San Diego, CA 95123",
-				"tags":"biotech, cancer",
+				"interests":["cancer","immunotherapy"],
+				"tags":["biotech","cancer"],
 				"notes":"Interested in Drug Cocktail application",
-				"score": 5
+				"score": 5,
+				"rating":4
 			},
 
 			{
@@ -69,9 +173,11 @@
 				"mobile":"555-123-4567",
 				"email":"jane.doe@mirati.com",
 				"address": "123 Elm Street, San Diego, CA 95123",
-				"tags":"biotech, cancer",
+				"interests":["cancer","immunotherapy"],
+				"tags":["biotech","cancer"],
 				"notes":"Interested in Drug Cocktail application",
-				"score": 9
+				"score": 9,
+				"rating":4
 			}
 
  		 ]
@@ -95,23 +201,8 @@
 		"hashtag":"#aacr15",
 		"tweetUrl":"qi_components/data/aacr15.tweets.json",
 		"persona":"defCancerBio",
-		"guests":[
+		"contacts":[
 
-			
-
-			{
-				"firstName": "Mark",
-				"lastName": "Fortner",
-				"title":"",
-				"company":"QuikIntro",
-				"mobile":"555-123-4567",
-				"email":"mark.fortner@aspenbiosciences.com",
-				"address": "123 Elm Street, San Jose, CA 95123",
-				"skills":"groovy, grails, java, research informatics",
-				"interests":"programming, cancer biology, startups",
-				"gravatar":"http://www.gravatar.com/avatar/510171196ef2d357b0fe2326df704ddd.png",
-				"score": 8
-			},
 
 			{
 				"firstName": "John",
@@ -121,9 +212,11 @@
 				"mobile":"555-123-4567",
 				"email":"john.smith@gene.com",
 				"address": "123 Elm Street, San Francisco, CA 95123",
-				"tags":"biotech, cancer, product/pipeine, followup",
+				"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
 				"notes":"Interested in Drug Pipeline dashboard",
-				"score": 5
+				"score": 5,
+				"rating":4
 			},
 
 			{
@@ -134,9 +227,11 @@
 				"mobile":"555-123-4567",
 				"email":"jane.doe@mirati.com",
 				"address": "123 Elm Street, San Diego, CA 95123",
-				"tags":"biotech, cancer",
+				"interests":["cancer","immunotherapy"],
+				"tags":["biotech","cancer"],
 				"notes":"Interested in Drug Cocktail application",
-				"score": 5
+				"score": 5,
+				"rating":4
 			},
 
 			{
@@ -147,11 +242,12 @@
 				"mobile":"555-123-4567",
 				"email":"jane.doe@mirati.com",
 				"address": "123 Elm Street, San Diego, CA 95123",
-				"tags":"biotech, cancer",
+				"interests":["cancer","immunotherapy"],
+				"tags":["biotech","cancer"],
 				"notes":"Interested in Drug Cocktail application",
-				"score": 9
+				"score": 9,
+				"rating":4
 			}
-
 
 		]
 	},
@@ -174,7 +270,7 @@
  		 "tweetUrl":"qi_components/data/asco15.tweets.json",
  		 "cloakingMode":true,
  		 "persona":"defCancerBio",
- 		 "guests":[
+ 		 "contacts":[
 			{
 				"firstName": "Dimitri",
 				"lastName": "Arges",
