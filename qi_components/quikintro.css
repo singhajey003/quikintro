@@ -1,6 +1,10 @@
 .font-light {
   font-family: "FirasansUltralight"; }
 
+.btn-light[raised] {
+  background-color: HSLA(0, 0%, 100%, 1);
+  color: HSLA(195, 20%, 23%, 1); }
+
 :host {
   width: 100%;
   height: 100%;
