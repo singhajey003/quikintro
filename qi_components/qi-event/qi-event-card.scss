@@ -11,20 +11,27 @@ $card-height: $event-info-height + $activity-summary-height + $footer-height;
 	height: $card-height;
 	min-width: $card-height;
 	max-width: 350px;
-	background: $white url('../../images/city_san_francisco.jpg') top left no-repeat;	
+	background-color: $qi-gray-dark2;
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#card.sanfrancisco {
+	background-image: url('../../images/city-san_francisco.jpg');
+}
+
+#card.chicago {
+	background-image: url('../../images/city-chicago.jpg');
+}
+
+#card.philadelphia {
+	background-image: url('../../images/city-philadelphia.jpg');
 }
 
 .background {
 	@include absolute(top 0 right 0 bottom $footer-height left 0);
-//  background: -moz-linear-gradient(top,  hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,0.65) 100%); /* FF3.6+ */
-//  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsla(0,0%,0%,0)), color-stop(100%,hsla(0,0%,0%,0.65))); /* Chrome,Safari4+ */
-//  background: -webkit-linear-gradient(top,  hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,0.65) 100%); /* Chrome10+,Safari5.1+ */
-//  background: -o-linear-gradient(top,  hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,0.65) 100%); /* Opera 11.10+ */
-//  background: -ms-linear-gradient(top,  hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,0.65) 100%); /* IE10+ */
-//  background: linear-gradient(to bottom,  hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,0.65) 100%); /* W3C */
-//  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-	background: transparent url('../../images/card_bkgnd_gradient.png') top center no-repeat;
-	background-size: cover;
+	background-color: HSLA(195, 60%, 30%, 0.6);
 }
 
 .eventInfo {

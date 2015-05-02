@@ -4,7 +4,19 @@
   height: 240px;
   min-width: 240px;
   max-width: 350px;
-  background: HSLA(0, 0%, 100%, 1) url("../../images/city_san_francisco.jpg") top left no-repeat; }
+  background-color: HSLA(197, 18%, 39%, 1);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+#card.sanfrancisco {
+  background-image: url("../../images/city-san_francisco.jpg"); }
+
+#card.chicago {
+  background-image: url("../../images/city-chicago.jpg"); }
+
+#card.philadelphia {
+  background-image: url("../../images/city-philadelphia.jpg"); }
 
 .background {
   position: absolute;
@@ -12,8 +24,7 @@
   right: 0;
   bottom: 40px;
   left: 0;
-  background: transparent url("../../images/card_bkgnd_gradient.png") top center no-repeat;
-  background-size: cover; }
+  background-color: HSLA(195, 60%, 30%, 0.6); }
 
 .eventInfo {
   position: absolute;
