@@ -48,21 +48,18 @@
             <core-input id="location" flex>{{event.location}}</core-input>
         </core-field>
 
-        <google-map id="map" zoom="14" style="width:250px; height: 250px" libraries="visualization" fitToMarkers >
-            <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
+        <google-map id="map" zoom="14" style="padding-left: 5px; padding-right: 5px" libraries="visualization" fitToMarkers flex>
+            <google-map-marker id="marker">
             </google-map-marker>
         </google-map>
     </template>
     <script>
     Polymer('qi-event-summary', {
 
-        domReady: function() {
-            
-        },
 
         fixMap: function() {
             var map =  this.$.map; // google map web component
-            var gmap = map; // google.maps.Map instance
+            var gmap = map.map; // google.maps.Map instance
             var lat = gmap.getCenter().lat();
             var lng = gmap.getCenter().lng();
             var locationLat = this.event.coordinates.latitude;
@@ -95,7 +92,12 @@
                 map.longitude = locationLong;
             }, 100);
 
+        },
+
+        eventChanged: function(oldValue, newValue){
+        	this.fixMap();
         }
+       
     });
     </script>
 </polymer-element>
