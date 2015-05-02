@@ -123,6 +123,10 @@
           var scaffolding = qi.$.coreScaffold;
           var menuButton = scaffolding.getMenuButton();
 
+          if(e.detail.item.id == 'Event Stream'){
+            var qiEventStream = e.detail.item.firstElementChild;
+            qiEventStream.selectedEventPage = 0;
+          }
 
           // if the event originated from a top-level
           // page change event
@@ -141,13 +145,14 @@
 
               // set the click handler for the button
               scaffolding.handleClick = conf.clickHandler;
-          }
-        }else {
+            }
+          }else {
+           
           //otherwise the event came from some sub-level page
           // qi.panelTitle = e.panelTitle;
           // menuButton.icon = e.icon;
           // scaffolding.handleClick = e.clickHandler;
-        }
+          }
         });
       },
 
@@ -214,6 +219,7 @@
           clickHandler: function(){
             var qi = document.querySelector("quik-intro");
             qi.$.pages.selected = 1;
+            this.fire('core-select',{src:'Event Stream'})
           }
         },
 
