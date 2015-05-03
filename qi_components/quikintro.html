@@ -8,6 +8,7 @@
 <link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../bower_components/core-menu/core-submenu.html">
 <link rel="import" href="../bower_components/core-pages/core-pages.html">
+<link rel="import" href="../bower_components/core-localstorage/core-localstorage.html">
 
 <link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
@@ -26,11 +27,21 @@
 <link rel="import" href="qi-scaffold/qi-scaffold.html">
 <link rel="import" href="qi-home/qi-home.html">
 
-<polymer-element name="quik-intro" >
+<polymer-element name="quik-intro">
 
   <template>
     <link rel="stylesheet" href="quikintro.css" >
 
+    <!-- Data Loading -->
+    <qi-globals id="globals"></qi-globals>    
+    <core-ajax auto url="{{$.globals.urls.getPersonas}}" response="{{personaList}}" handleAs="json"></core-ajax>
+    <core-ajax auto url="{{$.globals.urls.events}}" response="{{eventList}}" handleAs="json"></core-ajax>
+    <core-ajax auto url="{{$.globals.urls.contacts}}" response="{{contactList}}" handleAs="json"></core-ajax>
+    <core-ajax auto url="{{$.globals.urls.profile}}" response="{{currProfile}}" handleAs="json"></core-ajax>
+
+    <core-localstorage name="personas" value="{{personaList}}"></core-localstorage>
+ 
+    <!-- UI -->
     <qi-scaffold id="coreScaffold" responsiveWidth="480px" force-narrow>
 
       <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
@@ -76,23 +87,23 @@
           <qi-onboard-panel></qi-onboard-panel>
         </section>
         <section id="Profile" pageId="profile">
-          <qi-profile-panel url="data/linkedin-profile.json"></qi-profile-panel>
+          <qi-profile-panel id="profilePanel" profile="{{currProfile}}"></qi-profile-panel>
         </section>
         
         <section id="Personas" pageId="personas">
-          <qi-persona-panel></qi-persona-panel>
+          <qi-persona-panel id="personaPanel" ></qi-persona-panel>
         </section>
         <section id="Event Stream" pageId="events" >
-          <qi-event-stream></qi-event-stream>
+          <qi-event-stream id="eventStream" events="{{eventList}}" personas="{{personas}}"></qi-event-stream>
         </section>
         <section id="Around Me" pageId="aroundme" >
-          <qi-aroundme-panel></qi-aroundme-panel>
+          <qi-aroundme-panel id="aroundMe" ></qi-aroundme-panel>
         </section>
         <section id="Messages" pageId="messages">
           <qi-msg-panel></qi-msg-panel>
         </section>
         <section id="Contacts" pageId="contacts">
-          <qi-contact-panel></qi-contact-panel>
+          <qi-contact-panel id="contactPanel" ></qi-contact-panel>
         </section>
       </core-pages>
       </div>
@@ -104,11 +115,35 @@
     Polymer('quik-intro',{
       page: 0,
       panelTitle: 'QuikIntro',
+      eventList: [],
+      contactList: [],
+      personaList: [],
+      currProfile: null,
+
+      contactListChanged: function(oldValue, newValue){
+        var contactPanel = this.$.contactPanel;
+        contactPanel.contacts = newValue;
+
+        var aroundMe = this.$.aroundMe;
+        aroundMe.contacts = newValue;
+      },
+
+      currProfileChanged: function(oldValue, newValue){
+        var profilePanel = this.$.profilePanel;
+        profilePanel.profile = newValue;
+      },
+
+      eventListChanged: function(oldValue, newValue){
+        var eventPanel = this.$.eventStream;
+        eventPanel.events = newValue;
+      },
+      
       pageChanged: function(oldValue, newValue){
         this.$.coreScaffold.closeDrawer();
       },
 
       ready: function(){
+
         this.$.pages.addEventListener("login", function(e){
 
           //TODO add login code here.

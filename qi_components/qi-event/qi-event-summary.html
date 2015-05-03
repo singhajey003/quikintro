@@ -10,6 +10,7 @@
 <polymer-element name="qi-event-summary" attributes="event">
     <template>
 
+    <core-localstorage name="personas" value="{{personas}}"></core-localstorage>
 
         <core-field>
             <label>{{event.title}}</label>
@@ -36,7 +37,7 @@
                 <core-dropdown class="dropdown">
                     <core-selector selected="{{event.persona}}" valueattr="personaId">
                         <template repeat="{{persona in personas}}">
-                            <core-item personaId="{{persona.id}}">{{persona.name}}</core-item>
+                            <core-item personaId="{{persona.name}}">{{persona.name}}</core-item>
                         </template>
                     </core-selector>
                 </core-dropdown>
@@ -66,11 +67,11 @@
             var locationLong = this.event.coordinates.longitude;
 
             var bnds = gmap.getBounds();
-            console.log("bnds: " + bnds);
+            //console.log("bnds: " + bnds);
 
             // at this point, everything is ok
             // before resize latitude 45.63 longitude 16.159999999999968
-            console.log('before resize', 'latitude', lat, 'longitude', lng);
+            //console.log('before resize', 'latitude', lat, 'longitude', lng);
 
 
 
@@ -79,10 +80,10 @@
 
             // at this point latitude and longitude ar wrong
             // after resize latitude 19.16672805677583 longitude 42.878749999999954
-            console.log('after resize', 'latitude', gmap.getCenter().lat(), 'longitude', gmap.getCenter().lng());
+            //console.log('after resize', 'latitude', gmap.getCenter().lat(), 'longitude', gmap.getCenter().lng());
 
             // fix center because of resize
-            console.log(this.event.coordinates);
+            //console.log(this.event.coordinates);
             //gmap.setCenter({"latitude":parseFloat(this.event.coordinates.latitude), "longitude":parseFloat(this.event.coordinates.longitude)});
             //gmap.setCenter(new google.maps.LatLng(locationLat, locationLong));
 

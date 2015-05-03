@@ -8,15 +8,13 @@
 <link rel="import" href="qi-job-card.html">
 
 
-<polymer-element name="qi-profile-panel" attributes="panelTitle url">
+<polymer-element name="qi-profile-panel" attributes="panelTitle url profile">
 
 
 	<template>
 
 	<link rel="stylesheet" href="../quikintro.css">
 	<link rel="stylesheet" href="qi-profile-panel.css">
-
-	<core-ajax auto id="ajax" url="{{url}}" handleAs="json" response="{{profile}}"></core-ajax>
 
 	
 	<section id="profile"  hero-id="hero" cross-fade>
@@ -57,11 +55,7 @@
 
 	<script>
 	Polymer('qi-profile-panel',{
-			url:"../data/linkedin-profile.json",
-			fetchData: function(){
-				this.$.pages.selected = 1;
-				this.$.ajax.go();
-			}
+			
 			
 	});
 

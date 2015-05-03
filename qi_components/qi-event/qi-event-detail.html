@@ -20,7 +20,7 @@
 <link rel="import" href="qi-event-detail-match.html">
 <link rel="import" href="qi-event-detail-notes.html">
 
-<polymer-element name="qi-event-detail" attributes="event">
+<polymer-element name="qi-event-detail" attributes="event personas">
   <template>
 
   <link rel="stylesheet" href="../quikintro.css">
@@ -72,8 +72,6 @@
 
   </style>
 
-  <qi-globals id="globals"></qi-globals>
-  <core-ajax auto url="{{$.globals.urls.personas}}" response="{{personas}}" handleAs="json"></core-ajax>
   
   <core-scroll-header-panel id="eventDetailHeaderPanel" fixed="" headerHeight="40" flex>
 
@@ -92,7 +90,7 @@
     <core-pages selected="{{selected}}">
 
       <div id="summary">
-        <qi-event-summary event="{{event}}"></qi-event-summary>
+        <qi-event-summary event="{{event}}" personas="{{personas}}"></qi-event-summary>
       </div>
 
       <div id="matches">

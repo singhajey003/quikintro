@@ -7,18 +7,18 @@
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-persona-card.html">
 
-<polymer-element name="qi-persona-panel">
+<polymer-element name="qi-persona-panel" >
   <template>
     <link rel="stylesheet" href="../quikintro.css">
     
-    <qi-globals id="globals"></qi-globals>    
-    <core-ajax auto url="{{$.globals.urls.getPersonas}}" response="{{response}}" handleAs="json"></core-ajax>
+    <core-localstorage name="personas" value="{{personas}}"></core-localstorage>
+    
   	<core-scroll-header-panel headermargin="128" fixed layout vertical>
        
 
         <div class="content">
         
-          <template repeat="{{persona in response}}">
+          <template repeat="{{persona in personas}}">
             <qi-persona-card persona="{{persona}}"></qi-persona-card>
           </template>
         </div>

@@ -14,14 +14,14 @@
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-contact/qi-contact-card.html">
 
-<polymer-element name="qi-aroundme-panel">
+<polymer-element name="qi-aroundme-panel" attributes="contacts">
   <template>
 
   <link rel="stylesheet" href="../quikintro.css">
   <link rel="stylesheet" href="qi-aroundme-panel.css">
 
   <qi-globals id="globals"></qi-globals>
-  <core-ajax auto url="{{$.globals.urls.contacts}}" response="{{response}}" handleAs="json"></core-ajax>
+  
   <template is="auto-binding">
     <core-ajax auto url="{{$.globals.urls.heatmap}}" response="{{heatmap}}" on-core-response="{{ajaxResponse}}" handleAs="json"></core-ajax>
   </template>
@@ -44,7 +44,7 @@
       <core-toolbar fixed>
         <div flex>Contacts</div>
       </core-toolbar>
-      <template repeat="{{contact in response}}">
+      <template repeat="{{contact in contacts}}">
         <qi-contact-card contact="{{contact}}"></qi-contact-card>
       </template>
 

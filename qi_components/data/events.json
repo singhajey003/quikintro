@@ -15,7 +15,7 @@
  		 "numOnsiteMeetings":3,
  		 "registrantCount":30000,
  		 "hashtag" : "#jpm15",
- 		 "persona": "defLinkedIn",
+ 		 "persona": "Cancer Biologist",
  		 "notification" : "15 minutes before",
  		 "cloakingMode":true,
  		 "tweetUrl":"qi_components/data/jpm15.tweets.json",
@@ -215,7 +215,7 @@
 		"cloakingMode":true,
 		"hashtag":"#aacr15",
 		"tweetUrl":"qi_components/data/aacr15.tweets.json",
-		"persona":"defCancerBio",
+		"persona":"Cancer Biologist",
 
 		 "notes":[
  		 {
@@ -394,7 +394,7 @@
  		 "hashtag" : "#asco15",
  		 "tweetUrl":"qi_components/data/asco15.tweets.json",
  		 "cloakingMode":true,
- 		 "persona":"defCancerBio",
+ 		 "persona":"Cancer Biologist",
 
  		"matches":[
  		 	{
@@ -530,7 +530,7 @@
 	 	"hashtag":"#io2015",
 	 	"tweetUrl":"qi_components/data/io2015.tweets.json",
 	 	"cloakingMode":false,
-	 	"persona":"defDev",
+	 	"persona":"Developer Persona",
 	 	"notes":[
  		 {
 			"title": "Keynote Takeaways",
@@ -658,7 +658,7 @@
      	"hashtag":"#javaone15",
      	"tweetUrl":"qi_components/data/javaone15.tweets.json",
      	"cloakingMode":false,
-     	"persona":"defDev",
+     	"persona":"Developer Persona",
      	"notes":[
  		 {
 			"title": "Keynote Takeaways",
