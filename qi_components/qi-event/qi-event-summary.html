@@ -46,6 +46,22 @@
             <core-input id="schedule">{{event.startTime}} - {{event.endTime}}</core-input>
          </core-label>
 
+          <core-label id="rsvpField" class="settings-row" horizontal justified layout>
+           Going?
+            <core-dropdown-menu>
+                <core-dropdown class="dropdown">
+                    <core-selector selected="{{event.rsvp}}" valueattr="val">
+                       
+                            <core-item val="YES">Yes</core-item>
+                            <core-item val="NO">No</core-item>
+                            <core-item val="MAYBE">Maybe</core-item>
+                        
+                    </core-selector>
+                </core-dropdown>
+            </core-dropdown-menu>
+         </core-label>
+
+
          <core-label id="personaField" class="settings-row" horizontal justified layout center>
            Persona
             <core-dropdown-menu>

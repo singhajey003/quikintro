@@ -22,6 +22,10 @@
 	<link rel="stylesheet" href="../quikintro.css" >
 	<link rel="stylesheet" href="qi-events.css" >
 	<link rel="stylesheet" href="qi-event-card.css" >
+
+	<style>
+	paper-action-dialog:{display: none;}
+	</style>
 	
 	<div id="card" class="font-light venue-bkgnd sanfrancisco">
 		<div class="background" style="background-image:url({{event.background}})"></div>
@@ -41,17 +45,20 @@
 				</div>
 
 				<div id="eventStats">
-					<div class="eventItem">{{event.numExistingContacts}} Existing Contacts</div>
+					<div class="eventItem">{{event.contacts.length}} Existing Contacts</div>
 					<div class="eventItem">{{event.numMeetings}} Meetings</div>
 					<div class="eventItem">{{event.numOnsiteMeetings}} On-site Events</div>
 				</div>
 			</div>
 		</div>
 		<div class="footer" horizontal justified layout>
-			<paper-icon-button icon="supervisor-account" title="Matches"></paper-icon-button>
-			<paper-icon-button icon="view-stream" title="Tweet"></paper-icon-button>
-			<paper-icon-button icon="input" title="Share"></paper-icon-button>
+			<paper-icon-button icon="supervisor-account" title="Matches">Matches</paper-icon-button>
+			<paper-icon-button icon="view-stream" title="Tweet">Tweets</paper-icon-button>
+			<paper-icon-button icon="input" title="Share">Share</paper-icon-button>
+
 		</div>
+
+	
 		
 	</div>
 
@@ -65,8 +72,6 @@
 	     	//this.$.collapse.toggle();	  
 	     	this.fire('toggle-card');
 	     },
-	     
-
 	    
 
 	     twitter: function(evt){

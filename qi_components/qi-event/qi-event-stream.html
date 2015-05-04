@@ -28,8 +28,21 @@
 				<h4>My Scheduled Events</h4>
 				<div>
 					<template repeat="{{event, i in events }}">
+						<template if="{{event.rsvp == 'YES' || event.rsvp == 'MAYBE'}}">
 						<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
+						</template>
 					</template>
+				</div>
+
+				<h4>Suggested Events</h4>
+				<div>
+					<template repeat="{{event, i in events }}">
+						<template if="{{event.rsvp == null}}">
+							<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
+						</template>
+					</template>
+
+
 				</div>
 			
 			 </section>
