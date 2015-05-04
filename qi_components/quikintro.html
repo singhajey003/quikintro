@@ -251,9 +251,21 @@
         "Event Stream":{
           panelTitle: 'Event Stream',
           icon: 'arrow-back',
-          clickHandler: function(){
+          clickHandler: function(e){
+           
             var qi = document.querySelector("quik-intro");
-            qi.$.pages.selected = 1;
+
+            var selectedEventPage = qi.$.pages.querySelector('qi-event-stream').selectedEventPage;
+            if(selectedEventPage == 0)
+              qi.$.pages.selected = 1;
+            else if (selectedEventPage == 1){
+              qi.$.pages.querySelector('qi-event-stream').selectedEventPage = 0;
+              qi.$.pages.selected = 6;
+            }
+            
+
+            
+
             this.fire('core-select',{src:'Event Stream'})
           }
         },
