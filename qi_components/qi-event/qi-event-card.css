@@ -3,66 +3,11 @@
   position: relative;
   height: 240px;
   min-width: 240px;
-  max-width: 350px;
-  background: HSLA(0, 0%, 100%, 1) url("../../images/city_san_francisco.jpg") top left no-repeat; }
+  max-width: 350px; }
 
-.background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 40px;
-  left: 0;
-  background: transparent url("../../images/card_bkgnd_gradient.png") top center no-repeat;
-  background-size: cover; }
-
-.eventInfo {
-  position: absolute;
-  top: 15px;
-  right: 5px;
-  bottom: 40px;
-  left: 5px;
-  color: HSLA(0, 0%, 100%, 1);
-  text-align: center;
-  height: 80px; }
-
-#titleBlock {
+.eventInfo h3 {
   font-size: 20px;
   margin: 0; }
-
-.cardSubHead {
-  font-size: 9pt;
-  font-family: 'FirasansBook';
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; }
-
-.activitySummary {
-  position: absolute;
-  top: 95px;
-  right: 5px;
-  bottom: 40px;
-  left: 5px;
-  color: HSLA(0, 0%, 100%, 1);
-  height: 120px; }
-
-#eventNewMatches {
-  margin-right: 20px;
-  min-width: 100px;
-  text-align: center;
-  line-height: 0.95; }
-
-#event1 {
-  font-size: 40pt; }
-
-.bottomLabel {
-  text-transform: uppercase;
-  font-size: 10pt;
-  line-height: 1.2; }
-
-#eventStats {
-  font-size: 15pt;
-  line-height: 1.5; }
 
 .footer {
   position: absolute;
@@ -72,35 +17,3 @@
   left: 0;
   height: 40px;
   background-color: HSLA(0, 0%, 100%, 1); }
-
-label {
-  padding-top: 5px;
-  font-family: Verdana;
-  font-size: 10px; }
-
-.eventStats {
-  padding-left: 5px; }
-
-#summaryBlock {
-  font-size: 8pt;
-  color: #505050;
-  margin-top: 4px; }
-
-core-dropdown-menu {
-  border: 1px solid #cacaca;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.7); }
-
-.card {
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #fff; }
-
-#mapContainer {
-  margin-left: 20px; }
-
-google-map {
-  height: 400px;
-  width: 400px; }

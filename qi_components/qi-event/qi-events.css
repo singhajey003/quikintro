@@ -1,0 +1,99 @@
+core-pages {
+  top: 0;
+  left: 0; }
+
+.venue-bkgnd {
+  background-color: HSLA(197, 18%, 39%, 1);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .venue-bkgnd.sanfrancisco {
+    background-image: url("../../images/city-san_francisco.jpg"); }
+  .venue-bkgnd.chicago {
+    background-image: url("../../images/city-chicago.jpg"); }
+  .venue-bkgnd.philadelphia {
+    background-image: url("../../images/city-philadelphia.jpg"); }
+
+.background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 40px;
+  left: 0;
+  background-color: HSLA(195, 60%, 30%, 0.6); }
+
+.eventInfo {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  bottom: 40px;
+  left: 5px;
+  color: HSLA(0, 0%, 100%, 1);
+  text-align: center;
+  height: 80px; }
+
+.eventInfo p {
+  font-size: 9pt;
+  font-family: 'FirasansBook';
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.activitySummary {
+  position: absolute;
+  top: 95px;
+  right: 5px;
+  bottom: 40px;
+  left: 5px;
+  color: HSLA(0, 0%, 100%, 1);
+  height: 120px; }
+
+#eventNewMatches {
+  margin-right: 20px;
+  min-width: 100px;
+  text-align: center;
+  line-height: 0.95; }
+
+#event1 {
+  font-size: 40pt; }
+
+.bottomLabel {
+  text-transform: uppercase;
+  font-size: 10pt;
+  line-height: 1.2; }
+
+#eventStats {
+  font-size: 13pt;
+  line-height: 1.75; }
+
+label {
+  padding-top: 5px;
+  font-family: Verdana;
+  font-size: 10px; }
+
+.eventStats {
+  padding-left: 5px; }
+
+core-dropdown-menu {
+  border: 1px solid #cacaca;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7); }
+
+google-map {
+  height: 400px;
+  width: 400px; }
+
+paper-tabs {
+  height: 32px;
+  color: HSLA(0, 0%, 100%, 1);
+  margin: 0 !important;
+  text-transform: uppercase; }
+  paper-tabs::shadow #selectionBar {
+    background-color: transparent; }
+  paper-tabs::shadow .scroll-button {
+    width: 24px;
+    height: 24px;
+    padding: 0; }
+    paper-tabs::shadow .scroll-button > paper-icon-button {
+      padding: 0; }

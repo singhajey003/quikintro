@@ -22,55 +22,10 @@
 
 <polymer-element name="qi-event-detail" attributes="event personas">
   <template>
+  <link rel="stylesheet" href="../quikintro.css" >
+  <link rel="stylesheet" href="qi-events.css" >
+  <link rel="stylesheet" href="qi-event-detail.css" >
 
-  <link rel="stylesheet" href="../quikintro.css">
-  <style>
-    .content {
-      padding: 30px;
-      height: 100%;
-    }
-
-    paper-tabs{
-      width: 100%;
-    }
-
-    core-pages {
-      top: 20px;
-      left: 20px;
-      background: none;
-    }
-    paper-checkbox {
-      margin-top: 20px;
-      padding-right: 15px;
-    }
-    
-
-    paper-tabs::shadow #selectionBar {
-      background-color: transparent;
-    }
-    
-    paper-tabs{
-      height: 32px;
-    }
-    
-    core-toolbar::shadow .toolbar-tools {
-      height: 48px;
-    }
-    
-    paper-progress {
-      height: 14px;
-    }
-    
-    paper-progress.type1::shadow #activeProgress {
-      background-color: #2fd0ae;
-    }
-    
-    paper-progress.type2::shadow #activeProgress {
-      background-color: #F0B84C;
-    }
-    
-
-  </style>
 
   
   <core-scroll-header-panel id="eventDetailHeaderPanel" fixed="" headerHeight="40" flex>
@@ -96,6 +51,7 @@
       <div id="matches">
         <template repeat="{{match in event.matches}}">
           <qi-event-detail-match match="{{match}}"></qi-event-detail-match>
+
         </template>        
       </div>
 

@@ -5,6 +5,11 @@
   font-family: $font-light;
 }
 
+.btn-light[raised] {
+  background-color: $white;
+  color: $text-default;
+}
+
 :host {
   width: 100%;
   height: 100%;
@@ -79,7 +84,14 @@ core-submenu > core-submenu[label]{
 }
 
 core-toolbar {
-  background-color: #bce6d5;
+  background-color: $qi-gray;
+  height: 40px;
+}
+
+core-header-panel > core-toolbar {
+  background-color: $qi-blue;
+  color: $white;
+  height: 64px;
 }
 
 core-pages {
@@ -189,9 +201,22 @@ core-icon{
   border: 0;
 }
 
+.padding {
+  padding: 10px;
+}
 
 
+h4 {
+  color: $qi-blue;
+  text-transform: uppercase;
+  margin: 5px 0;
+  font-size: 10pt;
+}
 
-
-
+.settings-row {
+  border-bottom: 1px solid $qi-gray-light;
+  padding: 10px 0;
+  margin: 0 10px;
+  font-size: 10pt;
+}
 
