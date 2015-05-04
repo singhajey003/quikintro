@@ -11,14 +11,12 @@
 <polymer-element name="qi-event-stream" >
 
 	<template>
-
+    <link rel="stylesheet" href="../quikintro.css" >
+    <link rel="stylesheet" href="qi-events.css" >
 		<style>	
 			.container {
 /*			padding: 10px;  */
 				height: 100%;
-			}
-			.padding {
-				padding: 10px;
 			}
 		</style>
 
@@ -29,7 +27,7 @@
 
 			<core-pages id="eventPages" selected="{{selectedEventPage}}" layout vertical flex>
 			  <section selected class="padding">
-				<label>My Scheduled Events</label>
+				<h4>My Scheduled Events</h4>
 				<div>
 					<template repeat="{{event, i in events }}">
 						<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>

@@ -21,55 +21,10 @@
 
 <polymer-element name="qi-event-detail" attributes="event">
   <template>
+  <link rel="stylesheet" href="../quikintro.css" >
+  <link rel="stylesheet" href="qi-events.css" >
+  <link rel="stylesheet" href="qi-event-detail.css" >
 
-  <link rel="stylesheet" href="../quikintro.css">
-  <style>
-    .content {
-      padding: 30px;
-      height: 100%;
-    }
-
-    paper-tabs{
-      width: 100%;
-    }
-
-    core-pages {
-      top: 20px;
-      left: 20px;
-      background: none;
-    }
-    paper-checkbox {
-      margin-top: 20px;
-      padding-right: 15px;
-    }
-    
-
-    paper-tabs::shadow #selectionBar {
-      background-color: transparent;
-    }
-    
-    paper-tabs{
-      height: 32px;
-    }
-    
-    core-toolbar::shadow .toolbar-tools {
-      height: 48px;
-    }
-    
-    paper-progress {
-      height: 14px;
-    }
-    
-    paper-progress.type1::shadow #activeProgress {
-      background-color: #2fd0ae;
-    }
-    
-    paper-progress.type2::shadow #activeProgress {
-      background-color: #F0B84C;
-    }
-    
-
-  </style>
 
   <qi-globals id="globals"></qi-globals>
   <core-ajax auto url="{{$.globals.urls.personas}}" response="{{personas}}" handleAs="json"></core-ajax>
@@ -96,7 +51,7 @@
         <qi-event-summary event="{{event}}"></qi-event-summary>
       </div>
 
-      <div id="matches">
+      <div id="matches" class="padding">
         <template repeat="{{matches in matches}}">
           <qi-event-detail-matches matches="{{matches}}"></qi-event-detail-matches>
         </template>        

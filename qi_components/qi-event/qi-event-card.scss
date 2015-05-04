@@ -11,74 +11,11 @@ $card-height: $event-info-height + $activity-summary-height + $footer-height;
 	height: $card-height;
 	min-width: $card-height;
 	max-width: 350px;
-	background-color: $qi-gray-dark2;
-	background-position: top left;
-	background-repeat: no-repeat;
-	background-size: cover;
 }
 
-#card.sanfrancisco {
-	background-image: url('../../images/city-san_francisco.jpg');
-}
-
-#card.chicago {
-	background-image: url('../../images/city-chicago.jpg');
-}
-
-#card.philadelphia {
-	background-image: url('../../images/city-philadelphia.jpg');
-}
-
-.background {
-	@include absolute(top 0 right 0 bottom $footer-height left 0);
-	background-color: HSLA(195, 60%, 30%, 0.6);
-}
-
-.eventInfo {
-	@include absolute(top 15px right 5px bottom $footer-height left 5px);
-	color: $white;
-	text-align: center;
-	height: $event-info-height;
-}
-
-#titleBlock{
+.eventInfo h3 {
 	font-size: 20px;
 	margin: 0;
-}
-
-.cardSubHead{
-	font-size: 9pt;
-	font-family: 'FirasansBook';
-	margin: 0;
-	@include text-truncate;
-}
-
-.activitySummary {
-	@include absolute(top ($event-info-height + 15px) right 5px bottom $footer-height left 5px);
-	color: $white;
-	height: $activity-summary-height;
-}
-
-#eventNewMatches {
-	margin-right: 20px; 
-	min-width: 100px;
-	text-align: center;
-	line-height: 0.95;
-}
-
-#event1 {
-	font-size: 40pt; 
-}
-
-.bottomLabel {
-	text-transform: uppercase;
-	font-size: 10pt;
-	line-height: 1.2;
-}
-
-#eventStats {
-	font-size: 15pt;
-	line-height: 1.5;
 }
 
 .footer {
@@ -86,48 +23,3 @@ $card-height: $event-info-height + $activity-summary-height + $footer-height;
 	height: $footer-height;
 	background-color: $white;
 }
-
-label{
-	padding-top: 5px;
-	font-family: Verdana;
-	font-size: 10px;
-}
-
-.eventStats{
-	padding-left: 5px;
-}
-
-
-#summaryBlock{
-	font-size: 8pt;
-	color: #505050;
-	margin-top: 4px;
-}
-
-core-dropdown-menu{
-	border: 1px solid #cacaca;
-	border-radius: 5px;
-	background-color: rgba(255, 255, 2555, 0.7);
-}
-
-
-.card{
-	background-color: rgba(255,255,255,0.7);
-	border-radius: 5px;
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid #fff;
-}
-
-#mapContainer {
-  margin-left: 20px;
-}
-
-google-map {
-  height: 400px;
-  width: 400px;
-}
-
-
-
-

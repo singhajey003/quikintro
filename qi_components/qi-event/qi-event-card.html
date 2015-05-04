@@ -19,16 +19,17 @@
 
 	
 	<template>
-	<link rel="stylesheet" href="qi-event-card.css" >
 	<link rel="stylesheet" href="../quikintro.css" >
+	<link rel="stylesheet" href="qi-events.css" >
+	<link rel="stylesheet" href="qi-event-card.css" >
 	
-	<div id="card" class="font-light sanfrancisco">
+	<div id="card" class="font-light venue-bkgnd sanfrancisco">
 		<div class="background"></div>
 
 		<div class="eventInfo">
 			<h3 id="titleBlock">{{event.title}}</h3>
-			<p class="cardSubHead" >{{event.startTime}} at {{event.location}}</p>
-			<p class="cardSubHead">{{event.registrantCount}} Registrants</p>
+			<p>{{event.startTime}} at {{event.location}}</p>
+			<p>{{event.registrantCount}} Registrants</p>
 		</div>
 
 		<div class="activitySummary">

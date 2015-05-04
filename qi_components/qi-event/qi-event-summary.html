@@ -9,12 +9,81 @@
 
 <polymer-element name="qi-event-summary" attributes="event">
     <template>
+    <link rel="stylesheet" href="../quikintro.css" >
+    <link rel="stylesheet" href="qi-events.css" >
+    <link rel="stylesheet" href="qi-event-summary.css" >
+
+    <div class="font-light venue-bkgnd sanfrancisco">
+        <div class="background"></div>
+
+        <div class="eventInfo">
+            <p>{{event.startTime}} at {{event.location}}</p>
+            <p>{{event.registrantCount}} Registrants</p>
+        </div>
+
+        <div class="activitySummary">
+            
+            <div horizontal layout flex>
+                <div id="eventNewMatches">
+                  <div id="event1" class="font-light">{{event.newMatches}}</div>
+                  <div class="bottomLabel">New<br>Matches</div>
+                </div>
+
+                <div id="eventStats">
+                    <div class="eventItem">{{event.numExistingContacts}} Existing Contacts</div>
+                    <div class="eventItem">{{event.numMeetings}} Meetings</div>
+                    <div class="eventItem">{{event.numOnsiteMeetings}} On-site Events</div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <div class="eventSettings">
+        <h4>Event Settings</h4>
+
+         <core-label id="scheduleField" class="settings-row" horizontal justified layout>
+           Date and Time
+            <core-input id="schedule">{{event.startTime}} - {{event.endTime}}</core-input>
+         </core-label>
+
+         <core-label id="personaField" class="settings-row" horizontal justified layout center>
+           Persona
+            <core-dropdown-menu>
+                <core-dropdown class="dropdown">
+                    <core-selector selected="{{event.persona}}" valueattr="personaId">
+                        <template repeat="{{persona in personas}}">
+                            <core-item personaId="{{persona.id}}">{{persona.name}}</core-item>
+                        </template>
+                    </core-selector>
+                </core-dropdown>
+            </core-dropdown-menu>
+         </core-label>
+
+         <core-label id="hashTagField" class="settings-row" horizontal justified layout>
+           Twitter
+            <core-input id="twitter" value="{{event.hashtag}}"> {{event.hashtag}}</core-input>
+         </core-label>
+
+         <core-label class="settings-row" horizontal justified layout>
+           Alert
+            <core-input id="alarm">{{event.notification}}</core-input>
+         </core-label>
+
+        <div class="settings-row">
+            <core-label horizontal justified layout>
+                Location
+                <core-input id="location" >{{event.location}}</core-input>
+            </core-label>
+            <google-map id="map" zoom="14" style="width: 250px; height: 250px; margin: 20px; text-align: center;" libraries="visualization" fitToMarkers>
+                <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
+            </google-map-marker>
+            </google-map>
+        </div>
 
 
-        <core-field>
-            <label>{{event.title}}</label>
-        </core-field>
 
+
+<!-- 
         <core-field id="scheduleField" icon="schedule" theme="core-light-theme" center horizontal layout>
             <core-icon icon="schedule" id="core_icon1"></core-icon>
             <core-input id="schedule" flex>{{event.startTime}} - {{event.endTime}}</core-input>
@@ -52,6 +121,9 @@
             <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
             </google-map-marker>
         </google-map>
+ -->
+    </div>
+
     </template>
     <script>
     Polymer('qi-event-summary', {
