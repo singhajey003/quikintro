@@ -19,7 +19,7 @@
  		 "notification" : "15 minutes before",
  		 "cloakingMode":true,
  		 "tweetUrl":"qi_components/data/jpm15.tweets.json",
-
+ 		 "background":"images/city-chicago.jpg",
  		 "notes":[
  		 {
 			"title": "Keynote Takeaways",
@@ -216,7 +216,7 @@
 		"hashtag":"#aacr15",
 		"tweetUrl":"qi_components/data/aacr15.tweets.json",
 		"persona":"Cancer Biologist",
-
+		"background":"images/city-philadelphia.jpg",
 		 "notes":[
  		 {
 			"title": "Keynote Takeaways",
@@ -395,6 +395,7 @@
  		 "tweetUrl":"qi_components/data/asco15.tweets.json",
  		 "cloakingMode":true,
  		 "persona":"Cancer Biologist",
+ 		 "background":"images/city-chicago.jpg",
 
  		"matches":[
  		 	{
@@ -531,6 +532,8 @@
 	 	"tweetUrl":"qi_components/data/io2015.tweets.json",
 	 	"cloakingMode":false,
 	 	"persona":"Developer Persona",
+	 	"background":"images/city-san_francisco.jpg",
+
 	 	"notes":[
  		 {
 			"title": "Keynote Takeaways",
@@ -659,6 +662,8 @@
      	"tweetUrl":"qi_components/data/javaone15.tweets.json",
      	"cloakingMode":false,
      	"persona":"Developer Persona",
+     	"background":"images/city-scan_francisco.jpg",
+
      	"notes":[
  		 {
 			"title": "Keynote Takeaways",

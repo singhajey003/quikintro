@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="qi-event-summary.css" >
 
     <div class="font-light venue-bkgnd sanfrancisco">
-        <div class="background"></div>
+        <div class="background" style="background-image:url({{event.background}})"></div>
 
         <div class="eventInfo">
             <p>{{event.startTime}} at {{event.location}}</p>
@@ -25,12 +25,12 @@
             
             <div horizontal layout flex>
                 <div id="eventNewMatches">
-                  <div id="event1" class="font-light">{{event.newMatches}}</div>
+                  <div id="event1" class="font-light">{{event.matches.length}}</div>
                   <div class="bottomLabel">New<br>Matches</div>
                 </div>
 
                 <div id="eventStats">
-                    <div class="eventItem">{{event.numExistingContacts}} Existing Contacts</div>
+                    <div class="eventItem">{{event.contacts.length}} Existing Contacts</div>
                     <div class="eventItem">{{event.numMeetings}} Meetings</div>
                     <div class="eventItem">{{event.numOnsiteMeetings}} On-site Events</div>
                 </div>
@@ -52,7 +52,7 @@
                 <core-dropdown class="dropdown">
                     <core-selector selected="{{event.persona}}" valueattr="personaId">
                         <template repeat="{{persona in personas}}">
-                            <core-item personaId="{{persona.id}}">{{persona.name}}</core-item>
+                            <core-item personaId="{{persona.name}}">{{persona.name}}</core-item>
                         </template>
                     </core-selector>
                 </core-dropdown>
@@ -75,7 +75,7 @@
                 <core-input id="location" >{{event.location}}</core-input>
             </core-label>
             <google-map id="map" zoom="14" style="width: 250px; height: 250px; margin: 20px; text-align: center;" libraries="visualization" fitToMarkers>
-                <google-map-marker latitude="{{event.coordinates.latitude}}" longitude="{{event.coordinates.longitude}}">
+                <google-map-marker id="marker">
             </google-map-marker>
             </google-map>
         </div>
@@ -84,51 +84,13 @@
 
 
 
-<!-- 
-        <core-field id="scheduleField" icon="schedule" theme="core-light-theme" center horizontal layout>
-            <core-icon icon="schedule" id="core_icon1"></core-icon>
-            <core-input id="schedule" flex>{{event.startTime}} - {{event.endTime}}</core-input>
-        </core-field>
-
-        <core-field id="notificationField" icon="room" theme="core-light-theme" center horizontal layout>
-            <core-icon icon="alarm" id="core_icon3"></core-icon>
-            <core-input id="alarm">{{event.notification}}</core-input>
-        </core-field>
-
-        <core-field id="hashTagField" icon="room" theme="core-light-theme" center horizontal layout>
-            <core-icon-button icon="social:whatshot" id="core_icon4" on-click="{{twitter}}"></core-icon-button>
-            <core-input id="twitter" value="{{event.hashtag}}" flex>{{event.hashtag}}</core-input>
-        </core-field>
-
-        <core-field id="personaField" icon="room" theme="core-light-theme" center horizontal layout>
-            <core-icon icon="perm-identity" id="core_icon5"></core-icon>
-            <core-dropdown-menu>
-                <core-dropdown class="dropdown">
-                    <core-selector selected="{{event.persona}}" valueattr="personaId">
-                        <template repeat="{{persona in personas}}">
-                            <core-item personaId="{{persona.name}}">{{persona.name}}</core-item>
-                        </template>
-                    </core-selector>
-                </core-dropdown>
-            </core-dropdown-menu>
-        </core-field>
-
-        <core-field id="locationField" icon="room" theme="core-light-theme" center horizontal layout>
-            <core-icon icon="room" id="core_icon2"></core-icon>
-            <core-input id="location" flex>{{event.location}}</core-input>
-        </core-field>
-
-        <google-map id="map" zoom="14" style="padding-left: 5px; padding-right: 5px" libraries="visualization" fitToMarkers flex>
-            <google-map-marker id="marker">
-            </google-map-marker>
-        </google-map>
- -->
     </div>
 
     </template>
     <script>
     Polymer('qi-event-summary', {
 
+    	event: null,
 
         fixMap: function() {
             var map =  this.$.map; // google map web component
