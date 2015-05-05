@@ -110,6 +110,7 @@
 
         fixMap: function() {
             var map =  this.$.map; // google map web component
+            var marker = this.$.marker;
             var gmap = map.map; // google.maps.Map instance
             var lat = gmap.getCenter().lat();
             var lng = gmap.getCenter().lng();
@@ -141,6 +142,8 @@
                 window.dispatchEvent(new Event('resize'));
                 map.latitude = locationLat;
                 map.longitude = locationLong;
+                marker.latitude = locationLat;
+                marker.longitude = locationLong;
             }, 100);
 
         },
