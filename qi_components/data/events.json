@@ -4,7 +4,7 @@
  		"title":"JP Morgan Healthcare",
  		"startTime":"12 Jan 2015",
  		 "endTime":"15 Jan 2015",
- 		 "location":"McCormick Place",
+ 		 "location":"Four Seasons Hotel",
  		 "coordinates":{
  		 	"latitude": 41.851389,
  		 	"longitude": -87.616389
@@ -19,7 +19,7 @@
  		 "notification" : "15 minutes before",
  		 "cloakingMode":true,
  		 "tweetUrl":"qi_components/data/jpm15.tweets.json",
- 		 "background":"images/city-chicago.jpg",
+ 		 "background":"images/city-san_francisco.jpg",
  		 "rsvp":"YES",
 
  		 "notes":[
@@ -668,7 +668,7 @@
      	"tweetUrl":"qi_components/data/javaone15.tweets.json",
      	"cloakingMode":false,
      	"persona":"Developer Persona",
-     	"background":"images/city-scan_francisco.jpg",
+     	"background":"images/city-san_francisco.jpg",
      	"rsvp":null,
 
      	"notes":[
