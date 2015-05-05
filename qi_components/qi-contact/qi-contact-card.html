@@ -19,22 +19,26 @@
 
 	<div id="card" class="cardWhite" flip="front">
 		<div id="front">
-		<div >
+		<div layout horizontal>
+			<div >
 			<template if="{{contact.gravatar != null}}">
 				<img src="{{contact.gravatar}}" class="avatar" align="left">
 			</template>
 			<template if="{{contact.gravatar == null}}">
 				<core-icon icon="social:person"></core-icon>
 			</template>
+			</div>
 
+			<div>
 			<div id="nameBlock" on-click="{{toggleAction}}">{{contact.firstName}} {{contact.lastName}}</div>
 			<div id="titleBlock">{{contact.title}} {{contact.company}}</div>
 			<core-tooltip label="Ping"><core-icon icon="communication:messenger" /></core-icon></core-tooltip>
 			<core-tooltip label="Blacklist"><core-icon icon="view-list" /></core-icon></core-tooltip>
 			<core-tooltip label="Create Meeting"><core-icon icon="event" /></core-icon></core-tooltip>
 			<core-tooltip label="Share Contact"><core-icon icon="account-box" /></core-icon></core-tooltip>
-			<core-tooltip label="View Notes/Matches"><core-icon-button src="flip.jpg" on-click="{{flipAction}}"/></core-icon-button></core-tooltip>
+			<br/>
 			<core-tooltip label="Rate Contact"><polymer-ui-ratings value="{{contact.rating}}"></polymer-ui-ratings></core-icon></core-tooltip>
+			</div>
 		</div>
 		<core-collapse id="collapse" opened="false">
 			
@@ -90,14 +94,9 @@
 
 	     setVisibility: function(vis){
 	     	this.visibility = vis;
-	     },
-
-	     flipAction: function(evt){
-	     	var flip = this.$.card.getAttribute("flip");
-	     	this.flip = (flip == 'front')?'back':'front';
-	     	this.$.card.setAttribute("flip",this.flip);
-	     	console.log(this.flip);
 	     }
+
+
 
 
 	    });
