@@ -4,11 +4,6 @@
   font-size: 8pt;
   color: #17a8cc;
 }
-/** The title block containing the title and company. */
-#titleBlock {
-  font-size: 8pt;
-  color: #505050;
-}
 back-container {
   display: table;
 }

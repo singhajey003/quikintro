@@ -1,25 +1,4 @@
 @import '../sass/_config';
 
-$event-info-height: 80px;
-$activity-summary-height: 120px;
-$footer-height: 40px;
-$card-height: $event-info-height + $activity-summary-height + $footer-height;
 
-#card{
-	margin-bottom: 20px;
-	position: relative;
-	height: $card-height;
-	min-width: $card-height;
-	max-width: 350px;
-}
 
-.eventInfo h3 {
-	font-size: 20px;
-	margin: 0;
-}
-
-.footer {
-	@include absolute(top ($card-height - $footer-height) right 0 bottom 0 left 0);
-	height: $footer-height;
-	background-color: $white;
-}

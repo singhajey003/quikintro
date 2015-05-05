@@ -122,27 +122,12 @@ input#searchText[is=core-input] {
   padding: 10px;
   margin-bottom: 20px; }
 
-.cardWhite {
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 15px;
-  margin-bottom: 20px;
-  display: block; }
-
 /* some default styles for mode="cover" on core-scaffold */
 core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
   left: 120px; }
 
 core-scaffold[mode=cover] .content {
   margin: 20px 100px 20px 0; }
-
-paper-button[raised] {
-  background: #4285f4;
-  color: #fff; }
-
-paper-button {
-  background: #4285f4;
-  color: #fff; }
 
 section {
   overflow: auto; }
@@ -165,7 +150,7 @@ core-icon {
   padding: 10px; }
 
 h4 {
-  color: HSLA(192, 80%, 45%, 1);
+  color: HSLA(197, 26%, 59%, 1);
   text-transform: uppercase;
   margin: 5px 0;
   font-size: 10pt; }
@@ -175,3 +160,7 @@ h4 {
   padding: 10px 0;
   margin: 0 10px;
   font-size: 10pt; }
+
+core-input {
+  color: HSLA(192, 80%, 45%, 1);
+  cursor: pointer; }
