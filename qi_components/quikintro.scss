@@ -152,14 +152,6 @@ input#searchText[is=core-input] {
   margin-bottom: 20px;
 }
 
-.cardWhite{
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 15px;
-  margin-bottom: 20px;
-  display: block;
-}
-
 
 /* some default styles for mode="cover" on core-scaffold */
 core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
@@ -170,15 +162,7 @@ core-scaffold[mode=cover] .content {
   margin: 20px 100px 20px 0;
 }
 
-paper-button[raised]{
-  background: #4285f4;
-  color: #fff;
-}
 
-paper-button{
-  background: #4285f4;
-  color: #fff;
-}
 
 section {
   overflow: auto;
@@ -207,7 +191,7 @@ core-icon{
 
 
 h4 {
-  color: $qi-blue;
+  color: $qi-gray;
   text-transform: uppercase;
   margin: 5px 0;
   font-size: 10pt;
@@ -220,3 +204,7 @@ h4 {
   font-size: 10pt;
 }
 
+core-input {
+  color: $qi-blue;
+  cursor: pointer;
+}

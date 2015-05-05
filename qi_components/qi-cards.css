@@ -1,0 +1,92 @@
+/* Card styles */
+.card-page {
+  padding: 15px 15px 0 15px; }
+
+.card {
+  margin-bottom: 20px;
+  position: relative;
+  min-width: 300px;
+  max-width: 350px;
+  display: inline-block;
+  background-color: HSLA(0, 0%, 100%, 1);
+  /*
+  
+    .match {
+      height: $event-card-height;
+  
+      .background {
+        @include absolute(top 0 right 0 bottom $footer-height left 0);
+        background-color: HSLA(195, 60%, 30%, 0.6);
+      }
+  
+      .footer {
+        @include absolute(top ($event-card-height - $footer-height) right 0 bottom 0 left 0);
+      }
+    }
+  */ }
+  .card h3 {
+    font-size: 20px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .card .footer {
+    height: 40px;
+    background-color: HSLA(0, 0%, 100%, 1); }
+  .card.venue-bkgnd {
+    height: 240px; }
+    .card.venue-bkgnd .background {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 40px;
+      left: 0;
+      background-color: HSLA(195, 60%, 30%, 0.6); }
+    .card.venue-bkgnd .footer {
+      position: absolute;
+      top: 200px;
+      right: 0;
+      bottom: 0;
+      left: 0; }
+  .card.match {
+    height: 120px; }
+    .card.match .photo {
+      height: 120px;
+      width: 65px;
+      background-color: HSLA(197, 26%, 59%, 1);
+      position: absolute; }
+    .card.match .contactInfo {
+      height: 30px;
+      padding: 3px 10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 65px; }
+      .card.match .contactInfo h3 {
+        font-size: 14pt; }
+    .card.match .matchPercentage {
+      height: 50px;
+      padding: 0 10px;
+      font-size: 18pt;
+      position: absolute;
+      top: 37px;
+      right: 0;
+      bottom: 0;
+      left: 65px; }
+      .card.match .matchPercentage span {
+        font-size: 8pt; }
+    .card.match .distanceAway {
+      font-size: 9pt;
+      position: absolute;
+      top: 37px;
+      right: 0;
+      bottom: 0;
+      left: 200px; }
+    .card.match .footer {
+      border-top: 1px solid HSLA(197, 26%, 59%, 1);
+      position: absolute;
+      top: 80px;
+      right: 0;
+      bottom: 0;
+      left: 65px; }
