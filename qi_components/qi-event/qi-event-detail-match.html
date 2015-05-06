@@ -21,37 +21,40 @@
 		<link rel="stylesheet" href="../qi-cards.css" >
     <link rel="stylesheet" href="qi-events.css" >
 		<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" >
-	<style>
-	</style>
 
-	<div class="card-page">
-		<div id="card" class="card match">
 
-			<div class="photo">
+		<div class="card-wrapper">
+
+			<div id="card" class="card card-photo">
+
 				<template if="{{match.gravatar != null}}">
-					<img src="{{match.gravatar}}" class="avatar" align="left">
+					<div class="photo" style="background-image:url({{match.gravatar}})">
+					</div>
 				</template>
 				<template if="{{match.gravatar == null}}">
-					<core-icon icon="social:person"></core-icon>
+					<core-icon class="photo" icon="social:person"></core-icon>
 				</template>
+
+				<header>
+					<h3 id="titleBlock">Anonymous</h3>
+					<p class="title">{{match.title}}</p>
+					<p class="company">{{match.company}}</p>
+					<p></p>
+				</header>
+
+				<div class="summary" horizontal justified layout end>
+					<span id="matchPercentage" class="matchPercentage">{{match.match}}% <span>match</span></span>
+					<span id="distanceAway" class="distanceAway"> &lt; {{match.distanceAway}} miles away</span>
+				</div>
+
+				<div class="card-actions" horizontal justified layout center>
+					<paper-button role="button" id="invite">Invite</paper-button>
+					<paper-icon-button icon="expand-more" title="More">Share</paper-icon-button>
+				</div>
+
 			</div>
-
-			<div class="contactInfo">
-				<h3 id="titleBlock" title="{{match.title}} {{match.company}}">{{match.title}} {{match.company}}</h3>
-			</div>
-
-			<div id="matchPercentage" class="matchPercentage">{{match.match}}% <span>match</span></div>
-			<div id="distanceAway" class="distanceAway"> less than <br>{{match.distanceAway}} miles away</div>
-
-			<div class="footer" horizontal justified layout>
-				<paper-button role="button" id="invite">Invite</paper-button>
-				<paper-icon-button icon="expand-more" title="More">Share</paper-icon-button>
-			</div>
-
+		
 		</div>
-	</div>
-	
-	
 	</template>
 
 	<script>

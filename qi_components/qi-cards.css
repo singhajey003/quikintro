@@ -1,26 +1,89 @@
 /* Card styles */
-.card-page {
-  padding: 15px 15px 0 15px; }
+.card-wrapper {
+  padding: 15px;
+  padding-bottom: 0; }
 
 .card {
-  margin-bottom: 20px;
-  position: relative;
-  min-width: 300px;
-  max-width: 350px;
-  display: inline-block;
   background-color: HSLA(0, 0%, 100%, 1);
+  display: inline-block;
+  font-size: 9pt;
+  line-height: 1.2;
+  max-width: 400px;
+  min-width: 300px;
+  position: relative; }
+  .card p {
+    margin: 0; }
+  .card h3 {
+    font-size: 12pt; }
+
+.card-photo .photo {
+  height: 100px;
+  width: 80px;
+  background-color: HSLA(197, 26%, 59%, 1);
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.card header {
+  height: 60px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.card.card-photo header {
+  left: 80px; }
+
+.card .summary {
+  height: 25px;
+  line-height: 0.75;
+  padding: 5px 10px;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.card.card-photo .summary {
+  left: 80px; }
+
+.card-actions {
+  height: 40px;
+  border-top: 1px solid HSLA(0, 0%, 92%, 1); }
+
+core-collapse {
+  background-color: HSLA(0, 0%, 80%, 1);
+  border: 5px solid HSLA(0, 0%, 100%, 1);
+  border-top: 0;
+  font-size: 12pt;
+  padding: 5px 10px; }
+
+.matchPercentage {
+  font-size: 18pt;
+  display: inline; }
+  .matchPercentage span {
+    font-size: 8pt; }
+
+.distanceAway {
+  font-size: 9pt;
+  display: inline;
+  padding-bottom: 2px; }
+
+.card {
   /*
   
     .match {
       height: $event-card-height;
   
       .background {
-        @include absolute(top 0 right 0 bottom $footer-height left 0);
+        @include absolute(top 0 right 0 bottom $base-height left 0);
         background-color: HSLA(195, 60%, 30%, 0.6);
       }
   
       .footer {
-        @include absolute(top ($event-card-height - $footer-height) right 0 bottom 0 left 0);
+        @include absolute(top ($event-card-height - $base-height) right 0 bottom 0 left 0);
       }
     }
   */ }
@@ -30,9 +93,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
-  .card .footer {
-    height: 40px;
-    background-color: HSLA(0, 0%, 100%, 1); }
   .card.venue-bkgnd {
     height: 240px; }
     .card.venue-bkgnd .background {
@@ -65,24 +125,6 @@
       left: 65px; }
       .card.match .contactInfo h3 {
         font-size: 14pt; }
-    .card.match .matchPercentage {
-      height: 50px;
-      padding: 0 10px;
-      font-size: 18pt;
-      position: absolute;
-      top: 37px;
-      right: 0;
-      bottom: 0;
-      left: 65px; }
-      .card.match .matchPercentage span {
-        font-size: 8pt; }
-    .card.match .distanceAway {
-      font-size: 9pt;
-      position: absolute;
-      top: 37px;
-      right: 0;
-      bottom: 0;
-      left: 200px; }
     .card.match .footer {
       border-top: 1px solid HSLA(197, 26%, 59%, 1);
       position: absolute;
