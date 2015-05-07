@@ -21,12 +21,12 @@
     "blurb": "I'm a toolbuilder, and entrepreneur with an abiding interest in using technology to solve problems in cancer biology and drug discovery",
     "aboutMe": {
         "skills": ["ArrayExpress", "gene expression analysis", "OMIM", "pathway analysis", "PubMed", "TCGA"],
-        "interests": ["integrative biology", "systems biology", "cancer biology", "oncology"],
+        "interests": ["integrative biology", "systems biology", "cancer biology", "oncology","clinical trials","ADCs","immunotherapy","cocktails","pathways"],
         "interactions": ["I'm Open"]
     },
     "lookingFor": {
         "skills": ["cancer biology", "oncology"],
-        "interests": [],
+        "interests": ["integrative biology", "systems biology", "cancer biology", "oncology","clinical trials","ADCs","immunotherapy","cocktails","pathways"],
         "interactions": ["I'm Open"]
     },
     "notLookingFor": {

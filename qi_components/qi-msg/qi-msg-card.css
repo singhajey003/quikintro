@@ -12,7 +12,7 @@
 #card{
 	background-color: white;
 	border-radius: 5px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	border: 1px solid #fff;
 	min-height: 56px;
 }
@@ -43,4 +43,7 @@ core-field > span{
 	width: 50px;
 	border-radius: 5px;
 	padding: 3px;
+}
+.avatarPanel{
+	padding-right: 18px;
 }

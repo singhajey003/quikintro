@@ -32,7 +32,7 @@
 			<div>
 			<div id="nameBlock" on-click="{{toggleAction}}">{{contact.firstName}} {{contact.lastName}}</div>
 			<div id="titleBlock">{{contact.title}} {{contact.company}}</div>
-			<core-tooltip label="Ping"><core-icon icon="communication:messenger" /></core-icon></core-tooltip>
+			<core-tooltip label="Ping"><core-icon icon="communication:messenger" on-click="{{pingDialogLaunch}}"/></core-icon></core-tooltip>
 			<core-tooltip label="Blacklist"><core-icon icon="view-list" /></core-icon></core-tooltip>
 			<core-tooltip label="Create Meeting"><core-icon icon="event" /></core-icon></core-tooltip>
 			<core-tooltip label="Share Contact"><core-icon icon="account-box" /></core-icon></core-tooltip>
@@ -53,20 +53,7 @@
 		      
 		</core-collapse>
 		</div>
-		<div id="back">
-			<div id="back-container" layout horizontal>
-			<div flex></div><core-tooltip label="View Notes/Matches"><core-icon-button src="flip.jpg" on-click="{{flipAction}}"/></core-icon-button></core-tooltip></div>
-			<core-field><label>Tags:</label><span>{{contact.tags}}</span></core-field>
-		    <core-field><label>Skills:</label><span>{{contact.skills}}</span></core-field>
-			<core-field><label>Interests:</label><span>{{contact.interests}}</span></core-field>
-			
-			<core-field><label>Notes:</label><br/>
-				<paper-autogrow-textarea id="a1">
-				  <textarea flex id="a1">{{contact.notes}}</textarea>
-				<paper-autogrow-textarea>
-    			
-			</core-field>
-		</div>
+		
 
 	</div>
 
@@ -74,10 +61,11 @@
 
 	<script>
 	Polymer('qi-contact-card',{
+
+		contact: null,
 		
 		visibility:'visible',
 		score: 0,
-		flip: 'front',
 		filterChanged: function(oldFilter, newFilter){
 			this.visibility = (this.score >= newFilter )? "visible":"hidden";
 		},
@@ -94,6 +82,10 @@
 
 	     setVisibility: function(vis){
 	     	this.visibility = vis;
+	     },
+
+	     pingDialogLaunch: function(e){
+	     	this.fire("openPingDialog",{contactId:this.contact.id});
 	     }
 
 

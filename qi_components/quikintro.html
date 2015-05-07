@@ -39,7 +39,11 @@
     <core-ajax auto url="{{$.globals.urls.contacts}}" response="{{contactList}}" handleAs="json"></core-ajax>
     <core-ajax auto url="{{$.globals.urls.profile}}" response="{{currProfile}}" handleAs="json"></core-ajax>
 
+     <core-ajax auto url="{{$.globals.urls.messages}}" response="{{msgs}}" handleAs="json"></core-ajax>
+
+    <core-localstorage name="msgs" value="{{msgs}}"></core-localstorage>
     <core-localstorage name="personas" value="{{personaList}}"></core-localstorage>
+    <core-localstorage name="contacts" value="{{contactList}}"></core-localstorage>
  
     <!-- UI -->
     <qi-scaffold id="coreScaffold" responsiveWidth="480px" force-narrow>
@@ -100,10 +104,10 @@
           <qi-aroundme-panel id="aroundMe" ></qi-aroundme-panel>
         </section>
         <section id="Messages" pageId="messages">
-          <qi-msg-panel></qi-msg-panel>
+          <qi-msg-panel messages="{{msgs}}"></qi-msg-panel>
         </section>
         <section id="Contacts" pageId="contacts">
-          <qi-contact-panel id="contactPanel" ></qi-contact-panel>
+          <qi-contact-panel id="contactPanel" contacts="{{contactList}}"></qi-contact-panel>
         </section>
       </core-pages>
       </div>
@@ -118,6 +122,7 @@
       eventList: [],
       contactList: [],
       personaList: [],
+      contactList: [],
       currProfile: null,
 
       contactListChanged: function(oldValue, newValue){
