@@ -15,7 +15,58 @@
 	
 	<template>
 	
-	<link rel="stylesheet" href="qi-contact-card.css" >
+		<link rel="stylesheet" href="qi-contact-card.css" >
+    <link rel="stylesheet" href="../quikintro.css" >
+		<link rel="stylesheet" href="../qi-cards.css" >
+
+	<div class="card-wrapper">
+
+		<div id="card" class="card card-photo">
+
+			<template if="{{contact.gravatar != null}}">
+				<div class="photo" style="background-image:url({{contact.gravatar}})">
+				</div>
+			</template>
+			<template if="{{contact.gravatar == null}}">
+				<core-icon class="photo" icon="social:person"></core-icon>
+			</template>
+
+			<header>
+				<h3 id="titleBlock">{{contact.firstName}} {{contact.lastName}}</h3>
+				<p class="title">{{contact.title}}</p>
+				<p class="company">{{contact.company}}</p>
+				<p></p>
+			</header>
+
+			<div class="summary" horizontal justified layout end>
+				<core-tooltip label="Rate Contact"><polymer-ui-ratings value="{{contact.rating}}"></polymer-ui-ratings></core-icon></core-tooltip>
+			</div>
+
+			<div class="card-actions" horizontal justified layout center>
+				<paper-button role="button">Message</paper-button>
+				<paper-button role="button">Create Meeting</paper-button>
+				<paper-icon-button icon="expand-more" title="More"  on-click="{{toggleAction}}"></paper-icon-button>
+			</div>
+
+		</div>
+	
+		<core-collapse id="collapse" opened="false">
+			<core-field><label>Company:</label><span>{{contact.company}}</span></core-field>
+			<core-field><label>Mobile:</label><span>{{contact.mobile}}</span></core-field>
+			<core-field><label>Office:</label><span>{{contact.office}}</span></core-field>
+			<core-field><label>Email:</label><span>{{contact.email}}</span></core-field>
+			<core-field><label>Address:</label><span>{{contract.address}}</span></core-field>
+			<core-field><label>Tags:</label><span>{{contact.tags}}</span></core-field>
+			<core-field><label>Skills:</label><span>{{contact.skills}}</span></core-field>
+			<core-field><label>Interests:</label><span>{{contact.interests}}</span></core-field>
+		</core-collapse>
+
+	</div>
+
+
+
+
+<!--
 
 	<div id="card" class="cardWhite" flip="front">
 		<div id="front">
@@ -56,6 +107,8 @@
 		
 
 	</div>
+
+-->
 
 	</template>
 
