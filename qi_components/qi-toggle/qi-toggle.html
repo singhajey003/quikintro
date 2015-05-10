@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/core-icons/core-icons.html" >
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html" >
+<polymer-element name="qi-toggle" attributes="openIcon closedIcon isOpened">
+
+	<template>
+		<paper-icon-button id="iconBtn" icon="{{currIcon}}" on-click="{{toggleAction}}"></paper-icon-button>
+	</template>
+
+	<script>
+		Polymer('qi-toggle',{
+
+
+			openIcon:'expand-less',
+			closedIcon: 'expand-more',
+			currIcon: '',
+
+			isOpened: false,
+
+			ready: function(){
+				this.currIcon = 'expand-more';
+			},
+
+			toggleAction: function(e){
+				this.isOpened = (this.isOpened)? false: true;
+				this.currIcon = (this.isOpened)? this.openIcon : this.closedIcon;
+				this.fire("cardToggleFired");
+			}
+
+
+		});
+
+	</script>
+
+</polymer-element>

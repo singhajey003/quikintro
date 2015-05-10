@@ -9,9 +9,12 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+
 
 <link rel="import" href="../qi-global/global.html">
+<link rel="import" href="../qi-dialog/qi-msg-dialog.html">
+<link rel="import" href="../qi-dialog/qi-mtg-dialog.html">
+
 <link rel="import" href="qi-contact-card.html">
 
 <polymer-element name="qi-contact-panel" attributes="contacts">
@@ -72,14 +75,10 @@
         <qi-contact-card contact="{{contact}}"></qi-contact-card>
       </template>
 
-      <paper-action-dialog id="msgDialog" heading="Send Message" >
-        <paper-input-decorator floatingLabel label="Message Text">
-          <textarea id="msgText" name="msgText"></textarea>
-        </paper-input-decorator>
-
-        <paper-button dismissive>Cancel</paper-button>
-        <paper-button affirmative>Send</paper-button>
-      </paper-action-dialog>
+      
+      <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
+      <qi-mtg-dialog id="mtgDialog"></qi-mtg-dialog>
+     
 
     </div>
 
@@ -95,20 +94,16 @@
 
       ready: function(){
         var msgDialog = this.$.msgDialog;
+        var mtgDialog = this.$.mtgDialog;
 
         // event fired when the user opens a ping dialog
         this.addEventListener('openPingDialog', function(e){
           msgDialog.open();
-        });
+        }),
 
-        // event fired whenever the user sends a message
-        this.addEventListener('core-overlay-close-completed', function(e){
-          var msgText = null;
-          var date = new Date();
-
-          this.fire('msgSent',{sender:this.contacts[1],rcvrId:this.contacts[0], msg:msgText, tstamp:date});
-    
-        });
+        this.addEventListener('openMtgDialog', function(e){
+          mtgDialog.open();
+        })
 
       }
 		

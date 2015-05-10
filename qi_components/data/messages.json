@@ -15,10 +15,9 @@
 		
 		"msg":"Loved your poster session.  Can you send me a link with the paper?",
 		"sender":{
-			"cid":1,
-			"firstName":"Mark",
-			"lastName":"Fortner",
-			"avatar":"https://media.licdn.com/mpr/mpr/shrinknp_50_50/p/3/000/04c/0c2/1371b12.jpg"
+			"cid":2,
+			"firstName":"Jane",
+			"lastName":"Doe"
 			},
 		
 		"tstamp":"1 Feb 2015 09:00"

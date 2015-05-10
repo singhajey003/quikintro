@@ -9,18 +9,31 @@
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
 
-<polymer-element name="qi-msg-card" attributes="msg">
+<polymer-element name="qi-msg-card" attributes="msg" constructor="MsgCard">
 
 	
 	<template>
 	<link rel="stylesheet" href="qi-msg-card.css" >
 
 	<div id="card" layout horizontal>
-		<div class="avatarPanel"><img class="avatar" src="{{msg.sender.avatar}}"></div>
-		<div>
-			<div id="senderBlock"><span class="senderName">{{msg.sender.firstName}} {{msgs.sender.lastName}}</span> <span class="time">{{msg.tstamp}}</span></div>
+		<div class="avatarPanel">
+
+			<template if="{{msg.sender.avatar != null}}">
+				<img class="avatar" src="{{msg.sender.avatar}}">
+			</template>
+
+			<template if="{{msg.sender.avatar == null}}">
+				<core-icon class="avatar" icon="social:person"></core-icon>
+			</template>
+
+
+		</div>
+		<div class="mainPanel">
+			<div id="senderBlock"><span class="senderName">{{msg.sender.firstName}} {{msg.sender.lastName}}</span> <span class="time">{{msg.tstamp}}</span></div>
 			<div id="titleBlock" >{{msg.msg}}</div>
-			
+
+
+			<div><core-icon icon="reply" on-click="{{replyDialog}}"></core-icon></div>
 		</div>
 		
 	</div>
@@ -29,11 +42,14 @@
 
 	<script>
 	Polymer('qi-msg-card',{
+		contacts: localStorage.getItem("contacts"),
 		
+		replyDialog: function(e){
+			this.fire('openPingDialog',{sender:this.contacts[4], rcvr: this.msg.sender});
+		}
 		
-	 
 
-	    });
+	});
 
 
 	</script>

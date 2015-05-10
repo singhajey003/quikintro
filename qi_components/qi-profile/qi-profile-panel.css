@@ -34,3 +34,10 @@ button{
 section{
 	padding: 20px 30px;
 }
+
+paper-autogrow-textarea{
+	width: 100%;
+}
+paper-autogrow-textarea > textarea{
+	padding: 5px;
+}

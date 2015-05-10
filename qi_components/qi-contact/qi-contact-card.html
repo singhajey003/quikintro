@@ -43,14 +43,12 @@
 			</div>
 
 			<div class="card-actions" horizontal justified layout center>
-				<paper-button role="button">Message</paper-button>
-				<paper-button role="button">Create Meeting</paper-button>
-				<paper-icon-button icon="expand-more" title="More"  on-click="{{toggleAction}}"></paper-icon-button>
+				<paper-button role="button" on-click="{{pingDialogLaunch}}">Message</paper-button>
+				<paper-button role="button" on-click="{{mtgDialogLaunch}}">Create Meeting</paper-button>
+				<qi-toggle isOpened="{{isOpen}}"></qi-toggle>
 			</div>
 
-		</div>
-	
-		<core-collapse id="collapse" opened="false">
+			<core-collapse id="collapse" opened="{{isOpen}}">
 			<core-field><label>Company:</label><span>{{contact.company}}</span></core-field>
 			<core-field><label>Mobile:</label><span>{{contact.mobile}}</span></core-field>
 			<core-field><label>Office:</label><span>{{contact.office}}</span></core-field>
@@ -59,56 +57,13 @@
 			<core-field><label>Tags:</label><span>{{contact.tags}}</span></core-field>
 			<core-field><label>Skills:</label><span>{{contact.skills}}</span></core-field>
 			<core-field><label>Interests:</label><span>{{contact.interests}}</span></core-field>
-		</core-collapse>
+			</core-collapse>
 
-	</div>
-
-
-
-
-<!--
-
-	<div id="card" class="cardWhite" flip="front">
-		<div id="front">
-		<div layout horizontal>
-			<div >
-			<template if="{{contact.gravatar != null}}">
-				<img src="{{contact.gravatar}}" class="avatar" align="left">
-			</template>
-			<template if="{{contact.gravatar == null}}">
-				<core-icon icon="social:person"></core-icon>
-			</template>
-			</div>
-
-			<div>
-			<div id="nameBlock" on-click="{{toggleAction}}">{{contact.firstName}} {{contact.lastName}}</div>
-			<div id="titleBlock">{{contact.title}} {{contact.company}}</div>
-			<core-tooltip label="Ping"><core-icon icon="communication:messenger" on-click="{{pingDialogLaunch}}"/></core-icon></core-tooltip>
-			<core-tooltip label="Blacklist"><core-icon icon="view-list" /></core-icon></core-tooltip>
-			<core-tooltip label="Create Meeting"><core-icon icon="event" /></core-icon></core-tooltip>
-			<core-tooltip label="Share Contact"><core-icon icon="account-box" /></core-icon></core-tooltip>
-			<br/>
-			<core-tooltip label="Rate Contact"><polymer-ui-ratings value="{{contact.rating}}"></polymer-ui-ratings></core-icon></core-tooltip>
-			</div>
 		</div>
-		<core-collapse id="collapse" opened="false">
-			
-		      <core-field><label>Company:</label><span>{{contact.company}}</span></core-field>
-		      <core-field><label>Mobile:</label><span>{{contact.mobile}}</span></core-field>
-		      <core-field><label>Office:</label><span>{{contact.office}}</span></core-field>
-		      <core-field><label>Email:</label><span>{{contact.email}}</span></core-field>
-		      <core-field><label>Address:</label><span>{{contract.address}}</span></core-field>
-		      <core-field><label>Tags:</label><span>{{contact.tags}}</span></core-field>
-		      <core-field><label>Skills:</label><span>{{contact.skills}}</span></core-field>
-			  <core-field><label>Interests:</label><span>{{contact.interests}}</span></core-field>
-		      
-		</core-collapse>
-		</div>
+	
 		
 
 	</div>
-
--->
 
 	</template>
 
@@ -118,6 +73,7 @@
 		contact: null,
 		
 		visibility:'visible',
+		isOpen: false,
 		score: 0,
 		filterChanged: function(oldFilter, newFilter){
 			this.visibility = (this.score >= newFilter )? "visible":"hidden";
@@ -125,9 +81,7 @@
 		contactChanged: function(oldContact, newContact){
 			this.score = newContact.score;
 		},
-	    toggleAction: function(evt){
-	     	this.$.collapse.toggle();
-	     },
+	    
 
 	    visibilityChanged: function(oldValue, newValue){
 	     	this.$.card.style.display = (newValue == 'visible')?'block':'none';
@@ -139,6 +93,10 @@
 
 	     pingDialogLaunch: function(e){
 	     	this.fire("openPingDialog",{contactId:this.contact.id});
+	     },
+
+	     mtgDialogLaunch: function(e){
+	     	this.fire("openMtgDialog",{contactId:this.contact.id});
 	     }
 
 

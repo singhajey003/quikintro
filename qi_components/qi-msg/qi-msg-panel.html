@@ -9,7 +9,11 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
 <link rel="import" href="../../bower_components/core-localstorage/core-localstorage.html">
 
+
+<link rel="import" href="../qi-dialog/qi-msg-dialog.html">
+
 <link rel="import" href="qi-msg-card.html">
+
 
 <polymer-element name="qi-msg-panel" attributes="messages">
   <template>
@@ -19,13 +23,13 @@
 
 	<core-scroll-header-panel headermargin="128" condenses id="eventHeaderPanel" >
 
-      <div class="content">
+      <div id="contentTray" class="content">
         
         <template repeat="{{msg in messages}}">
           <qi-msg-card msg="{{msg}}"></qi-msg-card>
         </template>
 
-        
+        <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
       
       </div>
 
@@ -41,10 +45,27 @@
     },
   
     ready: function(){
+      var msgDialog = this.$.msgDialog;
+      var contentTray = this.$.contentTray;
+      
       this.addEventListener("msgSent", function(e){
-        console.log(e);
+        var msgCard = new MsgCard();
+        msgCard.msg = {
+          sender : e.detail.sender,
+          rcvr : e.detail.rcvr,
+          msgText : e.detail.msg,
+          tstamp : e.detail.tstamp,
+        };
+
         
-      });
+        var contentTray = this.$.contentTray;
+        contentTray.addChildNode(msgCard);
+        
+      }),
+
+      this.addEventListener("openPingDialog", function(e){
+        msgDialog.open();
+      })
     }
 		
 	    });

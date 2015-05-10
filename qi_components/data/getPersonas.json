@@ -33,7 +33,19 @@
         "skills": [],
         "interests": [],
         "interactions": ["Sales", "Recruiters"]
-    }
+    },
+    "msgTemplates":[
+        {
+            "id":1,
+            "title":"Sample Message",
+            "template":"This is a sample introductory message."
+        },
+        {   
+            "id":2,
+            "title":"Sample Message II",
+            "template":"This is a second intro message."
+        }
+    ]
 }, {
     "name": "Default LinkedIn Persona",
     "blurb": "I'm a toolbuilder, and entrepreneur with an abiding interest in using technology to solve problems in cancer biology and drug discovery",

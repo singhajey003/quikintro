@@ -14,6 +14,7 @@
 
 <link rel="import" href="../qi-twitter/qi-twitter-panel.html">
 <link rel="import" href="../qi-contact/qi-contact-card.html">
+<link rel="import" href="../qi-dialog/qi-invite-dialog.html">
 
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-event-card.html">
@@ -51,8 +52,9 @@
       <div id="matches">
         <template repeat="{{match in event.matches}}">
           <qi-event-detail-match match="{{match}}"></qi-event-detail-match>
-
-        </template>        
+        </template>
+  
+        <qi-invite-dialog id="inviteDialog"></qi-invite-dialog> 
       </div>
 
       <div id="contacts">
@@ -145,12 +147,29 @@
    <script>
 
   Polymer('qi-event-detail',{
-        event: null,
 
         selected: 0,
 
+        eventChanged: function(oldValue, newValue){
+            var persona = null;
+            var personas = JSON.parse(localStorage.getItem("personas"));
+
+            for(var i=0; i < personas.length; i++){
+              if(personas[i].name == newValue.persona){
+                persona = personas[i];
+                break;
+              }
+            }
+            this.$.inviteDialog.persona = persona;
+        },
+
         ready: function(){
           this.$.scrollableTabs.selected = 0;
+          var inviteDialog = this.$.inviteDialog;
+
+          this.addEventListener('openInviteDialog', function(e){
+            inviteDialog.open();
+          });
           
         },
 

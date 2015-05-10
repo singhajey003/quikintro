@@ -1,0 +1,37 @@
+<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+
+<polymer-element name="qi-msg-dialog">
+<template>
+<paper-action-dialog id="msgDialog" heading="Send Message" >
+        <paper-input-decorator floatingLabel label="Message Text">
+          <textarea id="msgTextArea" name="msgTextArea">{{msgText}}</textarea>
+        </paper-input-decorator>
+
+        <paper-button dismissive>Cancel</paper-button>
+        <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
+      </paper-action-dialog>
+</template>
+
+<script>
+Polymer('qi-msg-dialog',{
+
+	contacts: JSON.parse(localStorage.getItem("contacts")),
+
+	msgText:'',
+
+	sendAction: function(e){
+		var date = new Date();
+		this.fire('msgSent',{ sender:this.contacts[1], rcvr:this.contacts[0], msg:this.msgText, tstamp:date });
+
+        this.msgText = "";
+	},
+
+	open: function(){
+		this.$.msgDialog.open();
+	}
+
+});
+
+</script>
+
+</polymer-element>

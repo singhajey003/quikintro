@@ -1,0 +1,33 @@
+<polymer-element name="qi-mtg-dialog">
+
+	<template>
+ 	<paper-action-dialog id="mtgDialog" heading="Create Meeting">
+
+
+        <paper-button dismissive>Cancel</paper-button>
+        <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
+      </paper-action-dialog>
+     </template>
+
+     <script>
+     Polymer('qi-mtg-dialog',{
+
+     	sendAction: function(e){
+
+     	},
+
+     	open: function(){
+     		this.$.mtgDialog.open();
+     	},
+
+     	close: function(){
+     		this.$.mtgDialog.close();
+     	}
+
+
+     });
+
+
+     </script>
+
+</polymer>

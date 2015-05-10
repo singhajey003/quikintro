@@ -1,0 +1,62 @@
+
+<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+
+<polymer-element name="qi-invite-dialog" attributes="persona">
+
+	<template>
+	<style>
+		
+
+	</style>
+	<paper-action-dialog id="dialog" heading="Introduce Yourself" style="height:240px">
+
+	   <core-dropdown-menu label="Select A Message">
+            <core-dropdown class="dropdown">
+                <core-selector selected="{{selectedTemplate}}">
+                    <template repeat="{{msgTemplate in persona.msgTemplates}}">
+                        <core-item template="{{msgTemplate}}">{{msgTemplate.title}}</core-item>
+                    </template>
+                </core-selector>
+            </core-dropdown>
+        </core-dropdown-menu>
+
+        <paper-autogrow-textarea id="a1" style="min-height: 70px">
+          <textarea id="msg"></textarea>
+        <paper-autogrow-textarea>
+
+	  
+	  <paper-button dismissive>Cancel</paper-button>
+	  <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
+	</paper-action-dialog>
+
+
+	</template>
+
+	<script>
+	Polymer('qi-invite-dialog',{
+
+		selectedTemplateChanged: function(oldValue, newValue){
+			var selectedObj = this.persona.msgTemplates[newValue]
+			this.$.msg.value = selectedObj.template;
+		},
+
+		sendAction: function(e){
+			this.fire('sendInvite')
+		},
+
+		open: function(){
+			this.$.dialog.open();
+		},
+
+		close: function(){
+			this.$.dialog.close();
+		}
+
+	});
+
+
+	</script
+
+
+
+</polymer-element>

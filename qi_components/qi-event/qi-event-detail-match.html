@@ -13,6 +13,8 @@
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
+<link rel="import" href="../qi-toggle/qi-toggle.html">
+
 <polymer-element name="qi-event-detail-match" attributes="match">
 
 	
@@ -48,9 +50,13 @@
 				</div>
 
 				<div class="card-actions" horizontal justified layout center>
-					<paper-button role="button" id="invite">Invite</paper-button>
-					<paper-icon-button icon="expand-more" title="More">Share</paper-icon-button>
+					<paper-button role="button" id="invite" on-click="{{openInviteDialog}}">Invite</paper-button>
+					<qi-toggle isOpened="{{opened}}"></qi-toggle>
 				</div>
+
+				<core-collapse id="collapse" opened="{{opened}}">
+				  Content goes here...
+				</core-collapse>
 
 			</div>
 		
@@ -59,24 +65,17 @@
 
 	<script>
 	Polymer('qi-event-detail-match',{
-		ready: function(evt){
+
+		opened: false,
+
+		openInviteDialog: function(e){
+			this.fire("openInviteDialog");
 		},
-	    toggleAction: function(evt){
-	     	     	
-	     },
-	     toggleLocation: function(evt){
-	
-	     },
 
-	    fixMap: function(){
-				
-	     		
-	    },
-
-	     twitter: function(evt){
+	    twitter: function(evt){
 	     	var url = "http://twitter.com/" + this.event.hashtag;
 	     	window.location = url;
-	     }
+	    }
 
 	});
 
