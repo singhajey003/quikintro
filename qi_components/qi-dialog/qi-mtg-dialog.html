@@ -3,6 +3,10 @@
 	<template>
  	<paper-action-dialog id="mtgDialog" heading="Create Meeting">
 
+ 		<paper-input label="Title"></paper-input>
+ 		<paper-input label="Date"></paper-input>
+ 		<paper-input label="Time"></paper-input>
+
 
         <paper-button dismissive>Cancel</paper-button>
         <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>

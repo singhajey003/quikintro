@@ -24,8 +24,8 @@
             </core-dropdown>
         </core-dropdown-menu>
 
-        <paper-autogrow-textarea id="a1" style="min-height: 70px; max-width: 240px; border: 1px solid #cacaca; ">
-          <textarea id="msg" style="padding-left: 3px; padding-right: 3px"></textarea>
+        <paper-autogrow-textarea id="a1" style="min-height: 70px; max-width: 246px; border: 1px solid #cacaca; ">
+          <textarea id="msg" style="padding-left: 3px; padding-right: 3px; width: 240px"></textarea>
         <paper-autogrow-textarea>
 
         <qi-traitlist traits="{{persona.interests}}"></qi-traitlist>
@@ -47,6 +47,7 @@
 	Polymer('qi-invite-dialog',{
 
 		contacts: localStorage.getItem("contacts"),
+		msgs: localStorage.getItem("msgs"),
 
 		selectedTemplateChanged: function(oldValue, newValue){
 			var selectedObj = this.persona.msgTemplates[newValue]
@@ -63,6 +64,9 @@
 				meetNow: this.$.meetNow.checked,
 				meetLater: this.$.meetLater.checked
 			};
+
+			console.log("msgs: " + this.msgs);
+
 			this.fire('sendInvite', msg);
 		},
 

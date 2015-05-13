@@ -1,0 +1,37 @@
+<polymer-element name="qi-invite-card" attribute="invite contact">
+
+	<template>
+		<link rel="stylesheet" href="../qi-cards.css">
+		<div class="card" >
+			<div layout horizontal>
+				<div class="card-photo">
+				<qi-avatar url="{{contact.gravatar}}"></qi-avatar>
+				</div>
+
+				<div class="content">
+
+				</div>
+
+			</div>
+
+			<div class="">
+				<paper-button affirmative on-click="{{sendAction}}">Accept</paper-button>
+				<paper-button dismissive>Decline</paper-button>
+			</div>
+
+		</div>
+
+	</template>
+
+	<script>
+	Polymer('qi-invite-card',{
+
+		sendAction: function(){
+			//TODO: implement me
+		},
+
+	});
+
+	</script>
+
+</polymer-element>
