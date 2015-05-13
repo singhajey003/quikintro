@@ -66,7 +66,7 @@
           <paper-input type="text" id="skills" label="Skills"></paper-input>
         </core-field>
 
-        <paper-button raised>Search</paper-button>
+        <paper-button raised >Search</paper-button>
       </div>
 
 
@@ -89,7 +89,7 @@
    <script>
 	Polymer('qi-contact-panel',{
 
-      contacts:localStorage.getItem("contacts"),
+      contacts: JSON.parse(localStorage.getItem("contacts")),
       msgs: localStorage.getItem("msgs"),
 
       ready: function(){
@@ -106,6 +106,8 @@
         })
 
       }
+
+
 		
 	    });
 

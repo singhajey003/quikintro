@@ -38,12 +38,12 @@
         {
             "id":1,
             "title":"Sample Message",
-            "template":"This is a sample introductory message."
+            "template":"Hi [name].  We have some things in common and I’d like connect."
         },
         {   
             "id":2,
             "title":"Sample Message II",
-            "template":"This is a second intro message."
+            "template":"Hi.  We have some things in common and I’d like connect."
         }
     ]
 }, {

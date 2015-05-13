@@ -39,6 +39,8 @@
 
  		 "matches":[
  		 	{
+ 		 		"firstName":"John",
+ 		 		"lastName":"Doe",
  		 		"title":"CSO",
  		 		"company":"Genentech",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -52,12 +54,12 @@
 			     },
 			     "distanceAway" : 1.5,
 			     "match": 82
- 		 	},
+			 },
 
   		 	{
  		 		"title":"CBO",
  		 		"company":"Genentech",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+ 		 		"interests":["cancer","collaborations","ADCs", "immunotherapy","cocktails"],
 				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
 				"industry": "Biotechnology",
 				"location":  {
@@ -196,6 +198,23 @@
 				"score": 9,
 				"rating":4
 			}
+
+ 		 ],
+ 		 "meetings":[
+ 		 {
+ 		 	"date": "11-Jan-2015",
+ 		 	"time": "0900",
+ 		 	"location":"Suite 3",
+ 		 	"title":"ADC Partner Discussion",
+ 		 	"invitees":[1,2,3]
+ 		 },
+ 		 {
+ 		 	"date": "12-Jan-2015",
+ 		 	"time": "0900",
+ 		 	"location":"Suite 3",
+ 		 	"title":"Immunoncology Partner Discussion",
+ 		 	"invitees":[1,2,3]
+ 		 }
 
  		 ]
 	},

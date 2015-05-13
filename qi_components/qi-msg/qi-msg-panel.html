@@ -1,6 +1,8 @@
 <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 
+<link rel="import" href="../../bower_components/core-list/core-list.html">
+
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/core-field/core-field.html">
 <link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
@@ -15,23 +17,46 @@
 <link rel="import" href="qi-msg-card.html">
 
 
-<polymer-element name="qi-msg-panel" attributes="messages">
+<polymer-element name="qi-msg-panel" >
+
   <template>
   <link rel="stylesheet" href="../quikintro.css">
   <link rel="stylesheet" href="qi-msg-panel.css">
-  
+  <core-localstorage name="msgs" value="{{msgs}}"></core-localstorage>
 
-	<core-scroll-header-panel headermargin="128" condenses id="eventHeaderPanel" >
+	<core-scroll-header-panel headerHeight="40" id="msgHeaderPanel" flex>
 
-      <div id="contentTray" class="content">
+    <core-toolbar>
+      <paper-tabs selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" >
+        <paper-tab role="tab" class="core-selected">Messages</paper-tab>
+        <paper-tab role="tab">Invitations</paper-tab>
+        <paper-tab role="tab">Meeting Requests</paper-tab>
+      </paper-tabs>
+    </core-toolbar>
+
+
+    <core-pages selected="{{selected}}">
+      <div id="msgTray" class="content" style="overflow:auto">
         
-        <template repeat="{{msg in messages}}">
-          <qi-msg-card msg="{{msg}}"></qi-msg-card>
-        </template>
+         
+            <template repeat="{{msg in msgs}}">
+              <qi-msg-card msg="{{msg}}"></qi-msg-card>
+            </template>
+       
 
         <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
       
       </div>
+
+      <div id="invTray">
+
+      </div>
+
+      <div id="mtgTray">
+
+      </div>
+
+      </core-pages>
 
 
      </core-scroll-header-panel>
@@ -40,33 +65,41 @@
    <script>
 	Polymer('qi-msg-panel',{
 
-    messagesChanged: function(oldValue, newValue){
+    
+
+    ready: function(){
+     
+    },
+    
+
+    msgsChanged: function(oldValue, newValue){
       console.log(newValue);
     },
   
     ready: function(){
-      var msgDialog = this.$.msgDialog;
-      var contentTray = this.$.contentTray;
-      
-      this.addEventListener("msgSent", function(e){
-        var msgCard = new MsgCard();
-        msgCard.msg = {
-          sender : e.detail.sender,
-          rcvr : e.detail.rcvr,
-          msgText : e.detail.msg,
-          tstamp : e.detail.tstamp,
-        };
-
-        
+        var msgDialog = this.$.msgDialog;
         var contentTray = this.$.contentTray;
-        contentTray.addChildNode(msgCard);
-        
-      }),
+        console.log("msgs: " + this.messages);
 
-      this.addEventListener("openPingDialog", function(e){
-        msgDialog.open();
-      })
-    }
+        this.addEventListener("msgSent", function(e){
+          var msgCard = new MsgCard();
+          msgCard.msg = {
+            sender : e.detail.sender,
+            rcvr : e.detail.rcvr,
+            msgText : e.detail.msg,
+            tstamp : e.detail.tstamp,
+          };
+
+          
+          var contentTray = this.$.contentTray;
+          contentTray.addChildNode(msgCard);
+          
+        });
+
+        this.addEventListener("openPingDialog", function(e){
+          msgDialog.open();
+        });
+      }
 		
 	    });
 

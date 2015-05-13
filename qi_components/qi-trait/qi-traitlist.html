@@ -1,0 +1,29 @@
+<polymer-element name="qi-traitlist" attributes="traits">
+
+	<template>
+	<style>
+	.trait{
+		background-color: rgba(255, 255, 255, 0.5);
+		border-radius: 4px;
+		margin: 4px;
+		padding: 5px;
+		display: inline-block;
+	}
+	</style>
+	 <div>
+		<template repeat="{{trait in traits}}">
+			<span class="trait">{{trait}}</span>
+		</template>
+	 </div>
+
+	</template>
+
+
+	<script>
+	Polymer('qi-traitlist',{
+
+	});
+
+	</script>
+
+</polymer-element>

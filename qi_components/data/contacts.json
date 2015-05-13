@@ -2,30 +2,18 @@
 	{
 		"firstName": "Dimitri",
 		"lastName": "Arges",
-		"title":"",
+		"title":"CEO",
 		"company":"QuikIntro",
 		"mobile":"555-123-4569",
 		"email":"darges@aspenbiosciences.com",
 		"address": "123 Elm Street, San Jose, CA 95123",
-		"skills":"business development, investor relations",
-		"interests":"startups",
+		"skills":["business development", "investor relations"],
+    "tags":["followup"],
+		"interests":["startups"],
 		"gravatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
 		"rating":5
 	},
 
-	{
-		"firstName": "Mark",
-		"lastName": "Fortner",
-		"title":"",
-		"company":"QuikIntro",
-		"mobile":"555-123-4567",
-		"email":"mark.fortner@aspenbiosciences.com",
-		"address": "123 Elm Street, San Jose, CA 95123",
-		"skills":"groovy, grails, java, research informatics",
-		"interests":"programming, cancer biology, startups",
-		"gravatar":"http://www.gravatar.com/avatar/510171196ef2d357b0fe2326df704ddd.png",
-		"rating":5
-	},
 
 	{
 		"firstName": "John",
@@ -35,7 +23,7 @@
 		"mobile":"555-123-4567",
 		"email":"john.smith@gene.com",
 		"address": "1 Antibody Way, Oceanside, CA 92056",
-		"tags":"biotech, cancer, product/pipeine, followup",
+		"tags":["biotech", "cancer", "product/pipeine", "followup"],
 		"notes":"Interested in Drug Pipeline dashboard",
 		"rating":4
 	},

@@ -14,6 +14,7 @@
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
 <link rel="import" href="../qi-toggle/qi-toggle.html">
+<link rel="import" href="../qi-trait/qi-traitlist.html">
 
 <polymer-element name="qi-event-detail-match" attributes="match">
 
@@ -38,7 +39,12 @@
 				</template>
 
 				<header>
+					<template if="{{match.firstName == null}}">
 					<h3 id="titleBlock">Anonymous</h3>
+					</template>
+					<template if="{{match.firstName != null}}">
+					<h3 id="titleBlock">{{match.firstName}} {{match.lastName}}</h3>
+					</template>
 					<p class="title">{{match.title}}</p>
 					<p class="company">{{match.company}}</p>
 					<p></p>
@@ -55,7 +61,7 @@
 				</div>
 
 				<core-collapse id="collapse" opened="{{opened}}">
-				  Content goes here...
+				  <qi-traitlist traits="{{match.interests}}"></qi-traitlist>
 				</core-collapse>
 
 			</div>
@@ -78,10 +84,6 @@
 	    }
 
 	});
-
-	
-
-
 
 	</script>
 

@@ -15,11 +15,17 @@
 <link rel="import" href="../qi-twitter/qi-twitter-panel.html">
 <link rel="import" href="../qi-contact/qi-contact-card.html">
 <link rel="import" href="../qi-dialog/qi-invite-dialog.html">
+<link rel="import" href="../qi-dialog/qi-msg-dialog.html">
+<link rel="import" href="../qi-dialog/qi-mtg-dialog.html">
+
 
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail-match.html">
 <link rel="import" href="qi-event-detail-notes.html">
+<link rel="import" href="qi-meeting-card.html">
+
+
 
 <polymer-element name="qi-event-detail" attributes="event personas">
   <template>
@@ -31,11 +37,12 @@
   
   <core-scroll-header-panel id="eventDetailHeaderPanel" fixed="" headerHeight="40" flex>
 
-    <core-toolbar>
+    <core-toolbar flex>
       <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" flex>
         <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
         <paper-tab role="tab" >Matches</paper-tab>
         <paper-tab role="tab" >Contacts</paper-tab>
+        <paper-tab role="tab" >Meetings</paper-tab>
         <paper-tab role="tab" >Tweets</paper-tab>
         <paper-tab role="tab" >Traits</paper-tab>
         <paper-tab role="tab" >Notes</paper-tab>      
@@ -60,13 +67,25 @@
       <div id="contacts">
          <template repeat="{{contact in event.contacts}}">
           <qi-contact-card contact="{{contact}}"></qi-contact-card>
-        </template>    
+        </template> 
+        <qi-mtg-dialog id="mtgDialog"></qi-mtg-dialog>
+        <qi-msg-dialog id="msgDialog"></qi-msg-dialog>   
+      </div>
+
+      <div id="meetings">
+        <template if="{{event.meetings == null || event.meetings.length == 0}}">
+          <label>No Meetings Scheduled</label>
+        </template>
+
+        <template repeat="{{meeting in event.meetings}}">
+          <qi-meeting-card meeting="{{meeting}}"></qi-meeting-card>
+        </template>
+
       </div>
 
 
       <div id="twitter">
        <qi-twitter-panel dataUrl="{{event.tweetUrl}}"></qi-twitter-panel>
-        
       </div>
 
 
@@ -169,6 +188,16 @@
 
           this.addEventListener('openInviteDialog', function(e){
             inviteDialog.open();
+          });
+
+          var msgDialog = this.$.msgDialog;
+          this.addEventListener("openPingDialog", function(e){
+            msgDialog.open();
+          });
+
+          var mtgDialog = this.$.mtgDialog;
+          this.addEventListener("openMtgDialog", function(e){
+            mtgDialog.open();
           });
           
         },

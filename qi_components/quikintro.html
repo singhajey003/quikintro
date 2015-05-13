@@ -49,7 +49,12 @@
     <qi-scaffold id="coreScaffold" responsiveWidth="480px" force-narrow>
 
       <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
-        <core-toolbar id="core_toolbar"></core-toolbar>
+        <core-toolbar id="core_toolbar">
+
+        <!-- ICON GOES HERE -->
+
+
+        </core-toolbar>
         <core-menu  id="menu" theme="core-light-theme" >
 
           <core-menu selected="{{page}}" valueattr="pageId" >
@@ -104,7 +109,7 @@
           <qi-aroundme-panel id="aroundMe" ></qi-aroundme-panel>
         </section>
         <section id="Messages" pageId="messages">
-          <qi-msg-panel messages="{{msgs}}"></qi-msg-panel>
+          <qi-msg-panel ></qi-msg-panel>
         </section>
         <section id="Contacts" pageId="contacts">
           <qi-contact-panel id="contactPanel" contacts="{{contactList}}"></qi-contact-panel>
