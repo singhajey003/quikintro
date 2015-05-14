@@ -1,10 +1,13 @@
 <link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
 
 <polymer-element name="qi-msg-dialog">
 <template>
-<link rel="stylesheet" href="dialog.css">
+
 
 <paper-action-dialog id="msgDialog" heading="Send Message" >
+<link rel="stylesheet" href="dialog.css">
         <paper-input-decorator floatingLabel label="Message Text">
           <textarea id="msgTextArea" name="msgTextArea">{{msgText}}</textarea>
         </paper-input-decorator>
@@ -18,15 +21,17 @@
 Polymer('qi-msg-dialog',{
 
 	contacts: JSON.parse(localStorage.getItem("contacts")),
-	msgs:localStorage.getItem("msgs"),
+	msgs: JSON.parse(localStorage.getItem("msgs")),
 
 	msgText:'',
 
 	sendAction: function(e){
 		var date = new Date();
+		this.msgText = this.$.msgTextArea.value;
 		var msg = { sender:this.contacts[1], rcvr:this.contacts[0], msg:this.msgText, tstamp:date };
 		this.fire('msgSent',msg);
 
+		console.log("msgs: " + this.msgs);
 		this.msgs.push(msg);
 		localStorage.setItem("msgs", JSON.stringify(this.msgs));
        

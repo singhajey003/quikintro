@@ -27,7 +27,7 @@
 	<core-scroll-header-panel headerHeight="40" id="msgHeaderPanel" flex>
 
     <core-toolbar>
-      <paper-tabs selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" >
+      <paper-tabs selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" nobar="true">
         <paper-tab role="tab" class="core-selected">Messages</paper-tab>
         <paper-tab role="tab">Invitations</paper-tab>
         <paper-tab role="tab">Meeting Requests</paper-tab>
@@ -65,21 +65,11 @@
    <script>
 	Polymer('qi-msg-panel',{
 
-    
+    msgs: [],
 
-    ready: function(){
-     
-    },
-    
-
-    msgsChanged: function(oldValue, newValue){
-      console.log(newValue);
-    },
-  
     ready: function(){
         var msgDialog = this.$.msgDialog;
         var contentTray = this.$.contentTray;
-        console.log("msgs: " + this.messages);
 
         this.addEventListener("msgSent", function(e){
           var msgCard = new MsgCard();
