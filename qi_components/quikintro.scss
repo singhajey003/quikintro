@@ -208,3 +208,48 @@ core-input {
   color: $qi-blue;
   cursor: pointer;
 }
+
+/* Tabs */
+paper-tabs {
+  height: 40px;
+  color: $white;
+  margin: 0 -5px !important;
+  text-transform: uppercase;
+
+  &::shadow #selectionBar {
+    background-color: transparent;
+  }
+
+  paper-tab::shadow #ink {
+    color: $qi-gray-dark2;
+  }
+
+  &::shadow .scroll-button {
+    width: 35px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid $white;
+    opacity: 0.6;
+
+    > paper-icon-button {
+      padding: 7px 5px;
+    }
+  }
+}
+
+
+/* Dropdowns */
+core-dropdown-menu {
+  border-radius: 2px;
+  padding: 0 0 0 10px;
+
+}
+
+core-dropdown {
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+core-dropdown core-item {
+  padding: 0 10px;
+}
+

@@ -94,20 +94,14 @@ core-collapse {
     text-overflow: ellipsis;
     white-space: nowrap; }
   .card.venue-bkgnd {
-    height: 240px; }
+    height: 200px; }
     .card.venue-bkgnd .background {
       position: absolute;
       top: 0;
       right: 0;
-      bottom: 40px;
+      bottom: 0;
       left: 0;
       background-color: HSLA(195, 60%, 30%, 0.6); }
-    .card.venue-bkgnd .footer {
-      position: absolute;
-      top: 200px;
-      right: 0;
-      bottom: 0;
-      left: 0; }
   .card.match {
     height: 120px; }
     .card.match .photo {

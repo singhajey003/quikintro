@@ -42,15 +42,10 @@
     <div class="eventSettings">
         <h4>Event Settings</h4>
 
-         <core-label id="scheduleField" class="settings-row" horizontal justified layout>
-           Date and Time
-            <core-input id="schedule">{{event.startTime}} - {{event.endTime}}</core-input>
-         </core-label>
-
           <core-label id="rsvpField" class="settings-row" horizontal justified layout>
            Going?
             <core-dropdown-menu>
-                <core-dropdown class="dropdown">
+                <core-dropdown class="dropdown" halign="right">
                     <core-selector selected="{{event.rsvp}}" valueattr="val">
                        
                             <core-item val="YES">Yes</core-item>
@@ -66,7 +61,7 @@
          <core-label id="personaField" class="settings-row" horizontal justified layout center>
            Persona
             <core-dropdown-menu>
-                <core-dropdown class="dropdown">
+                <core-dropdown class="dropdown" halign="right">
                     <core-selector selected="{{event.persona}}" valueattr="personaId">
                         <template repeat="{{persona in personas}}">
                             <core-item personaId="{{persona.name}}">{{persona.name}}</core-item>
@@ -76,22 +71,13 @@
             </core-dropdown-menu>
          </core-label>
 
-         <core-label id="hashTagField" class="settings-row" horizontal justified layout>
-           Twitter
-            <core-input id="twitter" value="{{event.hashtag}}"> {{event.hashtag}}</core-input>
-         </core-label>
-
          <core-label class="settings-row" horizontal justified layout>
            Alert
             <core-input id="alarm">{{event.notification}}</core-input>
          </core-label>
 
         <div class="settings-row">
-            <core-label horizontal justified layout>
-                Location
-                <core-input id="location" >{{event.location}}</core-input>
-            </core-label>
-            <google-map id="map" zoom="14" style="width: 250px; height: 250px; margin: 20px; text-align: center;" libraries="visualization" fitToMarkers>
+            <google-map id="map" zoom="14" style="width: 100%;" libraries="visualization" fitToMarkers>
                 <google-map-marker id="marker">
             </google-map-marker>
             </google-map>

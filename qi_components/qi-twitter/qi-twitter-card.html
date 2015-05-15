@@ -5,22 +5,16 @@
 <polymer-element name="qi-twitter-card" attributes="tweet">
 	
 	<template>
+	<link rel="stylesheet" href="qi-contact-card.css" >
+	<link rel="stylesheet" href="../quikintro.css" >
+	<link rel="stylesheet" href="../qi-cards.css" >
 
 	<style>
+/*
 	 .imageContainer{
 	 	float:left;
 	 	height: 100px;
 	 	padding-right: 5px;
-	 }
-	 .card{
-	 	background-color: white;
-	 	border: 1px solid #bce6d5;
-	 	border-radius: 5px;
-	 	padding: 4px;
-	 	margin-bottom: 5px;
-	 }
-	 .card > div[0]{
-	 	padding-left: 5px;
 	 }
 	 .userName{
 	 	font-weight: bold;
@@ -28,43 +22,33 @@
 	 .userId{
 	 	color: #8899A5;
 	 }
-	 core-icon{
-	 	color: #8899A5;
-	 	padding-right: 5px;
-	 	height: 15px;
-	 	width: 15px;
-	 	float-left;
-	 }
-	 a.conv{
-	 	float:right;
-	 	padding-right: 5px;
-	 }
 	 a.userName{
 	 	color: black;
 	 	text-decoration: none;
 	 }
-
+*/
 	</style>
 	
+	<div class="card-wrapper">
 
-	<div class="card">
-		
-		   <div class="imageContainer">
-		   <img src="{{tweet.user.profile_image_url}}"/>
-		   </div>
-		   
-		   <div>
-		    <div>
-			<div class="userName"><a class="userName" href="https://twitter.com/{{tweet.user.screen_name}}">{{tweet.user.name}}</a></div><div class="userId">{{tweet.user.screen_name}}</div>
+		<div id="card" class="card card-photo">
+		   <div class="imageContainer"><img src="{{tweet.user.profile_image_url}}"/></div>
+
+			<header>
+				<div class="userName"><a class="userName" href="https://twitter.com/{{tweet.user.screen_name}}">{{tweet.user.name}}</a></div>
+				<div class="userId">{{tweet.user.screen_name}}</div>
+				<div >{{tweet.text}}</div>
+			</header>
+
+			<div class="card-actions" horizontal justified layout center>
+				<paper-button role="button"><core-icon icon="reply"></core-icon></paper-button>
+				<paper-button role="button"><core-icon icon="av-icons:repeat"></core-icon></paper-button>
+				<paper-button role="button"><core-icon icon="star"></core-icon></paper-button>
+				<paper-button role="button"><a href="https://twitter.com/{{tweet.user.screen_name}}/status/{{tweet.id}}">View conversation</a></paper-button>
+				<qi-toggle isOpened="{{isOpen}}"></qi-toggle>
 			</div>
-			<div >
-				{{tweet.text}}
-			</div>
-			<div class="toolbar">
-				<core-icon icon="reply"></core-icon> <core-icon icon="av-icons:repeat"></core-icon> <core-icon icon="star"></core-icon> <a class="conv" href="https://twitter.com/{{tweet.user.screen_name}}/status/{{tweet.id}}">View conversation</a>
-			</div>
-		
-		
+
+		</div>
 	</div>
 
 

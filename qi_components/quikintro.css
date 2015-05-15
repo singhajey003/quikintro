@@ -164,3 +164,33 @@ h4 {
 core-input {
   color: HSLA(192, 80%, 45%, 1);
   cursor: pointer; }
+
+/* Tabs */
+paper-tabs {
+  height: 40px;
+  color: HSLA(0, 0%, 100%, 1);
+  margin: 0 -5px !important;
+  text-transform: uppercase; }
+  paper-tabs::shadow #selectionBar {
+    background-color: transparent; }
+  paper-tabs paper-tab::shadow #ink {
+    color: HSLA(197, 18%, 39%, 1); }
+  paper-tabs::shadow .scroll-button {
+    width: 35px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid HSLA(0, 0%, 100%, 1);
+    opacity: 0.6; }
+    paper-tabs::shadow .scroll-button > paper-icon-button {
+      padding: 7px 5px; }
+
+/* Dropdowns */
+core-dropdown-menu {
+  border-radius: 2px;
+  padding: 0 0 0 10px; }
+
+core-dropdown {
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.1); }
+
+core-dropdown core-item {
+  padding: 0 10px; }

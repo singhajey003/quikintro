@@ -2,7 +2,6 @@
 
 @import 'sass/_config';
 
-
 $base-height: 40px;
 $photo-height: $base-height*2 + 20px;
 $header-height: $base-height + 20px;
@@ -102,19 +101,16 @@ core-collapse {
   // Event cards
   $event-info-height: 80px;
   $activity-summary-height: 120px;
-  $event-card-height: $event-info-height + $activity-summary-height + $base-height;
+  $event-card-height: $event-info-height + $activity-summary-height;
 
   &.venue-bkgnd {
     height: $event-card-height;
 
     .background {
-      @include absolute(top 0 right 0 bottom $base-height left 0);
+      @include absolute(top 0 right 0 bottom 0 left 0);
       background-color: HSLA(195, 60%, 30%, 0.6);
     }
 
-    .footer {
-      @include absolute(top ($event-card-height - $base-height) right 0 bottom 0 left 0);
-    }
   }
   // Match cards
 
