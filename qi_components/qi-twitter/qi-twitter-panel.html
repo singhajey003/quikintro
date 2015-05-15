@@ -1,6 +1,8 @@
+<link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <link rel="import" href="qi-twitter-card.html">
-<polymer-element name="qi-twitter-panel" attributes="dataUrl">
+<polymer-element name="qi-twitter-panel" attributes="dataUrl hashtag">
 
 	<template>
 	<core-ajax
@@ -9,13 +11,54 @@
 	  handleAs="json"
 	  response="{{response}}"></core-ajax>
 
+	  <style>
+	  footer{
+	  	position: fixed;
+	  	width: 100%;
+	  	bottom: 0;
+	  	background-color: white;
+	  	border-top: 1px solid #505050;
+	  }
+	  paper-autogrow-textarea{
+	  	border: 1px solid #505050;
+	  	height: 60px;
+	  	width: 280px;
+	  }
+	  paper-button{
+	  	height: 40px;
+	  	border: 1px solid #bce6d5;
 
+	  }
+	  #tweetSize{
+	  	font-size: 8pt;
+	  	color: #dadada;
+	  	text-align: right;
+	  	padding-bottom: 3px;
+	  }
+
+	  </style>
+
+	  <div layout vertical flex fit style="overflow: auto">
+	  <div>
 	  <template repeat="{{tweet in response.statuses}}">
 	  	
 	  	<qi-twitter-card tweet="{{tweet}}"></qi-twitter-card>
 
 	  </template>
+	  </div>
 
+	  <div fit>
+	  	<footer layout horizontal flex>
+	  		<paper-autogrow-textarea id="a1" maxRows="3" >
+	  		  <textarea id="tweet" value="{{myTweet}}"></textarea>
+	  		</paper-autogrow-textarea>
+	  		<div layout vertical>
+		  		<div id="tweetSize">{{tweetSize}}</div>
+		  		<paper-button id="sendBtn" on-click="{{sendAction}}">Send</paper-button>
+	  		</div>
+	  	</footer>
+	  </div>
+	  </div>
 
 	</template>
 
@@ -23,7 +66,35 @@
 	<script>
 		Polymer('qi-twitter-panel',{
 
+			myTweet: this.hashtag,
+			tweetSize: 140,
+
+			hashtagChanged: function(oldValue, newValue){
+				this.reset();
+			},
+
+			ready: function(){
+				this.$.tweet.focus();
+			},
+
 			
+			myTweetChanged: function(oldValue, newValue){
+				this.tweetSize = 140 - newValue.length;
+				if(this.tweetSize > 140){
+					this.$.sendBtn.enabled = false;
+				}else {
+					this.$.sendBtn.enabled = true;
+				}
+			},
+
+			reset: function(){
+				this.myTweet = this.hashtag;
+			},
+
+			sendAction: function(e){
+				this.reset();
+				//TODO: implement send action
+			}
 
 		});
 
