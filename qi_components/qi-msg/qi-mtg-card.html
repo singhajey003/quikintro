@@ -9,7 +9,7 @@
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
 
-<polymer-element name="qi-msg-card" attributes="msg" constructor="MsgCard">
+<polymer-element name="qi-mtg-card" attributes="mtg" constructor="MtgCard">
 
 	
 	<template>
@@ -29,9 +29,12 @@
 
 		</div>
 		<div class="mainPanel">
-			<div id="senderBlock"><span class="senderName">{{msg.sender.firstName}} {{msg.sender.lastName}}</span> <span class="time">{{msg.tstamp}}</span></div>
-			<div id="titleBlock" >{{msg.msg}}</div>
-
+			<div id="senderBlock">
+				<label>Sender</label><span>{{mtg.sender.firstName}} {{mtg.sender.lastName}}</span><br/> 
+				<label>Time</label> <span>{{mtg.date}} {{mtg.time}}</span><br/> 
+				<label>Location</label> <span>{{mtg.location}}</span><br/>
+				<label>Message</label> <span>{{mtg.msg}}</span> <br/>
+			</div>
 
 			<div><core-icon icon="reply" on-click="{{replyDialog}}"></core-icon></div>
 		</div>
@@ -41,8 +44,9 @@
 	</template>
 
 	<script>
-	Polymer('qi-msg-card',{
+	Polymer('qi-mtg-card',{
 		contacts: JSON.parse(localStorage.getItem("contacts")),
+		mtg: null,
 		
 		replyDialog: function(e){
 			this.fire('openPingDialog',{sender:this.contacts[4], rcvr: this.msg.sender});

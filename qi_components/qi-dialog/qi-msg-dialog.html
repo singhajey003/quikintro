@@ -2,48 +2,60 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 
-<polymer-element name="qi-msg-dialog">
-<template>
+<polymer-element name="qi-msg-dialog" attributes="contact">
+	<template>
 
 
-<paper-action-dialog id="msgDialog" heading="Send Message" >
-<link rel="stylesheet" href="dialog.css">
-        <paper-input-decorator floatingLabel label="Message Text">
-          <textarea id="msgTextArea" name="msgTextArea">{{msgText}}</textarea>
-        </paper-input-decorator>
+		<paper-action-dialog id="msgDialog" heading="Send Message" >
+			<link rel="stylesheet" href="dialog.css">
+		    <paper-input-decorator floatingLabel label="Message Text">
+		      <textarea id="msgTextArea" name="msgTextArea">{{msgText}}</textarea>
+		    </paper-input-decorator>
 
-        <paper-button dismissive>Cancel</paper-button>
-        <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
-      </paper-action-dialog>
-</template>
+		    <paper-button dismissive>Cancel</paper-button>
+		    <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
+		</paper-action-dialog>
+	</template>
 
-<script>
-Polymer('qi-msg-dialog',{
+	<script>
+	Polymer('qi-msg-dialog',{
 
-	contacts: JSON.parse(localStorage.getItem("contacts")),
-	msgs: JSON.parse(localStorage.getItem("msgs")),
+		contacts: JSON.parse(localStorage.getItem("contacts")),
+		
 
-	msgText:'',
+		msgText:'',
+		contact: null,
 
-	sendAction: function(e){
-		var date = new Date();
-		this.msgText = this.$.msgTextArea.value;
-		var msg = { sender:this.contacts[1], rcvr:this.contacts[0], msg:this.msgText, tstamp:date };
-		this.fire('msgSent',msg);
+		sendAction: function(e){
+			var date = new Date();
+			this.msgText = this.$.msgTextArea.value;
 
-		console.log("msgs: " + this.msgs);
-		this.msgs.push(msg);
-		localStorage.setItem("msgs", JSON.stringify(this.msgs));
-       
-	},
+			var msgs = JSON.parse(localStorage.getItem("msgs"));
+			if(msgs == null){
+				msgs = [];
+			}
 
-	open: function(){
-		this.msgText = "";
-		this.$.msgDialog.open();
-	}
+			var currUser = localStorage.getItem("profile");
+			var sender = {
+				firstName: currUser.firstName,
+				lastName: currUser.lastName,
+				id: currUser.id,
+				avatar: currUser.avatar
+			};
+			var msg = { sender:sender, rcvr:this.contact, msg:this.msgText, tstamp:date };
+			
+			this.msgs.push(msg);
+			localStorage.setItem("msgs", JSON.stringify(this.msgs));
+	       
+		},
 
-});
+		open: function(){
+			this.msgText = "";
+			this.$.msgDialog.open();
+		}
 
-</script>
+	});
+
+	</script>
 
 </polymer-element>

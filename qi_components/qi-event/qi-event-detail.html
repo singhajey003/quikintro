@@ -187,16 +187,19 @@
           var inviteDialog = this.$.inviteDialog;
 
           this.addEventListener('openInviteDialog', function(e){
+            inviteDialog.contact = e.detail.contact;
             inviteDialog.open();
           });
 
           var msgDialog = this.$.msgDialog;
           this.addEventListener("openPingDialog", function(e){
+            msgDialog.contact = e.detail.contact;
             msgDialog.open();
           });
 
           var mtgDialog = this.$.mtgDialog;
           this.addEventListener("openMtgDialog", function(e){
+            mtgDialog.contact = e.detail.contact;
             mtgDialog.open();
           });
           

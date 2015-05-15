@@ -88,11 +88,11 @@
 	     },
 
 	     pingDialogLaunch: function(e){
-	     	this.fire("openPingDialog",{contactId:this.contact.id});
+	     	this.fire("openPingDialog",{contact:this.contact});
 	     },
 
 	     mtgDialogLaunch: function(e){
-	     	this.fire("openMtgDialog",{contactId:this.contact.id});
+	     	this.fire("openMtgDialog",{contact:this.contact});
 	     }
 
 

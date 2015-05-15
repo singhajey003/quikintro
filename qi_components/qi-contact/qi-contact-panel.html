@@ -98,10 +98,12 @@
 
         // event fired when the user opens a ping dialog
         this.addEventListener('openPingDialog', function(e){
+          msgDialog.contact = e.detail.contact;
           msgDialog.open();
         }),
 
         this.addEventListener('openMtgDialog', function(e){
+          mtgDialog.contact = e.detail.contact;
           mtgDialog.open();
         })
 

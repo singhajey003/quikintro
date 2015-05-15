@@ -1,14 +1,14 @@
-<polymer-element name="qi-mtg-dialog">
+<polymer-element name="qi-mtg-dialog" contact="contact">
 
 	<template>
  	<paper-action-dialog id="mtgDialog" heading="Create Meeting">
  		<link rel="stylesheet" href="dialog.css">
 
- 		<paper-input label="Title"></paper-input>
- 		<paper-input label="Date"></paper-input>
- 		<paper-input label="Time"></paper-input>
- 		<paper-input label="Location"></paper-input>
- 		<paper-input label="Message"></paper-input>
+ 		<paper-input id="title" label="Title"></paper-input>
+ 		<paper-input id="date" label="Date"></paper-input>
+ 		<paper-input id="time" label="Time"></paper-input>
+ 		<paper-input id="location" label="Location"></paper-input>
+ 		<paper-input id="msg" label="Message"></paper-input>
 
 
         <paper-button dismissive>Cancel</paper-button>
@@ -20,10 +20,48 @@
      Polymer('qi-mtg-dialog',{
 
      	sendAction: function(e){
-     		//TODO: create invitation message and fire event.
+     		var mtgs = JSON.parse(localStorage.getItem("mtgs"));
+     		if (mtgs == null){
+     			mtgs = [];
+     		}
+
+     		var profile = JSON.parse(localStorage.getItem("profile"));
+
+
+     		var mtg = {
+     			title: this.$.title.value,
+     			date: this.$.date.value,
+     			time: this.$.time.value,
+     			location: this.$.location.value,
+     			msg: this.$.msg.value,
+     			rcvr: this.contact,
+     			sender: {
+     				firstName: profile.firstName,
+     				lastName: profile.lastName,
+     				avatar: profile.avatar,
+     				id: profile.id
+     			}
+
+     		};
+
+     		mtgs.push(mtg);
+     		localStorage.setItem("mtgs",JSON.stringify(mtgs));
+
+     	},
+
+     	clear: function(){
+
+     		var date = new Date();
+
+     		this.$.title.value="";
+     		this.$.date.value= date.toDateString()
+     		this.$.time.value= date.toTimeString();
+     		this.$.location.value = "";
+     		this.$.msg.value = "";
      	},
 
      	open: function(){
+     		this.clear();
      		this.$.mtgDialog.open();
      	},
 

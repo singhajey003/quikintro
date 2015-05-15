@@ -15,6 +15,8 @@
 <link rel="import" href="../qi-dialog/qi-msg-dialog.html">
 
 <link rel="import" href="qi-msg-card.html">
+<link rel="import" href="qi-mtg-card.html">
+<link rel="import" href="qi-invite-card.html">
 
 
 <polymer-element name="qi-msg-panel" >
@@ -22,7 +24,10 @@
   <template>
   <link rel="stylesheet" href="../quikintro.css">
   <link rel="stylesheet" href="qi-msg-panel.css">
+
   <core-localstorage name="msgs" value="{{msgs}}"></core-localstorage>
+  <core-localstorage name="mtgs" value="{{mtgs}}"></core-localstorage>
+  <core-localstorage name="invites" value="{{invs}}"></core-localstorage>
 
 	<core-scroll-header-panel headerHeight="40" id="msgHeaderPanel" flex>
 
@@ -38,22 +43,24 @@
     <core-pages selected="{{selected}}">
       <div id="msgTray" class="content" style="overflow:auto">
         
-         
             <template repeat="{{msg in msgs}}">
               <qi-msg-card msg="{{msg}}"></qi-msg-card>
             </template>
        
-
         <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
       
       </div>
 
-      <div id="invTray">
-
+      <div id="invTray" class="content" style="overflow:auto">
+          <template repeat="{{inv in invs}}">
+          <qi-invite-card invite="{{inv}}"></qi-invite-card>
+          </template>
       </div>
 
-      <div id="mtgTray">
-
+      <div id="mtgTray" class="content" style="overflow:auto">
+        <template repeat="{{mtg in mtgs}}">
+        <qi-mtg-card mtg="{{mtg}}"></qi-mtg-card>
+        </template>
       </div>
 
       </core-pages>
@@ -65,7 +72,9 @@
    <script>
 	Polymer('qi-msg-panel',{
 
-    msgs: [],
+    msgs: JSON.parse(localStorage.getItem("msgs")),
+    mtgs: JSON.parse(localStorage.getItem("mtgs")),
+    invs: JSON.parse(localStorage.getItem("invites")),
 
     ready: function(){
         var msgDialog = this.$.msgDialog;
@@ -87,6 +96,7 @@
         });
 
         this.addEventListener("openPingDialog", function(e){
+          msgDialog.contact = e.detail.contact;
           msgDialog.open();
         });
       }
