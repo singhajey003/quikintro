@@ -1,0 +1,50 @@
+<polymer-element name="qi-note-card" attributes="note">
+	
+	<template>
+	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" >
+	<style>
+	 
+	  .cardWhite {
+	  	margin-right: 25px;
+	  }
+	  .titleBlock {
+	  	font-size: 12pt;
+	  }
+	  .descBlock{
+	  	font-size: 9pt;
+	  }
+
+	  .authorBlock{
+	  	font-size: 8pt;
+	  }
+
+	</style>
+	
+	<div id="card" class="cardWhite" flip="front">
+		
+		<div >			
+			<div class="titleBlock" >{{note.title}}</div>
+			<div class="descBlock">{{note.description}}</div>
+			<div class="authorBlock">Author: {{note.author}}</div>
+			<div class="authorBlock">Published at : {{note.time}}</div>
+		</div>
+		
+		
+
+	</div>
+
+	</template>
+
+	<script>
+	Polymer('qi-note-card',{
+		
+	});
+
+	
+
+
+
+	</script>
+
+
+</polymer-element>

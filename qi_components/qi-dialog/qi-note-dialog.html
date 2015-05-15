@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="qi-note-dialog" attributes="notes">
+
+	<template>
+
+		<paper-action-dialog id="dialog" heading="Dialog Title" style="height: 300px">
+
+			<link rel="stylesheet" href="dialog.css">
+
+			<paper-input id="title" label="Title"></paper-input><br/>
+
+			<paper-input-decorator floatingLabel="" label="Note">
+			 
+			  <paper-autogrow-textarea id="a1">
+			  <textarea id="note"></textarea>
+			<paper-autogrow-textarea>
+			</paper-input-decorator>
+			
+
+			<paper-button dismissive>Cancel</paper-button>
+			<paper-button affirmative on-click="{{publishAction}}">Publish</paper-button>
+		  
+		</paper-action-dialog>
+
+		
+	</template>
+
+	<script>
+		Polymer('qi-note-dialog',{
+
+
+			publishAction: function(){
+
+				var timeObj = new Date();
+
+				var profile = localStorage.getItem("profile");
+				var author = profile.firstName + " " + profile.lastName;
+
+				note = {
+					"title": this.$.title.value,
+					"description": this.$.note.value,
+					"author":author,
+    				"time": timeObj.toDateString() + timeObj.toTimeString()
+				};
+
+				this.notes.push(note);
+				
+
+			},
+
+			open: function(){
+				this.$.dialog.open();
+			}
+
+		});
+
+	</script>
+
+</polymer-element>

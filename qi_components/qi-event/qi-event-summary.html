@@ -18,8 +18,7 @@
 
         <div class="eventInfo">
             <p>{{event.title}}</p>
-            <p>{{event.startTime}}-{{event.endTime}}</p>
-            <p>{{event.location}}</p>
+            <p>{{event.startTime}}-{{event.endTime}} at {{event.location}}</p>
             <p>{{event.registrantCount}} Registrants</p>
         </div>
 
@@ -70,11 +69,6 @@
                     </core-selector>
                 </core-dropdown>
             </core-dropdown-menu>
-         </core-label>
-
-         <core-label id="hashTagField" class="settings-row" horizontal justified layout>
-           Twitter
-            <core-input id="twitter" value="{{event.hashtag}}"> {{event.hashtag}}</core-input>
          </core-label>
 
          <core-label class="settings-row" horizontal justified layout>
