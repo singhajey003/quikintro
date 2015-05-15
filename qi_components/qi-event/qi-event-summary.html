@@ -18,7 +18,8 @@
 
         <div class="eventInfo">
             <p>{{event.title}}</p>
-            <p>{{event.startTime}} at {{event.location}}</p>
+            <p>{{event.startTime}}-{{event.endTime}}</p>
+            <p>{{event.location}}</p>
             <p>{{event.registrantCount}} Registrants</p>
         </div>
 
@@ -32,7 +33,7 @@
 
                 <div id="eventStats">
                     <div class="eventItem"><span>{{event.contacts.length}}</span> Existing Contacts</div>
-                    <div class="eventItem"><span>{{event.numMeetings}}</span> Meetings</div>
+                    <div class="eventItem"><span>{{event.meetings.length}}</span> Meetings</div>
                     <div class="eventItem"><span>{{event.numOnsiteMeetings}}</span> On-site Events</div>
                 </div>
             </div>
@@ -41,11 +42,6 @@
 
     <div class="eventSettings">
         <h4>Event Settings</h4>
-
-         <core-label id="scheduleField" class="settings-row" horizontal justified layout>
-           Date and Time
-            <core-input id="schedule">{{event.startTime}} - {{event.endTime}}</core-input>
-         </core-label>
 
           <core-label id="rsvpField" class="settings-row" horizontal justified layout>
            Going?
@@ -87,11 +83,8 @@
          </core-label>
 
         <div class="settings-row">
-            <core-label horizontal justified layout>
-                Location
-                <core-input id="location" >{{event.location}}</core-input>
-            </core-label>
-            <google-map id="map" zoom="14" style="width: 250px; height: 250px; margin: 20px; text-align: center;" libraries="visualization" fitToMarkers>
+           
+            <google-map id="map" zoom="18" style="width: 300px; height: 300px; margin: 20px; text-align: center;" libraries="visualization" zoomable="true" fitToMarkers>
                 <google-map-marker id="marker">
             </google-map-marker>
             </google-map>
