@@ -1,0 +1,82 @@
+
+<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+
+<polymer-element name="qi-twitter-dialog" attributes="hashtag">
+
+
+	<template>
+		
+		<paper-action-dialog id="dialog">
+		  <link rel="stylesheet" href="dialog.css">
+
+		  <style>
+
+			 paper-autogrow-textarea{
+			  	border: 1px solid #505050;
+			  	border-radius: 5px;
+			  	height: 60px;
+			  }
+			 
+			 #tweetSize{
+			  	font-size: 8pt;
+			  	color: #999999;
+			  	text-align: right;
+			  	padding-bottom: 3px;
+			  	padding-right: 3px;
+			}
+
+		</style>
+
+
+		  <paper-autogrow-textarea id="a1" maxRows="3" >
+	  		  <textarea id="tweet" value="{{myTweet}}"></textarea>
+	  		</paper-autogrow-textarea>
+	  		
+		  	<div id="tweetSize">{{tweetSize}}</div>
+
+		  	<paper-button dismissive>Cancel</paper-button>
+		  	<paper-button id="sendBtn" on-click="{{sendAction}}" affirmative>Send</paper-button>
+	  		
+		</paper-action-dialog>
+	
+
+	</template>
+
+	<script>
+	Polymer('qi-twitter-dialog',{
+
+		myTweet: this.hashtag,
+		tweetSize: 140,
+
+		hashtagChanged: function(oldValue, newValue){
+				this.reset();
+		},
+
+		myTweetChanged: function(oldValue, newValue){
+			this.tweetSize = 140 - newValue.length;
+			if(this.tweetSize > 140){
+				this.$.sendBtn.enabled = false;
+			}else {
+				this.$.sendBtn.enabled = true;
+			}
+		},
+
+		open: function(){
+			this.$.dialog.open();
+		},
+
+		reset: function(){
+			this.myTweet = this.hashtag;
+		},
+
+		sendAction: function(e){
+			this.reset();
+			//TODO: implement send action
+		}
+
+	});
+
+	</script
+
+
+</polymer-element>

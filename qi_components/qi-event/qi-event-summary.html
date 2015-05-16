@@ -16,9 +16,10 @@
 
     <div class="card reverse venue-bkgnd banner" style="background-image:url({{event.background}})">
         <div class="overlay"></div>
+
         <header>
-            <h3 id="titleBlock">{{event.title}}</h3>
-            <p>{{event.startTime}} at {{event.location}}</p>
+            <h3>{{event.title}}</h3>
+            <p>{{event.startTime}}-{{event.endTime}} at {{event.location}}</p>
             <p>{{event.registrantCount}} Registrants</p>
         </header>
 
@@ -28,10 +29,9 @@
                 <div class="match-count font-light">{{event.matches.length}}</div>
                 <div class="bottomLabel">New<br>Matches</div>
             </div>
-
             <div class="eventStats font-light">
                 <div class="eventItem"><span>{{event.contacts.length}}</span> Existing Contacts</div>
-                <div class="eventItem"><span>{{event.numMeetings}}</span> Meetings</div>
+                <div class="eventItem"><span>{{event.meetings.length}}</span> Meetings</div>
                 <div class="eventItem"><span>{{event.numOnsiteMeetings}}</span> On-site Events</div>
             </div>
 
@@ -76,9 +76,8 @@
          </core-label>
 
         <div class="settings-row">
-            <google-map id="map" zoom="14" style="width: 100%;" libraries="visualization" fitToMarkers>
-                <google-map-marker id="marker">
-            </google-map-marker>
+            <google-map id="map" zoom="18" style="width: 100%;" libraries="visualization" zoomable="true" fitToMarkers>
+                <google-map-marker id="marker"></google-map-marker>
             </google-map>
         </div>
 

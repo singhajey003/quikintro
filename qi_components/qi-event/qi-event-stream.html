@@ -59,24 +59,15 @@
 	<script>
 		Polymer('qi-event-stream',{
 			selectedEventPage:0,
-			selectedEventPageChanged: function(oldValue, newValue){
-				console.log("newValue: " + newValue);
-			},
+			
 			cardClickHandler: function(e){
 				var event = e.srcElement.event;
 				console.log("event: " + event);
 				var detail = this.$.detail;
 				detail.event = event;
 				this.selectedEventPage = 1;
-			},
-
-			ready:function(){
-				console.log("selectedEventPage: " + this.selectedEventPage);
-				// var pages = this.$.eventPages;
-				// pages.addEventListener('back-event', function(e){
-				// 	e.currentTarget.selected = 0;
-				// });
 			}
+			
 
 		});
 

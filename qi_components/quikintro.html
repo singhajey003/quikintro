@@ -44,15 +44,16 @@
     <core-localstorage name="msgs" value="{{msgs}}"></core-localstorage>
     <core-localstorage name="personas" value="{{personaList}}"></core-localstorage>
     <core-localstorage name="contacts" value="{{contactList}}"></core-localstorage>
+    <core-localstorage name="profile" value="{{currProfile}}"></core-localstorage>
  
     <!-- UI -->
     <qi-scaffold id="coreScaffold" responsiveWidth="480px" force-narrow>
 
       <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
-        <core-toolbar id="core_toolbar">
+        <core-toolbar id="core_toolbar" horizontal end-justified layout>
 
-        <!-- ICON GOES HERE -->
-
+        
+        
 
         </core-toolbar>
         <core-menu  id="menu" theme="core-light-theme" >
@@ -74,7 +75,11 @@
         
       </core-header-panel>
 
-      <div id="title" class="header-title" tool>{{panelTitle}}</div>
+      <div id="title" tool horizontal layout center flex>
+        <div flex>{{panelTitle}}</div>
+
+        <div><qi-toggle openIcon="social:person" closedIcon="social:person-outline"></qi-toggle></div>
+      </div>
       
       <div class="content">
       <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit >

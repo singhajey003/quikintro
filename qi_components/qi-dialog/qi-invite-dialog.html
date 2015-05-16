@@ -6,7 +6,7 @@
 
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 
-<polymer-element name="qi-invite-dialog" attributes="persona person">
+<polymer-element name="qi-invite-dialog" attributes="persona contact">
 
 	<template>
 
@@ -44,7 +44,6 @@
 	Polymer('qi-invite-dialog',{
 
 		contacts: localStorage.getItem("contacts"),
-		msgs: localStorage.getItem("msgs"),
 
 		selectedTemplateChanged: function(oldValue, newValue){
 			var selectedObj = this.persona.msgTemplates[newValue]
@@ -53,18 +52,31 @@
 		},
 
 		sendAction: function(e){
-			//TODO: create invitation message, and add it to the event payload
+
+			var invites = JSON.parse(localStorage.getItem("invites"));
+			if(invites == null){
+				invites = [];
+			}
+
+			var profile = localStorage.getItem("profile");
+			
 			var msg = {
-				sender: this.contacts[1],
-				rcvr: this.contacts[0],
+				sender: {
+					firstName: profile.firstName,
+					lastName: profile.lastName,
+					avatar: profile.avatar,
+					id: profile.id,
+					persona: this.persona
+				},
+				rcvr: contact,
 				msg: this.$.msg.value,
 				meetNow: this.$.meetNow.checked,
 				meetLater: this.$.meetLater.checked
 			};
 
-			console.log("msgs: " + this.msgs);
-
-			this.fire('sendInvite', msg);
+			invites.push(msg);
+			localStorage.setItem("invites", JSON.stringify(invites));
+			
 		},
 
 		open: function(){

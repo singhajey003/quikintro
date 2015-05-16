@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/core-icons/core-icons.html" >
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html" >
+
 <polymer-element name="qi-toggle" attributes="openIcon closedIcon isOpened">
 
 	<template>
@@ -16,8 +17,9 @@
 
 			isOpened: false,
 
+
 			ready: function(){
-				this.currIcon = 'expand-more';
+				this.currIcon = (this.isOpened)? this.openIcon : this.closedIcon;
 			},
 
 			toggleAction: function(e){
