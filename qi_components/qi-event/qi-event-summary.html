@@ -10,33 +10,32 @@
 <polymer-element name="qi-event-summary" attributes="event">
     <template>
     <link rel="stylesheet" href="../quikintro.css" >
+    <link rel="stylesheet" href="../qi-cards.css" >
     <link rel="stylesheet" href="qi-events.css" >
     <link rel="stylesheet" href="qi-event-summary.css" >
 
-    <div class="font-light venue-bkgnd sanfrancisco" style="background-image:url({{event.background}})">
-        <div class="background"></div>
-
-        <div class="eventInfo">
-            <p>{{event.title}}</p>
+    <div class="card reverse venue-bkgnd banner" style="background-image:url({{event.background}})">
+        <div class="overlay"></div>
+        <header>
+            <h3 id="titleBlock">{{event.title}}</h3>
             <p>{{event.startTime}} at {{event.location}}</p>
             <p>{{event.registrantCount}} Registrants</p>
-        </div>
+        </header>
 
-        <div class="activitySummary">
-            
-            <div horizontal layout flex>
-                <div id="eventNewMatches">
-                  <div id="event1" class="font-light">{{event.matches.length}}</div>
-                  <div class="bottomLabel">New<br/>Matches</div>
-                </div>
+        <div class="summary" horizontal layout justified flex>
 
-                <div id="eventStats">
-                    <div class="eventItem"><span>{{event.contacts.length}}</span> Existing Contacts</div>
-                    <div class="eventItem"><span>{{event.numMeetings}}</span> Meetings</div>
-                    <div class="eventItem"><span>{{event.numOnsiteMeetings}}</span> On-site Events</div>
-                </div>
+            <div class="eventNewMatches">
+                <div class="match-count font-light">{{event.matches.length}}</div>
+                <div class="bottomLabel">New<br>Matches</div>
             </div>
-        </div>        
+
+            <div class="eventStats font-light">
+                <div class="eventItem"><span>{{event.contacts.length}}</span> Existing Contacts</div>
+                <div class="eventItem"><span>{{event.numMeetings}}</span> Meetings</div>
+                <div class="eventItem"><span>{{event.numOnsiteMeetings}}</span> On-site Events</div>
+            </div>
+
+        </div>
     </div>
 
     <div class="eventSettings">

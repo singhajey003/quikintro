@@ -25,10 +25,9 @@
     <link rel="stylesheet" href="qi-events.css" >
 		<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" >
 
-
 		<div class="card-wrapper">
 
-			<div id="card" class="card card-photo">
+			<div class="card card-photo">
 
 				<template if="{{match.gravatar != null}}">
 					<div class="photo" style="background-image:url({{match.gravatar}})">
@@ -56,7 +55,7 @@
 				</div>
 
 				<div class="card-actions" horizontal justified layout center>
-					<paper-button role="button" id="invite" on-click="{{openInviteDialog}}">Invite</paper-button>
+					<paper-button role="button" id="invite" on-click="{{openInviteDialog}}">Introduce Yourself</paper-button>
 					<qi-toggle isOpened="{{opened}}"></qi-toggle>
 				</div>
 

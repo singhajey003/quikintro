@@ -9,39 +9,34 @@
 <polymer-element name="qi-invite-dialog" attributes="persona person">
 
 	<template>
-	
 
-	<paper-action-dialog id="dialog" heading="Introduce Yourself" style="min-height: 300px; ">
+		<paper-action-dialog id="dialog" heading="Introduce Yourself" style="min-height: 300px; " transition="core-transition-bottom">
+			<link rel="stylesheet" href="dialog.css">
+			<div >
+				<core-dropdown-menu label="Select A Message">
+					<core-dropdown class="dropdown">
+						<core-selector selected="{{selectedTemplate}}">
+							<template repeat="{{msgTemplate in persona.msgTemplates}}">
+								<core-item template="{{msgTemplate}}">{{msgTemplate.title}}</core-item>
+							</template>
+						</core-selector>
+					</core-dropdown>
+				</core-dropdown-menu>
+			</div>
+			<paper-autogrow-textarea id="a1">
+				<textarea id="msg"></textarea>
+			</paper-autogrow-textarea>
 
-	<link rel="stylesheet" href="dialog.css">
+			<qi-traitlist traits="{{persona.interests}}"></qi-traitlist>
+			<div class="checkbox-row">
+				<paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox>
+				<paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox>
+			</div>
 
-	<div >
-	   <core-dropdown-menu label="Select A Message">
-            <core-dropdown class="dropdown">
-                <core-selector selected="{{selectedTemplate}}">
-                    <template repeat="{{msgTemplate in persona.msgTemplates}}">
-                        <core-item template="{{msgTemplate}}">{{msgTemplate.title}}</core-item>
-                    </template>
-                </core-selector>
-            </core-dropdown>
-        </core-dropdown-menu>
+		  <paper-button dismissive>Cancel</paper-button>
+		  <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
 
-        <paper-autogrow-textarea id="a1" style="min-height: 70px; max-width: 246px; border: 1px solid #cacaca; ">
-          <textarea id="msg" style="padding-left: 3px; padding-right: 3px; width: 240px"></textarea>
-        <paper-autogrow-textarea>
-
-        <qi-traitlist traits="{{persona.interests}}"></qi-traitlist>
-     </div>
-
-
-
-        <paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox><br/>
-        <paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox></paper-autogrow-textarea><br/>
-	  
-	  <paper-button dismissive>Cancel</paper-button>
-	  <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
-	</paper-action-dialog>
-
+		</paper-action-dialog>
 
 	</template>
 

@@ -1,14 +1,13 @@
 @import '../sass/_config';
 
-.venue-bkgnd, .background {
-  height: 200px;
-}
-
-.background {
-  background-color: HSLA(195, 60%, 30%, 0.6);
+.card.venue-bkgnd.banner {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 0;
 }
 
 .eventSettings {
 	background-color: $white;
 	padding: 10px;
+	margin-top: -5px;
 }

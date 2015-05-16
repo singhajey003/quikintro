@@ -5,14 +5,14 @@
 // Color definitions
 
 
-$white: HSLA(0, 0%, 100%, 1);
-$qi-blue: HSLA(192, 80%, 45%, 1);
-$qi-green: HSLA(167, 63%, 50%, 1);
-$qi-gray: HSLA(197, 26%, 59%, 1);
-$qi-gray-light: HSLA(0, 0%, 92%, 1);
-$qi-gray-light2: HSLA(0, 0%, 80%, 1);
-$qi-gray-dark: HSLA(195, 20%, 23%, 1);
-$qi-gray-dark2: HSLA(197, 18%, 39%, 1); //not sure where this is used yet - potentially remove
+$white: hsla(0, 0%, 100%, 1);
+$qi-blue: hsla(192, 80%, 45%, 1);
+$qi-green: hsla(167, 63%, 50%, 1);
+$qi-gray: hsla(197, 26%, 59%, 1);
+$qi-gray-light: hsla(0, 0%, 92%, 1);
+$qi-gray-light2: hsla(0, 0%, 80%, 1);
+$qi-gray-dark: hsla(195, 20%, 23%, 1);
+$qi-gray-dark2: hsla(197, 18%, 39%, 1); //not sure where this is used yet - potentially remove
 
 // Color assignments
 $reverse: $white;
@@ -21,9 +21,12 @@ $links: $qi-blue;
 $papertabs: $qi-gray;
 $lighttext: $qi-gray;
 $background: $qi-gray-light;
-$black01: $qi-gray-dark;
 $text-default: $qi-gray-dark;
 
+//Borders
+$border: 1px solid $qi-gray;
+$border-reverse: 1px solid $reverse;
+$border-reverse: 1px solid hsla(0, 0%, 100%, 0.4);
 
 
 $backgroundImage: none;
@@ -31,4 +34,9 @@ $backgroundImage: none;
 
 // ------------------- Font Variables --------------------
 
-$font-light: "FirasansUltralight";
+$font-light: 'fira-sans-ultralight', sans-serif;
+$font-regular: 'fira-sans-book', sans-serif;
+$font-bold: 'fira-sans-semibold', sans-serif;
+$font-extrabold: 'fira-sans-extrabold', sans-serif;
+
+$page-padding: 15px;

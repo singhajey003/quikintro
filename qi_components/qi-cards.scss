@@ -2,13 +2,32 @@
 
 @import 'sass/_config';
 
+$card-padding-top-bottom: 5px;
+$card-padding-left-right: 10px;
+
 $base-height: 40px;
-$photo-height: $base-height*2 + 20px;
 $header-height: $base-height + 20px;
 $summary-height: $base-height - 15px;
-$page-padding: 15px;
-$card-padding: 5px 10px;
+$actions-height: $base-height;
+$card-height: $header-height + $summary-height + $actions-height;
 
+
+$event-card-header-height: $base-height*1.5 + $card-padding-top-bottom*2;
+$event-card-summary-height: $base-height*3 + $card-padding-top-bottom*2;
+$event-card-summary-top-position: $event-card-header-height + $card-padding-top-bottom*2 + 10px;
+$event-card-height: 
+  $event-card-header-height + 
+  $event-card-summary-height;
+
+$contact-card-header-height: 0px;
+$contact-card-summary-height: 0px;
+$contact-card-height: 
+  $contact-card-header-height + 
+  $contact-card-summary-height;
+
+
+
+// ****** Basic card
 .card-wrapper {
   padding: $page-padding;
   padding-bottom: 0;
@@ -17,86 +36,131 @@ $card-padding: 5px 10px;
 .card {
   background-color: $white;
   display: inline-block;
-  font-size: 9pt;
-  line-height: 1.2;
+  position: relative;
   max-width: 400px;
   min-width: 300px;
-  position: relative;
+  height: $card-height;
+  font-size: 10pt;
+  line-height: 1.2;
 
-  p {margin: 0;}
-  h3 {font-size: 12pt;}
-}
-
-.card-photo .photo {
-  height: $photo-height;
-  width: $base-height*2;
-  background-color: $qi-gray;
-  background-repeat: no-repeat;
-  background-size: cover;
+  p {
+    margin: 2px;
+    @include text-truncate;
+  }
+  h3 {
+    font-size: 20px;
+    margin: 4px;
+    @include text-truncate;
+  }
 }
 
 .card header {
   height: $header-height;
-  padding: $card-padding;
+  padding: $card-padding-top-bottom $card-padding-left-right;
   @include absolute(top 0 right 0 bottom 0 left 0);
-}
-
-.card.card-photo header {
-  left: $base-height*2;
 }
 
 .card .summary {
   height: $summary-height;
   line-height: 0.75;
-  padding: $card-padding;
-  padding-bottom: 10px;
+  padding: $card-padding-top-bottom $card-padding-left-right;
   @include absolute(top $header-height right 0 bottom 0 left 0);
 }
 
-.card.card-photo .summary {
-  left: $base-height*2;
-}
-
-.card-actions {
+.card-actions {// Card footer
   height: $base-height;
   border-top: 1px solid $qi-gray-light;
 }
 
-core-collapse {
-  background-color: $qi-gray-light2;
-  border: 5px solid $white;
-  border-top: 0;
-  font-size: 12pt;
-  padding: $card-padding;
-}
+// ****** Card Variations
 
+// Event Venue Cards
+.card.venue-bkgnd {
+  height: $event-card-height;
+  background-color: $qi-gray-dark2;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: $page-padding - 5px;
 
-//Match cards
-.matchPercentage {
-  font-size: 18pt;
-  display: inline;
+  header {
+    height: $event-card-header-height;
+    text-align: center;
+    border-bottom: $border-reverse;
+  }
 
-  span {
-    font-size: 8pt;
+  .summary {
+    height: $event-card-summary-height;
+    @include absolute(top $event-card-summary-top-position right 0 bottom 0 left 0);
   }
 }
 
-.distanceAway {
-  font-size: 9pt;
-  display: inline;
-  padding-bottom: 2px
+.overlay {
+  @include absolute(top 0 right 0 bottom 0 left 0);
+  background-color: HSLA(195, 60%, 20%, 0.5);
+}
+
+
+// Photo cards
+
+$photo-height: $base-height*2.5 + $card-padding-top-bottom*2;
+
+$photo-card-header-height: ($photo-height * 2/3) - $card-padding-top-bottom*2;
+$photo-card-summary-height: ($photo-height * 1/3) - $card-padding-top-bottom;
+$photo-card-summary-top-position: $photo-card-header-height;
+$photo-card-height: 
+  $photo-card-header-height + 
+  $photo-card-summary-height +
+  $actions-height +
+  $card-padding-top-bottom*3;
+
+
+.card.card-photo {
+  height: $photo-card-height;
+
+  .photo {
+    height: $photo-height;
+    width: $base-height*2;
+    background-color: $qi-gray;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  header {
+    left: $base-height*2;
+    height: $photo-card-header-height;
+  }
+  .summary {
+    left: $base-height*2;
+    height: $photo-card-summary-height;
+    top: $photo-card-summary-top-position;
+  }
+  core-collapse {
+    background-color: $qi-gray-light2;
+    border: 5px solid $white;
+    border-top: 0;
+    font-size: 12pt;
+    padding: $card-padding-top-bottom $card-padding-left-right;
+  }
+  .matchPercentage {
+    font-size: 18pt;
+    display: inline;
+
+    span {
+      font-size: 8pt;
+    }
+  }
+
+  .distanceAway {
+    font-size: 9pt;
+    display: inline;
+    padding-bottom: 2px
+  }
 }
 
 
 
-
+/*
 .card{
-
-  h3 {
-    font-size: 20px;
-    margin: 0;
-    @include text-truncate;
-  }
 
   // Event cards
   $event-info-height: 80px;
@@ -114,7 +178,6 @@ core-collapse {
   }
   // Match cards
 
-/*
 
   .match {
     height: $event-card-height;
@@ -128,7 +191,7 @@ core-collapse {
       @include absolute(top ($event-card-height - $base-height) right 0 bottom 0 left 0);
     }
   }
-*/
+
   $contact-info-height: 30px;
   $match-percentage-height: 50px;
   $photo-width: 65px;
@@ -164,5 +227,4 @@ core-collapse {
 
 
 }
-
-
+*/
