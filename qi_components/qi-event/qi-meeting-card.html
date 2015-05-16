@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/font-roboto/roboto.html">
 
-<polymer-element name="qi-meeting-card" attributes="meeting">
+<polymer-element name="qi-meeting-card" attributes="meeting" constructor="MtgCard2">
 
 	<template>
 		<link rel="stylesheet" href="../qi-cards.css">
@@ -20,6 +20,7 @@
 		<div class="card">
 		<label>Meeting</label>{{meeting.title}}<br/>
 		<label>Date/Time</label> {{meeting.date}} {{meeting.time}}<br/>
+		<label>Location</label> {{meeting.location}}<br/>
 		<label>Description</label><br/>
 		<p>{{meeting.description}}</p>
 

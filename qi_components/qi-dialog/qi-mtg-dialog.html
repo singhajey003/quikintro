@@ -36,7 +36,7 @@
      			date: this.$.date.value,
      			time: this.$.time.value,
      			location: this.$.location.value,
-     			msg: this.$.msg.value,
+     			description: this.$.msg.value,
      			rcvr: this.contact,
      			sender: {
      				firstName: profile.firstName,
@@ -49,6 +49,8 @@
 
      		mtgs.push(mtg);
      		localStorage.setItem("mtgs",JSON.stringify(mtgs));
+
+               this.fire('mtg-sent', {mtg: mtg});
 
      	},
 

@@ -26,8 +26,8 @@
   <link rel="stylesheet" href="qi-msg-panel.css">
 
   <core-localstorage name="msgs" value="{{msgs}}"></core-localstorage>
-  <core-localstorage name="mtgs" value="{{mtgs}}"></core-localstorage>
-  <core-localstorage name="invites" value="{{invs}}"></core-localstorage>
+  <core-localstorage name="mtgs" value="{{mtgStr}}"></core-localstorage>
+  <core-localstorage name="invites" value="{{invStr}}"></core-localstorage>
 
 	<core-scroll-header-panel headerHeight="40" id="msgHeaderPanel" flex>
 
@@ -43,7 +43,7 @@
     <core-pages selected="{{selected}}">
       <div id="msgTray" class="content" style="overflow:auto">
         
-            <template repeat="{{msg in msgs}}">
+            <template id="msgTemplate" repeat="{{msg in msgs}}">
               <qi-msg-card msg="{{msg}}"></qi-msg-card>
             </template>
        
@@ -72,33 +72,42 @@
    <script>
 	Polymer('qi-msg-panel',{
 
-    msgs: JSON.parse(localStorage.getItem("msgs")),
-    mtgs: JSON.parse(localStorage.getItem("mtgs")),
-    invs: JSON.parse(localStorage.getItem("invites")),
-
+    
+  
     ready: function(){
         var msgDialog = this.$.msgDialog;
         var contentTray = this.$.contentTray;
 
-        this.addEventListener("msgSent", function(e){
-          var msgCard = new MsgCard();
-          msgCard.msg = {
-            sender : e.detail.sender,
-            rcvr : e.detail.rcvr,
-            msgText : e.detail.msg,
-            tstamp : e.detail.tstamp,
-          };
+        
+        var msgTray = this.$.msgTray;
+        var mtgTray = this.$.mtgTray;
+        var invTray = this.$.invTray;
 
+
+        window.addEventListener('msg-sent', function(e){
           
-          var contentTray = this.$.contentTray;
-          contentTray.addChildNode(msgCard);
-          
+          var msgObj = new MsgCard();
+          msgObj.msg = e.detail.msg;
+
+          msgTray.appendChild(msgObj);
+
+
         });
 
-        this.addEventListener("openPingDialog", function(e){
-          msgDialog.contact = e.detail.contact;
-          msgDialog.open();
+        window.addEventListener('mtg-sent', function(e){
+          var mtgObj = new MtgCard();
+          mtgObj.mtg = e.detail.mtg;
+          mtgTray.appendChild(mtgObj);
         });
+
+        window.addEventListener('invite-sent', function(e){
+          var invObj = new InvCard();
+          invObj.invite = e.detail.invite;
+          invTray.appendChild(invObj);
+
+        });
+        
+
       }
 		
 	    });

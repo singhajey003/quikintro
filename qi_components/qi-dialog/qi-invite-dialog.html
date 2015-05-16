@@ -23,11 +23,16 @@
 					</core-dropdown>
 				</core-dropdown-menu>
 			</div>
+
+			<div>
 			<paper-autogrow-textarea id="a1">
 				<textarea id="msg"></textarea>
 			</paper-autogrow-textarea>
+			</div><br/>
 
-			<qi-traitlist traits="{{persona.interests}}"></qi-traitlist>
+			<div style="max-height: 100px; overflow: scroll">
+			<qi-traitlist traits="{{persona.aboutMe.interests}}"></qi-traitlist>
+			</div>
 			<div class="checkbox-row">
 				<paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox>
 				<paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox>
@@ -58,7 +63,7 @@
 				invites = [];
 			}
 
-			var profile = localStorage.getItem("profile");
+			var profile = JSON.parse(localStorage.getItem("profile"));
 			
 			var msg = {
 				sender: {
@@ -68,7 +73,7 @@
 					id: profile.id,
 					persona: this.persona
 				},
-				rcvr: contact,
+				rcvr: this.contact,
 				msg: this.$.msg.value,
 				meetNow: this.$.meetNow.checked,
 				meetLater: this.$.meetLater.checked
@@ -76,11 +81,17 @@
 
 			invites.push(msg);
 			localStorage.setItem("invites", JSON.stringify(invites));
+
+			this.fire('invite-sent', {invite: msg});
 			
 		},
 
 		open: function(){
 			this.$.dialog.open();
+		},
+
+		reset: function(){
+
 		},
 
 		close: function(){
