@@ -154,38 +154,26 @@
     display: inline;
     padding-bottom: 2px; }
 
+.card.card-notice {
+  height: 60px; }
+  .card.card-notice .avatar {
+    height: 60px; }
+  .card.card-notice .core-icon-wrapper {
+    height: 60px;
+    width: 60px;
+    background-color: #7ba2b2;
+    text-align: center; }
+  .card.card-notice core-icon {
+    height: 36px;
+    width: 36px;
+    color: white;
+    margin-top: 10px; }
+  .card.card-notice .noticeContent {
+    height: 60px;
+    padding: 5px 10px; }
+
 /*
 .card{
-
-  // Event cards
-  $event-info-height: 80px;
-  $activity-summary-height: 120px;
-  $event-card-height: $event-info-height + $activity-summary-height;
-
-  &.venue-bkgnd {
-    height: $event-card-height;
-
-    .background {
-      @include absolute(top 0 right 0 bottom 0 left 0);
-      background-color: HSLA(195, 60%, 30%, 0.6);
-    }
-
-  }
-  // Match cards
-
-
-  .match {
-    height: $event-card-height;
-
-    .background {
-      @include absolute(top 0 right 0 bottom $base-height left 0);
-      background-color: HSLA(195, 60%, 30%, 0.6);
-    }
-
-    .footer {
-      @include absolute(top ($event-card-height - $base-height) right 0 bottom 0 left 0);
-    }
-  }
 
   $contact-info-height: 30px;
   $match-percentage-height: 50px;

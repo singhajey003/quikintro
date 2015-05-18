@@ -5,26 +5,30 @@
 	<template>
 
 		<link rel="stylesheet" href="../qi-cards.css" >
-		<style>
-			core-icon{width: 32px; height: 32px; color: #505050;}
-		</style>
 
-		<div class="card" horizontal layout>
-			<template if="{{notice.type == 'invitation_acceptance'">
-				<img src="{{notice.avatar}}" class="avatar" align="left">
-			</template>
-			<template if="{{notice.type == 'interest'}}">
-				<core-icon icon="event"></core-icon>
-			</template>
+		<div class="card-wrapper">
+			<div class="card card-notice" horizontal layout>
+				<div class="core-icon-wrapper">
 
-			<template if="{{notice.type == 'rsvp'}}">
-				<core-icon icon="language"></core-icon>
-			</template>
+					<template if="{{notice.type == 'invitation_acceptance'">
+						<img src="{{notice.avatar}}" class="avatar" align="left">
+					</template>
 
-			<div class="noticeContent">
-				<content></content>
+					<template if="{{notice.type == 'interest'}}">
+						<core-icon icon="event"></core-icon>
+					</template>
+
+					<template if="{{notice.type == 'rsvp'}}">
+						<core-icon icon="language"></core-icon>
+					</template>
+
+				</div>
+
+				<div class="noticeContent">
+					<content></content>
+				</div>
+
 			</div>
-
 		</div>
 
 
