@@ -42,10 +42,9 @@
 
 	<script>
 	Polymer('qi-msg-card',{
-		contacts: JSON.parse(localStorage.getItem("contacts")),
 		
 		replyDialog: function(e){
-			this.fire('openPingDialog',{sender:this.contacts[4], rcvr: this.msg.sender});
+			this.fire('openPingDialog',{sender:this.msg.rcvr, rcvr: this.msg.sender});
 		}
 		
 

@@ -175,24 +175,35 @@
         selected: 0,
 
         eventChanged: function(oldValue, newValue){
-            var persona = null;
-            var personas = JSON.parse(localStorage.getItem("personas"));
-
-            for(var i=0; i < personas.length; i++){
-              if(personas[i].name == newValue.persona){
-                persona = personas[i];
-                break;
-              }
-            }
-            this.$.inviteDialog.persona = persona;
+           
         },
 
         ready: function(){
           this.$.scrollableTabs.selected = 0;
           var inviteDialog = this.$.inviteDialog;
 
+          var mtgsTray = this.$.meetings;
+
+          window.addEventListener('mtg-sent', function(e){
+            var mtgCard = new MtgCard2();
+            mtgCard.meeting = e.detail.mtg;
+            mtgsTray.appendChild(mtgCard);
+          });
+
           this.addEventListener('openInviteDialog', function(e){
             inviteDialog.contact = e.detail.contact;
+
+            var persona = null;
+            var personas = JSON.parse(localStorage.getItem("personas"));
+
+            for(var i=0; i < personas.length; i++){
+              if(personas[i].name == this.event.persona){
+                persona = personas[i];
+                break;
+              }
+            }
+            inviteDialog.persona = persona;
+
             inviteDialog.open();
           });
 

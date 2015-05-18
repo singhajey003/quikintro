@@ -29,6 +29,8 @@
 
 		sendAction: function(e){
 			var date = new Date();
+			var tstamp = date.toLocaleDateString() + " " + date.toLocaleTimeString();
+
 			this.msgText = this.$.msgTextArea.value;
 
 			var msgs = JSON.parse(localStorage.getItem("msgs"));
@@ -36,22 +38,24 @@
 				msgs = [];
 			}
 
-			var currUser = localStorage.getItem("profile");
+			var currUser = JSON.parse(localStorage.getItem("profile"));
 			var sender = {
 				firstName: currUser.firstName,
 				lastName: currUser.lastName,
 				id: currUser.id,
 				avatar: currUser.avatar
 			};
-			var msg = { sender:sender, rcvr:this.contact, msg:this.msgText, tstamp:date };
+			var msg = { sender:sender, rcvr:this.contact, msg:this.msgText, tstamp:tstamp };
 			
-			this.msgs.push(msg);
-			localStorage.setItem("msgs", JSON.stringify(this.msgs));
+			msgs.push(msg);
+			localStorage.setItem("msgs", JSON.stringify(msgs));
+
+			this.fire('msg-sent', {msg: msg});
 	       
 		},
 
 		open: function(){
-			this.msgText = "";
+			this.$.msgTextArea.value = "";
 			this.$.msgDialog.open();
 		}
 

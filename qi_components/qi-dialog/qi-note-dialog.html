@@ -35,7 +35,7 @@
 
 				var timeObj = new Date();
 
-				var profile = localStorage.getItem("profile");
+				var profile = JSON.parse(localStorage.getItem("profile"));
 				var author = profile.firstName + " " + profile.lastName;
 
 				note = {
@@ -51,7 +51,13 @@
 			},
 
 			open: function(){
+				this.reset();
 				this.$.dialog.open();
+			},
+
+			reset: function(){
+				this.$.title.value = '';
+				this.$.note.value = '';
 			}
 
 		});

@@ -18,11 +18,11 @@
 	<div id="card" layout horizontal>
 		<div class="avatarPanel">
 
-			<template if="{{msg.sender.avatar != null}}">
-				<img class="avatar" src="{{msg.sender.avatar}}">
+			<template if="{{mtg.sender.avatar != null}}">
+				<img class="avatar" src="{{mtg.sender.avatar}}">
 			</template>
 
-			<template if="{{msg.sender.avatar == null}}">
+			<template if="{{mtg.sender.avatar == null}}">
 				<core-icon class="avatar" icon="social:person"></core-icon>
 			</template>
 
@@ -33,7 +33,7 @@
 				<label>Sender</label><span>{{mtg.sender.firstName}} {{mtg.sender.lastName}}</span><br/> 
 				<label>Time</label> <span>{{mtg.date}} {{mtg.time}}</span><br/> 
 				<label>Location</label> <span>{{mtg.location}}</span><br/>
-				<label>Message</label> <span>{{mtg.msg}}</span> <br/>
+				<label>Description</label> <span>{{mtg.description}}</span> <br/>
 			</div>
 
 			<div><core-icon icon="reply" on-click="{{replyDialog}}"></core-icon></div>
@@ -49,7 +49,15 @@
 		mtg: null,
 		
 		replyDialog: function(e){
-			this.fire('openPingDialog',{sender:this.contacts[4], rcvr: this.msg.sender});
+			var profile = JSON.parse(localStorage.getItem("profile"));
+			var sender = {
+				firstName: profile.firstName,
+				lastName: profile.lastName,
+				id: profile.id,
+				avatar: profile.avatar
+			}
+
+			this.fire('openPingDialog',{sender:sender, rcvr: this.mtg.sender});
 		}
 		
 
