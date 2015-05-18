@@ -3,6 +3,8 @@
 
 paper-action-dialog {
 	font-family: $font-light;
+	width: 90%;
+  max-width: 450px;
 }
 
 paper-action-dialog::shadow h1{
@@ -16,6 +18,17 @@ paper-action-dialog::shadow #actions {
 
 paper-action-dialog::shadow #scroller {
 	padding: 20px;
+}
+
+paper-autogrow-textarea, paper-input-decorator, paper-input {
+  width: 100%;
+  max-width: 400px;
+  min-width: 250px;
+  margin-top: 3px;
+}
+
+paper-input {
+	display: block;
 }
 
 paper-autogrow-textarea::shadow ::content textarea {

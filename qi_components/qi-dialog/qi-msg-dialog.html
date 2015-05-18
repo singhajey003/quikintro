@@ -6,14 +6,15 @@
 	<template>
 
 
-		<paper-action-dialog id="msgDialog" heading="Send Message" >
+		<paper-action-dialog id="msgDialog" heading="Send Message" backdrop>
+			<link rel="stylesheet" href="../quikintro.css" >
 			<link rel="stylesheet" href="dialog.css">
-		    <paper-input-decorator floatingLabel label="Message Text">
-		      <textarea id="msgTextArea" name="msgTextArea">{{msgText}}</textarea>
-		    </paper-input-decorator>
+	    <paper-input-decorator label="Message Text">
+	      <textarea id="msgTextArea" name="msgTextArea">{{msgText}}</textarea>
+	    </paper-input-decorator>
 
-		    <paper-button dismissive>Cancel</paper-button>
-		    <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
+	    <paper-button dismissive>Cancel</paper-button>
+	    <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
 		</paper-action-dialog>
 	</template>
 

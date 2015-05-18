@@ -37,7 +37,8 @@ $contact-card-height:
   background-color: $white;
   display: inline-block;
   position: relative;
-  max-width: 400px;
+  width: 100%;
+  max-width: 450px;
   min-width: 300px;
   height: $card-height;
   font-size: 10pt;

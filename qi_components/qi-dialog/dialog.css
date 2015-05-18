@@ -47,7 +47,9 @@
   font-weight: 800;
   font-style: italic; }
 paper-action-dialog {
-  font-family: "fira-sans-ultralight", sans-serif; }
+  font-family: "fira-sans-ultralight", sans-serif;
+  width: 90%;
+  max-width: 450px; }
 
 paper-action-dialog::shadow h1 {
   margin-top: 0; }
@@ -58,6 +60,15 @@ paper-action-dialog::shadow #actions {
 
 paper-action-dialog::shadow #scroller {
   padding: 20px; }
+
+paper-autogrow-textarea, paper-input-decorator, paper-input {
+  width: 100%;
+  max-width: 400px;
+  min-width: 250px;
+  margin-top: 3px; }
+
+paper-input {
+  display: block; }
 
 paper-autogrow-textarea::shadow ::content textarea {
   width: 90%;
