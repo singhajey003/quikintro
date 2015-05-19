@@ -9,44 +9,126 @@
 <link rel="import" href="../../bower_components/core-selector/core-selector.html" >
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
 
-<polymer-element name="qi-persona-card" attributes="persona">
+<link rel="import" href="../qi-toggle/qi-toggle.html">
+<link rel="import" href="../qi-trait/qi-traitlist.html">
 
-	
-	
+<polymer-element name="qi-persona-card" attributes="persona">
 		
 	<template>
 	<link rel="stylesheet" href="../quikintro.css" >
 	<link rel="stylesheet" href="qi-persona-card.css" >
 
+
 	<div id="card" class="cardWhite">
 		<div >
-			<div id="titleBlock" on-click="{{toggleAction}}">{{persona.name}}</div>
-			<div>{{persona.blurb}}</div>
-			<core-tooltip label="Clone Persona"><core-icon icon="content-copy"></core-icon></core-tooltip>
-			<core-tooltip label="Delete Persona"><core-icon icon="delete"></core-icon></core-tooltip>
+			<div class="titleBlock">{{persona.name}}</div>
+			<div class="summaryBlock">{{persona.blurb}}</div>
+
+			<div class="row" flex>
+				<div  flex>
+				<core-tooltip label="Clone Persona"><core-icon icon="content-copy"></core-icon></core-tooltip>
+				<core-tooltip label="Delete Persona"><core-icon icon="delete"></core-icon></core-tooltip>
+				</div>
+				<div style="display: table-cell">
+					<qi-toggle on-click="{{toggleAction}}"></qi-toggle>
+				</div>
+			</div>
 		</div>
 		<core-collapse id="collapse" opened="false">
 			
 			<fieldset>
 			 <legend>About Me</legend>
 
-			 <core-field><core-icon icon="question-answer" ></core-icon><label>Interactions:</label><input id="amInteractions" placeholder="Interactions" flex></core-field>
-		     <core-field><core-icon icon="bookmark" ></core-icon><label>Skills:</label><input id="amSkills" placeholder="Skills"   flex></core-field>
-		     <core-field><core-icon icon="label" ></core-icon><label>Interests:</label><input id="amInterests" placeholder="Interests" flex></core-field>
+			<div>
+				<div class="iconFld">
+				    <core-icon icon="question-answer"></core-icon>
+				    <label>Interactions:</label>
+			    </div>
+			    <div class="fldValue">
+			    	<qi-traitlist traits="{{persona.aboutMe.interactions}}"></qi-traitlist>
+			    </div>
+			</div>
+			<div>
+				<div class="iconFld">
+				    <core-icon icon="bookmark"></core-icon>
+				    <label>Skills:</label>
+			    </div>
+			    <div class="fldValue">
+			    	<qi-traitlist traits="{{persona.aboutMe.skills}}"></qi-traitlist>
+			    </div>
+			</div>
+			<div>
+				<div class="iconFld">
+				    <core-icon icon="label"></core-icon>
+				    <label>Interests:</label>
+			    </div>
+			    <div class="fldValue">
+				    <qi-traitlist traits="{{persona.aboutMe.interests}}"></qi-traitlist>
+			    </div>
+			</div>
+
 		    </fieldset>
 
 		    <fieldset>
-			 <legend>Looking For</legend>
-				<core-field><core-icon icon="question-answer" ></core-icon><label>Interactions:</label><input id="lfInteractions" placeholder="Interations"  flex></core-field>
-			    <core-field><core-icon icon="bookmark" ></core-icon><label>Skills:</label><input id="lfSkills" placeholder="Skills" flex></core-field>
-			    <core-field><core-icon icon="label" ></core-icon><label>Interests:</label><input id="lfInterests" placeholder="Interests"  flex></core-field>
+				<legend>Looking For</legend>
+				<div>
+					<div class="iconFld">
+					    <core-icon icon="question-answer"></core-icon>
+					    <label>Interactions:</label>
+				    </div>
+				    <div class="fldValue">
+				    	<qi-traitlist traits="{{persona.lookingFor.interactions}}"></qi-traitlist>
+				    </div>
+				</div>
+				<div>
+					<div class="iconFld">
+					    <core-icon icon="bookmark"></core-icon>
+					    <label>Skills:</label>
+				    </div>
+				    <div class="fldValue">
+				    <qi-traitlist traits="{{persona.lookingFor.skills}}"></qi-traitlist>
+				    </div>
+				</div>
+				<div>
+					<div class="iconFld">
+					    <core-icon icon="label"></core-icon>
+					    <label>Interests:</label>
+				    </div>
+				    <div class="fldValue">
+				    <qi-traitlist traits="{{persona.lookingFor.interests}}"></qi-traitlist>
+				    </div>
+				</div>
 		    </fieldset>
 		    
 		     <fieldset>
-			 <legend>Not Looking For</legend>
-				<core-field><core-icon icon="question-answer" ></core-icon><label>Interactions:</label><input id="nlfInteractions" placeholder="Interations" flex></core-field>
-			    <core-field><core-icon icon="bookmark" ></core-icon><label>Skills:</label><input id="nlfSkills" placeholder="Skills" flex></core-field>
-			    <core-field><core-icon icon="label" ></core-icon><label>Interests:</label><input id="nlfInterests" placeholder="Interests" flex></core-field>
+				<legend>Not Looking For</legend>
+				<div>
+					<div class="iconFld">
+					    <core-icon icon="question-answer"></core-icon>
+					    <label>Interactions:</label>
+				    </div>
+				    <div class="fldValue">
+				    <qi-traitlist traits="{{persona.notLookingFor.interactions}}"></qi-traitlist>
+				    </div>
+				</div>
+				<div>
+					<div class="iconFld">
+					    <core-icon icon="bookmark"></core-icon>
+					    <label>Skills:</label>
+				    </div>
+				    <div class="fldValue">
+				    <qi-traitlist traits="{{persona.notLookingFor.skills}}"></qi-traitlist>
+				    </div>
+				</div>
+				<div>
+					<div class="iconFld">
+					    <core-icon icon="label"></core-icon>
+					    <label>Interests:</label>
+				    </div>
+				    <div class="fldValue">
+				    <qi-traitlist traits="{{persona.notLookingFor.interests}}"></qi-traitlist>
+				    </div>
+				</div>
 		    </fieldset>
  
 		</core-collapse>
@@ -58,25 +140,6 @@
 	<script>
 	Polymer('qi-persona-card',{
 
-		
-		personaChanged: function(oldPersona, newPersona){
-
-			if(newPersona != null){
-				
-				this.$.amSkills.value = newPersona.aboutMe.skills.join(", ");
-				this.$.amInterests.value = newPersona.aboutMe.interests.join(", ");
-				this.$.amInteractions.value = newPersona.aboutMe.interactions.join(", ");
-
-				this.$.lfSkills.value = newPersona.lookingFor.skills.join(", ");
-				this.$.lfInterests.value = newPersona.lookingFor.interests.join(", ");
-				this.$.lfInteractions.value = newPersona.lookingFor.interactions.join(", ");
-
-				this.$.nlfSkills.value= newPersona.notLookingFor.skills.join(", ");
-				this.$.nlfInterests.value= newPersona.notLookingFor.interests.join(", ");
-				this.$.nlfInteractions.value = newPersona.notLookingFor.interactions.join(", ");
-
-			}
-		},
 		
 	    toggleAction: function(evt){
 	     	this.$.collapse.toggle();

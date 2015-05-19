@@ -1,4 +1,169 @@
 [
+	{
+		"title":"CES",
+		"startTime":"6 Jan 2016",
+ 		 "endTime":"9 Jan 2016",
+ 		 "location":"Las Vegas Convention Center",
+ 		 "coordinates":{
+ 		 	"latitude": 36.131805,
+ 		 	"longitude": -115.152001
+ 		 },
+ 		 "numOnsiteMeetings":3,
+ 		 "registrantCount":176676,
+ 		 "hashtag" : "#ces2016",
+ 		 "persona": "Wearables",
+ 		 "notification" : "15 minutes before",
+ 		 "cloakingMode":true,
+ 		 "tweetUrl":"qi_components/data/ces2016.tweets.json",
+ 		 "background":"images/city-san_francisco.jpg",
+ 		 "rsvp":"YES",
+
+ 		  "notes": [{
+ 		      "title": "Keynote Takeaways",
+ 		      "description": "All pharmas are currently actively pursuing cancer immunotherapy approaches. Attrition rate at 90% - as high as ever. Costs $1.8 Bn/approved drug.",
+ 		      "author": {
+ 		      	"firstName":"Dimitri ",
+ 		      	"lastName":"Arges",
+ 		      	"id":42267
+ 		      	},
+ 		      "time": "04/13/2015 4:55PM"
+ 		  }, {
+ 		      "title": "Wearables",
+ 		      "description": "Genentech MPDL3280A drug looks promising in PhIII.",
+ 		      "author": {
+ 		      	"firstName":"Suke", 
+ 		      	"lastName":"Jawanda",
+ 		      	"id":12573579
+ 		      	},
+ 		      "time": "04/11/2015 4:55PM"
+ 		  }],
+
+		  "matches":[
+ 		 	{
+ 		 		"firstName":"John",
+ 		 		"lastName":"Doe",
+ 		 		"title":"Vice President, Low Power Group",
+ 		 		"company":"Nordic Semiconductor",
+ 		 		"interests":["low power wireless", "wearables", "beacons", "Oslo, Norway", "semiconductors", "fabric sensors", "chess", "Magnus Carlsen", "smart home"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "wearables",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 50,
+			     "match": 82,
+			     "food":["chinese","thai"]
+			 },
+
+  		 	{
+ 		 		"title":"Director, Product Management",
+ 		 		"company":"FitBit",
+ 		 		"interests":["wearables", "fitness apps", "NFL", "San Francisco 49ers", "fitness hardware", "lean startups"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "wearables",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 100,
+			     "match": 82
+ 		 	}
+
+
+
+ 		 ],
+
+ 		 "contacts":[
+			{
+				"firstName": "Dimitri",
+				"lastName": "Arges",
+				"title":"CEO",
+				"company":"QuikIntro",
+				"mobile":"555-123-4569",
+				"email":"darges@quikintro.com",
+				"address": "425 Broadway Street, Redwood City, CA 94063",
+				"skills":"business development, investor relations",
+				"avatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+				"interests":["startups", "social media"],
+				"score":4,
+				"notes":"Remember to ask him about new personalized medicine startups.",
+				"food":["greek","steak"],
+				"drink":["merlot","cabernet"]
+			},
+
+			{
+				"firstName": "John",
+				"lastName": "Smith",
+				"title":"VP",
+				"company":"Genentech",
+				"mobile":"555-123-4567",
+				"email":"john.smith@gene.com",
+				"address": "123 Elm Street, San Francisco, CA 95123",
+				"interests":["cancer","ADCs", "immunotherapy","cocktails"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"notes":"Interested in Drug Pipeline dashboard",
+				"score": 5,
+				"rating":4,
+				"food":["thai","chinese","steak"],
+				"drink":["merlot","cabernet","gewurtztraminer"]
+			},
+
+			{
+				"firstName": "Jane",
+				"lastName": "Doe",
+				"title":"VP",
+				"company":"Mirati Therapeutics",
+				"mobile":"555-123-4567",
+				"email":"jane.doe@mirati.com",
+				"address": "123 Elm Street, San Diego, CA 95123",
+				"interests":["cancer","immunotherapy"],
+				"tags":["biotech","cancer"],
+				"notes":"Interested in Drug Cocktail application",
+				"score": 5,
+				"rating":4
+			},
+
+			{
+				"firstName": "Jane",
+				"lastName": "Smith",
+				"title":"VP",
+				"company":"Mirati Therapeutics",
+				"mobile":"555-123-4567",
+				"email":"jane.doe@mirati.com",
+				"address": "123 Elm Street, San Diego, CA 95123",
+				"interests":["cancer","immunotherapy"],
+				"tags":["biotech","cancer"],
+				"notes":"Interested in Drug Cocktail application",
+				"score": 9,
+				"rating":4
+			}
+
+ 		 ],
+ 		 "meetings":[
+ 		 {
+ 		 	"date": "11-Jan-2015",
+ 		 	"time": "0900",
+ 		 	"location":"Suite 3",
+ 		 	"title":"ADC Partner Discussion",
+ 		 	"invitees":[1,2,3],
+ 		 	"description":"A meeting to discuss current antibody-drug conjugate programs and potential partnership opportunities."
+ 		 },
+ 		 {
+ 		 	"date": "12-Jan-2015",
+ 		 	"time": "0900",
+ 		 	"location":"Suite 3",
+ 		 	"title":"Immunoncology Partner Discussion",
+ 		 	"invitees":[1,2,3],
+ 		 	"description":"A meeting to discuss current CAR-T programs and potential partnership opportunities"
+ 		 }
+
+ 		 ]
+	},
 
 	{
  		"title":"JP Morgan Healthcare",
@@ -9,9 +174,8 @@
  		 	"latitude": 37.786471,
  		 	"longitude": -122.40372
  		 },
- 		 "newMatches":21,
- 		 "numExistingContacts":5,
- 		 "numMeetings":6,
+ 		
+ 		
  		 "numOnsiteMeetings":3,
  		 "registrantCount":30000,
  		 "hashtag" : "#jpm15",
@@ -52,7 +216,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 82
 			 },
 
@@ -68,7 +232,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
@@ -84,7 +248,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 50,
 			     "match": 75
  		 	},
  		 	{
@@ -99,7 +263,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 90
  		 	},
 
@@ -115,7 +279,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 93
  		 	},
 
@@ -131,7 +295,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 77
  		 	}
 		 	
@@ -148,7 +312,7 @@
 				"email":"darges@quikintro.com",
 				"address": "425 Broadway Street, Redwood City, CA 94063",
 				"skills":"business development, investor relations",
-				"gravatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+				"avatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
 				"interests":["startups", "social media"],
 				"score":4,
 				"notes":"Remember to ask him about new personalized medicine startups."
@@ -265,7 +429,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
@@ -281,7 +445,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
@@ -297,7 +461,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 75
  		 	},
  		 	{
@@ -312,7 +476,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 50,
 			     "match": 90
  		 	},
 
@@ -328,7 +492,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 93
  		 	},
 
@@ -344,7 +508,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 77
  		 	}
 		 	
@@ -423,6 +587,7 @@
  		 "background":"images/city-chicago.jpg",
  		 "rsvp":"MAYBE",
 
+
  		"matches":[
  		 	{
  		 		"title":"CSO",
@@ -436,7 +601,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
@@ -452,7 +617,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
@@ -468,7 +633,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 75
  		 	},
  		 	{
@@ -483,7 +648,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 90
  		 	},
 
@@ -499,7 +664,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 93
  		 	},
 
@@ -515,7 +680,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 77
  		 	}
 		 	
@@ -532,7 +697,7 @@
 				"email":"darges@aspenbiosciences.com",
 				"address": "123 Elm Street, San Jose, CA 95123",
 				"skills":"business development, investor relations",
-				"gravatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+				"avatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
 				"interests":"startups",
 				"score":4
 			}
@@ -584,7 +749,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
@@ -600,7 +765,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
@@ -616,7 +781,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 75
  		 	},
  		 	{
@@ -631,7 +796,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 10,
 			     "match": 90
  		 	},
 
@@ -647,7 +812,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 93
  		 	},
 
@@ -663,7 +828,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			     "distanceAway" : 100,
 			     "match": 77
  		 	}
 		 	

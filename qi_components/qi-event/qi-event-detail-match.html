@@ -15,6 +15,8 @@
 
 <link rel="import" href="../qi-toggle/qi-toggle.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
+<link rel="import" href="../qi-avatar/qi-avatar.html">
+
 
 <polymer-element name="qi-event-detail-match" attributes="match">
 
@@ -29,13 +31,8 @@
 
 			<div class="card card-photo">
 
-				<template if="{{match.gravatar != null}}">
-					<div class="photo" style="background-image:url({{match.gravatar}})">
-					</div>
-				</template>
-				<template if="{{match.gravatar == null}}">
-					<core-icon class="photo" icon="social:person"></core-icon>
-				</template>
+				<qi-avatar url="{{match.avatar}}"></qi-avatar>
+
 
 				<header>
 					<template if="{{match.firstName == null}}">
@@ -51,7 +48,7 @@
 
 				<div class="summary" horizontal justified layout end>
 					<span id="matchPercentage" class="matchPercentage">{{match.match}}% <span>match</span></span>
-					<span id="distanceAway" class="distanceAway"> &lt; {{match.distanceAway}} miles away</span>
+					<span id="distanceAway" class="distanceAway"> &lt; {{match.distanceAway}} meters away</span>
 				</div>
 
 				<div class="card-actions" horizontal justified layout center>

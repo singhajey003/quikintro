@@ -43,6 +43,21 @@
 			<span class="skill">{{skill.skill.name}}</span>
 		</template>
 		</div>
+
+		<h4>Food:</h4>
+		<div class="textfield">
+		<template repeat="{{food in profile.food}}">
+			<span class="skill">{{food}}</span>
+		</template>
+		</div>
+
+		<h4>Drink:</h4>
+		<div class="textfield">
+		<template repeat="{{drink in profile.drink}}">
+			<span class="skill">{{drink}}</span>
+		</template>
+		</div>
+
 		
 		<h4>Work History:</h4>
 		<template repeat="{{job in profile.positions.values}}">
