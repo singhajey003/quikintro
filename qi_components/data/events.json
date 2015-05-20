@@ -19,23 +19,23 @@
  		 "rsvp":"YES",
 
  		  "notes": [{
- 		      "title": "Keynote Takeaways",
- 		      "description": "All pharmas are currently actively pursuing cancer immunotherapy approaches. Attrition rate at 90% - as high as ever. Costs $1.8 Bn/approved drug.",
+ 		      "title": "APIs",
+ 		      "description": "FitBit, Jawbone have private APIs.  FitBit open to exposing API under the right conditions.  ",
  		      "author": {
- 		      	"firstName":"Dimitri ",
- 		      	"lastName":"Arges",
+ 		      	"firstName":"Suke ",
+ 		      	"lastName":"Jawanda",
  		      	"id":42267
  		      	},
  		      "time": "04/13/2015 4:55PM"
  		  }, {
- 		      "title": "Wearables",
- 		      "description": "Genentech MPDL3280A drug looks promising in PhIII.",
+ 		      "title": "Semiconductors",
+ 		      "description": "New Nordic chip may be 20% cheaper and have 15% better battery perf. compared to current chip.",
  		      "author": {
  		      	"firstName":"Suke", 
  		      	"lastName":"Jawanda",
  		      	"id":12573579
  		      	},
- 		      "time": "04/11/2015 4:55PM"
+ 		      "time": "04/11/2015 2:15PM"
  		  }],
 
 		  "matches":[
@@ -84,10 +84,11 @@
 				"lastName": "Arges",
 				"title":"CEO",
 				"company":"QuikIntro",
-				"mobile":"555-123-4569",
+				"mobile":"619.823.4530",
+				"office":"555.123.4567",
 				"email":"darges@quikintro.com",
 				"address": "425 Broadway Street, Redwood City, CA 94063",
-				"skills":"business development, investor relations",
+				"skills":["business development", "investor relations"],
 				"avatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
 				"interests":["startups", "social media"],
 				"score":4,

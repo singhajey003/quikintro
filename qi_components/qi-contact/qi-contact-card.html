@@ -11,6 +11,7 @@
 
 
 <link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-text-list/qi-text-list.html">
 
 <polymer-element name="qi-contact-card" attributes="contact visibility filter">
 
@@ -45,16 +46,40 @@
 			</div>
 
 			<core-collapse id="collapse" opened="{{isOpen}}">
-			<core-field><label>Company:</label><span>{{contact.company}}</span></core-field>
-			<core-field><label>Mobile:</label><span>{{contact.mobile}}</span></core-field>
-			<core-field><label>Office:</label><span>{{contact.office}}</span></core-field>
-			<core-field><label>Email:</label><span>{{contact.email}}</span></core-field>
-			<core-field><label>Address:</label><span>{{contract.address}}</span></core-field>
-			<core-field><label>Tags:</label><span>{{contact.tags}}</span></core-field>
-			<core-field><label>Skills:</label><span>{{contact.skills}}</span></core-field>
-			<core-field><label>Interests:</label><span>{{contact.interests}}</span></core-field>
-			<core-field><label>Food:</label><span>{{contact.food}}</span></core-field>
-			<core-field><label>Drink:</label><span>{{contact.drink}}</span></core-field>
+			    <core-field>
+			        <label>Company:</label>
+			        <span>{{contact.company}}</span>
+			    </core-field>
+			    <core-field>
+			        <label>Mobile:</label><span>{{contact.mobile}}</span></core-field>
+			    <core-field>
+			        <label>Office:</label><span>{{contact.office}}</span></core-field>
+			    <core-field>
+			        <label>Email:</label><span>{{contact.email}}</span></core-field>
+			    <core-field>
+			        <label>Address:</label><span>{{contract.address}}</span></core-field>
+			    <core-field>
+			        <label>Tags:</label>
+			        <qi-text-list list="{{contact.tags}}"></qi-text-list>
+			    </core-field>
+			    <core-field>
+			        <label>Skills:</label>
+			        <qi-text-list list="{{contact.skills}}"></qi-text-list></core-field>
+			    <core-field>
+			        <label>Interests:</label>
+			        <qi-text-list list="{{contact.interests}}"></qi-text-list></core-field>
+			    <core-field>
+			        <label>Notes:</label>
+			        <span>{{contact.notes}}</span>
+			    </core-field>
+			    <core-field>
+			        <label>Food:</label>
+			        <qi-text-list list="{{contact.food}}"></qi-text-list>
+			    </core-field>
+			    <core-field>
+			        <label>Drink:</label>
+			        <qi-text-list list="{{contact.drink}}"></qi-text-list>
+			    </core-field>
 			</core-collapse>
 
 		</div>
