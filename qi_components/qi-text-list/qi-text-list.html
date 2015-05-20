@@ -15,7 +15,9 @@
 	Polymer('qi-text-list',{
 		flatList: '',
 		listChanged: function(oldValue, newValue){
-			this.flatList = newValue.join(", ");
+			if(newValue != null){
+				this.flatList = newValue.join(", ");
+			}
 		}
 	});
 

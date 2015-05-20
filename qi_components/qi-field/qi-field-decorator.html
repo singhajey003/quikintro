@@ -1,0 +1,22 @@
+<polymer-element name="qi-field-decorator" attributes="name">
+
+
+	<template>
+		<link rel="stylesheet" href="qi-field.css">
+		<div class="row">
+		<div class="labelCell">
+		<label>{{name}}</label>
+		</div>
+		<div class="fldValue">
+		<content></content>
+		</div>
+		</div>
+	</template>
+
+	<script>
+	Polymer('qi-field-decorator',{
+
+	});
+	</script>
+
+</polymer-element>

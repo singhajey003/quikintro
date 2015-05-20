@@ -95,72 +95,27 @@
 				"notes":"Remember to ask him about new personalized medicine startups.",
 				"food":["greek","steak"],
 				"drink":["merlot","cabernet"]
-			},
-
-			{
-				"firstName": "John",
-				"lastName": "Smith",
-				"title":"VP",
-				"company":"Genentech",
-				"mobile":"555-123-4567",
-				"email":"john.smith@gene.com",
-				"address": "123 Elm Street, San Francisco, CA 95123",
-				"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"notes":"Interested in Drug Pipeline dashboard",
-				"score": 5,
-				"rating":4,
-				"food":["thai","chinese","steak"],
-				"drink":["merlot","cabernet","gewurtztraminer"]
-			},
-
-			{
-				"firstName": "Jane",
-				"lastName": "Doe",
-				"title":"VP",
-				"company":"Mirati Therapeutics",
-				"mobile":"555-123-4567",
-				"email":"jane.doe@mirati.com",
-				"address": "123 Elm Street, San Diego, CA 95123",
-				"interests":["cancer","immunotherapy"],
-				"tags":["biotech","cancer"],
-				"notes":"Interested in Drug Cocktail application",
-				"score": 5,
-				"rating":4
-			},
-
-			{
-				"firstName": "Jane",
-				"lastName": "Smith",
-				"title":"VP",
-				"company":"Mirati Therapeutics",
-				"mobile":"555-123-4567",
-				"email":"jane.doe@mirati.com",
-				"address": "123 Elm Street, San Diego, CA 95123",
-				"interests":["cancer","immunotherapy"],
-				"tags":["biotech","cancer"],
-				"notes":"Interested in Drug Cocktail application",
-				"score": 9,
-				"rating":4
 			}
+
+
 
  		 ],
  		 "meetings":[
  		 {
- 		 	"date": "11-Jan-2015",
+ 		 	"date": "6-Jan-2015",
  		 	"time": "0900",
  		 	"location":"Suite 3",
- 		 	"title":"ADC Partner Discussion",
+ 		 	"title":"Low Power Partner Discussion",
  		 	"invitees":[1,2,3],
- 		 	"description":"A meeting to discuss current antibody-drug conjugate programs and potential partnership opportunities."
+ 		 	"description":"A meeting to discuss low power RF programs and potential partnership opportunities."
  		 },
  		 {
- 		 	"date": "12-Jan-2015",
+ 		 	"date": "7-Jan-2015",
  		 	"time": "0900",
  		 	"location":"Suite 3",
- 		 	"title":"Immunoncology Partner Discussion",
+ 		 	"title":"Wearable API Discussion",
  		 	"invitees":[1,2,3],
- 		 	"description":"A meeting to discuss current CAR-T programs and potential partnership opportunities"
+ 		 	"description":"A meeting to discuss HealthKit, and Google Fit APIs."
  		 }
 
  		 ]

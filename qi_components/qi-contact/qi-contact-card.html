@@ -4,6 +4,7 @@
 
 <link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
 <link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html" >
+<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html" >
 
 
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
@@ -12,6 +13,8 @@
 
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-text-list/qi-text-list.html">
+<link rel="import" href="../qi-field/qi-field.html">
+<link rel="import" href="../qi-field/qi-field-decorator.html">
 
 <polymer-element name="qi-contact-card" attributes="contact visibility filter">
 
@@ -45,40 +48,34 @@
 			</div>
 
 			<core-collapse id="collapse" opened="{{isOpen}}">
-			    <core-field>
-			        <label>Company:</label>
-			        <span>{{contact.company}}</span>
-			    </core-field>
-			    <core-field>
-			        <label>Mobile:</label><span>{{contact.mobile}}</span></core-field>
-			    <core-field>
-			        <label>Office:</label><span>{{contact.office}}</span></core-field>
-			    <core-field>
-			        <label>Email:</label><span>{{contact.email}}</span></core-field>
-			    <core-field>
-			        <label>Address:</label><span>{{contract.address}}</span></core-field>
-			    <core-field>
-			        <label>Tags:</label>
-			        <qi-text-list list="{{contact.tags}}"></qi-text-list>
-			    </core-field>
-			    <core-field>
-			        <label>Skills:</label>
-			        <qi-text-list list="{{contact.skills}}"></qi-text-list></core-field>
-			    <core-field>
-			        <label>Interests:</label>
-			        <qi-text-list list="{{contact.interests}}"></qi-text-list></core-field>
-			    <core-field>
-			        <label>Notes:</label>
-			        <span>{{contact.notes}}</span>
-			    </core-field>
-			    <core-field>
-			        <label>Food:</label>
+			<div style="display: table">
+			    <qi-field name="Company:" value="{{contact.company}}"></qi-field>
+			 
+			 	<qi-field name="Mobile:" value="{{contact.mobile}}"></qi-field>
+			    <qi-field name="Office:" value="{{contact.office}}"></qi-field>
+			    <qi-field name="Email:" value="{{contact.email}}"></qi-field>
+			    <qi-field name="Address:" value="{{contact.address}}"></qi-field>
+			    <qi-field-decorator name="Tags:">
+			    	<qi-text-list list="{{contact.tags}}"></qi-text-list>
+			    </qi-field-decorator>
+			   
+			    <qi-field-decorator name="Skills:">
+			        <qi-text-list list="{{contact.skills}}"></qi-text-list>
+			     </qi-field-decorator>
+
+			    <qi-field-decorator name="Interests:">
+			        <qi-text-list class="fldValue" list="{{contact.interests}}"></qi-text-list>
+			    </qi-field-decorator>
+
+			    <qi-field name="Notes:" value="{{contact.notes}}"></qi-field>
+			  
+			    <qi-field-decorator name="Food:">
 			        <qi-text-list list="{{contact.food}}"></qi-text-list>
-			    </core-field>
-			    <core-field>
-			        <label>Drink:</label>
+			    </qi-field-decorator>
+			    <qi-field-decorator name="Drink:">
 			        <qi-text-list list="{{contact.drink}}"></qi-text-list>
-			    </core-field>
+			    </qi-field-decorator>
+			</div>
 			</core-collapse>
 
 		</div>

@@ -33,7 +33,9 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=133300&authType=name&authToken=53ET&trk=api*a3227641*s3301901*"
         },
-        "id":133300
+        "id":133300,
+        "food":["chinese", "steak"],
+        "drink":["single malt","cabernet"]
     },
 
     {
@@ -54,7 +56,9 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=160087&authType=name&authToken=l3rM&trk=api*a3227641*s3301901*"
         },
-        "id":160087
+        "id":160087,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
 
@@ -75,7 +79,9 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=63222273&authType=name&authToken=GVQU&trk=api*a3227641*s3301901*"
         },
-        "id":63222273
+        "id":63222273,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
     {
@@ -96,7 +102,9 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=2424729&authType=name&authToken=rArj&trk=api*a3227641*s3301901*"
         },
-        "id":2424729
+        "id":2424729,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
 
@@ -111,7 +119,9 @@
         "tags": "biotech, cancer",
         "notes": "Interested in Drug Cocktail application",
         "rating": 4,
-        "id":3
+        "id":3,
+        "food":["chinese","thai","japanese"],
+        "drink":["merlot","chardonnay"]
     },
 
     {
@@ -131,7 +141,9 @@
         "avatar": "https://media.licdn.com/mpr/mprx/0_OSEuUne6cb1Yd_02yIVPUqRbv3Lfd5Y2pdY1Uqo4EXAO93Wutws8zNY9U75AECxh0metNP4p2CWm",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=5415765&authType=name&authToken=jYKk&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["chinese","thai","sushi"],
+        "drink":["merlot","chardonnay"]
 
     },
 
@@ -153,7 +165,9 @@
         "avatar": "https://media.licdn.com/mpr/mprx/0_-OwaAq6LzlL0fk3jyMJjAnhXcN3YfFKjKJxlABTZHBzmr_bgY4UGxcznJpTTuhlA1jWrOr1bITA7",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=16819848&authType=name&authToken=8Y5f&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
     {
@@ -173,7 +187,9 @@
         "avatar": "https://media.licdn.com/mpr/mprx/0_V24ZqL2oF_gTEIUy4HEIqQeHI8auoDUy4m2FqQEzq5VgzWupnoHNs6ORLamtWosKRfVQR3NNiGKv",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=4339076&authType=name&authToken=a1I8&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
       {
@@ -194,7 +210,9 @@
         "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/000/0c4/22b/0dcb3b0.jpg",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=12573579&authType=NAME_SEARCH&authToken=lQ2z&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1432059916371%2Ctas%3ASuke%20"
-        }
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
 
@@ -215,7 +233,9 @@
         "avatar": "https://media.licdn.com/mpr/mprx/0_z4FpD6GWj4jpDvLwcVhiD5THxYElf9zwBs1_Dk-Z8UY8rtGIMOcr_XQnlro7uAqbqRLGGihYtY_3",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=203096724&authType=name&authToken=9b8n&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["indian","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
 
@@ -236,7 +256,9 @@
         },
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=19198594&authType=name&authToken=EV4l&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
     {
@@ -257,7 +279,9 @@
         "avatar": "https://media.licdn.com/mpr/mprx/0_fXI2TMVCcOzEMh1s76o1TRw_vYCbJ61sDi0PTR4YEUnn6CXV_GRhfUuKUrGMs3-naFd-myEEW-c2",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=42875897&authType=name&authToken=BLvq&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
     {
@@ -277,7 +301,9 @@
         "avatar": "https://media.licdn.com/mpr/mprx/0_3rnHNp3mC_Nnyy2l7n5UNYG3CirZy0pliACBNxi-g6XW_UIAS9QXV0BpuSKQ04jgh1N9U4jh3JPa",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=22189649&authType=name&authToken=D3XU&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
     {
@@ -297,7 +323,9 @@
         "avatar": "https://media.licdn.com/mpr/mprx/0_FJCU17AoDnaN_x9tFphX12KVfPgzTV9t54nX12tErnWLYY3-w0tBgu6k3jjoGjcY6V85pw2OqZ67",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=10192169&authType=name&authToken=WgLt&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
     {
@@ -317,7 +345,9 @@
         "avatar": "https://media.licdn.com/mpr/mprx/0_ndxXKTxq5c4gFmK-q2mBKim9FqpKbm8-qHwUKiY64AH8ZoBtVf7HO_oHdsy7XWTOBogVxkhjJsMd",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=3741367&authType=name&authToken=wL3I&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
     {
@@ -331,7 +361,9 @@
         "tags": ["biotech", "cancer", "product/pipeine", "followup"],
         "notes": "Interested in Drug Pipeline dashboard",
         "rating": 4,
-        "id":2
+        "id":2,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     },
 
 
@@ -351,7 +383,9 @@
         "avatar": "https://media.licdn.com/mpr/mprx/0_iWKW8jukhRXZQyiq_HG98YaUGOKnQ01qTmk98YYXjRkQMUXN7785aOoo2KrWL4-4GEtB7J2tPNdK",
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=5160589&authType=name&authToken=T2xO&trk=api*a3227641*s3301901*"
-        }
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"]
     }
 
 
