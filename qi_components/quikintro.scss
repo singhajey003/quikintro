@@ -25,6 +25,14 @@ html, body {
 
 h1, h2, h3 {font-family: 'fira-sans-ultralight';}
 
+a, a:link, a:visited {
+  color: $qi-blue;
+}
+
+label {
+  font-family: $font-bold;
+}
+
 .btn-light[raised] {
   background-color: $white;
   color: $text-default;
@@ -270,3 +278,9 @@ core-dropdown core-item {
   padding: 0 10px;
 }
 
+/* Buttons */
+paper-button {
+  a, a:link, a:visited {
+    text-decoration: none;
+  }
+}

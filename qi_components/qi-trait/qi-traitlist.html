@@ -1,16 +1,9 @@
 <polymer-element name="qi-traitlist" attributes="traits">
 
 	<template>
-	<style>
-	.trait{
-		background-color: rgba(255, 255, 255, 0.5);
-		border-radius: 4px;
-		margin: 4px;
-		padding: 5px;
-		display: inline-block;
-	}
-	</style>
-	 <div>
+		<link rel="stylesheet" href="../quikintro.css" >
+		<link rel="stylesheet" href="traitlist.css">
+	 <div class="trait-wrapper">
 		<template repeat="{{trait in traits}}">
 			<span class="trait">{{trait}}</span>
 		</template>

@@ -70,6 +70,12 @@ html, body {
 h1, h2, h3 {
   font-family: 'fira-sans-ultralight'; }
 
+a, a:link, a:visited {
+  color: #17aacf; }
+
+label {
+  font-family: "fira-sans-semibold", sans-serif; }
+
 .btn-light[raised] {
   background-color: white;
   color: #2f4146; }
@@ -260,3 +266,7 @@ core-dropdown {
 
 core-dropdown core-item {
   padding: 0 10px; }
+
+/* Buttons */
+paper-button a, paper-button a:link, paper-button a:visited {
+  text-decoration: none; }

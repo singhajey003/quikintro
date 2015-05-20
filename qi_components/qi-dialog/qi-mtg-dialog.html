@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
+
 <polymer-element name="qi-mtg-dialog" contact="contact">
 
 	<template>
@@ -8,11 +9,10 @@
  		<link rel="stylesheet" href="dialog.css">
 
  		<paper-input id="title" label="Title"></paper-input>
- 		<paper-input id="date" label="Date"></paper-input>
+          <paper-input id="date" label="Date"></paper-input>
  		<paper-input id="time" label="Time"></paper-input>
  		<paper-input id="location" label="Location"></paper-input>
  		<paper-input id="msg" label="Message"></paper-input>
-
 
         <paper-button dismissive>Cancel</paper-button>
         <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>

@@ -1,0 +1,17 @@
+/* Trait styles */
+
+@import '../sass/_config';
+
+.trait-wrapper{
+	background-color: $trait-wrapper-background;
+	padding: 5px;
+	overflow: auto;
+}
+
+.trait{
+	background-color: $trait-background;
+	border-radius: 4px;
+	margin: 4px;
+	padding: 5px;
+	display: inline-block;
+}
