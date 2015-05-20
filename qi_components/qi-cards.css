@@ -168,8 +168,8 @@
   .card.card-notice .avatar {
     height: 60px; }
   .card.card-notice .core-icon-wrapper {
-    height: 60px;
-    width: 60px;
+    min-height: 60px;
+    min-width: 60px;
     background-color: #7ba2b2;
     text-align: center; }
   .card.card-notice core-icon {

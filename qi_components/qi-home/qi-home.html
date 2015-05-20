@@ -12,7 +12,7 @@
 		<core-ajax auto url="{{$.globals.urls.notices}}" response="{{notifications}}" handleAs="json"></core-ajax>
 
 		<div layout vertical flex>
-			<label>Notifications</label>
+			<label style="margin-left: 5px">Notifications</label>
 			<div>
 				<template repeat="{{notice in notifications}}">
 					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>

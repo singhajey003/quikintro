@@ -182,8 +182,8 @@ $notice-card-height: 60px;
     height: $notice-card-height;
   }
   .core-icon-wrapper {
-    height: $notice-card-height;
-    width: $notice-card-height;
+    min-height: $notice-card-height;
+    min-width: $notice-card-height;
     background-color: $qi-gray;
     text-align: center;
   }
