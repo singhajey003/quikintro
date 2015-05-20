@@ -125,13 +125,15 @@ $photo-card-height:
 .card.card-photo {
   height: $photo-card-height;
 
-  .photo {
+  /deep/ .photo, /deep/ core-icon.photo {
     height: $photo-height;
     width: $base-height*2;
     background-color: $qi-gray;
     background-repeat: no-repeat;
     background-size: cover;
+    color: #bce6d5;
   }
+
   header {
     left: $base-height*2;
     height: $photo-card-header-height;
@@ -238,44 +240,54 @@ $meeting-card-height: $meeting-card-header-height + $meeting-card-summary-height
 }
 
 
+// ****** Tweet card
 
+$tweet-logo-height: 48px;
+$tweet-card-header-height: $tweet-logo-height;
+$tweet-card-summary-height: $tweet-logo-height*1.5;
+$tweet-card-summary-top-position: $tweet-card-header-height;
+$tweet-card-actions-position-top: 
+  $tweet-card-header-height + 
+  $tweet-card-summary-height +
+  $card-padding-top-bottom*3;
+$tweet-card-height: 
+  $tweet-card-header-height + 
+  $tweet-card-summary-height +
+  $actions-height;
 
-/*
-.card{
+.card.card-photo.tweet {
+  height: $tweet-card-height;
 
-  $contact-info-height: 30px;
-  $match-percentage-height: 50px;
-  $photo-width: 65px;
-  $match-card-height: $contact-info-height + $match-percentage-height + $base-height;
-  $photo-height: $match-card-height;
-
-  &.match {
-    height: $match-card-height;
-
-    .photo {
-      height: $photo-height;
-      width: $photo-width;
-      background-color: $qi-gray;
-      @include absolute();
-    }
-
-    .contactInfo {
-      height: $contact-info-height;
-      padding: 3px 10px;
-      @include absolute(top 0 right 0 bottom 0 left $photo-width);
-
-      h3 {
-        font-size: 14pt;
-      }
-    }
-
-
-    .footer {
-      border-top: 1px solid $qi-gray;
-      @include absolute(top ($match-card-height - $base-height) right 0 bottom 0 left $photo-width);
-    }
+  /deep/ .photo {
+    height: $tweet-logo-height;
+    width: $tweet-logo-height;
   }
 
+  header {
+    left: $tweet-card-header-height;
+    height: $tweet-card-header-height;
+
+    a.userName {
+      text-decoration: none;
+      font-size: 9pt;
+    }
+    h3 {
+      font-size: 16pt;
+      margin: 2px 0;
+    }
+  }
+  .summary {
+    left: 0;
+    height: $tweet-card-summary-height;
+    top: $tweet-card-header-height;
+    line-height: 1.5;
+  }
+
+  .card-actions {// Card footer
+    top: $tweet-card-header-height + $tweet-card-summary-height;
+  }
 
 }
-*/
+
+
+

@@ -5,27 +5,32 @@
 <polymer-element name="qi-twitter-card" attributes="tweet">
 	
 	<template>
-	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" >
 	<link rel="stylesheet" href="../quikintro.css" >
 	<link rel="stylesheet" href="../qi-cards.css" >
 	
 	<div class="card-wrapper">
 
-		<div id="card" class="card card-photo">
-		   <div class="imageContainer"><img src="{{tweet.user.profile_image_url}}"/></div>
+		<div class="card card-photo tweet">
+			<div class="photo" style="background-image:url('{{tweet.user.profile_image_url}}')" ></div>
 
 			<header>
-				<div class="userName"><a class="userName" href="https://twitter.com/{{tweet.user.screen_name}}">{{tweet.user.name}}</a></div>
-				<div class="userId">{{tweet.user.screen_name}}</div>
-				<div >{{tweet.text}}</div>
+				<div><a class="userName" href="https://twitter.com/{{tweet.user.screen_name}}">{{tweet.user.name}}</a></div>
+				<h3>{{tweet.user.screen_name}}</h3>
 			</header>
+
+			<div class="summary">
+				{{tweet.text}}
+			</div>
 
 			<div class="card-actions" horizontal justified layout center>
 				<paper-button role="button"><core-icon icon="reply"></core-icon></paper-button>
-				<paper-button role="button"><core-icon icon="av-icons:repeat"></core-icon></paper-button>
-				<paper-button role="button"><core-icon icon="star"></core-icon></paper-button>
-				<paper-button role="button"><a href="https://twitter.com/{{tweet.user.screen_name}}/status/{{tweet.id}}">View conversation</a></paper-button>
-				<qi-toggle isOpened="{{isOpen}}"></qi-toggle>
+<!-- 		<paper-button role="button">
+					<core-icon icon="av-icons:repeat"></core-icon>
+				</paper-button>
+ -->		<paper-button role="button"><core-icon icon="star"></core-icon></paper-button>
+
+				<paper-button role="button"><a href="https://twitter.com/{{tweet.user.screen_name}}/status/{{tweet.id}}">View</a></paper-button>
+
 			</div>
 
 		</div>
