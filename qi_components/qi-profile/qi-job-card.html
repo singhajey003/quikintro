@@ -12,18 +12,18 @@
 
 	<div id="card" flex>
 		<div flex layout horizontal justified>
-		<core-field flex><label>Title:</label><span>{{job.title}}</span></core-field>
-		<qi-toggle on-click="{{toggleAction}}"></qi-toggle>
+		    <core-field flex>
+		        <label>Title:</label><span>{{job.title}}</span></core-field>
+		    <qi-toggle on-click="{{toggleAction}}"></qi-toggle>
 		</div>
-		<core-field ><label>Company:</label><span>{{job.company.name}}</span></core-field>
+		<core-field>
+		    <label>Company:</label><span>{{job.company.name}}</span>
+		</core-field>
 		<p/>
 		<core-collapse id="collapse" opened="false">
-			
-			<label flex>Summary:</label>
-			<span>{{job.summary}}</span>
-			
+		    <label flex>Summary:</label>
+		    <span>{{job.summary}}</span>
 		</core-collapse>
-		 
 	</div>
 
 	</template>

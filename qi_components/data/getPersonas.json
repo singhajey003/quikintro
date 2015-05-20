@@ -4,7 +4,7 @@
         "blurb": "I'm a full-stack developer with experience in both web, webmobile, desktop, and cloud application development.",
         "aboutMe": {
             "skills": ["polymer", "groovy", "java", "html5", "javafx", "grails", "javascript"],
-            "interests": [],
+            "interests": ["web development","mobile development","desktop development"],
             "interactions": ["I'm Open"]
         },
         "lookingFor": {
