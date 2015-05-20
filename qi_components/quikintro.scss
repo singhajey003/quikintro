@@ -25,6 +25,10 @@ html, body {
 
 h1, h2, h3 {font-family: 'fira-sans-ultralight';}
 
+label {
+  font-family: $font-bold;
+}
+
 .btn-light[raised] {
   background-color: $white;
   color: $text-default;

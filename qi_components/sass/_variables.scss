@@ -7,7 +7,9 @@
 
 $white: hsla(0, 0%, 100%, 1);
 $qi-blue: hsla(192, 80%, 45%, 1);
+$qi-blue-light: hsla(190, 30%, 70%, 0.6);
 $qi-green: hsla(167, 63%, 50%, 1);
+$qi-green-light: hsla(157, 63%, 80%, 1);
 $qi-gray: hsla(197, 26%, 59%, 1);
 $qi-gray-light: hsla(0, 0%, 92%, 1);
 $qi-gray-light2: hsla(0, 0%, 80%, 1);
@@ -22,6 +24,9 @@ $papertabs: $qi-gray;
 $lighttext: $qi-gray;
 $background: $qi-gray-light;
 $text-default: $qi-gray-dark;
+$trait-background: $qi-gray-light2;
+$trait-wrapper-background: $qi-gray-light;
+
 
 //Borders
 $border: 1px solid $qi-gray;

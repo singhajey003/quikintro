@@ -1,10 +1,10 @@
 @import '../sass/_config';
 
-
 paper-action-dialog {
 	font-family: $font-light;
 	width: 90%;
   max-width: 450px;
+  @include border-radius(10px);
 }
 
 paper-action-dialog::shadow h1{
@@ -12,12 +12,25 @@ paper-action-dialog::shadow h1{
 }
 
 paper-action-dialog::shadow #actions {
+  @include border-radius(10px);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 	border-top: $border;
 	padding: 0;
+	background-color: $qi-blue-light;
+}
+
+paper-action-dialog paper-button {
+	font-family: $font-regular;
 }
 
 paper-action-dialog::shadow #scroller {
 	padding: 20px;
+}
+
+paper-action-dialog /deep/ core-icon {
+	height: 50px !important;
+	width: 50px !important;
 }
 
 paper-autogrow-textarea, paper-input-decorator, paper-input {
@@ -38,9 +51,12 @@ paper-autogrow-textarea::shadow ::content textarea {
 }
 
 div.checkbox-row {
-	margin-top: 30px;
+	margin-top: 10px;
 }
 
 paper-checkbox {
-	margin-right: 30px;
+	margin-right: 20px;
+	margin-bottom: 10px;
 }
+
+

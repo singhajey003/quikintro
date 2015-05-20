@@ -9,6 +9,7 @@ $base-height: 40px;
 $header-height: $base-height + 20px;
 $summary-height: $base-height - 15px;
 $actions-height: $base-height;
+$actions-position-top: $header-height + $summary-height;
 $card-height: $header-height + $summary-height + $actions-height;
 
 
@@ -71,6 +72,7 @@ $contact-card-height:
 .card-actions {// Card footer
   height: $base-height;
   border-top: 1px solid $qi-gray-light;
+  @include absolute(top $actions-position-top right 0 bottom 0 left 0);
 }
 
 // ****** Card Variations
@@ -109,6 +111,10 @@ $photo-height: $base-height*2.5 + $card-padding-top-bottom*2;
 $photo-card-header-height: ($photo-height * 2/3) - $card-padding-top-bottom*2;
 $photo-card-summary-height: ($photo-height * 1/3) - $card-padding-top-bottom;
 $photo-card-summary-top-position: $photo-card-header-height;
+$photo-card-actions-position-top: 
+  $photo-card-header-height + 
+  $photo-card-summary-height +
+  $card-padding-top-bottom*3;
 $photo-card-height: 
   $photo-card-header-height + 
   $photo-card-summary-height +
@@ -135,12 +141,17 @@ $photo-card-height:
     height: $photo-card-summary-height;
     top: $photo-card-summary-top-position;
   }
+  .card-actions {// Card footer
+    top: $photo-card-actions-position-top;
+  }
+  
   core-collapse {
-    background-color: $qi-gray-light2;
+    background-color: $trait-wrapper-background;
     border: 5px solid $white;
     border-top: 0;
     font-size: 12pt;
     padding: $card-padding-top-bottom $card-padding-left-right;
+    margin-top: $base-height + $card-padding-top-bottom*2;
   }
   .matchPercentage {
     font-size: 18pt;
@@ -185,6 +196,47 @@ $notice-card-height: 60px;
     padding: $card-padding-top-bottom $card-padding-left-right;
   }
 }
+
+// ****** Meeting card
+
+$meeting-card-header-height: $base-height - 10px;
+$meeting-card-summary-height: $base-height*2;
+$meeting-card-height: $meeting-card-header-height + $meeting-card-summary-height;
+
+.card.meeting {
+  font-size: 10pt;
+  line-height: 1.2;
+  height: auto;
+
+  p {
+    margin: 8px 4px;
+    overflow: auto;
+    text-overflow: initial;
+    white-space: normal;
+    position: relative;
+
+    span {
+      @include absolute(top 0 right 0 bottom 0 left 90px);
+    }
+  }
+
+  header {
+    height: auto;
+    position: relative;
+    background-color: $qi-green-light;
+  }
+
+  .summary {
+    height: auto;
+    line-height: 1.5;
+    position: relative;
+    top: 0;
+    max-height: 200px;
+    overflow: auto;
+  }
+
+}
+
 
 
 

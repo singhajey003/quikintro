@@ -94,7 +94,12 @@
 
 .card-actions {
   height: 40px;
-  border-top: 1px solid #ebebeb; }
+  border-top: 1px solid #ebebeb;
+  position: absolute;
+  top: 85px;
+  right: 0;
+  bottom: 0;
+  left: 0; }
 
 .card.venue-bkgnd {
   height: 200px;
@@ -138,12 +143,15 @@
     left: 80px;
     height: 31.66667px;
     top: 63.33333px; }
+  .card.card-photo .card-actions {
+    top: 110px; }
   .card.card-photo core-collapse {
-    background-color: #cccccc;
+    background-color: #ebebeb;
     border: 5px solid white;
     border-top: 0;
     font-size: 12pt;
-    padding: 5px 10px; }
+    padding: 5px 10px;
+    margin-top: 50px; }
   .card.card-photo .matchPercentage {
     font-size: 18pt;
     display: inline; }
@@ -171,6 +179,34 @@
   .card.card-notice .noticeContent {
     height: 60px;
     padding: 5px 10px; }
+
+.card.meeting {
+  font-size: 10pt;
+  line-height: 1.2;
+  height: auto; }
+  .card.meeting p {
+    margin: 8px 4px;
+    overflow: auto;
+    text-overflow: initial;
+    white-space: normal;
+    position: relative; }
+    .card.meeting p span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 90px; }
+  .card.meeting header {
+    height: auto;
+    position: relative;
+    background-color: #acecd3; }
+  .card.meeting .summary {
+    height: auto;
+    line-height: 1.5;
+    position: relative;
+    top: 0;
+    max-height: 200px;
+    overflow: auto; }
 
 /*
 .card{
