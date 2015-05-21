@@ -12,13 +12,25 @@
 
 	<template>
 	<style>
-	label{
-		font-size: 10pt;
-		font-weight: bold;
+	
+	core-toolbar{
+		max-height: 30px;
 	}
 
 	core-toolbar > div{
-		font-size: 8pt;
+		max-height: 28px;
+		padding-top: 2px;
+	}
+	.label{
+		font-size: 12pt;
+		font-weight: bold;
+		margin-right: 5px;
+		color: #6c6c6c;
+	}
+	.value{
+		font-size: 10pt;
+		padding-top: 3px;
+		color: #5C9AA9;
 	}
 	</style>
 
@@ -30,8 +42,8 @@
 
 	<core-header-panel flex fit>
 
-	  <core-toolbar layout horizontal top>
-		<label>Event Hashtag:</label> <div>{{hashtag}}</div>
+	  <core-toolbar middle>
+		<div flex fit layout horizontal ><div class="label">Event Hashtag:</div> <div class="value">{{hashtag}}</div></div>
 	  </core-toolbar>
 
 	  <div class="content" layout vertical flex fit >
