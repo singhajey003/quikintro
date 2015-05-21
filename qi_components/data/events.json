@@ -15,7 +15,7 @@
  		 "notification" : "15 minutes before",
  		 "cloakingMode":true,
  		 "tweetUrl":"qi_components/data/ces2016.tweets.json",
- 		 "background":"images/city-san_francisco.jpg",
+ 		 "background":"images/city-las-vegas.jpg",
  		 "rsvp":"YES",
 
  		  "notes": [{
