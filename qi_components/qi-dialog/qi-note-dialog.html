@@ -31,12 +31,20 @@
 		Polymer('qi-note-dialog',{
 
 
+
 			publishAction: function(){
+
+				if(this.notes == null){
+					this.notes = [];
+				}
 
 				var timeObj = new Date();
 
 				var profile = JSON.parse(localStorage.getItem("profile"));
-				var author = profile.firstName + " " + profile.lastName;
+				var author = {
+					"firstName":profile.firstName,
+					"lastName":profile.lastName
+				}
 
 				note = {
 					"title": this.$.title.value,

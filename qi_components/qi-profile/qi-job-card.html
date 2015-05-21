@@ -2,6 +2,8 @@
 <link rel="import" href="../../bower_components/core-field/core-field.html" >
 <link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
 
+<link rel="import" href="../qi-toggle/qi-toggle.html">
+
 <polymer-element name="qi-job-card" attributes="job">
 
 	
@@ -9,16 +11,19 @@
 	<link rel="stylesheet" href="qi-job-card.css" >
 
 	<div id="card" flex>
-		<core-field on-click="{{toggleAction}}"><label>Title:</label><span>{{job.title}}</span></core-field>
-		<core-field on-click="{{toggleAction}}"><label>Company:</label><span>{{job.company.name}}</span></core-field>
+		<div flex layout horizontal justified>
+		    <core-field flex>
+		        <label>Title:</label><span>{{job.title}}</span></core-field>
+		    <qi-toggle on-click="{{toggleAction}}"></qi-toggle>
+		</div>
+		<core-field>
+		    <label>Company:</label><span>{{job.company.name}}</span>
+		</core-field>
 		<p/>
 		<core-collapse id="collapse" opened="false">
-			
-			<label flex>Summary:</label>
-			<span>{{job.summary}}</span>
-			
+		    <label flex>Summary:</label>
+		    <span>{{job.summary}}</span>
 		</core-collapse>
-		 
 	</div>
 
 	</template>

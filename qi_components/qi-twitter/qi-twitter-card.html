@@ -23,11 +23,11 @@
 			</div>
 
 			<div class="card-actions" horizontal justified layout center>
-				<paper-button role="button"><core-icon icon="reply"></core-icon></paper-button>
-<!-- 		<paper-button role="button">
-					<core-icon icon="av-icons:repeat"></core-icon>
+				<paper-button role="button" on-click="{{openDialog}}">
+					<core-icon icon="reply"></core-icon>
 				</paper-button>
- -->		<paper-button role="button"><core-icon icon="star"></core-icon></paper-button>
+
+				<qi-toggle openIcon="star" closedIcon="star-outline"></qi-toggle>
 
 				<paper-button role="button"><a href="https://twitter.com/{{tweet.user.screen_name}}/status/{{tweet.id}}">View</a></paper-button>
 
@@ -43,9 +43,12 @@
   <script>
 	Polymer('qi-twitter-card',{
 
+		openDialog: function(){
+			this.fire("openTweetDialog");
+		}
  
 		
-	    });
+	});
 
    </script>
 

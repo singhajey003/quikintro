@@ -16,6 +16,7 @@
 		
 	<template>
 	<link rel="stylesheet" href="../quikintro.css" >
+	<link rel="stylesheet" href="../qi-cards.css">
 	<link rel="stylesheet" href="qi-persona-card.css" >
 
 
@@ -24,12 +25,12 @@
 			<div class="titleBlock">{{persona.name}}</div>
 			<div class="summaryBlock">{{persona.blurb}}</div>
 
-			<div class="row" flex>
-				<div  flex>
+			<div horizontal justified layout center flex>
+				<div flex>
 				<core-tooltip label="Clone Persona"><core-icon icon="content-copy"></core-icon></core-tooltip>
 				<core-tooltip label="Delete Persona"><core-icon icon="delete"></core-icon></core-tooltip>
 				</div>
-				<div style="display: table-cell">
+				<div >
 					<qi-toggle on-click="{{toggleAction}}"></qi-toggle>
 				</div>
 			</div>

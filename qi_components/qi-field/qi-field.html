@@ -1,0 +1,25 @@
+<!--
+  This element displays a label and a value, and is used for simple text values.
+-->
+<polymer-element name="qi-field" attributes="name value">
+
+
+	<template>
+	    <link rel="stylesheet" href="qi-field.css">
+	    <div class="row" flex layout horizontal justified>
+	        <div class="labelCell">
+	            <label>{{name}}</label>
+	        </div>
+	        <div class="fldValue">
+	            {{value}}
+	        </div>
+	    </div>
+	</template>
+
+	<script>
+	Polymer('qi-field',{
+
+	});
+	</script>
+
+</polymer-element>

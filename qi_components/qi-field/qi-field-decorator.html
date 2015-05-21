@@ -1,0 +1,33 @@
+<!--
+This element decorates (wraps) a field and is used to insure that fields have a consistent appearance
+in forms.
+
+It's typically used as follows:
+
+<qi-field-decorator name="My Field:">
+   <input type="text" id="myField" value="{{somevalue}}"/>
+</qi-field>
+
+-->
+<polymer-element name="qi-field-decorator" attributes="name">
+
+
+	<template>
+		<link rel="stylesheet" href="qi-field.css">
+		<div class="row" horizontal justified layout>
+		<div class="labelCell">
+		<label>{{name}}</label>
+		</div>
+		<div class="fldValue">
+		<content></content>
+		</div>
+		</div>
+	</template>
+
+	<script>
+	Polymer('qi-field-decorator',{
+
+	});
+	</script>
+
+</polymer-element>

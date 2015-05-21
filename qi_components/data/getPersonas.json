@@ -4,7 +4,7 @@
         "blurb": "I'm a full-stack developer with experience in both web, webmobile, desktop, and cloud application development.",
         "aboutMe": {
             "skills": ["polymer", "groovy", "java", "html5", "javafx", "grails", "javascript"],
-            "interests": [],
+            "interests": ["web development","mobile development","desktop development"],
             "interactions": ["I'm Open"]
         },
         "lookingFor": {
@@ -16,7 +16,17 @@
             "skills": [],
             "interests": [],
             "interactions": ["Sales", "Recruiters"]
-        }
+        },
+        "msgTemplates": [{
+            "id": 1,
+            "title": "Sample Message",
+            "template": "Hi [name].  We have some things in common and I’d like connect."
+        }, {
+            "id": 2,
+            "title": "Sample Message II",
+            "template": "Hi.  We have some things in common and I’d like connect."
+        }]
+
     },
 
 
@@ -37,7 +47,17 @@
            "skills": ["consulting"],
            "interests": ["Medical", "FDA"],
            "interactions": ["Sales", "Recruiters"]
-       }
+       },
+       "msgTemplates": [{
+            "id": 1,
+            "title": "Sample Message",
+            "template": "Hi [name].  We have some things in common and I’d like connect."
+        }, {
+            "id": 2,
+            "title": "Sample Message II",
+            "template": "Hi.  We have some things in common and I’d like connect."
+        }]
+
     },
 
     {
@@ -67,7 +87,8 @@
             "title": "Sample Message II",
             "template": "Hi.  We have some things in common and I’d like connect."
         }]
-    }, {
+    }, 
+    {
         "name": "Default LinkedIn Persona",
         "blurb": "I'm a toolbuilder, and entrepreneur with an abiding interest in using technology to solve problems in cancer biology and drug discovery",
         "aboutMe": {
@@ -84,8 +105,20 @@
             "skills": [],
             "interests": [],
             "interactions": ["Sales", "Recruiters"]
-        }
-    }, {
+        },
+        "msgTemplates": [{
+            "id": 1,
+            "title": "Sample Message",
+            "template": "Hi [name].  We have some things in common and I’d like connect."
+        }, {
+            "id": 2,
+            "title": "Sample Message II",
+            "template": "Hi.  We have some things in common and I’d like connect."
+        }]
+
+
+    }, 
+    {
         "name": "Default Facebook Persona",
         "blurb": null,
         "aboutMe": {
@@ -102,6 +135,16 @@
             "skills": [],
             "interests": [],
             "interactions": []
-        }
+        },
+        "msgTemplates": [{
+            "id": 1,
+            "title": "Sample Message",
+            "template": "Hi [name].  We have some things in common and I’d like connect."
+        }, {
+            "id": 2,
+            "title": "Sample Message II",
+            "template": "Hi.  We have some things in common and I’d like connect."
+        }]
+
     }
 ]

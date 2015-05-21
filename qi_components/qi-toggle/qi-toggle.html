@@ -1,3 +1,7 @@
+<!--
+  The qi-toggle element provides a toggle button that has two icons: an openIcon and a closedIcon.
+  When the user clicks the button, the icon changes according to the isOpened state.
+-->
 <link rel="import" href="../../bower_components/core-icons/core-icons.html" >
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html" >
 
@@ -10,11 +14,24 @@
 	<script>
 		Polymer('qi-toggle',{
 
-
+			/**
+			 * The open icon name as defined in the core-icons iconset.
+			 */
 			openIcon:'expand-less',
+
+			/**
+			 * The closed icon name as defined in the core-icons iconset.
+			 */
 			closedIcon: 'expand-more',
+
+			/**
+			 * The current icon.
+			 */
 			currIcon: '',
 
+			/**
+			 * A flag indicating whether or not the toggle is open or closed. 
+			 */
 			isOpened: false,
 
 
@@ -22,6 +39,9 @@
 				this.currIcon = (this.isOpened)? this.openIcon : this.closedIcon;
 			},
 
+			/**
+			 * This function is triggered whenever the user clicks on the toggle.
+			 */
 			toggleAction: function(e){
 				this.isOpened = (this.isOpened)? false: true;
 				this.currIcon = (this.isOpened)? this.openIcon : this.closedIcon;

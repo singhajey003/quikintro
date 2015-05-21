@@ -1,0 +1,27 @@
+<polymer-element name="qi-text-list" attributes="list">
+
+	<template>
+	<style>
+	div{
+		font-size: 9pt;
+	}
+	</style>
+	<div>
+	{{flatList}}
+	</div>
+	</template>
+
+	<script>
+	Polymer('qi-text-list',{
+		flatList: '',
+		listChanged: function(oldValue, newValue){
+			if(newValue != null){
+				this.flatList = newValue.join(", ");
+			}
+		}
+	});
+
+	</script>
+
+
+</polymer-element>

@@ -25,12 +25,15 @@
 
 
  
-	<core-scroll-header-panel headermargin="128" fixed  id="eventHeaderPanel" >
-    
+	<core-scroll-header-panel id="eventHeaderPanel" >
 
-    <div class="content" layout vertical>
       <div class="search-panel">
+        <div flex horizontal layout justified>
+          <div>Search</div>
+          <qi-toggle on-click="{{collapseHandler}}"></qi-toggle>
+        </div>
 
+        <core-collapse id="searchPane">
         <core-field>
           <core-icon icon="search"></core-icon>
           <paper-input type="text" id="searchText" label="Search Text" ></paper-input>
@@ -68,8 +71,10 @@
 
         <paper-button raised >Search</paper-button>
       </div>
+      </core-collapse>
+    
 
-
+    <div class="content" layout vertical>
       
       <template repeat="{{contact in contacts}}">
         <qi-contact-card contact="{{contact}}"></qi-contact-card>
@@ -107,6 +112,10 @@
           mtgDialog.open();
         })
 
+      },
+
+      collapseHandler: function(){
+        this.$.searchPane.toggle();
       }
 
 
