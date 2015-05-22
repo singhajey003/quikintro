@@ -126,7 +126,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: HSLA(195, 60%, 20%, 0.5); }
+  background-color: HSLA(195, 60%, 20%, 0.7); }
 
 .card.card-photo {
   height: 150px; }
@@ -152,7 +152,7 @@
     border-top: 0;
     font-size: 12pt;
     padding: 5px 10px;
-    margin-top: 50px; }
+    margin-top: 40px; }
   .card.card-photo .matchPercentage {
     font-size: 18pt;
     display: inline; }

@@ -100,7 +100,7 @@ $contact-card-height:
 
 .overlay {
   @include absolute(top 0 right 0 bottom 0 left 0);
-  background-color: HSLA(195, 60%, 20%, 0.5);
+  background-color: HSLA(195, 60%, 20%, 0.7);
 }
 
 
@@ -153,7 +153,7 @@ $photo-card-height:
     border-top: 0;
     font-size: 12pt;
     padding: $card-padding-top-bottom $card-padding-left-right;
-    margin-top: $base-height + $card-padding-top-bottom*2;
+    margin-top: $base-height;
   }
   .matchPercentage {
     font-size: 18pt;
