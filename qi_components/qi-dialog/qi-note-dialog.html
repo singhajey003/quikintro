@@ -5,20 +5,23 @@
 
 	<template>
 
-		<paper-action-dialog id="dialog" heading="Dialog Title" style="height: 300px" backdrop>
-
+		<paper-action-dialog id="dialog" heading="New Note" backdrop>
+			<link rel="stylesheet" href="../quikintro.css" >
 			<link rel="stylesheet" href="dialog.css">
 
-			<paper-input id="title" label="Title"></paper-input><br/>
+			<div>
+				<paper-input id="title" label="Title"></paper-input>
+			</div>
 
-			<paper-input-decorator floatingLabel="" label="Note">
-			 
-			  <paper-autogrow-textarea id="a1">
-			  <textarea id="note"></textarea>
-			<paper-autogrow-textarea>
-			</paper-input-decorator>
+			<div>
+				<paper-input-decorator floatingLabel label="Note">
+					<paper-autogrow-textarea id="a1">
+						<textarea id="note" style="border: 0;"></textarea>
+					</paper-autogrow-textarea>
+				</paper-input-decorator>
+
+			</div>
 			
-
 			<paper-button dismissive>Cancel</paper-button>
 			<paper-button affirmative on-click="{{publishAction}}">Publish</paper-button>
 		  

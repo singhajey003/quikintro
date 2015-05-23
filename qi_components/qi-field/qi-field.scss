@@ -1,0 +1,23 @@
+@import '../sass/_config';
+
+.row {
+    border-bottom: 1px solid $white;
+    margin: 0 10px;
+    font-size: 9pt;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+.labelCell {
+    vertical-align: top;
+    margin-right: 15px;
+    width: 60px;
+}
+label {
+    font-weight: bold;
+    font-size: 9pt;
+}
+.fldValue {
+    vertical-align: top;
+    font-size: 9pt;
+}
+

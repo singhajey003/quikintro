@@ -15,6 +15,7 @@ $qi-gray-light: hsla(0, 0%, 92%, 1);
 $qi-gray-light2: hsla(0, 0%, 80%, 1);
 $qi-gray-dark: hsla(195, 20%, 23%, 1);
 $qi-gray-dark2: hsla(197, 18%, 39%, 1); //not sure where this is used yet - potentially remove
+$qi-gray-dark3: hsla(195, 5%, 60%, 1);
 
 // Color assignments
 $reverse: $white;
@@ -26,7 +27,7 @@ $background: $qi-gray-light;
 $text-default: $qi-gray-dark;
 $trait-background: $qi-gray-light2;
 $trait-wrapper-background: $qi-gray-light;
-
+$text-caption: $qi-gray-dark3;
 
 //Borders
 $border: 1px solid $qi-gray;

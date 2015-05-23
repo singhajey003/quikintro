@@ -58,3 +58,14 @@
   margin: 4px;
   padding: 5px;
   display: inline-block; }
+
+.trait-pair {
+  padding: 5px;
+  margin-bottom: 5px; }
+  .trait-pair label {
+    display: block;
+    font-size: 11pt; }
+  .trait-pair paper-progress {
+    width: 80%; }
+  .trait-pair paper-checkbox {
+    padding: 3px 10px 0 0; }

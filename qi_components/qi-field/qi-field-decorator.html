@@ -14,13 +14,13 @@ It's typically used as follows:
 
 	<template>
 		<link rel="stylesheet" href="qi-field.css">
-		<div class="row" horizontal justified layout>
-		<div class="labelCell">
-		<label>{{name}}</label>
-		</div>
-		<div class="fldValue">
-		<content></content>
-		</div>
+		<div class="row" flex layout horizontal justified>
+			<div class="labelCell">
+				<label>{{name}}</label>
+			</div>
+			<div class="fldValue" flex two>
+				<content></content>
+			</div>
 		</div>
 	</template>
 

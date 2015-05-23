@@ -39,6 +39,8 @@
   <link rel="stylesheet" href="../quikintro.css" >
   <link rel="stylesheet" href="qi-events.css" >
   <link rel="stylesheet" href="qi-event-detail.css" >
+  <link rel="stylesheet" href="../qi-cards.css" >
+  <link rel="stylesheet" href="../qi-trait/traitlist.css" >
 
 
   
@@ -101,65 +103,62 @@
 
 
       <div id="traits">
-
-      <fieldset>
-        <legend>My Interests</legend>
-      
-        <div class="keyword">drug discovery</div>
-        <paper-progress class="type1" value="64"></paper-progress> 64%
-        <div class="keyword">clinical trials</div>
-        <paper-progress value="62" class="type2"></paper-progress> 62%
-        <div class="keyword">cancer</div>
-        <paper-progress value="34"></paper-progress> 34%
-        <div class="keyword">systems biology</div>
-        <paper-progress value="12" class="type2"></paper-progress> 12%
-        
-
-      </fieldset>
-
-      <fieldset>
-        <legend>Attendee Interests</legend>
-      
-        <core-label horizontal layout>
-          <paper-checkbox ></paper-checkbox>
-          <div vertical layout>
-            <h4>investment - 64%</h4>
+        <div class="card-wrapper">
+          <div class="card traits">
+            <h3>My Interests</h3>
+            <div class="trait-pair">
+              <label class="keyword">drug discovery</label>
+              <paper-progress class="type1" value="64"></paper-progress> 64%
+            </div>
+            <div class="trait-pair">
+              <label class="keyword">clinical trials</label>
+              <paper-progress value="62" class="type2"></paper-progress> 62%
+            </div>
+            <div class="trait-pair">
+              <label class="keyword">cancer</label>
+              <paper-progress value="34"></paper-progress> 34%
+            </div>
+            <div class="trait-pair">
+              <label class="keyword">systems biology</label>
+              <paper-progress value="12" class="type2"></paper-progress> 12%
+            </div>
           </div>
-        </core-label>
-
-
-        <core-label horizontal layout>
-          <paper-checkbox ></paper-checkbox>
-          <div vertical layout>
-            <h4>cancer immunotherapy - 62%</h4>
+        </div>
+        <div class="card-wrapper">
+          <div class="card traits">
+            <h3>Attendee Interests</h3>
+            <core-label horizontal layout class="trait-pair">
+              <paper-checkbox ></paper-checkbox>
+              <div vertical layout>
+                <h4>investment - 64%</h4>
+              </div>
+            </core-label>
+            <core-label horizontal layout class="trait-pair">
+              <paper-checkbox ></paper-checkbox>
+              <div vertical layout>
+                <h4>cancer immunotherapy - 62%</h4>
+              </div>
+            </core-label>
+            <core-label horizontal layout class="trait-pair">
+              <paper-checkbox ></paper-checkbox>
+              <div vertical layout>
+                <h4>antibodies - 53%</h4>
+              </div>
+            </core-label>
+            <core-label horizontal layout class="trait-pair">
+              <paper-checkbox ></paper-checkbox>
+              <div vertical layout>
+                <h4>clinical trial collaborations - 34%</h4>
+              </div>
+            </core-label>
+            <core-label horizontal layout class="trait-pair">
+              <paper-checkbox ></paper-checkbox>
+              <div vertical layout>
+                <h4>ADCs - 12%</h4>
+              </div>
+            </core-label>
           </div>
-        </core-label>
-
-        <core-label horizontal layout>
-          <paper-checkbox ></paper-checkbox>
-          <div vertical layout>
-            <h4>antibodies - 53%</h4>
-          </div>
-        </core-label>
-
-        <core-label horizontal layout>
-          <paper-checkbox ></paper-checkbox>
-          <div vertical layout>
-            <h4>clinical trial collaborations - 34%</h4>
-          </div>
-        </core-label>
-
-        <core-label horizontal layout>
-          <paper-checkbox ></paper-checkbox>
-          <div vertical layout>
-            <h4>ADCs - 12%</h4>
-          </div>
-        </core-label>
-
-
-
-        </fieldset>
-
+        </div>
       </div>
 
       <div id="notes">

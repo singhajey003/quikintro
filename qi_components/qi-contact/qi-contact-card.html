@@ -48,34 +48,29 @@
 			</div>
 
 			<core-collapse id="collapse" opened="{{isOpen}}">
-			<div style="display: table">
-			    <qi-field name="Company:" value="{{contact.company}}"></qi-field>
-			 
-			 	<qi-field name="Mobile:" value="{{contact.mobile}}"></qi-field>
-			    <qi-field name="Office:" value="{{contact.office}}"></qi-field>
-			    <qi-field name="Email:" value="{{contact.email}}"></qi-field>
-			    <qi-field name="Address:" value="{{contact.address}}"></qi-field>
-			    <qi-field-decorator name="Tags:">
-			    	<qi-text-list list="{{contact.tags}}"></qi-text-list>
-			    </qi-field-decorator>
-			   
-			    <qi-field-decorator name="Skills:">
-			        <qi-text-list list="{{contact.skills}}"></qi-text-list>
-			     </qi-field-decorator>
-
-			    <qi-field-decorator name="Interests:">
-			        <qi-text-list class="fldValue" list="{{contact.interests}}"></qi-text-list>
-			    </qi-field-decorator>
-
-			    <qi-field name="Notes:" value="{{contact.notes}}"></qi-field>
-			  
-			    <qi-field-decorator name="Food:">
-			        <qi-text-list list="{{contact.food}}"></qi-text-list>
-			    </qi-field-decorator>
-			    <qi-field-decorator name="Drink:">
-			        <qi-text-list list="{{contact.drink}}"></qi-text-list>
-			    </qi-field-decorator>
-			</div>
+				<div style="display: table">
+					<qi-field name="Company:" value="{{contact.company}}"></qi-field>
+					<qi-field name="Mobile:" value="{{contact.mobile}}"></qi-field>
+					<qi-field name="Office:" value="{{contact.office}}"></qi-field>
+					<qi-field name="Email:" value="{{contact.email}}"></qi-field>
+					<qi-field name="Address:" value="{{contact.address}}"></qi-field>
+					<qi-field-decorator name="Tags:">
+						<qi-text-list list="{{contact.tags}}"></qi-text-list>
+					</qi-field-decorator>
+					<qi-field-decorator name="Skills:">
+						<qi-text-list list="{{contact.skills}}"></qi-text-list>
+					</qi-field-decorator>
+					<qi-field-decorator name="Interests:">
+						<qi-text-list class="fldValue" list="{{contact.interests}}"></qi-text-list>
+					</qi-field-decorator>
+					<qi-field name="Notes:" value="{{contact.notes}}"></qi-field>
+					<qi-field-decorator name="Food:">
+						<qi-text-list list="{{contact.food}}"></qi-text-list>
+					</qi-field-decorator>
+					<qi-field-decorator name="Drink:">
+						<qi-text-list list="{{contact.drink}}"></qi-text-list>
+					</qi-field-decorator>
+				</div>
 			</core-collapse>
 
 		</div>
