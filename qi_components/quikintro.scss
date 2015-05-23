@@ -284,3 +284,9 @@ paper-button {
     text-decoration: none;
   }
 }
+
+/* Paper FAB */
+::shadow paper-fab {
+  margin: 5px $page-padding;
+}
+

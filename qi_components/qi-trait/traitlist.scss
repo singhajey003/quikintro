@@ -15,3 +15,21 @@
 	padding: 5px;
 	display: inline-block;
 }
+
+.trait-pair {
+	padding: 5px;
+	margin-bottom: 5px;
+
+	label {
+		display: block;
+		font-size: 11pt;
+	}
+
+	paper-progress {
+		width: 80%;
+	}
+
+	paper-checkbox {
+		padding: 3px 10px 0 0;
+	}
+}

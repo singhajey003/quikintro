@@ -9,31 +9,10 @@
 		<paper-action-dialog id="dialog" backdrop>
 		  <link rel="stylesheet" href="dialog.css">
 
-		  <style>
-
-			 paper-autogrow-textarea{
-			  	border: 1px solid #505050;
-			  	border-radius: 5px;
-			  	height: 60px;
-			  	width: 200px;
-			  }
-			 
-			 #tweetSize{
-			  	font-size: 8pt;
-			  	color: #999999;
-			  	text-align: right;
-			  	padding-bottom: 3px;
-			  	padding-right: 3px;
-			}
-
-		</style>
-
-
 		  <paper-autogrow-textarea id="a1" maxRows="3" >
-	  		  <textarea id="tweet" value="{{myTweet}}"></textarea>
+	  		  <textarea class="tweet" value="{{myTweet}}"></textarea>
 	  		</paper-autogrow-textarea>
-	  		
-		  	<div id="tweetSize">{{tweetSize}}</div>
+		  	<div class="tweetSize">{{tweetSize}} Characters</div>
 
 		  	<paper-button dismissive>Cancel</paper-button>
 		  	<paper-button id="sendBtn" on-click="{{sendAction}}" affirmative>Send</paper-button>

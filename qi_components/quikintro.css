@@ -270,3 +270,7 @@ core-dropdown core-item {
 /* Buttons */
 paper-button a, paper-button a:link, paper-button a:visited {
   text-decoration: none; }
+
+/* Paper FAB */
+::shadow paper-fab {
+  margin: 5px 15px; }
