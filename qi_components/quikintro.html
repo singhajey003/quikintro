@@ -27,6 +27,9 @@
 <link rel="import" href="qi-scaffold/qi-scaffold.html">
 <link rel="import" href="qi-home/qi-home.html">
 
+<link rel="import" href="qi-custom-icons/qi-custom-svg-icons.html">
+
+
 <polymer-element name="quik-intro">
 
   <template>
@@ -52,8 +55,6 @@
       <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
         <core-toolbar id="core_toolbar" horizontal end-justified layout>
 
-        
-        
 
         </core-toolbar>
         <core-menu  id="menu" theme="core-light-theme" >
@@ -216,7 +217,7 @@
 
         "Login":{
           panelTitle: 'QuikIntro',
-          icon: 'menu',
+          icon: 'qi:logo',
           clickHandler: function(e){ 
             var qi = document.querySelector('quik-intro');
             qi.$.coreScaffold.openDrawer();
@@ -225,7 +226,7 @@
 
         "Home":{
           panelTitle:'Home',
-          icon: 'menu',
+          icon: 'qi:logo',
           clickHandler: function(){
             var qi = document.querySelector('quik-intro');
             qi.$.coreScaffold.openDrawer();
@@ -233,7 +234,7 @@
         },
         "Security":{
           panelTitle:'Security',
-          icon: 'arrow-back',
+          icon: 'qi-logo',
           clickHandler: function(){
             var qi = document.querySelector("quik-intro");
             qi.$.pages.selected = 1;
@@ -241,7 +242,7 @@
         },
         "Personas":{
           panelTitle: 'Personas',
-          icon: 'arrow-back',
+          icon: 'qi:logo',
          clickHandler: function(){
             var qi = document.querySelector("quik-intro");
             qi.$.pages.selected = 1;
@@ -249,7 +250,7 @@
         },
         "On Boarding":{
           panelTitle: 'On Boarding',
-          icon: 'arrow-back',
+          icon: 'qi:logo',
          clickHandler: function(){
             var qi = document.querySelector("quik-intro");
             qi.$.pages.selected = 1;
@@ -257,7 +258,7 @@
         },
         "Profile":{
           panelTitle: 'Profile',
-          icon: 'arrow-back',
+          icon: 'qi:logo',
          clickHandler: function(){
             var qi = document.querySelector("quik-intro");
             qi.$.pages.selected = 1;
@@ -287,7 +288,7 @@
 
         "Around Me":{
           panelTitle: 'Around Me',
-          icon: 'arrow-back',
+          icon: 'qi:logo',
         clickHandler: function(){
             var qi = document.querySelector("quik-intro");
             qi.$.pages.selected = 1;
@@ -295,7 +296,7 @@
         },
         "Messages":{
           panelTitle: 'Messages',
-          icon: 'arrow-back',
+          icon: 'qi:logo',
         clickHandler: function(){
             var qi = document.querySelector("quik-intro");
             qi.$.pages.selected = 1;
@@ -305,7 +306,7 @@
 
         "Contacts":{
           panelTitle:'Contacts',
-          icon:'arrow-back',
+          icon:'qi-logo',
          clickHandler: function(){
             var qi = document.querySelector("quik-intro");
             qi.$.pages.selected = 1;
