@@ -4,7 +4,7 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/core-pages/core-pages.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
-
+<link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="qi-job-card.html">
 
 
@@ -19,16 +19,18 @@
 	
 	<section id="profile"  hero-id="hero" cross-fade>
 		<paper-input id="firstname" label="First Name" floatingLabel="true" value="{{profile.firstName}}"></paper-input>
-		<paper-input id="lastname" label="Last Name" floatingLabel="true" value="{{profile.lastName}}"></paper-input><br/>
+		<paper-input id="lastname" label="Last Name" floatingLabel="true" value="{{profile.lastName}}"></paper-input>
+
+		<hr>
 
 		<h4>Summary:</h4>
 		<div class="textfield">
 		<paper-autogrow-textarea id="a1" rows="10" flex>
 		  <textarea id="summary">{{profile.summary}}</textarea>
 		<paper-autogrow-textarea>
-		
 		</div>
-		<p/>
+
+		<hr>
 
 		<h4>Interests:</h4>
 		<div class="textfield">
@@ -37,12 +39,16 @@
 		 </template>
 		</div>
 
+		<hr>
+
 		<h4>Skills:</h4>
 		<div class="textfield">
 		<template repeat="{{skill in profile.skills.values}}">
 			<span class="skill">{{skill.skill.name}}</span>
 		</template>
 		</div>
+
+		<hr>
 
 		<h4>Food:</h4>
 		<div class="textfield">
@@ -51,6 +57,8 @@
 		</template>
 		</div>
 
+		<hr>
+
 		<h4>Drink:</h4>
 		<div class="textfield">
 		<template repeat="{{drink in profile.drink}}">
@@ -58,7 +66,8 @@
 		</template>
 		</div>
 
-		
+		<hr>
+
 		<h4>Work History:</h4>
 		<template repeat="{{job in profile.positions.values}}">
 			<qi-job-card job="{{job}}"></qi-job-card>
