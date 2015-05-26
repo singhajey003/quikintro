@@ -1,0 +1,49 @@
+<polymer-element name="qi-trait-panel" attributes="event">
+
+
+	<template>
+	 	<link rel="stylesheet" href="../quikintro.css" >
+	 	<link rel="stylesheet" href="traitlist.css" >
+
+	 	<div style="padding-left: 30px; padding-right: 30px;">
+		<div class="card-wrapper">
+          <div class="card traits">
+            <h3>My Interests</h3>
+
+            <template repeat="{{interest in event.traitstats.interests}}">
+            <div class="trait-pair">
+              <label class="keyword">{{interest.name}}</label>
+              <paper-progress class="type1" value="{{interest.percent}}"></paper-progress> {{interest.percent}}%
+            </div>
+            </template>
+            
+          </div>
+        </div>
+        <div class="card-wrapper">
+          <div class="card traits">
+            <h3>Attendee Interests</h3>
+
+            <template repeat="{{interest in event.traitstats.attendeeInterests}}">
+            <core-label horizontal layout class="trait-pair">
+              <paper-checkbox ></paper-checkbox>
+              <div vertical layout>
+                <h4>{{interest.name}} - {{interest.percent}}%</h4>
+              </div>
+            </core-label>
+            </template>
+
+           
+          </div>
+        </div>
+        </div>
+
+	</template>
+
+	<script>
+	  Polymer('qi-trait-panel',{
+
+	  });
+
+	</script>
+
+</polymer-element>

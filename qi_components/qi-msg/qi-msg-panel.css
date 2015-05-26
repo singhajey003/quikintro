@@ -16,3 +16,8 @@ core-pages{
 paper-tabs{
 	width: 100%;
 }
+core-toolbar{
+	height: 52px;
+}
+
+

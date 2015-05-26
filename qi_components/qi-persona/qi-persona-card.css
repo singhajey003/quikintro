@@ -1,10 +1,3 @@
-.titleBlock{
-    color: #526E9C;
-}
-.summaryBlock{
-	font-size: 8pt;
-	color: #505050;
-}
 
 fieldset{
 	border-radius: 5px;
@@ -24,9 +17,12 @@ fieldset{
 .iconFld{
 	display: table-cell;
 	vertical-align: top;
+	margin-left: 30px;
 }
 .iconFld > core-icon{
 	vertical-align: top;
+	height: 20px;
+	weight: 20px;
 }
 .iconFld > label{
 	font-weight: bold;
@@ -35,7 +31,7 @@ fieldset{
 
 .fldValue{
 	vertical-align: top;
-	font-size: 8pt;
+	font-size: 10pt;
 	background-color: #cdcdcd;
-	margin-left: 30px;
+	margin-left: 15px;
 }

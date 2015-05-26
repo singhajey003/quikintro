@@ -76,6 +76,11 @@ a, a:link, a:visited {
 label {
   font-family: "fira-sans-semibold", sans-serif; }
 
+hr {
+  border: 0;
+  border-top: 1px solid #7ba2b2;
+  margin: 20px 0; }
+
 .btn-light[raised] {
   background-color: white;
   color: #2f4146; }
@@ -250,7 +255,7 @@ paper-tabs {
     width: 35px;
     height: 40px;
     padding: 0;
-    border: 1px solid white;
+    
     background-color: #6592a4; }
     paper-tabs::shadow .scroll-button > paper-icon-button {
       padding: 7px 5px; }
@@ -274,3 +279,89 @@ paper-button a, paper-button a:link, paper-button a:visited {
 /* Paper FAB */
 ::shadow paper-fab {
   margin: 5px 15px; }
+
+core-header-panel#headerPanel > core-toolbar /deep/ core-icon-button.qi-logo {
+  margin: 0; }
+
+core-icon-button.qi-logo /deep/ core-icon {
+  width: 40px;
+  height: 40px; }
+
+core-icon-button.qi-logo /deep/ circle {
+  color: #ffffff;
+  opacity: 0.20;
+  stroke: #ffffff;
+  stroke-width: 10; }
+
+core-icon-button.qi-logo /deep/ circle#center-fill {
+  color: #ffffff;
+  opacity: 0.1; }
+
+core-icon-button.qi-logo /deep/ circle#center-stroke {
+  opacity: 1;
+  stroke: #ffffff;
+  stroke-width: 10; }
+
+paper-action-dialog {
+  font-family: "fira-sans-ultralight", sans-serif;
+  width: 90%;
+  max-width: 450px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
+
+paper-action-dialog::shadow h1 {
+  margin-top: 0; }
+
+paper-action-dialog::shadow #actions {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 1px solid #7ba2b2;
+  padding: 0;
+  background-color: rgba(156, 194, 201, 0.6); }
+
+paper-action-dialog paper-button {
+  font-family: "fira-sans-book", sans-serif; }
+
+paper-action-dialog::shadow #scroller {
+  padding: 20px; }
+
+paper-action-dialog /deep/ core-icon {
+  height: 50px !important;
+  width: 50px !important; }
+
+paper-autogrow-textarea, paper-input-decorator, paper-input {
+  width: 100%;
+  max-width: 400px;
+  min-width: 250px;
+  margin-top: 3px; }
+
+paper-input {
+  display: block; }
+
+paper-autogrow-textarea::shadow ::content textarea {
+  border: 1px solid #7ba2b2;
+  padding: 5px;
+  box-sizing: border-box;
+  min-height: 20px; }
+
+div.checkbox-row {
+  margin-top: 10px; }
+
+paper-checkbox {
+  margin-right: 20px;
+  margin-bottom: 10px; }
+
+.tweetSize {
+  font-family: "fira-sans-book", sans-serif;
+  font-size: 8pt;
+  text-align: right;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  margin-top: 10px;
+  color: #949c9e; }

@@ -17,9 +17,111 @@
 	<template>
 	<link rel="stylesheet" href="../quikintro.css" >
 	<link rel="stylesheet" href="../qi-cards.css">
+	<link rel="stylesheet" href="../qi-trait/traitlist.css">
 	<link rel="stylesheet" href="qi-persona-card.css" >
 
+	<div class="card-wrapper">
+		<div class="card persona">
+			<header>
+				<h3>{{persona.name}}</h3>
+				<p>{{persona.blurb}}</p>
+			</header>
+			<div class="card-actions" horizontal justified layout center flex>
+				<div flex>
+					<core-tooltip label="Clone Persona">
+						<core-icon icon="content-copy"></core-icon>
+					</core-tooltip>
+					<core-tooltip label="Delete Persona">
+						<core-icon icon="delete"></core-icon>
+					</core-tooltip>
+				</div>
+				<div >
+					<qi-toggle on-click="{{toggleAction}}"></qi-toggle>
+				</div>
+			</div>
 
+			<core-collapse id="collapse" opened="false">
+				<h4>About Me</h4>
+				<div class="iconFld">
+					<core-icon icon="question-answer"></core-icon>
+					<label>Interactions:</label>
+				</div>
+				<div class="fldValue">
+					<qi-traitlist traits="{{persona.aboutMe.interactions}}"></qi-traitlist>
+				</div>
+				<div class="iconFld">
+					<core-icon icon="bookmark"></core-icon>
+					<label>Skills:</label>
+				</div>
+				<div class="fldValue">
+					<qi-traitlist traits="{{persona.aboutMe.skills}}"></qi-traitlist>
+				</div>
+				<div class="iconFld">
+					<core-icon icon="label"></core-icon>
+					<label>Interests:</label>
+				</div>
+				<div class="fldValue">
+					<qi-traitlist traits="{{persona.aboutMe.interests}}"></qi-traitlist>
+				</div>
+
+<hr>
+
+				<h4>Looking For</h4>
+				<div class="iconFld">
+			    <core-icon icon="question-answer"></core-icon>
+			    <label>Interactions:</label>
+		    </div>
+		    <div class="fldValue">
+		    	<qi-traitlist traits="{{persona.lookingFor.interactions}}"></qi-traitlist>
+		    </div>
+				<div class="iconFld">
+				    <core-icon icon="bookmark"></core-icon>
+				    <label>Skills:</label>
+			    </div>
+			    <div class="fldValue">
+			    <qi-traitlist traits="{{persona.lookingFor.skills}}"></qi-traitlist>
+			    </div>
+				<div class="iconFld">
+				    <core-icon icon="label"></core-icon>
+				    <label>Interests:</label>
+			    </div>
+			    <div class="fldValue">
+			    <qi-traitlist traits="{{persona.lookingFor.interests}}"></qi-traitlist>
+			    </div>
+
+
+<hr>
+
+				<h4>Not Looking For</h4>
+				<div class="iconFld">
+			    <core-icon icon="question-answer"></core-icon>
+			    <label>Interactions:</label>
+		    </div>
+		    <div class="fldValue">
+		    	<qi-traitlist traits="{{persona.notLookingFor.interactions}}"></qi-traitlist>
+		    </div>
+				<div class="iconFld">
+				    <core-icon icon="bookmark"></core-icon>
+				    <label>Skills:</label>
+			    </div>
+			    <div class="fldValue">
+			    <qi-traitlist traits="{{persona.notLookingFor.skills}}"></qi-traitlist>
+			    </div>
+				<div class="iconFld">
+				    <core-icon icon="label"></core-icon>
+				    <label>Interests:</label>
+			    </div>
+			    <div class="fldValue">
+			    <qi-traitlist traits="{{persona.notLookingFor.interests}}"></qi-traitlist>
+			    </div>
+
+
+
+			</core-collapse>
+
+		</div>
+	</div>
+<!-- 
 	<div id="card" class="cardWhite">
 		<div >
 			<div class="titleBlock">{{persona.name}}</div>
@@ -134,7 +236,7 @@
  
 		</core-collapse>
 	</div>
-
+ -->
 
 	</template>
 
