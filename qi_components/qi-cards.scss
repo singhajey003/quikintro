@@ -104,7 +104,6 @@ $contact-card-height:
   background-color: HSLA(195, 60%, 20%, 0.7);
 }
 
-
 // Photo cards
 
 $photo-height: $base-height*2.5 + $card-padding-top-bottom*2;
@@ -309,3 +308,60 @@ $tweet-card-height:
   }
 }
 
+// ****** Job card
+
+.card.job {
+  padding: $page-padding;
+  height: auto;
+
+  p {
+    white-space: normal;
+    margin: 5px 0;
+  }
+}
+
+// ****** Persona card
+
+.card.persona {
+  height: auto;
+
+  header {
+    padding: $page-padding;
+    position: relative;
+    height: auto;
+  }
+
+  p {
+    white-space: normal;
+    margin-bottom: 10px;
+  }
+
+  .card-actions {// Card footer
+    height: $base-height;
+    border-top: 1px solid $qi-gray-light;
+    position: relative;
+    top: 0;
+
+    core-icon {
+      width: 20px;
+      height: 20px;
+      margin: 15px;
+    }
+  }
+
+  core-collapse {
+    background-color: $trait-wrapper-background;
+    border: 5px solid $white;
+    border-top: 0;
+    font-size: 12pt;
+    padding: $card-padding-top-bottom $card-padding-left-right;
+    margin-top: 5px;
+
+    h4 {
+      margin-top: $page-padding;
+    }
+  }
+
+}
+
+  

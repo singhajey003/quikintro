@@ -242,3 +242,38 @@
   .card.note p {
     white-space: normal;
     margin-bottom: 10px; }
+
+.card.job {
+  padding: 15px;
+  height: auto; }
+  .card.job p {
+    white-space: normal;
+    margin: 5px 0; }
+
+.card.persona {
+  height: auto; }
+  .card.persona header {
+    padding: 15px;
+    position: relative;
+    height: auto; }
+  .card.persona p {
+    white-space: normal;
+    margin-bottom: 10px; }
+  .card.persona .card-actions {
+    height: 40px;
+    border-top: 1px solid #ebebeb;
+    position: relative;
+    top: 0; }
+    .card.persona .card-actions core-icon {
+      width: 20px;
+      height: 20px;
+      margin: 15px; }
+  .card.persona core-collapse {
+    background-color: #ebebeb;
+    border: 5px solid white;
+    border-top: 0;
+    font-size: 12pt;
+    padding: 5px 10px;
+    margin-top: 5px; }
+    .card.persona core-collapse h4 {
+      margin-top: 15px; }

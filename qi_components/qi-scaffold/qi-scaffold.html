@@ -108,11 +108,12 @@ To have the content fit to the main area, use `fit` attribute.
 
       <core-toolbar>
         <template if="{{!rightDrawer}}">
-          <core-icon-button id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="{{handleClick}}"></core-icon-button>
+          <link rel="stylesheet" href="../quikintro.css" >
+          <core-icon-button class="qi-logo" id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="{{handleClick}}"></core-icon-button>
         </template>
         <content select="[tool]"></content>
         <template if="{{rightDrawer}}">
-          <core-icon-button id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="{{handleClick}}"></core-icon-button>
+          <core-icon-button class="qi-logo" id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="{{handleClick}}"></core-icon-button>
         </template>
       </core-toolbar>
       
