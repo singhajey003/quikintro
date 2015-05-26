@@ -60,6 +60,7 @@
         <core-menu  id="menu" theme="core-light-theme" >
 
           <core-menu selected="{{page}}" valueattr="pageId" >
+            <core-item id="home" icon="home" pageId="home">Home</core-item>
             <core-item id="events" icon="event"  pageId="events">Events</core-item>
             <core-item id="aroundme" icon="maps:my-location" pageId="aroundme">Around Me</core-item>
             <core-item id="messages" icon="communication:forum"  pageId="messages">Messages</core-item>
@@ -158,6 +159,7 @@
         this.$.coreScaffold.closeDrawer();
       },
 
+
       ready: function(){
 
         this.$.pages.addEventListener("login", function(e){
@@ -167,6 +169,19 @@
           // after login is complete, segue to the home page
           e.currentTarget.selected = 1;
         });
+
+        var panelTitle = this.panelTitle;
+
+        this.addEventListener('page-changed', function(e){
+
+          var nuTitle = e.detail.title;
+          if(nuTitle.length > 10) {
+            nuTitle = nuTitle.substring(0, 10);
+            nuTitle += "...";
+          }
+          this.panelTitle = nuTitle;
+        });
+
 
         this.$.pages.addEventListener("core-select", function(e){
           
@@ -244,8 +259,8 @@
           panelTitle: 'Personas',
           icon: 'qi:logo',
          clickHandler: function(){
-            var qi = document.querySelector("quik-intro");
-            qi.$.pages.selected = 1;
+            var qi = document.querySelector('quik-intro');
+            qi.$.coreScaffold.openDrawer();
           }
         },
         "On Boarding":{
@@ -260,13 +275,13 @@
           panelTitle: 'Profile',
           icon: 'qi:logo',
          clickHandler: function(){
-            var qi = document.querySelector("quik-intro");
-            qi.$.pages.selected = 1;
+            var qi = document.querySelector('quik-intro');
+            qi.$.coreScaffold.openDrawer();
           }
         },
         "Event Stream":{
           panelTitle: 'Events',
-          icon: 'arrow-back',
+          icon: 'qi:logo',
           clickHandler: function(e){
            
             var qi = document.querySelector("quik-intro");
@@ -278,9 +293,6 @@
               qi.$.pages.querySelector('qi-event-stream').selectedEventPage = 0;
               qi.$.pages.selected = 6;
             }
-            
-
-            
 
             this.fire('core-select',{src:'Event Stream'})
           }
@@ -289,28 +301,27 @@
         "Around Me":{
           panelTitle: 'Around Me',
           icon: 'qi:logo',
-        clickHandler: function(){
-            var qi = document.querySelector("quik-intro");
-            qi.$.pages.selected = 1;
-          }
-        },
+          clickHandler: function(){
+            var qi = document.querySelector('quik-intro');
+            qi.$.coreScaffold.openDrawer();
+          }        },
         "Messages":{
           panelTitle: 'Messages',
           icon: 'qi:logo',
         clickHandler: function(){
-            var qi = document.querySelector("quik-intro");
-            qi.$.pages.selected = 1;
-          }
+            var qi = document.querySelector('quik-intro');
+            qi.$.coreScaffold.openDrawer();
+          }      
         },
 
 
         "Contacts":{
           panelTitle:'Contacts',
-          icon:'qi-logo',
-         clickHandler: function(){
-            var qi = document.querySelector("quik-intro");
-            qi.$.pages.selected = 1;
-          }
+          icon:'qi:logo',
+          clickHandler: function(){
+            var qi = document.querySelector('quik-intro');
+            qi.$.coreScaffold.openDrawer();
+          }       
         }
 
        

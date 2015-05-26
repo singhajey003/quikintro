@@ -59,13 +59,20 @@
 	<script>
 		Polymer('qi-event-stream',{
 			selectedEventPage:0,
+
+			selectedEventPageChanged: function(oldValue, newValue){
+				if (newValue == 0){
+					this.fire('page-changed', {title: 'Events'})
+				}
+			},
 			
 			cardClickHandler: function(e){
 				var event = e.srcElement.event;
-				console.log("event: " + event);
+				
 				var detail = this.$.detail;
 				detail.event = event;
 				this.selectedEventPage = 1;
+				this.fire('page-changed', {title: event.title})
 			}
 			
 

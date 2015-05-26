@@ -177,8 +177,8 @@
 
         selected: 0,
 
-        eventChanged: function(oldValue, newValue){
-           
+        eventChanged: function(oldEvent, newEvent){
+           this.fire('page-changed', {title: newEvent.title});
         },
 
         ready: function(){
@@ -187,10 +187,16 @@
 
           var mtgsTray = this.$.meetings;
 
+          var corePages = this.$.corePages;
+
           window.addEventListener('mtg-sent', function(e){
             var mtgCard = new MtgCard2();
             mtgCard.meeting = e.detail.mtg;
             mtgsTray.appendChild(mtgCard);
+          });
+
+          window.addEventListener('event-page-selected', function(e){
+            corePages.selected = e.detail.index;
           });
 
           this.addEventListener('openInviteDialog', function(e){

@@ -29,10 +29,10 @@
   <core-localstorage name="mtgs" value="{{mtgStr}}"></core-localstorage>
   <core-localstorage name="invites" value="{{invStr}}"></core-localstorage>
 
-	<core-scroll-header-panel headerHeight="40" id="msgHeaderPanel" flex>
+	<core-scroll-header-panel id="msgHeaderPanel" headerHeight="40" fixed flex>
 
-    <core-toolbar>
-      <paper-tabs selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" nobar="true">
+    <core-toolbar flex>
+      <paper-tabs selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" nobar="true" flex>
         <paper-tab role="tab" class="core-selected">Messages</paper-tab>
         <paper-tab role="tab">Invitations</paper-tab>
         <paper-tab role="tab">Meeting Requests</paper-tab>
