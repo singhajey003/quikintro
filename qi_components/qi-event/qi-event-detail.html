@@ -31,6 +31,7 @@
 <link rel="import" href="qi-meeting-card.html">
 <link rel="import" href="qi-event-notes-panel.html">
 
+<link rel="import" href="../qi-trait/qi-trait-panel.html">
 
 
 
@@ -103,62 +104,8 @@
 
 
       <div id="traits">
-        <div class="card-wrapper">
-          <div class="card traits">
-            <h3>My Interests</h3>
-            <div class="trait-pair">
-              <label class="keyword">drug discovery</label>
-              <paper-progress class="type1" value="64"></paper-progress> 64%
-            </div>
-            <div class="trait-pair">
-              <label class="keyword">clinical trials</label>
-              <paper-progress value="62" class="type2"></paper-progress> 62%
-            </div>
-            <div class="trait-pair">
-              <label class="keyword">cancer</label>
-              <paper-progress value="34"></paper-progress> 34%
-            </div>
-            <div class="trait-pair">
-              <label class="keyword">systems biology</label>
-              <paper-progress value="12" class="type2"></paper-progress> 12%
-            </div>
-          </div>
-        </div>
-        <div class="card-wrapper">
-          <div class="card traits">
-            <h3>Attendee Interests</h3>
-            <core-label horizontal layout class="trait-pair">
-              <paper-checkbox ></paper-checkbox>
-              <div vertical layout>
-                <h4>investment - 64%</h4>
-              </div>
-            </core-label>
-            <core-label horizontal layout class="trait-pair">
-              <paper-checkbox ></paper-checkbox>
-              <div vertical layout>
-                <h4>cancer immunotherapy - 62%</h4>
-              </div>
-            </core-label>
-            <core-label horizontal layout class="trait-pair">
-              <paper-checkbox ></paper-checkbox>
-              <div vertical layout>
-                <h4>antibodies - 53%</h4>
-              </div>
-            </core-label>
-            <core-label horizontal layout class="trait-pair">
-              <paper-checkbox ></paper-checkbox>
-              <div vertical layout>
-                <h4>clinical trial collaborations - 34%</h4>
-              </div>
-            </core-label>
-            <core-label horizontal layout class="trait-pair">
-              <paper-checkbox ></paper-checkbox>
-              <div vertical layout>
-                <h4>ADCs - 12%</h4>
-              </div>
-            </core-label>
-          </div>
-        </div>
+       <qi-trait-panel event="{{event}}"></qi-trait-panel> 
+       
       </div>
 
       <div id="notes">

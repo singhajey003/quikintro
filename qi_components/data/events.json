@@ -18,6 +18,57 @@
  		 "background":"images/city-las-vegas-3.jpg",
  		 "rsvp":"YES",
 
+ 		 "traitstats":{
+ 		 	"interests":[
+ 		 		{
+ 		 			"name":"wearables", 
+ 		 			"percent":82
+ 		 		},
+ 		 		{
+ 		 			"name":"fitness hardware",
+ 		 			"percent":44
+ 		 		},
+ 		 		{
+ 		 			"name": "fitness apps",
+ 		 			"percent":60
+ 		 		},
+ 		 		{
+ 		 			"name":"low power wireless",
+ 		 			"percent":10
+ 		 		},
+ 		 		{
+ 		 			"name":"NFL",
+ 		 			"percent":60
+ 		 		},
+
+ 		 		{
+ 		 			"name":"Baltimore Ravens",
+ 		 			"percent":10
+ 		 		}
+ 		 	],
+ 		 	"attendeeInterests":[
+ 		 		{
+ 		 			"name":"electronics", 
+ 		 			"percent":99
+ 		 		},
+
+ 		 		{
+ 		 			"name":"TVs", 
+ 		 			"percent":80
+ 		 		},
+ 		 		{
+ 		 			"name":"computers", 
+ 		 			"percent":83
+ 		 		},
+	 		 	{
+ 		 			"name":"IoT", 
+ 		 			"percent":80
+ 		 		}
+
+ 		 	]
+
+ 		 },
+
  		  "notes": [{
  		      "title": "APIs",
  		      "description": "FitBit, Jawbone have private APIs.  FitBit open to exposing API under the right conditions.  ",
