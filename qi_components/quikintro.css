@@ -255,7 +255,7 @@ paper-tabs {
     width: 35px;
     height: 40px;
     padding: 0;
-    
+    border: 1px solid white;
     background-color: #6592a4; }
     paper-tabs::shadow .scroll-button > paper-icon-button {
       padding: 7px 5px; }
