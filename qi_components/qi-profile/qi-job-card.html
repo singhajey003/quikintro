@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
 
 <link rel="import" href="../qi-toggle/qi-toggle.html">
+<link rel="import" href="../qi-trait/qi-traitlist.html">
 
 <polymer-element name="qi-job-card" attributes="job">
 
@@ -24,13 +25,35 @@
 				    <label>Company:</label><span>{{job.company.name}}</span>
 				</core-field>
 			</p>
+			<p>
+				<core-field>
+				    <label>Start Date:</label><span>{{job.startDate.month}}/{{job.startDate.year}}</span>
+				</core-field>
+			</p>
+
+
+			<p>
+				<core-field>
+				    <label>End Date:</label>
+				    <template if="{{job.endDate == null}}">
+				    <span>Current</span>
+				    </template>
+				    <template if="{{job.endDate != null}}">
+				    <span>{{job.endDate.month}}/{{job.endDate.year}}</span>
+				    </template>
+				</core-field>
+			</p>
 
 			<div horizontal justified layout center>
 				<label style="margin-right: 5px;">Summary</label><qi-toggle on-click="{{toggleAction}}">Summary</qi-toggle>
 			</div>
 
 			<core-collapse id="collapse" opened="false">
-			    <span>{{job.summary}}</span>
+			    <div>{{job.summary}}</div>
+			    <div>
+			    <qi-traitlist traits="{{job.skills}}"></qi-traitlist>
+			    </div>
+
 			</core-collapse>
 
 		</div>

@@ -1,0 +1,37 @@
+<polymer-element name="qi-titled-panel" attributes="title traits">
+    <template>
+        <link rel="stylesheet" href="traitlist.css">
+        <link rel="stylesheet" href="../qi-cards.css">
+        <style>
+			h4 {
+			  color: #7ba2b2;
+			  text-transform: uppercase;
+			  margin: 5px 0;
+			  font-size: 10pt;
+			}
+		</style>
+        <div class="card traits">
+
+        	<div layout justified horizontal centered>
+        	<h4>{{title}}:</h4>
+            <qi-toggle on-click="{{toggleAction}}"></qi-toggle>
+            </div>
+            <core-collapse id="collapse" opened="false">
+            <div class="textfield trait-wrapper">
+                <template repeat="{{trait in traits}}">
+                    <span class="trait">{{trait}}</span>
+                </template>
+            </div>
+            </core-collapse>
+        </div>
+    </template>
+    <script>
+    Polymer('qi-titled-panel', {
+
+    	toggleAction: function(){
+			this.$.collapse.toggle();
+		}
+
+    });
+    </script>
+</polymer-element>

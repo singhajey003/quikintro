@@ -5,6 +5,7 @@
 <link rel="import" href="../../bower_components/core-pages/core-pages.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-trait/qi-titled-panel.html">
 <link rel="import" href="qi-job-card.html">
 
 
@@ -41,25 +42,11 @@
 		</div>
 
 		<div class="card-wrapper">
-			<div class="card traits">
-				<h4>Interests:</h4>
-				<div class="textfield trait-wrapper">
-					<template repeat="{{interest in profile.interests}}">
-						<span class="skill">{{interest}}</span>
-					</template>
-				</div>
-			</div>
+			<qi-titled-panel title="interests" traits="{{profile.interests}}"></qi-titled-panel>
 		</div>
 
 		<div class="card-wrapper">
-			<div class="card traits">
-				<h4>Skills:</h4>
-				<div class="textfield trait-wrapper">
-					<template repeat="{{skill in profile.skills.values}}">
-						<span class="skill">{{skill.skill.name}}</span>
-					</template>
-				</div>
-			</div>
+			<qi-titled-panel title="skills" traits="{{profile.skills.values}}"></qi-titled-panel>
 		</div>
 
 		<div class="card-wrapper">
