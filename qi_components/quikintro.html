@@ -167,7 +167,7 @@
           //TODO add login code here.
 
           // after login is complete, segue to the home page
-          e.currentTarget.selected = 1;
+          e.currentTarget.selected = 6;
         });
 
         var panelTitle = this.panelTitle;
@@ -249,10 +249,10 @@
         },
         "Security":{
           panelTitle:'Security',
-          icon: 'qi-logo',
+          icon: 'qi:logo',
           clickHandler: function(){
             var qi = document.querySelector("quik-intro");
-            qi.$.pages.selected = 1;
+            qi.$.coreScaffold.openDrawer();
           }
         },
         "Personas":{
