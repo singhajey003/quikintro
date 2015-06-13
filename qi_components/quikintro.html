@@ -10,6 +10,8 @@
 <link rel="import" href="../bower_components/core-pages/core-pages.html">
 <link rel="import" href="../bower_components/core-localstorage/core-localstorage.html">
 
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
+
 <link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 
@@ -124,6 +126,7 @@
       </core-pages>
       </div>
     </qi-scaffold>
+    <paper-toast id="toast"></paper-toast>
   </template>
 
   <script>
@@ -180,6 +183,23 @@
             nuTitle += "...";
           }
           this.panelTitle = nuTitle;
+        });
+
+
+        var toast = this.$.toast;
+        this.addEventListener('msg-sent', function(e){
+          toast.text = "Message sent";
+          toast.show();
+        });
+
+        this.addEventListener('invite-sent', function(e){
+          toast.text = "Invitation sent";
+          toast.show();
+        });
+
+        this.addEventListener('mtg-sent', function(e){
+          toast.text = "Meeting request sent";
+          toast.show();
         });
 
 

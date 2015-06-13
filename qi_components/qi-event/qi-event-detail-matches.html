@@ -1,23 +1,10 @@
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
-<link rel="import" href="../../bower_components/core-field/core-field.html" >
-<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
-<link rel="import" href="../../bower_components/core-input/core-input.html" >
-<link rel="import" href="../../bower_components/core-item/core-item.html" >
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
-<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
-<link rel="import" href="../../bower_components/paper-slider/paper-slider.html" >
-<link rel="import" href="../../bower_components/core-icons/social-icons.html" >
-<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
-<link rel="import" href="../../bower_components/google-map/google-map.html">
+<!--   -->
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
 
-<polymer-element name="qi-event-detail-matches" attributes="matches">
+<dom-module id='qi-event-detail-matches'  > 
 
-	
 	<template>
-	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" >
+	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 	<style>
 	  #matchBlock {
 	  	margin: 0 10px 0 10px;
@@ -49,11 +36,13 @@
 	<div id="card" class="cardWhite" flip="front">
 		<div id="front">
 		<div >
-			<template if="{{matches.gravatar != null}}">
+
+			<template is="dom-if" if="{{matches.gravatar != null}}">
 				<img src="{{matches.gravatar}}" class="avatar" align="left">
 			</template>
-			<template if="{{matches.gravatar == null}}">
-				<core-icon icon="social:person"></core-icon>
+
+			<template is="dom-if" if="{{matches.gravatar == null}}">
+				<iron-icon icon="social:person"></iron-icon>
 			</template>
 			
 			<div id="nameBlock" >{{matches.firstName}} {{matches.lastName}}</div>
@@ -65,7 +54,7 @@
 			</div>
 
 			<div id="invite">
-			INVITE  <core-icon icon="expand-more" style="float:right"></core-icon>
+			INVITE  <iron-icon icon="expand-more" style="float:right"></iron-icon>
 			</div>
 
 			
@@ -78,33 +67,37 @@
 	</template>
 
 	<script>
-	Polymer('qi-event-detail-matches',{
-		ready: function(evt){
-		},
-	    toggleAction: function(evt){
-	     	     	
-	     },
-	     toggleLocation: function(evt){
-	
-	     },
+	Polymer({
 
-	    fixMap: function(){
-				
-	     		
-	    },
+   		is: 'qi-event-detail-matches', 
 
-	     twitter: function(evt){
-	     	var url = "http://twitter.com/" + this.event.hashtag;
-	     	window.location = url;
-	     }
+   		properties: {
+   			matches: {type: Array}
+   		}
+
 
 	});
-
-	
-
-
 
 	</script>
 
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

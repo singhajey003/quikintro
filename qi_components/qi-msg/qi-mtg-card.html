@@ -1,42 +1,47 @@
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 <link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
 <link rel="import" href="../../bower_components/core-field/core-field.html" >
-<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
-<link rel="import" href="../../bower_components/core-input/core-input.html" >
-<link rel="import" href="../../bower_components/core-item/core-item.html" >
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
+<link rel="import" href="../../bower_components/iron-input/iron-input.html" >
+<link rel="import" href="../../bower_components/paper-item/paper-item.html" >
 <link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
-<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
 
-<polymer-element name="qi-mtg-card" attributes="mtg" constructor="MtgCard">
+<dom-module id='qi-mtg-card'  > <!-- CONVERTED WIP , TODO: determine what to do with: constructor="MtgCard" -->
+
+  <style>
+  </style> <!-- TODO Move style tags here from <template> if needed CONVERTED WIP -->
+
 
 	
 	<template>
-	<link rel="stylesheet" href="qi-msg-card.css" >
+	<link rel="stylesheet" href="qi-msg-card.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 
-	<div id="card" layout horizontal>
+	<div id="card" class="layout horizontal">   <!-- class="layout horizontal"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
 		<div class="avatarPanel">
 
-			<template if="{{mtg.sender.avatar != null}}">
-				<img class="avatar" src="{{mtg.sender.avatar}}">
+			<template if=class=""{{mtg.sender.avatar != null}}"">   <!-- class=""{{mtg.sender.avatar != null}}""  // TODO cleanup class= if needed  CONVERTED WIP  --> 
+				<img class="avatar {{mtg.sender.avatar}}" src=>   <!-- class=""{{mtg.sender.avatar}}""  // TODO cleanup class= if needed  CONVERTED WIP  --> 
 			</template>
 
-			<template if="{{mtg.sender.avatar == null}}">
-				<core-icon class="avatar" icon="social:person"></core-icon>
+			<template if=class=""{{mtg.sender.avatar == null}}"">   <!-- class=""{{mtg.sender.avatar == null}}""  // TODO cleanup class= if needed  CONVERTED WIP  --> 
+				<iron-icon class="avatar" icon="social:person"></iron-icon>
 			</template>
 
 
 		</div>
 		<div class="mainPanel">
-			<div id="senderBlock">
-				<label>Sender</label><span>{{mtg.sender.firstName}} {{mtg.sender.lastName}}</span><br/> 
+			<div id=class=""senderBlock"">   <!-- class=""senderBlock""  // TODO cleanup class= if needed  CONVERTED WIP  --> 
+				<label>Sender</label><span>{{mtg.sender.firstName}} {{mtg.sender.lastName}}</span><br/>    <!-- class="<labelSender</label><span>{{mtg.sender.firstName}} {{mtg.sender.lastName}}</span<br/>"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
 				<label>Time</label> <span>{{mtg.date}} {{mtg.time}}</span><br/> 
 				<label>Location</label> <span>{{mtg.location}}</span><br/>
 				<label>Description</label> <span>{{mtg.description}}</span> <br/>
 			</div>
 
-			<div><core-icon icon="reply" on-click="{{replyDialog}}"></core-icon></div>
+			<div><iron-icon icon="reply" on-click="{{replyDialog}}"></iron-icon></div> <!-- TODO change on-click="{{handleClick}}" to on-click="handleClick"  CONVERTED WIP -->  
 		</div>
 		
 	</div>
@@ -44,9 +49,13 @@
 	</template>
 
 	<script>
-	Polymer('qi-mtg-card',{
-		contacts: JSON.parse(localStorage.getItem("contacts")),
-		mtg: null,
+	var MtgCard = Polymer({
+   		is: 'qi-mtg-card',
+
+   		properties:{
+			contacts: JSON.parse(localStorage.getItem("contacts")),
+			mtg: null,
+		},
 		
 		replyDialog: function(e){
 			var profile = JSON.parse(localStorage.getItem("profile"));
@@ -67,4 +76,23 @@
 	</script>
 
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

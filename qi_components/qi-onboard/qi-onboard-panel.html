@@ -1,7 +1,8 @@
+<!--   -->
 
 <link rel="import" href="qi-onboard-card.html">
 
-<polymer-element name="qi-onboard-panel">
+<dom-module id='qi-onboard-panel'  > 
 
 
 <template>
@@ -15,7 +16,7 @@
 
 	<div id="onboardpanel">
 		<br/>
-		<div class="title">&nbsp; &nbsp; Click to import a profile</div><br/>
+		<div class="title">    Click to import a profile</div><br/>
 
 		<qi-onboard-card icon="qi_components/qi-onboard/linkedin.png" clazz="linkedin" service="LinkedIn"></qi-onboard-card><br/>
 		<qi-onboard-card icon="qi_components/qi-onboard/facebook2.png" clazz="facebook" service="Facebook"></qi-onboard-card><br/>
@@ -39,10 +40,30 @@
 <script >
 	
 Polymer('qi-onboard-panel',{
+  is: 'qi-onboard-panel', // CONVERTED WIP 
 		
 });
 
 
 </script>
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

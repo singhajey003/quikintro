@@ -2,7 +2,7 @@
   "name": "quikintro",
   "version": "0.0.0",
   "authors": [
-    "Mark Fortner <mark.fortner@aspenbiosciences.com>"
+    "Mark Fortner <mfortner@quikintro.com>"
   ],
   "main": "index.html",
   "license": "MIT",
@@ -16,11 +16,13 @@
   ],
   "dependencies": {
     "core-component-page": "Polymer/core-component-page#^0.5",
-    "polymer": "Polymer/polymer#~0.5.4",
+    "polymer": "Polymer/Polymer#~1.0.3",
     "google-map": "GoogleWebComponents/google-map#^0.4.2",
     "paper-tabs": "Polymer/paper-tabs#^0.5",
     "paper-checkbox": "Polymer/paper-checkbox#^0.5",
     "paper-progress": "Polymer/paper-progress#^0.5",
-    "core-localstorage": "Polymer/core-localstorage#~0.5.5"
+    "core-localstorage": "Polymer/core-localstorage#~0.5.5",
+    "paper-input": "PolymerElements/paper-input#~1.0.2",
+    "paper-dialog": "PolymerElements/paper-dialog#~1.0.0"
   }
 }

@@ -1,28 +1,27 @@
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html">
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<!--   -->
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../../bower_components/iron-icon-button/iron-icon-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
 
 
-<polymer-element name="qi-onboard-card" attributes="icon service clazz">
-
+<dom-module id='qi-onboard-card'  > 
 
 <template>
-	<link rel="stylesheet" href="qi-onboard.css">
+	<link rel="stylesheet" href="qi-onboard.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
 	<div id="iconPanel" class="{{clazz}}">
 
 		<div id="buttonPanel">
-			<core-icon-button src="{{icon}}" on-click="{{toggleAction}}">&nbsp;{{service}}</core-icon-button>
+			<iron-icon-button src="{{icon}}" on-click="toggleAction"> {{service}}</iron-icon-button> 
 
 		</div>
 
-		<core-collapse id="collapse">
+		<iron-collapse id="collapse">
 			<paper-input label="User ID:" floatingLabel="true" value="mfortner"></paper-input>
 			<paper-input-decorator label="Password:" floatingLabel="true">
 				<input type="password" name="password" value="whatever" />
 			</paper-input-decorator>
 			
-		</core-collapse>
+		</iron-collapse>
 
 	</div>
 
@@ -34,6 +33,13 @@
 <script >
 	
 Polymer('qi-onboard-card',{
+  is: 'qi-onboard-card', // CONVERTED WIP 
+
+  properties: {
+  	icon:{type: String},
+  	service: {type: String},
+  	clazz: {type: String}
+  },
 
       toggleAction: function(evt){
       	this.$.collapse.toggle();
@@ -44,4 +50,23 @@ Polymer('qi-onboard-card',{
 
 </script>
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

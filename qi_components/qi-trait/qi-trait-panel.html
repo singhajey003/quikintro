@@ -1,16 +1,21 @@
-<polymer-element name="qi-trait-panel" attributes="event">
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<dom-module id='qi-trait-panel'  > <!-- CONVERTED WIP -->
+
+  <style>
+  </style> <!-- TODO Move style tags here from <template> if needed CONVERTED WIP -->
 
 
-	<template>
-	 	<link rel="stylesheet" href="../quikintro.css" >
-	 	<link rel="stylesheet" href="traitlist.css" >
 
-	 	<div style="padding-left: 30px; padding-right: 30px;">
-		<div class="card-wrapper">
+  <template>
+    <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+    <link rel="stylesheet" href="traitlist.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+
+    <div style="padding-left: 30px; padding-right: 30px;">
+    <div class="card-wrapper"> 
           <div class="card traits">
             <h3>My Interests</h3>
 
-            <template repeat="{{interest in event.traitstats.interests}}">
+            <template is="dom-repeat" items="{{event.traitstats.interests}}"  as="interest">
             <div class="trait-pair">
               <label class="keyword">{{interest.name}}</label>
               <paper-progress class="type1" value="{{interest.percent}}"></paper-progress> {{interest.percent}}%
@@ -19,14 +24,14 @@
             
           </div>
         </div>
-        <div class="card-wrapper">
+        <div class="card-wrapper">  
           <div class="card traits">
-            <h3>Attendee Interests</h3>
+            <h3>Attendee Interests</h3> 
 
-            <template repeat="{{interest in event.traitstats.attendeeInterests}}">
-            <core-label horizontal layout class="trait-pair">
+            <template is="dom-repeat" items="{{event.traitstats.attendeeInterests}}" as="interest"> 
+            <core-label  class="trait-pair horizontal layout"> 
               <paper-checkbox ></paper-checkbox>
-              <div vertical layout>
+              <div class="vertical layout">  
                 <h4>{{interest.name}} - {{interest.percent}}%</h4>
               </div>
             </core-label>
@@ -37,13 +42,35 @@
         </div>
         </div>
 
-	</template>
+  </template>
 
-	<script>
-	  Polymer('qi-trait-panel',{
+  <script>
+    Polymer({
+     is: 'qi-trait-panel', // CONVERTED WIP 
+     properties:{
+      event:{type: Object}
+     }
+    });
 
-	  });
+  </script>
 
-	</script>
+</dom-module> <!-- CONVERTED -->
 
-</polymer-element>
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

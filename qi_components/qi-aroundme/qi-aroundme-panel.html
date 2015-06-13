@@ -1,39 +1,42 @@
-<link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
-<link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/core-field/core-field.html">
-<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
-<link rel="import" href="../../bower_components/core-icons/communication-icons.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-icons/communication-icons.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-contact/qi-contact-card.html">
 
-<polymer-element name="qi-aroundme-panel" attributes="contacts">
+<dom-module id='qi-aroundme-panel'  > 
+
+ 
   <template>
 
-  <link rel="stylesheet" href="../quikintro.css">
-  <link rel="stylesheet" href="qi-aroundme-panel.css">
+  <link rel="stylesheet" href="../quikintro.css"> 
+  <link rel="stylesheet" href="qi-aroundme-panel.css"> 
 
   <qi-globals id="globals"></qi-globals>
   
-  <template is="auto-binding">
-    <core-ajax auto url="{{$.globals.urls.heatmap}}" response="{{heatmap}}" on-core-response="{{ajaxResponse}}" handleAs="json"></core-ajax>
-  </template>
+  <template is="dom-bind">
+    <iron-ajax auto url="{{$.globals.urls.heatmap}}" response="{{heatmap}}" on-response="ajaxResponse" handle-as="json"></iron-ajax>
+  
 
-	<core-scroll-header-panel headermargin="128" fixed id="eventHeaderPanel" >
+  <paper-scroll-header-panel headermargin="128" fixed id="eventHeaderPanel" >
    
 
-    <div class="content" layout vertical>
+    <div class="content layout vertical" > 
       
       <div class="maps-panel">
       
-        <google-map id="aroundmemap" zoom="11" style="width:275px; height: 360px" libraries="visualization" fitToMarkers >
+        <google-map id="aroundmemap" zoom="11" style="width:275px; height: 360px" libraries="visualization" class="fitToMarkers" > 
           <google-map-marker latitude="37.779" longitude="-122.3892">
           </google-map-marker>
         </google-map>
@@ -41,26 +44,28 @@
       </div>
 
 
-      <core-toolbar fixed>
-        <div flex>Contacts</div>
-      </core-toolbar>
-      <template repeat="{{contact in contacts}}">
+      <paper-toolbar fixed>
+        <div flex>Contacts</div>  
+      </paper-toolbar>
+      <template is="dom-repeat" items="{{contacts}}" as="contact">
         <qi-contact-card contact="{{contact}}"></qi-contact-card>
       </template>
 
     </div>
 
 
-     </core-scroll-header-panel>
+     </paper-scroll-header-panel>
    </template>
 
    <script>
-	Polymer('qi-aroundme-panel',{
-    ready: function(evt){     
-    },
+  Polymer({
+    is: 'qi-aroundme-panel', 
+
+
     ajaxResponse: function(event, response) {
         this.heatMap(response.response);
     },
+
     heatMap: function(data){
         var map = this.$.aroundmemap; // google map web component
 
@@ -217,9 +222,28 @@
           
     }
   
-		
-	});
+    
+  });
 
    </script>
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

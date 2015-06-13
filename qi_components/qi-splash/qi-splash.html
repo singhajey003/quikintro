@@ -1,25 +1,30 @@
-<polymer-element name="qi-splash">
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id='qi-splash'  > 
 
 <template>
-	<link rel="stylesheet" href="qi-splash.css" >
-	<link rel="stylesheet" href="../quikintro.css" >
+	<link rel="stylesheet" href="qi-splash.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 	<div class="panel">
 		<div class="logo"></div>
-		<div class="wrapper">
-			<paper-input class="reverse" label="User ID:" floatingLabel="true"></paper-input><br/>
-			<paper-input-decorator class="reverse" floatingLabel label="Password:" >
+		<div class="wrapper"> 
+			<paper-input class= label="User ID:" floatingLabel="true"></paper-input><br/>  
+			<paper-input-decorator floatingLabel label="Password:" > 
 			<input type="password" name="password">
 			</paper-input-decorator>
 
-			<paper-button class="btn-light" raised on-click="{{handleLogin}}">Login</paper-button>
+			<paper-button class="btn-light" raised on-click="handleLogin">Login</paper-button> 
 		</div>
 	</div>
 
 </template>
 
 <script>
-Polymer('qi-splash',{
+Polymer({
+  	is: 'qi-splash', 
 
 	handleLogin: function(){
 		this.fire("login")
@@ -29,4 +34,23 @@ Polymer('qi-splash',{
 
 </script>
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

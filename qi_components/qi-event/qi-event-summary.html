@@ -1,28 +1,40 @@
+<!--
+TODO:
+    paper-item
+    paper-label
+    core-field
+    core-dropdown-menu
+    core-dropdown
+
+-->
+
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 <link rel="import" href="../../bower_components/core-field/core-field.html">
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
-<link rel="import" href="../../bower_components/core-input/core-input.html">
-<link rel="import" href="../../bower_components/core-item/core-item.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icon-button/iron-icon-button.html">
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html">
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html">
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
-<polymer-element name="qi-event-summary" attributes="event">
-    <template>
-    <link rel="stylesheet" href="../quikintro.css" >
-    <link rel="stylesheet" href="../qi-cards.css" >
-    <link rel="stylesheet" href="qi-events.css" >
-    <link rel="stylesheet" href="qi-event-summary.css" >
+<dom-module id='qi-event-summary'  > 
 
-    <div class="card reverse venue-bkgnd banner" style="background-image:url({{event.background}})">
+    <template>
+    <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+    <link rel="stylesheet" href="../qi-cards.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+    <link rel="stylesheet" href="qi-events.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+    <link rel="stylesheet" href="qi-event-summary.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+
+    <div class="card reverse venue-bkgnd banner" style="background-image:url({{event.background}})"> 
         <div class="overlay"></div>
 
         <header>
-            <p>{{event.startTime}}-{{event.endTime}} at {{event.location}}</p>
+            <p>{{event.startTime}}-{{event.endTime}} at {{event.location}}</p>   <!-- class="<p{{event.startTime}}-{{event.endTime}}"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
             <p>{{event.registrantCount}} Registrants</p>
         </header>
 
-        <div class="summary" horizontal layout justified flex>
+        <div class="summary horizontal layout justified flex" >   <!-- class="horizontal layout justified flex"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
 
             <div class="eventNewMatches">
                 <div class="match-count font-light">{{event.matches.length}}</div>
@@ -39,47 +51,47 @@
     <div class="eventSettings">
         <h4>Event Settings</h4>
 
-          <core-label id="rsvpField" class="settings-row" horizontal justified layout>
+          <core-label id="rsvpField" class="settings-row horizontal justified layout" > 
            Going?
             <core-dropdown-menu>
                 <core-dropdown class="dropdown" halign="right">
-                    <core-selector selected="{{event.rsvp}}" valueattr="val">
+                    <iron-selector selected="{{event.rsvp}}" valueattr="val">
                        
-                            <core-item val="YES">Yes</core-item>
-                            <core-item val="NO">No</core-item>
-                            <core-item val="MAYBE">Maybe</core-item>
+                            <paper-item val="YES">Yes</paper-item>
+                            <paper-item val="NO">No</paper-item>
+                            <paper-item val="MAYBE">Maybe</paper-item>
                         
-                    </core-selector>
+                    </iron-selector>
                 </core-dropdown>
             </core-dropdown-menu>
          </core-label>
 
 
-         <core-label id="personaField" class="settings-row" horizontal justified layout center>
+         <core-label id="personaField" class="settings-row horizontal justified layout center" > 
            Persona
             <core-dropdown-menu>
                 <core-dropdown class="dropdown" halign="right">
-                    <core-selector selected="{{event.persona}}" valueattr="personaId">
-                        <template repeat="{{persona in personas}}">
-                            <core-item personaId="{{persona.name}}">{{persona.name}}</core-item>
+                    <iron-selector selected="{{event.persona}}" valueattr="personaId">
+                        <template is="dom-repeat" items="{{personas}}"  as="persona">
+                            <paper-item personaId="{{persona.name}}">{{persona.name}}</paper-item>
                         </template>
-                    </core-selector>
+                    </iron-selector>
                 </core-dropdown>
             </core-dropdown-menu>
          </core-label>
 
-         <core-label class="settings-row" horizontal justified layout>
+         <core-label class="settings-row horizontal justified layout" > 
            Alert
-            <core-input id="alarm">{{event.notification}}</core-input>
+            <iron-input id="alarm">{{event.notification}}</iron-input>
          </core-label>
 
         <div class="settings-row">
-            <google-map id="map" zoom="18" style="width: 100%;" minZoom="9" maxZoom="20" libraries="visualization" zoomable="true" fitToMarkers>
+            <google-map id="map" zoom="18" style="width: 100%;" minZoom="9" maxZoom="20" libraries="visualization" zoomable="true" fitToMarkers>  
                 <google-map-marker id="marker"></google-map-marker>
             </google-map>
         </div>
 
-    <core-localstorage name="personas" value="{{personas}}"></core-localstorage>
+    <iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
 
 
 
@@ -87,9 +99,15 @@
 
     </template>
     <script>
-    Polymer('qi-event-summary', {
+    Polymer({
+        is: 'qi-event-summary', 
 
-    	event: null,
+        properties:{
+            event: {type: Object, value: null},
+            personas: {type: Array}
+        },
+
+       
 
         fixMap: function() {
             var map =  this.$.map; // google map web component
@@ -132,9 +150,29 @@
         },
 
         eventChanged: function(oldValue, newValue){
-        	this.fixMap();
+            this.fixMap();
         }
        
     });
     </script>
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

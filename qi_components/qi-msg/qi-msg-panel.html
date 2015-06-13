@@ -1,15 +1,16 @@
-<link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
-<link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 
-<link rel="import" href="../../bower_components/core-list/core-list.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
 
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/core-field/core-field.html">
-<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
-<link rel="import" href="../../bower_components/core-localstorage/core-localstorage.html">
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 
 <link rel="import" href="../qi-dialog/qi-msg-dialog.html">
@@ -19,31 +20,30 @@
 <link rel="import" href="qi-invite-card.html">
 
 
-<polymer-element name="qi-msg-panel" >
+<dom-module id='qi-msg-panel'  >
 
   <template>
-  <link rel="stylesheet" href="../quikintro.css">
-  <link rel="stylesheet" href="qi-msg-panel.css">
+  <link rel="stylesheet" href="../quikintro.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
+  <link rel="stylesheet" href="qi-msg-panel.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
 
-  <core-localstorage name="msgs" value="{{msgs}}"></core-localstorage>
-  <core-localstorage name="mtgs" value="{{mtgStr}}"></core-localstorage>
-  <core-localstorage name="invites" value="{{invStr}}"></core-localstorage>
+  <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
+  <iron-localstorage name="mtgs" value="{{mtgStr}}"></iron-localstorage>
+  <iron-localstorage name="invites" value="{{invStr}}"></iron-localstorage>
 
-	<core-scroll-header-panel id="msgHeaderPanel" headerHeight="40" fixed flex>
+  <paper-scroll-header-panel id="msgHeaderPanel" headerHeight="40" fixed class="flex"> 
 
-    <core-toolbar flex>
-      <paper-tabs selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" nobar="true" flex>
-        <paper-tab role="tab" class="core-selected">Messages</paper-tab>
+    <paper-toolbar class="flex"> 
+      <paper-tabs selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" nobar="true" class="flex">   <  <paper-tab role="tab" class="core-selected">Messages</paper-tab>
         <paper-tab role="tab">Invitations</paper-tab>
         <paper-tab role="tab">Meeting Requests</paper-tab>
       </paper-tabs>
-    </core-toolbar>
+    </paper-toolbar>
 
 
-    <core-pages selected="{{selected}}">
+    <iron-pages selected="{{selected}}">
       <div id="msgTray" class="content" style="overflow:auto">
         
-            <template id="msgTemplate" repeat="{{msg in msgs}}">
+            <template id="msgTemplate" is="dom-repeat" items="{{msgs}}" as="msg">
               <qi-msg-card msg="{{msg}}"></qi-msg-card>
             </template>
        
@@ -52,25 +52,26 @@
       </div>
 
       <div id="invTray" class="content" style="overflow:auto">
-          <template repeat="{{inv in invs}}">
+          <template is="dom-repeat" items="{{invs}}" as="inv">
           <qi-invite-card invite="{{inv}}"></qi-invite-card>
           </template>
       </div>
 
       <div id="mtgTray" class="content" style="overflow:auto">
-        <template repeat="{{mtg in mtgs}}">
+        <template is="dom-repeat" items="{{mtgs}}" as="mtg">
         <qi-mtg-card mtg="{{mtg}}"></qi-mtg-card>
         </template>
       </div>
 
-      </core-pages>
+      </iron-pages>
 
 
-     </core-scroll-header-panel>
+     </paper-scroll-header-panel>
    </template>
 
    <script>
-	Polymer('qi-msg-panel',{
+  Polymer({
+   is: 'qi-msg-panel', // CONVERTED WIP 
 
     
   
@@ -109,9 +110,28 @@
         
 
       }
-		
-	    });
+    
+      });
 
    </script>
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

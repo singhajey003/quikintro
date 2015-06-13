@@ -1,19 +1,22 @@
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 
-<link rel="import" href="../../bower_components/core-pages/core-pages.html">
-<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail.html">
 <link rel="import" href="qi-event-notice.html">
 
-<polymer-element name="qi-event-stream" attribute="selectedEventPage events personas">
+<dom-module id='qi-event-stream' >
+
 
 	<template>
-    <link rel="stylesheet" href="../quikintro.css" >
-    <link rel="stylesheet" href="../qi-cards.css" >
-    <link rel="stylesheet" href="qi-events.css" >
+	    <link rel="stylesheet" href="../quikintro.css" > 
+	    <link rel="stylesheet" href="../qi-cards.css" >
+	    <link rel="stylesheet" href="qi-events.css" > 
+
 		<style>	
 			.container {
 /*			padding: 10px;  */
@@ -22,14 +25,14 @@
 		</style>
 
 
-		<div class="container" layout vertical flex >
+		<div class="container layout vertical flex"  > 
 
-			<core-pages id="eventPages" selected="{{selectedEventPage}}" layout vertical flex>
+			<iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical flex"> 
 			  <section selected class="padding">
 					<h4>My Scheduled Events</h4>
 					<div>
-						<template repeat="{{event, i in events }}">
-							<template if="{{event.rsvp == 'YES' || event.rsvp == 'MAYBE'}}">
+						<template is="dom-repeat" index-as="i" items="{{events}}"  as="event">
+							<template is="dom-if" if="{{event.rsvp == 'YES' || event.rsvp == 'MAYBE'}}">
 							<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
 							</template>
 						</template>
@@ -37,9 +40,9 @@
 
 					<h4>Suggested Events</h4>
 					<div>
-						<template repeat="{{event, i in events }}">
-							<template if="{{event.rsvp == null}}">
-								<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
+						<template is="dom-repeat" items="{{events}}" as="event" index-as="i">
+     						<template is="dom-if" if="{{event.rsvp == null}}">
+     							<qi-event-card id="{{i}}" event="{{event}}" on-click="cardClickHandler"></qi-event-card>
 							</template>
 						</template>
 
@@ -53,12 +56,18 @@
 			</section>
 		
 		</div>
-		</core-pages>
+		</iron-pages>
 	</template>
 
 	<script>
-		Polymer('qi-event-stream',{
-			selectedEventPage:0,
+		Polymer({
+    		is: 'qi-event-stream', 
+
+    		properties:{
+    			events:{type: Array},
+    			personas: {type: Array},
+				selectedEventPage:{type: Number, value:0, notify: true, observer:'selectedEventPageChanged'},
+			}
 
 			selectedEventPageChanged: function(oldValue, newValue){
 				if (newValue == 0){
@@ -83,4 +92,23 @@
 
 
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

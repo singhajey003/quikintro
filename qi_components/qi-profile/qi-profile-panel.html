@@ -1,33 +1,33 @@
-<link rel="import" href="../../bower_components/core-input/core-input.html">
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
 <link rel="import" href="../../bower_components/core-field/core-field.html">
 <link rel="import" href="../../bower_components/core-label/core-label.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../../bower_components/core-pages/core-pages.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-trait/qi-titled-panel.html">
 <link rel="import" href="qi-job-card.html">
 
 
-<polymer-element name="qi-profile-panel" attributes="panelTitle url profile">
-
+<dom-module id='qi-profile-panel'  > 
 
 	<template>
 
-	<link rel="stylesheet" href="../quikintro.css">
-	<link rel="stylesheet" href="../qi-cards.css">
-	<link rel="stylesheet" href="../qi-trait/traitlist.css">
-	<link rel="stylesheet" href="qi-profile-panel.css">
+	<link rel="stylesheet" href="../quikintro.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="../qi-cards.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="../qi-trait/traitlist.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="qi-profile-panel.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
 
 	
 	<section id="profile"  hero-id="hero" cross-fade>
 
 		<div class="profile-overview">
-			<div horizontal layout style="margin-bottom: 15px;">
+			<div class="horizontal layout" style="margin-bottom: 15px;"> 
 				<div>
 					<qi-avatar url="{{profile.avatar}}"></qi-avatar>
 				</div>
-				<div class="profile-name" flex>
+				<div class="profile-name flex" >  
 					<paper-input id="firstname" label="First Name" value="{{profile.firstName}}"></paper-input>
 					<paper-input id="lastname" label="Last Name" value="{{profile.lastName}}"></paper-input>
 				</div>
@@ -35,36 +35,36 @@
 
 			<h4>Summary:</h4>
 			<div class="summary textfield">
-			<paper-autogrow-textarea id="a1" rows="10" maxRows="11" flex>
+			<paper-autogrow-textarea id="a1" rows="10" maxRows="11" class="flex">  
 			  <textarea class="profile" id="summary">{{profile.summary}}</textarea>
 			<paper-autogrow-textarea>
 			</div>
 		</div>
 
-		<div class="card-wrapper">
+		<div class="card-wrapper"> 
 			<qi-titled-panel panelTitle="interests" traits="{{profile.interests}}"></qi-titled-panel>
 		</div>
 
-		<div class="card-wrapper">
+		<div class="card-wrapper"> 
 			<qi-titled-panel panelTitle="skills" traits="{{profile.skills.values}}"></qi-titled-panel>
 		</div>
 
-		<div class="card-wrapper">
+		<div class="card-wrapper"> 
 			<div class="card traits">
 				<h4>Food:</h4>
-				<div class="textfield trait-wrapper">
-					<template repeat="{{food in profile.food}}">
+				<div class="textfield trait-wrapper"> 
+					<template is="dom-repeat" items="{{profile.food}}" as="food">
 						<span class="skill">{{food}}</span>
 					</template>
 				</div>
 			</div>
 		</div>
 
-		<div class="card-wrapper">
+		<div class="card-wrapper"> 
 			<div class="card traits">
 				<h4>Drink:</h4>
 				<div class="textfield">
-					<template repeat="{{drink in profile.drink}}">
+					<template is="dom-repeat" items="{{profile.drink}}" as="drink"> 
 						<span class="skill">{{drink}}</span>
 					</template>
 				</div>
@@ -73,7 +73,7 @@
 
 		<div class="work-history">
 			<h4>Work History:</h4>
-			<template repeat="{{job in profile.positions.values}}">
+			<template is="dom-repeat" items="{{positions.values}}" as="job">
 				<qi-job-card job="{{job}}"></qi-job-card>
 			</template>
 		</div>
@@ -83,11 +83,37 @@
 	</template>
 
 	<script>
-	Polymer('qi-profile-panel',{
-			
+	Polymer({
+   		is: 'qi-profile-panel', 
+		
+		properties:{
+			panelTitle:{type: String},
+			url:{type: String},
+			profile:{type: Object}
+		}
 			
 	});
 
 	</script>
+		}
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

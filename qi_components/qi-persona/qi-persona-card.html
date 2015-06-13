@@ -1,63 +1,67 @@
+<!--
+TODO
+	core-tooltip
+
+-->
+
+
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 <link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
-<link rel="import" href="../../bower_components/core-field/core-field.html" >
-<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
-<link rel="import" href="../../bower_components/core-input/core-input.html" >
-<link rel="import" href="../../bower_components/core-item/core-item.html" >
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
-<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
+<link rel="import" href="../../bower_components/iron-input/iron-input.html" >
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
 
 <link rel="import" href="../qi-toggle/qi-toggle.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 
-<polymer-element name="qi-persona-card" attributes="persona">
+<dom-module id='qi-persona-card'  > 
 		
 	<template>
-	<link rel="stylesheet" href="../quikintro.css" >
-	<link rel="stylesheet" href="../qi-cards.css">
-	<link rel="stylesheet" href="../qi-trait/traitlist.css">
-	<link rel="stylesheet" href="qi-persona-card.css" >
+	<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="../qi-cards.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="../qi-trait/traitlist.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="qi-persona-card.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 
-	<div class="card-wrapper">
+	<div class="card-wrapper"> 
 		<div class="card persona">
 			<header>
 				<h3>{{persona.name}}</h3>
 				<p>{{persona.blurb}}</p>
 			</header>
-			<div class="card-actions" horizontal justified layout center flex>
-				<div flex>
+			<div class="card-actions horizontal justified layout center flex" >   
+				<div class="flex">   
 					<core-tooltip label="Clone Persona">
-						<core-icon icon="content-copy"></core-icon>
+						<iron-icon icon="content-copy"></iron-icon>
 					</core-tooltip>
 					<core-tooltip label="Delete Persona">
-						<core-icon icon="delete"></core-icon>
+						<iron-icon icon="delete"></iron-icon>
 					</core-tooltip>
 				</div>
 				<div >
-					<qi-toggle on-click="{{toggleAction}}"></qi-toggle>
+					<qi-toggle on-click="toggleAction"></qi-toggle> 
 				</div>
 			</div>
 
-			<core-collapse id="collapse" opened="false">
+			<iron-collapse id="collapse" opened="false">
 				<h4>About Me</h4>
 				<div class="iconFld">
-					<core-icon icon="question-answer"></core-icon>
+					<iron-icon icon="question-answer"></iron-icon>
 					<label>Interactions:</label>
 				</div>
 				<div class="fldValue">
 					<qi-traitlist traits="{{persona.aboutMe.interactions}}"></qi-traitlist>
 				</div>
 				<div class="iconFld">
-					<core-icon icon="bookmark"></core-icon>
+					<iron-icon icon="bookmark"></iron-icon>
 					<label>Skills:</label>
 				</div>
 				<div class="fldValue">
 					<qi-traitlist traits="{{persona.aboutMe.skills}}"></qi-traitlist>
 				</div>
 				<div class="iconFld">
-					<core-icon icon="label"></core-icon>
+					<iron-icon icon="label"></iron-icon>
 					<label>Interests:</label>
 				</div>
 				<div class="fldValue">
@@ -68,21 +72,21 @@
 
 				<h4>Looking For</h4>
 				<div class="iconFld">
-			    <core-icon icon="question-answer"></core-icon>
+			    <iron-icon icon="question-answer"></iron-icon>
 			    <label>Interactions:</label>
 		    </div>
 		    <div class="fldValue">
 		    	<qi-traitlist traits="{{persona.lookingFor.interactions}}"></qi-traitlist>
 		    </div>
 				<div class="iconFld">
-				    <core-icon icon="bookmark"></core-icon>
+				    <iron-icon icon="bookmark"></iron-icon>
 				    <label>Skills:</label>
 			    </div>
 			    <div class="fldValue">
 			    <qi-traitlist traits="{{persona.lookingFor.skills}}"></qi-traitlist>
 			    </div>
 				<div class="iconFld">
-				    <core-icon icon="label"></core-icon>
+				    <iron-icon icon="label"></iron-icon>
 				    <label>Interests:</label>
 			    </div>
 			    <div class="fldValue">
@@ -94,21 +98,21 @@
 
 				<h4>Not Looking For</h4>
 				<div class="iconFld">
-			    <core-icon icon="question-answer"></core-icon>
+			    <iron-icon icon="question-answer"></iron-icon>
 			    <label>Interactions:</label>
 		    </div>
 		    <div class="fldValue">
 		    	<qi-traitlist traits="{{persona.notLookingFor.interactions}}"></qi-traitlist>
 		    </div>
 				<div class="iconFld">
-				    <core-icon icon="bookmark"></core-icon>
+				    <iron-icon icon="bookmark"></iron-icon>
 				    <label>Skills:</label>
 			    </div>
 			    <div class="fldValue">
 			    <qi-traitlist traits="{{persona.notLookingFor.skills}}"></qi-traitlist>
 			    </div>
 				<div class="iconFld">
-				    <core-icon icon="label"></core-icon>
+				    <iron-icon icon="label"></iron-icon>
 				    <label>Interests:</label>
 			    </div>
 			    <div class="fldValue">
@@ -117,131 +121,21 @@
 
 
 
-			</core-collapse>
+			</iron-collapse>
 
 		</div>
 	</div>
-<!-- 
-	<div id="card" class="cardWhite">
-		<div >
-			<div class="titleBlock">{{persona.name}}</div>
-			<div class="summaryBlock">{{persona.blurb}}</div>
 
-			<div horizontal justified layout center flex>
-				<div flex>
-				<core-tooltip label="Clone Persona"><core-icon icon="content-copy"></core-icon></core-tooltip>
-				<core-tooltip label="Delete Persona"><core-icon icon="delete"></core-icon></core-tooltip>
-				</div>
-				<div >
-					<qi-toggle on-click="{{toggleAction}}"></qi-toggle>
-				</div>
-			</div>
-		</div>
-		<core-collapse id="collapse" opened="false">
-			
-			<fieldset>
-			 <legend>About Me</legend>
-
-			<div>
-				<div class="iconFld">
-				    <core-icon icon="question-answer"></core-icon>
-				    <label>Interactions:</label>
-			    </div>
-			    <div class="fldValue">
-			    	<qi-traitlist traits="{{persona.aboutMe.interactions}}"></qi-traitlist>
-			    </div>
-			</div>
-			<div>
-				<div class="iconFld">
-				    <core-icon icon="bookmark"></core-icon>
-				    <label>Skills:</label>
-			    </div>
-			    <div class="fldValue">
-			    	<qi-traitlist traits="{{persona.aboutMe.skills}}"></qi-traitlist>
-			    </div>
-			</div>
-			<div>
-				<div class="iconFld">
-				    <core-icon icon="label"></core-icon>
-				    <label>Interests:</label>
-			    </div>
-			    <div class="fldValue">
-				    <qi-traitlist traits="{{persona.aboutMe.interests}}"></qi-traitlist>
-			    </div>
-			</div>
-
-		    </fieldset>
-
-		    <fieldset>
-				<legend>Looking For</legend>
-				<div>
-					<div class="iconFld">
-					    <core-icon icon="question-answer"></core-icon>
-					    <label>Interactions:</label>
-				    </div>
-				    <div class="fldValue">
-				    	<qi-traitlist traits="{{persona.lookingFor.interactions}}"></qi-traitlist>
-				    </div>
-				</div>
-				<div>
-					<div class="iconFld">
-					    <core-icon icon="bookmark"></core-icon>
-					    <label>Skills:</label>
-				    </div>
-				    <div class="fldValue">
-				    <qi-traitlist traits="{{persona.lookingFor.skills}}"></qi-traitlist>
-				    </div>
-				</div>
-				<div>
-					<div class="iconFld">
-					    <core-icon icon="label"></core-icon>
-					    <label>Interests:</label>
-				    </div>
-				    <div class="fldValue">
-				    <qi-traitlist traits="{{persona.lookingFor.interests}}"></qi-traitlist>
-				    </div>
-				</div>
-		    </fieldset>
-		    
-		     <fieldset>
-				<legend>Not Looking For</legend>
-				<div>
-					<div class="iconFld">
-					    <core-icon icon="question-answer"></core-icon>
-					    <label>Interactions:</label>
-				    </div>
-				    <div class="fldValue">
-				    <qi-traitlist traits="{{persona.notLookingFor.interactions}}"></qi-traitlist>
-				    </div>
-				</div>
-				<div>
-					<div class="iconFld">
-					    <core-icon icon="bookmark"></core-icon>
-					    <label>Skills:</label>
-				    </div>
-				    <div class="fldValue">
-				    <qi-traitlist traits="{{persona.notLookingFor.skills}}"></qi-traitlist>
-				    </div>
-				</div>
-				<div>
-					<div class="iconFld">
-					    <core-icon icon="label"></core-icon>
-					    <label>Interests:</label>
-				    </div>
-				    <div class="fldValue">
-				    <qi-traitlist traits="{{persona.notLookingFor.interests}}"></qi-traitlist>
-				    </div>
-				</div>
-		    </fieldset>
- 
-		</core-collapse>
-	</div>
- -->
 
 	</template>
 
 	<script>
-	Polymer('qi-persona-card',{
+	Polymer({
+   		is: 'qi-persona-card', 
+
+   		properties:{
+   			persona:{type: Object}
+   		},
 
 		
 	    toggleAction: function(evt){
@@ -254,4 +148,23 @@
 	</script>
 
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

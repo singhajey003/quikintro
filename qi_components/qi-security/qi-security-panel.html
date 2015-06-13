@@ -1,31 +1,16 @@
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 <link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
-<link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+<link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 
 
-<polymer-element name="qi-security-panel">
+<dom-module id='qi-security-panel'  > 
+
   <template>
-
-<!--
-  <style>
-
-	core-scroll-header-panel{
-        width: 380px;
-        height: 460px;
-        left: 10px;
-        top: 0px;
-        position: relative;
-        display: block;
-      }
-      
-  </style>
-
-  -->
   
-	<core-scroll-header-panel condenses flex>
-
+  <paper-scroll-header-panel condenses class="flex">
     <div >
         <fieldset>
-          <legend>Change Password</legend>
+          <legend>Change Password</legend> 
             <paper-input-decorator floatingLabel label="New Password:">
               <input type="password" name="password" >
             </paper-input-decorator>
@@ -38,7 +23,7 @@
         </fieldset><br/>
 
         <fieldset>
-          <legend>Authentication Scheme</legend>
+          <legend>Authentication Scheme</legend> 
 
           
            
@@ -46,14 +31,34 @@
         </fieldset>
     </div>
 
-     </core-scroll-header-panel>
+     </paper-scroll-header-panel>
 </template>
 
 <script>
-	Polymer('qi-security-panel',{
-		
-	    });
+  Polymer({
+      is: 'qi-security-panel', // CONVERTED WIP 
+    
+      });
 
 </script>
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

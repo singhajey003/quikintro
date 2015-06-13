@@ -1,65 +1,53 @@
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
-<link rel="import" href="../../bower_components/core-field/core-field.html" >
-<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
-<link rel="import" href="../../bower_components/core-input/core-input.html" >
-<link rel="import" href="../../bower_components/core-item/core-item.html" >
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
-<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
-<link rel="import" href="../../bower_components/paper-slider/paper-slider.html" >
-<link rel="import" href="../../bower_components/core-icons/social-icons.html" >
-<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
-<link rel="import" href="../../bower_components/google-map/google-map.html">
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
 
 <link rel="import" href="../qi-toggle/qi-toggle.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 
-<polymer-element name="qi-event-detail-match" attributes="match">
-
-	
+<dom-module id='qi-event-detail-match'  > 
+ 	
 	<template>
-  	<link rel="stylesheet" href="../quikintro.css" >
-		<link rel="stylesheet" href="../qi-cards.css" >
-  	<link rel="stylesheet" href="qi-events.css" >
-		<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" >
+  		<link rel="stylesheet" href="../quikintro.css" > 
+		<link rel="stylesheet" href="../qi-cards.css" > 
+  		<link rel="stylesheet" href="qi-events.css" > 
+		<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" > 
 
-		<div class="card-wrapper">
+		<div class="card-wrapper"> 
 
 			<div class="card card-photo">
 
 				<qi-avatar url="{{match.avatar}}"></qi-avatar>
 
-
 				<header>
-					<template if="{{match.firstName == null}}">
+					<template is="dom-if" if="{{match.firstName == null}}">
 					<h3 id="titleBlock">Anonymous</h3>
 					</template>
-					<template if="{{match.firstName != null}}">
+
+					<template is="dom-if" if="{{match.firstName != null}}">
 					<h3 id="titleBlock">{{match.firstName}} {{match.lastName}}</h3>
 					</template>
+
 					<p class="title">{{match.title}}</p>
 					<p class="company">{{match.company}}</p>
-					<p></p>
+					
 				</header>
 
-				<div class="summary" horizontal justified layout end>
+				<div class="summary horizontal justified layout end" >  
 					<span id="matchPercentage" class="matchPercentage">{{match.match}}% <span>match</span></span>
 					<span id="distanceAway" class="distanceAway"> &lt; {{match.distanceAway}} meters away</span>
 				</div>
 
-				<div class="card-actions" horizontal justified layout center>
-					<paper-button role="button" id="invite" on-click="{{openInviteDialog}}">Introduce Yourself</paper-button>
+				<div class="card-actions horizontal justified layout center" >  
+					<paper-button role="button" id="invite" on-click="openInviteDialog">Introduce Yourself</paper-button> 
 					<qi-toggle isOpened="{{opened}}"></qi-toggle>
 				</div>
 
-				<core-collapse id="collapse" opened="{{opened}}">
+				<iron-collapse id="collapse" opened="{{opened}}">
 					<h4>Traits you have in common:</h4>
 				  <qi-traitlist traits="{{match.interests}}"></qi-traitlist>
-				</core-collapse>
+				</iron-collapse>
 
 			</div>
 		
@@ -67,9 +55,13 @@
 	</template>
 
 	<script>
-	Polymer('qi-event-detail-match',{
+	Polymer({
+   		is: 'qi-event-detail-match', // CONVERTED WIP 
 
-		opened: false,
+   		properties:{
+   			match: {type: Object}
+			opened:{type: Boolean, value: false},
+		},
 
 		openInviteDialog: function(e){
 			this.fire("openInviteDialog",{});
@@ -85,4 +77,23 @@
 	</script>
 
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

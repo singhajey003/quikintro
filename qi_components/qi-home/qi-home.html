@@ -1,20 +1,20 @@
-<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-event/qi-event-notice.html">
-<polymer-element name="qi-home">
-
+<dom-module id='qi-home'  > 
 
 	<template>
-	 	<link rel="stylesheet" href="../quikintro.css" >
+	 	<link rel="stylesheet" href="../quikintro.css" > 
 		<qi-globals id="globals"></qi-globals>
-		<core-ajax auto url="{{$.globals.urls.notices}}" response="{{notifications}}" handleAs="json"></core-ajax>
+		<iron-ajax auto url="{{$.globals.urls.notices}}" response="{{notifications}}" handle-as="json"></iron-ajax>
 
-		<div layout vertical flex>
+		<div class="layout vertical flex"> 
 			<label style="margin-left: 5px">Notifications</label>
 			<div>
-				<template repeat="{{notice in notifications}}">
+				<template is="dom-repeat" items="{{notifications}}"  as="notice">
 					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
 				</template>
 			</div>
@@ -22,8 +22,12 @@
 	</template>
 
 	<script>
-	Polymer('qi-home',{
+	Polymer({
+   		is: 'qi-home', 
 
+   		properties:{
+   			notification:{type: Object}
+   		}
 
 
 	});
@@ -31,4 +35,23 @@
 	</script>
 
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

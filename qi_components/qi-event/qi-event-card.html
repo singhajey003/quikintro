@@ -1,42 +1,41 @@
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
 <link rel="import" href="../../bower_components/core-field/core-field.html" >
-<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
-<link rel="import" href="../../bower_components/core-input/core-input.html" >
-<link rel="import" href="../../bower_components/core-item/core-item.html" >
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
+<link rel="import" href="../../bower_components/iron-icon-button/iron-icon-button.html" >
+<link rel="import" href="../../bower_components/iron-input/iron-input.html" >
+<link rel="import" href="../../bower_components/paper-item/paper-item.html" >
 <link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
-<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
 <link rel="import" href="../../bower_components/paper-slider/paper-slider.html" >
-<link rel="import" href="../../bower_components/core-icons/social-icons.html" >
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html" >
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
 
 <link rel="import" href="qi-event-summary.html" >
 
 
-<polymer-element name="qi-event-card" attributes="event">
+<dom-module id='qi-event-card'  > 
 
-	
 	<template>
-	<link rel="stylesheet" href="../quikintro.css" >
-	<link rel="stylesheet" href="../qi-cards.css" >
-	<link rel="stylesheet" href="qi-events.css" >
-	<link rel="stylesheet" href="qi-event-card.css" >
+	<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="../qi-cards.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="qi-events.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="qi-event-card.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 
 	<style>
-	paper-action-dialog:{display: none;}
+		paper-action-dialog:{display: none;}
 	</style>
 	
-	<div class="card reverse venue-bkgnd" style="background-image:url({{event.background}})">
+	<div class="card reverse" style="background-image:url({{event.background}})">   
 		<div class="overlay"></div>
 		<header>
 			<h3 id="titleBlock">{{event.title}}</h3>
-			<p>{{event.startTime}} at {{event.location}}</p>
+			<p>{{event.startTime}} at {{event.location}}</p>   <!-- class="<p{{event.startTime}}"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
 			<p>{{event.registrantCount}} Registrants</p>
 		</header>
 
-    <div class="summary" horizontal layout justified flex>
+    	<div class="summary horizontal layout justified flex" > 
 
 			<div class="eventNewMatches">
 				<div class="match-count font-light">{{event.matches.length}}</div>
@@ -54,9 +53,13 @@
 	</template>
 
 	<script>
-	Polymer('qi-event-card',{
-		ready: function(evt){
-		},
+	Polymer({
+   		is: 'qi-event-card', // CONVERTED WIP 
+
+   		properties:{
+   			event:{type: Object}
+   		},
+
 	    toggleAction: function(evt){
 	     	//this.$.collapse.toggle();	  
 	     	this.fire('toggle-card');
@@ -70,11 +73,27 @@
 
 	});
 
-	
-
-
 
 	</script>
 
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

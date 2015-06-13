@@ -1,78 +1,84 @@
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 <link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 
-<polymer-element name="qi-mtg-dialog" contact="contact">
+<dom-module id='qi-mtg-dialog'  > 
 
-	<template>
- 	<paper-action-dialog id="mtgDialog" heading="Create Meeting" backdrop>
- 		<link rel="stylesheet" href="dialog.css">
+     <template>
+     <paper-action-dialog id="mtgDialog" heading="Create Meeting" backdrop>
+          <link rel="stylesheet" href="dialog.css"> 
 
- 		<paper-input id="title" label="Title"></paper-input>
+          <paper-input id="title" label="Title"></paper-input>
           <paper-input id="date" label="Date"></paper-input>
- 		<paper-input id="time" label="Time"></paper-input>
- 		<paper-input id="location" label="Location"></paper-input>
- 		<paper-input id="msg" label="Message"></paper-input>
+          <paper-input id="time" label="Time"></paper-input>
+          <paper-input id="location" label="Location"></paper-input>
+          <paper-input id="msg" label="Message"></paper-input>
 
         <paper-button dismissive>Cancel</paper-button>
-        <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
+        <paper-button affirmative on-click="sendAction">Send</paper-button>  
       </paper-action-dialog>
      </template>
 
      <script>
-     Polymer('qi-mtg-dialog',{
+     Polymer({
+          is: 'qi-mtg-dialog', 
 
-     	sendAction: function(e){
-     		var mtgs = JSON.parse(localStorage.getItem("mtgs"));
-     		if (mtgs == null){
-     			mtgs = [];
-     		}
+          properties:{
+               contact:{type: Object}
+          }
 
-     		var profile = JSON.parse(localStorage.getItem("profile"));
+          sendAction: function(e){
+               var mtgs = JSON.parse(localStorage.getItem("mtgs"));
+               if (mtgs == null){
+                    mtgs = [];
+               }
+
+               var profile = JSON.parse(localStorage.getItem("profile"));
 
 
-     		var mtg = {
-     			title: this.$.title.value,
-     			date: this.$.date.value,
-     			time: this.$.time.value,
-     			location: this.$.location.value,
-     			description: this.$.msg.value,
-     			rcvr: this.contact,
-     			sender: {
-     				firstName: profile.firstName,
-     				lastName: profile.lastName,
-     				avatar: profile.avatar,
-     				id: profile.id
-     			}
+               var mtg = {
+                    title: this.$.title.value,
+                    date: this.$.date.value,
+                    time: this.$.time.value,
+                    location: this.$.location.value,
+                    description: this.$.msg.value,
+                    rcvr: this.contact,
+                    sender: {
+                         firstName: profile.firstName,
+                         lastName: profile.lastName,
+                         avatar: profile.avatar,
+                         id: profile.id
+                    }
 
-     		};
+               };
 
-     		mtgs.push(mtg);
-     		localStorage.setItem("mtgs",JSON.stringify(mtgs));
+               mtgs.push(mtg);
+               localStorage.setItem("mtgs",JSON.stringify(mtgs));
 
                this.fire('mtg-sent', {mtg: mtg});
 
-     	},
+          },
 
-     	clear: function(){
+          clear: function(){
 
-     		var date = new Date();
+               var date = new Date();
 
-     		this.$.title.value="";
-     		this.$.date.value= date.toDateString()
-     		this.$.time.value= date.toTimeString();
-     		this.$.location.value = "";
-     		this.$.msg.value = "";
-     	},
+               this.$.title.value="";
+               this.$.date.value= date.toDateString()
+               this.$.time.value= date.toTimeString();
+               this.$.location.value = "";
+               this.$.msg.value = "";
+          },
 
-     	open: function(){
-     		this.clear();
-     		this.$.mtgDialog.open();
-     	},
+          open: function(){
+               this.clear();
+               this.$.mtgDialog.open();
+          },
 
-     	close: function(){
-     		this.$.mtgDialog.close();
-     	}
+          close: function(){
+               this.$.mtgDialog.close();
+          }
 
 
      });
@@ -81,3 +87,22 @@
      </script>
 
 </polymer>
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

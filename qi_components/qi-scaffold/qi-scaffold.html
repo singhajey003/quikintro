@@ -1,3 +1,4 @@
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 <!--
 Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -15,18 +16,18 @@ areas for application content.
 Example:
 
     <core-scaffold>
-      <core-header-panel navigation flex mode="seamed">
-        <core-toolbar>Application</core-toolbar>
-        <core-menu theme="core-light-theme">
-          <core-item icon="settings" label="item1"></core-item>
-          <core-item icon="settings" label="item2"></core-item>
-        </core-menu>
-      </core-header-panel>
+      <paper-header-panel navigation flex mode="seamed">
+        <paper-toolbar>Application</paper-toolbar>
+        <paper-menu theme="core-light-theme">
+          <paper-item icon="settings" label="item1"></paper-item>
+          <paper-item icon="settings" label="item2"></paper-item>
+        </paper-menu>
+      </paper-header-panel>
       <div tool>Title</div>
       <div>Main content goes here...</div>
     </core-scaffold>
 
-Use `mode` to control the header and scrolling behavior of `core-header-panel`
+Use `mode` to control the header and scrolling behavior of `paper-header-panel`
 and `responsiveWidth` to change the layout of the scaffold.  Use 'disableSwipe'
 to disable swipe-to-open on toolbar.
 
@@ -40,7 +41,7 @@ button to the far right:
     </core-scaffold>
     
 You may also add `middle` or `bottom` classes to your `tool` content when using tall
-modes to adjust vertical content positioning in the core-toolbar (e.g. when using 
+modes to adjust vertical content positioning in the paper-toolbar (e.g. when using 
 mode="waterfall-tall"):
 
     <core-scaffold rightDrawer mode="waterfall-tall">
@@ -52,9 +53,9 @@ mode="waterfall-tall"):
 To have the content fit to the main area, use `fit` attribute.
 
     <core-scaffold>
-      <core-header-panel navigation flex mode="seamed">
+      <paper-header-panel navigation flex mode="seamed">
         ....
-      </core-header-panel>
+      </paper-header-panel>
       <div tool>Title</div>
       <div fit>Content fits to the main area</div>
     </core-scaffold>
@@ -64,16 +65,17 @@ To have the content fit to the main area, use `fit` attribute.
 @homepage github.io
 -->
 
-<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="../../bower_components/core-drawer-panel/core-drawer-panel.html">
-<link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/iron-icon-button/iron-icon-button.html">
 <link rel="import" href="../qi-custom-icons/qi-custom-svg-icons.html">
 
 
-<polymer-element name="qi-scaffold">
+<dom-module id='qi-scaffold'  >
+
 <template>
-  <link rel="stylesheet" href="../quikintro.css" >
+  <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
   <style>
     
     :host {
@@ -96,37 +98,40 @@ To have the content fit to the main area, use `fit` attribute.
     
   </style>
 
-  <core-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="{{drawerWidth}}" rightDrawer="{{rightDrawer}}" responsiveWidth="{{responsiveWidth}}" disableSwipe="{{disableSwipe}}">
+  <paper-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="{{drawerWidth}}" rightDrawer="{{rightDrawer}}" responsiveWidth="{{responsiveWidth}}" disableSwipe="{{disableSwipe}}">
 
-    <div vertical layout drawer>
+    <div class="vertical layout" drawer>  
 
       <content select="[navigation], nav"></content>
 
     </div>
     
-    <core-header-panel id="headerPanel" main mode="{{mode}}">
+    <paper-header-panel id="headerPanel" main mode="{{mode}}">
 
-      <core-toolbar>
-        <template if="{{!rightDrawer}}">
-          <link rel="stylesheet" href="../quikintro.css" >
-          <core-icon-button class="qi-logo" id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="{{handleClick}}"></core-icon-button>
+      <paper-toolbar>
+        <template is="x-if" is="x-if" if="{{!rightDrawer}}">
+      <!-- TODO fix if=,   CONVERTED WIP --> 
+          <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+          <iron-icon-button class="qi-logo" id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="{{handleClick}}"></iron-icon-button> <!-- TODO change on-tap="{{handleClick}}" to on-tap="handleClick"  CONVERTED WIP -->  
         </template>
         <content select="[tool]"></content>
         <template if="{{rightDrawer}}">
-          <core-icon-button class="qi-logo" id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="{{handleClick}}"></core-icon-button>
+      <!-- TODO fix if=,   CONVERTED WIP --> 
+          <iron-icon-button class="qi-logo" id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="{{handleClick}}"></iron-icon-button> <!-- TODO change on-tap="{{handleClick}}" to on-tap="handleClick"  CONVERTED WIP -->  
         </template>
-      </core-toolbar>
+      </paper-toolbar>
       
       <content select="*"></content>
       
-    </core-header-panel>
+    </paper-header-panel>
 
-  </core-drawer-panel>
+  </paper-drawer-panel>
 
 </template>
 <script>
 
   Polymer('qi-scaffold', {
+    is: 'qi-scaffold', // CONVERTED WIP 
     
     /**
      * Fired when the main content has been scrolled.  `event.detail.target` returns
@@ -159,7 +164,7 @@ To have the content fit to the main area, use `fit` attribute.
       
       /**
        * When the browser window size is smaller than the `responsiveWidth`, 
-       * `core-drawer-panel` changes to a narrow layout. In narrow layout, 
+       * `paper-drawer-panel` changes to a narrow layout. In narrow layout, 
        * the drawer will be stacked on top of the main panel.
        *
        * @attribute responsiveWidth
@@ -188,7 +193,7 @@ To have the content fit to the main area, use `fit` attribute.
       disableSwipe: false,
   
       /**
-       * Used to control the header and scrolling behaviour of `core-header-panel`
+       * Used to control the header and scrolling behaviour of `paper-header-panel`
        *
        * @attribute mode
        * @type string
@@ -264,4 +269,24 @@ To have the content fit to the main area, use `fit` attribute.
   });
 
 </script>
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->
