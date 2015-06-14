@@ -1,12 +1,13 @@
 <!--   -->
-<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <dom-module id='qi-note-dialog'  > 
 
 	<template>
 
-		<paper-action-dialog id="dialog" heading="New Note" backdrop>
+		<paper-dialog id="dialog" heading="New Note" backdrop>
 			<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 			<link rel="stylesheet" href="dialog.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
 
@@ -23,10 +24,12 @@
 
 			</div>
 			
+			<div class="buttons">
 			<paper-button dismissive>Cancel</paper-button>
 			<paper-button affirmative on-click="publishAction">Publish</paper-button> 
+			</div>
 		  
-		</paper-action-dialog>
+		</paper-dialog>
 
 		
 	</template>

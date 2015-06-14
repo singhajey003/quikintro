@@ -1,4 +1,5 @@
 <!--   -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html" >
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
 
@@ -8,7 +9,7 @@
 	<template>
 		<link rel="stylesheet" href="../qi-cards.css"> 
 
-		<template is="x-if" is="x-if" if="{{url == null}}">
+		<template is="dom-if" if="{{url == null}}">
 			<iron-icon class="photo" icon="social:person" ></iron-icon>
 		</template>
 

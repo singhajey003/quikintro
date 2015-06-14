@@ -1,4 +1,5 @@
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/polymer/layout.html"> 
 
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
@@ -123,7 +124,7 @@
         event:{type: Object},
         personas:{type: Array},
         selected: 0,
-      }
+      },
 
         eventChanged: function(oldEvent, newEvent){
            this.fire('page-changed', {title: newEvent.title});

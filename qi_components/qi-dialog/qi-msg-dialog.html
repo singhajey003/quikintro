@@ -1,21 +1,24 @@
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
-<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 
 <dom-module id='qi-msg-dialog'  > 
 
  	<template>
-		<paper-action-dialog id="msgDialog" heading="Send Message" backdrop>   <!-- class=""Send Message""  // TODO cleanup class= if needed  CONVERTED WIP  --> 
+		<paper-dialog id="msgDialog" heading="Send Message" backdrop>   <!-- class=""Send Message""  // TODO cleanup class= if needed  CONVERTED WIP  --> 
 			<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 			<link rel="stylesheet" href="dialog.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
 		    <paper-auto-decorator label="Message Text">
 		      <textarea id="msgTextArea" name="msgTextArea">{{msgText}}</textarea>
 		    </paper-input-decorator>
 
+		    <div class="buttons">
 		    <paper-button dismissive>Cancel</paper-button>
 		    <paper-button affirmative on-click="sendAction">Send</paper-button> 
-		</paper-action-dialog>
+		    </div>
+		</paper-dialog>
 	</template>
 
 	<script>
@@ -26,7 +29,7 @@
 			contact:{type: Object, value: null},
 			contacts:{type: Array, value: JSON.parse(localStorage.getItem("contacts"))},
 			msgText:{type: String, value: ''}
-		}
+		},
 
 		sendAction: function(e){
 			var date = new Date();

@@ -67,7 +67,7 @@
     			events:{type: Array},
     			personas: {type: Array},
 				selectedEventPage:{type: Number, value:0, notify: true, observer:'selectedEventPageChanged'},
-			}
+			},
 
 			selectedEventPageChanged: function(oldValue, newValue){
 				if (newValue == 0){

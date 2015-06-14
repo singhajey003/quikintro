@@ -4,6 +4,7 @@
 -->
 
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 
@@ -111,7 +112,7 @@
         /** 
          * An array of messages
          */
-        msgs: {type: Array, value: localStorage.getItem("msgs"));
+        msgs: {type: Array, value: localStorage.getItem("msgs")}
       },
 
       ready: function(){

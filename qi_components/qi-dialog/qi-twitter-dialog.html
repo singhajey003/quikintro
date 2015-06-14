@@ -1,18 +1,17 @@
 <!--
-  TODO: paper-action-dialog -> paper-dialog?
-
+ 
 -->
 
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
-
-<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 
 <dom-module id='qi-twitter-dialog'  > 
 
  
 	<template>
 		
-		<paper-action-dialog id="dialog" backdrop>
+		<paper-dialog id="dialog" backdrop>
 		  <link rel="stylesheet" href="dialog.css"> 
 
 		  <paper-autogrow-textarea id="a1" maxRows="3" >
@@ -20,10 +19,12 @@
 	  		</paper-autogrow-textarea>
 		  	<div class="tweetSize">{{tweetSize}} Characters</div>
 
+		  	<div class="buttons">
 		  	<paper-button dismissive>Cancel</paper-button>
 		  	<paper-button id="sendBtn" on-click="sendAction" affirmative>Send</paper-button>  
+		  	</div>
 	  		
-		</paper-action-dialog>
+		</paper-dialog>
 	
 
 	</template>
@@ -33,10 +34,10 @@
    		is: 'qi-twitter-dialog',
 
    		properties:{
-   			hashtag: {type: String, }
+   			hashtag: {type: String},
    			myTweet: {type: String, value: this.hashtag, notify: true, observer: 'myTweetChanged'},
    			tweetSize: {type: Number, value: 140}
-   		}
+   		},
 
 
 		hashtagChanged: function(oldValue, newValue){

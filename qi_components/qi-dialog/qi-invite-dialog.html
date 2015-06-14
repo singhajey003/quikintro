@@ -5,8 +5,8 @@
 -->
 
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
-
-<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html">
 <link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html">
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
@@ -17,7 +17,7 @@
 
 
 	<template>
-		<paper-action-dialog id="dialog" heading="Introduce Yourself" transition="core-transition-bottom" backdrop>
+		<paper-dialog id="dialog" heading="Introduce Yourself" transition="core-transition-bottom" backdrop>
 			<link rel="stylesheet" href="../quikintro.css" > 
 			<link rel="stylesheet" href="dialog.css"> 
 			<div >
@@ -43,11 +43,11 @@
 				<paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox>
 				<paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox>
 			</div>
-
+		 <div class="buttons">
 		  <paper-button dismissive>Cancel</paper-button>
 		  <paper-button affirmative on-click="sendAction">Send</paper-button>   
-
-		</paper-action-dialog>
+		 </div>
+		</paper-dialog>
 
 	</template>
 
@@ -56,8 +56,12 @@
    		is: 'qi-invite-dialog', // CONVERTED WIP 
 
    		properties:{
-			contacts: {type: Array, localStorage.getItem("contacts")},
+			contacts: {type: Array },
 			persona: {type: Object}
+		},
+
+		ready: function(){
+			this.contacts = localStorage.getItem("contacts");
 		},
 
 		selectedTemplateChanged: function(oldValue, newValue){

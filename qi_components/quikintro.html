@@ -1,19 +1,19 @@
-<link rel="import" href="../bower_components/core-scaffold/core-scaffold.html">
-<link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
-<link rel="import" href="../bower_components/core-menu/core-menu.html">
-<link rel="import" href="../bower_components/core-item/core-item.html">
-<link rel="import" href="../bower_components/core-icon-button/core-icon-button.html">
-<link rel="import" href="../bower_components/core-icons/core-icons.html">
-<link rel="import" href="../bower_components/core-icons/maps-icons.html">
-<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="../bower_components/core-menu/core-submenu.html">
-<link rel="import" href="../bower_components/core-pages/core-pages.html">
-<link rel="import" href="../bower_components/core-localstorage/core-localstorage.html">
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../bower_components/paper-menu/core-submenu.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
 
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 
-<link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
-<link rel="import" href="../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+<link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 
 <link rel="import" href="qi-event/qi-event-panel.html">
 <link rel="import" href="qi-aroundme/qi-aroundme-panel.html">
@@ -32,61 +32,64 @@
 <link rel="import" href="qi-custom-icons/qi-custom-svg-icons.html">
 
 
-<polymer-element name="quik-intro">
-
+<dom-module id='quik-intro'  > 
   <template>
-    <link rel="stylesheet" href="quikintro.css" >
-
+    <link rel="stylesheet" href="quikintro.css" > 
     <!-- Data Loading -->
     <qi-globals id="globals"></qi-globals>    
-    <core-ajax auto url="{{$.globals.urls.getPersonas}}" response="{{personaList}}" handleAs="json"></core-ajax>
-    <core-ajax auto url="{{$.globals.urls.events}}" response="{{eventList}}" handleAs="json"></core-ajax>
-    <core-ajax auto url="{{$.globals.urls.contacts}}" response="{{contactList}}" handleAs="json"></core-ajax>
-    <core-ajax auto url="{{$.globals.urls.profile}}" response="{{currProfile}}" handleAs="json"></core-ajax>
+    <iron-ajax auto url="{{$.globals.urls.getPersonas}}" response="{{personaList}}" handle-as="json"></iron-ajax>
+ <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
+    <iron-ajax auto url="{{$.globals.urls.events}}" response="{{eventList}}" handle-as="json"></iron-ajax>
+ <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
+    <iron-ajax auto url="{{$.globals.urls.contacts}}" response="{{contactList}}" handle-as="json"></iron-ajax>
+ <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
+    <iron-ajax auto url="{{$.globals.urls.profile}}" response="{{currProfile}}" handle-as="json"></iron-ajax>
+ <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
 
-     <core-ajax auto url="{{$.globals.urls.messages}}" response="{{msgs}}" handleAs="json"></core-ajax>
+     <iron-ajax auto url="{{$.globals.urls.messages}}" response="{{msgs}}" handle-as="json"></iron-ajax>
+ <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
 
-    <core-localstorage name="msgs" value="{{msgs}}"></core-localstorage>
-    <core-localstorage name="personas" value="{{personaList}}"></core-localstorage>
-    <core-localstorage name="contacts" value="{{contactList}}"></core-localstorage>
-    <core-localstorage name="profile" value="{{currProfile}}"></core-localstorage>
+    <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
+    <iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
+    <iron-localstorage name="contacts" value="{{contactList}}"></iron-localstorage>
+    <iron-localstorage name="profile" value="{{currProfile}}"></iron-localstorage>
  
     <!-- UI -->
     <qi-scaffold id="coreScaffold" responsiveWidth="480px" force-narrow>
 
-      <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
-        <core-toolbar id="core_toolbar" horizontal end-justified layout>
+      <paper-header-panel mode="seamed" id="core_header_panel" navigation class="flex">  
+        <paper-toolbar id="core_toolbar" class="horizontal end-justified layout"> 
 
 
-        </core-toolbar>
-        <core-menu  id="menu" theme="core-light-theme" >
+        </paper-toolbar>
+        <paper-menu  id="menu" theme="core-light-theme" >
 
-          <core-menu selected="{{page}}" valueattr="pageId" >
-            <core-item id="home" icon="home" pageId="home">Home</core-item>
-            <core-item id="events" icon="event"  pageId="events">Events</core-item>
-            <core-item id="aroundme" icon="maps:my-location" pageId="aroundme">Around Me</core-item>
-            <core-item id="messages" icon="communication:forum"  pageId="messages">Messages</core-item>
-            <core-item id="contact" icon="face" pageId="contacts">Contacts</core-item>
-          </core-menu>
+          <paper-menu selected="{{page}}" valueattr="pageId" >
+            <paper-item id="home" icon="home" pageId="home">Home</paper-item>
+            <paper-item id="events" icon="event"  pageId="events">Events</paper-item>
+            <paper-item id="aroundme" icon="maps:my-location" pageId="aroundme">Around Me</paper-item>
+            <paper-item id="messages" icon="communication:forum"  pageId="messages">Messages</paper-item>
+            <paper-item id="contact" icon="face" pageId="contacts">Contacts</paper-item>
+          </paper-menu>
 
           <core-submenu selected="{{page}}" valueattr="pageId" icon="settings" label="Settings">
-              <core-item id="securityItem" pageId="security"> Security</core-item>
-              <core-item id="onboardItem" pageId="onboard"> Accounts</core-item>
-              <core-item id="profileItem" pageId="profile"> Profile</core-item>
-              <core-item id="personaItem" pageId="personas">Personas</core-item>
+              <paper-item id="securityItem" pageId="security"> Security</paper-item>
+              <paper-item id="onboardItem" pageId="onboard"> Accounts</paper-item>
+              <paper-item id="profileItem" pageId="profile"> Profile</paper-item>
+              <paper-item id="personaItem" pageId="personas">Personas</paper-item>
           </core-submenu>
-        </core-menu>
+        </paper-menu>
         
-      </core-header-panel>
+      </paper-header-panel>
 
-      <div id="title" tool horizontal layout center flex>
-        <div flex>{{panelTitle}}</div>
+      <div id="title" tool class="horizontal layout center flex"> 
+        <div flex>{{panelTitle}}</div> 
 
         <div><qi-toggle openIcon="social:person" closedIcon="social:person-outline"></qi-toggle></div>
       </div>
       
       <div class="content">
-      <core-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed fit >
+      <iron-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed class="fit" > 
         
         <section id="Login" pageId="login" selected>
 
@@ -123,7 +126,7 @@
         <section id="Contacts" pageId="contacts">
           <qi-contact-panel id="contactPanel" contacts="{{contactList}}"></qi-contact-panel>
         </section>
-      </core-pages>
+      </iron-pages>
       </div>
     </qi-scaffold>
     <paper-toast id="toast"></paper-toast>
@@ -131,14 +134,18 @@
 
   <script>
 
-    Polymer('quik-intro',{
-      page: 0,
-      panelTitle: 'QuikIntro',
-      eventList: [],
-      contactList: [],
-      personaList: [],
-      contactList: [],
-      currProfile: null,
+    Polymer({
+      is: 'quik-intro', // CONVERTED WIP 
+
+      properties:{
+        page:{type: Number,  value:0, notify: true, observer: 'pageChanged'},
+        panelTitle: {type: String, value: 'QuikIntro'},
+        eventList: {type: Array, value:[], notify: true, observer:'eventListChanged'},
+        contactList: {type: Array, value: [], notify: true, observer:'contactListChanged'},
+        personaList: {type: Array, value: []},
+        contactList: {type: Array, value: []},
+        currProfile: {type: Object, value: null, notify: true, observer: 'currProfileChanged'}
+      },
 
       contactListChanged: function(oldValue, newValue){
         var contactPanel = this.$.contactPanel;
@@ -352,4 +359,23 @@
 
   </script>
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->
