@@ -1,0 +1,43 @@
+<dom-module>
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id='qi-icon-field'  > 
+
+	<template>
+	    <link rel="stylesheet" href="qi-field.css"> 
+		<div class="row flex layout horizontal justified" >  
+	        <div class="labelCell">
+	            <iron-icon icon="{{icon}}"></iron-icon>
+	            <label>{{label}}</label>
+	        </div>
+
+	        <template is="dom-if" if="{{!editable}}">
+	        <div class="fldValue flex"  two>  
+	            {{value}}
+	        </div>
+	        </template>
+
+	        <template is="dom-if" if="{{editable}}">
+	        	<paper-input type="text" label="{{label}}" id="{{id}}" value="{{value}}" floatingLabel="{{floatingLabel}}"></paper-input>
+	        </template>
+	    </div>
+	</template>
+
+	<script>
+	Polymer({
+   		is: 'qi-icon-field', 
+   		properties:{
+   			label:{type: String},
+   			id: {type: String},
+   			value: {type: String},
+   			icon: {type: String},
+   			editable: {type: Boolean, value: false},
+   			floatingLabel: {type: Boolean, value: false}
+   		}
+
+	});
+	</script>
+
+</dom-module> 
+
+
+</dom-module>

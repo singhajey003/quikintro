@@ -7,12 +7,10 @@
 <dom-module id='qi-msg-dialog'  > 
 
  	<template>
-		<paper-dialog id="msgDialog" heading="Send Message" backdrop>   <!-- class=""Send Message""  // TODO cleanup class= if needed  CONVERTED WIP  --> 
-			<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-			<link rel="stylesheet" href="dialog.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
-		    <paper-auto-decorator label="Message Text">
-		      <textarea id="msgTextArea" name="msgTextArea">{{msgText}}</textarea>
-		    </paper-input-decorator>
+		<paper-dialog id="msgDialog" heading="Send Message" backdrop>  
+			<link rel="stylesheet" href="../quikintro.css" > 
+			<link rel="stylesheet" href="dialog.css">
+		    <paper-textarea label="Message Text" value="{{msgText}}"></paper-textarea>
 
 		    <div class="buttons">
 		    <paper-button dismissive>Cancel</paper-button>

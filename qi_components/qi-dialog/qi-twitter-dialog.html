@@ -5,6 +5,7 @@
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 
 <dom-module id='qi-twitter-dialog'  > 
 
@@ -14,9 +15,7 @@
 		<paper-dialog id="dialog" backdrop>
 		  <link rel="stylesheet" href="dialog.css"> 
 
-		  <paper-autogrow-textarea id="a1" maxRows="3" >
-	  		  <textarea class="tweet" value="{{myTweet}}"></textarea>
-	  		</paper-autogrow-textarea>
+		  <paper-textarea id="tweet" value="{{myTweet}}" maxRows="3" ></paper-textarea>
 		  	<div class="tweetSize">{{tweetSize}} Characters</div>
 
 		  	<div class="buttons">

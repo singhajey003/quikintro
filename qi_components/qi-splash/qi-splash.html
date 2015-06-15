@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <dom-module id='qi-splash'  > 
@@ -12,10 +13,10 @@
 	<div class="panel">
 		<div class="logo"></div>
 		<div class="wrapper"> 
-			<paper-input class= label="User ID:" floatingLabel="true"></paper-input><br/>  
-			<paper-input-decorator floatingLabel label="Password:" > 
+			<paper-input label="User ID:" floatingLabel="true"></paper-input><br/>  
+			<paper-input-container floatingLabel label="Password:" > 
 			<input type="password" name="password">
-			</paper-input-decorator>
+			</paper-input-container>
 
 			<paper-button class="btn-light" raised on-click="handleLogin">Login</paper-button> 
 		</div>

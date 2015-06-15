@@ -1,0 +1,29 @@
+<!--
+ This field displays an icon and a label.
+
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="qi-icon-label">
+
+	<template>
+		<div class="layout horizontal">
+			<iron-icon icon="{{icon}}"></iron-icon>
+			<label>{{label}}</label>
+		</div>
+
+	</template>
+
+	<script>
+	Polymer({
+		is:'qi-icon-label',
+		properties:{
+			label:{type: String},
+			icon: {type: String}
+		}
+	})
+
+	</script>
+
+
+</dom-module>

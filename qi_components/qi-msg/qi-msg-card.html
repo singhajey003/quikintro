@@ -1,14 +1,6 @@
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
-<link rel="import" href="../../bower_components/core-field/core-field.html" >
+
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
-<link rel="import" href="../../bower_components/iron-input/iron-input.html" >
-<link rel="import" href="../../bower_components/paper-item/paper-item.html" >
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
-<link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
-<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
 
 <dom-module id='qi-msg-card'  >
 	
@@ -28,11 +20,11 @@
 
 		</div>
 		<div class="mainPanel">
-			<div id="senderBlock"><span class="senderName">{{msg.sender.firstName}} {{msg.sender.lastName}}</span> <span class="time senderBlock senderName {{msg.sender.firstName}} {{msg.sender.lastName}}</span">{{msg.tstamp}}</span></div>   <!-- class=""senderBlock" "senderName" {{msg.sender.firstName}} {{msg.sender.lastName}}</span"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
+			<div id="senderBlock"><span class="senderName">{{msg.sender.firstName}} {{msg.sender.lastName}}</span> <span class="time senderBlock senderName {{msg.sender.firstName}} {{msg.sender.lastName}}</span">{{msg.tstamp}}</span></div> 
 			<div id="titleBlock" >{{msg.msg}}</div>
 
 
-			<div><iron-icon icon="reply" on-click="replyDialog"></iron-icon></div> <!-- TODO change on-click="{{handleClick}}" to on-click="handleClick"  CONVERTED WIP -->  
+			<div><iron-icon icon="reply" on-click="replyDialog"></iron-icon></div> 
 		</div>
 		
 	</div>

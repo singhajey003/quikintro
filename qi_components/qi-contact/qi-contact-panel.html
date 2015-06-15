@@ -9,7 +9,6 @@
 <link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
-<link rel="import" href="../../bower_components/core-field/core-field.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/iron-icons/communication-icons.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
@@ -22,6 +21,8 @@
 <link rel="import" href="../qi-dialog/qi-msg-dialog.html">
 <link rel="import" href="../qi-dialog/qi-mtg-dialog.html">
 
+<link rel="import" href="../qi-field/qi-icon-field.html">
+
 <link rel="import" href="qi-contact-card.html">
 
 <dom-module id='qi-contact-panel'  > 
@@ -31,7 +32,6 @@
 
   <link rel="stylesheet" href="../quikintro.css"> 
   <link rel="stylesheet" href="qi-contact-panel.css"> 
-
 
  
   <paper-scroll-header-panel id="eventHeaderPanel" >
@@ -43,43 +43,24 @@
         </div>
 
         <iron-collapse id="searchPane">
-        <core-field>
-          <iron-icon icon="search"></iron-icon>
-          <paper-input type="text" id="searchText" label="Search Text" ></paper-input>
-        </core-field>
 
-        <core-field>
-          <iron-icon icon="loyalty"></iron-icon>
-          <paper-input label="Tags" type="text" id="tags" floatingLabel="true"></paper-input>
-        </core-field>
+        <div>
+        <qi-icon-field icon="search" id="searchText" label="Search Text"></qi-icon-field>
 
-        <core-field>
-          <iron-icon icon="communication:business"></iron-icon>
-          <paper-input type="text" label="Company" id="company"></paper-input>
-        </core-field>
+        <qi-icon-field icon="loyalty" label="Tags" id="tags" floatingLabel="true"></qi-icon-field>
 
-        <core-field>
-          <iron-icon icon="room"></iron-icon>
-          <paper-input type="text" label="Location" id="location" floatingLabel="true"></paper-input>
-        </core-field>
+        <qi-icon-field icon="communication:business" label="Company" id="company"></qi-icon-field>
 
-        <core-field>
-          <iron-icon icon="work"></iron-icon>
-          <paper-input type="text" label="Title" id="work" floatingLabel="true"></paper-input>
-        </core-field>
+        <qi-icon-field icon="room" label="Location" id="location" floatingLabel="true"></qi-icon-field>
 
-        <core-field>
-          <iron-icon icon="bookmark-outline"></iron-icon>
-          <paper-input type="text" label="Interests" id="interests" floatingLabel="true"></paper-input>
-        </core-field>
+        <qi-icon-field icon="work" label="Title" id="work" floatingLabel="true"></qi-icon-field>
 
-        <core-field>
-          <iron-icon icon="label"></iron-icon>
-          <paper-input type="text" id="skills" label="Skills"></paper-input>
-        </core-field>
+        <qi-icon-field icon="bookmark-outline" label="Interests" id="interests" floatingLabel="true"></qi-icon-field>
+
+        <qi-icon-field icon="label" id="skills" label="Skills"></qi-icon-field>
 
         <paper-button raised >Search</paper-button>
-      </div>
+        </div>
       </iron-collapse>
     
 

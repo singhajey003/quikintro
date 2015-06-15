@@ -5,53 +5,43 @@ TODO
 -->
 
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
-s<link rel="import" href="../../bower_components/core-field/core-field.html" >
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
 
 <link rel="import" href="../qi-toggle/qi-toggle.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
+<link rel="import" href="../qi-field/qi-field.html">
+<link rel="import" href="../qi-field/qi-field-decorator.html">
 
 <dom-module id='qi-job-card'  >
 	
 	<template>
-	<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="../qi-cards.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="qi-job-card.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+	<link rel="stylesheet" href="../quikintro.css" > 
+	<link rel="stylesheet" href="../qi-cards.css" > 
+	<link rel="stylesheet" href="qi-job-card.css" > 
 
 	<div class="card-wrapper"> 
 		<div class="card job">
-			<p>
-				<core-field class="flex">  
-				  <label>Title:</label><span>{{job.title}}</span>
-			  </core-field>
-			</p>
-			<p>
-				<core-field>
-				    <label>Company:</label><span>{{job.company.name}}</span>
-				</core-field>
-			</p>
-			<p>
-				<core-field>
-				    <label>Start Date:</label><span>{{job.startDate.month}}/{{job.startDate.year}}</span> 
-				</core-field>
-			</p>
+
+			<qi-field label="Title:" value="{{job.title}}"></qi-field>
+			<qi-field label="Company:" value="{{job.company.name}}"></qi-field>
+			<qi-field label="Start Date:" value="{{job.startDate.month}}/{{job.startDate.year}}"></qi-field>
+			
+			<qi-field-decorator label="End Date:">
+				<template is="dom-if" if="{{job.endDate == null}}"> 
+			    	<span>Current</span>
+			    </template>
+			    <template is="dom-if" if="{{job.endDate != null}}"> 
+			    	<span>{{job.endDate.month}}/{{job.endDate.year}}</span>  
+			    </template>
+
+			</qi-field-decorator>
 
 
-			<p>
-				<core-field>
-				    <label>End Date:</label>
-				    <template is="dom-if" if="{{job.endDate == null}}"> 
-				    <span>Current</span>
-				    </template>
-				    <template is="dom-if" if="{{job.endDate != null}}"> 
-				    <span>{{job.endDate.month}}/{{job.endDate.year}}</span>  
-				    </template>
-				</core-field>
-			</p>
+			<qi-field-decorator label="Summary">
+				<qi-toggle on-click="toggleAction">Summary</qi-toggle> 
+			</qi-field-decorator>
 
-			<div class="horizontal justified layout center">  
-				<label style="margin-right: 5px;">Summary</label><qi-toggle on-click="toggleAction">Summary</qi-toggle> 
-			</div>
+			
 
 			<iron-collapse id="collapse" opened="false">
 			    <div>{{job.summary}}</div>

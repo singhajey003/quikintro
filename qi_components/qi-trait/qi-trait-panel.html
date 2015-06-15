@@ -29,12 +29,12 @@
             <h3>Attendee Interests</h3> 
 
             <template is="dom-repeat" items="{{event.traitstats.attendeeInterests}}" as="interest"> 
-            <core-label  class="trait-pair horizontal layout"> 
+            <div  class="trait-pair horizontal layout"> 
               <paper-checkbox ></paper-checkbox>
               <div class="vertical layout">  
                 <h4>{{interest.name}} - {{interest.percent}}%</h4>
               </div>
-            </core-label>
+            </div>
             </template>
 
            

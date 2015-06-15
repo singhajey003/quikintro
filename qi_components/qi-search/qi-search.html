@@ -6,16 +6,15 @@ TODO
 
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../bower_components/core-field/core-field.html">
 
 <dom-module id='qi-search'  > 
 <template>
 	<link rel="style" href="qi-search.css">
 
-	<core-field class="center horizontal layout"> 
+	<div class="center horizontal layout"> 
 		<input id="searchText" type="search" placeholder="{{placeholder}}" value="{{searchText}}" class="flex/"> 
 	    <paper-icon-button icon="search" on-click="handleSearch"></paper-icon-button> 
-    </core-field>
+    </div>
 
 </template>
 

@@ -5,7 +5,7 @@ in forms.
 
 It's typically used as follows:
 
-<qi-field-decorator name="My Field:">
+<qi-field-decorator label="My Field:" >
    <input type="text" id="myField" value="{{somevalue}}"/>
 </qi-field>
 
@@ -17,7 +17,7 @@ It's typically used as follows:
 		<link rel="stylesheet" href="qi-field.css"> 
 		<div class="row flex layout horizontal justified" > 
 			<div class="labelCell">
-				<label>{{name}}</label>
+				<label>{{label}}</label>
 			</div>
 			<div class="fldValue flex"  two> 
 				<content></content>
@@ -29,7 +29,7 @@ It's typically used as follows:
 	Polymer({
    		is: 'qi-field-decorator', 
    		properties:{
-   			name: {type: String}
+   			label: {type: String}
    		}
 
 	});

@@ -1,10 +1,10 @@
 <!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 <link rel="import" href="../../bower_components/iron-input/iron-input.html">
-<link rel="import" href="../../bower_components/core-field/core-field.html">
-<link rel="import" href="../../bower_components/core-label/core-label.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-trait/qi-titled-panel.html">
 <link rel="import" href="qi-job-card.html">
@@ -34,10 +34,8 @@
 			</div>
 
 			<h4>Summary:</h4>
-			<div class="summary textfield">
-			<paper-autogrow-textarea id="a1" rows="10" maxRows="11" class="flex">  
-			  <textarea class="profile" id="summary">{{profile.summary}}</textarea>
-			<paper-autogrow-textarea>
+			<div class="summary textfield" >
+			<paper-textarea id="summary" rows="10" maxRows="11" class="flex" value="{{profile.summary}}"><paper-textarea>
 			</div>
 		</div>
 
