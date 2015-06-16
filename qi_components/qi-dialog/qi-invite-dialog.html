@@ -8,8 +8,11 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<!--
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html">
 <link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html">
+-->
+
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
@@ -23,16 +26,18 @@
 			<link rel="stylesheet" href="../quikintro.css" > 
 			<link rel="stylesheet" href="dialog.css"> 
 			<div >
+			<!-- TODO: replace with new dropdown -->
+			<!--
 				<core-dropdown-menu label="Select A Message">
 					<core-dropdown class="dropdown">
 						<iron-selector selected="{{selectedTemplate}}">
 							<template is="dom-repeat" items="{{persona.msgTemplates}}" as="msgTemplate">
-       
 								<paper-item template="{{msgTemplate}}">{{msgTemplate.title}}</paper-item>
 							</template>
 						</iron-selector>
 					</core-dropdown>
 				</core-dropdown-menu>
+				-->
 			</div>
 
 			<div>

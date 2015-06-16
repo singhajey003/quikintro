@@ -83,7 +83,7 @@ TODO: fix core-tooltip -> paper-tooltip
 
    		properties: {
 			contact: {type: Object, value: null, notify: true},
-			visibility:{type: String, value: 'visible', notify: true},
+			visibility:{type: String, value: 'visible', notify: true, observer: 'visibilityChanged'},
 			isOpen: {type: Boolean, value: false},
 			score: {type: Number, value: 0},
 		},
