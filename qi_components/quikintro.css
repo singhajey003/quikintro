@@ -1,0 +1,366 @@
+@font-face {
+  font-family: 'fira-sans-ultralight';
+  src: url("font/firasans-ultralight-webfont.eot");
+  src: url("font/firasans-ultralight-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-ultralight-webfont.woff2") format("woff2"), url("font/firasans-ultralight-webfont.woff") format("woff"), url("font/firasans-ultralight-webfont.ttf") format("truetype"), url("font/firasans-ultralight-webfont.svg#fira_sansultralight") format("svg");
+  font-weight: 100;
+  font-style: normal; }
+@font-face {
+  font-family: 'fira-sans-ultralight';
+  src: url("font/firasans-ultralightitalic-webfont.eot");
+  src: url("font/firasans-ultralightitalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-ultralightitalic-webfont.woff2") format("woff2"), url("font/firasans-ultralightitalic-webfont.woff") format("woff"), url("font/firasans-ultralightitalic-webfont.ttf") format("truetype"), url("font/firasans-ultralightitalic-webfont.svg#fira_sansultralight_italic") format("svg");
+  font-weight: 100;
+  font-style: italic; }
+@font-face {
+  font-family: 'fira-sans-book';
+  src: url("font/firasans-book-webfont.eot");
+  src: url("font/firasans-book-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-book-webfont.woff2") format("woff2"), url("font/firasans-book-webfont.woff") format("woff"), url("font/firasans-book-webfont.ttf") format("truetype"), url("font/firasans-book-webfont.svg#fira_sansbook") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: 'fira-sans-book';
+  src: url("font/firasans-bookitalic-webfont.eot");
+  src: url("font/firasans-bookitalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-bookitalic-webfont.woff2") format("woff2"), url("font/firasans-bookitalic-webfont.woff") format("woff"), url("font/firasans-bookitalic-webfont.ttf") format("truetype"), url("font/firasans-bookitalic-webfont.svg#fira_sansbook_italic") format("svg");
+  font-weight: 300;
+  font-style: italic; }
+@font-face {
+  font-family: 'fira-sans-semibold';
+  src: url("font/firasans-semibold-webfont.eot");
+  src: url("font/firasans-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-semibold-webfont.woff2") format("woff2"), url("font/firasans-semibold-webfont.woff") format("woff"), url("font/firasans-semibold-webfont.ttf") format("truetype"), url("font/firasans-semibold-webfont.svg#fira_sanssemibold") format("svg");
+  font-weight: 600;
+  font-style: normal; }
+@font-face {
+  font-family: 'fira-sans-semibold';
+  src: url("font/firasans-semibolditalic-webfont.eot");
+  src: url("font/firasans-semibolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-semibolditalic-webfont.woff2") format("woff2"), url("font/firasans-semibolditalic-webfont.woff") format("woff"), url("font/firasans-semibolditalic-webfont.ttf") format("truetype"), url("font/firasans-semibolditalic-webfont.svg#fira_sanssemibold_italic") format("svg");
+  font-weight: 600;
+  font-style: italic; }
+@font-face {
+  font-family: 'fira-sans-extrabold';
+  src: url("font/firasans-extrabold-webfont.eot");
+  src: url("font/firasans-extrabold-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-extrabold-webfont.woff2") format("woff2"), url("font/firasans-extrabold-webfont.woff") format("woff"), url("font/firasans-extrabold-webfont.ttf") format("truetype"), url("font/firasans-extrabold-webfont.svg#fira_sansextrabold") format("svg");
+  font-weight: 800;
+  font-style: normal; }
+@font-face {
+  font-family: 'fira-sans-extrabold';
+  src: url("font/firasans-extrabolditalic-webfont.eot");
+  src: url("font/firasans-extrabolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-extrabolditalic-webfont.woff2") format("woff2"), url("font/firasans-extrabolditalic-webfont.woff") format("woff"), url("font/firasans-extrabolditalic-webfont.ttf") format("truetype"), url("font/firasans-extrabolditalic-webfont.svg#fira_sansextrabold_italic") format("svg");
+  font-weight: 800;
+  font-style: italic; }
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'fira-sans-book';
+  color: #2f4146; }
+
+.font-light {
+  font-family: 'fira-sans-ultralight'; }
+
+.font-book {
+  font-family: 'fira-sans-book'; }
+
+.font-bold {
+  font-family: 'fira-sans-semibold'; }
+
+.font-extrabold {
+  font-family: 'fira-sans-extrabold'; }
+
+.reverse {
+  color: white; }
+
+h1, h2, h3 {
+  font-family: 'fira-sans-ultralight'; }
+
+a, a:link, a:visited {
+  color: #17aacf; }
+
+label {
+  font-family: "fira-sans-semibold", sans-serif; }
+
+hr {
+  border: 0;
+  border-top: 1px solid #7ba2b2;
+  margin: 20px 0; }
+
+.btn-light[raised] {
+  background-color: white;
+  color: #2f4146; }
+
+.header-title {
+  color: white; }
+
+:host {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; }
+
+core_scaffold {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px; }
+
+core-scaffold core-toolbar {
+  color: white;
+  background-color: #F38630; }
+
+core-scaffold /deep/ #headerPanel core-toolbar {
+  color: white;
+  background-color: #17aacf; }
+
+core-scaffold /deep/ core-toolbar {
+  color: white;
+  background-color: #7ba2b2; }
+
+core-scaffold /deep/ #eventDetailHeaderPanel core-toolbar {
+  color: white;
+  background-color: #7ba2b2;
+  height: 48px; }
+
+core-menu {
+  font-size: 16px; }
+
+#core_menu_button {
+  left: 68px;
+  top: 14px;
+  position: absolute; }
+
+core-submenu {
+  left: 12px;
+  top: 0px;
+  position: relative; }
+
+core-submenu > core-item {
+  padding-left: 10px;
+  font-size: 10pt; }
+
+core-submenu > core-submenu {
+  font-size: 8pt;
+  margin-top: -5px;
+  margin-bottom: -5px; }
+
+core-submenu > core-submenu[label] {
+  font-size: 10pt; }
+
+core-toolbar {
+  background-color: #7ba2b2;
+  height: 40px; }
+
+core-header-panel > core-toolbar {
+  background-color: #17aacf;
+  color: white;
+  height: 64px; }
+
+core-pages {
+  left: 260px;
+  top: 70px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-color: #ebebeb;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: -500px -25px; }
+
+core-pages .content {
+  padding: 30px; }
+
+core_pages > section {
+  background-color: #eeeeee; }
+
+core-scroll-header-panel {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+  visibility: visible;
+  padding: 20px;
+  overflow: auto; }
+
+.content {
+  padding: 20px 30px;
+  background-color: #ebebeb;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: -500px -100px;
+  overflow: auto; }
+
+input#searchText[is=core-input] {
+  width: 100px;
+  background-color: #fff;
+  font-size: 16px;
+  padding: 4px 16px; }
+
+.search-panel {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px; }
+
+/* some default styles for mode="cover" on core-scaffold */
+core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
+  left: 120px; }
+
+core-scaffold[mode=cover] .content {
+  margin: 20px 100px 20px 0; }
+
+section {
+  overflow: auto; }
+
+/* Search Text Field */
+input[type=search] {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 4px 16px; }
+
+/** Default icon styling. */
+core-icon {
+  height: 20px;
+  width: 20px;
+  border: 0; }
+
+.padding {
+  padding: 15px; }
+
+h4 {
+  color: #7ba2b2;
+  text-transform: uppercase;
+  margin: 5px 0;
+  font-size: 10pt; }
+
+.settings-row {
+  border-bottom: 1px solid #ebebeb;
+  padding: 10px 0;
+  margin: 0 10px;
+  font-size: 10pt; }
+
+core-input {
+  color: #17aacf;
+  cursor: pointer; }
+
+/* Tabs */
+paper-tabs {
+  height: 40px;
+  color: white;
+  margin: 0 -5px !important;
+  text-transform: uppercase; }
+  paper-tabs::shadow #selectionBar {
+    background-color: transparent; }
+  paper-tabs paper-tab::shadow #ink {
+    color: #526b75; }
+  paper-tabs::shadow .scroll-button {
+    width: 35px;
+    height: 40px;
+    padding: 0;
+    background-color: #6592a4; }
+    paper-tabs::shadow .scroll-button > paper-icon-button {
+      padding: 7px 5px; }
+
+/* Dropdowns */
+core-dropdown-menu {
+  border-radius: 2px;
+  padding: 0 0 0 10px;
+  font-size: 11pt; }
+
+core-dropdown {
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.2); }
+
+core-dropdown core-item {
+  padding: 0 10px; }
+
+/* Buttons */
+paper-button a, paper-button a:link, paper-button a:visited {
+  text-decoration: none; }
+
+/* Paper FAB */
+::shadow paper-fab {
+  margin: 5px 15px; }
+
+core-header-panel#headerPanel > core-toolbar /deep/ core-icon-button.qi-logo {
+  margin: 0; }
+
+core-icon-button.qi-logo /deep/ core-icon {
+  width: 40px;
+  height: 40px; }
+
+core-icon-button.qi-logo /deep/ circle {
+  color: #ffffff;
+  opacity: 0.20;
+  stroke: #ffffff;
+  stroke-width: 10; }
+
+core-icon-button.qi-logo /deep/ circle#center-fill {
+  color: #ffffff;
+  opacity: 0.1; }
+
+core-icon-button.qi-logo /deep/ circle#center-stroke {
+  opacity: 1;
+  stroke: #ffffff;
+  stroke-width: 10; }
+
+paper-action-dialog {
+  font-family: "fira-sans-ultralight", sans-serif;
+  width: 90%;
+  max-width: 450px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
+
+paper-action-dialog::shadow h1 {
+  margin-top: 0; }
+
+paper-action-dialog::shadow #actions {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 1px solid #7ba2b2;
+  padding: 0;
+  background-color: rgba(156, 194, 201, 0.6); }
+
+paper-action-dialog paper-button {
+  font-family: "fira-sans-book", sans-serif; }
+
+paper-action-dialog::shadow #scroller {
+  padding: 20px; }
+
+paper-action-dialog /deep/ core-icon {
+  height: 50px !important;
+  width: 50px !important; }
+
+paper-autogrow-textarea, paper-input-decorator, paper-input {
+  width: 100%;
+  max-width: 400px;
+  min-width: 250px;
+  margin-top: 3px; }
+
+paper-input {
+  display: block; }
+
+paper-autogrow-textarea::shadow ::content textarea {
+  border: 1px solid #7ba2b2;
+  padding: 5px;
+  box-sizing: border-box;
+  min-height: 20px; }
+
+div.checkbox-row {
+  margin-top: 10px; }
+
+paper-checkbox {
+  margin-right: 20px;
+  margin-bottom: 10px; }
+
+.tweetSize {
+  font-family: "fira-sans-book", sans-serif;
+  font-size: 8pt;
+  text-align: right;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  margin-top: 10px;
+  color: #949c9e; }
