@@ -1,0 +1,124 @@
+
+#onboardpanel{
+	padding-left: 20px;
+	padding-top: 20px;
+
+}
+
+#iconPanel{
+	width: 200px;
+	margin-left: 50px;
+	border-radius: 5px;
+}
+
+qi-onboard-card{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.title{
+	font-size: 14pt;
+	padding-left: 20px;
+	color: #505050;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+
+core-collapse{
+	margin: 10px;
+	background-color: white;
+	min-height: 100px;
+	color: #555;
+	padding: 10px;
+	border-radius: 4px;
+}
+
+
+.linkedin{
+	background-color: #565656;
+	color: white;
+	border: 1px solid #565656;
+}
+
+.linkedin > .buttonPanel{
+	background-color: #565656;
+}
+
+.linkedin > #collapse > paper-button{
+	background-color: #505050;
+	color: white;
+}
+
+
+.facebook{
+	background-color: #44619D;
+	color: white;
+	border: 1px solid #44619D;
+}
+
+.facebook > #collapse > paper-button{
+	background-color: #44619D;
+	color: white;
+}
+
+.facebook > .buttonPanel{
+	background-color: #44619D;
+}
+
+.twitter{
+	background-color: #55ACEE;
+	color: white;
+	border: 1px solid #55ACEE;
+}
+
+.twitter > #collapse > paper-button{
+	background-color: #55ACEE;
+	color: white;
+}
+
+
+.twitter > .buttonPanel{
+	background-color: #55ACEE;
+}
+
+.google{
+	background-color: #DD4B39;
+	color: white;
+	border: 1px solid #DD4B39;
+}
+
+.google > .buttonPanel{
+	background-color: #DD4B39;
+}
+
+.google > #collapse > paper-button{
+	background-color: #DD4B39;
+	color: white;
+}
+
+
+.eventbrite{
+	background-color: #6C9646;
+	color: white;
+	border: 1px solid #6C9646;
+}
+
+.eventbrite > .buttonPanel{
+	background-color: #6C9646;
+}
+
+.eventbrite > #collapse > paper-button{
+	background-color: #6C9646;
+	color: white;
+}
+
+
+.meetup{
+	background-color: white;
+	color: black;
+	border: 1px solid white;
+}
+
+
+
