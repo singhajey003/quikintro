@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'fira-sans-ultralight';
+  src: url("font/firasans-ultralight-webfont.eot");
+  src: url("font/firasans-ultralight-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-ultralight-webfont.woff2") format("woff2"), url("font/firasans-ultralight-webfont.woff") format("woff"), url("font/firasans-ultralight-webfont.ttf") format("truetype"), url("font/firasans-ultralight-webfont.svg#fira_sansultralight") format("svg");
+  font-weight: 100;
+  font-style: normal; }
+@font-face {
+  font-family: 'fira-sans-ultralight';
+  src: url("font/firasans-ultralightitalic-webfont.eot");
+  src: url("font/firasans-ultralightitalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-ultralightitalic-webfont.woff2") format("woff2"), url("font/firasans-ultralightitalic-webfont.woff") format("woff"), url("font/firasans-ultralightitalic-webfont.ttf") format("truetype"), url("font/firasans-ultralightitalic-webfont.svg#fira_sansultralight_italic") format("svg");
+  font-weight: 100;
+  font-style: italic; }
+@font-face {
+  font-family: 'fira-sans-book';
+  src: url("font/firasans-book-webfont.eot");
+  src: url("font/firasans-book-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-book-webfont.woff2") format("woff2"), url("font/firasans-book-webfont.woff") format("woff"), url("font/firasans-book-webfont.ttf") format("truetype"), url("font/firasans-book-webfont.svg#fira_sansbook") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: 'fira-sans-book';
+  src: url("font/firasans-bookitalic-webfont.eot");
+  src: url("font/firasans-bookitalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-bookitalic-webfont.woff2") format("woff2"), url("font/firasans-bookitalic-webfont.woff") format("woff"), url("font/firasans-bookitalic-webfont.ttf") format("truetype"), url("font/firasans-bookitalic-webfont.svg#fira_sansbook_italic") format("svg");
+  font-weight: 300;
+  font-style: italic; }
+@font-face {
+  font-family: 'fira-sans-semibold';
+  src: url("font/firasans-semibold-webfont.eot");
+  src: url("font/firasans-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-semibold-webfont.woff2") format("woff2"), url("font/firasans-semibold-webfont.woff") format("woff"), url("font/firasans-semibold-webfont.ttf") format("truetype"), url("font/firasans-semibold-webfont.svg#fira_sanssemibold") format("svg");
+  font-weight: 600;
+  font-style: normal; }
+@font-face {
+  font-family: 'fira-sans-semibold';
+  src: url("font/firasans-semibolditalic-webfont.eot");
+  src: url("font/firasans-semibolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-semibolditalic-webfont.woff2") format("woff2"), url("font/firasans-semibolditalic-webfont.woff") format("woff"), url("font/firasans-semibolditalic-webfont.ttf") format("truetype"), url("font/firasans-semibolditalic-webfont.svg#fira_sanssemibold_italic") format("svg");
+  font-weight: 600;
+  font-style: italic; }
+@font-face {
+  font-family: 'fira-sans-extrabold';
+  src: url("font/firasans-extrabold-webfont.eot");
+  src: url("font/firasans-extrabold-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-extrabold-webfont.woff2") format("woff2"), url("font/firasans-extrabold-webfont.woff") format("woff"), url("font/firasans-extrabold-webfont.ttf") format("truetype"), url("font/firasans-extrabold-webfont.svg#fira_sansextrabold") format("svg");
+  font-weight: 800;
+  font-style: normal; }
+@font-face {
+  font-family: 'fira-sans-extrabold';
+  src: url("font/firasans-extrabolditalic-webfont.eot");
+  src: url("font/firasans-extrabolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-extrabolditalic-webfont.woff2") format("woff2"), url("font/firasans-extrabolditalic-webfont.woff") format("woff"), url("font/firasans-extrabolditalic-webfont.ttf") format("truetype"), url("font/firasans-extrabolditalic-webfont.svg#fira_sansextrabold_italic") format("svg");
+  font-weight: 800;
+  font-style: italic; }
+.panel {
+  background-color: #17a8cc;
+  background-size: contain;
+  width: 100%;
+  height: 100%; }
+
+.logo {
+  background: transparent url("../../images/logo_slogan.svg") center top no-repeat;
+  width: 50%;
+  max-width: 300px;
+  min-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: contain;
+  height: 200px;
+  padding: 20px; }
+
+.wrapper {
+  width: 50%;
+  max-width: 300px;
+  min-width: 200px;
+  padding: 20px; }
+
+paper-input {
+  width: 100%; }
+
+paper-input.reverse /deep/ .label-text,
+paper-input.reverse /deep/ paper-input-decorator[focused] /deep/ .floated-label .label-text,
+paper-input.reverse /deep/ ::-webkit-input-placeholder,
+paper-input-decorator.reverse /deep/ .label-text,
+paper-input-decorator.reverse[focused] /deep/ .label-text,
+paper-input-decorator.reverse /deep/ ::-webkit-input-placeholder {
+  color: white; }
+
+paper-input /deep/ .focused-underline,
+paper-input /deep/ .unfocused-underline,
+paper-input-decorator /deep/ .focused-underline,
+paper-input-decorator /deep/ .unfocused-underline {
+  background-color: white; }

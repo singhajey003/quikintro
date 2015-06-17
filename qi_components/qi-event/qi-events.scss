@@ -1,0 +1,49 @@
+@import '../sass/_config';
+
+core-pages {
+  top: 0;
+  left: 0;
+}
+
+.eventNewMatches {
+	margin-right: 4px; 
+	min-width: 80px;
+	text-align: center;
+	line-height: 0.95;
+}
+
+.match-count {
+	font-size: 40pt; 
+}
+
+.bottomLabel {
+	text-transform: uppercase;
+	font-size: 11pt;
+	line-height: 1.2;
+}
+
+.eventStats {
+	font-size: 14pt;
+	line-height: 1.6;
+
+	span {
+		width: 40px;
+		text-align: right;
+		display: inline-block;
+	}
+}
+
+label{
+	padding-top: 5px;
+	font-family: Verdana;
+	font-size: 10px;
+}
+
+google-map {
+  height: 400px;
+  width: 400px;
+}
+
+
+
+

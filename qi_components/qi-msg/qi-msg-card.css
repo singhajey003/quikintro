@@ -1,0 +1,64 @@
+#titleBlock{
+    color: #505050;
+    font-size: 8pt;
+}
+#summaryBlock{
+	font-size: 8pt;
+	color: #505050;
+}
+
+#card{
+	background-color: white;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #fff;
+	min-height: 56px;
+}
+
+core-field > label {
+	font-size: 10pt;
+	color: #526E9C;
+}
+
+core-field > span{
+	padding-left: 5px;
+	font-size: 8pt;
+}
+
+label{
+	font-size: 10pt;
+	color: #526E9C;
+}
+
+span{
+	padding-left: 5px;
+	font-size: 8pt;
+}
+
+
+.senderName{
+	color: black;
+	font-size: 10pt;
+}
+.time{
+	color: #909090;
+	font-size: 8pt;
+}
+#collapse{
+	font-size: 8pt;
+}
+
+.avatar{
+	height: 50px;
+	width: 50px;
+	border-radius: 5px;
+	padding: 3px;
+}
+.avatarPanel{
+	min-width: 60px;
+	min-height: 70px;
+}
+
+.mainPanel{
+	margin-left: 5px;
+}

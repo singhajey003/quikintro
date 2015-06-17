@@ -1,0 +1,70 @@
+/** The block containing the first and last names. */
+#nameBlock {
+  font-size: 8pt;
+  color: #17a8cc; }
+
+back-container {
+  display: table; }
+
+core-field {
+  display: table-row;
+  margin-bottom: 5px; }
+
+core-field > label {
+  font-size: 11pt;
+  color: #526E9C;
+  vertical-align: top;
+  padding-right: 3px;
+  display: table-cell; }
+
+core-field > span {
+  padding-left: 5px;
+  font-size: 9pt;
+  display: table-cell; }
+
+paper-autogrow-textarea {
+  width: 150px;
+  height: 50px;
+  float: right;
+  display: table-cell; }
+
+/** The avatar image used for the contact. */
+polymer-ui-ratings {
+  width: 80px; }
+
+.cardWhite {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: block;
+  border: 1px solid #bce6d5; }
+
+#card[flip="back"] > #front {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  display: none; }
+
+#card[flip="back"] > #back {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  display: block; }
+
+#card[flip="front"] > #front {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  display: block; }
+
+#card[flip="front"] > #back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  display: none; }
+
+core-icon,
+core-icon-button {
+  color: #505050; }
+
+core-icon[icon='social:person'] {
+  height: 60px;
+  width: 55px;
+  color: #bce6d5; }

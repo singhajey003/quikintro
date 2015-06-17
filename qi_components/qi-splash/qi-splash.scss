@@ -1,0 +1,47 @@
+@import '../sass/_config';
+
+.panel {
+  background-color: #17a8cc;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  background: transparent url('../../images/logo_slogan.svg') center top no-repeat;
+  width: 50%;
+  max-width: 300px;
+  min-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: contain;
+  height: 200px;
+  padding: 20px;
+}
+
+.wrapper {
+  width: 50%;
+  max-width: 300px;
+  min-width: 200px;
+  padding: 20px;
+}
+
+paper-input {
+	width: 100%;
+}
+
+paper-input.reverse /deep/ .label-text,
+paper-input.reverse /deep/ paper-input-decorator[focused] /deep/ .floated-label .label-text,
+paper-input.reverse /deep/ ::-webkit-input-placeholder,
+paper-input-decorator.reverse /deep/ .label-text,
+paper-input-decorator.reverse[focused] /deep/ .label-text,
+paper-input-decorator.reverse /deep/ ::-webkit-input-placeholder  {
+  color: $white;
+}
+
+paper-input /deep/ .focused-underline,
+paper-input /deep/ .unfocused-underline,
+paper-input-decorator /deep/ .focused-underline,
+paper-input-decorator /deep/ .unfocused-underline {
+	background-color: $white;
+}
