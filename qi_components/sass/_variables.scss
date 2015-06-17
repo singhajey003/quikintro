@@ -1,0 +1,48 @@
+
+
+// ------------------- Color Variables --------------------
+
+// Color definitions
+
+
+$white: hsla(0, 0%, 100%, 1);
+$qi-blue: hsla(192, 80%, 45%, 1);
+$qi-blue-light: hsla(190, 30%, 70%, 0.6);
+$qi-green: hsla(167, 63%, 50%, 1);
+$qi-green-light: hsla(157, 63%, 80%, 1);
+$qi-gray: hsla(197, 26%, 59%, 1);
+$qi-gray-light: hsla(0, 0%, 92%, 1);
+$qi-gray-light2: hsla(0, 0%, 80%, 1);
+$qi-gray-dark: hsla(195, 20%, 23%, 1);
+$qi-gray-dark2: hsla(197, 18%, 39%, 1); //not sure where this is used yet - potentially remove
+$qi-gray-dark3: hsla(195, 5%, 60%, 1);
+
+// Color assignments
+$reverse: $white;
+$header: $qi-blue;
+$links: $qi-blue;
+$papertabs: $qi-gray;
+$lighttext: $qi-gray;
+$background: $qi-gray-light;
+$text-default: $qi-gray-dark;
+$trait-background: $qi-gray-light2;
+$trait-wrapper-background: $qi-gray-light;
+$text-caption: $qi-gray-dark3;
+
+//Borders
+$border: 1px solid $qi-gray;
+$border-reverse: 1px solid $reverse;
+$border-reverse: 1px solid hsla(0, 0%, 100%, 0.4);
+
+
+$backgroundImage: none;
+
+
+// ------------------- Font Variables --------------------
+
+$font-light: 'fira-sans-ultralight', sans-serif;
+$font-regular: 'fira-sans-book', sans-serif;
+$font-bold: 'fira-sans-semibold', sans-serif;
+$font-extrabold: 'fira-sans-extrabold', sans-serif;
+
+$page-padding: 15px;
