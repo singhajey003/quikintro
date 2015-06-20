@@ -25,7 +25,7 @@ qi-onboard-card{
 }
 
 
-core-collapse{
+iron-collapse{
 	margin: 10px;
 	background-color: white;
 	min-height: 100px;
@@ -45,7 +45,7 @@ core-collapse{
 	background-color: #565656;
 }
 
-.linkedin > #collapse > paper-button{
+.linkedin > paper-button{
 	background-color: #505050;
 	color: white;
 }
@@ -57,7 +57,7 @@ core-collapse{
 	border: 1px solid #44619D;
 }
 
-.facebook > #collapse > paper-button{
+.facebook >  paper-button{
 	background-color: #44619D;
 	color: white;
 }
@@ -72,7 +72,7 @@ core-collapse{
 	border: 1px solid #55ACEE;
 }
 
-.twitter > #collapse > paper-button{
+.twitter > paper-button{
 	background-color: #55ACEE;
 	color: white;
 }
@@ -92,7 +92,7 @@ core-collapse{
 	background-color: #DD4B39;
 }
 
-.google > #collapse > paper-button{
+.google > paper-button{
 	background-color: #DD4B39;
 	color: white;
 }
@@ -108,7 +108,7 @@ core-collapse{
 	background-color: #6C9646;
 }
 
-.eventbrite > #collapse > paper-button{
+.eventbrite > paper-button{
 	background-color: #6C9646;
 	color: white;
 }

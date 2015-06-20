@@ -26,26 +26,6 @@
   padding: 20px;
 }
 
-paper-input {
-	width: 100%;
-}
-
-paper-input.splash-fld{
-  --paper-input-container-input-color: white;
-}
-
-paper-input.reverse .label-text,
-paper-input.reverse  paper-input-decorator[focused] /deep/ .floated-label .label-text,
-paper-input.reverse  ::-webkit-input-placeholder,
-paper-input-decorator.reverse  .label-text,
-paper-input-decorator.reverse[focused]  .label-text,
-paper-input-decorator.reverse ::-webkit-input-placeholder  {
-  color: $white;
-}
-
-paper-input /deep/ .focused-underline,
-paper-input /deep/ .unfocused-underline,
-paper-input-decorator /deep/ .focused-underline,
-paper-input-decorator /deep/ .unfocused-underline {
-	background-color: $white;
+paper-input.splash{
+  --paper-input-color: white;
 }

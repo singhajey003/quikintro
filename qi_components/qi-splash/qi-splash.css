@@ -20,28 +20,3 @@
   max-width: 300px;
   min-width: 200px;
   padding: 20px; }
-
-paper-input {
-  width: 100%; 
-  --paper-input-color: white;
-}
-
-.splash-fld{
-  --paper-input-container-color: white;
-}
-
-/*
-paper-input.reverse  .label-text,
-paper-input.reverse paper-input-container[focused] .floated-label .label-text,
-paper-input.reverse  ::-webkit-input-placeholder,
-paper-input-container.reverse .label-text,
-paper-input-container.reverse[focused] .label-text,
-paper-input-container.reverse ::-webkit-input-placeholder {
-  color: white; }
-
-paper-input .focused-underline,
-paper-input .unfocused-underline,
-paper-input-container .focused-underline,
-paper-input-container .unfocused-underline {
-  background-color: white; }
-*/

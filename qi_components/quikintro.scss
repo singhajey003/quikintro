@@ -249,50 +249,6 @@ paper-fab {
   margin: 5px $page-padding;
 }
 
-paper-header-panel#headerPanel > paper-toolbar > iron-icon-button.qi-logo {
-  margin: 0;
-}
-
-paper-icon-button.qi-logo iron-icon {
-  width: 40px;
-  height: 40px;
-}
-
-paper-icon-button.qi-logo circle {
-  color: #ffffff;
-  opacity: 0.20;
-  stroke: #ffffff;
-  stroke-width: 10;
-}
-paper-icon-button.qi-logo circle#center-fill {
-  color: #ffffff;
-  opacity: 0.1;
-}
-
-paper-icon-button.qi-logo circle#center-stroke {
-  opacity: 1;
-  stroke: #ffffff;
-  stroke-width: 10;
-}
-
-
-paper-textarea, paper-input-decorator, paper-input {
-  width: 100%;
-  max-width: 400px;
-  min-width: 250px;
-  margin-top: 3px;
-}
-
-paper-input {
-  display: block;
-}
-
-paper-textarea ::content textarea {
-  border: $border;
-  padding: 5px;
-  box-sizing: border-box;
-  min-height: 20px;
-}
 
 div.checkbox-row {
   margin-top: 10px;

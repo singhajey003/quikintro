@@ -13,14 +13,14 @@
 
 	<style >
 
-		#iconBtn {
+		.iconBtn {
 			color: var(--icon-color);
 		}
 
 	</style>
 
 	<template>
-		<paper-icon-button id="iconBtn" icon="{{currIcon}}" on-click="toggleAction"></paper-icon-button> 
+		<paper-icon-button class="iconBtn" icon="{{currIcon}}" on-click="toggleAction"></paper-icon-button> 
 	</template>
 
 	<script>
@@ -31,14 +31,14 @@
 				/**
 				 * The open icon name as defined in the iron-icons iconset.
 				 */
-				openIcon:{type: String, value:'expand-less'},
+				openIcon:{type: String, value:'expand-less', notify: true, readonly: false},
 
 
 
 				/**
 				 * The closed icon name as defined in the iron-icons iconset.
 				 */
-				closedIcon:{type: String,  value:'expand-more'},
+				closedIcon:{type: String,  value:'expand-more', notify: true, readonly: false},
 
 				/**
 				 * The current icon.

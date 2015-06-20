@@ -33,6 +33,14 @@
 <link rel="import" href="qi-theme.html">
 
 <dom-module id='quik-intro'  > 
+
+  <style>
+    qi-toggle.anonToggle{
+      color: white;
+    }
+
+  </style>
+
   <template>
     <link rel="stylesheet" href="quikintro.css" > 
     <!-- Data Loading -->
@@ -79,8 +87,7 @@
 
       <div id="title" tool class="horizontal layout center flex"> 
         <div class="flex">{{panelTitle}}</div> 
-
-        <div><qi-toggle openIcon="social:person" closedIcon="social:person-outline"></qi-toggle></div>
+        <div><qi-toggle class="anonToggle" openIcon="social:person" closedIcon="social:person-outline"></qi-toggle></div>
       </div>
       
       <div class="content">

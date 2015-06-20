@@ -19,7 +19,7 @@ fieldset{
 	vertical-align: top;
 	margin-left: 30px;
 }
-.iconFld > core-icon{
+.iconFld > iron-icon{
 	vertical-align: top;
 	height: 20px;
 	weight: 20px;

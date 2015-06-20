@@ -6,8 +6,10 @@
 
 <dom-module id='qi-onboard-card'  > 
 
+<link rel="stylesheet" href="qi-onboard.css">
+
 <template>
-	<link rel="stylesheet" href="qi-onboard.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
+	
 	<div id="iconPanel" class="{{clazz}}">
 
 		<div id="buttonPanel">
@@ -41,9 +43,9 @@ Polymer({
   	clazz: {type: String}
   },
 
-      toggleAction: function(evt){
-      	this.$.collapse.toggle();
-      }
+  toggleAction: function(evt){
+  	this.$.collapse.toggle();
+  }
 		
 });
 

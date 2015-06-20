@@ -90,7 +90,7 @@ paper-scroll-header-panel {
   background-position: -500px -100px;
   overflow: auto; }
 
-input#searchText[is=core-input] {
+input#searchText[is=paper-input] {
   width: 100px;
   background-color: #fff;
   font-size: 16px;
@@ -103,7 +103,7 @@ input#searchText[is=core-input] {
   margin-bottom: 20px; }
 
 /* some default styles for mode="cover" on core-scaffold */
-qi-scaffold[mode=cover] core-header-panel #mainContainer {
+qi-scaffold[mode=cover] paper-header-panel #mainContainer {
   left: 120px; }
 
 qi-scaffold[mode=cover] .content {
@@ -120,7 +120,7 @@ input[type=search] {
   padding: 4px 16px; }
 
 /** Default icon styling. */
-core-icon {
+iron-icon {
   height: 20px;
   width: 20px;
   border: 0; }
@@ -140,9 +140,7 @@ h4 {
   margin: 0 10px;
   font-size: 10pt; }
 
-paper-input {
-  color: #17aacf;
-  cursor: pointer; }
+
 
 /* Dropdowns */
 paper-dropdown-menu {
@@ -153,7 +151,7 @@ paper-dropdown-menu {
 paper-dropdown {
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.2); }
 
-paper-dropdown core-item {
+paper-dropdown paper-item {
   padding: 0 10px; }
 
 /* Buttons */
@@ -164,25 +162,7 @@ paper-button a, paper-button a:link, paper-button a:visited {
 paper-fab {
   margin: 5px 15px; }
 
-paper-header-panel#headerPanel > paper-toolbar > iron-icon-button.qi-logo {
-  margin: 0; }
 
-
-
-paper-textarea, paper-input-decorator, paper-input {
-  width: 100%;
-  max-width: 400px;
-  min-width: 250px;
-  margin-top: 3px; }
-
-paper-input {
-  display: block; }
-
-paper-textarea ::content textarea {
-  border: 1px solid #7ba2b2;
-  padding: 5px;
-  box-sizing: border-box;
-  min-height: 20px; }
 
 div.checkbox-row {
   margin-top: 10px; }
@@ -190,6 +170,7 @@ div.checkbox-row {
 paper-checkbox {
   margin-right: 20px;
   margin-bottom: 10px; }
+
 
 .tweetSize {
   font-family: "fira-sans-book", sans-serif;
