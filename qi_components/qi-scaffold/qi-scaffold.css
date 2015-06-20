@@ -1,0 +1,31 @@
+paper-toolbar {
+  color: $white;
+  background-color: #17a8cc;
+  font-family: Verdana;
+}
+
+paper-icon-button.qi-logo iron-icon {
+  width: 40px;
+  height: 40px; 
+  color: white;
+}
+
+paper-icon-button.qi-logo circle {
+  color: #ffffff;
+  opacity: 0.20;
+  stroke: #ffffff;
+  stroke-width: 10; 
+}
+
+paper-icon-button.qi-logo circle#center-fill {
+  color: #ffffff;
+  opacity: 0.1; 
+}
+
+paper-icon-button.qi-logo circle#center-stroke {
+  opacity: 1;
+  stroke: #ffffff;
+  stroke-width: 10; 
+}
+
+

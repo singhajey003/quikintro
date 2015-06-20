@@ -15,15 +15,7 @@
 	min-height: 56px;
 }
 
-core-field > label {
-	font-size: 10pt;
-	color: #526E9C;
-}
 
-core-field > span{
-	padding-left: 5px;
-	font-size: 8pt;
-}
 
 label{
 	font-size: 10pt;

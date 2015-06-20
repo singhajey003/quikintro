@@ -1,24 +1,28 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
+<link rel="import" href="../qi-theme.html">
+
 <dom-module id='qi-splash'  > 
 
+
+	<link rel="stylesheet" href="qi-splash.css" > 
+
+
 <template>
-	<link rel="stylesheet" href="qi-splash.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<div class="panel">
+	<div class="panel fit">
 		<div class="logo"></div>
 		<div class="wrapper"> 
-			<paper-input label="User ID:" floatingLabel="true"></paper-input><br/>  
-			<paper-input-container floatingLabel label="Password:" > 
+			<paper-input class="splash" label="User ID:" floatingLabel="true"></paper-input><br/>  
+			<paper-input-container class="splash-fld" floatingLabel="true" label="Password:" > 
 			<input type="password" name="password">
 			</paper-input-container>
 
-			<paper-button class="btn-light" raised on-click="handleLogin">Login</paper-button> 
+			<paper-button class="noink raised" on-click="handleLogin">Login</paper-button> 
 		</div>
 	</div>
 

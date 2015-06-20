@@ -82,15 +82,13 @@ TODO: fix core-tooltip -> paper-tooltip
    		is: 'qi-contact-card', 
 
    		properties: {
-			contact: {type: Object, value: null, notify: true},
+			contact: {type: Object, value: null, notify: true, observer: 'contactChanged'},
 			visibility:{type: String, value: 'visible', notify: true, observer: 'visibilityChanged'},
 			isOpen: {type: Boolean, value: false},
 			score: {type: Number, value: 0},
 		},
 
-		filterChanged: function(oldFilter, newFilter){
-			this.visibility = (this.score >= newFilter )? "visible":"hidden";
-		},
+		
 		contactChanged: function(oldContact, newContact){
 			this.score = newContact.score;
 		},

@@ -8,16 +8,19 @@ input{background-color: white;}
   padding: 30px;
 }
 
-core-pages{
+iron-pages{
 	left: 0px;
 	margin-top: 0px;
 	top: 0px;
 }
+/*
 paper-tabs{
 	width: 100%;
 }
-core-toolbar{
+paper-toolbar{
 	height: 52px;
+	width: 100%;
 }
+*/
 
 

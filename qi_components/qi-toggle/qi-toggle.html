@@ -7,7 +7,17 @@
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html" >
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html" >
 
+<link rel="import" href="../qi-theme.html">
+
 <dom-module id='qi-toggle'  > 
+
+	<style >
+
+		#iconBtn {
+			color: var(--icon-color);
+		}
+
+	</style>
 
 	<template>
 		<paper-icon-button id="iconBtn" icon="{{currIcon}}" on-click="toggleAction"></paper-icon-button> 
@@ -15,13 +25,15 @@
 
 	<script>
 		Polymer({
-    		is: 'qi-toggle', // CONVERTED WIP 
+    		is: 'qi-toggle', 
 
     		properties:{
 				/**
 				 * The open icon name as defined in the iron-icons iconset.
 				 */
 				openIcon:{type: String, value:'expand-less'},
+
+
 
 				/**
 				 * The closed icon name as defined in the iron-icons iconset.

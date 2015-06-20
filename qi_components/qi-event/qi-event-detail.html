@@ -17,8 +17,6 @@
 <link rel="import" href="../qi-dialog/qi-mtg-dialog.html">
 
 
-
-<link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail-match.html">
 <link rel="import" href="qi-meeting-card.html">
@@ -30,18 +28,16 @@
 
 <dom-module id='qi-event-detail'  > 
 
+  <link rel="stylesheet" href="../quikintro.css" > 
+  <link rel="stylesheet" href="qi-events.css" >
+  <link rel="stylesheet" href="qi-event-detail.css" >
+  <link rel="stylesheet" href="../qi-cards.css" >
+
   <template>
-  <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-  <link rel="stylesheet" href="qi-events.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-  <link rel="stylesheet" href="qi-event-detail.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-  <link rel="stylesheet" href="../qi-cards.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-  <link rel="stylesheet" href="../qi-trait/traitlist.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-
-
   
-  <paper-scroll-header-panel id="eventDetailHeaderPanel" fixed="" headerHeight="40" class="flex"> 
+  <div id="eventDetailHeaderPanel" headerHeight="40" class="flex"> 
 
-    <paper-toolbar class="flex">  
+    <paper-toolbar>  
     
       <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" class="flex">  
         <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
@@ -56,7 +52,7 @@
     </paper-toolbar>
     
 
-    <div class="content flex" >   <!-- class="flex"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
+    <div class="content flex" > 
     <iron-pages selected="{{selected}}">
 
       <div id="summary">
@@ -106,7 +102,7 @@
       </div>
     </iron-pages>
     </div>
-
+    </div>
     
 
    </template>

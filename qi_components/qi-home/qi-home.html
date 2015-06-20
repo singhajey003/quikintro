@@ -9,7 +9,7 @@
 	<template>
 	 	<link rel="stylesheet" href="../quikintro.css" > 
 		<qi-globals id="globals"></qi-globals>
-		<iron-ajax auto url="{{$.globals.urls.notices}}" response="{{notifications}}" handle-as="json"></iron-ajax>
+		<iron-ajax auto url="{{this.$.globals.urls.notices}}" response="{{notifications}}" handle-as="json"></iron-ajax>
 
 		<div class="layout vertical flex"> 
 			<label style="margin-left: 5px">Notifications</label>

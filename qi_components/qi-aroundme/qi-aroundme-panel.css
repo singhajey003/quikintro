@@ -4,7 +4,7 @@ button{
     color: white;
 }
 
-core-icon{
+iron-icon{
 	color: #505050;
 }
 
@@ -12,6 +12,6 @@ core-icon{
  margin-bottom: 10px;   
 }
 
-core-toolbar {
+paper-toolbar {
  background-color: #7ca3b2;
 }

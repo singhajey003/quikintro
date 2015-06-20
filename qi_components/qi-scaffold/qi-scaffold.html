@@ -1,4 +1,4 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <!--
 Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -71,13 +71,19 @@ To have the content fit to the main area, use `fit` attribute.
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 
-<link rel="import" href="../qi-custom-icons/qi-custom-svg-icons.html">
+<link rel="import" href="../qi-custom-icons/qi-icons.html">
 
 
 <dom-module id='qi-scaffold'  >
 
+  <link rel="stylesheet" href="../quikintro.css" >
+  <link rel="stylesheet" href="qi-scaffold.css"> 
+
+  
+
 <template>
-  <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+  
+
   <style>
     
     :host {
@@ -99,27 +105,25 @@ To have the content fit to the main area, use `fit` attribute.
     }
     
   </style>
+ 
 
   <paper-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="{{drawerWidth}}" rightDrawer="{{rightDrawer}}" responsiveWidth="{{responsiveWidth}}" disableSwipe="{{disableSwipe}}">
 
     <div class="vertical layout" drawer>  
-
       <content select="[navigation], nav"></content>
-
     </div>
     
     <paper-header-panel id="headerPanel" main mode="{{mode}}">
 
       <paper-toolbar>
-        <template is="dom-if"if="{{!rightDrawer}}">
-      
-          <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-          <paper-icon-button class="qi-logo" id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="handleClick"></paper-icon-button> <!-- TODO change on-tap="{{handleClick}}" to on-tap="handleClick"  CONVERTED WIP -->  
+        <template is="dom-if" if="{{!rightDrawer}}">
+          <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo" on-click="togglePanel" on-tap="handleClick"></paper-icon-button> 
         </template>
+
         <content select="[tool]"></content>
+
         <template is="dom-if" if="{{rightDrawer}}">
-      
-          <paper-icon-button class="qi-logo" id="menuButton" icon="qi-custom-icons:qi-logo" on-tap="handleClick"></paper-icon-button> 
+          <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo" on-click="togglePanel" on-tap="handleClick"></paper-icon-button> 
         </template>
       </paper-toolbar>
       
@@ -153,7 +157,7 @@ To have the content fit to the main area, use `fit` attribute.
      * @event scroll
      */
     
-    publish: {
+    properties: {
       
       /**
        * Width of the drawer panel.
@@ -162,7 +166,7 @@ To have the content fit to the main area, use `fit` attribute.
        * @type string
        * @default '256px'
        */
-      drawerWidth: '256px',
+      drawerWidth: {type: String, value: '256px'},
       
       /**
        * When the browser window size is smaller than the `responsiveWidth`, 
@@ -173,7 +177,7 @@ To have the content fit to the main area, use `fit` attribute.
        * @type string
        * @default '600px'
        */    
-      responsiveWidth: '600px',
+      responsiveWidth: {type: String, value: '600px'},
       
       /**
        * If true, position the drawer to the right. Also place menu icon to
@@ -183,7 +187,7 @@ To have the content fit to the main area, use `fit` attribute.
        * @type boolean
        * @default false
        */
-      rightDrawer: false,
+      rightDrawer: {type: Boolean, value: false},
 
       /**
        * If true, swipe to open/close the drawer is disabled.
@@ -192,7 +196,7 @@ To have the content fit to the main area, use `fit` attribute.
        * @type boolean
        * @default false
        */
-      disableSwipe: false,
+      disableSwipe: {type: Boolean, value: false},
   
       /**
        * Used to control the header and scrolling behaviour of `paper-header-panel`
@@ -201,13 +205,8 @@ To have the content fit to the main area, use `fit` attribute.
        * @type string
        * @default 'seamed'
        */     
-      mode: {value: 'seamed', reflect: true},
+      mode: {type: String, value: 'seamed', reflect: true}
 
-      handleClick: function(e){
-
-      },
-
-     
     },
     
     ready: function() {
@@ -218,6 +217,8 @@ To have the content fit to the main area, use `fit` attribute.
     detached: function() {
       this.$.headerPanel.removeEventListener('scroll', this._scrollHandler);
     },
+
+
 
     /**
      * Toggle the drawer panel
@@ -260,9 +261,6 @@ To have the content fit to the main area, use `fit` attribute.
       return this.$.menuButton;
     },
 
-  
-
-  
     
     scroll: function(e) {
       this.fire('scroll', {target: e.detail.target}, this, false);
@@ -271,24 +269,4 @@ To have the content fit to the main area, use `fit` attribute.
   });
 
 </script>
-</dom-module> <!-- CONVERTED -->
-
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module>

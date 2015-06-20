@@ -11,11 +11,13 @@
 
 <dom-module id='qi-aroundme-panel'  > 
 
- 
-  <template>
 
   <link rel="stylesheet" href="../quikintro.css"> 
   <link rel="stylesheet" href="qi-aroundme-panel.css"> 
+
+ 
+  <template>
+
 
   <qi-globals id="globals"></qi-globals>
   
@@ -23,10 +25,9 @@
     <iron-ajax auto url="{{$.globals.urls.heatmap}}" response="{{heatmap}}" on-response="ajaxResponse" handle-as="json"></iron-ajax>
   
 
-  <paper-scroll-header-panel headermargin="128" fixed id="eventHeaderPanel" >
+  <paper-scroll-header-panel headerHeight="128" fixed="true" id="eventHeaderPanel" >
    
-
-    <div class="content layout vertical" > 
+    <div class="content layout vertical paper-header" > 
       
       <div class="maps-panel">
       

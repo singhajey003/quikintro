@@ -17,7 +17,6 @@
 <link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
 
 
-<link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-dialog/qi-msg-dialog.html">
 <link rel="import" href="../qi-dialog/qi-mtg-dialog.html">
 
@@ -34,9 +33,9 @@
   <link rel="stylesheet" href="qi-contact-panel.css"> 
 
  
-  <paper-scroll-header-panel id="eventHeaderPanel" >
+  <div id="eventHeaderPanel" headerHeight="600" condensedHeaderHeight="50" condenses="true">
 
-      <div class="search-panel">
+      <div class="search-panel paper-header">
         <div class="flex horizontal layout justified">  
           <div>Search</div>
           <qi-toggle on-click="collapseHandler"></qi-toggle> 
@@ -62,6 +61,7 @@
         <paper-button raised >Search</paper-button>
         </div>
       </iron-collapse>
+      </div>
     
 
     <div class="content layout vertical" >  
@@ -77,7 +77,7 @@
     </div>
 
 
-     </paper-scroll-header-panel>
+     </div>
    </template>
 
    <script>
@@ -93,7 +93,7 @@
         /** 
          * An array of messages
          */
-        msgs: {type: Array, value: localStorage.getItem("msgs")}
+        msgs: {type: Array, value: JSON.parse(localStorage.getItem("msgs"))}
       },
 
       ready: function(){

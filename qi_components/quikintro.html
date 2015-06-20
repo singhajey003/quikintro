@@ -1,10 +1,13 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../bower_components/paper-menu/paper-menu.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
+
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../bower_components/iron-icons/social-icons.html">
+
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
@@ -12,7 +15,6 @@
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
-<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 
 <link rel="import" href="qi-event/qi-event-panel.html">
 <link rel="import" href="qi-aroundme/qi-aroundme-panel.html">
@@ -28,25 +30,19 @@
 <link rel="import" href="qi-scaffold/qi-scaffold.html">
 <link rel="import" href="qi-home/qi-home.html">
 
-<link rel="import" href="qi-custom-icons/qi-custom-svg-icons.html">
-
+<link rel="import" href="qi-theme.html">
 
 <dom-module id='quik-intro'  > 
   <template>
     <link rel="stylesheet" href="quikintro.css" > 
     <!-- Data Loading -->
     <qi-globals id="globals"></qi-globals>    
-    <iron-ajax auto url="{{$.globals.urls.getPersonas}}" response="{{personaList}}" handle-as="json"></iron-ajax>
- <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
-    <iron-ajax auto url="{{$.globals.urls.events}}" response="{{eventList}}" handle-as="json"></iron-ajax>
- <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
-    <iron-ajax auto url="{{$.globals.urls.contacts}}" response="{{contactList}}" handle-as="json"></iron-ajax>
- <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
-    <iron-ajax auto url="{{$.globals.urls.profile}}" response="{{currProfile}}" handle-as="json"></iron-ajax>
- <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
+    <iron-ajax auto url="{{this.$.globals.urls.getPersonas}}" response="{{personaList}}" handle-as="json"></iron-ajax>
+    <iron-ajax auto url="{{this.$.globals.urls.events}}" response="{{eventList}}" handle-as="json"></iron-ajax>
+     <iron-ajax auto url="{{this.$.globals.urls.contacts}}" response="{{contactList}}" handle-as="json"></iron-ajax>
+    <iron-ajax auto url="{{this.$.globals.urls.profile}}" response="{{currProfile}}" handle-as="json"></iron-ajax>
 
-     <iron-ajax auto url="{{$.globals.urls.messages}}" response="{{msgs}}" handle-as="json"></iron-ajax>
- <!-- TODO iron-ajax check url and params embed binding {{}} and params quotes  CONVERTED WIP -->  
+     <iron-ajax auto url="{{this.$.globals.urls.messages}}" response="{{msgs}}" handle-as="json"></iron-ajax>
 
     <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
     <iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
@@ -61,7 +57,7 @@
 
 
         </paper-toolbar>
-        <paper-menu  id="menu" theme="core-light-theme" >
+        <paper-menu  id="menu" >
 
           <paper-menu selected="{{page}}" valueattr="pageId" >
             <paper-item id="home" icon="home" pageId="home">Home</paper-item>
@@ -82,18 +78,15 @@
       </paper-header-panel>
 
       <div id="title" tool class="horizontal layout center flex"> 
-        <div flex>{{panelTitle}}</div> 
+        <div class="flex">{{panelTitle}}</div> 
 
         <div><qi-toggle openIcon="social:person" closedIcon="social:person-outline"></qi-toggle></div>
       </div>
       
       <div class="content">
-      <iron-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed class="fit" > 
-        
+      <iron-pages id="pages" selected="{{page}}" valueattr="pageId" notap fullbleed class="fit flex" > 
         <section id="Login" pageId="login" selected>
-
             <qi-splash id="splashPanel"></qi-splash>
-
         </section>
 
         <section id="Home" pageId="home">
@@ -134,7 +127,7 @@
   <script>
 
     Polymer({
-      is: 'quik-intro', // CONVERTED WIP 
+      is: 'quik-intro', 
 
       properties:{
         page:{type: Number,  value:0, notify: true, observer: 'pageChanged'},
@@ -142,7 +135,7 @@
         eventList: {type: Array, value:[], notify: true, observer:'eventListChanged'},
         contactList: {type: Array, value: [], notify: true, observer:'contactListChanged'},
         personaList: {type: Array, value: []},
-        contactList: {type: Array, value: []},
+        contactList: {type: Array, value: [], notify: true, observer:'contactListChanged'},
         currProfile: {type: Object, value: null, notify: true, observer: 'currProfileChanged'}
       },
 
