@@ -1,14 +1,41 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Verdana';
+  color: #2f4146; }
 
+.font-light {
+  font-family: 'Verdana'; }
+
+.font-book {
+  font-family: 'Verdana'; }
+
+.font-bold {
+  font-family: 'Verdana'; }
+
+.font-extrabold {
+  font-family: 'Verdana'; }
+
+.reverse {
+  color: white; }
+
+h1, h2, h3 {
+  font-family: 'Verdana'; }
 
 a, a:link, a:visited {
   color: #17aacf; }
 
+label {
+  font-family: "fira-sans-semibold", sans-serif; }
 
 hr {
   border: 0;
   border-top: 1px solid #7ba2b2;
   margin: 20px 0; }
 
+.btn-light[raised] {
+  background-color: white;
+  color: #2f4146; }
 
 .header-title {
   color: white; }
@@ -18,32 +45,43 @@ hr {
   height: 100%;
   box-sizing: border-box; }
 
+qi-scaffold {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px; }
 
+/*
 paper-menu {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 #core_menu_button {
   left: 68px;
   top: 14px;
-  position: absolute; }
-
+  position: absolute;
+}
 paper-submenu {
   left: 12px;
   top: 0px;
-  position: relative; }
-
+  position: relative;
+}
 paper-submenu > paper-item {
   padding-left: 10px;
-  font-size: 10pt; }
+  font-size: 10pt;
+}
 
-paper-submenu > paper-submenu {
+paper-submenu > paper-submenu{
   font-size: 8pt;
   margin-top: -5px;
-  margin-bottom: -5px; }
+  margin-bottom: -5px;
+}
 
-paper-submenu > paper-submenu[label] {
-  font-size: 10pt; }
-
+paper-submenu > paper-submenu[label]{
+  font-size: 10pt;
+}
+*/
 paper-toolbar {
   background-color: #7ba2b2;
   height: 40px; }
@@ -82,14 +120,16 @@ paper-scroll-header-panel {
   overflow: auto;
   height: 40px; }
 
+/*
 .content {
   padding: 20px 30px;
-  background-color: #ebebeb;
-  background-image: none;
+  background-color: $background;
+  background-image: $backgroundImage;
   background-repeat: no-repeat;
   background-position: -500px -100px;
-  overflow: auto; }
-
+  overflow: auto;
+}
+*/
 input#searchText[is=paper-input] {
   width: 100px;
   background-color: #fff;
@@ -102,7 +142,7 @@ input#searchText[is=paper-input] {
   padding: 10px;
   margin-bottom: 20px; }
 
-/* some default styles for mode="cover" on core-scaffold */
+/* some default styles for mode="cover" on qi-scaffold */
 qi-scaffold[mode=cover] paper-header-panel #mainContainer {
   left: 120px; }
 
@@ -140,7 +180,9 @@ h4 {
   margin: 0 10px;
   font-size: 10pt; }
 
-
+paper-input {
+  color: #17aacf;
+  cursor: pointer; }
 
 /* Dropdowns */
 paper-dropdown-menu {
@@ -162,15 +204,12 @@ paper-button a, paper-button a:link, paper-button a:visited {
 paper-fab {
   margin: 5px 15px; }
 
-
-
 div.checkbox-row {
   margin-top: 10px; }
 
 paper-checkbox {
   margin-right: 20px;
   margin-bottom: 10px; }
-
 
 .tweetSize {
   font-family: "fira-sans-book", sans-serif;

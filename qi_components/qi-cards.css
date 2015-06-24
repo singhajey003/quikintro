@@ -14,19 +14,19 @@
   height: 125px;
   font-size: 10pt;
   line-height: 1.2; }
-  .card p {
+  .card > p {
     margin: 2px 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
-  .card h3 {
+  .card > h3 {
     font-size: 20px;
     margin: 4px 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
 
-.card header {
+.card > header {
   height: 60px;
   padding: 5px 10px;
   position: absolute;
@@ -83,7 +83,7 @@
 
 .card.card-photo {
   height: 150px; }
-  .card.card-photo  .photo, .card.card-photo  iron-icon.photo {
+  .card.card-photo .photo, .card.card-photo  core-icon.photo {
     height: 110px;
     width: 80px;
     background-color: #7ba2b2;
@@ -99,7 +99,7 @@
     top: 63.33333px; }
   .card.card-photo .card-actions {
     top: 110px; }
-  .card.card-photo iron-collapse {
+  .card.card-photo core-collapse {
     background-color: #ebebeb;
     border: 5px solid white;
     border-top: 0;
@@ -120,12 +120,12 @@
   height: 60px; }
   .card.card-notice .avatar {
     height: 60px; }
-  .card.card-notice .iron-icon-wrapper {
+  .card.card-notice .core-icon-wrapper {
     min-height: 60px;
     min-width: 60px;
     background-color: #7ba2b2;
     text-align: center; }
-  .card.card-notice iron-icon {
+  .card.card-notice core-icon {
     height: 36px;
     width: 36px;
     color: white;
@@ -164,7 +164,7 @@
 
 .card.card-photo.tweet {
   height: 160px; }
-  .card.card-photo.tweet  .photo {
+  .card.card-photo.tweet /deep/ .photo {
     height: 48px;
     width: 48px; }
   .card.card-photo.tweet header {
@@ -216,16 +216,16 @@
     border-top: 1px solid #ebebeb;
     position: relative;
     top: 0; }
-    .card.persona .card-actions iron-icon {
+    .card.persona .card-actions core-icon {
       width: 20px;
       height: 20px;
       margin: 15px; }
-  .card.persona iron-collapse {
+  .card.persona core-collapse {
     background-color: #ebebeb;
     border: 5px solid white;
     border-top: 0;
     font-size: 12pt;
     padding: 5px 10px;
     margin-top: 5px; }
-    .card.persona iron-collapse h4 {
+    .card.persona core-collapse h4 {
       margin-top: 15px; }

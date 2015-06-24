@@ -1,0 +1,47 @@
+<dom-module id="qi-settings">
+
+<template>
+
+	<iron-ajax auto url="{{this.$.globals.urls.profile}}" response="{{currProfile}}" handle-as="json"></iron-ajax>
+
+	<iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
+	<iron-localstorage name="profile" value="{{currProfile}}"></iron-localstorage>
+	<paper-tabs selected="{{selected}}">
+		<paper-tab>Security</paper-tab>
+		<paper-tabs>Accounts</paper-tabs>
+		<paper-tabs>Profile</paper-tabs>
+		<paper-tabs>Personas</paper-tabs>
+	</paper-tabs>
+	<iron-pages selected="{{selected}}">	
+		<section id="Security" pageId="security">
+	      <qi-security-panel></qi-security-panel>
+	    </section>
+	    <section id="On Boarding" pageId="onboard">
+	      <qi-onboard-panel></qi-onboard-panel>
+	    </section>
+	    <section id="Profile" pageId="profile">
+	      <qi-profile-panel id="profilePanel" profile="{{currProfile}}"></qi-profile-panel>
+	    </section>
+	    
+	    <section id="Personas" pageId="personas">
+	      <qi-persona-panel id="personaPanel" ></qi-persona-panel>
+	    </section>
+	</iron-pages>
+
+</template>
+
+<script>
+Polymer({
+	is: 'qi-settings',
+
+	properties:{
+		personaList:{type: Array},
+		currProfile:{type: Object}
+	}
+
+});
+
+</script>
+
+
+</dom-module>

@@ -1,15 +1,21 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-event/qi-event-notice.html">
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+
 <dom-module id='qi-home'  > 
+<!--
+
+-->
+<link rel="stylesheet" href="../quikintro.css" > 
 
 	<template>
-	 	<link rel="stylesheet" href="../quikintro.css" > 
+	 	
 		<qi-globals id="globals"></qi-globals>
-		<iron-ajax auto url="{{this.$.globals.urls.notices}}" response="{{notifications}}" handle-as="json"></iron-ajax>
+		<iron-localstorage name="notices" value="{{notifications}}"></iron-localstorage>
 
 		<div class="layout vertical flex"> 
 			<label style="margin-left: 5px">Notifications</label>
@@ -18,6 +24,7 @@
 					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
 				</template>
 			</div>
+		</div>
 
 	</template>
 
@@ -26,8 +33,17 @@
    		is: 'qi-home', 
 
    		properties:{
-   			notification:{type: Object}
+   			notifications:{type: Array, value:[], notify: true, observer:'notificationsChanged'}
+   		},
+
+   		notificationsChanged: function(oldValue, newValue){
+   			console.log("old: " + oldValue);
+   			console.log("not: " + newValue);
    		}
+
+
+
+
 
 
 	});

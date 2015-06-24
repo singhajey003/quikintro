@@ -19,11 +19,23 @@ TODO: fix core-tooltip -> paper-tooltip
 <dom-module id='qi-contact-card'  > 
 
 	<template>
-	
+	<!--
 	<link rel="stylesheet" href="../quikintro.css" > 
 	<link rel="stylesheet" href="../qi-cards.css" > 
+	<link rel="stylesheet" href="qi-contact-card.css" > 
+	-->
 
-	<div class="card-wrapper"> 
+	<style>
+	div.card-wrapper{
+		min-height: 100px;
+	}
+	div.card{
+		min-height: 90px;
+	}
+
+	</style>
+
+	<div id="card" class="card-wrapper"> 
 
 		<div class="card card-photo">
 
@@ -82,17 +94,11 @@ TODO: fix core-tooltip -> paper-tooltip
    		is: 'qi-contact-card', 
 
    		properties: {
-			contact: {type: Object, value: null, notify: true, observer: 'contactChanged'},
+			contact: {type: Object, value: null, notify: true},
 			visibility:{type: String, value: 'visible', notify: true, observer: 'visibilityChanged'},
 			isOpen: {type: Boolean, value: false},
-			score: {type: Number, value: 0},
+			
 		},
-
-		
-		contactChanged: function(oldContact, newContact){
-			this.score = newContact.score;
-		},
-	    
 
 	     visibilityChanged: function(oldValue, newValue){
 	     	this.$.card.style.display = (newValue == 'visible')?'block':'none';

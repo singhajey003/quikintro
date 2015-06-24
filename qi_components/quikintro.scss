@@ -63,7 +63,7 @@ qi-scaffold {
 }
 
 
-
+/*
 paper-menu {
   font-size: 16px;
 }
@@ -92,6 +92,7 @@ paper-submenu > paper-submenu{
 paper-submenu > paper-submenu[label]{
   font-size: 10pt;
 }
+*/
 
 paper-toolbar {
   background-color: $qi-gray;
@@ -140,6 +141,7 @@ paper-scroll-header-panel {
   height: 40px;
 }
 
+/*
 .content {
   padding: 20px 30px;
   background-color: $background;
@@ -148,6 +150,7 @@ paper-scroll-header-panel {
   background-position: -500px -100px;
   overflow: auto;
 }
+*/
 
 input#searchText[is=core-input] {
   width:100px;

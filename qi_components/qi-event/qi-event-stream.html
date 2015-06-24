@@ -1,4 +1,4 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
@@ -24,35 +24,23 @@
 		</style>
 
 
-		<div class="container layout vertical flex"  > 
+		<div class="layout vertical flex"  > 
 
 			<iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical flex"> 
-			  <section selected class="padding">
+			  <div selected>
 					<h4>My Scheduled Events</h4>
-					<div>
-						<template is="dom-repeat" index-as="i" items="{{events}}"  as="event">
-							<template is="dom-if" if="{{event.rsvp == 'YES' || event.rsvp == 'MAYBE'}}">
-							<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
-							</template>
-						</template>
+					<div id="schedEvents">
 					</div>
 
 					<h4>Suggested Events</h4>
-					<div>
-						<template is="dom-repeat" items="{{events}}" as="event" index-as="i">
-     						<template is="dom-if" if="{{event.rsvp == null}}">
-     							<qi-event-card id="{{i}}" event="{{event}}" on-click="cardClickHandler"></qi-event-card>
-							</template>
-						</template>
-
-
-				</div>
+					<div id="suggEvents">
+					</div>
 			
-			 </section>
+			 </div>
 
-			<section>
+			<div>
 				<qi-event-detail id="detail"></qi-event-detail>
-			</section>
+			</div>
 		
 		</div>
 		</iron-pages>
@@ -63,7 +51,7 @@
     		is: 'qi-event-stream', 
 
     		properties:{
-    			events:{type: Array},
+    			events:{type: Array, observer: 'eventsChanged'},
     			personas: {type: Array},
 				selectedEventPage:{type: Number, value:0, notify: true, observer:'selectedEventPageChanged'},
 			},
@@ -81,7 +69,27 @@
 				detail.event = event;
 				this.selectedEventPage = 1;
 				this.fire('page-changed', {title: event.title})
+			},
+			
+			eventsChanged: function(oldEvents, newEvents){
+				if (newEvents != null && newEvents.length > 0){
+					var schedEvents = this.$.schedEvents;
+					var suggEvents = this.$.suggEvents;
+
+					for(var i=0; i < newEvents.length; i++){
+
+						var eventCard = new EventCard();
+						eventCard.event = newEvents[i];
+						if (newEvents[i].rsvp == 'YES' || newEvents[i].rsvp){
+							schedEvents.appendChild(eventCard);
+						}else{
+							suggEvents.appendChild(eventCard);
+						}
+					}
+				}
+				
 			}
+
 			
 
 		});

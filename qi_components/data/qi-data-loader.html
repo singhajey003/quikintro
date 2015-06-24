@@ -1,0 +1,68 @@
+<!--
+This component is responsible for loading data from JSON files into local storage where
+it can be easily accessed by other components.
+
+
+-->
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+<dom-module id="qi-data-loader">
+    <template>
+        <qi-globals id="globals"></qi-globals>
+        <iron-ajax auto="true" url="getPersonas.json" on-response="handlePersonas" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="events.json" on-response="handleEvents" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="contacts.json" on-response="handleContacts" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="messages.json" on-response="handleMsgs" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="notices.json" on-response="handleNotices" handle-as="json"></iron-ajax>
+
+        <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
+        <iron-localstorage name="events" value="{{eventList}}"></iron-localstorage>
+        <iron-localstorage name="contacts" value="{{contactList}}"></iron-localstorage>
+        <iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
+        <iron-localstorage name="notices" value="{{noticeList}}"></iron-localstorage>
+    </template>
+    <script>
+    Polymer({
+        is: 'qi-data-loader',
+
+        properties: {
+            msgs: {
+                type: Array
+            },
+            eventList: {
+                type: Array
+            },
+            contactList: {
+                type: Array
+            },
+            personaList: {
+                type: Array
+            },
+            noticeList:{
+            	type: Array
+            }
+        },
+
+        handleEvents: function(e) {
+            this.eventList = e.detail.response;
+        },
+
+        handlePersonas: function(e) {
+            this.personaList = e.detail.response;
+        },
+
+        handleContacts: function(e) {
+            this.contactList = e.detail.response;
+        },
+
+        handleMsgs: function(e) {
+            this.msgs = e.detail.response;
+        },
+
+        handleNotices: function(e){
+        	this.noticeList = e.detail.response;
+        }
+
+    });
+    </script>
+</dom-module>
