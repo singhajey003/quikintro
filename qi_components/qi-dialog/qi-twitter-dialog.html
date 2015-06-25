@@ -39,11 +39,11 @@
    		},
 
 
-		hashtagChanged: function(oldValue, newValue){
+		hashtagChanged: function(newValue, oldValue){
 			this.reset();
 		},
 
-		myTweetChanged: function(oldValue, newValue){
+		myTweetChanged: function(newValue, oldValue){
 			this.tweetSize = 140 - newValue.length;
 			if(this.tweetSize > 140){
 				this.$.sendBtn.enabled = false;

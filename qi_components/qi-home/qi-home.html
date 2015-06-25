@@ -36,7 +36,7 @@
    			notifications:{type: Array, value:[], notify: true, observer:'notificationsChanged'}
    		},
 
-   		notificationsChanged: function(oldValue, newValue){
+   		notificationsChanged: function(newValue, oldValue){
    			console.log("old: " + oldValue);
    			console.log("not: " + newValue);
    		}

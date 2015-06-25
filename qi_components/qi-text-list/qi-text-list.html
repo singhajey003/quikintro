@@ -21,7 +21,7 @@
 			flatList:{type: String, value:''}
 		},
 
-		listChanged: function(oldValue, newValue){
+		listChanged: function(newValue, oldValue){
 			if(newValue != null && Array.isArray(newValue)){
 				this.flatList = newValue.join(", ");
 			}

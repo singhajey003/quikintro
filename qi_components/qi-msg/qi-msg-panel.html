@@ -79,7 +79,7 @@
       invites: {type: Array, value:[], observer: 'invitesChanged'}
    },
 
-   msgsChanged:function(oldValue, newValue){
+   msgsChanged:function(newValue, oldValue){
     if (newValue != null && newValue.length > 0){
       var msgTray = this.$.msgTray;
       var msgCard = new MsgCard();
@@ -88,7 +88,7 @@
     }
    },
 
-   mtgsChanged: function(oldValue, newValue){
+   mtgsChanged: function(newValue, oldValue){
     if(newValue != null && newValue.length > 0){
       var mtgTray = this.$.mtgTray;
       var mtgCard = new MtgCard();
@@ -98,7 +98,7 @@
 
    },
 
-   invitesChanged: function(oldValue, newValue){
+   invitesChanged: function(newValue, oldValue){
     if(newValue != null && newValue.length > 0){
       var invTray = this.$.invTray;
       var invCard = new InvCard();

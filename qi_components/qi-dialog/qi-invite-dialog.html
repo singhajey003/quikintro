@@ -67,7 +67,7 @@
 		},
 
 
-		selectedTemplateChanged: function(oldValue, newValue){
+		selectedTemplateChanged: function(newValue, oldValue){
 			var selectedObj = this.persona.msgTemplates[newValue]
 			this.$.msg.value = selectedObj.template;
 		},

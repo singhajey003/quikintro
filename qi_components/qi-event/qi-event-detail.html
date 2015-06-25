@@ -117,7 +117,7 @@
         selected: 0,
       },
 
-        eventChanged: function(oldEvent, newEvent){
+        eventChanged: function(newValue, oldValue){
            this.fire('page-changed', {title: newEvent.title});
         },
 
