@@ -83,7 +83,7 @@
     if (newValue != null && newValue.length > 0){
       var msgTray = this.$.msgTray;
       var msgCard = new MsgCard();
-      msgCard.msg = newValue.last();
+      msgCard.msg = newValue[newValue.length];
       msgTray.appendChild(msgCard);
     }
    },
@@ -92,7 +92,7 @@
     if(newValue != null && newValue.length > 0){
       var mtgTray = this.$.mtgTray;
       var mtgCard = new MtgCard();
-      mtgCard.msg = newValue.last();
+      mtgCard.msg = newValue[newValue.length];
       mtgTray.appendChild(mtgCard);
     }
 
@@ -102,7 +102,7 @@
     if(newValue != null && newValue.length > 0){
       var invTray = this.$.invTray;
       var invCard = new InvCard();
-      invCard.msg = newValue.last();
+      invCard.msg = newValue[newValue.length];
       invTray.appendChild(invCard)
     }
 

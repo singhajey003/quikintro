@@ -115,22 +115,13 @@ To have the content fit to the main area, use `fit` attribute.
 
   <paper-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="{{drawerWidth}}" rightDrawer="{{rightDrawer}}" responsiveWidth="{{responsiveWidth}}" disableSwipe="{{disableSwipe}}">
 
-    <div class="vertical layout" drawer>  
+    <paper-header-panel class="vertical layout" drawer>  
       <content select="[navigation], nav"></content>
-    </div>
+    </paper-header-panel>
     
-    <paper-header-panel id="headerPanel" main mode="{{mode}}">
-
+    <paper-header-panel id="headerPanel"  mode="{{mode}}" main>
       <paper-toolbar>
-        <template is="dom-if" if="{{!rightDrawer}}">
-          <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo" on-click="togglePanel" on-tap="handleClick"></paper-icon-button> 
-        </template>
-
-        <content select="[tool]"></content>
-
-        <template is="dom-if" if="{{rightDrawer}}">
-          <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo" on-click="togglePanel" on-tap="handleClick"></paper-icon-button> 
-        </template>
+          <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo"  on-tap="handleClick" paper-drawer-toggle></paper-icon-button> 
       </paper-toolbar>
       
       <content select="*"></content>
@@ -143,7 +134,7 @@ To have the content fit to the main area, use `fit` attribute.
 <script>
 
   Polymer({
-    is: 'qi-scaffold', // CONVERTED WIP 
+    is: 'qi-scaffold', 
     
     /**
      * Fired when the main content has been scrolled.  `event.detail.target` returns
@@ -211,19 +202,25 @@ To have the content fit to the main area, use `fit` attribute.
        * @type string
        * @default 'seamed'
        */     
-      mode: {type: String, value: 'seamed', reflect: true}
+      mode: {type: String, value: 'seamed', reflect: true},
+
+      narrow: {type: Boolean, value: true}
 
     },
     
     ready: function() {
       this._scrollHandler = this.scroll.bind(this);
       this.$.headerPanel.addEventListener('scroll', this._scrollHandler);
+      this.closeDrawer();
     },
     
     detached: function() {
       this.$.headerPanel.removeEventListener('scroll', this._scrollHandler);
     },
 
+    handleClick: function(){
+
+    },
 
 
     /**

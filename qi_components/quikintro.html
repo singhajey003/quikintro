@@ -31,13 +31,14 @@
 <link rel="import" href="qi-scaffold/qi-scaffold.html">
 <link rel="import" href="qi-home/qi-home.html">
 
+<link rel="import" href="qi-custom-icons/qi-icons.html">
 <link rel="import" href="qi-theme.html">
 
 <dom-module id='quik-intro'  > 
 
   <style>
-    qi-toggle.anonToggle{
-      color: white;
+    qi-toggle.anonToggle::shadow #icon{
+      --icon-color: white;
     }
 
     paper-icon-item{
@@ -54,17 +55,11 @@
     <iron-localstorage name="contacts" value="{{contactList}}"></iron-localstorage>
     <iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
 
- 
-    <!-- UI -->
-    <qi-scaffold id="coreScaffold" responsiveWidth="300px" narrow="true">
-
    
-      <paper-drawer-panel mode="seamed" id="core_header_panel" class="flex" navigation> 
-      <!-- 
-        <paper-toolbar id="core_toolbar" class="horizontal end-justified layout"> 
-        </paper-toolbar>
-        -->
-        
+      <paper-drawer-panel narrow="true" forceNarrow="true" mode="seamed" id="coreScaffold" > 
+     
+        <paper-header-panel drawer>
+          <paper-toolbar></paper-toolbar>
           <paper-menu selected="{{page}}" valueattr="pageId" >
             <paper-icon-item id="home" pageId="home" class="layout horizontal left">
               <iron-icon icon="home"></iron-icon>
@@ -91,41 +86,51 @@
               <iron-icon icon="settings"></iron-icon>
                 Settings
               </paper-item>
+            </paper-icon-item>
             
           </paper-menu>
         
+        </paper-header-panel>
+
+      
+      
+      <paper-header-panel class="fit flex" main>
+        <paper-toolbar id="core_toolbar" class="horizontal justified layout"> 
+           <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo" style="display: block" paper-drawer-toggle></paper-icon-button> 
+        
+          <div class="flex">{{panelTitle}}</div> 
+          <div><qi-toggle class="anonToggle" style="--icon-color: white" openIcon="social:person" closedIcon="social:person-outline"></qi-toggle></div>
+        
+
+        </paper-toolbar>
+
+        <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="fit flex" > 
+
+          <section id="Home" pageId="home">
+            <qi-home></qi-home>
+          </section>
+
+          <section id="Event Stream" pageId="events" >
+            <qi-event-stream id="eventStream" events="{{eventList}}" personas="{{personas}}"></qi-event-stream>
+          </section>
+          <section id="Around Me" pageId="aroundme" >
+            <qi-aroundme-panel id="aroundMe" ></qi-aroundme-panel>
+          </section>
+          <section id="Messages" pageId="messages">
+            <qi-msg-panel ></qi-msg-panel>
+          </section>
+          <section id="Contacts" pageId="contacts">
+            <qi-contact-panel id="contactPanel" contacts="{{contactList}}"></qi-contact-panel>
+          </section>
+
+          <section id="Settings" pageId="settings">
+            <qi-settings></qi-settings>
+          </section>
+        </iron-pages>
       </paper-header-panel>
 
-      <div id="title"  class="horizontal layout center flex" tool> 
-        <div class="flex">{{panelTitle}}</div> 
-        <div><qi-toggle class="anonToggle" openIcon="social:person" closedIcon="social:person-outline"></qi-toggle></div>
-      </div>
-      
-      <div class="content">
-      <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="fit flex" > 
+      </paper-drawer-panel>
 
-        <section id="Home" pageId="home">
-          <qi-home></qi-home>
-        </section>
-
-        <section id="Event Stream" pageId="events" >
-          <qi-event-stream id="eventStream" events="{{eventList}}" personas="{{personas}}"></qi-event-stream>
-        </section>
-        <section id="Around Me" pageId="aroundme" >
-          <qi-aroundme-panel id="aroundMe" ></qi-aroundme-panel>
-        </section>
-        <section id="Messages" pageId="messages">
-          <qi-msg-panel ></qi-msg-panel>
-        </section>
-        <section id="Contacts" pageId="contacts">
-          <qi-contact-panel id="contactPanel" contacts="{{contactList}}"></qi-contact-panel>
-        </section>
-
-        <section id="Settings" pageId="settings">
-          <qi-settings></qi-settings>
-        </section>
-      </iron-pages>
-      </div>
       
      
     <paper-toast id="toast"></paper-toast>
@@ -220,7 +225,7 @@
 
 
 
-      contactListChanged: function(oldValue, newValue){
+      contactListChanged: function(newValue, oldValue){
         var contactPanel = this.$.contactPanel;
         contactPanel.contacts = newValue;
 
@@ -229,16 +234,16 @@
       },
 
 
-      eventListChanged: function(oldValue, newValue){
+      eventListChanged: function(newValue, oldValue){
         var eventPanel = this.$.eventStream;
         eventPanel.events = newValue;
       },
 
-      personaListChanged: function(oldValue, newValue){
+      personaListChanged: function(newValue, oldValue){
 
       },
       
-      pageChanged: function(oldValue, newValue){
+      pageChanged: function(newValue, oldValue){
         this.$.coreScaffold.closeDrawer();
       },
 
