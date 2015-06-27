@@ -36,7 +36,7 @@
   
   <div id="eventDetailHeaderPanel" headerHeight="40" class="flex"> 
 
-    <paper-toolbar>  
+    <paper-toolbar class="flex">  
     
       <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" class="flex">  
         <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
@@ -51,8 +51,8 @@
     </paper-toolbar>
     
 
-    <div class="content flex" > 
-    <iron-pages selected="{{selected}}">
+    <div class="content flex fit" > 
+    <iron-pages selected="{{selected}}" class="fit">
 
       <div id="summary">
         <qi-event-summary event="{{event}}" personas="{{personas}}"></qi-event-summary>

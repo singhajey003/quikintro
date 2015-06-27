@@ -24,21 +24,23 @@ TODO:
 
 <dom-module id='qi-event-summary'  > 
 
-    <template>
-    <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-    <link rel="stylesheet" href="../qi-cards.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-    <link rel="stylesheet" href="qi-events.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-    <link rel="stylesheet" href="qi-event-summary.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+    <link rel="stylesheet" href="../quikintro.css" > 
+    <link rel="stylesheet" href="../qi-cards.css" > 
+    <link rel="stylesheet" href="qi-events.css" > 
+    <link rel="stylesheet" href="qi-event-summary.css" > 
 
-    <div class="card reverse venue-bkgnd banner" style="background-image:url({{event.background}})"> 
+
+    <template>
+
+    <div class="card reverse venue-bkgnd banner" style="{{computeBackground(event.background)}}"> 
         <div class="overlay"></div>
 
         <header>
-            <p>{{event.startTime}}-{{event.endTime}} at {{event.location}}</p>   <!-- class="<p{{event.startTime}}-{{event.endTime}}"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
+            <div><span>{{event.startTime}}</span>-<span>{{event.endTime}}</span> at <span>{{event.location}}</span></div> 
             <p>{{event.registrantCount}} Registrants</p>
         </header>
 
-        <div class="summary horizontal layout justified flex" >   <!-- class="horizontal layout justified flex"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
+        <div class="summary horizontal layout justified flex" > 
 
             <div class="eventNewMatches">
                 <div class="match-count font-light">{{event.matches.length}}</div>
@@ -109,6 +111,10 @@ TODO:
             event: {type: Object, value: null},
             personas: {type: Array}
         },
+
+        computeBackground: function(imageUrl){
+            return "background-image:url('"+ imageUrl + "')";
+         },
 
        
 

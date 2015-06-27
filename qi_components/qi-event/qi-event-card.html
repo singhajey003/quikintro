@@ -16,22 +16,46 @@
 
 <dom-module id='qi-event-card'  > 
 
+	<link rel="stylesheet" href="../quikintro.css" >
+	<link rel="stylesheet" href="../qi-cards.css" >
+	<link rel="stylesheet" href="qi-events.css" > 
+	<link rel="stylesheet" href="qi-event-card.css" > 
+
 	<template>
-	<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="../qi-cards.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="qi-events.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="qi-event-card.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
+	
 
 	<style>
 		paper-dialog:{display: none;}
+		.eventCard{
+			background-size: cover;
+			background-position: top left;
+			background-repeat: no-repeat;
+		}
+		header{
+			margin-top: 0px;
+			vertical-align: top;
+			text-align: center;
+		}
+		header > h3#titleBlock{
+			font-weight: lighter;
+			color: white;
+			font-size: 20px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			height: 20px;
+			margin: 0px;
+		}
+		header > div{
+			color: white;
+		}
 	</style>
 	
-	<div class="card reverse" style="background-image:url({{event.background}})">   
+	<div class="eventCard card reverse" style$="{{computeBackground(event.background)}}" on-tap="tapAction">   
 		<div class="overlay"></div>
 		<header>
 			<h3 id="titleBlock">{{event.title}}</h3>
-			<p>{{event.startTime}} at {{event.location}}</p>   <!-- class="<p{{event.startTime}}"  // TODO cleanup class= if needed  CONVERTED WIP  --> 
-			<p>{{event.registrantCount}} Registrants</p>
+			<div><span>{{event.startTime}}</span> at <span>{{event.location}}</span></div> 
+			<div><span>{{event.registrantCount}}</span> Registrants</div>
 		</header>
 
     	<div class="summary horizontal layout justified flex" > 
@@ -59,9 +83,13 @@
    			event:{type: Object}
    		},
 
-	    toggleAction: function(evt){
+	    tapAction: function(evt){
 	     	//this.$.collapse.toggle();	  
-	     	this.fire('toggle-card');
+	     	this.fire('expand-card');
+	     },
+
+	     computeBackground: function(imageUrl){
+	     	return "min-height: 160px; background-image:url('"+ imageUrl + "')";
 	     },
 	    
 

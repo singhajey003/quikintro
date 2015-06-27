@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail.html">
@@ -16,6 +17,8 @@
 	    <link rel="stylesheet" href="../qi-cards.css" >
 	    <link rel="stylesheet" href="qi-events.css" > 
 
+	    <iron-localstorage name="events" value="{{events}}"></iron-localstorage>
+
 		<style>	
 			.container {
 /*			padding: 10px;  */
@@ -26,7 +29,7 @@
 
 		<div class="layout vertical flex"  > 
 
-			<iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical flex"> 
+			<iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical flex fit"> 
 			  <div selected>
 					<h4>My Scheduled Events</h4>
 					<div id="schedEvents">
@@ -36,14 +39,16 @@
 					<div id="suggEvents">
 					</div>
 			
-			 </div>
+				 </div>
 
-			<div>
-				<qi-event-detail id="detail"></qi-event-detail>
-			</div>
+				<div>
+					<qi-event-detail id="detail"></qi-event-detail>
+				</div>
+
+			</iron-pages>
 		
 		</div>
-		</iron-pages>
+		
 	</template>
 
 	<script>
@@ -71,7 +76,7 @@
 				this.fire('page-changed', {title: event.title})
 			},
 			
-			eventsChanged: function(oldEvents, newEvents){
+			eventsChanged: function(newEvents, oldEvents){
 				if (newEvents != null && newEvents.length > 0){
 					var schedEvents = this.$.schedEvents;
 					var suggEvents = this.$.suggEvents;
@@ -79,7 +84,9 @@
 					for(var i=0; i < newEvents.length; i++){
 
 						var eventCard = new EventCard();
+						eventCard.id = i;
 						eventCard.event = newEvents[i];
+						eventCard.onTap = 'cardClickHandler';
 						if (newEvents[i].rsvp == 'YES' || newEvents[i].rsvp){
 							schedEvents.appendChild(eventCard);
 						}else{
@@ -88,6 +95,12 @@
 					}
 				}
 				
+			},
+
+			ready: function(){
+				this.addEventListener('expand-card', function(e){
+					this.cardClickHandler(e);
+				})
 			}
 
 			
@@ -99,23 +112,4 @@
 
 
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module>
