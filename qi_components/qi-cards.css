@@ -14,19 +14,19 @@
   height: 125px;
   font-size: 10pt;
   line-height: 1.2; }
-  .card > p {
+  .card p {
     margin: 2px 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
-  .card > h3 {
+  .card h3 {
     font-size: 20px;
     margin: 4px 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
 
-.card > header {
+.card header {
   height: 60px;
   padding: 5px 10px;
   position: absolute;
@@ -60,7 +60,9 @@
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 10px; }
+  margin-bottom: 10px; 
+  /* position: relative; */
+}
   .card.venue-bkgnd header {
     height: 70px;
     text-align: center;
@@ -83,7 +85,7 @@
 
 .card.card-photo {
   height: 150px; }
-  .card.card-photo .photo, .card.card-photo  core-icon.photo {
+  .card.card-photo /deep/ .photo, .card.card-photo /deep/ core-icon.photo {
     height: 110px;
     width: 80px;
     background-color: #7ba2b2;

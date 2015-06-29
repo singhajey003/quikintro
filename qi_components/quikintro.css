@@ -118,7 +118,7 @@ paper-scroll-header-panel {
   visibility: visible;
   padding: 20px;
   overflow: auto;
-  height: 40px; }
+  }
 
 /*
 .content {
@@ -130,7 +130,7 @@ paper-scroll-header-panel {
   overflow: auto;
 }
 */
-input#searchText[is=paper-input] {
+input#searchText[is=core-input] {
   width: 100px;
   background-color: #fff;
   font-size: 16px;
@@ -142,8 +142,8 @@ input#searchText[is=paper-input] {
   padding: 10px;
   margin-bottom: 20px; }
 
-/* some default styles for mode="cover" on qi-scaffold */
-qi-scaffold[mode=cover] paper-header-panel #mainContainer {
+/* some default styles for mode="cover" on core-scaffold */
+qi-scaffold[mode=cover] core-header-panel #mainContainer {
   left: 120px; }
 
 qi-scaffold[mode=cover] .content {
@@ -193,7 +193,7 @@ paper-dropdown-menu {
 paper-dropdown {
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.2); }
 
-paper-dropdown paper-item {
+paper-dropdown core-item {
   padding: 0 10px; }
 
 /* Buttons */

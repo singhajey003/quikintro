@@ -32,13 +32,16 @@
   <link rel="stylesheet" href="qi-event-detail.css" >
   <link rel="stylesheet" href="../qi-cards.css" >
 
+
+
   <template>
   
-  <div id="eventDetailHeaderPanel" headerHeight="40" class="flex"> 
+  <paper-scroll-header-panel id="eventDetailHeaderPanel" condenses="false" fixed="true" class="flex" noReveal="true" keepCondensedHeader="true"
+  > 
 
-    <paper-toolbar class="flex">  
+    <paper-toolbar class="flex" style="min-height: 40px">  
     
-      <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable="" role="tablist" hideScrollButton="false" class="flex">  
+      <paper-tabs id="scrollableTabs" selected="{{selected}}" disableDrag="false" scrollable="true" role="tablist" hideScrollButton="false" class="flex" >  
         <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
         <paper-tab role="tab" >Matches</paper-tab>
         <paper-tab role="tab" >Contacts</paper-tab>
@@ -51,8 +54,8 @@
     </paper-toolbar>
     
 
-    <div class="content flex fit" > 
-    <iron-pages selected="{{selected}}" class="fit">
+    <div class="layout flex fit" > 
+    <iron-pages selected="{{selected}}" class="layout fit">
 
       <div id="summary">
         <qi-event-summary event="{{event}}" personas="{{personas}}"></qi-event-summary>
@@ -101,7 +104,7 @@
       </div>
     </iron-pages>
     </div>
-    </div>
+    </paper-scroll-header-panel>
     
 
    </template>
@@ -118,7 +121,7 @@
       },
 
         eventChanged: function(newValue, oldValue){
-           this.fire('page-changed', {title: newEvent.title});
+           this.fire('nav-changed', {id:null, title: newValue.title, type:'sub-level'});
         },
 
         ready: function(){

@@ -17,6 +17,7 @@
  		 "tweetUrl":"qi_components/data/ces2016.tweets.json",
  		 "background":"images/city-las-vegas-3.jpg",
  		 "rsvp":"YES",
+ 		 "description":"CES is a global consumer electronics and consumer technology tradeshow that takes place every January in Las Vegas, Nevada.",
 
  		 "traitstats":{
  		 	"interests":[
@@ -77,7 +78,8 @@
  		      	"lastName":"Arges",
  		      	"id":42267
  		      	},
- 		      "time": "04/13/2015 4:55PM"
+ 		      "time": "04/13/2015 4:55PM",
+ 		      "type":"public"
  		  }, {
  		      "title": "Semiconductors",
  		      "description": "New Nordic chip may be 20% cheaper and have 15% better battery perf. compared to current chip.",
@@ -86,7 +88,8 @@
  		      	"lastName":"Arges",
  		      	"id":12573579
  		      	},
- 		      "time": "04/11/2015 2:15PM"
+ 		      "time": "04/11/2015 2:15PM",
+ 		      "type":"in-network"
  		  }],
 
 		  "matches":[
@@ -176,6 +179,7 @@
 		"title":"North County JS Monthly Meeting",
 		"location":"WalmartLabs",
 		"address":"1530 Faraday Ave Carlsbad, CA 92008",
+		"description":"San Diego Javascript meets the first Tuesday of each month, at EvoNexus Downtown. We typically have two talks and then head over to a local bar for drinks and socializing.",
 		"coordinates":{
 			"latitude":33.1377915,
 			"longitude":-117.2954346
@@ -521,6 +525,7 @@
  		 	"latitude": 39.948421,
  		 	"longitude": -75.192167
  		 },
+ 		 "description":"The AACR Annual Meeting highlights the latest, most exciting discoveries in every area of cancer research and provides a unique opportunity for investigators from all over the world to meet, interact, and share their insights. ",
  		 "registrantCount":33000,
  		 "newMatches":50,
  		 "numExistingContacts":15,
@@ -714,6 +719,8 @@
  		 "persona":"Cancer Biologist",
  		 "background":"images/city-chicago.jpg",
  		 "rsvp":"MAYBE",
+
+ 		 "description":"The Annual Meeting brings together 30,000 oncology professionals from around the world. Education sessions feature world-renowned faculty discussing state-of-the-art treatment modalities, new therapies, and ongoing controversies in the field. Science sessions present the latest ground-breaking research in oral and poster format. The Meeting offers opportunities to meet colleagues, make connections, and bring back new ideas to your practices and hospitals.",
 
 
  		"matches":[

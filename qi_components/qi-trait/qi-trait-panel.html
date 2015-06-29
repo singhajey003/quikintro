@@ -1,14 +1,12 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
-<dom-module id='qi-trait-panel'  > <!-- CONVERTED WIP -->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
-  <style>
-  </style> <!-- TODO Move style tags here from <template> if needed CONVERTED WIP -->
+<dom-module id='qi-trait-panel'  > 
 
+    <link rel="stylesheet" href="../quikintro.css" > 
+    <link rel="stylesheet" href="traitlist.css" > 
 
 
   <template>
-    <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-    <link rel="stylesheet" href="traitlist.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 
     <div style="padding-left: 30px; padding-right: 30px;">
     <div class="card-wrapper"> 
@@ -18,7 +16,7 @@
             <template is="dom-repeat" items="{{event.traitstats.interests}}"  as="interest">
             <div class="trait-pair">
               <label class="keyword">{{interest.name}}</label>
-              <paper-progress class="type1" value="{{interest.percent}}"></paper-progress> {{interest.percent}}%
+              <paper-progress class="type1" value="{{interest.percent}}"></paper-progress> <span>{{interest.percent}}</span>%
             </div>
             </template>
             
@@ -32,7 +30,7 @@
             <div  class="trait-pair horizontal layout"> 
               <paper-checkbox ></paper-checkbox>
               <div class="vertical layout">  
-                <h4>{{interest.name}} - {{interest.percent}}%</h4>
+                <h4><span>{{interest.name}}</span> - <span>{{interest.percent}}</span>%</h4>
               </div>
             </div>
             </template>

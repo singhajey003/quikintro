@@ -8,12 +8,13 @@
 
 
 <dom-module id='qi-event-detail-match'  > 
+
+	<link rel="stylesheet" href="../quikintro.css" > 
+	<link rel="stylesheet" href="../qi-cards.css" > 
+	<link rel="stylesheet" href="qi-events.css" > 
+	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" > 
  	
 	<template>
-  		<link rel="stylesheet" href="../quikintro.css" > 
-		<link rel="stylesheet" href="../qi-cards.css" > 
-  		<link rel="stylesheet" href="qi-events.css" > 
-		<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" > 
 
 		<div class="card-wrapper"> 
 
@@ -27,7 +28,7 @@
 					</template>
 
 					<template is="dom-if" if="{{match.firstName != null}}">
-					<h3 id="titleBlock">{{match.firstName}} {{match.lastName}}</h3>
+					<h3 id="titleBlock"><span>{{match.firstName}} {{match.lastName}}</span></h3>
 					</template>
 
 					<p class="title">{{match.title}}</p>
@@ -36,8 +37,8 @@
 				</header>
 
 				<div class="summary horizontal justified layout end" >  
-					<span id="matchPercentage" class="matchPercentage">{{match.match}}% <span>match</span></span>
-					<span id="distanceAway" class="distanceAway"> &lt; {{match.distanceAway}} meters away</span>
+					<span id="matchPercentage" class="matchPercentage"><span>{{match.match}}</span>% <span>match</span></span>
+					<span id="distanceAway" class="distanceAway"> &lt; <span>{{match.distanceAway}}</span> meters away</span>
 				</div>
 
 				<div class="card-actions horizontal justified layout center" >  
@@ -57,11 +58,11 @@
 
 	<script>
 	Polymer({
-   		is: 'qi-event-detail-match', // CONVERTED WIP 
+   		is: 'qi-event-detail-match',
 
    		properties:{
    			match: {type: Object},
-			opened:{type: Boolean, value: false},
+			opened:{type: Boolean, value: false, notify: true},
 		},
 
 		openInviteDialog: function(e){
@@ -78,23 +79,4 @@
 	</script>
 
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module> 

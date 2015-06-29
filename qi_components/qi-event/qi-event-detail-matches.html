@@ -3,9 +3,9 @@
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
 
 <dom-module id='qi-event-detail-matches'  > 
-
+	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" >
+	
 	<template>
-	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 	<style>
 	  #matchBlock {
 	  	margin: 0 10px 0 10px;
@@ -50,8 +50,8 @@
 			<div id="titleBlock">{{matches.title}} {{matches.company}}</div>
 
 			<div id="matchBlock">
-			  <span id="matchPercentage">{{matches.match}}% match</span>
-			  <span id="distanceAway"> less than {{matches.distanceAway}} miles away</span>
+			  <span id="matchPercentage"><span>{{matches.match}}</span>% match</span>
+			  <span id="distanceAway"> less than <span>{{matches.distanceAway}}</span> miles away</span>
 			</div>
 
 			<div id="invite">

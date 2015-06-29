@@ -6,4 +6,13 @@
 .eventSettings {
   background-color: white;
   padding: 10px;
-  margin-top: -5px; }
+  margin-top: -5px; 
+  position: relative;
+}
+
+.eventSettings > div {
+  /* line-height: normal; */ 
+}
+
+paper-toolbar {
+  height: 40px; }

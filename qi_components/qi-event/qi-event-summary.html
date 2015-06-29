@@ -14,10 +14,11 @@ TODO:
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/iron-input/iron-input.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
-<!--
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html">
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html">
--->
+
+<link rel="import" href="../../bower_components/mat-dropdown/mat-dropdown.html">
+<link rel="import" href="../../bower_components/mat-option/mat-option.html">
+
+
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
 <link rel="import" href="../qi-field/qi-field-decorator.html">
@@ -32,12 +33,13 @@ TODO:
 
     <template>
 
-    <div class="card reverse venue-bkgnd banner" style="{{computeBackground(event.background)}}"> 
+    <div class="layout vertical flex fit">
+    <div class="card venue-bkgnd banner fit flex" style="{{backgroundImage}}"> 
         <div class="overlay"></div>
 
         <header>
             <div><span>{{event.startTime}}</span>-<span>{{event.endTime}}</span> at <span>{{event.location}}</span></div> 
-            <p>{{event.registrantCount}} Registrants</p>
+            <div><span>{{event.registrantCount}} Registrants</span></div>
         </header>
 
         <div class="summary horizontal layout justified flex" > 
@@ -55,46 +57,39 @@ TODO:
     </div>
 
     <div class="eventSettings">
-        <h4>Event Settings</h4>
-
-          <qi-field-decorator id="rsvpField" name="Going?" class="settings-row horizontal justified layout" > 
-          <!-- TODO: replace dropdown
-            <core-dropdown-menu>
-                <core-dropdown class="dropdown" halign="right">
-                    <iron-selector selected="{{event.rsvp}}" valueattr="val">
-                       
-                            <paper-item val="YES">Yes</paper-item>
-                            <paper-item val="NO">No</paper-item>
-                            <paper-item val="MAYBE">Maybe</paper-item>
-                        
-                    </iron-selector>
-                </core-dropdown>
-            </core-dropdown-menu>
-            -->
-         </qi-field-decorator>
-
-
-         <qi-field-decorator id="personaField" name="Persona" class="settings-row horizontal justified layout center" > 
-            <core-dropdown-menu>
-                <core-dropdown class="dropdown" halign="right">
-                    <iron-selector selected="{{event.persona}}" valueattr="personaId">
-                        <template is="dom-repeat" items="{{personas}}"  as="persona">
-                            <paper-item personaId="{{persona.name}}">{{persona.name}}</paper-item>
-                        </template>
-                    </iron-selector>
-                </core-dropdown>
-            </core-dropdown-menu>
-         </qi-field-decorator>
-
-         <qi-field-decorator name="Alert" class="settings-row horizontal justified layout" > 
-            <iron-input id="alarm">{{event.notification}}</iron-input>
-         </qi-field-decorator>
+        <div><span>{{event.description}}</span></div>
 
         <div class="settings-row">
             <google-map id="map" zoom="18" style="width: 100%;" minZoom="9" maxZoom="20" libraries="visualization" zoomable="true" fitToMarkers>  
                 <google-map-marker id="marker"></google-map-marker>
             </google-map>
         </div>
+
+        <h4>Event Settings</h4>
+          <qi-field-decorator id="rsvpField" label="Going?" class="settings-row horizontal justified layout" > 
+
+              <mat-dropdown id="rsvp" model="{{event.rsvp}}">
+                    <mat-option value="YES" label="Yes"></mat-option>
+                    <mat-option value="NO" label="No"></mat-option>
+                    <mat-option value="MAYBE" label="Maybe"></mat-option>
+              </mat-dropdown>  
+            
+         </qi-field-decorator>
+
+
+         <qi-field-decorator id="personaField" label="Persona" class="settings-row horizontal justified layout center" > 
+            <mat-dropdown id="persona" model="{{event.persona}}">
+                <template is="dom-repeat" items="{{personas}}"  as="persona">
+                    <mat-option value="{{persona.name}}" label="{{persona.name}}"></mat-option>
+                </template>              
+             </mat-dropdown>
+         </qi-field-decorator>
+
+         <qi-field-decorator label="Alert" class="settings-row horizontal justified layout" > 
+            <iron-input id="alarm">{{event.notification}}</iron-input>
+         </qi-field-decorator>
+
+        
 
     <iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
 
@@ -109,7 +104,11 @@ TODO:
 
         properties:{
             event: {type: Object, value: null},
-            personas: {type: Array}
+            personas: {type: Array},
+            backgroundImage: {
+                type: String,
+                computed: 'computeBackground(event.background)'
+            }
         },
 
         computeBackground: function(imageUrl){
@@ -158,30 +157,10 @@ TODO:
 
         },
 
-        eventChanged: function(oldValue, newValue){
+        eventChanged: function(newValue, oldValue){
             this.fixMap();
         }
        
     });
     </script>
-</dom-module> <!-- CONVERTED -->
-
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module> 

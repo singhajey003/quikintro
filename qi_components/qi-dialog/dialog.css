@@ -1,38 +1,32 @@
 paper-dialog {
-    font-family: "fira-sans-ultralight", sans-serif;
-    width: 90%;
-    max-width: 450px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    border-radius: 10px;
-}
+  font-family: "fira-sans-ultralight", sans-serif;
+  width: 90%;
+  max-width: 450px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
 
 paper-dialog h1 {
-    margin-top: 0;
-}
+  margin-top: 0; }
 
 paper-dialog #actions {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    border-radius: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-top: 1px solid #7ba2b2;
-    padding: 0;
-    background-color: rgba(156, 194, 201, 0.6);
-}
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 1px solid #7ba2b2;
+  padding: 0;
+  background-color: rgba(156, 194, 201, 0.6); }
 
 paper-dialog paper-button {
-    font-family: "fira-sans-book", sans-serif;
-}
+  font-family: "fira-sans-book", sans-serif; }
 
 paper-dialog #scroller {
-    padding: 20px;
-}
+  padding: 20px; }
 
-paper-dialog iron-icon {
-    height: 50px !important;
-    width: 50px !important;
-}
+paper-dialog core-icon {
+  height: 50px !important;
+  width: 50px !important; }

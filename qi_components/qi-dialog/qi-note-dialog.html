@@ -4,13 +4,17 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 
-<dom-module id='qi-note-dialog'  > 
+<link rel="import" href="../../bower_components/mat-dropdown/mat-dropdown.html">
+
+
+<dom-module id='qi-note-dialog'  >
+
+	<link rel="stylesheet" href="../quikintro.css" > 
+	<link rel="stylesheet" href="dialog.css"> 
 
 	<template>
 
 		<paper-dialog id="dialog" heading="New Note" backdrop>
-			<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-			<link rel="stylesheet" href="dialog.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
 
 			<div>
 				<paper-input id="title" label="Title"></paper-input>
@@ -18,6 +22,14 @@
 
 			<div>
 				<paper-textarea  floatingLabel="true" id="note" label="Note"></paper-textarea>
+			</div>
+
+			<div>
+			<mat-dropdown id="type" model="{{noteType}}" label="Message Type" floating-label="true">
+                    <mat-option value="public" label="Public"></mat-option>
+                    <mat-option value="in-network" label="In-Network"></mat-option>
+                    <mat-option value="private" label="Private"></mat-option>
+              </mat-dropdown>  
 			</div>
 			
 			<div class="buttons">
@@ -39,7 +51,11 @@
     			/**
     			 * An array of notes.
     			 */
-    			notes:{type: Array}
+    			notes:{type: Array},
+
+    			noteType:{
+    				type: String,
+    			}
     		},
 
     		/**
@@ -64,7 +80,8 @@
 					"title": this.$.title.value,
 					"description": this.$.note.value,
 					"author":author,
-    				"time": timeObj.toDateString() + timeObj.toTimeString()
+    				"time": timeObj.toDateString() + timeObj.toTimeString(),
+    				"type": this.noteType
 				};
 
 				this.notes.push(note);

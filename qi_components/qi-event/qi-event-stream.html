@@ -30,7 +30,7 @@
 		<div class="layout vertical flex"  > 
 
 			<iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical flex fit"> 
-			  <div selected>
+			  	<div selected>
 					<h4>My Scheduled Events</h4>
 					<div id="schedEvents">
 					</div>
@@ -41,7 +41,7 @@
 			
 				 </div>
 
-				<div>
+				<div >
 					<qi-event-detail id="detail"></qi-event-detail>
 				</div>
 
@@ -61,9 +61,9 @@
 				selectedEventPage:{type: Number, value:0, notify: true, observer:'selectedEventPageChanged'},
 			},
 
-			selectedEventPageChanged: function(oldValue, newValue){
+			selectedEventPageChanged: function(newValue, oldValue){
 				if (newValue == 0){
-					this.fire('page-changed', {title: 'Events'})
+					this.fire('nav-changed', {id:'null',title: 'Events', type:'sub-level'})
 				}
 			},
 			
@@ -73,7 +73,7 @@
 				var detail = this.$.detail;
 				detail.event = event;
 				this.selectedEventPage = 1;
-				this.fire('page-changed', {title: event.title})
+				this.fire('nav-changed', {id:event.id, title: event.title, type:'event'})
 			},
 			
 			eventsChanged: function(newEvents, oldEvents){
