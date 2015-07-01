@@ -14,12 +14,14 @@ it can be easily accessed by other components.
         <iron-ajax auto="true" url="contacts.json" on-response="handleContacts" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="messages.json" on-response="handleMsgs" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="notices.json" on-response="handleNotices" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="linkedin-profile.json" on-response="handleProfile" handle-as="json"></iron-ajax>
 
         <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
         <iron-localstorage name="events" value="{{eventList}}"></iron-localstorage>
         <iron-localstorage name="contacts" value="{{contactList}}"></iron-localstorage>
         <iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
         <iron-localstorage name="notices" value="{{noticeList}}"></iron-localstorage>
+        <iron-localstorage name="profile" value="{{profile}}"></iron-localstorage>
     </template>
     <script>
     Polymer({
@@ -40,6 +42,9 @@ it can be easily accessed by other components.
             },
             noticeList:{
             	type: Array
+            },
+            profile:{
+                type: Object
             }
         },
 
@@ -61,6 +66,9 @@ it can be easily accessed by other components.
 
         handleNotices: function(e){
         	this.noticeList = e.detail.response;
+        },
+        handleProfile: function(e){
+            this.profile = e.detail.response;
         }
 
     });

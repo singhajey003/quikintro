@@ -5,36 +5,32 @@
 
   <template>
   
-  <div class="flex">
+    <div class="layout vertical flex">
     
         <fieldset>
           <legend>Change Password</legend> 
-            <paper-input-container floatingLabel="true" label="New Password:">
+            <paper-input-container floatingLabel="true">
+              <label>New Password:</label>
               <input is="iron-input" type="password" name="password" >
             </paper-input-container>
 
-            <paper-input-container floatingLabel="true" label="Confirm Password:">
+            <paper-input-container floatingLabel="true">
+              <label>Confirm Password:</label>
               <input is="iron-input" type="password" name="password" >
             </paper-input-container>
 
 
         </fieldset><br/>
 
-        <fieldset>
-          <legend>Authentication Scheme</legend> 
-
-          
-           
-
-        </fieldset>
+       
     
 
-     </div>
+    </div>
 </template>
 
 <script>
   Polymer({
-      is: 'qi-security-panel', // CONVERTED WIP 
+      is: 'qi-security-panel', 
     
       });
 

@@ -9,11 +9,9 @@
 	<template>
 	    <link rel="stylesheet" href="qi-field.css"> 
 		<div class="row flex layout horizontal justified" >  
-	        <div class="labelCell">
-	            <label>{{name}}</label>
-	        </div>
+	        <div class="labelCell"><label><span>{{label}}</span></label></div>
 	        <div class="fldValue flex"  two>  
-	            {{value}}
+	            <span>{{value}}</span>
 	        </div>
 	    </div>
 	</template>
@@ -22,26 +20,12 @@
 	Polymer({
    		is: 'qi-field', 
    		properties:{
-   			name: {type: String},
+   			label: {type: String},
    			value: {type: String}
    		}
 
 	});
 	</script>
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
--->
-
+</dom-module>
 

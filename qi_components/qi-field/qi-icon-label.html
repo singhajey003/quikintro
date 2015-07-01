@@ -3,13 +3,25 @@
 
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
 <dom-module id="qi-icon-label">
 
+	<style is="custom-style">
+		.icon{
+			--iron-icon-width: 24px;
+			--iron-icon-height: 24px;
+			width: 24px;
+			height: 24px;
+		}
+
+	</style>
+
 	<template>
 		<div class="layout horizontal">
-			<iron-icon icon="{{icon}}"></iron-icon>
-			<label>{{label}}</label>
+			<iron-icon class="icon" icon="[[icon]]" ></iron-icon>
+			<label>[[label]]</label>
 		</div>
 
 	</template>

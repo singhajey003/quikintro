@@ -60,9 +60,7 @@
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 10px; 
-  /* position: relative; */
-}
+  margin-bottom: 10px; }
   .card.venue-bkgnd header {
     height: 70px;
     text-align: center;

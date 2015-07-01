@@ -2,7 +2,9 @@
 .trait-wrapper {
   background-color: #ebebeb;
   padding: 5px;
-  overflow: auto; }
+  overflow: auto;
+  margin-left: 10px;
+  margin-bottom: 10px; }
 
 .trait {
   background-color: #cccccc;

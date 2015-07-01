@@ -13,10 +13,10 @@
           <div class="card traits">
             <h3>My Interests</h3>
 
-            <template is="dom-repeat" items="{{event.traitstats.interests}}"  as="interest">
+            <template is="dom-repeat" items="[[event.traitstats.interests]]"  as="interest">
             <div class="trait-pair">
-              <label class="keyword">{{interest.name}}</label>
-              <paper-progress class="type1" value="{{interest.percent}}"></paper-progress> <span>{{interest.percent}}</span>%
+              <label class="keyword">[[interest.name]]</label>
+              <paper-progress class="type1" value="[[interest.percent]]"></paper-progress> <span>[[interest.percent]]</span>%
             </div>
             </template>
             
@@ -26,11 +26,11 @@
           <div class="card traits">
             <h3>Attendee Interests</h3> 
 
-            <template is="dom-repeat" items="{{event.traitstats.attendeeInterests}}" as="interest"> 
-            <div  class="trait-pair horizontal layout"> 
+            <template is="dom-repeat" items="[[event.traitstats.attendeeInterests]]" as="interest"> 
+            <div class="trait-pair horizontal layout"> 
               <paper-checkbox ></paper-checkbox>
               <div class="vertical layout">  
-                <h4><span>{{interest.name}}</span> - <span>{{interest.percent}}</span>%</h4>
+                <h4><span>[[interest.name]]</span> - <span>[[interest.percent]]</span>%</h4>
               </div>
             </div>
             </template>

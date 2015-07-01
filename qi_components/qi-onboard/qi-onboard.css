@@ -1,20 +1,17 @@
 
 #onboardpanel{
-	padding-left: 20px;
-	padding-top: 20px;
-
+	position:  absolute;
+	left: 0px;
+	top: 0px;
 }
 
 #iconPanel{
-	width: 200px;
 	margin-left: 50px;
 	border-radius: 5px;
+	margin-right: 10px;
+	width: 250px;
 }
 
-qi-onboard-card{
-	margin-bottom: 10px;
-	margin-top: 10px;
-}
 
 .title{
 	font-size: 14pt;
@@ -26,11 +23,9 @@ qi-onboard-card{
 
 
 iron-collapse{
-	margin: 10px;
 	background-color: white;
 	min-height: 100px;
 	color: #555;
-	padding: 10px;
 	border-radius: 4px;
 }
 

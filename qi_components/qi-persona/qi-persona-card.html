@@ -1,6 +1,5 @@
 <!--
-TODO
-	core-tooltip
+	This card is responsible for displaying a persona and all of its traits.
 
 -->
 
@@ -14,26 +13,34 @@ TODO
 
 <link rel="import" href="../qi-toggle/qi-toggle.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
+<link rel="import" href="../qi-field/qi-icon-label.html">
 
 <dom-module id='qi-persona-card'  > 
+
+
+	<link rel="stylesheet" href="qi-persona-card.css" > 
+	<link rel="stylesheet" href="../quikintro.css" > 
+	<link rel="stylesheet" href="../qi-cards.css"> 
+	<link rel="stylesheet" href="../qi-trait/traitlist.css"> 
+	
+	<style>
+	div.persona > div.card-actions{
+		padding-left: 5px;
+	}
+	</style>
 		
 	<template>
-	<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="../qi-cards.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="../qi-trait/traitlist.css"> <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="qi-persona-card.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 
 	<div class="card-wrapper"> 
 		<div class="card persona">
 			<header>
-				<h3>{{persona.name}}</h3>
-				<p>{{persona.blurb}}</p>
+				<h3>[[persona.name]]</h3>
+				<p>[[persona.blurb]]</p>
 			</header>
 			<div class="card-actions horizontal justified layout center flex" >   
-				<div class="flex">   
+				<div class="flex layout horizontal">   
 					<qi-icon-label label="Clone Persona" icon="content-copy"></qi-icon-label>
-					
-					<qi-icon-label label="Delete Persona" icon="delete"></qi-icon-label>
+					<qi-icon-label label="Delete Persona" icon="delete" ></qi-icon-label>
 					
 				</div>
 				<div >
@@ -41,28 +48,28 @@ TODO
 				</div>
 			</div>
 
-			<iron-collapse id="collapse" opened="false">
+			<iron-collapse id="collapse" opened="{{opened}}">
 				<h4>About Me</h4>
 				<div class="iconFld">
 					<iron-icon icon="question-answer"></iron-icon>
 					<label>Interactions:</label>
 				</div>
 				<div class="fldValue">
-					<qi-traitlist traits="{{persona.aboutMe.interactions}}"></qi-traitlist>
+					<qi-traitlist traits="[[persona.aboutMe.interactions]]" emptymsg="No Interactions Found"></qi-traitlist>
 				</div>
 				<div class="iconFld">
 					<iron-icon icon="bookmark"></iron-icon>
 					<label>Skills:</label>
 				</div>
 				<div class="fldValue">
-					<qi-traitlist traits="{{persona.aboutMe.skills}}"></qi-traitlist>
+					<qi-traitlist traits="[[persona.aboutMe.skills]]" emptymsg="No Skills Found"></qi-traitlist>
 				</div>
 				<div class="iconFld">
 					<iron-icon icon="label"></iron-icon>
 					<label>Interests:</label>
 				</div>
 				<div class="fldValue">
-					<qi-traitlist traits="{{persona.aboutMe.interests}}"></qi-traitlist>
+					<qi-traitlist traits="[[persona.aboutMe.interests]]" emptymsg="No Interests Found"></qi-traitlist>
 				</div>
 
 <hr>
@@ -73,21 +80,21 @@ TODO
 			    <label>Interactions:</label>
 		    </div>
 		    <div class="fldValue">
-		    	<qi-traitlist traits="{{persona.lookingFor.interactions}}"></qi-traitlist>
+		    	<qi-traitlist traits="[[persona.lookingFor.interactions]]" emptymsg="No Interactions Found"></qi-traitlist>
 		    </div>
 				<div class="iconFld">
 				    <iron-icon icon="bookmark"></iron-icon>
 				    <label>Skills:</label>
 			    </div>
 			    <div class="fldValue">
-			    <qi-traitlist traits="{{persona.lookingFor.skills}}"></qi-traitlist>
+			    <qi-traitlist traits="[[persona.lookingFor.skills]]" emptymsg="No Skills Found"></qi-traitlist>
 			    </div>
 				<div class="iconFld">
 				    <iron-icon icon="label"></iron-icon>
 				    <label>Interests:</label>
 			    </div>
 			    <div class="fldValue">
-			    <qi-traitlist traits="{{persona.lookingFor.interests}}"></qi-traitlist>
+			    <qi-traitlist traits="[[persona.lookingFor.interests]]" emptymsg="No Interests Found"></qi-traitlist>
 			    </div>
 
 
@@ -99,21 +106,21 @@ TODO
 			    <label>Interactions:</label>
 		    </div>
 		    <div class="fldValue">
-		    	<qi-traitlist traits="{{persona.notLookingFor.interactions}}"></qi-traitlist>
+		    	<qi-traitlist traits="[[persona.notLookingFor.interactions]]" emptymsg="No Interactions Found"></qi-traitlist>
 		    </div>
 				<div class="iconFld">
 				    <iron-icon icon="bookmark"></iron-icon>
 				    <label>Skills:</label>
 			    </div>
 			    <div class="fldValue">
-			    <qi-traitlist traits="{{persona.notLookingFor.skills}}"></qi-traitlist>
+			    <qi-traitlist traits="[[persona.notLookingFor.skills]]" emptymsg="No Skills Found"></qi-traitlist>
 			    </div>
 				<div class="iconFld">
 				    <iron-icon icon="label"></iron-icon>
 				    <label>Interests:</label>
 			    </div>
 			    <div class="fldValue">
-			    <qi-traitlist traits="{{persona.notLookingFor.interests}}"></qi-traitlist>
+			    <qi-traitlist traits="[[persona.notLookingFor.interests]]" emptymsg="No Interests Found"></qi-traitlist>
 			    </div>
 
 
@@ -131,11 +138,13 @@ TODO
    		is: 'qi-persona-card', 
 
    		properties:{
-   			persona:{type: Object}
+   			persona:{type: Object},
+   			opened: {type: Boolean, value: false}
    		},
 
 		
 	    toggleAction: function(evt){
+	    	this.opened != this.opened;
 	     	this.$.collapse.toggle();
 	     }
 

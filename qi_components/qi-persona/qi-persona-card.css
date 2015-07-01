@@ -3,6 +3,16 @@ fieldset{
 	border-radius: 5px;
 }
 
+header > h3{
+	font-weight: normal;
+	color: #505050;
+	text-align: left;
+}
+
+header > p{
+	text-align: left;
+}
+
 .cardWhite{
 	background-color: #fff;
 	border-radius: 5px;
