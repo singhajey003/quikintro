@@ -37,6 +37,37 @@
     "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.2",
     "paper-button": "PolymerElements/paper-button#~1.0.1",
     "polymer": "Polymer/polymer#~1.0.3",
-    "font-roboto": "PolymerElements/font-roboto"
+    "font-roboto": "PolymerElements/font-roboto",
+    "mat-dropdown": "expandjs/mat-dropdown#~0.9.3"
+  },
+  "resolutions": {
+    "expandjs": "0.9.3",
+    "mat-divider": "0.9.3",
+    "mat-ink": "0.9.3",
+    "mat-palette": "0.9.3",
+    "mat-typography": "0.9.3",
+    "xp-slave-state": "0.9.3",
+    "mat-icon": "0.9.3",
+    "xp-icon": "0.9.3",
+    "xp-iconset": "0.9.3",
+    "xp-array-behavior": "0.9.3",
+    "mat-icons": "0.9.3",
+    "mat-input-decorator": "0.9.3",
+    "mat-menu": "0.9.3",
+    "mat-overlay": "0.9.3",
+    "mat-paper": "0.9.3",
+    "mat-shadow": "0.9.3",
+    "xp-overlay": "0.9.3",
+    "xp-overlay-behavior": "0.9.3",
+    "xp-master-state": "0.9.3",
+    "xp-targeter-behavior": "0.9.3",
+    "mat-option": "0.9.3",
+    "mat-ripple": "0.9.3",
+    "xp-anchor-behavior": "0.9.3",
+    "xp-pressed-behavior": "0.9.3",
+    "xp-focused-behavior": "0.9.3",
+    "xp-input-behavior": "0.9.3",
+    "xp-referral-behavior": "0.9.3",
+    "xp-selected-behavior": "0.9.3"
   }
 }
