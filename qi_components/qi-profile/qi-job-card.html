@@ -23,8 +23,8 @@ TODO
 	<div class="card-wrapper"> 
 		<div class="card job">
 
-			<qi-field label="Title:" value="{{job.title}}"></qi-field>
-			<qi-field label="Company:" value="{{job.company.name}}"></qi-field>
+			<qi-field label="Title:" value="[[job.title]]"></qi-field>
+			<qi-field label="Company:" value="[[job.company.name]]"></qi-field>
 			<qi-field label="Start Date:" value="{{convertDate(job.startDate)}}"></qi-field>
 			
 			<qi-field-decorator label="End Date:">

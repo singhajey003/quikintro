@@ -10,17 +10,18 @@
 <dom-module id='qi-twitter-dialog'  > 
 
  
+ 	<link rel="stylesheet" href="dialog.css"> 
+
 	<template>
 		
 		<paper-dialog id="dialog" backdrop>
-		  <link rel="stylesheet" href="dialog.css"> 
 
 		  <paper-textarea id="tweet" value="{{myTweet}}" maxRows="3" ></paper-textarea>
 		  	<div class="tweetSize">{{tweetSize}} Characters</div>
 
 		  	<div class="buttons">
-		  	<paper-button dismissive>Cancel</paper-button>
-		  	<paper-button id="sendBtn" on-click="sendAction" affirmative>Send</paper-button>  
+		  	<paper-button dialog-dismiss>Cancel</paper-button>
+		  	<paper-button id="sendBtn" on-click="sendAction" dialog-confirm>Send</paper-button>  
 		  	</div>
 	  		
 		</paper-dialog>

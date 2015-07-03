@@ -52,36 +52,6 @@ qi-scaffold {
   bottom: 0px;
   left: 0px; }
 
-/*
-paper-menu {
-  font-size: 16px;
-}
-
-#core_menu_button {
-  left: 68px;
-  top: 14px;
-  position: absolute;
-}
-paper-submenu {
-  left: 12px;
-  top: 0px;
-  position: relative;
-}
-paper-submenu > paper-item {
-  padding-left: 10px;
-  font-size: 10pt;
-}
-
-paper-submenu > paper-submenu{
-  font-size: 8pt;
-  margin-top: -5px;
-  margin-bottom: -5px;
-}
-
-paper-submenu > paper-submenu[label]{
-  font-size: 10pt;
-}
-*/
 paper-toolbar {
   background-color: #7ba2b2;
   height: 40px; }
@@ -120,16 +90,6 @@ paper-scroll-header-panel {
   overflow: auto;
   height: 40px; }
 
-/*
-.content {
-  padding: 20px 30px;
-  background-color: $background;
-  background-image: $backgroundImage;
-  background-repeat: no-repeat;
-  background-position: -500px -100px;
-  overflow: auto;
-}
-*/
 input#searchText[is=core-input] {
   width: 100px;
   background-color: #fff;
@@ -141,13 +101,6 @@ input#searchText[is=core-input] {
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 20px; }
-
-/* some default styles for mode="cover" on core-scaffold */
-qi-scaffold[mode=cover] core-header-panel #mainContainer {
-  left: 120px; }
-
-qi-scaffold[mode=cover] .content {
-  margin: 20px 100px 20px 0; }
 
 section {
   overflow: auto; }
@@ -182,7 +135,8 @@ h4 {
 
 paper-input {
   color: #17aacf;
-  cursor: pointer; }
+  cursor: pointer;
+  height: 40px; }
 
 /* Dropdowns */
 paper-dropdown-menu {

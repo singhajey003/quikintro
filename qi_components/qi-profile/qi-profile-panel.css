@@ -11,7 +11,7 @@ section {
 .summary {
   width: 100%; }
 
-qi-avatar::shadow .photo {
+qi-avatar /deep/ .photo {
   width: 100px;
   height: 100px;
   background-size: cover;

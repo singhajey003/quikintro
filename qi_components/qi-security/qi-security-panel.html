@@ -3,26 +3,29 @@
 
 <dom-module id='qi-security-panel'  > 
 
+  <style>
+  .passwordPanel{
+    margin: 20px;
+  }
+  </style>
+
   <template>
   
-    <div class="layout vertical flex">
+    <div class="passwordPanel layout vertical flex">
     
-        <fieldset>
-          <legend>Change Password</legend> 
+       
+          <h2>Change Password</h2> 
             <paper-input-container floatingLabel="true">
               <label>New Password:</label>
-              <input is="iron-input" type="password" name="password" >
+              <input id="nuPassword" is="iron-input" type="password" name="password" >
             </paper-input-container>
 
             <paper-input-container floatingLabel="true">
               <label>Confirm Password:</label>
-              <input is="iron-input" type="password" name="password" >
+              <input id="confPassword" is="iron-input" type="password" name="password" >
             </paper-input-container>
 
-
-        </fieldset><br/>
-
-       
+            <paper-button on-click="savePassword">Save Password</paper-button>
     
 
     </div>
@@ -31,6 +34,12 @@
 <script>
   Polymer({
       is: 'qi-security-panel', 
+
+      savePassword: function(){
+        if(this.$.nuPassword.value == this.$.confPassword.value){
+          this.fire('show-toast', {text: 'Password Updated'});
+        }
+      }
     
       });
 

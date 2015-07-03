@@ -1,7 +1,7 @@
 paper-toolbar {
   color: $white;
   background-color: #17a8cc;
-  font-family: Verdana;
+  /* font-family: Verdana; */
 }
 
 paper-icon-button.qi-logo iron-icon {

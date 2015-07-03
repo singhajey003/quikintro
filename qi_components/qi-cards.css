@@ -84,15 +84,14 @@
 .card.card-photo {
   height: 150px; }
   .card.card-photo /deep/ .photo, .card.card-photo /deep/ core-icon.photo {
-    height: 110px;
-    width: 80px;
     background-color: #7ba2b2;
     background-repeat: no-repeat;
     background-size: cover;
     color: #bce6d5; }
   .card.card-photo header {
     left: 80px;
-    height: 63.33333px; }
+    height: 63.33333px;
+    margin-left: 5px; }
   .card.card-photo .summary {
     left: 80px;
     height: 31.66667px;

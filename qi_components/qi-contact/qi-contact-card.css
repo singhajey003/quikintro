@@ -28,7 +28,6 @@ paper-textarea {
   float: right;
   display: table-cell; }
 
-/** The avatar image used for the contact. */
 polymer-ui-ratings {
   width: 80px; }
 
@@ -39,26 +38,6 @@ polymer-ui-ratings {
   margin-bottom: 20px;
   display: block;
   border: 1px solid #bce6d5; }
-
-#card[flip="back"] > #front {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  display: none; }
-
-#card[flip="back"] > #back {
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-  display: block; }
-
-#card[flip="front"] > #front {
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-  display: block; }
-
-#card[flip="front"] > #back {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  display: none; }
 
 iron-icon,
 iron-icon-button {

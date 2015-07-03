@@ -4,7 +4,7 @@
 		core-dropdown -> ?
 -->
 
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
@@ -24,42 +24,46 @@
 	<link rel="stylesheet" href="dialog.css"> 
 
 	<template>
-		<paper-dialog id="dialog" heading="Introduce Yourself" transition="core-transition-bottom" backdrop>
-			<div >
-			<!-- TODO: replace with new dropdown -->
-			<!--
-				<core-dropdown-menu label="Select A Message">
-					<core-dropdown class="dropdown">
-						<iron-selector selected="{{selectedTemplate}}">
-							<template is="dom-repeat" items="{{persona.msgTemplates}}" as="msgTemplate">
-								<paper-item template="{{msgTemplate}}">{{msgTemplate.title}}</paper-item>
-							</template>
-						</iron-selector>
-					</core-dropdown>
-				</core-dropdown-menu>
-				-->
-			</div>
+		<paper-dialog id="dialog" transition="core-transition-bottom" backdrop>
+		    <h2>Introduce Yourself</h2>
+		    <paper-scrollable-dialog>
+				<div >
+				<!-- TODO: replace with new dropdown -->
+				<!--
+					<core-dropdown-menu label="Select A Message">
+						<core-dropdown class="dropdown">
+							<iron-selector selected="{{selectedTemplate}}">
+								<template is="dom-repeat" items="{{persona.msgTemplates}}" as="msgTemplate">
+									<paper-item template="{{msgTemplate}}">{{msgTemplate.title}}</paper-item>
+								</template>
+							</iron-selector>
+						</core-dropdown>
+					</core-dropdown-menu>
+					-->
+				</div>
 
-			<div>
-				<paper-textarea id="msg" rows="3">
-				</paper-textarea>
-			</div>
+				<div>
+					<paper-textarea id="msg" rows="3">
+					</paper-textarea>
+				</div>
+				
+				<div class="checkbox-row">
+					<paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox>
+					<paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox>
+				</div>
+			</paper-scrollable-dialog>
 			
-			<div class="checkbox-row">
-				<paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox>
-				<paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox>
-			</div>
-		 <div class="buttons">
-		  <paper-button dismissive>Cancel</paper-button>
-		  <paper-button affirmative on-click="sendAction">Send</paper-button>   
-		 </div>
+			 <div class="buttons">
+			  <paper-button dialog-dismiss>Cancel</paper-button>
+			  <paper-button dialog-confirm on-click="sendAction">Send</paper-button>   
+			 </div>
 		</paper-dialog>
 
 	</template>
 
 	<script>
 	Polymer({
-   		is: 'qi-invite-dialog', // CONVERTED WIP 
+   		is: 'qi-invite-dialog', 
 
    		properties:{
 			contacts: {type: Array, value: JSON.parse(localStorage.getItem("contacts"))},
@@ -117,23 +121,4 @@
 
 
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module>

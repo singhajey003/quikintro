@@ -14,10 +14,11 @@
 
 	<template>
 
-		<paper-dialog id="dialog" heading="New Note" backdrop>
-
+		<paper-dialog id="dialog" backdrop>
+			<h2>New Note</h2>
+			<paper-scrollable-dialog class="flex">
 			<div>
-				<paper-input id="title" label="Title"></paper-input>
+				<paper-input id="title" floatingLabel="true" label="Title"></paper-input>
 			</div>
 
 			<div>
@@ -31,10 +32,12 @@
                     <mat-option value="private" label="Private"></mat-option>
               </mat-dropdown>  
 			</div>
-			
-			<div class="buttons">
-			<paper-button dismissive>Cancel</paper-button>
-			<paper-button affirmative on-click="publishAction">Publish</paper-button> 
+			</paper-scrollable-dialog>
+
+
+			<div class="buttons flex">
+			<paper-button dialog-dismiss>Cancel</paper-button>
+			<paper-button dialog-confirm on-click="publishAction">Publish</paper-button> 
 			</div>
 		  
 		</paper-dialog>

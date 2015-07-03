@@ -22,7 +22,7 @@
 	<section id="profile" >
 
 		<div class="profile-overview layout vertical flex fit">
-			<div class="horizontal layout" style="margin-bottom: 15px;"> 
+			<div class="horizontal layout" > 
 				<div>
 					<qi-avatar url="[[profile.avatar]]"></qi-avatar>
 				</div>
@@ -36,7 +36,7 @@
 			
 			<div class="summary">[[profile.summary]]<div>
 			
-		</div>
+		
 
 		<div class="card-wrapper"> 
 			<qi-titled-panel paneltitle="interests" traits="[[profile.interests]]"></qi-titled-panel>
@@ -59,6 +59,8 @@
 			<template is="dom-repeat" items="[[profile.positions.values]]" as="job">
 				<qi-job-card job="[[job]]"></qi-job-card>
 			</template>
+		</div>
+
 		</div>
 
 	</section>

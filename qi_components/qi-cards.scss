@@ -126,8 +126,6 @@ $photo-card-height:
   height: $photo-card-height;
 
   /deep/ .photo, /deep/ core-icon.photo {
-    height: $photo-height;
-    width: $base-height*2;
     background-color: $qi-gray;
     background-repeat: no-repeat;
     background-size: cover;
@@ -137,6 +135,7 @@ $photo-card-height:
   header {
     left: $base-height*2;
     height: $photo-card-header-height;
+    margin-left: 5px;
   }
   .summary {
     left: $base-height*2;

@@ -6,13 +6,13 @@
 	    <link rel="stylesheet" href="qi-field.css"> 
 		<div class="row flex layout horizontal justified" >  
 	        <div class="labelCell">
-	            <iron-icon icon="{{icon}}"></iron-icon>
-	            <label>{{label}}</label>
+	            <iron-icon icon="[[icon]]"></iron-icon>
+	            <label>[[label]]</label>
 	        </div>
 
 	        <template is="dom-if" if="{{!editable}}">
 	        <div class="fldValue flex"  two>  
-	            {{value}}
+	            <span>{{value}}</span>
 	        </div>
 	        </template>
 

@@ -274,6 +274,13 @@
 
 
         var toast = this.$.toast;
+
+        this.addEventListener('show-toast', function(e){
+          toast.text = e.detail.text;
+          toast.show();
+        });
+
+
         this.addEventListener('msg-sent', function(e){
           toast.text = "Message sent";
           toast.show();
