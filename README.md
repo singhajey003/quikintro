@@ -11,7 +11,7 @@ The **data** directory contains data files like **contacts.json** which give you
 
 ### Install dependencies ####
 
-Task requires you to have [nodeJS](https://nodejs.org/download/),[Ruby](http://www.ruby-lang.org/en/downloads/) and [Sass](http://sass-lang.com/download.html) installed. If you're on OS X or Linux you probably already have Ruby installed; test with `ruby -v` in your terminal. When you've confirmed you have Ruby installed, run `gem install sass` to install Sass.
+Task requires you to have [nodeJS](https://nodejs.org/download/), [Ruby](http://www.ruby-lang.org/en/downloads/) and [Sass](http://sass-lang.com/download.html) installed. If you're on OS X or Linux you probably already have Ruby installed; test with `ruby -v` in your terminal. When you've confirmed you have Ruby installed, run `gem install sass` to install Sass.
 
 Needed only one time
 
@@ -41,6 +41,13 @@ Everytime (use any one of the following default: grunt server )
 * Android Beacon Library: http://altbeacon.github.io/android-beacon-library/
 * Cordova Beacon API: http://plugins.cordova.io/#/package/com.unarin.cordova.beacon
 * Twitter API: https://dev.twitter.com/overview/documentation
+
+### Polymer Docs ###
+We currently use Google's Polymer library for developing web components.  You'll find more information here:
+* [Polymer] (http://polymer-project.org
+* [Polymer Migration Documentation] (https://www.polymer-project.org/1.0/docs/migration.html)
+* [Polymer Themes](https://polymerthemes.com/sky/)
+* 
 
 
 ### Setup (Not needed anymore as we run server directly from grunt task) ###
