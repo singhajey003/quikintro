@@ -44,7 +44,7 @@ Everytime (use any one of the following default: grunt server )
 
 ### Polymer Docs ###
 We currently use Google's Polymer library for developing web components.  You'll find more information here:
-* [Polymer] (http://polymer-project.org
+* [Polymer] (http://polymer-project.org)
 * [Polymer Migration Documentation] (https://www.polymer-project.org/1.0/docs/migration.html)
 * [Polymer Themes](https://polymerthemes.com/sky/)
 * 
