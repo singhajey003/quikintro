@@ -22,6 +22,12 @@ html, body {
 h1, h2, h3 {
   font-family: 'Verdana'; }
 
+h4 {
+  color: #7ba2b2;
+  text-transform: uppercase;
+  margin: 5px 0;
+  font-size: 10pt; }
+
 a, a:link, a:visited {
   color: #17aacf; }
 
@@ -45,13 +51,6 @@ hr {
   height: 100%;
   box-sizing: border-box; }
 
-qi-scaffold {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px; }
-
 paper-toolbar {
   background-color: #7ba2b2;
   height: 40px; }
@@ -62,7 +61,6 @@ paper-header-panel > paper-toolbar {
   height: 64px; }
 
 iron-pages {
-  left: 260px;
   top: 70px;
   bottom: 0;
   right: 0;
@@ -99,8 +97,7 @@ input#searchText[is=core-input] {
 .search-panel {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 20px; }
+  padding: 10px; }
 
 section {
   overflow: auto; }
@@ -120,12 +117,6 @@ iron-icon {
 
 .padding {
   padding: 15px; }
-
-h4 {
-  color: #7ba2b2;
-  text-transform: uppercase;
-  margin: 5px 0;
-  font-size: 10pt; }
 
 .settings-row {
   border-bottom: 1px solid #ebebeb;

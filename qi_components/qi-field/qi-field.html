@@ -9,7 +9,7 @@
 	<template>
 	    <link rel="stylesheet" href="qi-field.css"> 
 		<div class="row flex layout horizontal justified" >  
-	        <div class="labelCell"><label><span>{{label}}</span></label></div>
+	        <div class="labelCell"><label><span>[[label]]</span></label></div>
 	        <div class="fldValue flex"  two>  
 	            <span>{{value}}</span>
 	        </div>
@@ -20,7 +20,7 @@
 	Polymer({
    		is: 'qi-field', 
    		properties:{
-   			label: {type: String},
+   			label: {type: String, readonly: true},
    			value: {type: String}
    		}
 

@@ -1,20 +1,16 @@
 <!--
-	TODO: 
-		core-dropdown-menu -> ?
-		core-dropdown -> ?
+	This dialog box allows a user to create an invitation to be sent to another user.
 -->
 
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
-<!--
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html">
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html">
--->
-
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../../bower_components/mat-dropdown/mat-dropdown.html">
+<link rel="import" href="../../bower_components/mat-option/mat-option.html">
 
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 
@@ -26,20 +22,15 @@
 	<template>
 		<paper-dialog id="dialog" transition="core-transition-bottom" backdrop>
 		    <h2>Introduce Yourself</h2>
-		    <paper-scrollable-dialog>
+		    <div>
 				<div >
-				<!-- TODO: replace with new dropdown -->
-				<!--
-					<core-dropdown-menu label="Select A Message">
-						<core-dropdown class="dropdown">
-							<iron-selector selected="{{selectedTemplate}}">
-								<template is="dom-repeat" items="{{persona.msgTemplates}}" as="msgTemplate">
-									<paper-item template="{{msgTemplate}}">{{msgTemplate.title}}</paper-item>
-								</template>
-							</iron-selector>
-						</core-dropdown>
-					</core-dropdown-menu>
-					-->
+				<mat-dropdown id="msgTemplate" model="{{persona.msgTemplates}}" label="Message Type" floating-label="true">
+					<template is="dom-repeat" items="{{persona.msgTemplates}}" as="msgTemplate">
+						<mat-option value="{{msgTemplate}}" label="{{msgTemplate.title}}"></mat-option>
+					</template>
+                   
+              	</mat-dropdown>  
+
 				</div>
 
 				<div>
@@ -51,7 +42,7 @@
 					<paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox>
 					<paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox>
 				</div>
-			</paper-scrollable-dialog>
+			</div>
 			
 			 <div class="buttons">
 			  <paper-button dialog-dismiss>Cancel</paper-button>

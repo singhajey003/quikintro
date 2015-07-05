@@ -1,32 +1,31 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
-
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
+
+<link rel="import" href="../qi-avatar/qi-avatar.html">
 
 <dom-module id='qi-msg-card'  >
 	
 	<template>
 	<link rel="stylesheet" href="qi-msg-card.css" > 
-	<div id="card" class="layout horizontal"> 
-		<div class="avatarPanel">
 
-			<template if="{{msg.sender.avatar != null}}"> 
-				<img class="avatar {{msg.sender.avatar}}" src=>   
-			</template>
+	<div id="{{msgId}}" class="layout vertical card2">
+		<div class="layout horizontal"> 
+			<div class="avatarBlock">
+				<qi-avatar url="[[msg.sender.avatar]]"></qi-avatar>
+			</div>
 
-			<template if="{{msg.sender.avatar == null}}"> 
-				<iron-icon class="avatar" icon="social:person"></iron-icon>
-			</template>
-
-
+			<div class="mainPanel">
+				<div class="senderBlock">
+					<span class="senderName">[[wholename]]</span> 
+					<span class="time">[[msg.tstamp]]</span>
+				</div> 
+				<div class="msgBlock" >[[msg.msg]]</div>
+			</div>
 		</div>
-		<div class="mainPanel">
-			<div id="senderBlock"><span class="senderName">{{msg.sender.firstName}} {{msg.sender.lastName}}</span> <span class="time senderBlock senderName {{msg.sender.firstName}} {{msg.sender.lastName}}</span">{{msg.tstamp}}</span></div> 
-			<div id="titleBlock" >{{msg.msg}}</div>
-
-
-			<div><iron-icon icon="reply" on-click="replyDialog"></iron-icon></div> 
-		</div>
-		
+		<div class="buttons horizontal justified layout">
+			<iron-icon icon="reply" on-click="replyDialog"></iron-icon>
+			<iron-icon icon="delete" on-click="deleteMsg"></iron-icon>
+		</iron-icon></div> 
 	</div>
 
 	</template>
@@ -36,11 +35,35 @@
         is: 'qi-msg-card', 
 
 		properties:{
-			msg:{type: Object}
+			msg:{
+				type: Object,
+				readonly: true
+			},
+			wholename:{
+				type: String, 
+				computed:'concatName(msg.sender.firstName, msg.sender.lastName)'
+			},
+			id:{type: Number},
+			msgId:{
+				type:String,
+				computed: 'concatId(id)'
+			}
+		},
+
+		concatId: function(id){
+			return "msg-" + id;
+		},
+
+		concatName: function(firstName, lastName){
+			return firstName + " " + lastName;
 		},
 		
 		replyDialog: function(e){
 			this.fire('openPingDialog',{sender:this.msg.rcvr, rcvr: this.msg.sender});
+		},
+
+		deleteMsg: function(){
+			this.fire('delete-msg', {msgId: this.msgId, id: this.id});
 		}
 		
 
@@ -50,23 +73,4 @@
 	</script>
 
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module>

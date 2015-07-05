@@ -5,6 +5,7 @@
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 
 <link rel="import" href="../../bower_components/mat-dropdown/mat-dropdown.html">
+<link rel="import" href="../../bower_components/mat-option/mat-option.html">
 
 
 <dom-module id='qi-note-dialog'  >
@@ -16,7 +17,7 @@
 
 		<paper-dialog id="dialog" backdrop>
 			<h2>New Note</h2>
-			<paper-scrollable-dialog class="flex">
+			<div class="flex">
 			<div>
 				<paper-input id="title" floatingLabel="true" label="Title"></paper-input>
 			</div>
@@ -32,7 +33,7 @@
                     <mat-option value="private" label="Private"></mat-option>
               </mat-dropdown>  
 			</div>
-			</paper-scrollable-dialog>
+			</div>
 
 
 			<div class="buttons flex">

@@ -22,7 +22,6 @@
 
 <dom-module id='qi-msg-panel'  >
 
-  <!--<link rel="stylesheet" href="../quikintro.css">-->
   <link rel="stylesheet" href="qi-msg-panel.css">
 
   <template>
@@ -31,7 +30,7 @@
   <iron-localstorage name="mtgs" value="{{mtgs}}"></iron-localstorage>
   <iron-localstorage name="invites" value="{{invites}}"></iron-localstorage>
 
-  <div id="msgHeaderPanel" headerHeight="40" > 
+  <div id="msgHeaderPanel" class="layout vertical fit flex"> 
 
     <paper-tabs selected="{{selected}}" scrollable="true" hideScrollButtons="false" noBar="true" >     
         <paper-tab >Messages</paper-tab>
@@ -40,26 +39,26 @@
       </paper-tabs>
 
 
-    <iron-pages selected="{{selected}}">
-      <div id="msgTray" class="content" style="overflow:auto">
+    <iron-pages selected="{{selected}}" >
+      <div id="msgTray" class="fit">
         
-            <template id="msgTemplate" is="dom-repeat" items="{{msgs}}" as="msg">
-              <qi-msg-card msg="{{msg}}"></qi-msg-card>
+            <template id="msgTemplate" is="dom-repeat" items="{{msgs}}" as="msg" index-as="msgId">
+              <qi-msg-card msg="{{msg}}" id="{{msgId}}"></qi-msg-card>
             </template>
        
         <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
       
       </div>
 
-      <div id="invTray" class="content" style="overflow:auto">
-          <template is="dom-repeat" items="{{invs}}" as="inv">
-          <qi-invite-card invite="{{inv}}"></qi-invite-card>
+      <div id="invTray" class="fit" style="overflow:auto">
+          <template is="dom-repeat" items="{{invs}}" index-as="invId" as="inv">
+          <qi-invite-card invite="{{inv}}" id="{{invId}}"></qi-invite-card>
           </template>
       </div>
 
-      <div id="mtgTray" class="content" style="overflow:auto">
-        <template is="dom-repeat" items="{{mtgs}}" as="mtg">
-          <qi-mtg-card mtg="{{mtg}}"></qi-mtg-card>
+      <div id="mtgTray" class="fit" style="overflow:auto">
+        <template is="dom-repeat" items="{{mtgs}}" index-as="mtgId" as="mtg">
+          <qi-mtg-card mtg="{{mtg}}" id="{{mtgId}}"></qi-mtg-card>
         </template>
       </div>
 
@@ -76,12 +75,15 @@
    properties:{
       msgs:{type: Array, value:[], observer: 'msgsChanged'},
       mtgs:{type: Array, value: [], observer: 'mtgsChanged'},
-      invites: {type: Array, value:[], observer: 'invitesChanged'}
+      invites: {type: Array, value:[], observer: 'invitesChanged'},
+      selected: {type: Number, value: 0}
    },
 
    msgsChanged:function(newValue, oldValue){
     if (newValue != null && newValue.length > 0){
+
       var msgTray = this.$.msgTray;
+
       var msgCard = new MsgCard();
       msgCard.msg = newValue[newValue.length];
       msgTray.appendChild(msgCard);
@@ -91,6 +93,7 @@
    mtgsChanged: function(newValue, oldValue){
     if(newValue != null && newValue.length > 0){
       var mtgTray = this.$.mtgTray;
+ 
       var mtgCard = new MtgCard();
       mtgCard.msg = newValue[newValue.length];
       mtgTray.appendChild(mtgCard);
@@ -108,7 +111,6 @@
 
    },
 
-    
   
     ready: function(){
         var msgDialog = this.$.msgDialog;
@@ -142,7 +144,34 @@
           invTray.appendChild(invObj);
 
         });
-        
+
+        window.addEventListener('delete-mtg', function(e){
+          var mtgId = e.detail.mtgId;
+          var id = e.detail.id;
+          console.log("deleting msg: " + id);
+
+          if(!id && id != null){
+            delete this.mtgs[id];
+          }
+
+          var node = document.getElementById(mtgId);
+          node.parentNode.removeChild(node);
+        });
+
+        window.addEventListener('delete-msg', function(e){
+          var msgId = e.detail.msgId;
+          var id = e.detail.id;
+          console.log("deleting msg: " + id);
+
+          if(!id && id != null){
+            delete this.msgs[id];
+          }
+
+          var node = document.getElementById(msgId);
+          node.parentNode.removeChild(node);
+        });
+
+
 
       }
     

@@ -1,24 +1,24 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <dom-module id='qi-invite-card' > 
 
 	<template>
 		<link rel="stylesheet" href="../qi-cards.css"> 
-		<div class="card" >
-			<div class="layout horizontal"> 
+		<div class="card layout vertical" >
+			<div class="layout horizontal" style="max-height: 80px"> 
 				<div class="card-photo">
-				<qi-avatar url="{{invite.sender.avatar}}"></qi-avatar> 
+				<qi-avatar url="[[invite.sender.avatar]]"></qi-avatar> 
 				</div>
 
 				<div class="content">
-				{{invite.sender.firstName}} {{invite.sender.lastName}}<br/> 
-				{{invite.msg}}<br/>
+				<span>[[invitee]]</span><br/> 
+				<span>[[invite.msg]]</span><br/>
 				</div>
 
 			</div>
 
-			<div class="">
-				<paper-button affirmative on-click="sendAction">Accept</paper-button> 
-				<paper-button dismissive on-click="sendAction">Decline</paper-button> 
+			<div class="buttons">
+				<paper-button affirmative on-click="acceptAction">Accept</paper-button> 
+				<paper-button dismissive on-click="declineAction">Decline</paper-button> 
 			</div>
 
 		</div>
@@ -30,34 +30,27 @@
    		is: 'qi-invite-card', 
 
    		properties: {
-   			invite: {type: Object}
+   			invite: {type: Object},
+   			invitee:{
+   				type: String,
+   				computed: 'concat(invite.sender.firstName, invite.sender.lastName)'
+   			}
    		},
 
-		sendAction: function(e){
-			//TODO: implement me
+   		concat: function(firstName, lastName){
+   			return firstName + " " + lastName;
+   		},
+
+		acceptAction: function(e){
+			this.fire('show-toast',{text:'Invitation accepted.'});
 		},
+
+		declineAction: function(e){
+			this.fire('show-toast',{text:'Invitation declined.'});
+		}
 
 	});
 
 	</script>
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module> 

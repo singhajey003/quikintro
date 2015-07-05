@@ -1,6 +1,5 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
-<link rel="import" href="../../bower_components/paper-dialog/paper-scrollable-dialog.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 
@@ -19,13 +18,13 @@
      <template>
      <paper-dialog id="mtgDialog"  backdrop class="layout vertical">
           <h2>Create Meeting</h2>
-          <paper-dialog-scrollable class="flex">
+          <div class="flex">
           <paper-input id="title" label="Title" floatingLabel="true"></paper-input>
           <paper-input id="date" label="Date" floatingLabel="true"></paper-input>
           <paper-input id="time" label="Time" floatingLabel="true"></paper-input>
           <paper-input id="location" label="Location" floatingLabel="true"></paper-input>
           <paper-input id="msg" label="Message" floatingLabel="true"></paper-input>
-          </paper-dialog-scrollable>
+          <div>
 
           <div class="buttons flex">
              <paper-button dialog-dismiss>Cancel</paper-button>

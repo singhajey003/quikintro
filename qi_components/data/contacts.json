@@ -120,6 +120,7 @@
         "notes": "Interested in Drug Cocktail application",
         "rating": 4,
         "id":3,
+        "avatar":null,
         "food":["chinese","thai","japanese"],
         "drink":["merlot","chardonnay"]
     },
@@ -184,7 +185,7 @@
             },
             "name": "Greater San Diego Area"
         },
-        "avatar": "https://media.licdn.com/mpr/mprx/0_V24ZqL2oF_gTEIUy4HEIqQeHI8auoDUy4m2FqQEzq5VgzWupnoHNs6ORLamtWosKRfVQR3NNiGKv",
+        "avatar": null,
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=4339076&authType=name&authToken=a1I8&trk=api*a3227641*s3301901*"
         },
@@ -231,6 +232,7 @@
             },
             "name": "Greater Boston Area"
         },
+        "avatar":null,
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=19198594&authType=name&authToken=EV4l&trk=api*a3227641*s3301901*"
         },
@@ -339,6 +341,7 @@
         "notes": "Interested in Drug Pipeline dashboard",
         "rating": 4,
         "id":2,
+        "avatar":null,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"]
     },

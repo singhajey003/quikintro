@@ -26,11 +26,18 @@
 
 <dom-module id='qi-contact-panel'  > 
 
+  <link rel="stylesheet" href="../quikintro.css"> 
+  <link rel="stylesheet" href="qi-contact-panel.css"> 
+
+
+  <style>
+ 
+
+  </style>
+
  
   <template>
 
-  <link rel="stylesheet" href="../quikintro.css"> 
-  <link rel="stylesheet" href="qi-contact-panel.css"> 
 
   <iron-localstorage name="contacts" value="{{contacts}}"></iron-localstorage>
   <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
@@ -67,7 +74,7 @@
       </div>
     
 
-      <div >  
+      <div class="contactPanel">  
         
         <template is="dom-repeat" items="{{contacts}}"  as="contact">
           <qi-contact-card contact="{{contact}}"></qi-contact-card>
@@ -103,7 +110,6 @@
         var msgDialog = this.$.msgDialog;
         var mtgDialog = this.$.mtgDialog;
 
-        console.log(this.contacts);
 
         // event fired when the user opens a ping dialog
         this.addEventListener('openPingDialog', function(e){

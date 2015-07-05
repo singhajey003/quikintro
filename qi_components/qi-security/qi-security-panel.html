@@ -1,5 +1,8 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../qi-theme.html">
 
 <dom-module id='qi-security-panel'  > 
 
@@ -14,7 +17,7 @@
     <div class="passwordPanel layout vertical flex">
     
        
-          <h2>Change Password</h2> 
+          <h3>Change Password</h3> 
             <paper-input-container floatingLabel="true">
               <label>New Password:</label>
               <input id="nuPassword" is="iron-input" type="password" name="password" >
@@ -25,7 +28,7 @@
               <input id="confPassword" is="iron-input" type="password" name="password" >
             </paper-input-container>
 
-            <paper-button on-click="savePassword">Save Password</paper-button>
+            <paper-button class="primary" raised on-click="savePassword">Save Password</paper-button>
     
 
     </div>

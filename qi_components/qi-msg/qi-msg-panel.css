@@ -1,6 +1,8 @@
+/*
 input{ visibility: visible}
 button{background-color: #526E9C; color: white;}
 input{background-color: white;}
+*/
 
 .content{
   margin-top: 10px;
@@ -13,7 +15,7 @@ iron-pages{
 	margin-top: 0px;
 	top: 0px;
 }
-/*
+
 paper-tabs{
 	width: 100%;
 }
@@ -21,6 +23,6 @@ paper-toolbar{
 	height: 52px;
 	width: 100%;
 }
-*/
+
 
 
