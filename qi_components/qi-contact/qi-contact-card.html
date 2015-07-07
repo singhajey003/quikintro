@@ -49,14 +49,14 @@ TODO: fix core-tooltip -> paper-tooltip
 			<qi-avatar url="[[contact.avatar]]"></qi-avatar>
 
 			<header>
-				<h3>[[computeName(contact.firstName,contact.lastName)]]</h3>
+				<h3>[[fullName]]</h3>
 				<p class="title">[[contact.title]]</p>
 				<p class="company">[[contact.company]]</p>
 				<p></p>
 			</header>
 
 			<div class="summary horizontal justified layout end" > 
-				<qi-field-decorator label="Rate Contact"><polymer-ui-ratings value="{{contact.rating}}"></polymer-ui-ratings></qi-field-decorator>
+				<qi-field-decorator label="Rate Contact"><polymer-ui-ratings value="[[contact.rating]]"></polymer-ui-ratings></qi-field-decorator>
 			</div>
 
 			<div class="card-actions horizontal justified layout center" > 
@@ -106,7 +106,7 @@ TODO: fix core-tooltip -> paper-tooltip
 			isOpen: {type: Boolean, value: false},
 			fullName: {
 				type:String,
-				computed: 'computeName(firstName, lastName)' 
+				computed: 'computeName(contact.firstName, contact.lastName)' 
 			}
 			
 		},
@@ -143,23 +143,4 @@ TODO: fix core-tooltip -> paper-tooltip
 	</script>
 
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module> 

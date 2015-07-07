@@ -1,8 +1,4 @@
 /** The block containing the first and last names. */
-#nameBlock {
-  font-size: 8pt;
-  color: #17a8cc; }
-
 back-container {
   display: table; }
 
