@@ -5,15 +5,17 @@
 
 
 <dom-module id='qi-twitter-card'  > 
+
+	<link rel="stylesheet" href="../quikintro.css" >
+	<link rel="stylesheet" href="../qi-cards.css" > 
+
 	
 	<template>
-	<link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	<link rel="stylesheet" href="../qi-cards.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 	
 	<div class="card-wrapper">  
 
 		<div class="card card-photo tweet">
-			<div class="photo" style="background-image:url('{{tweet.user.profile_image_url}}')" ></div>
+			<div class="photo" style$="bgImage" ></div>
 
 			<header>
 				<div><a class="userName" href="https://twitter.com/{{tweet.user.screen_name}}">{{tweet.user.name}}</a></div>
@@ -43,11 +45,19 @@
 
 
   <script>
-	Polymer({
-   		is: 'qi-twitter-card', // CONVERTED WIP 
+	var TwitterCard = Polymer({
+   		is: 'qi-twitter-card', 
 
    		properties:{
-   			tweet:{type: Object}
+   			tweet:{type: Object},
+   			bgImage: {
+   				type: String,
+   				computed:'makeImage(tweet.user.profile_image_url)'
+   			}
+   		},
+
+   		makeImage: function(url){
+   			return "background-image:url('" + url +"')"
    		},
 
 		openDialog: function(){

@@ -1,11 +1,8 @@
 <!--
-TODO:
-    paper-item
-    paper-label
-    core-field
-    core-dropdown-menu
-    core-dropdown
+  This component creates the event summary.
 
+    @group QI Elements
+    @element qi-event-summary
 -->
 
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
@@ -30,71 +27,69 @@ TODO:
     <link rel="stylesheet" href="qi-events.css" > 
     <link rel="stylesheet" href="qi-event-summary.css" > 
 
-
     <template>
 
+    <iron-localstorage name="personas" value="[[personas]]"></iron-localstorage>
+
     <div class="layout vertical flex fit">
-    <div class="card venue-bkgnd banner fit flex" style="{{backgroundImage}}"> 
-        <div class="overlay"></div>
+        <div class="card venue-bkgnd banner layout fit flex" style$="[[backgroundImage]]"> 
+            <div class="overlay"></div>
 
-        <header>
-            <div><span>{{event.startTime}}</span>-<span>{{event.endTime}}</span> at <span>{{event.location}}</span></div> 
-            <div><span>{{event.registrantCount}} Registrants</span></div>
-        </header>
-
-        <div class="summary horizontal layout justified flex" > 
-
-            <div class="eventNewMatches">
-                <div class="match-count font-light">{{event.matches.length}}</div>
-                <div class="bottomLabel">New<br>Matches</div>
-            </div>
-            <div class="eventStats font-light">
-                <div class="eventItem"><span>{{event.contacts.length}}</span> Existing Contacts</div>
-                <div class="eventItem"><span>{{event.meetings.length}}</span> Meetings</div>
+            <div style="height:200px; position: relative;">
+            <header>
+                <div><span>[[event.startTime]]</span> - <span>[[event.endTime]]</span> at <span>[[event.location]]</span></div> 
+                <div><span>[[event.registrantCount]]</span> Registrants</div>
+            </header>
             </div>
 
+            <div class="summary horizontal layout justified flex" > 
+
+                <div class="eventNewMatches">
+                    <div class="match-count font-light"><span>[[event.matches.length]]</span></div>
+                    <div class="bottomLabel">New<br>Matches</div>
+                </div>
+                <div class="eventStats font-light">
+                    <div class="eventItem"><span>[[event.contacts.length]]</span> Existing Contacts</div>
+                    <div class="eventItem"><span>[[event.meetings.length]]</span> Meetings</div>
+                </div>
+
+            </div>
         </div>
-    </div>
 
-    <div class="eventSettings">
-        <div><span>{{event.description}}</span></div>
+        <div class="eventSettings layout flex">
+            <div class="eventDescription"><span>[[event.description]]</span></div>
 
-        <div class="settings-row">
-            <google-map id="map" zoom="18" style="width: 100%;" minZoom="9" maxZoom="20" libraries="visualization" zoomable="true" fitToMarkers>  
-                <google-map-marker id="marker"></google-map-marker>
-            </google-map>
+            <div class="settings-row">
+                <google-map id="map" zoom="18" style="width: 100%;" minZoom="9" maxZoom="20" libraries="visualization" zoomable="true" fitToMarkers>  
+                    <google-map-marker id="marker" latitude="[[event.coordinates.latitude]]" longitude="[[event.coordinates.longitude]]"></google-map-marker>
+                </google-map>
+            </div>
+
+            <h4>Event Settings</h4>
+              <qi-field-decorator id="rsvpField" label="Going?" class="settings-row horizontal justified layout" > 
+
+                  <mat-dropdown id="rsvp" model="[[event.rsvp]]">
+                        <mat-option value="YES" label="Yes"></mat-option>
+                        <mat-option value="NO" label="No"></mat-option>
+                        <mat-option value="MAYBE" label="Maybe"></mat-option>
+                  </mat-dropdown>  
+                
+             </qi-field-decorator>
+
+
+             <qi-field-decorator id="personaField" label="Persona" class="settings-row horizontal justified layout center" > 
+                <mat-dropdown id="persona" model="[[event.persona]]">
+                    <template is="dom-repeat" items="[[personas]]"  as="persona">
+                        <mat-option value="[[persona.name]]" label="[[persona.name]]"></mat-option>
+                    </template>              
+                 </mat-dropdown>
+             </qi-field-decorator>
+
+             <qi-field-decorator label="Alert" class="settings-row horizontal justified layout" > 
+                <iron-input id="alarm">[[event.notification]]</iron-input>
+             </qi-field-decorator>
         </div>
-
-        <h4>Event Settings</h4>
-          <qi-field-decorator id="rsvpField" label="Going?" class="settings-row horizontal justified layout" > 
-
-              <mat-dropdown id="rsvp" model="{{event.rsvp}}">
-                    <mat-option value="YES" label="Yes"></mat-option>
-                    <mat-option value="NO" label="No"></mat-option>
-                    <mat-option value="MAYBE" label="Maybe"></mat-option>
-              </mat-dropdown>  
-            
-         </qi-field-decorator>
-
-
-         <qi-field-decorator id="personaField" label="Persona" class="settings-row horizontal justified layout center" > 
-            <mat-dropdown id="persona" model="{{event.persona}}">
-                <template is="dom-repeat" items="{{personas}}"  as="persona">
-                    <mat-option value="{{persona.name}}" label="{{persona.name}}"></mat-option>
-                </template>              
-             </mat-dropdown>
-         </qi-field-decorator>
-
-         <qi-field-decorator label="Alert" class="settings-row horizontal justified layout" > 
-            <iron-input id="alarm">{{event.notification}}</iron-input>
-         </qi-field-decorator>
-
         
-
-    <iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
-
-
-
     </div>
 
     </template>
@@ -103,40 +98,63 @@ TODO:
         is: 'qi-event-summary', 
 
         properties:{
-            event: {type: Object, value: null},
+
+            /**
+             * The event model object.
+             */
+            event: {
+                type: Object, 
+                value: null, 
+                notify: true
+            },
+
+            /**
+             * An array of Persona objects.
+             */
             personas: {type: Array},
+
+            /**
+             * This computed property creates a background image CSS style.
+             */
             backgroundImage: {
                 type: String,
                 computed: 'computeBackground(event.background)'
             }
         },
 
+        /**
+         * This method creates the background image style.
+         * @param imageUrl  The URL for the background image.
+         */
         computeBackground: function(imageUrl){
             return "background-image:url('"+ imageUrl + "')";
          },
 
        
-
-        fixMap: function() {
+         /**
+          * This method updates the map.
+          * @param event the event model
+          */
+        fixMap: function(event) {
             var map =  this.$.map; // google map web component
             var marker = this.$.marker;
             var gmap = map.map; // google.maps.Map instance
             var lat = gmap.getCenter().lat();
             var lng = gmap.getCenter().lng();
-            var locationLat = this.event.coordinates.latitude;
-            var locationLong = this.event.coordinates.longitude;
+            var locationLat = event.coordinates.latitude;
+            var locationLong = event.coordinates.longitude;
 
             var bnds = gmap.getBounds();
             //console.log("bnds: " + bnds);
 
             // at this point, everything is ok
             // before resize latitude 45.63 longitude 16.159999999999968
-            //console.log('before resize', 'latitude', lat, 'longitude', lng);
+            console.log('before resize', 'latitude', lat, 'longitude', lng);
 
 
 
             // fix size for core-animated-pages
-            //map.resize();
+            map.resize();
 
             // at this point latitude and longitude ar wrong
             // after resize latitude 19.16672805677583 longitude 42.878749999999954
@@ -144,8 +162,8 @@ TODO:
 
             // fix center because of resize
             //console.log(this.event.coordinates);
-            //gmap.setCenter({"latitude":parseFloat(this.event.coordinates.latitude), "longitude":parseFloat(this.event.coordinates.longitude)});
-            //gmap.setCenter(new google.maps.LatLng(locationLat, locationLong));
+            gmap.setCenter({"latitude":parseFloat(this.event.coordinates.latitude), "longitude":parseFloat(this.event.coordinates.longitude)});
+            gmap.setCenter(new google.maps.LatLng(locationLat, locationLong));
 
             setTimeout(function() {
                 window.dispatchEvent(new Event('resize'));
@@ -158,7 +176,7 @@ TODO:
         },
 
         eventChanged: function(newValue, oldValue){
-            this.fixMap();
+            //this.fixMap(newValue);
         }
        
     });

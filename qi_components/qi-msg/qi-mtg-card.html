@@ -1,3 +1,10 @@
+<!--
+	This card displays a meeting request card.
+
+
+ 	@group QI Elements
+ 	@element qi-mtg-card
+-->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/font-roboto/roboto.html" >
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
@@ -7,6 +14,7 @@
 <link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
 
 <link rel="import" href="../qi-field/qi-field.html">
+<link rel="import" href="../qi-field/qi-date-field.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 
@@ -25,7 +33,7 @@
 			
 			<div class="senderBlock"> 
 				<qi-field label="Sender:" value="[[fullname]]"></qi-field>
-				<qi-field label="Time:" value="[[formattedDate]]"></qi-field>
+				<qi-date-field label="Time:" date="[[mtg.date]]" time="[[mtg.time]]"></qi-date-field>
 				<qi-field label="Location:" value="[[mtg.location]]"></qi-field>
 				<qi-field label="Description:" value="[[mtg.description]]"></qi-field>
 			</div>
@@ -44,34 +52,67 @@
    		is: 'qi-mtg-card',
 
    		properties:{
-			contacts:{type: Array,  value:JSON.parse(localStorage.getItem("contacts"))},
-			mtg:{type: Object, value: null},
+   			/**
+   			 * An array of contacts.
+   			 */
+			contacts:{
+				type: Array,  
+				value:JSON.parse(localStorage.getItem("contacts"))
+			},
+
+			/**
+			 * The meeting object
+			 */
+			mtg:{
+				type: Object, 
+				value: null
+			},
+
+			/**
+			 * A computed property that concatenates the first and last name of the sender.
+			 */
 			fullname: {
 				type: String,
 				computed: 'concat(mtg.sender.firstName, mtg.sender.lastName)'
 			},
-			formattedDate:{
-				type: String,
-				computed: 'formatDate(mtg.date, mtg.time)'
+			
+			/**
+			 * The ID of the meeting.
+			 */
+			id:{
+				type: Number, 
+				value: 0
 			},
-			id:{type: Number, value: 0},
+
+			/**
+			 * A concatenated meeting ID used to uniquely identify the card in a DOM.
+			 */
 			mtgId:{
 				type: String,
 				computed: "concatId(id)"
 			}
 		},
 
+		/**
+		 * This method concatenates the first and last name of the sender.
+		 * @param firstName The first name of the sender
+		 * @param lastName the last name of the sender
+		 */
 		concat: function(firstName, lastName){
 			return firstName + " " + lastName;
 		},
+
+		/**
+		 * This method prefixes the id.
+		 * @param id the id of the meeting
+		 */
 		concatId: function(id){
 			return "mtg-" + id;
 		},
-
-		formatDate: function(date, time){
-			return date + " " + time;
-		},
 		
+		/**
+		 * This method displays the reply dialog.
+		 */
 		replyDialog: function(e){
 			var profile = JSON.parse(localStorage.getItem("profile"));
 			var sender = {
@@ -84,8 +125,11 @@
 			this.fire('openPingDialog',{sender:sender, rcvr: this.mtg.sender});
 		},
 
+		/**
+		 * This method deletes the meeting.
+		 */
 		delete: function(e){
-			this.fire('delete-mtg', {mtgId: this.mtgId});
+			this.fire('delete-mtg', {mtgId: this.mtgId, id: this.id});
 		}
 		
 

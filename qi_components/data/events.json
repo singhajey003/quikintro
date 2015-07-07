@@ -96,6 +96,7 @@
  		 	{
  		 		"firstName":"John",
  		 		"lastName":"Doe",
+ 		 		"avatar":null,
  		 		"title":"Vice President, Low Power Group",
  		 		"company":"Nordic Semiconductor",
  		 		"interests":["low power wireless", "wearables", "beacons", "Oslo, Norway", "semiconductors", "fabric sensors", "chess", "Magnus Carlsen", "smart home"],
@@ -115,6 +116,7 @@
   		 	{
   		 		"firstName":null,
   		 		"lastName":null,
+  		 		"avatar":null,
  		 		"title":"Director, Product Management",
  		 		"company":"FitBit",
  		 		"interests":["wearables", "fitness apps", "NFL", "San Francisco 49ers", "fitness hardware", "lean startups"],
@@ -352,6 +354,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			     "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
 			 },
@@ -370,6 +373,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			     "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
@@ -388,6 +392,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 50,
 			     "match": 75
  		 	},
@@ -405,6 +410,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 90
  		 	},
@@ -423,6 +429,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 93
  		 	},
@@ -441,6 +448,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 77
  		 	}
@@ -579,6 +587,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
@@ -597,6 +606,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
@@ -615,6 +625,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 75
  		 	},
@@ -632,6 +643,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 50,
 			     "match": 90
  		 	},
@@ -650,6 +662,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 93
  		 	},
@@ -668,6 +681,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 77
  		 	}
@@ -783,6 +797,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
@@ -801,6 +816,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 75
  		 	},
@@ -818,6 +834,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 90
  		 	},
@@ -836,6 +853,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 93
  		 	},
@@ -854,6 +872,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 77
  		 	}
@@ -926,6 +945,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
@@ -944,6 +964,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
@@ -962,6 +983,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 75
  		 	},
@@ -979,6 +1001,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 90
  		 	},
@@ -997,6 +1020,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 93
  		 	},
@@ -1015,6 +1039,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 77
  		 	}
@@ -1070,6 +1095,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 15,
 			     "match": 82
  		 	},
@@ -1088,6 +1114,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 15,
 			     "match": 82
  		 	},
@@ -1106,6 +1133,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 15,
 			     "match": 75
  		 	},
@@ -1123,6 +1151,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 15,
 			     "match": 90
  		 	},
@@ -1141,6 +1170,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 15,
 			     "match": 93
  		 	},
@@ -1159,6 +1189,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 15,
 			     "match": 77
  		 	}

@@ -1,3 +1,9 @@
+<!--
+This component is responsible for rendering an event.
+
+	@group QI Elements
+	@element qi-event-card
+-->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
@@ -77,9 +83,13 @@
 
 	<script>
 	var EventCard = Polymer({
-   		is: 'qi-event-card', // CONVERTED WIP 
+   		is: 'qi-event-card', 
 
    		properties:{
+
+   			/**
+   			 * The event model
+   			 */
    			event:{type: Object}
    		},
 

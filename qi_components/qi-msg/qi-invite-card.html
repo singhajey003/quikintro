@@ -1,22 +1,38 @@
+<!--
+	This component displays invitation information.
+
+	@group QI Elements
+	@element qi-invite-card
+-->
+
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/paper-button/paper-button.html"> 
+
+<link rel="import" href="../qi-avatar/qi-avatar.html">
+
 <dom-module id='qi-invite-card' > 
 
+
+	<link rel="stylesheet" href="qi-msg-card.css" > 
 	<template>
-		<link rel="stylesheet" href="../qi-cards.css"> 
-		<div class="card layout vertical" >
-			<div class="layout horizontal" style="max-height: 80px"> 
-				<div class="card-photo">
-				<qi-avatar url="[[invite.sender.avatar]]"></qi-avatar> 
+		
+		<div id="[[invId]]" class="card2 layout vertical justified" >
+			<div class="layout horizontal" > 
+
+				<div class="avatarBlock">
+					<qi-avatar url="[[invite.sender.avatar]]"></qi-avatar> 
 				</div>
 
-				<div class="content">
-				<span>[[invitee]]</span><br/> 
-				<span>[[invite.msg]]</span><br/>
+				<div class="mainPanel">
+					<div class="senderBlock">
+						<span class="senderName">{{wholename}}</span>
+					</div>
+					<div class="msgBlock">[[invite.msg]]</div>
 				</div>
 
 			</div>
 
-			<div class="buttons">
+			<div class="buttons horizontal justified layout">
 				<paper-button affirmative on-click="acceptAction">Accept</paper-button> 
 				<paper-button dismissive on-click="declineAction">Decline</paper-button> 
 			</div>
@@ -30,21 +46,66 @@
    		is: 'qi-invite-card', 
 
    		properties: {
-   			invite: {type: Object},
-   			invitee:{
+   			/**
+   			 * The numeric ID of the invitation.
+   			 */
+   			id: {
+   				type: Number,
+   				readonly: true
+   			},
+
+   			/**
+   			 * The unique String version of the id, used for DOM manipulation.
+   			 */
+   			invId:{
    				type: String,
-   				computed: 'concat(invite.sender.firstName, invite.sender.lastName)'
+   				computed: 'concatId(id)'
+   			},
+
+   			/**
+   			 * The model for the invitation.
+   			 */
+   			invite: {
+   				type: Object, 
+   				readonly: true
+   			},
+
+   			/**
+   			 * The concatenated first and last names of the sender.
+   			 */
+   			wholename:{
+   				type: String,
+   				computed: 'concatName(invite.sender.firstName, invite.sender.lastName)'
    			}
    		},
 
-   		concat: function(firstName, lastName){
+   		/**
+   		 * This method prefixes the ID.
+   		 * @param id the ID of the invitation.
+   		 */
+   		concatId: function(id){
+			return "inv-" + id;
+		},
+
+		/**
+		 * This method concatenates the first and last name of the sender.
+		 * @param firstName the first name of the sender
+		 * @param lastName the last name of the sender
+		 */
+   		concatName: function(firstName, lastName){
    			return firstName + " " + lastName;
    		},
 
+   		/**
+   		 * This method is used to accept an invitation.
+   		 */
 		acceptAction: function(e){
 			this.fire('show-toast',{text:'Invitation accepted.'});
 		},
 
+		/**
+		 * This method is used to decline an invitation.
+		 */
 		declineAction: function(e){
 			this.fire('show-toast',{text:'Invitation declined.'});
 		}

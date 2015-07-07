@@ -1,8 +1,11 @@
 <!--
  
+
+ @group QI Elements
+ @element qi-twitter-dialog
 -->
 
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
@@ -14,15 +17,15 @@
 
 	<template>
 		
-		<paper-dialog id="dialog" backdrop>
+		<paper-dialog id="dialog" backdrop class="layout vertical">
 
-		  <paper-textarea id="tweet" value="{{myTweet}}" maxRows="3" ></paper-textarea>
-		  	<div class="tweetSize">{{tweetSize}} Characters</div>
+		  <paper-textarea id="tweet" class="flex" value="{{myTweet}}" maxRows="3" ></paper-textarea>
+		  <div class="tweetSize flex"><span>{{tweetSize}}</span> Characters</div>
 
-		  	<div class="buttons">
+	  	  <div class="buttons">
 		  	<paper-button dialog-dismiss>Cancel</paper-button>
-		  	<paper-button id="sendBtn" on-click="sendAction" dialog-confirm>Send</paper-button>  
-		  	</div>
+		  	<paper-button id="sendBtn" on-click="sendAction" dialog-confirm>Send</paper-button>
+	  	  </div>
 	  		
 		</paper-dialog>
 	
@@ -34,15 +37,31 @@
    		is: 'qi-twitter-dialog',
 
    		properties:{
+
+   			/**
+   			 * The hash tag for the tweet.
+   			 */
    			hashtag: {type: String},
-   			myTweet: {type: String, value: this.hashtag, notify: true, observer: 'myTweetChanged'},
-   			tweetSize: {type: Number, value: 140}
+
+   			/**
+   			 * The contents of the tweet.
+   			 */
+   			myTweet: {
+   				type: String, 
+   				value: this.hashtag, 
+   				notify: true, 
+   				observer: 'myTweetChanged'
+   			},
+
+   			/**
+   			 * The size of the tweet.
+   			 */
+   			tweetSize: {
+   				type: Number, 
+   				value: 140
+   			}
    		},
 
-
-		hashtagChanged: function(newValue, oldValue){
-			this.reset();
-		},
 
 		myTweetChanged: function(newValue, oldValue){
 			this.tweetSize = 140 - newValue.length;
@@ -72,23 +91,4 @@
 	</script
 
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module> 

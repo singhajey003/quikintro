@@ -1,3 +1,9 @@
+<!--
+  This component contains all messages, invitations and meeting requests.
+
+  @group QI Elements
+  @element qi-msg-panel
+-->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
@@ -32,7 +38,7 @@
 
   <div id="msgHeaderPanel" class="layout vertical fit flex"> 
 
-    <paper-tabs selected="{{selected}}" scrollable="true" hideScrollButtons="false" noBar="true" >     
+    <paper-tabs selected="{{selected}}" scrollable hideScrollButtons="false" no-bar >     
         <paper-tab >Messages</paper-tab>
         <paper-tab >Invitations</paper-tab>
         <paper-tab >Meeting Requests</paper-tab>
@@ -51,7 +57,7 @@
       </div>
 
       <div id="invTray" class="fit" style="overflow:auto">
-          <template is="dom-repeat" items="{{invs}}" index-as="invId" as="inv">
+          <template is="dom-repeat" items="{{invites}}" index-as="invId" as="inv">
           <qi-invite-card invite="{{inv}}" id="{{invId}}"></qi-invite-card>
           </template>
       </div>
@@ -73,9 +79,25 @@
    is: 'qi-msg-panel', 
 
    properties:{
+
+      /**
+       * An array of messages.
+       */
       msgs:{type: Array, value:[], observer: 'msgsChanged'},
+
+      /**
+       * An array of meeting requests.
+       */
       mtgs:{type: Array, value: [], observer: 'mtgsChanged'},
+
+      /**
+       * An array of invitations.
+       */
       invites: {type: Array, value:[], observer: 'invitesChanged'},
+
+      /**
+       * The index of the selected tab.
+       */
       selected: {type: Number, value: 0}
    },
 
@@ -121,7 +143,7 @@
         var mtgTray = this.$.mtgTray;
         var invTray = this.$.invTray;
 
-
+        // add a message card in response to a msg-sent event
         window.addEventListener('msg-sent', function(e){
           
           var msgObj = new MsgCard();
@@ -132,12 +154,14 @@
 
         });
 
+        // add a meeting card in response to a mtg-sent event
         window.addEventListener('mtg-sent', function(e){
           var mtgObj = new MtgCard();
           mtgObj.mtg = e.detail.mtg;
           mtgTray.appendChild(mtgObj);
         });
 
+        // add an invitation card in response to an invite-sent event
         window.addEventListener('invite-sent', function(e){
           var invObj = new InvCard();
           invObj.invite = e.detail.invite;
@@ -145,6 +169,7 @@
 
         });
 
+        // delete a meeting in response to a delete-mtg event
         window.addEventListener('delete-mtg', function(e){
           var mtgId = e.detail.mtgId;
           var id = e.detail.id;
@@ -158,6 +183,7 @@
           node.parentNode.removeChild(node);
         });
 
+        // delete a message in response toa delete-msg event
         window.addEventListener('delete-msg', function(e){
           var msgId = e.detail.msgId;
           var id = e.detail.id;

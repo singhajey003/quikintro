@@ -1,3 +1,10 @@
+<!--
+	This card displays a message.
+
+
+ 	@group QI Elements
+ 	@element qi-msg-card
+-->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
 
@@ -5,11 +12,13 @@
 
 <dom-module id='qi-msg-card'  >
 	
-	<template>
-	<link rel="stylesheet" href="qi-msg-card.css" > 
 
-	<div id="{{msgId}}" class="layout vertical justified card2">
+	<link rel="stylesheet" href="qi-msg-card.css" > 
+	<template>
+	
+	<div id="[[msgId]]" class="layout vertical justified card2">
 		<div class="layout horizontal"> 
+
 			<div class="avatarBlock">
 				<qi-avatar url="[[msg.sender.avatar]]"></qi-avatar>
 			</div>
@@ -35,33 +44,61 @@
         is: 'qi-msg-card', 
 
 		properties:{
+
+			/**
+			 * The message object.
+			 */
 			msg:{
 				type: Object,
 				readonly: true
 			},
+
+			/**
+			 * The concatenated name of the sender.
+			 */
 			wholename:{
 				type: String, 
 				computed:'concatName(msg.sender.firstName, msg.sender.lastName)'
 			},
+
+			/**
+			 * The index of the message.
+			 */
 			id:{type: Number},
+
+			/**
+			 * The concatenated ID of the message.
+			 */
 			msgId:{
 				type:String,
 				computed: 'concatId(id)'
 			}
 		},
 
+		/**
+		 * This method prefixes the ID.
+		 */
 		concatId: function(id){
 			return "msg-" + id;
 		},
 
+		/**
+		 * This method concatenates the first and last name of the sender.
+		 */
 		concatName: function(firstName, lastName){
 			return firstName + " " + lastName;
 		},
 		
+		/**
+		 * This method causes the message dialog to appear.
+		 */
 		replyDialog: function(e){
 			this.fire('openPingDialog',{sender:this.msg.rcvr, rcvr: this.msg.sender});
 		},
 
+		/**
+		 * This method causes a delete-msg event to be fired.
+		 */
 		deleteMsg: function(){
 			this.fire('delete-msg', {msgId: this.msgId, id: this.id});
 		}

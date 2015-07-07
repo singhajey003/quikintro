@@ -1,4 +1,11 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<!--
+This component displays a matching user at an event.
+
+	@group QI Elements
+	@elements qi-event-detail-match
+-->
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
 
@@ -10,9 +17,29 @@
 <dom-module id='qi-event-detail-match'  > 
 
 	<link rel="stylesheet" href="../quikintro.css" > 
-	<link rel="stylesheet" href="../qi-cards.css" > 
 	<link rel="stylesheet" href="qi-events.css" > 
 	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" > 
+
+	<style>
+	#collapse{
+		position: relative;
+	}
+
+	.summary{
+		width: 200px;
+	}
+
+	.matchPct{
+		color: #909090;
+		font-size: 10pt;
+	}
+
+	.distAway{
+		color: #909090;
+		font-size: 10pt;
+		text-align: right;
+	}
+	</style>
  	
 	<template>
 
@@ -20,35 +47,32 @@
 
 			<div class="card card-photo">
 
-				<qi-avatar url="{{match.avatar}}"></qi-avatar>
+				<div class="avatarBlock">
+					<qi-avatar url="[[match.avatar]]"></qi-avatar>
+				</div>
 
 				<header>
-					<template is="dom-if" if="{{match.firstName == null}}">
-					<h3 id="titleBlock">Anonymous</h3>
-					</template>
-
-					<template is="dom-if" if="{{match.firstName != null}}">
-					<h3 id="titleBlock"><span>{{match.firstName}} {{match.lastName}}</span></h3>
-					</template>
-
-					<p class="title">{{match.title}}</p>
-					<p class="company">{{match.company}}</p>
+					<h3><span>{{fullname}}</span></h3>
 					
+
+					<p class="title">[[match.title]]</p>
+					<p class="company">[[match.company]]</p>
 				</header>
 
 				<div class="summary horizontal justified layout end" >  
-					<span id="matchPercentage" class="matchPercentage"><span>{{match.match}}</span>% <span>match</span></span>
-					<span id="distanceAway" class="distanceAway"> &lt; <span>{{match.distanceAway}}</span> meters away</span>
+					<div class="matchPct"><span>[[match.match]]</span>% match</div>
+
+					<div class="distAway"> &lt; <span>[[match.distanceAway]]</span> meters away</div>
 				</div>
 
 				<div class="card-actions horizontal justified layout center" >  
 					<paper-button role="button" id="invite" on-click="openInviteDialog">Introduce Yourself</paper-button> 
-					<qi-toggle isOpened="{{opened}}"></qi-toggle>
+					<qi-toggle isOpened="[[opened]]" on-click="toggleAction"></qi-toggle>
 				</div>
 
 				<iron-collapse id="collapse" opened="{{opened}}">
 					<h4>Traits you have in common:</h4>
-				  <qi-traitlist traits="{{match.interests}}"></qi-traitlist>
+				  <qi-traitlist traits="[[match.interests]]"></qi-traitlist>
 				</iron-collapse>
 
 			</div>
@@ -61,14 +85,66 @@
    		is: 'qi-event-detail-match',
 
    		properties:{
-   			match: {type: Object},
-			opened:{type: Boolean, value: false, notify: true},
+
+   			/**
+   			 * The match object.
+   			 */
+   			match: {
+   				type: Object, 
+   				notify: true
+   			},
+
+   			/**
+   			 * A flag that indicates that the collapse pane was opened.
+   			 */
+			opened:{
+				type: Boolean, 
+				value: false, 
+				notify: true
+			},
+
+			/**
+			 * This computed property concatenates the first and last name
+			 */
+			fullname:{
+				type: String, 
+				computed:'concatName(match.firstName, match.lastName)'
+			}
 		},
 
+		/**
+		 * This method toggles the collapse pane.
+		 */
+		toggleAction: function(e){
+			this.opened != this.opened;
+			this.$.collapse.toggle();
+		},
+
+
+		/**
+		 * This method concatenated the first and last name of the match.
+		 * @param firstName  The first name of the match.
+		 * @param lastName  The last name of the match.
+		 */
+		concatName: function(firstName, lastName){
+			var fullname = "Anonymous";
+			if(firstName !== undefined && firstName != null){
+				fullname =  firstName + " " + lastName;
+			}
+			return fullname;
+		},
+
+
+		/**
+		 * This method opens the invitation dialog.
+		 */
 		openInviteDialog: function(e){
 			this.fire("openInviteDialog",{});
 		},
 
+		/**
+		 * This method shows a specific tweet.
+		 */
 	    twitter: function(evt){
 	     	var url = "http://twitter.com/" + this.event.hashtag;
 	     	window.location = url;

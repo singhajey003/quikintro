@@ -1,3 +1,10 @@
+<!--
+  This class contains all of the detailed information for an event and includes
+  tabs to display that information.  
+
+  @group QI Elements
+  @element qi-event-detail
+-->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 
@@ -29,19 +36,18 @@
 
   <link rel="stylesheet" href="../quikintro.css" > 
   <link rel="stylesheet" href="qi-events.css" >
-  <link rel="stylesheet" href="qi-event-detail.css" >
   <link rel="stylesheet" href="../qi-cards.css" >
 
 
 
   <template>
   
-  <paper-scroll-header-panel id="eventDetailHeaderPanel" condenses="false" fixed="true" class="flex" noReveal="true" keepCondensedHeader="true"
+  <paper-scroll-header-panel id="eventDetailHeaderPanel" condenses="false" fixed="true" class="layout flex fit" noReveal="true" 
   > 
 
     <paper-toolbar class="flex" style="min-height: 40px">  
     
-      <paper-tabs id="scrollableTabs" selected="{{selected}}" disableDrag="false" scrollable="true" role="tablist" hideScrollButton="false" class="flex" >  
+      <paper-tabs id="scrollableTabs" selected="{{selected}}" disableDrag="false" scrollable="true" role="tablist" hideScrollButton="false" class="flex" no-bar >  
         <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
         <paper-tab role="tab" >Matches</paper-tab>
         <paper-tab role="tab" >Contacts</paper-tab>
@@ -54,16 +60,16 @@
     </paper-toolbar>
     
 
-    <div class="layout flex fit" > 
-    <iron-pages selected="{{selected}}" class="layout flex fit">
+    <div > 
+    <iron-pages id="eventPages" selected="{{selected}}" class="layout flex fit" >
 
-      <div id="summary">
+      <div id="summary" >
         <qi-event-summary event="{{event}}" personas="{{personas}}"></qi-event-summary>
       </div>
 
       <div id="matches">
         <template is="dom-repeat" items="{{event.matches}}"  as="match">
-          <qi-event-detail-match match="{{match}}"></qi-event-detail-match>
+          <qi-event-detail-match match="[[match]]"></qi-event-detail-match>
         </template>
   
         <qi-invite-dialog id="inviteDialog"></qi-invite-dialog> 
@@ -90,7 +96,7 @@
 
 
       <div id="twitter">
-       <qi-twitter-panel dataUrl="{{event.tweetUrl}}" hashtag="{{event.hashtag}}"></qi-twitter-panel>
+       <qi-twitter-panel dataUrl="[[event.tweetUrl]]" hashtag="[[event.hashtag]]"></qi-twitter-panel>
       </div>
 
 
@@ -115,13 +121,35 @@
       is: 'qi-event-detail', 
 
       properties:{
-        event:{type: Object},
+        /**
+         * The event model.
+         */
+        event:{
+          type: Object, 
+          observer:'eventChanged'
+        },
+
+        /** 
+         * An array of personas for the currently logged-in user.
+         */
         personas:{type: Array},
-        selected: 0,
+
+        /**
+         * The index of the selected tab.
+         */
+        selected:{type: Number, value: 0}
       },
 
+ 
+      /**
+       * This event is used to update the navigation element.
+       * @param newValue  the new event
+       * @param oldValue  the old event
+       */
         eventChanged: function(newValue, oldValue){
+          if(newValue != null){
            this.fire('nav-changed', {id:null, title: newValue.title, type:'sub-level'});
+          }
         },
 
         ready: function(){
@@ -130,7 +158,7 @@
 
           var mtgsTray = this.$.meetings;
 
-          var corePages = this.$.corePages;
+          var eventPages = this.$.eventPages;
 
           window.addEventListener('mtg-sent', function(e){
             var mtgCard = new MtgCard2();
@@ -139,7 +167,8 @@
           });
 
           window.addEventListener('event-page-selected', function(e){
-            corePages.selected = e.detail.index;
+            eventPages.selected = e.detail.index;
+
           });
 
           this.addEventListener('openInviteDialog', function(e){
@@ -187,23 +216,4 @@
 
    </script>
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module> 
