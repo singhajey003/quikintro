@@ -86,7 +86,7 @@ paper-scroll-header-panel {
   visibility: visible;
   padding: 20px;
   overflow: auto;
-  height: 40px; }
+  /*height: 40px;*/ }
 
 input#searchText[is=core-input] {
   width: 100px;
