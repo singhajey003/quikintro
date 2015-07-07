@@ -11,7 +11,7 @@
 
 <dom-module id='qi-toggle'  > 
 
-	<style >
+	<style is="custom-style">
 
 		paper-icon-button.iconBtn {
 			color: var(--icon-color);
@@ -20,7 +20,7 @@
 	</style>
 
 	<template>
-		<paper-icon-button class="iconBtn" icon$="{{currIcon}}" on-click="toggleAction"></paper-icon-button> 
+		<paper-icon-button class="iconBtn" icon="{{curricon}}" on-click="toggleAction"></paper-icon-button> 
 	</template>
 
 	<script>
@@ -31,19 +31,19 @@
 				/**
 				 * The open icon name as defined in the iron-icons iconset.
 				 */
-				openIcon:{type: String, value:'expand-less', notify: true, readonly: false},
+				openicon:{type: String, value:'expand-less', notify: true},
 
 
 
 				/**
 				 * The closed icon name as defined in the iron-icons iconset.
 				 */
-				closedIcon:{type: String,  value:'expand-more', notify: true, readonly: false},
+				closedicon:{type: String,  value:'expand-more', notify: true},
 
 				/**
 				 * The current icon.
 				 */
-				currIcon:{type: String,  value:''},
+				curricon:{type: String,  value:''},
 
 				/**
 				 * A flag indicating whether or not the toggle is open or closed. 
@@ -53,7 +53,7 @@
 
 
 			ready: function(){
-				this.currIcon = (this.isOpened)? this.openIcon : this.closedIcon;
+				this.curricon = (this.isOpened)? this.openicon : this.closedicon;
 			},
 
 			/**
@@ -61,7 +61,7 @@
 			 */
 			toggleAction: function(e){
 				this.isOpened = (this.isOpened)? false: true;
-				this.currIcon = (this.isOpened)? this.openIcon : this.closedIcon;
+				this.curricon = (this.isOpened)? this.openicon : this.closedicon;
 				this.fire("cardToggleFired");
 			}
 
