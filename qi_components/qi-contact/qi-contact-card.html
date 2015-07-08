@@ -1,77 +1,95 @@
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
-<link rel="import" href="../../bower_components/core-field/core-field.html" >
+<!--
+	This component displays contact information.
 
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
-<link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html" >
-<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html" >
-
-
-<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
-<link rel="import" href="../../bower_components/polymer-ui-ratings/polymer-ui-ratings.html" >
+	@group QI Elements
+	@element qi-contact-card
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
+<link rel="import" href="../../bower_components/paper-button/paper-button.html" >
 
 
 <link rel="import" href="../qi-avatar/qi-avatar.html">
-<link rel="import" href="../qi-text-list/qi-text-list.html">
 <link rel="import" href="../qi-field/qi-field.html">
 <link rel="import" href="../qi-field/qi-field-decorator.html">
+<link rel="import" href="../qi-field/qi-text-list.html">
+<link rel="import" href="../qi-toggle/qi-toggle.html">
 
-<polymer-element name="qi-contact-card" attributes="contact visibility filter">
+<dom-module id='qi-contact-card'  > 
 
-	
+	<style>
+	div.card-wrapper{
+		min-height: 100px;
+	}
+	div.card{
+		min-height: 90px;
+	}
+	p.title{
+		margin-left: 5px;
+		font-size: 10pt;
+		color: rgb(146, 144, 144);
+	}
+	p.company{
+		margin-left: 5px;
+		font-size: 10pt;
+		color: rgb(146, 144, 144);
+	}
+	#collapse{
+		margin-top: 60px;
+	}
+
+	</style>
+
 	<template>
-	
-	<link rel="stylesheet" href="../quikintro.css" >
-	<link rel="stylesheet" href="../qi-cards.css" >
 
-	<div class="card-wrapper">
+	<div id="card" class="card-wrapper"> 
 
 		<div class="card card-photo">
 
-			<qi-avatar url="{{contact.avatar}}"></qi-avatar>
+			<qi-avatar url="[[contact.avatar]]"></qi-avatar>
 
 			<header>
-				<h3>{{contact.firstName}} {{contact.lastName}}</h3>
-				<p class="title">{{contact.title}}</p>
-				<p class="company">{{contact.company}}</p>
+				<h3>[[fullName]]</h3>
+				<p class="title">[[contact.title]]</p>
+				<p class="company">[[contact.company]]</p>
 				<p></p>
 			</header>
 
-			<div class="summary" horizontal justified layout end>
-				<core-tooltip label="Rate Contact"><polymer-ui-ratings value="{{contact.rating}}"></polymer-ui-ratings></core-icon></core-tooltip>
+			<div class="summary horizontal justified layout end" > 
+				<qi-field-decorator label="Rate Contact"><polymer-ui-ratings value="[[contact.rating]]"></polymer-ui-ratings></qi-field-decorator>
 			</div>
 
-			<div class="card-actions" horizontal justified layout center>
-				<paper-button role="button" on-click="{{pingDialogLaunch}}">Message</paper-button>
-				<paper-button role="button" on-click="{{mtgDialogLaunch}}">Create Meeting</paper-button>
-				<qi-toggle isOpened="{{isOpen}}"></qi-toggle>
+			<div class="card-actions horizontal justified layout center" > 
+				<paper-button role="button" on-click="pingDialogLaunch">Message</paper-button> 
+				<paper-button role="button" on-click="mtgDialogLaunch">Create Meeting</paper-button> 
+				<qi-toggle isOpened="{{isOpen}}" on-click="toggleAction"></qi-toggle>
 			</div>
 
-			<core-collapse id="collapse" opened="{{isOpen}}">
-				<div style="display: table">
-					<qi-field name="Company:" value="{{contact.company}}"></qi-field>
-					<qi-field name="Mobile:" value="{{contact.mobile}}"></qi-field>
-					<qi-field name="Office:" value="{{contact.office}}"></qi-field>
-					<qi-field name="Email:" value="{{contact.email}}"></qi-field>
-					<qi-field name="Address:" value="{{contact.address}}"></qi-field>
-					<qi-field-decorator name="Tags:">
-						<qi-text-list list="{{contact.tags}}"></qi-text-list>
+			<iron-collapse id="collapse" opened="{{isOpen}}">
+				<div >
+					<qi-field label="Company:" value="[[contact.company]]"></qi-field>
+					<qi-field label="Mobile:" value="[[contact.mobile]]"></qi-field>
+					<qi-field label="Office:" value="[[contact.office]]"></qi-field>
+					<qi-field label="Email:" value="[[contact.email]]"></qi-field>
+					<qi-field label="Address:" value="[[contact.address]]"></qi-field>
+					<qi-field-decorator label="Tags:">
+						<qi-text-list list="[[contact.tags]]"></qi-text-list>
 					</qi-field-decorator>
-					<qi-field-decorator name="Skills:">
-						<qi-text-list list="{{contact.skills}}"></qi-text-list>
+					<qi-field-decorator label="Skills:">
+						<qi-text-list list="[[contact.skills]]"></qi-text-list>
 					</qi-field-decorator>
-					<qi-field-decorator name="Interests:">
-						<qi-text-list class="fldValue" list="{{contact.interests}}"></qi-text-list>
+					<qi-field-decorator label="Interests:">
+						<qi-text-list class="fldValue" list="[[contact.interests]]"></qi-text-list>
 					</qi-field-decorator>
-					<qi-field name="Notes:" value="{{contact.notes}}"></qi-field>
-					<qi-field-decorator name="Food:">
-						<qi-text-list list="{{contact.food}}"></qi-text-list>
+					<qi-field label="Notes:" value="[[contact.notes]]"></qi-field>
+					<qi-field-decorator label="Food:">
+						<qi-text-list list="[[contact.food]]"></qi-text-list>
 					</qi-field-decorator>
-					<qi-field-decorator name="Drink:">
-						<qi-text-list list="{{contact.drink}}"></qi-text-list>
+					<qi-field-decorator label="Drink:">
+						<qi-text-list list="[[contact.drink]]"></qi-text-list>
 					</qi-field-decorator>
 				</div>
-			</core-collapse>
+			</iron-collapse>
 
 		</div>
 	</div>
@@ -79,38 +97,96 @@
 	</template>
 
 	<script>
-	Polymer('qi-contact-card',{
+	Polymer({
+   		is: 'qi-contact-card', 
 
-		contact: null,
-		
-		visibility:'visible',
-		isOpen: false,
-		score: 0,
-		filterChanged: function(oldFilter, newFilter){
-			this.visibility = (this.score >= newFilter )? "visible":"hidden";
-		},
-		contactChanged: function(oldContact, newContact){
-			this.score = newContact.score;
-		},
-	    
+   		properties: {
 
-	    visibilityChanged: function(oldValue, newValue){
+   			/**
+   			 * The model for the contact card.
+   			 */
+			contact: {
+				type: Object, 
+				value: null, 
+				notify: true
+			},
+
+			/**
+			 * This flag determines if the card is visible.
+			 */
+			visibility:{
+				type: String, 
+				value: 'visible', 
+				notify: true, 
+				observer: 'visibilityChanged'
+			},
+
+			/**
+			 * This flag determines if the card's collapse pane is open.
+			 */
+			isOpen: {
+				type: Boolean, 
+				value: false
+			},
+
+			/**
+			 * This computed property concatenates the first and last name of the contact.
+			 */
+			fullName: {
+				type:String,
+				computed: 'computeName(contact.firstName, contact.lastName)' 
+			}
+			
+		},
+
+		/**
+		 * This method concatenates the first and last name of the contact.
+		 * @param firstName the first name of the contact
+		 * @param lastName the last name of the contact
+		 */
+		computeName: function(firstName, lastName){
+			return firstName + " " + lastName;
+		},
+
+		/**
+		 * This observer sets the visibility of the card, whenever the visibility
+		 * attribute is updated.
+		 * @param newValue  the new visibility value
+		 * @param oldValue the old visibility value
+		 */
+	     visibilityChanged: function(newValue, oldValue){
 	     	this.$.card.style.display = (newValue == 'visible')?'block':'none';
 	     },
 
+	     /**
+	      * This method sets the visibility of the card.
+	      * @param vis the visibility of the card
+	      */
 	     setVisibility: function(vis){
 	     	this.visibility = vis;
 	     },
 
+	     /**
+	      * This method displays the message dialog.
+	      */
 	     pingDialogLaunch: function(e){
 	     	this.fire("openPingDialog",{contact:this.contact});
 	     },
 
+	     /**
+	      * This method displays the meeting dialog.
+	      */
 	     mtgDialogLaunch: function(e){
 	     	this.fire("openMtgDialog",{contact:this.contact});
+	     },
+
+	     /**
+	      * This method toggles the collapse pane.
+	      */
+	     toggleAction: function(e){
+	     	this.isOpen != this.isOpen;
+	     	this.$.collapse.toggle();
 	     }
-
-
 
 
 	    });
@@ -119,4 +195,4 @@
 	</script>
 
 
-</polymer-element>
+</dom-module> 

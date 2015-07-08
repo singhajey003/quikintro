@@ -1,21 +1,24 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="qi-onboard-card.html">
 
-<polymer-element name="qi-onboard-panel">
+<dom-module id='qi-onboard-panel'  > 
 
 
 <template>
 	<style>
-		paper-button{
+		paper-button.onboard{
 			background-color: #7DD0B6;
 			color: white;
 			margin-left: 50px;
+			width: 250px;
 		}
 	</style>
+	<link rel="stylsheet" href="qi-onboard.css">
 
-	<div id="onboardpanel">
+	<div id="onboardpanel" class="layout vertical flex fit">
 		<br/>
-		<div class="title">&nbsp; &nbsp; Click to import a profile</div><br/>
+		<div class="title">    Click to import a profile</div><br/>
 
 		<qi-onboard-card icon="qi_components/qi-onboard/linkedin.png" clazz="linkedin" service="LinkedIn"></qi-onboard-card><br/>
 		<qi-onboard-card icon="qi_components/qi-onboard/facebook2.png" clazz="facebook" service="Facebook"></qi-onboard-card><br/>
@@ -27,7 +30,7 @@
 
 		<qi-onboard-card icon="qi_components/qi-onboard/eventbrite.png" clazz="eventbrite" service="EventBrite"></qi-onboard-card><br/>
 
-		<paper-button>Import</paper-button>
+		<paper-button class="onboard">Import</paper-button>
 
 	</div>
 
@@ -38,11 +41,31 @@
 
 <script >
 	
-Polymer('qi-onboard-panel',{
+Polymer({
+  is: 'qi-onboard-panel', 
 		
 });
 
 
 </script>
 
-</polymer-element>
+</dom-module> 
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

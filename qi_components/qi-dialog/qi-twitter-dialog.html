@@ -1,38 +1,69 @@
+<!--
+ 
 
-<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+ @group QI Elements
+ @element qi-twitter-dialog
+-->
 
-<polymer-element name="qi-twitter-dialog" attributes="hashtag">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 
+<dom-module id='qi-twitter-dialog'  > 
+
+ 
+ 	<link rel="stylesheet" href="dialog.css"> 
 
 	<template>
 		
-		<paper-action-dialog id="dialog" backdrop>
-		  <link rel="stylesheet" href="dialog.css">
+		<paper-dialog id="dialog" backdrop class="layout vertical">
 
-		  <paper-autogrow-textarea id="a1" maxRows="3" >
-	  		  <textarea class="tweet" value="{{myTweet}}"></textarea>
-	  		</paper-autogrow-textarea>
-		  	<div class="tweetSize">{{tweetSize}} Characters</div>
+		  <paper-textarea id="tweet" class="flex" value="{{myTweet}}" maxRows="3" ></paper-textarea>
+		  <div class="tweetSize flex"><span>{{tweetSize}}</span> Characters</div>
 
-		  	<paper-button dismissive>Cancel</paper-button>
-		  	<paper-button id="sendBtn" on-click="{{sendAction}}" affirmative>Send</paper-button>
+	  	  <div class="buttons">
+		  	<paper-button dialog-dismiss>Cancel</paper-button>
+		  	<paper-button id="sendBtn" on-click="sendAction" dialog-confirm>Send</paper-button>
+	  	  </div>
 	  		
-		</paper-action-dialog>
+		</paper-dialog>
 	
 
 	</template>
 
 	<script>
-	Polymer('qi-twitter-dialog',{
+	Polymer({
+   		is: 'qi-twitter-dialog',
 
-		myTweet: this.hashtag,
-		tweetSize: 140,
+   		properties:{
 
-		hashtagChanged: function(oldValue, newValue){
-				this.reset();
-		},
+   			/**
+   			 * The hash tag for the tweet.
+   			 */
+   			hashtag: {type: String},
 
-		myTweetChanged: function(oldValue, newValue){
+   			/**
+   			 * The contents of the tweet.
+   			 */
+   			myTweet: {
+   				type: String, 
+   				value: this.hashtag, 
+   				notify: true, 
+   				observer: 'myTweetChanged'
+   			},
+
+   			/**
+   			 * The size of the tweet.
+   			 */
+   			tweetSize: {
+   				type: Number, 
+   				value: 140
+   			}
+   		},
+
+
+		myTweetChanged: function(newValue, oldValue){
 			this.tweetSize = 140 - newValue.length;
 			if(this.tweetSize > 140){
 				this.$.sendBtn.enabled = false;
@@ -60,4 +91,4 @@
 	</script
 
 
-</polymer-element>
+</dom-module> 

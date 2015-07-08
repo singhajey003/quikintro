@@ -1,0 +1,70 @@
+<!--
+This component is responsible for displaying a date.
+
+
+ @group QI Elements
+ @element qi-date-field
+-->
+<dom-module id="qi-date-field">
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+	<template>
+	    <link rel="stylesheet" href="qi-field.css"> 
+		<div class="row flex layout horizontal justified" >  
+	        <div class="labelCell"><label><span>[[label]]</span></label></div>
+	        <div class="fldValue flex"  two>  
+	            <span>[[formattedValue]]</span>
+	        </div>
+	    </div>
+	</template>
+
+	<script>
+	Polymer({
+   		is: 'qi-date-field', 
+   		properties:{
+
+   			/**
+   			 * The label to be displayed next to the field.
+   			 */
+   			label: {
+   				type: String, 
+   				readonly: true
+   			},
+
+   			/**
+   			 * The date to be displayed
+   			 */
+   			date: {type: String},
+
+   			/**
+   			 * The time to be displayed
+   			 */
+   			time: {type: String},
+
+   			/**
+   			 * This computed field formats the date
+   			 */
+   			formattedValue: {
+   				type: String,
+   				computed: 'formatDate(date, time)'
+   			}
+   		},
+
+
+   		/**
+   		 * This method formats the date.
+   		 * @param date  The date
+   		 * @param time  The time
+   		 */
+   		formatDate: function(date, time){
+   			return date + " " + time
+   		}
+
+	});
+	</script>
+
+
+
+</dom-module>

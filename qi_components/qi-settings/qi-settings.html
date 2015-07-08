@@ -1,0 +1,71 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
+<link rel="import" href="../qi-security/qi-security-panel.html">
+<link rel="import" href="../qi-onboard/qi-onboard-panel.html">
+<link rel="import" href="../qi-profile/qi-profile-panel.html">
+<link rel="import" href="../qi-persona/qi-persona-panel.html">
+
+<dom-module id="qi-settings">
+
+<style >
+	iron-pages{
+		position: relative;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+<template>
+
+	<iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
+	<iron-localstorage name="profile" value="{{currProfile}}"></iron-localstorage>
+
+	<div class="layout vertical fit flex">
+		<paper-tabs selected="{{selected}}">
+			<paper-tab>Security</paper-tab>
+			<paper-tab>Accounts</paper-tab>
+			<paper-tab>Profile</paper-tab>
+			<paper-tab>Personas</paper-tab>
+		</paper-tabs>
+		<iron-pages selected="{{selected}}">	
+			<section id="Security" >
+		      <qi-security-panel></qi-security-panel>
+		    </section>
+
+		    <section id="On Boarding" >
+		      <qi-onboard-panel></qi-onboard-panel>
+		    </section>
+
+		    <section id="Profile" >
+		      <qi-profile-panel id="profilePanel" profile="{{currProfile}}"></qi-profile-panel>
+		    </section>
+		    
+		    <section id="Personas" >
+		      <qi-persona-panel id="personaPanel" ></qi-persona-panel>
+		    </section>
+		</iron-pages>
+	</div>
+
+</template>
+
+<script>
+Polymer({
+	is: 'qi-settings',
+
+	properties:{
+		personaList:{type: Array},
+		currProfile:{type: Object},
+		selected:{type: Number, value: 0}
+	}
+
+});
+
+</script>
+
+
+</dom-module>

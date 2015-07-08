@@ -1,19 +1,24 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
-<link rel="import" href="../../bower_components/core-pages/core-pages.html">
-<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
-<link rel="import" href="../qi-global/global.html">
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail.html">
 <link rel="import" href="qi-event-notice.html">
 
-<polymer-element name="qi-event-stream" attribute="selectedEventPage events personas">
+<dom-module id='qi-event-stream' >
+
 
 	<template>
-    <link rel="stylesheet" href="../quikintro.css" >
-    <link rel="stylesheet" href="../qi-cards.css" >
-    <link rel="stylesheet" href="qi-events.css" >
+	    <link rel="stylesheet" href="../quikintro.css" > 
+	    <link rel="stylesheet" href="../qi-cards.css" >
+	    <link rel="stylesheet" href="qi-events.css" > 
+
+	    <iron-localstorage name="events" value="{{events}}"></iron-localstorage>
+
 		<style>	
 			.container {
 /*			padding: 10px;  */
@@ -22,47 +27,43 @@
 		</style>
 
 
-		<div class="container" layout vertical flex >
+		<div class="layout vertical flex"  > 
 
-			<core-pages id="eventPages" selected="{{selectedEventPage}}" layout vertical flex>
-			  <section selected class="padding">
+			<iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical flex fit"> 
+			  	<div selected>
 					<h4>My Scheduled Events</h4>
-					<div>
-						<template repeat="{{event, i in events }}">
-							<template if="{{event.rsvp == 'YES' || event.rsvp == 'MAYBE'}}">
-							<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
-							</template>
-						</template>
+					<div id="schedEvents">
 					</div>
 
 					<h4>Suggested Events</h4>
-					<div>
-						<template repeat="{{event, i in events }}">
-							<template if="{{event.rsvp == null}}">
-								<qi-event-card id="{{i}}" event="{{event}}" on-click="{{cardClickHandler}}"></qi-event-card>
-							</template>
-						</template>
-
-
-				</div>
+					<div id="suggEvents">
+					</div>
 			
-			 </section>
+				 </div>
 
-			<section>
-				<qi-event-detail id="detail"></qi-event-detail>
-			</section>
+				<div >
+					<qi-event-detail id="detail"></qi-event-detail>
+				</div>
+
+			</iron-pages>
 		
 		</div>
-		</core-pages>
+		
 	</template>
 
 	<script>
-		Polymer('qi-event-stream',{
-			selectedEventPage:0,
+		Polymer({
+    		is: 'qi-event-stream', 
 
-			selectedEventPageChanged: function(oldValue, newValue){
+    		properties:{
+    			events:{type: Array, observer: 'eventsChanged'},
+    			personas: {type: Array},
+				selectedEventPage:{type: Number, value:0, notify: true, observer:'selectedEventPageChanged'},
+			},
+
+			selectedEventPageChanged: function(newValue, oldValue){
 				if (newValue == 0){
-					this.fire('page-changed', {title: 'Events'})
+					this.fire('nav-changed', {id:'null',title: 'Events', type:'sub-level'})
 				}
 			},
 			
@@ -72,8 +73,36 @@
 				var detail = this.$.detail;
 				detail.event = event;
 				this.selectedEventPage = 1;
-				this.fire('page-changed', {title: event.title})
+				this.fire('nav-changed', {id:event.id, title: event.title, type:'event'})
+			},
+			
+			eventsChanged: function(newEvents, oldEvents){
+				if (newEvents != null && newEvents.length > 0){
+					var schedEvents = this.$.schedEvents;
+					var suggEvents = this.$.suggEvents;
+
+					for(var i=0; i < newEvents.length; i++){
+
+						var eventCard = new EventCard();
+						eventCard.id = i;
+						eventCard.event = newEvents[i];
+						eventCard.onTap = 'cardClickHandler';
+						if (newEvents[i].rsvp == 'YES' || newEvents[i].rsvp){
+							schedEvents.appendChild(eventCard);
+						}else{
+							suggEvents.appendChild(eventCard);
+						}
+					}
+				}
+				
+			},
+
+			ready: function(){
+				this.addEventListener('expand-card', function(e){
+					this.cardClickHandler(e);
+				})
 			}
+
 			
 
 		});
@@ -83,4 +112,4 @@
 
 
 
-</polymer-element>
+</dom-module>

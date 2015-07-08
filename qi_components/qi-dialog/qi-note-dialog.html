@@ -1,40 +1,93 @@
-<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<!--   
+  This dialog is used to create a note at a meeting.
 
-<polymer-element name="qi-note-dialog" attributes="notes">
+  @group QI Elements
+  @element qi-note-dialog
+
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+
+<link rel="import" href="../../bower_components/mat-dropdown/mat-dropdown.html">
+<link rel="import" href="../../bower_components/mat-option/mat-option.html">
+
+
+<dom-module id='qi-note-dialog'  >
+
+	<link rel="stylesheet" href="../quikintro.css" > 
+	<link rel="stylesheet" href="dialog.css"> 
+
+	<style>
+	paper-dialog{
+		height: 400px;
+	}
+
+	paper-textarea{
+		width: 100%;
+		height: 60px;
+	}
+
+	</style>
 
 	<template>
 
-		<paper-action-dialog id="dialog" heading="New Note" backdrop>
-			<link rel="stylesheet" href="../quikintro.css" >
-			<link rel="stylesheet" href="dialog.css">
+		<paper-dialog id="dialog" backdrop class="layout vertical justified">
+			<h2>New Note</h2>
+			<div class="layout vertical flex">
+				<div >
+					<paper-input id="title" floatingLabel="true" label="Title"></paper-input>
+				</div>
 
-			<div>
-				<paper-input id="title" label="Title"></paper-input>
+				<div>
+					<paper-textarea class="layout horizontal flex" floatingLabel="true" id="note" label="Note" ></paper-textarea>
+				</div>
+
+				<div >
+				<mat-dropdown id="type" model="{{noteType}}" label="Message Type" floating-label="true">
+	                    <mat-option value="public" label="Public"></mat-option>
+	                    <mat-option value="in-network" label="In-Network"></mat-option>
+	                    <mat-option value="private" label="Private"></mat-option>
+	              </mat-dropdown>  
+				</div>
 			</div>
 
-			<div>
-				<paper-input-decorator floatingLabel label="Note">
-					<paper-autogrow-textarea id="a1">
-						<textarea id="note" style="border: 0;"></textarea>
-					</paper-autogrow-textarea>
-				</paper-input-decorator>
 
+			<div class="buttons layout end-justified">
+			<paper-button dialog-dismiss>Cancel</paper-button>
+			<paper-button dialog-confirm on-click="publishAction">Publish</paper-button> 
 			</div>
-			
-			<paper-button dismissive>Cancel</paper-button>
-			<paper-button affirmative on-click="{{publishAction}}">Publish</paper-button>
 		  
-		</paper-action-dialog>
+		</paper-dialog>
 
 		
 	</template>
 
 	<script>
-		Polymer('qi-note-dialog',{
+		Polymer({
+    		is: 'qi-note-dialog', 
 
+    		properties: {
 
+    			/**
+    			 * An array of notes to which the new note will be added.
+    			 */
+    			notes:{type: Array},
 
+    			/**
+    			 * The type of note (public, private, or in-network)
+    			 */
+    			noteType:{
+    				type: String,
+    			}
+    		},
+
+    		/**
+    		 * Publishes the note
+    		 */
 			publishAction: function(){
 
 				if(this.notes == null){
@@ -43,6 +96,7 @@
 
 				var timeObj = new Date();
 
+				// get the profile for the current user and create an author from it
 				var profile = JSON.parse(localStorage.getItem("profile"));
 				var author = {
 					"firstName":profile.firstName,
@@ -53,19 +107,26 @@
 					"title": this.$.title.value,
 					"description": this.$.note.value,
 					"author":author,
-    				"time": timeObj.toDateString() + timeObj.toTimeString()
+    				"time": timeObj.toDateString() + timeObj.toTimeString(),
+    				"type": this.noteType
 				};
 
 				this.notes.push(note);
-				
+				this.fire('note-published',{note: note});
 
 			},
 
+			/**
+			 * Opens the dialog.
+			 */
 			open: function(){
 				this.reset();
 				this.$.dialog.open();
 			},
 
+			/**
+			 * Resets the dialog's title and note value.
+			 */
 			reset: function(){
 				this.$.title.value = '';
 				this.$.note.value = '';
@@ -75,4 +136,4 @@
 
 	</script>
 
-</polymer-element>
+</dom-module> 

@@ -1,56 +1,70 @@
+<!--
+	This dialog box allows a user to create an invitation to be sent to another user.
+-->
 
-<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html">
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../../bower_components/mat-dropdown/mat-dropdown.html">
+<link rel="import" href="../../bower_components/mat-option/mat-option.html">
 
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 
-<polymer-element name="qi-invite-dialog" attributes="persona contact">
+<dom-module id='qi-invite-dialog'  > 
+
+	<link rel="stylesheet" href="../quikintro.css" > 
+	<link rel="stylesheet" href="dialog.css"> 
 
 	<template>
-		<paper-action-dialog id="dialog" heading="Introduce Yourself" transition="core-transition-bottom" backdrop>
-			<link rel="stylesheet" href="../quikintro.css" >
-			<link rel="stylesheet" href="dialog.css">
-			<div >
-				<core-dropdown-menu label="Select A Message">
-					<core-dropdown class="dropdown">
-						<core-selector selected="{{selectedTemplate}}">
-							<template repeat="{{msgTemplate in persona.msgTemplates}}">
-								<core-item template="{{msgTemplate}}">{{msgTemplate.title}}</core-item>
-							</template>
-						</core-selector>
-					</core-dropdown>
-				</core-dropdown-menu>
-			</div>
+		<paper-dialog id="dialog" transition="core-transition-bottom" backdrop>
+		    <h2>Introduce Yourself</h2>
+		    <div>
+				<div >
+				<mat-dropdown id="msgTemplate" model="{{persona.msgTemplates}}" label="Message Type" floating-label="true">
+					<template is="dom-repeat" items="{{persona.msgTemplates}}" as="msgTemplate">
+						<mat-option value="{{msgTemplate}}" label="{{msgTemplate.title}}"></mat-option>
+					</template>
+                   
+              	</mat-dropdown>  
 
-			<div>
-				<paper-autogrow-textarea id="a1" rows="3">
-					<textarea id="msg"></textarea>
-				</paper-autogrow-textarea>
+				</div>
+
+				<div>
+					<paper-textarea id="msg" rows="3">
+					</paper-textarea>
+				</div>
+				
+				<div class="checkbox-row">
+					<paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox>
+					<paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox>
+				</div>
 			</div>
 			
-			<div class="checkbox-row">
-				<paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox>
-				<paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox>
-			</div>
-
-		  <paper-button dismissive>Cancel</paper-button>
-		  <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
-
-		</paper-action-dialog>
+			 <div class="buttons">
+			  <paper-button dialog-dismiss>Cancel</paper-button>
+			  <paper-button dialog-confirm on-click="sendAction">Send</paper-button>   
+			 </div>
+		</paper-dialog>
 
 	</template>
 
 	<script>
-	Polymer('qi-invite-dialog',{
+	Polymer({
+   		is: 'qi-invite-dialog', 
 
-		contacts: localStorage.getItem("contacts"),
+   		properties:{
+			contacts: {type: Array, value: JSON.parse(localStorage.getItem("contacts"))},
+			persona: {type: Object}
+		},
 
-		selectedTemplateChanged: function(oldValue, newValue){
+
+		selectedTemplateChanged: function(newValue, oldValue){
 			var selectedObj = this.persona.msgTemplates[newValue]
 			this.$.msg.value = selectedObj.template;
-			this.msg.update();
 		},
 
 		sendAction: function(e){
@@ -87,10 +101,6 @@
 			this.$.dialog.open();
 		},
 
-		reset: function(){
-
-		},
-
 		close: function(){
 			this.$.dialog.close();
 		}
@@ -102,4 +112,4 @@
 
 
 
-</polymer-element>
+</dom-module>

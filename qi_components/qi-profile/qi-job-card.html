@@ -1,68 +1,64 @@
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-field/core-field.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
+<!--
+TODO
+	core-field -> qi-field?
+
+-->
+
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
 
 <link rel="import" href="../qi-toggle/qi-toggle.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
+<link rel="import" href="../qi-field/qi-field.html">
+<link rel="import" href="../qi-field/qi-field-decorator.html">
+<link rel="import" href="../qi-field/qi-collapse-field.html">
 
-<polymer-element name="qi-job-card" attributes="job">
-
+<dom-module id='qi-job-card'  >
 	
 	<template>
-	<link rel="stylesheet" href="../quikintro.css" >
-	<link rel="stylesheet" href="../qi-cards.css" >
-	<link rel="stylesheet" href="qi-job-card.css" >
+	<link rel="stylesheet" href="../quikintro.css" > 
+	<link rel="stylesheet" href="../qi-cards.css" > 
+	<link rel="stylesheet" href="qi-job-card.css" > 
 
-	<div class="card-wrapper">
+	<div class="card-wrapper"> 
 		<div class="card job">
-			<p>
-				<core-field flex>
-				  <label>Title:</label><span>{{job.title}}</span>
-			  </core-field>
-			</p>
-			<p>
-				<core-field>
-				    <label>Company:</label><span>{{job.company.name}}</span>
-				</core-field>
-			</p>
-			<p>
-				<core-field>
-				    <label>Start Date:</label><span>{{job.startDate.month}}/{{job.startDate.year}}</span>
-				</core-field>
-			</p>
+
+			<qi-field label="Title:" value="[[job.title]]"></qi-field>
+			<qi-field label="Company:" value="[[job.company.name]]"></qi-field>
+			<qi-field label="Start Date:" value="{{convertDate(job.startDate)}}"></qi-field>
+			
+			<qi-field-decorator label="End Date:">
+				<span>{{convertDate(job.endDate)}}</span>
+			</qi-field-decorator>
 
 
-			<p>
-				<core-field>
-				    <label>End Date:</label>
-				    <template if="{{job.endDate == null}}">
-				    <span>Current</span>
-				    </template>
-				    <template if="{{job.endDate != null}}">
-				    <span>{{job.endDate.month}}/{{job.endDate.year}}</span>
-				    </template>
-				</core-field>
-			</p>
-
-			<div horizontal justified layout center>
-				<label style="margin-right: 5px;">Summary</label><qi-toggle on-click="{{toggleAction}}">Summary</qi-toggle>
-			</div>
-
-			<core-collapse id="collapse" opened="false">
-			    <div>{{job.summary}}</div>
+			<qi-collapse-field label="Summary">	
+			    <div>[[job.summary]]</div>
 			    <div>
-			    <qi-traitlist traits="{{job.skills}}"></qi-traitlist>
+			    	<qi-traitlist traits="[[job.skills]]"></qi-traitlist>
 			    </div>
-
-			</core-collapse>
-
+			</qi-collapse-field>
 		</div>
 	</div>
 
 	</template>
 
 	<script>
-	Polymer('qi-job-card',{
+	Polymer({
+   		is: 'qi-job-card', 
+
+   		properties:{
+   			job:{type: Object}
+   		},
+
+   		convertDate: function(date){
+   			if(date == null){
+   				return "Current"	
+   			}else{
+   				return date.month + "/" + date.year;
+   			}
+   		},
+
 		toggleAction: function(){
 			this.$.collapse.toggle();
 		}
@@ -73,4 +69,4 @@
 	</script>
 
 
-</polymer-element>
+</dom-module>

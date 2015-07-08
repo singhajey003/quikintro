@@ -1,28 +1,29 @@
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html">
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
+<!--   -->
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
 
 
-<polymer-element name="qi-onboard-card" attributes="icon service clazz">
+<dom-module id='qi-onboard-card'  > 
 
+<link rel="stylesheet" href="qi-onboard.css">
 
 <template>
-	<link rel="stylesheet" href="qi-onboard.css">
-	<div id="iconPanel" class="{{clazz}}">
+	
+	<div id="iconPanel" class$="[[clazz]]" class="flex" on-click="toggleAction">
 
-		<div id="buttonPanel">
-			<core-icon-button src="{{icon}}" on-click="{{toggleAction}}">&nbsp;{{service}}</core-icon-button>
-
+		<div class="buttonPanel">
+			<paper-icon-button src="[[icon]]" on-click="toggleAction"></paper-icon-button> 
+			<span>[[service]]</span>
 		</div>
 
-		<core-collapse id="collapse">
+		<iron-collapse id="collapse">
 			<paper-input label="User ID:" floatingLabel="true" value="mfortner"></paper-input>
-			<paper-input-decorator label="Password:" floatingLabel="true">
+			<paper-input-container label="Password:" floatingLabel="true">
 				<input type="password" name="password" value="whatever" />
-			</paper-input-decorator>
+			</paper-input-container>
 			
-		</core-collapse>
+		</iron-collapse>
 
 	</div>
 
@@ -33,15 +34,22 @@
 
 <script >
 	
-Polymer('qi-onboard-card',{
+Polymer({
+  is: 'qi-onboard-card', 
 
-      toggleAction: function(evt){
-      	this.$.collapse.toggle();
-      }
+  properties: {
+  	icon:{type: String},
+  	service: {type: String},
+  	clazz: {type: String}
+  },
+
+  toggleAction: function(evt){
+  	this.$.collapse.toggle();
+  }
 		
 });
 
 
 </script>
 
-</polymer-element>
+</dom-module> 

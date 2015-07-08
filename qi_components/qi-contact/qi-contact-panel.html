@@ -1,105 +1,115 @@
-<link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
-<link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+<!--
+  This component displays a search panel, and a panel containing a list of contacts.
+-->
 
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../../bower_components/core-field/core-field.html">
-<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
-<link rel="import" href="../../bower_components/core-icons/communication-icons.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-icons/communication-icons.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
 
 
-<link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-dialog/qi-msg-dialog.html">
 <link rel="import" href="../qi-dialog/qi-mtg-dialog.html">
 
+<link rel="import" href="../qi-field/qi-icon-field.html">
+
 <link rel="import" href="qi-contact-card.html">
 
-<polymer-element name="qi-contact-panel" attributes="contacts">
-  <template>
+<dom-module id='qi-contact-panel'  > 
 
-  <link rel="stylesheet" href="../quikintro.css">
-  <link rel="stylesheet" href="qi-contact-panel.css">
+  <link rel="stylesheet" href="../quikintro.css"> 
+  <link rel="stylesheet" href="qi-contact-panel.css"> 
 
+
+  <style>
+ 
+
+  </style>
 
  
-	<core-scroll-header-panel id="eventHeaderPanel" >
+  <template>
 
-      <div class="search-panel">
-        <div flex horizontal layout justified>
+
+  <iron-localstorage name="contacts" value="{{contacts}}"></iron-localstorage>
+  <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
+
+ 
+  <div id="eventHeaderPanel" class="layout vertical flex">
+
+      <div class="search-panel paper-header">
+        <div class="flex horizontal layout justified">  
           <div>Search</div>
-          <qi-toggle on-click="{{collapseHandler}}"></qi-toggle>
+          <qi-toggle on-click="collapseHandler"></qi-toggle> 
         </div>
 
-        <core-collapse id="searchPane">
-        <core-field>
-          <core-icon icon="search"></core-icon>
-          <paper-input type="text" id="searchText" label="Search Text" ></paper-input>
-        </core-field>
+        <iron-collapse id="searchPane">
 
-        <core-field>
-          <core-icon icon="loyalty"></core-icon>
-          <paper-input label="Tags" type="text" id="tags" floatingLabel="true"></paper-input>
-        </core-field>
+        <div>
+        <qi-icon-field icon="search" id="searchText" label="Search Text"></qi-icon-field>
 
-        <core-field>
-          <core-icon icon="communication:business"></core-icon>
-          <paper-input type="text" label="Company" id="company"></paper-input>
-        </core-field>
+        <qi-icon-field icon="loyalty" label="Tags" id="tags" floatingLabel="true"></qi-icon-field>
 
-        <core-field>
-          <core-icon icon="room"></core-icon>
-          <paper-input type="text" label="Location" id="location" floatingLabel="true"></paper-input>
-        </core-field>
+        <qi-icon-field icon="communication:business" label="Company" id="company"></qi-icon-field>
 
-        <core-field>
-          <core-icon icon="work"></core-icon>
-          <paper-input type="text" label="Title" id="work" floatingLabel="true"></paper-input>
-        </core-field>
+        <qi-icon-field icon="room" label="Location" id="location" floatingLabel="true"></qi-icon-field>
 
-        <core-field>
-          <core-icon icon="bookmark-outline"></core-icon>
-          <paper-input type="text" label="Interests" id="interests" floatingLabel="true"></paper-input>
-        </core-field>
+        <qi-icon-field icon="work" label="Title" id="work" floatingLabel="true"></qi-icon-field>
 
-        <core-field>
-          <core-icon icon="label"></core-icon>
-          <paper-input type="text" id="skills" label="Skills"></paper-input>
-        </core-field>
+        <qi-icon-field icon="bookmark-outline" label="Interests" id="interests" floatingLabel="true"></qi-icon-field>
+
+        <qi-icon-field icon="label" id="skills" label="Skills"></qi-icon-field>
 
         <paper-button raised >Search</paper-button>
+        </div>
+      </iron-collapse>
       </div>
-      </core-collapse>
     
 
-    <div class="content" layout vertical>
-      
-      <template repeat="{{contact in contacts}}">
-        <qi-contact-card contact="{{contact}}"></qi-contact-card>
-      </template>
+      <div class="contactPanel">  
+        
+        <template is="dom-repeat" items="{{contacts}}"  as="contact">
+          <qi-contact-card contact="{{contact}}"></qi-contact-card>
+        </template>
 
-      
-      <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
-      <qi-mtg-dialog id="mtgDialog"></qi-mtg-dialog>
-     
+        
+        <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
+        <qi-mtg-dialog id="mtgDialog"></qi-mtg-dialog>
+       
+      </div>
 
-    </div>
 
-
-     </core-scroll-header-panel>
+     </div>
    </template>
 
    <script>
-	Polymer('qi-contact-panel',{
+  Polymer({
+      is: 'qi-contact-panel', 
+      properties:{
 
-      contacts: JSON.parse(localStorage.getItem("contacts")),
-      msgs: localStorage.getItem("msgs"),
+        /**
+         * An array of contact data
+         */
+        contacts:{type: Array, value:[]},
+
+        /** 
+         * An array of messages
+         */
+        msgs: {type: Array, value: []}
+      },
 
       ready: function(){
         var msgDialog = this.$.msgDialog;
         var mtgDialog = this.$.mtgDialog;
+
 
         // event fired when the user opens a ping dialog
         this.addEventListener('openPingDialog', function(e){
@@ -119,9 +129,28 @@
       }
 
 
-		
-	    });
+    
+      });
 
    </script>
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

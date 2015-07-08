@@ -1,0 +1,54 @@
+<!--
+  This component is a decorator which can be used to create a collapsible field.
+
+  <qi-collapse-field label="Description">
+	<text-area></text-area>
+  </qi-collapse>
+
+  Creates a collapsible text area field.
+
+-->
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html"> 
+<link rel="import" href="../qi-toggle/qi-toggle.html"> 
+
+<dom-module id="qi-collapse-field">
+
+<style>
+.labelCell > label{
+	vertical-align: bottom;
+}
+</style>
+
+<template>
+	<link rel="stylesheet" href="qi-field.css"> 
+
+	<div class="layout vertical">
+		<div class="row flex layout horizontal justified" >  
+	        <div class="labelCell"><label><span>{{label}}</span></label></div><br/>
+	        <qi-toggle on-click="handleClick"></qi-toggle>
+	    </div>
+	    <iron-collapse id="collapse" opened="{{opened}}">
+	    <content></content>
+	    </iron-collapse>
+	</div>
+
+</template>
+
+<script>
+Polymer({
+	is:'qi-collapse-field',
+	properties:{
+		label: {type: String},
+		opened: {type: Boolean, value: false}
+	},
+	handleClick: function(e){
+		this.opened != this.opened;
+		this.$.collapse.toggle();
+	}
+});
+
+
+</script>
+
+
+</dom-module>

@@ -1,29 +1,36 @@
 @import 'sass/_config';
- 
+
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'fira-sans-book';
+  font-family: 'Verdana';
   color: $text-default;
 }
 
 .font-light {
-  font-family: 'fira-sans-ultralight';
+  font-family: 'Verdana';
 }
 .font-book {
-  font-family: 'fira-sans-book';
+  font-family: 'Verdana';
 }
 .font-bold {
-  font-family: 'fira-sans-semibold';
+  font-family: 'Verdana';
 }
 .font-extrabold {
-  font-family: 'fira-sans-extrabold';
+  font-family: 'Verdana';
 }
 .reverse {
   color: $reverse;
 }
 
-h1, h2, h3 {font-family: 'fira-sans-ultralight';}
+h1, h2, h3 {font-family: 'Verdana';}
+
+h4 {
+  color: $qi-gray;
+  text-transform: uppercase;
+  margin: 5px 0;
+  font-size: 10pt;
+}
 
 a, a:link, a:visited {
   color: $qi-blue;
@@ -54,80 +61,19 @@ hr {
   box-sizing: border-box;
 }
 
-core_scaffold {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-}
 
-
-core-scaffold core-toolbar {
-  color: $white;
-  background-color: #F38630;
-}
-
-
-core-scaffold /deep/ #headerPanel core-toolbar {
-  color: $white;
-  background-color: $header;
-}
-
-core-scaffold /deep/ core-toolbar {
-  color: $white;
-  background-color: $papertabs;
-}
-
-
-core-scaffold /deep/ #eventDetailHeaderPanel core-toolbar {
-  color: $white;
-  background-color: $papertabs;
-  height: 48px;
-}
-
-core-menu {
-  font-size: 16px;
-}
-
-#core_menu_button {
-  left: 68px;
-  top: 14px;
-  position: absolute;
-}
-core-submenu {
-  left: 12px;
-  top: 0px;
-  position: relative;
-}
-core-submenu > core-item {
-  padding-left: 10px;
-  font-size: 10pt;
-}
-
-core-submenu > core-submenu{
-  font-size: 8pt;
-  margin-top: -5px;
-  margin-bottom: -5px;
-}
-
-core-submenu > core-submenu[label]{
-  font-size: 10pt;
-}
-
-core-toolbar {
+paper-toolbar {
   background-color: $qi-gray;
   height: 40px;
 }
 
-core-header-panel > core-toolbar {
+paper-header-panel > paper-toolbar {
   background-color: $qi-blue;
   color: $white;
   height: 64px;
 }
 
-core-pages {
-  left: 260px;
+iron-pages {
   top: 70px;
   bottom: 0;
   right: 0;
@@ -139,17 +85,17 @@ core-pages {
 }
 
 
-core-pages .content {
+iron-pages .content {
   padding: 30px;
 }
 
 
-core_pages > section {
+iron-pages > section {
   background-color: #eeeeee;
 }
 
 
-core-scroll-header-panel {
+paper-scroll-header-panel {
   top: 0;
   left: 0;
   right: 0;
@@ -159,16 +105,9 @@ core-scroll-header-panel {
   visibility: visible;
   padding: 20px;
   overflow: auto;
+  /*height: 40px;*/
 }
 
-.content {
-  padding: 20px 30px;
-  background-color: $background;
-  background-image: $backgroundImage;
-  background-repeat: no-repeat;
-  background-position: -500px -100px;
-  overflow: auto;
-}
 
 input#searchText[is=core-input] {
   width:100px;
@@ -181,19 +120,7 @@ input#searchText[is=core-input] {
   background-color: rgba(255,255,255,0.7);
   border-radius: 8px;
   padding: 10px;
-  margin-bottom: 20px;
 }
-
-
-/* some default styles for mode="cover" on core-scaffold */
-core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
-  left: 120px;
-}
-
-core-scaffold[mode=cover] .content {
-  margin: 20px 100px 20px 0;
-}
-
 
 
 section {
@@ -210,7 +137,7 @@ input[type=search]{
 }
 
 /** Default icon styling. */
-core-icon{
+iron-icon{
   height: 20px;
   width: 20px;
   border: 0;
@@ -221,13 +148,6 @@ core-icon{
 }
 
 
-h4 {
-  color: $qi-gray;
-  text-transform: uppercase;
-  margin: 5px 0;
-  font-size: 10pt;
-}
-
 .settings-row {
   border-bottom: 1px solid $qi-gray-light;
   padding: 10px 0;
@@ -235,52 +155,25 @@ h4 {
   font-size: 10pt;
 }
 
-core-input {
+paper-input {
   color: $qi-blue;
   cursor: pointer;
-}
-
-/* Tabs */
-paper-tabs {
   height: 40px;
-  color: $white;
-  margin: 0 -5px !important;
-  text-transform: uppercase;
-
-  &::shadow #selectionBar {
-    background-color: transparent;
-  }
-
-  paper-tab::shadow #ink {
-    color: $qi-gray-dark2;
-  }
-
-  &::shadow .scroll-button {
-    width: 35px;
-    height: 40px;
-    padding: 0;
-  
-    background-color: darken($qi-gray, 7%);
-
-    > paper-icon-button {
-      padding: 7px 5px;
-    }
-  }
 }
 
 
 /* Dropdowns */
-core-dropdown-menu {
+paper-dropdown-menu {
   border-radius: 2px;
   padding: 0 0 0 10px;
   font-size: 11pt;
 }
 
-core-dropdown {
+paper-dropdown {
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
-core-dropdown core-item {
+paper-dropdown core-item {
   padding: 0 10px;
 }
 
@@ -292,87 +185,10 @@ paper-button {
 }
 
 /* Paper FAB */
-::shadow paper-fab {
+paper-fab {
   margin: 5px $page-padding;
 }
 
-core-header-panel#headerPanel > core-toolbar /deep/ core-icon-button.qi-logo {
-  margin: 0;
-}
-
-core-icon-button.qi-logo /deep/ core-icon {
-  width: 40px;
-  height: 40px;
-}
-
-core-icon-button.qi-logo /deep/ circle {
-  color: #ffffff;
-  opacity: 0.20;
-  stroke: #ffffff;
-  stroke-width: 10;
-}
-core-icon-button.qi-logo /deep/ circle#center-fill {
-  color: #ffffff;
-  opacity: 0.1;
-}
-
-core-icon-button.qi-logo /deep/ circle#center-stroke {
-  opacity: 1;
-  stroke: #ffffff;
-  stroke-width: 10;
-}
-
-
-paper-action-dialog {
-  font-family: $font-light;
-  width: 90%;
-  max-width: 450px;
-  @include border-radius(10px);
-}
-
-paper-action-dialog::shadow h1{
-  margin-top: 0;
-}
-
-paper-action-dialog::shadow #actions {
-  @include border-radius(10px);
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-top: $border;
-  padding: 0;
-  background-color: $qi-blue-light;
-}
-
-paper-action-dialog paper-button {
-  font-family: $font-regular;
-}
-
-paper-action-dialog::shadow #scroller {
-  padding: 20px;
-}
-
-paper-action-dialog /deep/ core-icon {
-  height: 50px !important;
-  width: 50px !important;
-}
-
-paper-autogrow-textarea, paper-input-decorator, paper-input {
-  width: 100%;
-  max-width: 400px;
-  min-width: 250px;
-  margin-top: 3px;
-}
-
-paper-input {
-  display: block;
-}
-
-paper-autogrow-textarea::shadow ::content textarea {
-  border: $border;
-  padding: 5px;
-  box-sizing: border-box;
-  min-height: 20px;
-}
 
 div.checkbox-row {
   margin-top: 10px;

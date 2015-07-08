@@ -4,6 +4,10 @@ button{
     color: white;
 }
 
-core-icon{
+iron-icon{
 	color: #505050;
+}
+
+.contactPanel{
+	overflow: scroll;
 }

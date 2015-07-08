@@ -1,53 +1,118 @@
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
-<link rel="import" href="../../bower_components/core-field/core-field.html" >
-<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
-<link rel="import" href="../../bower_components/core-input/core-input.html" >
-<link rel="import" href="../../bower_components/core-item/core-item.html" >
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
-<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
-<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
+<!--
+	This card displays a meeting request card.
 
-<polymer-element name="qi-mtg-card" attributes="mtg" constructor="MtgCard">
+
+ 	@group QI Elements
+ 	@element qi-mtg-card
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
+<link rel="import" href="../../bower_components/iron-input/iron-input.html" >
+<link rel="import" href="../../bower_components/paper-item/paper-item.html" >
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
+
+<link rel="import" href="../qi-field/qi-field.html">
+<link rel="import" href="../qi-field/qi-date-field.html">
+<link rel="import" href="../qi-avatar/qi-avatar.html">
+
+
+<dom-module id='qi-mtg-card'  > 
+
+	<link rel="stylesheet" href="qi-msg-card.css" > 
 
 	
 	<template>
-	<link rel="stylesheet" href="qi-msg-card.css" >
 
-	<div id="card" layout horizontal>
-		<div class="avatarPanel">
-
-			<template if="{{mtg.sender.avatar != null}}">
-				<img class="avatar" src="{{mtg.sender.avatar}}">
-			</template>
-
-			<template if="{{mtg.sender.avatar == null}}">
-				<core-icon class="avatar" icon="social:person"></core-icon>
-			</template>
-
-
-		</div>
-		<div class="mainPanel">
-			<div id="senderBlock">
-				<label>Sender</label><span>{{mtg.sender.firstName}} {{mtg.sender.lastName}}</span><br/> 
-				<label>Time</label> <span>{{mtg.date}} {{mtg.time}}</span><br/> 
-				<label>Location</label> <span>{{mtg.location}}</span><br/>
-				<label>Description</label> <span>{{mtg.description}}</span> <br/>
+	<div id="{{mtgId}}" class="card2 layout vertical">
+		<div class="layout horizontal"> 
+			<div class="avatarBlock">
+				<qi-avatar url="[[mtg.sender.avatar]]"></qi-avatar>
 			</div>
-
-			<div><core-icon icon="reply" on-click="{{replyDialog}}"></core-icon></div>
+			
+			<div class="senderBlock"> 
+				<qi-field label="Sender:" value="[[fullname]]"></qi-field>
+				<qi-date-field label="Time:" date="[[mtg.date]]" time="[[mtg.time]]"></qi-date-field>
+				<qi-field label="Location:" value="[[mtg.location]]"></qi-field>
+				<qi-field label="Description:" value="[[mtg.description]]"></qi-field>
+			</div>
+			
 		</div>
-		
+		<div class="buttons horizontal justified layout">
+			<iron-icon icon="reply" on-click="replyDialog"></iron-icon>
+			<iron-icon icon="delete" on-click="delete"></iron-icon>
+		</div>
 	</div>
 
 	</template>
 
 	<script>
-	Polymer('qi-mtg-card',{
-		contacts: JSON.parse(localStorage.getItem("contacts")),
-		mtg: null,
+	var MtgCard = Polymer({
+   		is: 'qi-mtg-card',
+
+   		properties:{
+   			/**
+   			 * An array of contacts.
+   			 */
+			contacts:{
+				type: Array,  
+				value:JSON.parse(localStorage.getItem("contacts"))
+			},
+
+			/**
+			 * The meeting object
+			 */
+			mtg:{
+				type: Object, 
+				value: null
+			},
+
+			/**
+			 * A computed property that concatenates the first and last name of the sender.
+			 */
+			fullname: {
+				type: String,
+				computed: 'concat(mtg.sender.firstName, mtg.sender.lastName)'
+			},
+			
+			/**
+			 * The ID of the meeting.
+			 */
+			id:{
+				type: Number, 
+				value: 0
+			},
+
+			/**
+			 * A concatenated meeting ID used to uniquely identify the card in a DOM.
+			 */
+			mtgId:{
+				type: String,
+				computed: "concatId(id)"
+			}
+		},
+
+		/**
+		 * This method concatenates the first and last name of the sender.
+		 * @param firstName The first name of the sender
+		 * @param lastName the last name of the sender
+		 */
+		concat: function(firstName, lastName){
+			return firstName + " " + lastName;
+		},
+
+		/**
+		 * This method prefixes the id.
+		 * @param id the id of the meeting
+		 */
+		concatId: function(id){
+			return "mtg-" + id;
+		},
 		
+		/**
+		 * This method displays the reply dialog.
+		 */
 		replyDialog: function(e){
 			var profile = JSON.parse(localStorage.getItem("profile"));
 			var sender = {
@@ -58,6 +123,13 @@
 			}
 
 			this.fire('openPingDialog',{sender:sender, rcvr: this.mtg.sender});
+		},
+
+		/**
+		 * This method deletes the meeting.
+		 */
+		delete: function(e){
+			this.fire('delete-mtg', {mtgId: this.mtgId, id: this.id});
 		}
 		
 
@@ -67,4 +139,4 @@
 	</script>
 
 
-</polymer-element>
+</dom-module> 

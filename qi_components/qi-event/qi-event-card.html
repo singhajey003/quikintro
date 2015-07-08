@@ -1,42 +1,70 @@
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
-<link rel="import" href="../../bower_components/core-field/core-field.html" >
-<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html" >
-<link rel="import" href="../../bower_components/core-input/core-input.html" >
-<link rel="import" href="../../bower_components/core-item/core-item.html" >
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
-<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
+<!--
+This component is responsible for rendering an event.
+
+	@group QI Elements
+	@element qi-event-card
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html" >
+<link rel="import" href="../../bower_components/iron-input/iron-input.html" >
+<link rel="import" href="../../bower_components/paper-item/paper-item.html" >
+
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
 <link rel="import" href="../../bower_components/paper-slider/paper-slider.html" >
-<link rel="import" href="../../bower_components/core-icons/social-icons.html" >
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html" >
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
 
 <link rel="import" href="qi-event-summary.html" >
 
 
-<polymer-element name="qi-event-card" attributes="event">
+<dom-module id='qi-event-card'  > 
 
-	
-	<template>
 	<link rel="stylesheet" href="../quikintro.css" >
 	<link rel="stylesheet" href="../qi-cards.css" >
-	<link rel="stylesheet" href="qi-events.css" >
-	<link rel="stylesheet" href="qi-event-card.css" >
+	<link rel="stylesheet" href="qi-events.css" > 
+	<link rel="stylesheet" href="qi-event-card.css" > 
+
+	<template>
+	
 
 	<style>
-	paper-action-dialog:{display: none;}
+		paper-dialog:{display: none;}
+		.eventCard{
+			background-size: cover;
+			background-position: top left;
+			background-repeat: no-repeat;
+		}
+		header{
+			margin-top: 0px;
+			vertical-align: top;
+			text-align: center;
+		}
+		header > h3#titleBlock{
+			font-weight: lighter;
+			color: white;
+			font-size: 20px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			height: 20px;
+			margin: 0px;
+		}
+		header > div{
+			color: white;
+		}
 	</style>
 	
-	<div class="card reverse venue-bkgnd" style="background-image:url({{event.background}})">
+	<div class="eventCard card reverse" style$="{{computeBackground(event.background)}}" on-tap="tapAction">   
 		<div class="overlay"></div>
 		<header>
 			<h3 id="titleBlock">{{event.title}}</h3>
-			<p>{{event.startTime}} at {{event.location}}</p>
-			<p>{{event.registrantCount}} Registrants</p>
+			<div><span>{{event.startTime}}</span> at <span>{{event.location}}</span></div> 
+			<div><span>{{event.registrantCount}}</span> Registrants</div>
 		</header>
 
-    <div class="summary" horizontal layout justified flex>
+    	<div class="summary horizontal layout justified flex" > 
 
 			<div class="eventNewMatches">
 				<div class="match-count font-light">{{event.matches.length}}</div>
@@ -54,12 +82,24 @@
 	</template>
 
 	<script>
-	Polymer('qi-event-card',{
-		ready: function(evt){
-		},
-	    toggleAction: function(evt){
+	var EventCard = Polymer({
+   		is: 'qi-event-card', 
+
+   		properties:{
+
+   			/**
+   			 * The event model
+   			 */
+   			event:{type: Object}
+   		},
+
+	    tapAction: function(evt){
 	     	//this.$.collapse.toggle();	  
-	     	this.fire('toggle-card');
+	     	this.fire('expand-card');
+	     },
+
+	     computeBackground: function(imageUrl){
+	     	return "min-height: 160px; background-image:url('"+ imageUrl + "')";
 	     },
 	    
 
@@ -70,11 +110,8 @@
 
 	});
 
-	
-
-
 
 	</script>
 
 
-</polymer-element>
+</dom-module>

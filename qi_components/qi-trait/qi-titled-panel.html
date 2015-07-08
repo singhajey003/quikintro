@@ -1,37 +1,51 @@
-<polymer-element name="qi-titled-panel" attributes="panelTitle traits">
-    <template>
-        <link rel="stylesheet" href="traitlist.css">
-        <link rel="stylesheet" href="../qi-cards.css">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html"> 
+<link rel="import" href="../qi-toggle/qi-toggle.html"> 
+
+<dom-module id='qi-titled-panel'  > 
+
+        <link rel="stylesheet" href="traitlist.css"> 
+        <link rel="stylesheet" href="../qi-cards.css"> 
         <style>
-			h4 {
-			  color: #7ba2b2;
-			  text-transform: uppercase;
-			  margin: 5px 0;
-			  font-size: 10pt;
-			}
-		</style>
+            .panelTitle {
+              color: #7ba2b2;
+              text-transform: uppercase;
+              margin: 5px 0;
+              font-size: 10pt;
+            }
+        </style>
+
+    <template>
         <div class="card traits">
 
-        	<div layout justified horizontal centered>
-        	<h4>{{title}}:</h4>
-            <qi-toggle on-click="{{toggleAction}}"></qi-toggle>
+            <div class="layout justified horizontal centered">  
+              <div class="panelTitle"><span>[[paneltitle]]</span>:</div>
+              <qi-toggle on-click="toggleAction"></qi-toggle> 
             </div>
-            <core-collapse id="collapse" opened="false">
+
+            <iron-collapse id="collapse" opened="{{opened}}">
             <div class="textfield trait-wrapper">
-                <template repeat="{{trait in traits}}">
-                    <span class="trait">{{trait}}</span>
+                <template is="dom-repeat" items="[[traits]]" as="trait">
+                    <span class="trait">[[trait]]</span>
                 </template>
             </div>
-            </core-collapse>
+            </iron-collapse>
         </div>
     </template>
     <script>
-    Polymer('qi-titled-panel', {
+    Polymer({
+      is: 'qi-titled-panel', 
 
-    	toggleAction: function(){
-			this.$.collapse.toggle();
-		}
+      properties:{
+        paneltitle: {type: String},
+        traits: {type: Array},
+        opened: {type: Boolean, value: false}
+      },
+
+      toggleAction: function(){
+          this.opened != this.opened;
+          this.$.collapse.toggle();
+      }
 
     });
     </script>
-</polymer-element>
+</dom-module> 

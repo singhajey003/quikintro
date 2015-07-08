@@ -1,32 +1,61 @@
-<polymer-element name="qi-splash">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/polymer/polymer.html">
 
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
-<template>
-	<link rel="stylesheet" href="qi-splash.css" >
-	<link rel="stylesheet" href="../quikintro.css" >
-	<div class="panel">
+<link rel="import" href="../data/qi-data-loader.html">
+
+<link rel="import" href="../qi-theme.html">
+
+<dom-module id='qi-splash'  > 
+
+	<link rel="stylesheet" href="qi-splash.css" > 
+
+	<style>
+	paper-input-container.splash{
+		--paper-input-container-color: white;
+	}
+
+	paper-input.splash{
+  		--paper-input-container-color: white;
+	}
+
+	paper-button.splash{
+		--paper-button-raised-color: white;
+	}
+
+	</style>
+
+	<template>
+	<qi-data-loader></qi-data-loader>
+	<div class="panel fit">
 		<div class="logo"></div>
-		<div class="wrapper">
-			<paper-input class="reverse" label="User ID:" floatingLabel="true"></paper-input><br/>
-			<paper-input-decorator class="reverse" floatingLabel label="Password:" >
-			<input type="password" name="password">
-			</paper-input-decorator>
+		<div class="wrapper"> 
+			<paper-input class="splash" label="User ID:" alwaysFloatLabel="true"></paper-input><br/>  
+			<paper-input-container class="splash" alwaysFloatLabel="true" > 
+				<label>Password:</label>
+				<input is="iron-input" type="password" name="password">
+			</paper-input-container>
 
-			<paper-button class="btn-light" raised on-click="{{handleLogin}}">Login</paper-button>
+			<paper-button class="splash noink primary raised" on-click="handleLogin">Login</paper-button> 
 		</div>
 	</div>
 
-</template>
+	</template>
 
-<script>
-Polymer('qi-splash',{
+	<script>
+	Polymer({
+	  	is: 'qi-splash', 
 
-	handleLogin: function(){
-		this.fire("login")
-	}
-	
-});
+		handleLogin: function(){
+			this.fire("login")
+		}
+		
+	});
 
-</script>
+	</script>
 
-</polymer-element>
+</dom-module> 
+

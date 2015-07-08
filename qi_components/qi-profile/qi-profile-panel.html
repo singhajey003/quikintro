@@ -1,81 +1,66 @@
-<link rel="import" href="../../bower_components/core-input/core-input.html">
-<link rel="import" href="../../bower_components/core-field/core-field.html">
-<link rel="import" href="../../bower_components/core-label/core-label.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../../bower_components/core-pages/core-pages.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-trait/qi-titled-panel.html">
 <link rel="import" href="qi-job-card.html">
 
 
-<polymer-element name="qi-profile-panel" attributes="panelTitle url profile">
+<dom-module id='qi-profile-panel'  > 
+
+	<link rel="stylesheet" href="../quikintro.css"> 
+	<link rel="stylesheet" href="../qi-cards.css"> 
+	<link rel="stylesheet" href="../qi-trait/traitlist.css">
+	<link rel="stylesheet" href="qi-profile-panel.css"> 
 
 
 	<template>
 
-	<link rel="stylesheet" href="../quikintro.css">
-	<link rel="stylesheet" href="../qi-cards.css">
-	<link rel="stylesheet" href="../qi-trait/traitlist.css">
-	<link rel="stylesheet" href="qi-profile-panel.css">
+	<section id="profile" >
 
-	
-	<section id="profile"  hero-id="hero" cross-fade>
-
-		<div class="profile-overview">
-			<div horizontal layout style="margin-bottom: 15px;">
+		<div class="profile-overview layout vertical flex fit">
+			<div class="horizontal layout" > 
 				<div>
-					<qi-avatar url="{{profile.avatar}}"></qi-avatar>
+					<qi-avatar url="[[profile.avatar]]"></qi-avatar>
 				</div>
-				<div class="profile-name" flex>
-					<paper-input id="firstname" label="First Name" value="{{profile.firstName}}"></paper-input>
-					<paper-input id="lastname" label="Last Name" value="{{profile.lastName}}"></paper-input>
+				<div class="profile-name flex" >  
+					<paper-input id="firstname" label="First Name" value="[[profile.firstName]]"></paper-input>
+					<paper-input id="lastname" label="Last Name" value="[[profile.lastName]]"></paper-input>
 				</div>
 			</div>
 
 			<h4>Summary:</h4>
-			<div class="summary textfield">
-			<paper-autogrow-textarea id="a1" rows="10" maxRows="11" flex>
-			  <textarea class="profile" id="summary">{{profile.summary}}</textarea>
-			<paper-autogrow-textarea>
-			</div>
+			
+			<div class="summary">[[profile.summary]]<div>
+			
+		
+
+		<div class="card-wrapper"> 
+			<qi-titled-panel paneltitle="interests" traits="[[profile.interests]]"></qi-titled-panel>
 		</div>
 
-		<div class="card-wrapper">
-			<qi-titled-panel panelTitle="interests" traits="{{profile.interests}}"></qi-titled-panel>
+		<div class="card-wrapper"> 
+			<qi-titled-panel paneltitle="skills" traits="[[profile.skills.values]]"></qi-titled-panel>
 		</div>
 
-		<div class="card-wrapper">
-			<qi-titled-panel panelTitle="skills" traits="{{profile.skills.values}}"></qi-titled-panel>
+		<div class="card-wrapper"> 	
+			<qi-titled-panel paneltitle="food" traits="[[profile.food]]"></qi-titled-panel>
 		</div>
 
-		<div class="card-wrapper">
-			<div class="card traits">
-				<h4>Food:</h4>
-				<div class="textfield trait-wrapper">
-					<template repeat="{{food in profile.food}}">
-						<span class="skill">{{food}}</span>
-					</template>
-				</div>
-			</div>
-		</div>
-
-		<div class="card-wrapper">
-			<div class="card traits">
-				<h4>Drink:</h4>
-				<div class="textfield">
-					<template repeat="{{drink in profile.drink}}">
-						<span class="skill">{{drink}}</span>
-					</template>
-				</div>
-			</div>
+		<div class="card-wrapper"> 
+			<qi-titled-panel paneltitle="drink" traits="[[profile.drink]]"></qi-titled-panel>
 		</div>
 
 		<div class="work-history">
 			<h4>Work History:</h4>
-			<template repeat="{{job in profile.positions.values}}">
-				<qi-job-card job="{{job}}"></qi-job-card>
+			<template is="dom-repeat" items="[[profile.positions.values]]" as="job">
+				<qi-job-card job="[[job]]"></qi-job-card>
 			</template>
+		</div>
+
 		</div>
 
 	</section>
@@ -83,11 +68,16 @@
 	</template>
 
 	<script>
-	Polymer('qi-profile-panel',{
-			
+	Polymer({
+   		is: 'qi-profile-panel', 
+		
+		properties:{
+			profile:{type: Object, notify: true}
+		}
 			
 	});
 
 	</script>
+		
 
-</polymer-element>
+</dom-module> 

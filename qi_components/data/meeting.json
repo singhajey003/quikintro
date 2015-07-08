@@ -1,0 +1,171 @@
+{
+	"date": "7-Jan-2016",
+	"time": "0900",
+	"location":"Suite 3",
+	"title":"Immuno-oncology Deal Room",
+	"description":"A meeting to discuss immuno-oncology programs available for investment.",
+	"invitees":[
+  
+    {
+        "firstName": "Mark",
+        "headline": "partner at Third Rock Ventures",
+        "title": "Partner",
+        "company": "Third Rock Ventures",
+        "id": 19198594,
+        "industry": "Biotechnology",
+        "lastName": "Levin",
+        "location": {
+            "country": {
+                "code": "us"
+            },
+            "name": "Greater Boston Area"
+        },
+        "siteStandardProfileRequest": {
+            "url": "https://www.linkedin.com/profile/view?id=19198594&authType=name&authToken=EV4l&trk=api*a3227641*s3301901*"
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"],
+        "organizer":true,
+        "isAContact":true
+    },
+    {
+        "firstName": "David",
+        "headline": "BioScience Ventures&Biz-Dev - most connected & endorsed biz dev expert worldwide - 11,200+contacts, 7,000+endorsements",
+        "title": "President",
+        "company": "BioScience Ventures",
+        "id": 10192169,
+        "industry": "Biotechnology",
+        "lastName": "Palella",
+        "location": {
+            "country": {
+                "code": "us"
+            },
+            "name": "Greater San Diego Area"
+        },
+        "avatar": "https://media.licdn.com/mpr/mprx/0_FJCU17AoDnaN_x9tFphX12KVfPgzTV9t54nX12tErnWLYY3-w0tBgu6k3jjoGjcY6V85pw2OqZ67",
+        "siteStandardProfileRequest": {
+            "url": "https://www.linkedin.com/profile/view?id=10192169&authType=name&authToken=WgLt&trk=api*a3227641*s3301901*"
+        },
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"],
+        "organizer":false,
+        "isAContact":false
+    },
+
+     {
+        "firstName": "Sean",
+        "lastName": "Bohen",
+        "title": "VP",
+        "company": "Genentech",
+        "mobile": "555-123-4567",
+        "email": "sean.bohen@gene.com",
+        "address": "1 Genentech Way, South San Francisco, CA 92056",
+        "tags": ["biotech", "cancer", "product/pipeine", "followup"],
+        "notes": "Working on MPDL3280A for bladder cancer ",
+        "rating": 4,
+        "id":2,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"],
+        "avatar":"https://media.licdn.com/mpr/mpr/shrink_100_100/p/4/000/172/35a/1e9d392.jpg",
+        "organizer":false,
+        "isAContact":false
+    },
+
+     {
+        "firstName": "Pamela",
+        "lastName": "Rizos",
+        "title": "VP",
+        "company": "Merck",
+        "mobile": "555-123-4567",
+        "email": "prizos@merck.com",
+        "address": "",
+        "tags": ["biotech", "cancer", "product/pipeine", "followup"],
+        "notes": "Working on MK-3475",
+        "rating": 4,
+        "id":3,
+        "food":["chinese","thai","sushi"],
+        "drink":["merlot","chardonnay","riesling"],
+        "avatar":"https://media.licdn.com/mpr/mpr/shrink_100_100/p/2/000/0b6/016/26968eb.jpg",
+        "organizer": false,
+        "isAContact":true
+    },
+
+    {
+        "firstName": "Naomi",
+        "lastName": "Kresge",
+        "title": "VP",
+        "company": "Bristol-Myers Squibb",
+        "mobile": "555-123-4567",
+        "email": "naomi.kresge@bms.com",
+        "address": "",
+        "tags": ["biotech", "cancer", "product/pipeine", "followup"],
+        "notes": "Currently working on getting nivolumab into the clinic.",
+        "rating": 4,
+        "id":4,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"],
+        "avatar":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/005/0aa/275/242b0e8.jpg",
+        "organizer":false,
+        "isAContact":true
+    },
+
+   {
+        "firstName": "Philip",
+        "lastName": "Iredale",
+        "title": "VP",
+        "company": "Pfizer",
+        "mobile": "555-123-4567",
+        "email": "philip.iredale@pfizer.com",
+        "address": "",
+        "tags": ["biotech", "cancer", "product/pipeine", "followup"],
+        "notes": "Currently working on getting palbociclib into the clinic.",
+        "rating": 4,
+        "id":5,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"],
+        "avatar":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/005/0aa/275/242b0e8.jpg",
+        "organizer": false,
+        "isAContact":true
+    },
+
+   {
+        "firstName": "Tom",
+        "lastName": "Sanford",
+        "title": "VP",
+        "company": "GSK",
+        "mobile": "555-123-4567",
+        "email": "tom.sanford@gsk.com",
+        "address": "",
+        "tags": ["biotech", "cancer", "product/pipeine", "followup"],
+        "notes": "CD-19 CAR-T program",
+        "rating": 4,
+        "id":6,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"],
+        "avatar":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/005/0aa/275/242b0e8.jpg",
+        "organizer": false,
+        "isAContact":true
+    },
+
+ {
+        "firstName": "James",
+        "lastName": "Tobin",
+        "title": "VP",
+        "company": "Janssen Pharmaceuticals",
+        "mobile": "555-123-4567",
+        "email": "jtobin@jnj.com",
+        "address": "",
+        "tags": ["biotech", "cancer", "product/pipeine", "followup"],
+        "notes": "ARN-509 for prostate cancer",
+        "rating": 4,
+        "id":7,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"],
+        "avatar":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/005/0aa/275/242b0e8.jpg",
+        "organizer":false,
+        "isAContact":true
+    }
+   
+	]
+
+}

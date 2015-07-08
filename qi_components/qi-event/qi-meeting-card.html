@@ -1,37 +1,57 @@
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
 
-<polymer-element name="qi-meeting-card" attributes="meeting" constructor="MtgCard2">
+<dom-module id='qi-meeting-card'  >
 
-	<template>
-  	<link rel="stylesheet" href="../quikintro.css" >
+
+  		<link rel="stylesheet" href="../quikintro.css" > 
 		<link rel="stylesheet" href="../qi-cards.css">
 
-		<div class="card-wrapper">
+		<style>
+		.summary{
+			color: #909090;
+		}
+		</style>
+
+	<template>
+
+		<div class="card-wrapper"> 
 
 			<div class="card meeting">
 
 				<header>
-					<h3 id="titleBlock" title="{{meeting.title}}">{{meeting.title}}</h3>
+					<h3 id="titleBlock">[[meeting.title]]</h3>
 				</header>
 
 				<div class="summary">
-					<p><label>Date/Time:</label> <span>{{meeting.date}} {{meeting.time}}</span></p>
-					<p><label>Location:</label> <span>{{meeting.location}}</span></p>
-					<p><label>Description:</label> {{meeting.description}}</p>
+					<p><label>Date/Time:</label> <span>[[datetime]]</span></p>
+					<p><label>Location:</label> <span>[[meeting.location]]</span></p>
+					<p><label>Description:</label> <span>[[meeting.description]]</span></p>
 				</div>
 
 			</div>
 		
 		</div>
 
-
-
 	</template>
 
 	<script>
-	Polymer('qi-meeting-card',{
+	Polymer({
+   		is: 'qi-meeting-card', 
+
+   		properties:{
+   			meeting: {type: Object, readonly: true},
+   			datetime: {
+   				type: String,
+   				computed: 'concat(meeting.date, meeting.time)'
+   			}
+   		},
+
+   		concat: function(date, time){
+   			return date + " " + time;
+   		}
 
 	});
 
 	</script>
 
-</polymer-element>
+</dom-module> 

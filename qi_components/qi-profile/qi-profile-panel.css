@@ -1,51 +1,3 @@
-@font-face {
-  font-family: 'fira-sans-ultralight';
-  src: url("font/firasans-ultralight-webfont.eot");
-  src: url("font/firasans-ultralight-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-ultralight-webfont.woff2") format("woff2"), url("font/firasans-ultralight-webfont.woff") format("woff"), url("font/firasans-ultralight-webfont.ttf") format("truetype"), url("font/firasans-ultralight-webfont.svg#fira_sansultralight") format("svg");
-  font-weight: 100;
-  font-style: normal; }
-@font-face {
-  font-family: 'fira-sans-ultralight';
-  src: url("font/firasans-ultralightitalic-webfont.eot");
-  src: url("font/firasans-ultralightitalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-ultralightitalic-webfont.woff2") format("woff2"), url("font/firasans-ultralightitalic-webfont.woff") format("woff"), url("font/firasans-ultralightitalic-webfont.ttf") format("truetype"), url("font/firasans-ultralightitalic-webfont.svg#fira_sansultralight_italic") format("svg");
-  font-weight: 100;
-  font-style: italic; }
-@font-face {
-  font-family: 'fira-sans-book';
-  src: url("font/firasans-book-webfont.eot");
-  src: url("font/firasans-book-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-book-webfont.woff2") format("woff2"), url("font/firasans-book-webfont.woff") format("woff"), url("font/firasans-book-webfont.ttf") format("truetype"), url("font/firasans-book-webfont.svg#fira_sansbook") format("svg");
-  font-weight: 300;
-  font-style: normal; }
-@font-face {
-  font-family: 'fira-sans-book';
-  src: url("font/firasans-bookitalic-webfont.eot");
-  src: url("font/firasans-bookitalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-bookitalic-webfont.woff2") format("woff2"), url("font/firasans-bookitalic-webfont.woff") format("woff"), url("font/firasans-bookitalic-webfont.ttf") format("truetype"), url("font/firasans-bookitalic-webfont.svg#fira_sansbook_italic") format("svg");
-  font-weight: 300;
-  font-style: italic; }
-@font-face {
-  font-family: 'fira-sans-semibold';
-  src: url("font/firasans-semibold-webfont.eot");
-  src: url("font/firasans-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-semibold-webfont.woff2") format("woff2"), url("font/firasans-semibold-webfont.woff") format("woff"), url("font/firasans-semibold-webfont.ttf") format("truetype"), url("font/firasans-semibold-webfont.svg#fira_sanssemibold") format("svg");
-  font-weight: 600;
-  font-style: normal; }
-@font-face {
-  font-family: 'fira-sans-semibold';
-  src: url("font/firasans-semibolditalic-webfont.eot");
-  src: url("font/firasans-semibolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-semibolditalic-webfont.woff2") format("woff2"), url("font/firasans-semibolditalic-webfont.woff") format("woff"), url("font/firasans-semibolditalic-webfont.ttf") format("truetype"), url("font/firasans-semibolditalic-webfont.svg#fira_sanssemibold_italic") format("svg");
-  font-weight: 600;
-  font-style: italic; }
-@font-face {
-  font-family: 'fira-sans-extrabold';
-  src: url("font/firasans-extrabold-webfont.eot");
-  src: url("font/firasans-extrabold-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-extrabold-webfont.woff2") format("woff2"), url("font/firasans-extrabold-webfont.woff") format("woff"), url("font/firasans-extrabold-webfont.ttf") format("truetype"), url("font/firasans-extrabold-webfont.svg#fira_sansextrabold") format("svg");
-  font-weight: 800;
-  font-style: normal; }
-@font-face {
-  font-family: 'fira-sans-extrabold';
-  src: url("font/firasans-extrabolditalic-webfont.eot");
-  src: url("font/firasans-extrabolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("font/firasans-extrabolditalic-webfont.woff2") format("woff2"), url("font/firasans-extrabolditalic-webfont.woff") format("woff"), url("font/firasans-extrabolditalic-webfont.ttf") format("truetype"), url("font/firasans-extrabolditalic-webfont.svg#fira_sansextrabold_italic") format("svg");
-  font-weight: 800;
-  font-style: italic; }
 section {
   background-color: #ebebeb; }
 
@@ -56,7 +8,10 @@ section {
   padding: 10px 8px;
   display: inline-block; }
 
-qi-avatar::shadow .photo {
+.summary {
+  width: 100%; }
+
+qi-avatar /deep/ .photo {
   width: 100px;
   height: 100px;
   background-size: cover;
@@ -97,39 +52,39 @@ qi-avatar::shadow .photo {
     padding: 15px;
     padding-bottom: 0; }
 
-/* Start custom input */
-paper-input /deep/ .label-text,
-paper-input /deep/ .error {
-  /* inline label,  floating label, error message and error icon color when the input is unfocused */
-  color: #cccccc; }
+h1 {
+  padding-left: 5px;
+  font-size: 14pt;
+  color: #505050; }
 
-paper-input /deep/ ::-webkit-input-placeholder {
-  /* platform specific rules for placeholder text */
-  color: #cccccc; }
+h4 {
+  margin-bottom: 6px; }
 
-paper-input /deep/ ::-moz-placeholder {
-  color: #cccccc; }
+label {
+  font-size: 10pt;
+  padding-right: 5px; }
 
-paper-input /deep/ :-ms-input-placeholder {
-  color: #cccccc; }
+#panelContent {
+  padding-left: 5px; }
 
-paper-input /deep/ .unfocused-underline {
-  /* line color when the input is unfocused */
-  background-color: #cccccc; }
+button {
+  background-color: #526E9C;
+  color: white;
+  font-size: 10pt; }
 
-paper-input[focused] /deep/ .floated-label .label-text {
-  /* floating label color when the input is focused */
-  color: #17aacf; }
+.skill {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  margin: 4px;
+  padding: 5px;
+  display: inline-block; }
 
-paper-input /deep/ .focused-underline {
-  /* line color when the input is focused */
-  background-color: #17aacf; }
+.textfield {
+  font-size: 9pt;
+  margin-left: 5px; }
 
-paper-input.invalid[focused] /deep/ .floated-label .label-text,
-paper-input[focused] /deep/ .error {
-  /* floating label, error message nad error icon color when the input is invalid and focused */
-  color: salmon; }
+paper-autogrow-textarea {
+  width: 100%; }
 
-paper-input.invalid /deep/ .focused-underline {
-  /* line and color when the input is invalid and focused */
-  background-color: salmon; }
+paper-autogrow-textarea > textarea {
+  padding: 5px; }

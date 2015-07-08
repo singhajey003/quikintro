@@ -4,30 +4,35 @@ in forms.
 
 It's typically used as follows:
 
-<qi-field-decorator name="My Field:">
+<qi-field-decorator label="My Field:" >
    <input type="text" id="myField" value="{{somevalue}}"/>
 </qi-field>
 
 -->
-<polymer-element name="qi-field-decorator" attributes="name">
-
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id='qi-field-decorator'  > 
 
 	<template>
-		<link rel="stylesheet" href="qi-field.css">
-		<div class="row" flex layout horizontal justified>
+		<link rel="stylesheet" href="qi-field.css"> 
+		<div class="row flex layout horizontal justified" > 
 			<div class="labelCell">
-				<label>{{name}}</label>
+				<label><span>[[label]]</span></label>
 			</div>
-			<div class="fldValue" flex two>
+			<div class="fldValue flex"  two> 
 				<content></content>
 			</div>
 		</div>
 	</template>
 
 	<script>
-	Polymer('qi-field-decorator',{
+	Polymer({
+   		is: 'qi-field-decorator', 
+   		properties:{
+   			label: {type: String}
+   		}
 
 	});
 	</script>
 
-</polymer-element>
+</dom-module> 

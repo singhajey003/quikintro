@@ -1,29 +1,96 @@
-<link rel="import" href="../../bower_components/core-icons/social-icons.html" >
-<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
+<!--
+This component displays a user's avatar, or a generic person icon if there isn't
+an avatar.
 
-<polymer-element name="qi-avatar" attributes="url">
+
+	@group QI Elements
+	@element qi-avatar
+-->
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html" >
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
+
+<dom-module id='qi-avatar'  > 
+
+
+	<link rel="stylesheet" href="../qi-cards.css"> 
+
+	<style is="custom-style">
+	div.photo{
+		width: 90px;
+		height: 90px;
+	}
+	iron-icon{
+		--iron-icon-width: 90px;
+		--iron-icon-height: 90px;
+		height: 90px;
+		width: 90px;
+	}
+	</style>
 
 	<template>
-		<link rel="stylesheet" href="../qi-cards.css">
-<!-- 		<link rel="stylesheet" href="../qi-contact/qi-contact-card.css">
- -->
-		<template if="{{url == null}}">
-			<core-icon class="photo" icon="social:person" ></core-icon>
 
+		<template is="dom-if" if="{{isUrlNull}}">
+			<iron-icon class="photo" icon="social:person" ></iron-icon>
 		</template>
 
-		<template if="{{url != null}}">
-			<div class="photo" style="background-image:url('{{url}}')" ></div>
+		<template is="dom-if" if="{{!isUrlNull}}">
+			<div class="photo" style$="{{background}}" ></div>
 		</template>
 
 	</template>
 
 	<script>
-	Polymer('qi-avatar',{
+	Polymer({
+   		is: 'qi-avatar', 
+
+   		properties:{
+
+   			/**
+   			 * The URL for the avatar image.
+   			 */
+   			url: {
+   				type: String, 
+   				notify: true,
+   				value: null
+   			},
+
+   			/**
+   			 * A computed property that determines if the URL is null.
+   			 */
+   			isUrlNull: {
+   				type: Boolean, 
+   				computed: 'computeUrlNull(url)'
+   			},
+
+   			/**
+   			 * A computed property for the background image style.
+   			 */
+   			background: {
+   				type: String,
+   				computed: 'computeBackground(url)'
+   			}
+   		}, 
+
+
+   		/**
+   		 * A method that creates a background image style.
+   		 * @param url  The URL for the image.
+   		 */
+   		computeBackground: function(url){
+   			return "background-image:url('" + url + "');";
+   		},
+
+   		/**
+   		 * A method that determines if the URL is null.
+   		 * @param url The URL for the image.
+   		 */
+   		computeUrlNull: function(url){
+   			return url == null || url == '';
+   		}
 
 
 	});
 
 	</script>
 
-</polymer-element>
+</dom-module>

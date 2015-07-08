@@ -1,78 +1,97 @@
-<link rel="import" href="../../bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
 
 
-<polymer-element name="qi-mtg-dialog" contact="contact">
+<dom-module id='qi-mtg-dialog'  > 
 
-	<template>
- 	<paper-action-dialog id="mtgDialog" heading="Create Meeting" backdrop>
- 		<link rel="stylesheet" href="dialog.css">
+     <link rel="stylesheet" href="dialog.css">
+     <style is="custom-style">
+     paper-dialog-scrollable{
+          margin-top: 0;
+          position: relative;
+          top: -50px;
+     }
+     </style> 
 
- 		<paper-input id="title" label="Title"></paper-input>
-          <paper-input id="date" label="Date"></paper-input>
- 		<paper-input id="time" label="Time"></paper-input>
- 		<paper-input id="location" label="Location"></paper-input>
- 		<paper-input id="msg" label="Message"></paper-input>
+     <template>
+     <paper-dialog id="mtgDialog"  backdrop class="layout vertical">
+          <h2>Create Meeting</h2>
+          <div class="flex">
+          <paper-input id="title" label="Title" floatingLabel="true"></paper-input>
+          <paper-input id="date" label="Date" floatingLabel="true"></paper-input>
+          <paper-input id="time" label="Time" floatingLabel="true"></paper-input>
+          <paper-input id="location" label="Location" floatingLabel="true"></paper-input>
+          <paper-input id="msg" label="Message" floatingLabel="true"></paper-input>
+          <div>
 
-        <paper-button dismissive>Cancel</paper-button>
-        <paper-button affirmative on-click="{{sendAction}}">Send</paper-button>
-      </paper-action-dialog>
+          <div class="buttons flex">
+             <paper-button dialog-dismiss>Cancel</paper-button>
+             <paper-button dialog-confirm on-click="sendAction">Send</paper-button> 
+          </div> 
+      </paper-dialog>
      </template>
 
      <script>
-     Polymer('qi-mtg-dialog',{
+     Polymer({
+          is: 'qi-mtg-dialog', 
 
-     	sendAction: function(e){
-     		var mtgs = JSON.parse(localStorage.getItem("mtgs"));
-     		if (mtgs == null){
-     			mtgs = [];
-     		}
+          properties:{
+               contact:{type: Object}
+          },
 
-     		var profile = JSON.parse(localStorage.getItem("profile"));
+          sendAction: function(e){
+               var mtgs = JSON.parse(localStorage.getItem("mtgs"));
+               if (mtgs == null){
+                    mtgs = [];
+               }
+
+               var profile = JSON.parse(localStorage.getItem("profile"));
 
 
-     		var mtg = {
-     			title: this.$.title.value,
-     			date: this.$.date.value,
-     			time: this.$.time.value,
-     			location: this.$.location.value,
-     			description: this.$.msg.value,
-     			rcvr: this.contact,
-     			sender: {
-     				firstName: profile.firstName,
-     				lastName: profile.lastName,
-     				avatar: profile.avatar,
-     				id: profile.id
-     			}
+               var mtg = {
+                    title: this.$.title.value,
+                    date: this.$.date.value,
+                    time: this.$.time.value,
+                    location: this.$.location.value,
+                    description: this.$.msg.value,
+                    rcvr: this.contact,
+                    sender: {
+                         firstName: profile.firstName,
+                         lastName: profile.lastName,
+                         avatar: profile.avatar,
+                         id: profile.id
+                    }
 
-     		};
+               };
 
-     		mtgs.push(mtg);
-     		localStorage.setItem("mtgs",JSON.stringify(mtgs));
+               mtgs.push(mtg);
+               localStorage.setItem("mtgs",JSON.stringify(mtgs));
 
                this.fire('mtg-sent', {mtg: mtg});
 
-     	},
+          },
 
-     	clear: function(){
+          clear: function(){
 
-     		var date = new Date();
+               var date = new Date();
 
-     		this.$.title.value="";
-     		this.$.date.value= date.toDateString()
-     		this.$.time.value= date.toTimeString();
-     		this.$.location.value = "";
-     		this.$.msg.value = "";
-     	},
+               this.$.title.value="";
+               this.$.date.value= date.toDateString()
+               this.$.time.value= date.toTimeString();
+               this.$.location.value = "";
+               this.$.msg.value = "";
+          },
 
-     	open: function(){
-     		this.clear();
-     		this.$.mtgDialog.open();
-     	},
+          open: function(){
+               this.clear();
+               this.$.mtgDialog.open();
+          },
 
-     	close: function(){
-     		this.$.mtgDialog.close();
-     	}
+          close: function(){
+               this.$.mtgDialog.close();
+          }
 
 
      });
@@ -80,4 +99,5 @@
 
      </script>
 
-</polymer>
+</dom-module>
+

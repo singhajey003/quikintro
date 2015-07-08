@@ -1,53 +1,66 @@
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/core-collapse/core-collapse.html" >
-<link rel="import" href="../../bower_components/core-field/core-field.html" >
-<link rel="import" href="../../bower_components/core-icon/core-icon.html" >
-<link rel="import" href="../../bower_components/core-input/core-input.html" >
-<link rel="import" href="../../bower_components/core-item/core-item.html" >
-<link rel="import" href="../../bower_components/core-dropdown-menu/core-dropdown-menu.html" >
-<link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html" >
-<link rel="import" href="../../bower_components/core-selector/core-selector.html" >
-<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html" >
+<!--
+TODO: 
+	core-tooltip -> paper-tooltip conversion
+	polymer-ui-ratings -> PolymerLabs/ui-rating
+	core-field -> qi-field?
+
+-->
+
+<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
+
+
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
+
 <link rel="import" href="../../bower_components/polymer-ui-ratings/polymer-ui-ratings.html" >
 
-<polymer-element name="qi-contact-card" attributes="contact">
+<link rel="import" href="../qi-field/qi-icon-label.html">
+<link rel="import" href="../qi-field/qi-field-decorator.html">
+
+
+<dom-module id='qi-contact-card'  > 
 
 	
 	<template>
-	<link rel="stylesheet" href="qi-contact-card.css" >
+	<link rel="stylesheet" href="qi-contact-card.css" > 
 
 	<div id="card">
 		<div ><img src="{{contact.avatar}}" class="avatar" align="left">
-			<div id="titleBlock" on-click="{{toggleAction}}">{{contact.firstName}} {{contact.lastName}}</div>
+			<div id="titleBlock" on-click="toggleAction">{{contact.firstName}} {{contact.lastName}}</div> 
 			<div id="summaryBlock">{{contact.title}} {{contact.company}}</div>
-			<core-tooltip label="Ping"><core-icon icon="communication:messenger" /></core-icon></core-tooltip>
-			<core-tooltip label="Blacklist"><core-icon icon="view-list" /></core-icon></core-tooltip>
-			<core-tooltip label="Create Meeting"><core-icon icon="event" /></core-icon></core-tooltip>
-			<core-tooltip label="Share Contact"><core-icon icon="account-box" /></core-icon></core-tooltip>
-			<core-tooltip label="Rate Contact"><polymer-ui-ratings value="{{contact.rating}}"></polymer-ui-ratings></core-icon></core-tooltip>
+			<qi-icon-label icon="communication:messenger" label="Ping"/></qi-icon-label>
+			<qi-icon-label icon="view-list" label="Blacklist"/></qi-icon-label>
+			<qi-icon-label icon="event" label="Create Meeting"/></qi-icon-label>
+			<qi-icon-label label="Share Contact" icon="account-box"></qi-icon-label>
+			<qi-field-decorator label="Rate Contact"><polymer-ui-ratings value="{{contact.rating}}"></polymer-ui-ratings></qi-field-decorator>
 		</div>
-		<core-collapse id="collapse" opened="false">
-			
-		      <core-field><label>Company:</label><span>{{contact.company}}</span></core-field>
-		      <core-field><label>Mobile:</label><span>{{contact.mobile}}</span></core-field>
-		      <core-field><label>Office:</label><span>{{contact.office}}</span></core-field>
-		      <core-field><label>Email:</label><span>{{contact.email}}</span></core-field>
-		      <core-field><label>Address:</label><span>{{contract.address}}</span></core-field>
-		      <core-field><label>Tags:</label><span>{{contact.tags}}</span></core-field>
-		      <core-field><label>Skills:</label><span>{{contact.skills}}</span></core-field>
-			  <core-field><label>Interests:</label><span>{{contact.interests}}</span></core-field>
-			  <core-field><label>Notes:</label><br/>
-    				<textarea flex id="t1">{{contact.notes}}</textarea>
-			  </core-field>
+		<iron-collapse id="collapse" opened="false">
+			<qi-field name="Company:" value="{{contact.company}}"></qi-field>
+		    <qi-field name="Mobile:" value="{{contact.mobile}}"></qi-field>
+		    <qi-field name="Office:" value="{{contact.office}}"></qi-field>
+		    <qi-field name="Email:" value="{{contact.email}}"></qi-field>
+		    <qi-field name="Address:" value="{{contract.address}}"></qi-field>
+		    <qi-field name="Tags:" value="{{contact.tags}}"></qi-field>
+		    <qi-field name="Skills:" value="{{contact.skills}}"></qi-field>
+		    <qi-field name="Interests:" value="{{contact.interests}}"></qi-field>
+		    <qi-field-decorator name="Notes:">
+    			<textarea class="flex" id="t1">{{contact.notes}}</textarea> 
+			</qi-field-decorator>
 	    
-		</core-collapse>
+		</iron-collapse>
 	</div>
 
 	</template>
 
 	<script>
-	Polymer('qi-contact-card',{
-		
+	Polymer({
+   		is: 'qi-contact-card', 
+
+   		properties:{
+   			contact:{type: Object}
+   		},
 		
 	    toggleAction: function(evt){
 	     	this.$.collapse.toggle();
@@ -59,4 +72,23 @@
 	</script>
 
 
-</polymer-element>
+</dom-module> <!-- CONVERTED -->
+
+<!-- CONVERSION NOTES TODO:
+ Review code and look for: 
+ - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
+ - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
+ - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
+ - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
+ - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
+ - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
+ - Cleanup class= 
+ - Convert core- to iron- or paper- replacement elements at PolymerElements
+ - Remove unresolved from <body> tag
+ - Cleanup iron-ajax params url for embedded bindings {{}}
+ - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
+ - Fix iron-list if needed 
+ - Fix indentation as need 
+ - Cleanup Comments to reflect changes ,
+ - see https://www.polymer-project.org/1.0/docs/migration.html
+   -->

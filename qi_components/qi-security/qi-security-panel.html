@@ -1,59 +1,51 @@
-<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
-<link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
+<link rel="import" href="../qi-theme.html">
 
-<polymer-element name="qi-security-panel">
-  <template>
+<dom-module id='qi-security-panel'  > 
 
-<!--
   <style>
-
-	core-scroll-header-panel{
-        width: 380px;
-        height: 460px;
-        left: 10px;
-        top: 0px;
-        position: relative;
-        display: block;
-      }
-      
+  .passwordPanel{
+    margin: 20px;
+  }
   </style>
 
-  -->
+  <template>
   
-	<core-scroll-header-panel condenses flex>
+    <div class="passwordPanel layout vertical flex">
+    
+       
+          <h3>Change Password</h3> 
+            <paper-input-container floatingLabel="true">
+              <label>New Password:</label>
+              <input id="nuPassword" is="iron-input" type="password" name="password" >
+            </paper-input-container>
 
-    <div >
-        <fieldset>
-          <legend>Change Password</legend>
-            <paper-input-decorator floatingLabel label="New Password:">
-              <input type="password" name="password" >
-            </paper-input-decorator>
+            <paper-input-container floatingLabel="true">
+              <label>Confirm Password:</label>
+              <input id="confPassword" is="iron-input" type="password" name="password" >
+            </paper-input-container>
 
-            <paper-input-decorator floatingLabel label="Confirm Password:">
-              <input type="password" name="password" >
-            </paper-input-decorator>
+            <paper-button class="primary" raised on-click="savePassword">Save Password</paper-button>
+    
 
-
-        </fieldset><br/>
-
-        <fieldset>
-          <legend>Authentication Scheme</legend>
-
-          
-           
-
-        </fieldset>
     </div>
-
-     </core-scroll-header-panel>
 </template>
 
 <script>
-	Polymer('qi-security-panel',{
-		
-	    });
+  Polymer({
+      is: 'qi-security-panel', 
+
+      savePassword: function(){
+        if(this.$.nuPassword.value == this.$.confPassword.value){
+          this.fire('show-toast', {text: 'Password Updated'});
+        }
+      }
+    
+      });
 
 </script>
 
-</polymer-element>
+</dom-module> 

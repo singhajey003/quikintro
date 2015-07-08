@@ -17,6 +17,7 @@
  		 "tweetUrl":"qi_components/data/ces2016.tweets.json",
  		 "background":"images/city-las-vegas-3.jpg",
  		 "rsvp":"YES",
+ 		 "description":"CES is a global consumer electronics and consumer technology tradeshow that takes place every January in Las Vegas, Nevada.",
 
  		 "traitstats":{
  		 	"interests":[
@@ -77,7 +78,8 @@
  		      	"lastName":"Arges",
  		      	"id":42267
  		      	},
- 		      "time": "04/13/2015 4:55PM"
+ 		      "time": "04/13/2015 4:55PM",
+ 		      "type":"public"
  		  }, {
  		      "title": "Semiconductors",
  		      "description": "New Nordic chip may be 20% cheaper and have 15% better battery perf. compared to current chip.",
@@ -86,13 +88,15 @@
  		      	"lastName":"Arges",
  		      	"id":12573579
  		      	},
- 		      "time": "04/11/2015 2:15PM"
+ 		      "time": "04/11/2015 2:15PM",
+ 		      "type":"in-network"
  		  }],
 
 		  "matches":[
  		 	{
  		 		"firstName":"John",
  		 		"lastName":"Doe",
+ 		 		"avatar":null,
  		 		"title":"Vice President, Low Power Group",
  		 		"company":"Nordic Semiconductor",
  		 		"interests":["low power wireless", "wearables", "beacons", "Oslo, Norway", "semiconductors", "fabric sensors", "chess", "Magnus Carlsen", "smart home"],
@@ -110,6 +114,9 @@
 			 },
 
   		 	{
+  		 		"firstName":null,
+  		 		"lastName":null,
+  		 		"avatar":null,
  		 		"title":"Director, Product Management",
  		 		"company":"FitBit",
  		 		"interests":["wearables", "fitness apps", "NFL", "San Francisco 49ers", "fitness hardware", "lean startups"],
@@ -176,6 +183,7 @@
 		"title":"North County JS Monthly Meeting",
 		"location":"WalmartLabs",
 		"address":"1530 Faraday Ave Carlsbad, CA 92008",
+		"description":"San Diego Javascript meets the first Tuesday of each month, at EvoNexus Downtown. We typically have two talks and then head over to a local bar for drinks and socializing.",
 		"coordinates":{
 			"latitude":33.1377915,
 			"longitude":-117.2954346
@@ -319,13 +327,15 @@
 			"title": "Keynote Takeaways",
 			"description": "All pharmas are currently actively pursuing cancer immunotherapy approaches. Attrition rate at 90% - as high as ever. Costs $1.8 Bn/approved drug.",
 			"author":"Dimitri",
-    		"time": "04/13/2015 4:55PM"
+    		"time": "04/13/2015 4:55PM",
+    		"type":"in-network"
 			},
 		  {
 		    "title": "Oncology Deal Room",
 		    "description": "Genentech MPDL3280A drug looks promising in PhIII.",
 		    "author":"Dimitri",
-		    "time": "04/11/2015 4:55PM"
+		    "time": "04/11/2015 4:55PM",
+		    "type":"in-network"
 		  }
 		  ],
 
@@ -344,11 +354,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			     "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
 			 },
 
   		 	{
+  		 		"firstName":null,
+  		 		"lastName":null,
  		 		"title":"CBO",
  		 		"company":"Genentech",
  		 		"interests":["cancer","collaborations","ADCs", "immunotherapy","cocktails"],
@@ -360,11 +373,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			     "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Novartis",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -376,10 +392,13 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 50,
 			     "match": 75
  		 	},
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"5 Prime Therapeutics",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -391,11 +410,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 90
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Merck",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -407,11 +429,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 93
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Pfizer",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -423,6 +448,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 77
  		 	}
@@ -521,6 +547,7 @@
  		 	"latitude": 39.948421,
  		 	"longitude": -75.192167
  		 },
+ 		 "description":"The AACR Annual Meeting highlights the latest, most exciting discoveries in every area of cancer research and provides a unique opportunity for investigators from all over the world to meet, interact, and share their insights. ",
  		 "registrantCount":33000,
  		 "newMatches":50,
  		 "numExistingContacts":15,
@@ -539,13 +566,16 @@
 			"title": "Keynote Takeaways",
 			"description": "Interesting talk on mutational signatures from Michael Stratton @ Sanger Inst. Tyler Jacks on 'Engineering the cancer genome'.",
 			"author":"Dimitri",
-    		"time": "04/13/2015 4:55PM"
+    		"time": "04/13/2015 4:55PM",
+    		"type":"in-network"
 			}
 		 
 		  ],
 
  		"matches":[
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Genentech",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -557,11 +587,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
   		 	{
+  		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CBO",
  		 		"company":"Genentech",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -573,11 +606,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Novartis",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -589,10 +625,13 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 75
  		 	},
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"5 Prime Therapeutics",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -604,11 +643,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 50,
 			     "match": 90
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Merck",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -620,11 +662,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 93
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Pfizer",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -636,6 +681,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 77
  		 	}
@@ -715,9 +761,13 @@
  		 "background":"images/city-chicago.jpg",
  		 "rsvp":"MAYBE",
 
+ 		 "description":"The Annual Meeting brings together 30,000 oncology professionals from around the world. Education sessions feature world-renowned faculty discussing state-of-the-art treatment modalities, new therapies, and ongoing controversies in the field. Science sessions present the latest ground-breaking research in oral and poster format. The Meeting offers opportunities to meet colleagues, make connections, and bring back new ideas to your practices and hospitals.",
+
 
  		"matches":[
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Genentech",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -734,6 +784,8 @@
  		 	},
 
   		 	{
+  		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CBO",
  		 		"company":"Genentech",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -745,11 +797,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Novartis",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -761,10 +816,13 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 75
  		 	},
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"5 Prime Therapeutics",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -776,11 +834,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 90
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Merck",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -792,11 +853,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 93
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Pfizer",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -808,6 +872,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 77
  		 	}
@@ -859,13 +924,16 @@
 			"title": "Keynote Takeaways",
 			"description": "Interesting talk on polymer by Rob Dodson.",
 			"author":"Dimitri",
-    		"time": "04/13/2015 4:55PM"
+    		"time": "04/13/2015 4:55PM",
+    		"type":"in-network"
 			}
 		 
 		  ],
 
 	 	 "matches":[
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CTO",
  		 		"company":"Genentech",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -877,11 +945,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
   		 	{
+  		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CTO",
  		 		"company":"Merck",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -893,11 +964,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 82
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CTO",
  		 		"company":"Novartis",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -909,10 +983,13 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 75
  		 	},
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CTO",
  		 		"company":"5 Prime Therapeutics",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -924,11 +1001,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 10,
 			     "match": 90
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CTO",
  		 		"company":"Merck",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -940,11 +1020,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 93
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CTO",
  		 		"company":"Pfizer",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -956,6 +1039,7 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
+			      "avatar":null,
 			     "distanceAway" : 100,
 			     "match": 77
  		 	}
@@ -990,13 +1074,16 @@
 			"title": "Keynote Takeaways",
 			"description": "Interesting talk on the use of JavaFX as a platform for cross-platform mobile development.",
 			"author":"Dimitri",
-    		"time": "04/13/2015 4:55PM"
+    		"time": "04/13/2015 4:55PM",
+    		"type":"private"
 			}
 		 
 		  ],
 
      	 "matches":[
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"Sr Software Engineer",
  		 		"company":"Facebook",
  		 		"interests":["graph databases","cassandra", "hadoop","neo4j"],
@@ -1008,11 +1095,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			      "avatar":null,
+			     "distanceAway" : 15,
 			     "match": 82
  		 	},
 
   		 	{
+  		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CBO",
  		 		"company":"Genentech",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -1024,11 +1114,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			      "avatar":null,
+			     "distanceAway" : 15,
 			     "match": 82
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Novartis",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -1040,10 +1133,13 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			      "avatar":null,
+			     "distanceAway" : 15,
 			     "match": 75
  		 	},
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"5 Prime Therapeutics",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -1055,11 +1151,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			      "avatar":null,
+			     "distanceAway" : 15,
 			     "match": 90
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CSO",
  		 		"company":"Merck",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -1071,11 +1170,14 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			      "avatar":null,
+			     "distanceAway" : 15,
 			     "match": 93
  		 	},
 
  		 	{
+ 		 		"firstName":null,
+ 		 		"lastName":null,
  		 		"title":"CTO",
  		 		"company":"Pfizer",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -1087,7 +1189,8 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			     "distanceAway" : 1.5,
+			      "avatar":null,
+			     "distanceAway" : 15,
 			     "match": 77
  		 	}
 		 	
