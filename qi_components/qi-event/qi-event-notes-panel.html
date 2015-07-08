@@ -8,13 +8,17 @@
 <dom-module id='qi-event-notes-panel'  > 
 
 	<template>
+		<qi-note-dialog id="noteDialog" notes="{{notes}}"></qi-note-dialog>
+
+		<div id="noteTray">
  		<template is="dom-repeat" items="{{notes}}"  as="note">
            <qi-note-card note="{{note}}"></qi-note-card>
-        </template> 
+        </template>
+        </div>
 
         <paper-fab icon="create" mini on-click="showDialog"></paper-fab> 
 
-        <qi-note-dialog id="noteDialog" notes="{{notes}}"></qi-note-dialog>
+        
 
 	</template>
 
@@ -29,6 +33,19 @@
 
 			showDialog: function(){
 				this.$.noteDialog.open();
+			},
+
+			ready: function(){
+				var noteTray = this.$.noteTray;
+
+				this.addEventListener('note-published', function(e){
+					var note = e.detail.note;
+					if (note !== undefined && note != null){
+						var noteCard = new NoteCard();
+						noteCard.note = e.detail.note;
+						noteTray.appendChild(noteCard);
+					}
+				});
 			}
 
 		});
