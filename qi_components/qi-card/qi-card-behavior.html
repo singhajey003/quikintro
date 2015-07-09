@@ -2,38 +2,35 @@
 
 @polymerBehavior QiCardBehavior
 -->
-<dom-module id="qi-card-behavior">
 
-	<script>
-	QiCardBehavior = {
+<script>
+QiCardBehavior = {
 
-		properties:{
-			/**
-			 * The ID of the card
-			 */
-			id:{type: Number},
+	properties:{
+		/**
+		 * The ID of the card
+		 */
+		id:{type: Number},
 
-			/**
-			 * The model behind the card.
-			 */
-			model:{
-				type: Object, 
-				value: null
-			},
-
-			/**
-			 * A flag indicating the card was selected.
-			 */
-			selected: {type: Boolean, value: false, notify: true}
+		/**
+		 * The model behind the card.
+		 */
+		model:{
+			type: Object, 
+			value: null
 		},
 
-		select: function(){
-			this.selected != this.selected;
-			this.fire('card-selected',{id: this.id, model: this.model, selected: this.selected});
-		}
-	};
+		/**
+		 * A flag indicating the card was selected.
+		 */
+		selected: {type: Boolean, value: false, notify: true}
+	},
+
+	select: function(){
+		this.selected != this.selected;
+		this.fire('card-selected',{id: this.id, model: this.model, selected: this.selected});
+	}
+};
 
 
-	</script>
-
-</dom-module>
+</script>

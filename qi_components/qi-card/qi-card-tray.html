@@ -1,8 +1,18 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+
+<link rel="import" href="../qi-theme.html"> 
 
 <dom-module id="qi-card-tray">
 
+
 	<template>
-	<div id="[[id]]">
+	<div >
+		<div id="[[id]]" class="layout horizontal">
+			<content ></content>	
+		</div>
+
+	</div>
+
 
 	</template>
 
@@ -10,6 +20,10 @@
 
 	Polymer({
 		is: 'qi-card-tray',
+
+		properties:{
+			selectedItems: {type: Array}
+		},
 
 		ready: function(){
 			
