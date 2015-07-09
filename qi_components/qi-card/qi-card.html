@@ -1,0 +1,33 @@
+<!--
+This component represents a card.  
+
+-->
+<dom-module id="qi-card">
+
+	<link rel="stylesheet" href="../qi-cards.css">
+
+
+	<template>
+		<div id="[[id]]" on-click="select" class="card">
+		<content></content>
+		</div>
+	</template>
+
+	<script>
+	var card = Polymer({
+		is:'qi-card',
+		properties:{
+			id:{type: Number},
+			model:{type: Object, value: null},
+			selected: {type: Boolean, value: false, notify: true}
+		},
+
+		select: function(){
+			this.selected != this.selected;
+			this.fire('card-selected',{id: this.id, model: this.model, selected: this.selected});
+		}
+	});
+	</script>
+
+
+</dom-module>

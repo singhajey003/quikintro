@@ -1,0 +1,197 @@
+<dom-module id="qi-person-card">
+
+<!--
+	This component displays contact information.
+
+	@group QI Elements
+	@element qi-contact-card
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
+<link rel="import" href="../../bower_components/paper-button/paper-button.html" >
+
+
+<link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-field/qi-field.html">
+<link rel="import" href="../qi-field/qi-field-decorator.html">
+<link rel="import" href="../qi-field/qi-text-list.html">
+<link rel="import" href="../qi-toggle/qi-toggle.html">
+
+<link rel="import" href="qi-card-behavior.html">
+
+
+	<style>
+	div.card-wrapper{
+		min-height: 100px;
+	}
+	div.card{
+		min-height: 90px;
+	}
+	p.title{
+		margin-left: 5px;
+		font-size: 10pt;
+		color: rgb(146, 144, 144);
+	}
+	p.company{
+		margin-left: 5px;
+		font-size: 10pt;
+		color: rgb(146, 144, 144);
+	}
+	#collapse{
+		margin-top: 60px;
+	}
+
+	</style>
+
+	<template>
+
+	<div id="card" class="card-wrapper"> 
+
+		<div class="card card-photo">
+
+			<qi-avatar url="[[model.avatar]]"></qi-avatar>
+
+			<header>
+				<h3>[[fullName]]</h3>
+				<p class="title">[[model.title]]</p>
+				<p class="company">[[model.company]]</p>
+				<p></p>
+			</header>
+
+			<div class="summary horizontal justified layout end" > 
+				<qi-field-decorator label="Rate Contact"><polymer-ui-ratings value="[[model.rating]]"></polymer-ui-ratings></qi-field-decorator>
+			</div>
+
+			<div class="card-actions horizontal justified layout center" > 
+				<paper-button role="button" on-click="pingDialogLaunch">Message</paper-button> 
+				<paper-button role="button" on-click="mtgDialogLaunch">Create Meeting</paper-button> 
+				<qi-toggle isOpened="{{isOpen}}" on-click="toggleAction"></qi-toggle>
+			</div>
+
+			<iron-collapse id="collapse" opened="{{isOpen}}">
+				<div >
+					<qi-field label="Company:" value="[[model.company]]"></qi-field>
+					<qi-field label="Mobile:" value="[[model.mobile]]"></qi-field>
+					<qi-field label="Office:" value="[[model.office]]"></qi-field>
+					<qi-field label="Email:" value="[[model.email]]"></qi-field>
+					<qi-field label="Address:" value="[[model.address]]"></qi-field>
+					<qi-field-decorator label="Tags:">
+						<qi-text-list list="[[model.tags]]"></qi-text-list>
+					</qi-field-decorator>
+					<qi-field-decorator label="Skills:">
+						<qi-text-list list="[[model.skills]]"></qi-text-list>
+					</qi-field-decorator>
+					<qi-field-decorator label="Interests:">
+						<qi-text-list class="fldValue" list="[[model.interests]]"></qi-text-list>
+					</qi-field-decorator>
+					<qi-field label="Notes:" value="[[model.notes]]"></qi-field>
+					<qi-field-decorator label="Food:">
+						<qi-text-list list="[[model.food]]"></qi-text-list>
+					</qi-field-decorator>
+					<qi-field-decorator label="Drink:">
+						<qi-text-list list="[[model.drink]]"></qi-text-list>
+					</qi-field-decorator>
+				</div>
+			</iron-collapse>
+
+		</div>
+	</div>
+
+	</template>
+
+	<script>
+	Polymer({
+   		is: 'qi-person-card', 
+
+   		behaviors: [QiCardBehavior],
+
+   		properties: {
+
+
+			/**
+			 * This flag determines if the card is visible.
+			 */
+			visibility:{
+				type: String, 
+				value: 'visible', 
+				notify: true, 
+				observer: 'visibilityChanged'
+			},
+
+			/**
+			 * This flag determines if the card's collapse pane is open.
+			 */
+			isOpen: {
+				type: Boolean, 
+				value: false
+			},
+
+			/**
+			 * This computed property concatenates the first and last name of the model.
+			 */
+			fullName: {
+				type:String,
+				computed: 'computeName(model.firstName, model.lastName)' 
+			}
+			
+		},
+
+		/**
+		 * This method concatenates the first and last name of the contact.
+		 * @param firstName the first name of the contact
+		 * @param lastName the last name of the contact
+		 */
+		computeName: function(firstName, lastName){
+			return firstName + " " + lastName;
+		},
+
+		/**
+		 * This observer sets the visibility of the card, whenever the visibility
+		 * attribute is updated.
+		 * @param newValue  the new visibility value
+		 * @param oldValue the old visibility value
+		 */
+	     visibilityChanged: function(newValue, oldValue){
+	     	this.$.card.style.display = (newValue == 'visible')?'block':'none';
+	     },
+
+	     /**
+	      * This method sets the visibility of the card.
+	      * @param vis the visibility of the card
+	      */
+	     setVisibility: function(vis){
+	     	this.visibility = vis;
+	     },
+
+	     /**
+	      * This method displays the message dialog.
+	      */
+	     pingDialogLaunch: function(e){
+	     	this.fire("openPingDialog",{contact:this.model});
+	     },
+
+	     /**
+	      * This method displays the meeting dialog.
+	      */
+	     mtgDialogLaunch: function(e){
+	     	this.fire("openMtgDialog",{contact:this.model});
+	     },
+
+	     /**
+	      * This method toggles the collapse pane.
+	      */
+	     toggleAction: function(e){
+	     	this.isOpen != this.isOpen;
+	     	this.$.collapse.toggle();
+	     }
+
+
+	    });
+
+
+	</script>
+
+
+
+
+</dom-module>
