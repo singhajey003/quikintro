@@ -41,11 +41,15 @@
 		margin-top: 60px;
 	}
 
+	.iron-selector{
+		border: 1px solid #505050;
+	}
+
 	</style>
 
 	<template>
 
-	<div id="card" class="card-wrapper"> 
+	<div id="card" class="card-wrapper" style$="{{selectedStyle}}"> 
 
 		<div class="card card-photo">
 
@@ -132,6 +136,11 @@
 			fullName: {
 				type:String,
 				computed: 'computeName(model.firstName, model.lastName)' 
+			}
+
+			selectedStyle:{
+				type: String,
+				computed: 'getSelectedStyle(selected)'
 			}
 			
 		},

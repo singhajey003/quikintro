@@ -41,21 +41,29 @@
 		<iron-localstorage name="contacts" value="{{contacts}}"></iron-localstorage>
 		<qi-card-tray id="cardtray">
 		
-			<div class="content-tray">
+			
 			<template is="dom-repeat" items="{{contacts}}" as="contact">
-				<qi-person-card model="{{contact}}"></qi-person-card>
+				<qi-person-card class="selectable-card" model="{{contact}}"></qi-person-card>
 			</template>
-			</div>
+			
 
 			<div class="fab-tray">
-				<paper-fab icon="add"></paper-fab>
+				<paper-fab icon="add" onclick="tryIt()"></paper-fab>
 			</div>
 		
 		</qi-card-tray>
 
+
+
 	</template>
 
+	<script>
+	function tryIt(){
+		var cardTray = document.querySelector('qi-card-tray');
+		console.log(cardTray.getSelected());
+	}
 
+	</script>
 
 </body>
 </html>

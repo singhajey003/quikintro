@@ -1,14 +1,25 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html"> 
+
 <link rel="import" href="../qi-theme.html"> 
 
 <dom-module id="qi-card-tray">
 
+	<style>
+	.iron-selected{
+		border: 1px solid #505050;
+	}
+
+	</style>
 
 	<template>
 	<div >
 		<div id="[[id]]" class="layout horizontal">
-			<content ></content>	
+		<iron-selector id="selector" multi="true">
+			<content select=".selectable-card"></content>
+		</iron-selector>
+		<content select=".fab-tray"></content>	
 		</div>
 
 	</div>
@@ -20,14 +31,10 @@
 
 	Polymer({
 		is: 'qi-card-tray',
-
-		properties:{
-			selectedItems: {type: Array}
-		},
-
-		ready: function(){
-			
+		getSelected: function(){
+			return this.$.selector.selectedItems;
 		}
+
 	});
 
 	</script>

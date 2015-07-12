@@ -1,4 +1,5 @@
 <!--
+This behavior defines the properties and methods required of a card.
 
 @polymerBehavior QiCardBehavior
 -->
@@ -23,13 +24,40 @@ QiCardBehavior = {
 		/**
 		 * A flag indicating the card was selected.
 		 */
-		selected: {type: Boolean, value: false, notify: true}
+		selected: {type: Boolean, value: false, notify: true},
+
+		/**
+		 * This property defines the default style classes to be
+		 * applied to the card.  
+		 */
+		cardStyle:{type: String, value:"" },
+
+		/**
+		 * A computed property used to style a selected card.  Add a class tag
+		 * to the outermost div of a card like this: class$="{{selectedStyle}}"
+		 * to insure that the card shows that it has been selected
+		 */
+		selectedStyle:{
+			type: String,
+			computed: 'computeStyle(selected)'
+		}
+
 	},
 
 	select: function(){
 		this.selected != this.selected;
 		this.fire('card-selected',{id: this.id, model: this.model, selected: this.selected});
+	},
+
+	computeStyle: function(selected){
+		var style = this.defaultCardStyling;
+		if(selected){
+			style+= (selected)?"selectedCard":"";
+		}
+		return style;
 	}
+
+
 };
 
 
