@@ -1,0 +1,22 @@
+{
+    "feeds": {
+        "feed": {
+            "name": "Network Front | The Guardian",
+            "url": "http://www.theguardian.com/us",
+            "description": "Latest US news, world news, sports, business, opinion, analysis and reviews from the Guardian, the world's leading liberal voice",
+            "imageUrl": "http://assets.guim.co.uk/images/guardian-logo-rss.c45beb1bafa34b347ac333af2e6fe23f.png",
+            "articles": [{
+                "title": "Reddit's Ellen Pao is latest female CEO blamed for inherited woes, experts say",
+                "abstract": "<p>As Pao steps down following a petition and death threats, sociologists and other observers point to a \u2018glass cliff\u2019 for female executives</p><p>Female chief executives like Ellen Pao may reach the pinnacle in business only to discover that they have risen to the top of a precarious \u201cglass cliff\u201d.<br /></p><p>That was the analysis of one expert in the aftermath of <a href=\"http://www.theguardian.com/technology/2015/jul/10/ellen-pao-reddit-interim-ceo-resigns\">Pao\u2019s decision to resign</a> from Reddit late on Friday, after almost a week during which users hurled insults, hate mail and even death threats her way over the firing of a popular site administrator.</p> <a href=\"http://www.theguardian.com/technology/2015/jul/11/reddit-ellen-pao-women-ceo\">Continue reading...</a>",
+                "createDate": "2015-07-11T14:25:54+0000",
+                "keywords": ["San Francisco", "World news", "Reddit", "Technology", "Silicon Valley", "Internet", "Gender", "California", "US news"]
+            }, {
+                "title": "Atticus Finch is a racist in To Kill a Mockingbird\u2019s sequel",
+                "abstract": "Plot twist of Go Set a Watchman has the liberal lawyer as a racist in later life, shocking millions including some whom the character stirred to take up the law<p>One of the great figures of American literature has suffered dramatic reputational damage this weekend. The unexpected early release of shocking plot details from <a href=\"http://www.theguardian.com/books/2015/jul/10/go-set-a-watchman-first-chapter-harper-lee-to-kill-a-mockingbird\">the new novel by Harper Lee, a sequel to her great work <em>To Kill A Mockingbird</em></a>, has revealed that the noble hero of her first book, Atticus Finch, in later life becomes a racist who seems happy for segregation to continue in Alabama. It as if the Statue of Liberty had been discovered to have cloven hooves.</p><p>Lee\u2019s <a href=\"http://www.theguardian.com/books/ng-interactive/2015/jul/10/go-set-a-watchman-read-the-first-chapter\">much-anticipated new book, <em>Go Set a Watchman</em></a>, was actually written before the publication of her masterpiece in 1960. The manuscript contained a series of flashbacks to the early life of its heroine, Scout Finch, and her publisher, who was intrigued by the vivid picture they painted, suggested the author should go away and write another novel based on those passages.</p> <a href=\"http://www.theguardian.com/books/2015/jul/11/atticus-finch-racist-go-set-watchman\">Continue reading...</a>",
+                "createDate": "2015-07-11T15:32:51+0000",
+                "keywords": ["World news", "Harper Lee", "New York Times", "Race issues", "Newspapers", "Media", "US press and publishing", "Books", "Culture", "US news"]
+            }
+            ]
+        }
+    }
+}

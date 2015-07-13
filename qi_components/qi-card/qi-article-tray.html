@@ -1,0 +1,65 @@
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+
+<link rel="import" href="qi-card-tray.html">
+<link rel="import" href="qi-article-card.html">
+<link rel="import" href="../data/qi-data-loader.html">
+
+<dom-module id="qi-article-tray">
+
+	<style>
+	qi-card-tray{
+		width: 100;
+	}
+
+	</style>
+
+
+
+<template>
+		<qi-data-loader></qi-data-loader>
+		<iron-localstorage id="newsStorage" name="news" value="{{news}}"></iron-localstorage>
+
+		<span>{{feed.name}}</span><br/>
+		<span>{{feed.description}}</span><br/>
+		<span>{{feed.articles[3].title}}</span><br/>
+		<img src$="{{feed.imageUrl}}"></template>
+		<qi-card-tray id="cardtray">
+			<div>
+				<paper-fab icon="add"></paper-fab>
+			</div>
+			
+			<template is="dom-repeat" items="{{feed.articles}}" as="article">
+			
+				<qi-article-card model="{{article}}" source="{{feed}}"></qi-article-card>
+			
+			</template>
+
+			
+		</qi-card-tray>
+
+
+
+</template>
+
+<script>
+Polymer({
+	is:'qi-article-tray',
+	properties:{
+		news:{type: Object, value: null, notify: true, observer:'newsChanged'},
+		feed: {type: Object, notify: true}
+
+	},
+	newsChanged: function(newValue, oldValue){
+		if (newValue != null){
+			this.feed = newValue.feed;
+			console.log(this.feed);
+		}
+	}
+});
+
+</script>
+
+</dom-module>

@@ -1,0 +1,48 @@
+
+<dom-module id="qi-article-card">
+<link rel="import" href="qi-card-behavior.html">
+<link rel="import" href="../data/qi-data-loader.html">
+
+<template>
+
+	<style>
+	img{
+		height: 20px;
+		width: 20px;
+	}
+
+	</style>
+    <qi-data-loader></qi-data-loader>
+	<div class="card-wrapper"> 
+
+		<div class="card">
+		  
+		  	<header>
+		  		<p class="title">[[model.title]]</p>
+		  	</header>
+
+		  	<div class="layout">
+		  	<img src$="[[source.imageUrl]]" style="width: 30px; height: 30px"/> <span class="sourceName">[[source.name]]</span><span class="createdDate">[[model.createdDate]]</span>
+		  	</div>
+
+		</div>
+	</div>
+
+</template>
+
+<script>
+  Polymer({
+  	is:'qi-article-card',
+  	behaviors:[QiCardBehavior],
+  	properties:{
+  		source: {type: Object, notify: true, readonly: true}
+  	}
+
+  });
+
+
+
+</script>
+
+
+</dom-module>
