@@ -15,7 +15,7 @@ it can be easily accessed by other components.
         <iron-ajax auto="true" url="messages.json" on-response="handleMsgs" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="notices.json" on-response="handleNotices" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="linkedin-profile.json" on-response="handleProfile" handle-as="json"></iron-ajax>
-        <iron-ajax auto="true" url="nytimes.json" on-response="handleNews" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="news/guardian.multi.json" on-response="handleNews" handle-as="json"></iron-ajax>
 
         <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
         <iron-localstorage name="events" value="{{eventList}}"></iron-localstorage>
@@ -76,7 +76,7 @@ it can be easily accessed by other components.
             this.profile = e.detail.response;
         },
         handleNews: function(e){
-            this.news = e.detail.response.feeds;
+            this.news = e.detail.response;
         }
 
     });

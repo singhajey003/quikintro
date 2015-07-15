@@ -1,7 +1,7 @@
+<link rel="import" href="qi-card-behavior.html">
+
 
 <dom-module id="qi-article-card">
-<link rel="import" href="qi-card-behavior.html">
-<link rel="import" href="../data/qi-data-loader.html">
 
 <template>
 
@@ -11,8 +11,20 @@
 		width: 20px;
 	}
 
+	title{
+		font-size: 10pt;
+	}
+
+	createdDate{
+		font-size: 8pt
+	}
+
+	feedName{
+		font-size: 8pt;
+	}
+
 	</style>
-    <qi-data-loader></qi-data-loader>
+    
 	<div class="card-wrapper"> 
 
 		<div class="card">
@@ -22,7 +34,7 @@
 		  	</header>
 
 		  	<div class="layout">
-		  	<img src$="[[source.imageUrl]]" style="width: 30px; height: 30px"/> <span class="sourceName">[[source.name]]</span><span class="createdDate">[[model.createdDate]]</span>
+		  	<img src$="[[feed.imageUrl]]" style="width: 30px; height: 30px"/> <span class="feedName">[[feed.name]]</span><span class="createdDate">[[model.createdDate]]</span>
 		  	</div>
 
 		</div>
@@ -31,12 +43,13 @@
 </template>
 
 <script>
-  Polymer({
+  var ArticleCard = Polymer({
   	is:'qi-article-card',
   	behaviors:[QiCardBehavior],
   	properties:{
-  		source: {type: Object, notify: true, readonly: true}
+  		feed: {type: Object, value: null, notify: true, readonly: true}
   	}
+
 
   });
 

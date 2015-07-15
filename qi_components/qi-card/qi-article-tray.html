@@ -19,26 +19,21 @@
 
 
 <template>
-		<qi-data-loader></qi-data-loader>
-		<iron-localstorage id="newsStorage" name="news" value="{{news}}"></iron-localstorage>
-
-		<span>{{feed.name}}</span><br/>
-		<span>{{feed.description}}</span><br/>
-		<span>{{feed.articles[3].title}}</span><br/>
-		<img src$="{{feed.imageUrl}}"></template>
-		<qi-card-tray id="cardtray">
-			<div>
+		
+		
+			<div class="fab-tray">
 				<paper-fab icon="add"></paper-fab>
 			</div>
-			
-			<template is="dom-repeat" items="{{feed.articles}}" as="article">
-			
-				<qi-article-card model="{{article}}" source="{{feed}}"></qi-article-card>
-			
+
+			<qi-card-tray id="cardtray">
+			<template is="dom-repeat" items="[[news.feeds]]" as="feed">
+			<span>[[feed.name]]</span>
+			<template is="dom-repeat" items="[[feed.articles]]" as="article">
+				<qi-article-card class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
 			</template>
 
-			
-		</qi-card-tray>
+			</template>
+			</qi-card-tray>
 
 
 
@@ -48,16 +43,9 @@
 Polymer({
 	is:'qi-article-tray',
 	properties:{
-		news:{type: Object, value: null, notify: true, observer:'newsChanged'},
-		feed: {type: Object, notify: true}
-
-	},
-	newsChanged: function(newValue, oldValue){
-		if (newValue != null){
-			this.feed = newValue.feed;
-			console.log(this.feed);
-		}
+		news:{type: Object, value: null, notify: true, readonly: true}
 	}
+
 });
 
 </script>

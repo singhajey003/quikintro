@@ -3,11 +3,11 @@
 <head>
 	<title></title>
 
-	<script src="../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+	<script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 	<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 	<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 
-
+	<link rel="import" href="../data/qi-data-loader.html">
 	<link rel="import" href="qi-card-tray.html">
 	<link rel="import" href="qi-person-card.html">
 
@@ -38,6 +38,7 @@
 <body>
 
 	<template is="dom-bind">
+		<qi-data-loader></qi-data-loader>
 		<iron-localstorage name="contacts" value="{{contacts}}"></iron-localstorage>
 		<qi-card-tray id="cardtray">
 		

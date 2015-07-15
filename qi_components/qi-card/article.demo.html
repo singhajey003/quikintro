@@ -3,8 +3,11 @@
 <head>
 	<title></title>
 
-	<script src="../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+	<script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+	<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+
+	<link rel="import" href="../data/qi-data-loader.html">
 	<link rel="import" href="qi-article-tray.html">
 	<style>
 	qi-article-tray{
@@ -16,8 +19,12 @@
 
 </head>
 <body>
-
-		<qi-article-tray></qi-article-tray>
+	<template is="dom-bind">
+	<!--<qi-data-loader></qi-data-loader>-->
+	<iron-localstorage id="newsStorage" name="news" value="{{news}}"></iron-localstorage>
+	<qi-article-tray news="{{news}}" ></qi-article-tray>
+	
+	</template>
 
 </body>
 </html>
