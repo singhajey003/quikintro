@@ -6,36 +6,57 @@
 <template>
 
 	<style>
-	img{
+	
+
+	.title{
+		font-size: 14pt;
+	}
+
+	.createdDate{
+		font-size: 12pt
+	}
+
+	.feedName{
+		font-size: 12pt;
+	}
+
+	.article{
+		width: 300px;
+		height: 150px;
+		border: 1px solid #505050;
+	}
+
+	.logo{
 		height: 20px;
 		width: 20px;
 	}
 
-	title{
-		font-size: 10pt;
-	}
-
-	createdDate{
-		font-size: 8pt
-	}
-
-	feedName{
-		font-size: 8pt;
+	.preview{
+		height: 100px;
+		width: 100px;
 	}
 
 	</style>
     
 	<div class="card-wrapper"> 
 
-		<div class="card">
+		<div class="article layout horizontal">
 		  
-		  	<header>
-		  		<p class="title">[[model.title]]</p>
-		  	</header>
-
-		  	<div class="layout">
-		  	<img src$="[[feed.imageUrl]]" style="width: 30px; height: 30px"/> <span class="feedName">[[feed.name]]</span><span class="createdDate">[[model.createdDate]]</span>
+			<div class="layout vertical">
+		  	<div class="title flex">
+		  		<span>[[model.title]]</span>
 		  	</div>
+
+		  	<div class="layout horizontal">
+		  	<img src$="[[feed.imageUrl]]" class="logo"/> <span class="feedName">[[feed.name]]</span><span class="createdDate">[[model.createdDate]]</span>
+		  	</div>
+		  	</div>
+
+		  	<div>
+		  	<img src$="[[imgUrl]]" class="preview"/>
+		  	</div>
+
+
 
 		</div>
 	</div>
@@ -47,7 +68,12 @@
   	is:'qi-article-card',
   	behaviors:[QiCardBehavior],
   	properties:{
-  		feed: {type: Object, value: null, notify: true, readonly: true}
+  		feed: {type: Object, value: null, notify: true, readonly: true},
+  		imgUrl: {type: String, computed:'getMediaUrl(model)'}
+  	},
+
+  	getMediaUrl: function(model){
+  		return model.media[0].url
   	}
 
 

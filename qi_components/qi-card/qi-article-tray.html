@@ -9,9 +9,10 @@
 
 <dom-module id="qi-article-tray">
 
-	<style>
+	<style is="custom-style">
 	qi-card-tray{
 		width: 100;
+		background-color: var(--tray-bgcolor);
 	}
 
 	</style>
@@ -27,10 +28,10 @@
 
 			<qi-card-tray id="cardtray">
 			<template is="dom-repeat" items="[[news.feeds]]" as="feed">
-			<span>[[feed.name]]</span>
-			<template is="dom-repeat" items="[[feed.articles]]" as="article">
-				<qi-article-card class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
-			</template>
+				<span>[[feed.name]]</span>
+				<template is="dom-repeat" items="[[feed.articles]]" as="article">
+					<qi-article-card class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
+				</template>
 
 			</template>
 			</qi-card-tray>
