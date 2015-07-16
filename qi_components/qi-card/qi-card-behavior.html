@@ -24,13 +24,21 @@ QiCardBehavior = {
 		/**
 		 * A flag indicating the card was selected.
 		 */
-		selected: {type: Boolean, value: false, notify: true},
+		selected: {
+			type: Boolean, 
+			value: false, 
+			notify: true
+		},
 
 		/**
 		 * This property defines the default style classes to be
 		 * applied to the card.  
 		 */
-		cardStyle:{type: String, value:"" },
+		cardstyle:{
+			type: String, 
+			value:'article layout horizontal',
+			notify: true
+		},
 
 		/**
 		 * A computed property used to style a selected card.  Add a class tag
@@ -39,20 +47,30 @@ QiCardBehavior = {
 		 */
 		selectedStyle:{
 			type: String,
-			computed: 'computeStyle(selected)'
+			computed: 'computeStyle(selected, cardstyle)',
+			notify: true
 		}
 
 	},
 
+	/**
+	 * This method is triggered whenever a card has been selected.  When implementing your card
+	 * add an 'on-click' method attribute to the outer-most div representing your card, and reference
+	 * this method.
+	 */
 	select: function(){
-		this.selected != this.selected;
+		this.selected = !this.selected;
 		this.fire('card-selected',{id: this.id, model: this.model, selected: this.selected});
 	},
 
-	computeStyle: function(selected){
-		var style = this.defaultCardStyling;
+	/**
+	 * This method calculates the style to be applied to the card.
+	 */
+	computeStyle: function(selected, cardstyle){
+		var style = cardstyle;
+
 		if(selected){
-			style+= (selected)?"selectedCard":"";
+			style += (selected)? " selectedCard":"";
 		}
 		return style;
 	}

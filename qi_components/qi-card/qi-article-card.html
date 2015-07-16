@@ -9,71 +9,134 @@
 	
 
 	.title{
-		font-size: 14pt;
+		font-size: 15px;
+		padding-left: 5px;
+		padding-right: 3px;
+		padding-top: 2px;
 	}
 
 	.createdDate{
-		font-size: 12pt
+		font-size: 10px;
+		color: #909090; 
 	}
 
 	.feedName{
-		font-size: 12pt;
+		font-size: 10px;
+		color: #909090;
 	}
 
 	.article{
-		width: 300px;
-		height: 150px;
+		width: 350px;
+		height: 100px;
 		border: 1px solid #505050;
+		background-color: white;
 	}
 
 	.logo{
-		height: 20px;
-		width: 20px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: bottom;
+		min-height: 20px;
+		min-width: 60px;
+		margin-bottom: 4px;
 	}
 
-	.preview{
-		height: 100px;
-		width: 100px;
+
+	.selectedCard{
+		background-color: rgba(255,255,255,0.5);
 	}
+
+	.thumbnail{
+		background-size: cover;
+		background-repeat: no-repeat;
+		min-height: 100px;
+		min-width: 100px;
+
+	}
+
+	/* a tray containing the feed/article metadata */
+	.metatray{
+		vertical-align: bottom;
+	}
+
 
 	</style>
     
-	<div class="card-wrapper"> 
 
-		<div class="article layout horizontal">
-		  
-			<div class="layout vertical">
-		  	<div class="title flex">
-		  		<span>[[model.title]]</span>
-		  	</div>
+	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select">
+	  
+		<div class="layout vertical">
+	  	<div class="title flex" on-click="expand">
+	  		<span>[[model.title]]</span>
+	  	</div>
 
-		  	<div class="layout horizontal">
-		  	<img src$="[[feed.imageUrl]]" class="logo"/> <span class="feedName">[[feed.name]]</span><span class="createdDate">[[model.createdDate]]</span>
-		  	</div>
-		  	</div>
+	  	<div class="metatray layout horizontal">
+	  	<div style$="[[logoUrl]]" class="logo"></div> <span class="feedName">[[feed.name]]</span><span class="createdDate">[[model.createdDate]]</span>
+	  	</div>
+	  	</div>
 
-		  	<div>
-		  	<img src$="[[imgUrl]]" class="preview"/>
-		  	</div>
+	  	<div class="thumbnail" style$="[[thumbnailUrl]]">
+	  	</div>
 
-
-
-		</div>
 	</div>
+
 
 </template>
 
 <script>
   var ArticleCard = Polymer({
   	is:'qi-article-card',
+
   	behaviors:[QiCardBehavior],
+
   	properties:{
-  		feed: {type: Object, value: null, notify: true, readonly: true},
-  		imgUrl: {type: String, computed:'getMediaUrl(model)'}
+
+  		/**
+  		 * The object containing the RSS feed information.
+  		 */
+  		feed: {
+  			type: Object, 
+  			value: null, 
+  			notify: true, 
+  			readonly: true
+  		},
+
+  		/**
+  		 * A calculated property used to retrieve the first media object
+  		 * associated with the article. This is usually an image that will
+  		 * be displayed in the article card.
+  		 */
+  		thumbnailUrl: {
+  			type: String, 
+  			computed:'getThumbnailUrl(model)'
+  		},
+
+  		/**
+  		 * A calculated property used to display the feed logo.
+  		 */
+  		logoUrl: {
+  			type: String,
+  			computed: 'getLogoUrl(feed)'
+  		}
+
+
   	},
 
-  	getMediaUrl: function(model){
-  		return model.media[0].url
+  	getLogoUrl: function(feed){
+  		return "background-image: url(" + feed.imageUrl +")";
+  	},
+
+  	/**
+  	 * This method retrieves the first image associated with the article.
+  	 * @param model the article object
+  	 */
+  	getThumbnailUrl: function(model){
+  		return "background-image: url(" + model.media[0].url +")";
+  	},
+
+
+  	expand:function(){
+  		console.log("Expand card");
   	}
 
 

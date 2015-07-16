@@ -11,10 +11,14 @@
 		border: 1px solid #505050;
 	}
 
+	.tray{
+		background-color: var(--tray-bgcolor);
+	}
+
 	</style>
 
 	<template>
-	<div >
+	<div class="tray">
 		<div id="[[id]]" class="layout horizontal">
 		<iron-selector id="selector" multi="true">
 			<content select=".selectable-card"></content>
