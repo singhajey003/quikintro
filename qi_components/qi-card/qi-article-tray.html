@@ -25,11 +25,11 @@
 		
 			<div class="fab-tray">
 				
-				<paper-fab icon="av:skip-previous" mini></paper-fab>
-				<paper-fab icon="av:play-arrow" mini></paper-fab>
-				<paper-fab icon="av:skip-next" mini></paper-fab>
-				
-				<paper-fab icon="av:stop" mini></paper-fab>
+				<paper-fab icon="av:skip-previous" mini on-click="back"></paper-fab>
+				<paper-fab icon="av:play-arrow" mini on-click="play"></paper-fab>
+				<paper-fab icon="av:skip-next" mini on-click="fwd"></paper-fab>				
+				<paper-fab icon="av:stop" mini on-click="stop"></paper-fab>
+
 				<paper-fab icon="social:share" mini on-click="openShareDialog"></paper-fab>
 			</div>
 
@@ -67,6 +67,11 @@ Polymer({
 		articleId:{
 			type: String,
 			computed: 'getArticleId(id)'
+		},
+
+		selectedArticles: {
+			type: Array,
+			value: []
 		}
 	},
 
@@ -82,6 +87,28 @@ Polymer({
 	 */
 	openShareDialog: function(){
 		console.log("share dialog");
+	},
+
+	play: function(){
+		var cardtray = this.$.cardtray;
+		var selected = cardtray.getSelected();
+		for(var i=0; i < selected.length; i++){
+			console.log("model: " + selected.model);
+			this.selectedArticles.push(selected.model);
+		}
+		console.log("models: " + this.selectedArticles);
+	},
+
+	fwd: function(){
+
+	},
+
+	bck: function(){
+
+	},
+
+	stop: function(){
+		
 	}
 
 
