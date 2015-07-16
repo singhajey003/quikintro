@@ -4,9 +4,10 @@
 <link rel="import" href="../../bower_components/iron-icons/av-icons.html">
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html">
 
-<link rel="import" href="qi-card-tray.html">
-<link rel="import" href="qi-article-card.html">
 <link rel="import" href="../data/qi-data-loader.html">
+
+<link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="qi-article-card.html">
 
 <dom-module id="qi-article-tray">
 
@@ -24,13 +25,12 @@
 		
 		
 			<div class="fab-tray">
+				<paper-fab class="selectable" icon="av:skip-previous" on-click="back" mini></paper-fab>
+				<paper-fab class="selectable" icon="av:play-arrow" on-click="play" mini></paper-fab>
+				<paper-fab class="selectable" icon="av:skip-next" on-click="fwd" mini></paper-fab>
 				
-				<paper-fab icon="av:skip-previous" mini on-click="back"></paper-fab>
-				<paper-fab icon="av:play-arrow" mini on-click="play"></paper-fab>
-				<paper-fab icon="av:skip-next" mini on-click="fwd"></paper-fab>				
-				<paper-fab icon="av:stop" mini on-click="stop"></paper-fab>
-
-				<paper-fab icon="social:share" mini on-click="openShareDialog"></paper-fab>
+				<paper-fab class="selectable" icon="av:stop" on-click="stop" mini></paper-fab>
+				<paper-fab class="selectable" icon="social:share" mini on-click="openShareDialog"></paper-fab>
 			</div>
 
 			<qi-card-tray id="cardtray">
@@ -108,6 +108,9 @@ Polymer({
 	},
 
 	stop: function(){
+	},
+
+	toggleSelectableButtons: function(){
 		
 	}
 
