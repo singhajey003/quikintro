@@ -13,9 +13,9 @@
 	<template>
 	 <div class="trait-wrapper"> 
 	    
-	 	<iron-selector >
+	 	<iron-selector id="traitSelector" multi="true" attr-for-selected="model">
 		<template is="dom-repeat" items="{{traits}}"  as="trait">
-			<span class="trait" model$="[[trait]]">[[trait]]</span>
+			<span class="trait" model$="[[trait]]" on-click="_select">[[trait]]</span>
 		</template>
 		</iron-selector>
 		
@@ -43,7 +43,12 @@
    			 * A message to be displayed if the traits array is empty
    			 */
    			emptymsg:{type: String}
+   		},
+
+   		_select: function(e){
+   			this.fire('tag-selected', {tag: e.srcElement.innerText});
    		}
+   		
 
 	});
 

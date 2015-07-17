@@ -9,30 +9,29 @@
 <link rel="import" href="../qi-card/qi-card-tray.html">
 <link rel="import" href="qi-article-card.html">
 <link rel="import" href="qi-speech-behavior.html">
+<link rel="import" href="qi-share-news-dialog.html">
+
 
 <dom-module id="qi-article-tray">
 
 	<style is="custom-style">
 	qi-card-tray{
-		width: 100;
+		width: 400px;
 		background-color: var(--tray-bgcolor);
 	}
 
 	</style>
 
-
-
-<template>
-		
-		
+	<template>
+				
 		<div class="fab-tray">
-			<paper-fab class="selectable" icon="av:skip-previous" on-click="back" ></paper-fab>
-			<paper-fab class="selectable" icon="av:play-arrow" on-click="play" ></paper-fab>
-			<paper-fab class="selectable" icon="av:pause" on-click="pause" ></paper-fab>
-			<paper-fab class="selectable" icon="av:skip-next" on-click="fwd" ></paper-fab>
+			<paper-fab class="selectable" icon="av:skip-previous" on-click="back" mini></paper-fab>
+			<paper-fab class="selectable" icon="av:play-arrow" on-click="play" mini></paper-fab>
+			<paper-fab class="selectable" icon="av:pause" on-click="pause" mini></paper-fab>
+			<paper-fab class="selectable" icon="av:skip-next" on-click="next" mini></paper-fab>
 			
-			<paper-fab class="selectable" icon="av:stop" on-click="stop" ></paper-fab>
-			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog"></paper-fab>
+			<paper-fab class="selectable" icon="av:stop" on-click="stop" mini></paper-fab>
+			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog" mini></paper-fab>
 		</div>
 
 		<qi-card-tray id="cardtray">
@@ -45,9 +44,9 @@
 		</template>
 		</qi-card-tray>
 
+		<qi-share-news-dialog id="shareDialog" articles="[[selectedArticles]]"></qi-share-news-dialog>
 
-
-</template>
+	</template>
 
 <script>
 Polymer({
@@ -94,6 +93,7 @@ Polymer({
 				this.msgs.push(this.cleanMessageText(article.title + "." + article.abstract));
 			}
 		});
+
 	},
 
 
@@ -109,7 +109,7 @@ Polymer({
 	 * This method displays the 
 	 */
 	openShareDialog: function(){
-		console.log("share dialog");
+		this.$.shareDialog.open();
 	},
 
 
