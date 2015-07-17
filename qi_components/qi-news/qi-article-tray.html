@@ -8,6 +8,7 @@
 
 <link rel="import" href="../qi-card/qi-card-tray.html">
 <link rel="import" href="qi-article-card.html">
+<link rel="import" href="qi-speech-behavior.html">
 
 <dom-module id="qi-article-tray">
 
@@ -24,24 +25,25 @@
 <template>
 		
 		
-			<div class="fab-tray">
-				<paper-fab class="selectable" icon="av:skip-previous" on-click="back" mini></paper-fab>
-				<paper-fab class="selectable" icon="av:play-arrow" on-click="play" mini></paper-fab>
-				<paper-fab class="selectable" icon="av:skip-next" on-click="fwd" mini></paper-fab>
-				
-				<paper-fab class="selectable" icon="av:stop" on-click="stop" mini></paper-fab>
-				<paper-fab class="selectable" icon="social:share" mini on-click="openShareDialog"></paper-fab>
-			</div>
+		<div class="fab-tray">
+			<paper-fab class="selectable" icon="av:skip-previous" on-click="back" ></paper-fab>
+			<paper-fab class="selectable" icon="av:play-arrow" on-click="play" ></paper-fab>
+			<paper-fab class="selectable" icon="av:pause" on-click="pause" ></paper-fab>
+			<paper-fab class="selectable" icon="av:skip-next" on-click="fwd" ></paper-fab>
+			
+			<paper-fab class="selectable" icon="av:stop" on-click="stop" ></paper-fab>
+			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog"></paper-fab>
+		</div>
 
-			<qi-card-tray id="cardtray">
-			<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
-				<span>[[feed.name]]</span>
-				<template is="dom-repeat" items="[[feed.articles]]" as="article">
-					<qi-article-card id="{{articleId}}"class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
-				</template>
-
+		<qi-card-tray id="cardtray">
+		<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
+			<span>[[feed.name]]</span>
+			<template is="dom-repeat" items="[[feed.articles]]" as="article">
+				<qi-article-card id="{{articleId}}"class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
 			</template>
-			</qi-card-tray>
+
+		</template>
+		</qi-card-tray>
 
 
 
@@ -50,6 +52,9 @@
 <script>
 Polymer({
 	is:'qi-article-tray',
+
+	behaviors: [QiSpeechBehavior],
+
 	properties:{
 		/**
 		 * A JSON object containing all news feeds.
@@ -69,11 +74,29 @@ Polymer({
 			computed: 'getArticleId(id)'
 		},
 
+		/**
+		 * An array of the models for the selected article cards.
+		 */
 		selectedArticles: {
 			type: Array,
 			value: []
 		}
 	},
+
+
+
+	ready: function(){
+		var cardtray = this.$.cardtray;
+		var msgs = this.msgs;
+		this.addEventListener('card-selected', function(e){
+			this.selectedArticles = cardtray.getSelected();
+			for(article of this.selectedArticles){
+				this.msgs.push(this.cleanMessageText(article.title + "." + article.abstract));
+			}
+		});
+	},
+
+
 
 	/**
 	 * A method that creates a unique article ID
@@ -89,26 +112,7 @@ Polymer({
 		console.log("share dialog");
 	},
 
-	play: function(){
-		var cardtray = this.$.cardtray;
-		var selected = cardtray.getSelected();
-		for(var i=0; i < selected.length; i++){
-			console.log("model: " + selected.model);
-			this.selectedArticles.push(selected.model);
-		}
-		console.log("models: " + this.selectedArticles);
-	},
 
-	fwd: function(){
-
-	},
-
-	bck: function(){
-
-	},
-
-	stop: function(){
-	},
 
 	toggleSelectableButtons: function(){
 		

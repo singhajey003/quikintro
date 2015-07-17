@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-icons/av-icons.html"> 
+
+<link rel="import" href="qi-">
+
+<dom-module id="qi-share-news-dialog">
+
+	<template>
+	<paper-dialog>
+
+		<paper-textarea value="{{msg}}"></paper-textarea>
+		
+		<div>
+		<paper-button icon="av:previous" on-click="prev"></paper-button>
+		<paper-button icon="av:next" on-click="next"></paper-button>
+		</div>
+  		<div class="buttons">
+		  	<paper-button dialog-dismiss>Cancel</paper-button>
+		  	<paper-button id="sendBtn" on-click="scheduleAction" dialog-confirm>Schedule</paper-button>
+		  	<paper-button id="sendBtn" on-click="sendAction" dialog-confirm>Send</paper-button>
+	  	  </div>
+	</paper-dialog>
+
+	</template>
+
+	<script>
+	Polymer({
+		is: 'qi-share-news-dialog',
+		properties:{
+			articles:{
+				type: Array
+			},
+			msgs:{
+				type: Array
+			}
+
+		},
+
+		ready: function(){
+			var tmp = document.createElement("div");
+
+			for(article of this.articles){
+				tmp.innerHtml = article.title + 
+			}
+		},
+
+		next: function(){
+
+		},
+
+		prev: function(){
+
+		}
+
+	});
+
+
+	</script>
+
+
+</dom-module>

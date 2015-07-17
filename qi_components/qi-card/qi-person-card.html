@@ -137,18 +137,10 @@
 			fullName: {
 				type:String,
 				computed: 'computeName(model.firstName, model.lastName)' 
-			},
-
-			selectedStyle:{
-				type: String,
-				computed: 'getSelectedStyle(selected)'
 			}
 			
 		},
 
-		getSelectedStyle: function(selected){
-			return "";	
-		},
 
 		/**
 		 * This method concatenates the first and last name of the contact.

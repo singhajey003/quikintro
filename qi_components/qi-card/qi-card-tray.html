@@ -20,7 +20,7 @@
 	<template>
 	<div class="tray">
 		<div id="[[id]]" class="layout horizontal">
-		<iron-selector id="selector" multi="true">
+		<iron-selector id="selector" multi="true" attr-for-selected="model">
 			<content select=".selectable-card"></content>
 		</iron-selector>
 		<content select=".fab-tray"></content>	
@@ -36,7 +36,7 @@
 	Polymer({
 		is: 'qi-card-tray',
 		getSelected: function(){
-			return this.$.selector.selectedItems;
+			return this.$.selector.selectedValues;
 		}
 
 	});

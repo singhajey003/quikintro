@@ -1,0 +1,130 @@
+<!--
+ This behavior contains properties and methods used by any component wishing 
+ to implement speech.
+
+ @polymerBehavior QiSpeechBehavior
+-->
+<script>
+QiSpeechBehavior = {
+
+	properties:{
+
+		/**
+		 * The index of the message currently being read.
+		 */
+		currIndex:{
+			type: Number,
+			value: 0,
+
+		},
+
+		/**
+		 * The speech utterance object.  This contains 
+		 * the configuration for the speech element.
+		 */
+		speech:{
+			type: Object,
+			value: new SpeechSynthesisUtterance()
+		},
+
+		/**
+		 *	The name of the voice
+		 */
+		voiceName:{
+			type: String,
+			value: 'Google UK English Female'
+		},
+
+		/**
+		 * This computed property contains the currently selected voice.
+		 */
+		voice:{
+			type: Object,
+			computed: '_getVoice(voiceName)'
+		},
+
+
+
+		/**
+		 * An array of text messages to be spoken.
+		 */
+		msgs:{
+			type: Array,
+			value: []
+		}
+
+
+	},
+
+	_getVoice: function(name){
+		var voice = window.speechSynthesis.getVoices().filter(function(currVoice){
+			return currVoice.name = name;
+		});
+
+		return voice;
+	},
+
+
+	play: function(){
+		this.speech.text = this.msgs[this.currIndex];
+		window.speechSynthesis.speak(this.speech);
+	},
+
+	/**
+	 * Advances to the next message in the queue, stops the currently playing
+	 * speech, and starts the next speech.
+	 */
+	next: function(){
+		if (this.currIndex == this.msgs.length){
+			return;
+		}else {
+			this.currIndex++;
+		}
+		stop();
+		play();
+	},
+
+	/**
+	 * Advances to the previous message in the queue, stops the currently playing
+	 * speech, and starts the next speech.
+	 */
+	prev: function(){
+		if(this.currIndex == 0){
+			return;
+		}else {
+			this.currIndex--;
+		}
+		stop();
+		play();
+	},
+
+	stop: function(){
+		window.speechSynthesis.cancel();
+	},
+
+	pause: function(){
+
+	},
+
+
+
+
+
+	/**
+	 * Takes a message containing html and converts it to pure text
+	 * so that the speech synthesizer can read it properly.
+	 * @param text  the html text to be converted.
+	 */
+	cleanMessageText: function(text){
+		var tmp = document.createElement("div");
+		tmp.innerHTML = article.title + "." + article.abstract;
+		return tmp.textContent || tmp.innerText || "";
+	}
+
+
+
+};
+
+
+
+</script>

@@ -127,6 +127,10 @@
 
   	},
 
+  	/**
+  	 * This method retrieves the style used to indicate the source of the article.
+  	 * @param the feed object
+  	 */
   	getLogoUrl: function(feed){
   		return "background-image: url(" + feed.imageUrl +")";
   	},
@@ -141,11 +145,8 @@
 
 
   	expand:function(){
+  		//TODO: implement expand article card functionality
   		console.log("Expand card");
-  	},
-
-  	getModel: function(){
-  		return this.model;
   	}
 
 

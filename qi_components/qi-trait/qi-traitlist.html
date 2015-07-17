@@ -1,3 +1,10 @@
+<!--
+ This module is used to render a list of traits.
+
+-->
+
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+
 <dom-module id='qi-traitlist'  > 
 
 	<link rel="stylesheet" href="../quikintro.css" >
@@ -6,9 +13,11 @@
 	<template>
 	 <div class="trait-wrapper"> 
 	    
+	 	<iron-selector >
 		<template is="dom-repeat" items="{{traits}}"  as="trait">
-			<span class="trait">[[trait]]</span>
+			<span class="trait" model$="[[trait]]">[[trait]]</span>
 		</template>
+		</iron-selector>
 		
 
 		<template is="dom-if" if="{{traits.length == 0}}">
