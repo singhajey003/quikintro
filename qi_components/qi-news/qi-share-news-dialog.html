@@ -146,7 +146,6 @@
 		},
 
 		ready: function(){
-			console.log(this.currIndex);
 			this.addEventListener('tag-selected', function(e){
 				this.msg = this.msg +  " \#" + e.detail.tag;
 				this.msgs[this.currIndex] = this.msg;

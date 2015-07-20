@@ -51,11 +51,23 @@ QiSpeechBehavior = {
 		msgs:{
 			type: Array,
 			value: []
+		},
+
+		/**
+		 * A flag indicating that the speech synthesizer is paused.
+		 */
+		isPaused: {
+			type: Boolean,
+			value: false
 		}
 
 
 	},
 
+	/**
+	 * This method gets the specified voice
+	 * @param name the name of the voice
+	 */
 	_getVoice: function(name){
 		var voice = window.speechSynthesis.getVoices().filter(function(currVoice){
 			return currVoice.name = name;
@@ -65,9 +77,15 @@ QiSpeechBehavior = {
 	},
 
 
+	/**
+	 * This method 'plays' the current article.
+	 */
 	play: function(){
 		this.speech.text = this.msgs[this.currIndex];
+		console.log(this.speech.text);
+		
 		window.speechSynthesis.speak(this.speech);
+		window.speechSynthesis.cancel();
 	},
 
 	/**
@@ -98,14 +116,38 @@ QiSpeechBehavior = {
 		play();
 	},
 
+	/**
+	 * This method stops the speech synthesizer from speaking.
+	 */
 	stop: function(){
 		window.speechSynthesis.cancel();
 	},
 
+	/**
+	 * This method pauses the speech synthesizer.
+	 */
 	pause: function(){
-		//TODO: implement the speech pause functionality
+		window.speechSynthesis.pause();
 	},
 
+	/**
+	 * This method resumes the speech synthesis session.
+	 */
+	resume: function(){
+		window.speechSynthesis.resume();
+	},
+
+	/**
+	 * This method toggles between the paused/resumed state.
+	 */
+	togglePause: function(){
+		isPaused = !isPaused;
+		if(isPaused){
+			this.pause();
+		}else {
+			this.resume();
+		}
+	},
 
 
 
