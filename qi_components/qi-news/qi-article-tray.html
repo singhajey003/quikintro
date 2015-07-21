@@ -38,7 +38,7 @@
 		<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
 			<span>[[feed.name]]</span>
 			<template is="dom-repeat" items="[[feed.articles]]" as="article">
-				<qi-article-card id="{{articleId}}"class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
+				<qi-article-card id="{{articleId}}" class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
 			</template>
 
 		</template>

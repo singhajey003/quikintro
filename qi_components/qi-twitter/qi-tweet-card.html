@@ -3,38 +3,59 @@
 <link rel="import" href="../../bower_components/iron-icons/av-icons.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
+<link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-toggle/qi-toggle.html">
 
-<dom-module id='qi-tweet-card'  > 
 
-	<link rel="stylesheet" href="../quikintro.css" >
-	<link rel="stylesheet" href="../qi-cards.css" > 
+<dom-module id='qi-tweet-card'> 
 
-	
+	<style>
+	.photo{
+		min-width: 100px;
+		min-height: 100px;
+		background-repeat: none;
+		background-size: cover;
+	}
+
+	.content{
+		padding-left: 5px;
+	}
+
+
+	.card-wrapper{
+		background-color: white;
+		min-height: 100px;
+		border-bottom: 2px solid #505050;
+	}
+
+	.selectedCard{
+		background-color: #9a9a9a;
+	}
+
+
+	</style>
+
 	<template>
 	
-	<div class="card-wrapper">  
+	<div id="[[model.id]]" class$="[[selectedStyle]]" on-click="select">  
 
-		<div class="card card-photo tweet">
-			<div class="photo" style$="bgImage" ></div>
+		<div class="card card-photo">
 
-			<header>
-				<div><a class="userName" href="https://twitter.com/{{tweet.user.screen_name}}">{{tweet.user.name}}</a></div>
-				<h3>{{tweet.user.screen_name}}</h3>
-			</header>
+			<div class="layout horizontal">
+				<div class="photo" style$="[[bgImage]]" ></div>
 
-			<div class="summary">
-				{{tweet.text}}
+				<div class="content layout vertical">
+					<div>
+					<a class="userName" href="[[userLink]]">[[model.user.name]]</a>
+					<span>[[screenName]]</span>
+					</div>
+					<span>[[model.text]]</span>
+				</div>
 			</div>
+			
 
-			<div class="card-actions horizontal justified layout center" >  
-				<paper-button role="button" on-click="openDialog"> 
-					<iron-icon icon="reply"></iron-icon>
-				</paper-button>
-
+			<div class="card-actions horizontal justified layout center" >  				
 				<qi-toggle openIcon="star" closedIcon="star-outline"></qi-toggle>
-
-				<paper-button role="button"><a href="https://twitter.com/{{tweet.user.screen_name}}/status/{{tweet.id}}">View</a></paper-button>
-
 			</div>
 
 		</div>
@@ -48,47 +69,41 @@
 	var TwitterCard = Polymer({
    		is: 'qi-tweet-card', 
 
+   		behaviors: [QiCardBehavior],
+
    		properties:{
-   			tweet:{type: Object},
    			bgImage: {
    				type: String,
-   				computed:'_makeImage(tweet.user.profile_image_url)'
+   				computed:'_makeImage(model.user.profile_image_url)'
+   			},
+   			userLink: {
+   				type: String,
+   				computed: '_makeLink(model.user.screen_name)'
+   			},
+   			screenName: {
+   				type: String,
+   				computed: '_makeScreenName(model.user.screen_name)'
    			}
+
+   		},
+
+   		_makeScreenName: function(name){
+   			return "@" + name;
+   		},
+
+   		_makeLink: function(name){
+   			return "https://twitter.com/" + name;
    		},
 
    		_makeImage: function(url){
    			return "background-image:url('" + url +"')"
-   		},
+   		}
 
-		openDialog: function(){
-			this.fire("openTweetDialog");
-		}
+
  
 		
 	});
 
    </script>
 
-
-
-
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module> 

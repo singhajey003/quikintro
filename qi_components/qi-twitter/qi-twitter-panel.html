@@ -26,19 +26,18 @@
 	<template>
 
 	<iron-ajax id="ajax"
-	auto="true"
-	  url="{{dataUrl}}"
+		auto="true"
+	  url="[[dataurl]]"
 	  handleAs="json"
-	  on-response="handleResponse" last-response="{{response}}" on-error="errorHandler"></iron-ajax>
+	  last-response="{{response}}" on-error="errorHandler"></iron-ajax>
 
 	<paper-header-panel class="flex fit layout vertical"> 
 
-	 
 		<div class="hashtagBanner layout horizontal">
-			<div class="label">Event Hashtag:</div> 
+			<div class="label">Event Hashtag:</div> <span >[[hashtag]]</span>
 		</div> 
 	 
-	    <qi-tweet-tray tweets="[[response.statuses]]" hashtag="[[hashtag]]"></qi-tweet-tray>
+	    <qi-tweet-tray tweets="{{response.statuses}}" hashtag="[[hashtag]]"></qi-tweet-tray>
 	</paper-header-panel>
 
 	</template>
@@ -49,47 +48,42 @@
     		is: 'qi-twitter-panel', 
 
     		properties:{
-    			dataUrl: {type: String, value:'', notify: true, observer: 'dataUrlChanged'},
-    			hashtag: {type: String},
-    			response: {type: Object, notify: true, observer: 'responseChanged'}
+    			dataurl: {
+    				type: String, 
+    				value:'', 
+    				notify: true, 
+    				observer: 'dataUrlChanged'
+    			},
+
+    			hashtag: {
+    				type: String
+    			},
+
+    			response: {
+    				type: Object, 
+    				notify: true
+    			}
     		},
 
     		dataUrlChanged: function(newUrl, oldUrl){
-    			
-    		},
-
-    		responseChanged:function(newResponse, oldResponse){
-    			console.log(newResponse);
-    		},
-
-    		handleResponse: function(e){
-    			console.log(e.detail.response);
-    			console.log(e.detail.requestUrl);
-    	// 		var streamTray = this.$.streamTray;
-    	// 		var newResponse = e.detail.response;
-    	// 		if(newResponse != null){
-					// var values = newResponse.statuses;
-					// for(var i=0; i < values.length; i++ ){
-					// 	var childNode = new TwitterCard();
-					// 	childNode.tweet = values[i];
-					// 	streamTray.addChildNode(childNode);
-					// }
-    	// 		}
+    			if(newUrl != null && newUrl != ''){
+	    			this.$.ajax.url = newUrl;
+	    			this.$.ajax.generateRequest();
+	    		}
 	    	},
 
+
 	    	errorHandler: function(e){
+	    		console.log("An error occurred");
 	    		console.log(e);
 	    	},
 
 			ready: function(){
 				
-			},
-
-
-			activate: function(){
-				this.ajax.url = this.dataUrl;
-				this.ajax.generateRequest();
 			}
+
+
+
 		
 		});
 
