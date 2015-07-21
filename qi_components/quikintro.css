@@ -145,10 +145,6 @@ paper-dropdown core-item {
 paper-button a, paper-button a:link, paper-button a:visited {
   text-decoration: none; }
 
-/* Paper FAB */
-paper-fab {
-  margin: 5px 15px; }
-
 div.checkbox-row {
   margin-top: 10px; }
 

@@ -16,7 +16,7 @@
  	</style>
 
 	<template>
-	<paper-dialog>
+	<paper-dialog id="replyDialog">
 		<paper-textarea id="tweet" class="flex" value="{{tweet}}" maxRows="3" ></paper-textarea>
 
 		<div class="buttons">
@@ -31,7 +31,7 @@
 	<script>
 	Polymer({
 		is:'qi-twitter-reply-dialog',
-		
+
 		properties: {
 			/**
 			 * The text of the tweet.
@@ -39,6 +39,10 @@
 			tweet:{
 				type: String
 			}
+		},
+
+		open: function(){
+			this.$.replyDialog.open();
 		},
 
 		/**

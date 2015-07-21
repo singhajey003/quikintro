@@ -13,13 +13,18 @@
 	 		height: var(--dialog-height);
 	 		width: var(--dialog-width);
 	 	}
+
+	 	#tweet{
+	 		height: 80px;
+	 	}
  	</style>
 
 	<template>
-	<paper-dialog>
+	<paper-dialog id="noteDialog" class="layout vertical">
+		<h2>Add To Notebook</h2>
 		<paper-textarea id="tweet" class="flex" value="{{note}}" maxRows="3" ></paper-textarea>
 
-		<div class="buttons">
+		<div class="buttons layout horizontal">
 		  	<paper-button dialog-dismiss>Cancel</paper-button>
 		  	<paper-button id="sendBtn" on-click="sendAction" dialog-confirm>Send</paper-button>
 	  	 </div>
@@ -47,6 +52,11 @@
 				type: Array,
 				value: []
 			}
+		},
+
+		open: function(){
+			this.$.noteDialog.open();
+
 		},
 
 		sendAction: function(){

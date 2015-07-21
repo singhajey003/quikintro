@@ -57,9 +57,7 @@
       </div>
 
       <div id="invTray" class="fit" style="overflow:auto">
-          <template is="dom-repeat" items="{{invites}}" index-as="invId" as="inv">
-          <qi-invite-card invite="{{inv}}" id="{{invId}}"></qi-invite-card>
-          </template>
+        <qi-invite-tray model="[[invites]]"></qi-invite-tray>
       </div>
 
       <div id="mtgTray" class="fit" style="overflow:auto">

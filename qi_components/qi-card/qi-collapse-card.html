@@ -1,0 +1,88 @@
+<!--
+
+<qi-collapse-card model="[[model]]">
+<content class="headerContent">The visible content</content>
+<content class="collapseContent"> The hidden content</content>
+
+</qi-collapse-card>
+
+-->
+<link rel="import" href="qi-card-behavior.html">
+<dom-module id="qi-collapse-card">
+
+
+	<template>
+	<div id="card" class$="[[selectedStyle]]" on-click="select"> 
+
+		<div class="">
+
+			<qi-avatar url="[[model.image]]"></qi-avatar>
+
+			<content select=".headerContent"></content>
+
+
+			<div class="card-actions horizontal justified layout center" > 
+				<qi-toggle isOpened="{{isOpen}}" on-click="toggleAction"></qi-toggle>
+			</div>
+
+			<iron-collapse id="collapse" opened="{{isOpen}}">
+				<content select=".collapseContent"></content>
+			</iron-collapse>
+
+		</div>
+	</div>
+
+
+	</template>
+
+
+	<script>
+	Polymer({
+		is: 'qi-collapse-card',
+		behaviors: [QiCardBehavior],
+
+		properties:{
+						/**
+			 * This flag determines if the card's collapse pane is open.
+			 */
+			isOpen: {
+				type: Boolean, 
+				value: false
+			},
+
+			/**
+			 * This computed property concatenates the first and last name of the contact.
+			 */
+			fullName: {
+				type:String,
+				computed: 'computeName(contact.firstName, contact.lastName)' 
+			}
+
+		},
+
+		/**
+		 * This method concatenates the first and last name of the contact.
+		 * @param firstName the first name of the contact
+		 * @param lastName the last name of the contact
+		 */
+		computeName: function(firstName, lastName){
+			return firstName + " " + lastName;
+		},
+
+		 /**
+	      * This method toggles the collapse pane.
+	      */
+	     toggleAction: function(e){
+	     	this.isOpen != this.isOpen;
+	     	this.$.collapse.toggle();
+	     }
+
+
+
+	});
+
+	</script>
+
+
+
+</dom-module>

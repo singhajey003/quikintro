@@ -11,20 +11,23 @@
 
 	<style>
 	.photo{
-		min-width: 100px;
-		min-height: 100px;
+		min-width: 50px;
+		min-height: 50px;
 		background-repeat: none;
 		background-size: cover;
 	}
 
 	.content{
 		padding-left: 5px;
+		margin-top: 0px;
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 
 
 	.card-wrapper{
 		background-color: white;
-		min-height: 100px;
+		height: 90px;
 		border-bottom: 2px solid #505050;
 	}
 
@@ -39,7 +42,7 @@
 	
 	<div id="[[model.id]]" class$="[[selectedStyle]]" on-click="select">  
 
-		<div class="card card-photo">
+		<div>
 
 			<div class="layout horizontal">
 				<div class="photo" style$="[[bgImage]]" ></div>

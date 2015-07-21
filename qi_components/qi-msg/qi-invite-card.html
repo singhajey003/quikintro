@@ -8,6 +8,7 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/paper-button/paper-button.html"> 
 
+<link rel="import" href="../qi-card/qi-card-behavior.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 <dom-module id='qi-invite-card' > 
@@ -20,21 +21,17 @@
 			<div class="layout horizontal" > 
 
 				<div class="avatarBlock">
-					<qi-avatar url="[[invite.sender.avatar]]"></qi-avatar> 
+					<qi-avatar url="[[model.sender.avatar]]"></qi-avatar> 
 				</div>
 
 				<div class="mainPanel">
 					<div class="senderBlock">
 						<span class="senderName">{{wholename}}</span>
 					</div>
-					<div class="msgBlock">[[invite.msg]]</div>
+					<div class="msgBlock">[[model.msg]]</div>
+					
 				</div>
 
-			</div>
-
-			<div class="buttons horizontal justified layout">
-				<paper-button affirmative on-click="acceptAction">Accept</paper-button> 
-				<paper-button dismissive on-click="declineAction">Decline</paper-button> 
 			</div>
 
 		</div>
@@ -45,7 +42,10 @@
 	var InvCard = Polymer({
    		is: 'qi-invite-card', 
 
+   		behaviors:[QiCardBehavior]
+
    		properties: {
+
    			/**
    			 * The numeric ID of the invitation.
    			 */
@@ -75,7 +75,15 @@
    			 */
    			wholename:{
    				type: String,
-   				computed: 'concatName(invite.sender.firstName, invite.sender.lastName)'
+   				computed: '_concatName(invite.sender.firstName, invite.sender.lastName)'
+   			},
+
+   			/**
+   			 * A flag indicating whether or not the collapse pane is open
+   			 */
+   			isOpen:{
+   				type: Boolean,
+   				value: false
    			}
    		},
 
@@ -83,7 +91,7 @@
    		 * This method prefixes the ID.
    		 * @param id the ID of the invitation.
    		 */
-   		concatId: function(id){
+   		_concatId: function(id){
 			return "inv-" + id;
 		},
 
@@ -92,7 +100,7 @@
 		 * @param firstName the first name of the sender
 		 * @param lastName the last name of the sender
 		 */
-   		concatName: function(firstName, lastName){
+   		_concatName: function(firstName, lastName){
    			return firstName + " " + lastName;
    		},
 
