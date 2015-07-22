@@ -1,0 +1,38 @@
+[
+	{
+		"sender":{
+			"firstName":"Dimitri",
+			"lastName":"Arges",
+			"title":"CEO",
+			"company":"QuikIntro",
+			"id":42267,
+			"interests":["startups"],
+		    "avatar": "https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+	        "food":["greek", "steak"],
+	        "drink":["merlot","cabernet"],
+		    "persona":"Developer"
+		    },
+		
+		"msg": "Hi Mark, we have some things in common and I’d like connect.",
+		"meetNow": true,
+		"meetLater": true
+	},
+	{
+		"sender":{
+			"firstName":"John",
+			"lastName":"Smith",
+			"title":"CSO",
+			"company":"Genentech",
+			"id":2,
+			"interests":["startups","cancer","antibodies","mAb","drug cocktails","CAR-T","clinical trials"],
+			"avatar":"",
+			"food":["thai","chinese","japanese","american","california cuisine", "steak"],
+	        "drink":["merlot","cabernet"],
+			"persona":"Cancer Biologist"
+		},
+		"msg": "Hi Mark, we have some things in common and I’d like connect.  I'm interested in learning more about the work you've been doing with mapping the target space for different types of cancer.",
+		"meetNow": true,
+		"meetLater": true
+
+	}
+]

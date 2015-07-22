@@ -70,7 +70,7 @@
         },
         "lookingFor": {
             "skills": ["cancer biology", "oncology"],
-            "interests": ["integrative biology", "systems biology", "cancer biology", "oncology", "clinical trials", "ADCs", "immunotherapy", "cocktails", "pathways"],
+            "interests": ["integrative biology", "systems biology", "cancer biology", "oncology", "clinical trials", "ADCs", "CAR-T","immunotherapy", "cocktails", "pathways"],
             "interactions": ["I'm Open"]
         },
         "notLookingFor": {
@@ -93,7 +93,7 @@
         "blurb": "I'm a toolbuilder, and entrepreneur with an abiding interest in using technology to solve problems in cancer biology and drug discovery",
         "aboutMe": {
             "skills": ["polymer", "css", "groovy", "java", "html5", "bioinformatics", "grails", "javascript"],
-            "interests": ["bioinformatics", "cancer biology"],
+            "interests": ["bioinformatics", "cancer","startups"],
             "interactions": []
         },
         "lookingFor": {

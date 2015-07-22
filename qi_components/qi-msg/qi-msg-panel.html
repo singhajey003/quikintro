@@ -23,7 +23,7 @@
 
 <link rel="import" href="qi-msg-card.html">
 <link rel="import" href="qi-mtg-card.html">
-<link rel="import" href="qi-invite-card.html">
+<link rel="import" href="qi-invite-tray.html">
 
 
 <dom-module id='qi-msg-panel'  >
@@ -57,7 +57,7 @@
       </div>
 
       <div id="invTray" class="fit" style="overflow:auto">
-        <qi-invite-tray model="[[invites]]"></qi-invite-tray>
+        <qi-invite-tray class="fit" model="[[invites]]"></qi-invite-tray>
       </div>
 
       <div id="mtgTray" class="fit" style="overflow:auto">

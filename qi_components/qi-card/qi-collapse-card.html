@@ -1,27 +1,33 @@
 <!--
 
-<qi-collapse-card model="[[model]]">
+<qi-collapse-card model="[[model]]" image="[[image]]">
 <content class="headerContent">The visible content</content>
 <content class="collapseContent"> The hidden content</content>
 
 </qi-collapse-card>
 
 -->
+
 <link rel="import" href="qi-card-behavior.html">
+<link rel="import" href="../qi-toggle/qi-toggle.html">
+<link rel="import" href="../qi-avatar/qi-avatar.html">
+
+
 <dom-module id="qi-collapse-card">
 
-
 	<template>
-	<div id="card" class$="[[selectedStyle]]" on-click="select"> 
+	<div id="[[id]]" class$="[[selectedStyle]]" on-click="select"> 
 
 		<div class="">
 
-			<qi-avatar url="[[model.image]]"></qi-avatar>
+			<qi-avatar url="[[image]]"></qi-avatar>
 
+			<div>
 			<content select=".headerContent"></content>
+			</div>
 
 
-			<div class="card-actions horizontal justified layout center" > 
+			<div class="card-actions layout horizontal end-justified" > 
 				<qi-toggle isOpened="{{isOpen}}" on-click="toggleAction"></qi-toggle>
 			</div>
 
@@ -42,7 +48,7 @@
 		behaviors: [QiCardBehavior],
 
 		properties:{
-						/**
+			/**
 			 * This flag determines if the card's collapse pane is open.
 			 */
 			isOpen: {
@@ -55,7 +61,7 @@
 			 */
 			fullName: {
 				type:String,
-				computed: 'computeName(contact.firstName, contact.lastName)' 
+				computed: '_computeName(contact.firstName, contact.lastName)' 
 			}
 
 		},
@@ -65,7 +71,7 @@
 		 * @param firstName the first name of the contact
 		 * @param lastName the last name of the contact
 		 */
-		computeName: function(firstName, lastName){
+		_computeName: function(firstName, lastName){
 			return firstName + " " + lastName;
 		},
 
