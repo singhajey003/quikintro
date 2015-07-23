@@ -1,13 +1,15 @@
 <!--
 
 <qi-collapse-card model="[[model]]" image="[[image]]">
-<content class="headerContent">The visible content</content>
-<content class="collapseContent"> The hidden content</content>
+<content main>The visible content</content>
+<content collapse> The hidden content</content>
 
 </qi-collapse-card>
 
+ 	@group QI Elements
+ 	@element qi-collapse-card
 -->
-
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
 
 <link rel="import" href="qi-card-behavior.html">
@@ -20,15 +22,44 @@
 <dom-module id="qi-collapse-card">
 
 	<style>
-	.selectable-card{
-		border: 1px solid #505050;
+	:host >  ::content .selectable-card{
 		background-color: white;
-		width: var(--card-width, 100%);
-		height: var(--card-height, 90px);
+		width: var(--card-width, 300px);
+		height: var(--card-height, 130px);
+		margin-bottom: 3px;
+		border: 1px solid;
 	}
-	.card-actions{
+	:host > ::content .toggle-bar{
 		width: 100%;
+		min-height: 30px;
+		margin-top: 3px;
 	}
+	:host > ::content .main-content{
+		padding-left: 3px;
+	}
+
+	:host > ::content .persona{
+		font-size: 12px;
+		padding-left: 5px;
+	}
+
+	:host > ::content .persona > label{
+		font-weight: bold;
+	}
+
+	:host > ::content .score{
+		font-size: 12px;
+		padding-left: 5px;
+	}
+
+	:host > ::content .score > label{
+		font-weight: bold;
+	}
+
+	:host > ::content .selectedCard{
+		border: 1px solid black;
+	}
+
 
 	</style>
 
@@ -36,22 +67,32 @@
 	<div id="[[id]]" class$="[[selectedStyle]]" on-click="select"> 
 
 		<div class="layout vertical">
-			<div class="layout horizontal">
+			<div class="layout horizontal flex">
 
 				<qi-avatar url="[[image]]"></qi-avatar>
 
-				<div class="flex" style="height: 50px; width: 100%; border: 1px solid black">
-					<content select=".headerContent"></content>
+				<div class="main-content flex">
+					<content select="[main]"></content>
 				</div>
 			</div>
 
-			<div class="card-actions layout horizontal end-justified" > 
+			<div class="toggle-bar layout horizontal justified" > 
+				<div class="layout horizontal">
+					<div class="persona"><label>Persona: </label><span>[[model.sender.persona]]</span></div>
+					<div class="score"><label>Score: </label>[[model.sender.score]]</div>
+				</div>
+				<div class="end-justified">
 				<qi-toggle isOpened="{{isOpen}}" on-click="toggleAction"></qi-toggle>
+				</div>
 			</div>
 
 			<iron-collapse id="collapse" opened="{{isOpen}}">
-				<content select=".collapseContent"></content>
+				
+				<content select="[collapse]"></content>
+				
 			</iron-collapse>
+
+			
 		
 		</div>
 	</div>
@@ -79,9 +120,12 @@
 			fullName: {
 				type:String,
 				computed: '_computeName(contact.firstName, contact.lastName)' 
-			}
+			},
+
+
 
 		},
+
 
 		/**
 		 * This method concatenates the first and last name of the contact.

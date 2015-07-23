@@ -12,11 +12,18 @@
 
 <dom-module id='qi-msg-card'  >
 	
+	<style>
 
-	<link rel="stylesheet" href="qi-msg-card.css" > 
+	:host > ::content > .selectedCard{
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+
+	</style>
+
+	
 	<template>
 	
-	<div id="[[msgId]]" class="layout vertical justified card2">
+	<div id="[[msgId]]" class$="layout vertical justified selectable-card">
 		<div class="layout horizontal"> 
 
 			<div class="avatarBlock">
@@ -43,6 +50,8 @@
 	var MsgCard = Polymer({
         is: 'qi-msg-card', 
 
+        behaviors: [QiCardBehavior],
+
 		properties:{
 
 			/**
@@ -58,7 +67,7 @@
 			 */
 			wholename:{
 				type: String, 
-				computed:'concatName(msg.sender.firstName, msg.sender.lastName)'
+				computed:'_concatName(msg.sender.firstName, msg.sender.lastName)'
 			},
 
 			/**
@@ -85,7 +94,7 @@
 		/**
 		 * This method concatenates the first and last name of the sender.
 		 */
-		concatName: function(firstName, lastName){
+		_concatName: function(firstName, lastName){
 			return firstName + " " + lastName;
 		},
 		

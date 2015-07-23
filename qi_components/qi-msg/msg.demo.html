@@ -11,7 +11,7 @@
 
 
 	<link rel="import" href="../data/qi-data-loader.html">
-	<link rel="import" href="qi-invite-tray.html">
+	<link rel="import" href="qi-msg-tray.html">
 
 	<style>
 	qi-invite-tray{
@@ -25,8 +25,8 @@
 	
 	<template is="dom-bind">
 		<qi-data-loader></qi-data-loader>
-		<iron-localstorage name="invites" value="{{invites}}"></iron-localstorage>
-		<qi-invite-tray class="fit" model="[[invites]]"></qi-invite-tray>
+		<iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
+		<qi-msg-tray class="fit" model="[[msgs]]"></qi-msg-tray>
 	</template>
 	
 

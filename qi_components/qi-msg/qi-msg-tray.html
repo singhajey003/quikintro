@@ -4,14 +4,13 @@
 <link rel="import" href="../qi-card/qi-card-tray.html">
 <link rel="import" href="qi-invite-card.html">
 
-<dom-module id="qi-invite-tray">
+<dom-module id="qi-msg-tray">
 
 	<style is="custom-style">
 	qi-card-tray{
 		--tray-width: 380px;
 		background-color: var(--tray-bgcolor);
 	}
-
 
 	</style>
 
@@ -20,13 +19,12 @@
 	<template>
 
 		<div class="fab-tray">
-			<paper-fab class="selectable" icon="check" on-click="accept" mini>Accept</paper-fab>
-			<paper-fab class="selectable" icon="close" on-click="decline" mini>Decline</paper-fab>
+			<paper-fab class="selectable" icon="reply" on-click="reply" mini></paper-fab>
 		</div>
 
 		<qi-card-tray id="cardtray">
 		<template is="dom-repeat" items="[[model]]" index-as="id" as="invite">
-			<qi-invite-card id="[[inviteId]]" class="selectable-card" model="[[invite]]"></qi-invite-card>
+			<qi-msg-card id="[[inviteId]]" class="selectable-card" model="[[invite]]"></qi-msg-card>
 		</template>
 		</qi-card-tray>
 
@@ -35,7 +33,7 @@
 
 	<script>
 	Polymer({
-		is: 'qi-invite-tray',
+		is: 'qi-msg-tray',
 
 		properties:{
 
@@ -59,15 +57,9 @@
 			//TODO: implement the removal of selected cards.
 		},
 
-		accept: function(){
-			this._removeCards();
-			this.fire('show-toast',{text: 'Invitation(s) Accepted'});
+		reply: function(){
 
-		},
 
-		decline: function(){
-			_removeCards();
-			this.fire('show-toast', {text: 'Invitation(s) Declined'});
 		}
 
 	});

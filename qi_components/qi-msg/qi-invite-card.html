@@ -16,20 +16,32 @@
 
 <dom-module id='qi-invite-card' > 
 
-	<link rel="stylesheet" href="qi-msg-card.css" > 
+
+	<style>
+	:host > ::content .senderBlock{
+		font-size: 15px;
+	}
+
+	:host > ::content .msgBlock {
+		font-size: 12px;
+		color: #707070;
+	}
+	</style>
 
 	<template>
 		
-      <qi-collapse-card id="[[invId]]" model="[[model]]" image="[[model.sender.avatar]]">
-         <content class="headerContent">
+      <qi-collapse-card id="[[domId]]" model="[[model]]" image="[[model.sender.avatar]]">
+         <div main>
             <div class="senderBlock">
                   <span class="senderName">[[wholename]]</span>
             </div>
             <div class="msgBlock"><span>[[model.msg]]</span></div>
-         </content>
-         <content class="collapseContent">
-            <qi-traitlist traits="[[model.interests]]"></qi-traitlist>
-         </content>
+         </div>
+         <div collapse>
+         	<div>
+            <qi-traitlist traits="[[model.sender.interests]]"></qi-traitlist>
+            </div>
+         </div>
       </qi-collapse-card>
 
 	</template>
@@ -50,13 +62,6 @@
    				readonly: true
    			},
 
-   			/**
-   			 * The unique String version of the id, used for DOM manipulation.
-   			 */
-   			invId:{
-   				type: String,
-   				computed: '_concatId(id)'
-   			},
 
    			/**
    			 * The model for the invitation.
@@ -71,7 +76,7 @@
    			 */
    			wholename:{
    				type: String,
-   				computed: '_concatName(invite.sender.firstName, invite.sender.lastName)'
+   				computed: '_concatName(model.sender.firstName, model.sender.lastName)'
    			},
 
    			/**
@@ -87,9 +92,9 @@
    		 * This method prefixes the ID.
    		 * @param id the ID of the invitation.
    		 */
-   		_concatId: function(id){
+   		_computeDomId: function(id){
 			   return "inv-" + id;
-		    },
+		},
 
    		/**
    		 * This method concatenates the first and last name of the sender.

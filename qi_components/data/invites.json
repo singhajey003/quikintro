@@ -6,11 +6,12 @@
 			"title":"CEO",
 			"company":"QuikIntro",
 			"id":42267,
-			"interests":["startups"],
+			"interests":["startups","cancer","bioinformatics"],
+			"score":100,
 		    "avatar": "https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
 	        "food":["greek", "steak"],
 	        "drink":["merlot","cabernet"],
-		    "persona":"Developer"
+		    "persona":"Default LinkedIn Persona"
 		    },
 		
 		"msg": "Hi Mark, we have some things in common and I’d like connect.",
@@ -25,6 +26,7 @@
 			"company":"Genentech",
 			"id":2,
 			"interests":["startups","cancer","antibodies","mAb","drug cocktails","CAR-T","clinical trials"],
+			"score":70,
 			"avatar":"",
 			"food":["thai","chinese","japanese","american","california cuisine", "steak"],
 	        "drink":["merlot","cabernet"],
