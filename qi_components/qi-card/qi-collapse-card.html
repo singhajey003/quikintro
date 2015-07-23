@@ -15,19 +15,35 @@
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 
+
+
 <dom-module id="qi-collapse-card">
+
+	<style>
+	.selectable-card{
+		border: 1px solid #505050;
+		background-color: white;
+		width: var(--card-width, 100%);
+		height: var(--card-height, 90px);
+	}
+	.card-actions{
+		width: 100%;
+	}
+
+	</style>
 
 	<template>
 	<div id="[[id]]" class$="[[selectedStyle]]" on-click="select"> 
 
-		<div class="">
+		<div class="layout vertical">
+			<div class="layout horizontal">
 
-			<qi-avatar url="[[image]]"></qi-avatar>
+				<qi-avatar url="[[image]]"></qi-avatar>
 
-			<div>
-			<content select=".headerContent"></content>
+				<div class="flex" style="height: 50px; width: 100%; border: 1px solid black">
+					<content select=".headerContent"></content>
+				</div>
 			</div>
-
 
 			<div class="card-actions layout horizontal end-justified" > 
 				<qi-toggle isOpened="{{isOpen}}" on-click="toggleAction"></qi-toggle>
@@ -36,10 +52,9 @@
 			<iron-collapse id="collapse" opened="{{isOpen}}">
 				<content select=".collapseContent"></content>
 			</iron-collapse>
-
+		
 		</div>
 	</div>
-
 
 	</template>
 
