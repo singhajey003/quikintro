@@ -119,15 +119,9 @@
       mtgTray.appendChild(mtgCard);
     }
 
-   },
+   }
 
-   invitesChanged: function(newValue, oldValue){
-    if(newValue != null && newValue.length > 0){
-      var invTray = this.$.invTray;
-      var invCard = new InvCard();
-      invCard.msg = newValue[newValue.length];
-      invTray.appendChild(invCard)
-    }
+ 
 
    },
 

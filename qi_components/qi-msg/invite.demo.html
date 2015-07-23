@@ -17,6 +17,7 @@
 <body>
 	<div style="width: 400px">
 		<template is="dom-bind">
+			<qi-data-loader></qi-data-loader>
 			<iron-localstorage name="invites" value="{{invites}}"></iron-localstorage>
 			<qi-invite-tray class="fit" model="[[invites]]"></qi-invite-tray>
 		</template>
