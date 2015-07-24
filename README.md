@@ -8,7 +8,7 @@ You'll need to install the following tools if you haven't already
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [SourceTree](https://www.sourcetreeapp.com/) - which makes it easier to deal with git
 * [nodeJS](https://nodejs.org/download/)
-* [Ruby](http://www.ruby-lang.org/en/downloads/)If you're on OS X or Linux you probably already have Ruby installed; test with `ruby -v` in your terminal. When you've confirmed you have Ruby installed, run `gem install sass` to install Sass.
+* [Ruby](http://www.ruby-lang.org/en/downloads/) If you're on OS X or Linux you probably already have Ruby installed; test with `ruby -v` in your terminal. When you've confirmed you have Ruby installed, run `gem install sass` to install Sass.
 * [Sass](http://sass-lang.com/download.html)
 
 ###  Code Organization ###
