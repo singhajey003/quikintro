@@ -1,0 +1,27 @@
+
+<link rel="import" href="qi-feed-icon.html">
+<dom-module id="qi-feed-tray">
+
+	<template>
+
+	<template is="dom-repeat" items="[[model]]" as="feed">
+		<qi-feed-icon model="[[feed]]"></qi-feed-icon>
+	</template>
+
+
+
+	</template>
+
+	<script>
+	Polymer({
+		is: 'qi-feed-tray',
+		properties: {
+			model: {
+				type: Array,
+				value: []
+			}
+		}
+	});
+	</script>
+
+</dom-module>
