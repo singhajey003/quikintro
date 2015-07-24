@@ -18,6 +18,20 @@ Needed only one time
     npm install
     npm install grunt-cli -g
 
+Our project makes use of a number of grunt plugins that you will also need to install:
+
+    npm install grunt-contrib-sass
+    npm install grunt-express
+    npm install express
+    npm install grunt-contrib-watch
+    npm install grunt-contrib-copy
+
+You'll also need to install the project dependencies:
+
+    bower install or bower update
+
+This reads the bower.json file and installs the dependencies into the bower_components directory.
+
 Everytime (use any one of the following default: grunt server )
 
     grunt server
