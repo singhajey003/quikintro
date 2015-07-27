@@ -1,13 +1,39 @@
+<!--
 
+	@group QI Elements
+	@element qi-feed-tray
+-->
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="qi-feed-icon.html">
 <dom-module id="qi-feed-tray">
 
 	<template>
 
-	<template is="dom-repeat" items="[[model]]" as="feed">
-		<qi-feed-icon model="[[feed]]"></qi-feed-icon>
-	</template>
+	<style>
+	.feedtray{
+		min-height: 50px;
+		max-height: 52px;
+	}
+	.labeltray{
+		font-family: Verdana;
+		font-size: 12px;
+		background-color: #505050;
+	}
+	</style>
 
+	<div>
+
+		<div id="labeltray" class="labeltray">
+
+		</div>
+
+		<div class="feedtray layout horizontal">
+		<template is="dom-repeat" items="[[model]]" as="feed">
+			<qi-feed-icon model="[[feed]]"></qi-feed-icon>
+		</template>
+		</div>
+	</div>
 
 
 	</template>
@@ -20,6 +46,15 @@
 				type: Array,
 				value: []
 			}
+		},
+		ready: function(){
+			var labeltray = this.$.labeltray;
+
+			this.addEventListener('feed-selected', function(e){
+				labeltray.innerText = e.detail.name;
+
+				//TODO: add integration with news end point here.
+			})
 		}
 	});
 	</script>

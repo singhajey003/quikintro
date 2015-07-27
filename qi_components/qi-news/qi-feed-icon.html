@@ -1,4 +1,93 @@
+
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <dom-module id="qi-feed-icon">
+
+<template>
+
+	<style>
+	.fakeIcon{
+		background-color: #505050;
+		height: 50px;
+		width: 50px;
+		font-family: 'serif';
+		color: white;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+	iron-icon{
+		--iron-icon-width: 50px;
+		--iron-icon-height: 50px;
+		height: 50px;
+		width: 50px;
+	}
+
+	</style>
+
+
+	<template is="dom-if" if="{{!isIconNull}}">
+		<iron-icon src$="[[iconUrl]]" on-click="handleClick"></iron-icon>
+	</template>
+
+	<template is="dom-if" if="{{isIconNull}}">
+		<div class="fakeIcon" on-click="handleClick">[[fakeIcon]]</div>
+	</template>
+
+</template>
+
+<script>
+	Polymer({
+		is: 'qi-feed-icon',
+
+		properties:{
+			model:{
+				type: Object
+
+			},
+
+			fakeIcon:{
+				type: String,
+				computed: '_computeFakeIcon(model)'
+			},
+			icon:{
+				type: String,
+				computed: '_computeIcon(model)'
+			},
+			isIconNull:{
+				type: Boolean,
+				computed: '_isIconNull(model)'
+			},
+			iconUrl: {
+				type: String,
+				computed: '_getIconUrl(model)'
+			}
+		},
+
+		_getIconUrl: function(feed){
+			return "../data/news/" + feed.icon;
+		},
+
+		_isIconNull: function(feed){
+			return feed.icon == null || feed.icon == '';
+		},
+
+		_computeFakeIcon: function(feed){
+			return feed.name.substring(0);
+		},
+
+		_computeIcon: function(feed){
+			return feed.icon;
+		},
+
+		handleClick: function(e){
+			this.fire('feed-selected',{name: this.model.name});
+		}
+
+
+
+	});
+
+</script>
 
 
 </dom-module>

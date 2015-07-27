@@ -9,6 +9,8 @@
 
 	<link rel="import" href="../data/qi-data-loader.html">
 	<link rel="import" href="qi-article-tray.html">
+	<link rel="import" href="qi-feed-tray.html">
+	
 	<style is="custom-style">
 	qi-article-tray{
 		width: 100%;
@@ -22,8 +24,12 @@
 <body>
 	<template is="dom-bind">
 	<qi-data-loader></qi-data-loader>
-	<iron-localstorage id="newsStorage" name="news" value="{{news}}"></iron-localstorage>
-	<qi-article-tray news="{{news}}" ></qi-article-tray>
+	<iron-localstorage name="news" value="{{news}}"></iron-localstorage>
+	<iron-localstorage  name="feeds" value="{{feeds}}"></iron-localstorage>
+	<div class="demotray layout vertical">
+		<qi-feed-tray model="[[feeds]]"></qi-feed-tray>
+		<qi-article-tray news="{{news}}" ></qi-article-tray>
+	</div>
 	
 	</template>
 

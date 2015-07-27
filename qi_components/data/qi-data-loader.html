@@ -18,6 +18,7 @@ it can be easily accessed by other components.
         <iron-ajax auto="true" url="linkedin-profile.json" on-response="handleProfile" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="news/guardian.multi.json" on-response="handleNews" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="invites.json" on-response="handleInvites" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="news/feeds.json" on-response="handleFeeds" handle-as="json"></iron-ajax>
 
         <iron-localstorage name="invites" value="{{invites}}"></iron-localstorage>
         <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
@@ -27,6 +28,7 @@ it can be easily accessed by other components.
         <iron-localstorage name="notices" value="{{noticeList}}"></iron-localstorage>
         <iron-localstorage name="profile" value="{{profile}}"></iron-localstorage>
         <iron-localstorage name="news" value="{{news}}"></iron-localstorage>
+        <iron-localstorage name="feeds" value="{{feeds}}"></iron-localstorage>
     </template>
     <script>
     Polymer({
@@ -55,6 +57,9 @@ it can be easily accessed by other components.
                 type: Object
             },
             invites:{
+                type: Array
+            },
+            feeds:{
                 type: Array
             }
         },
@@ -86,6 +91,9 @@ it can be easily accessed by other components.
         },
         handleInvites: function(e){
             this.invites = e.detail.response;
+        },
+        handleFeeds: function(e){
+            this.feeds = e.detail.response;
         }
 
     });
