@@ -12,12 +12,13 @@
 <link rel="import" href="../qi-card/qi-collapse-card.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 
+<link rel="import" href="../qi-card/qi-card-tray.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 <dom-module id='qi-invite-card' > 
 
 
-	<style>
+	<style is="custom-style">
 	:host > ::content .senderBlock{
 		font-size: 15px;
 	}
@@ -25,6 +26,10 @@
 	:host > ::content .msgBlock {
 		font-size: 12px;
 		color: #707070;
+	}
+
+	:host > ::content > qi-collapse-card{
+		background-color: white;
 	}
 	</style>
 
@@ -41,6 +46,20 @@
          	<div>
             <qi-traitlist traits="[[model.sender.interests]]"></qi-traitlist>
             </div>
+<!--
+            <div>
+				<qi-card-tray id="cardtray">
+				
+					<template is="dom-repeat" items="[[tweets]]" as="tweet">
+						<qi-tweet-card id="[[articleId]]" cardstyle="card card-wrapper layout horizontal" class="selectable-card" model="[[tweet]]" ></qi-tweet-card>
+					</template>
+
+				
+				</qi-card-tray>
+
+            </div>
+-->
+
          </div>
       </qi-collapse-card>
 

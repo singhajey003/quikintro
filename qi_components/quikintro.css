@@ -70,9 +70,6 @@ iron-pages {
   background-repeat: no-repeat;
   background-position: -500px -25px; }
 
-iron-pages .content {
-  padding: 30px; }
-
 iron-pages > section {
   background-color: #eeeeee; }
 
