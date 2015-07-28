@@ -1,0 +1,100 @@
+<!--
+This component displays an icon with a label and the number of relevant notifications
+
+
+	@group QI Elements
+	@element qi-icon
+-->
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html" >
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
+
+<dom-module id='qi-icon'>
+
+	<style is="custom-style">
+
+   .number {
+     background: #fff;
+     width: 22px;
+     height: 22px;
+     position: absolute;
+     bottom: -9px;
+     right: -9px;
+     border-radius: 999px;
+     font-size: 0.8em;
+     font-weight: bold;
+   }
+
+    /* Home icons styling */
+    /*.dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      align-items:center;
+      align-content:stretch;
+      height:100%;
+      position: absolute;
+      right:0;
+      top:0;
+      background:#17aacf;
+    }
+
+    .dashboard a {
+      display:block;
+      width:50%;
+      text-align:center;
+      text-decoration:none;
+      position: relative;
+    }
+
+
+    .dashboard a span {
+      display:block;
+      margin:0.8em 0 0 0;
+      text-align:center;
+      color:#fff;
+
+    }*/
+
+    .dashboard a .icon-container {
+      position: relative;
+      display: inline-block;
+    }
+
+
+    iron-icon.icon-home {
+      height: 60px;
+      width: 60px;
+    }
+    </style>
+
+	<template>
+    <a href="#"><div class="icon-container"><iron-icon icon="qi:events" src={{src}} class="icon-home"></iron-icon><div class="number">{{count}}</div></div><span>Events</span></a>
+	</template>
+
+	<script>
+    // element registration
+    Polymer({
+      is: "qi-icon",
+
+      // add properties and methods on the element's prototype
+
+      properties: {
+        // declare properties for the element's public API
+        count: {
+          type: Number,
+          value: 0
+        },
+
+        src: {
+          type: String,
+          value: "Events"
+        },
+
+        label: {
+          type: String,
+          value: "Events"
+        }
+      }
+    });
+  </script>
+
+</dom-module>
