@@ -12,7 +12,7 @@
 <dom-module id='qi-home'  >
 
 <style>
-/* Home icons styling */
+
 .dashboard {
   display: flex;
   flex-wrap: wrap;
@@ -33,19 +33,6 @@
   position: relative;
 }
 
-.dashboard a .icon-container {
-  position: relative;
-  display: inline-block;
-}
-
-.dashboard a span {
-  display:block;
-  margin:0.8em 0 0 0;
-  text-align:center;
-  color:#fff;
-
-}
-
 </style>
 
 <link rel="stylesheet" href="../quikintro.css" >
@@ -56,29 +43,14 @@
 		<iron-localstorage name="notices" value="{{notifications}}"></iron-localstorage>
 
 		<div class="layout vertical flex">
-			<label style="margin-left: 5px">Notifications</label>
-
             <div class="dashboard">
                 <qi-icon icon="qi:events" label="Events" count="3"></qi-icon>
-                <qi-icon icon="qi:calendar" label="Calendar"></qi-icon>
-                <qi-icon></qi-icon>
-                <qi-icon></qi-icon>
-                <qi-icon></qi-icon>
-                <qi-icon></qi-icon>
-<!--                 <a href="#"><div class="icon-container"><iron-icon class="icon-home" src="../../images/around.svg"></iron-icon><qi-notifications></qi-notifications></div><span>Around me</span></a>
-                <a href="#"><div class="icon-container"><iron-icon class="icon-home" src="./icons/news.svg"></iron-icon><qi-notifications></qi-notifications></div><span>News</span></a>
-                <a href="#"><div class="icon-container"><iron-icon class="icon-home" src="./icons/messages.svg"></iron-icon><qi-notifications></qi-notifications></div><span>Messages</span></a>
-                <a href="#"><div class="icon-container"><iron-icon class="icon-home" src="./icons/contacts.svg"></iron-icon><qi-notifications></qi-notifications></div><span>Contacts</span></a>
-                <a href="#"><div class="icon-container"><iron-icon class="icon-home" src="./icons/settings.svg"></iron-icon><qi-notifications></qi-notifications></div><span>Settings</span></a>
- -->            </div>
-
-<!--
-            <div>
-      				<template is="dom-repeat" items="{{notifications}}"  as="notice">
-      					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
-      				</template>
-			     </div>
--->
+                <qi-icon icon="qi:around" label="Around me"></qi-icon>
+                <qi-icon icon="qi:news" label="News" count="5"></qi-icon>
+                <qi-icon icon="qi:messages" label="Messages" count="4"></qi-icon>
+                <qi-icon icon="qi:contacts" label="Contacts" count="2"></qi-icon>
+                <qi-icon icon="qi:settings" label="Settings" count="2"></qi-icon>
+           </div>
 		</div>
 
 	</template>

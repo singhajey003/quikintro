@@ -1,5 +1,5 @@
 <!--
-This component displays an icon with a label and the number of relevant notifications
+This component displays an icon with a label and a number of relevant notifications
 
 
 	@group QI Elements
@@ -17,27 +17,14 @@ This component displays an icon with a label and the number of relevant notifica
      width: 22px;
      height: 22px;
      position: absolute;
-     bottom: -9px;
-     right: -9px;
+     bottom: 35px;
+     right: 2px;
      border-radius: 999px;
      font-size: 0.8em;
      font-weight: bold;
    }
 
-    /* Home icons styling */
-    /*.dashboard {
-      display: flex;
-      flex-wrap: wrap;
-      align-items:center;
-      align-content:stretch;
-      height:100%;
-      position: absolute;
-      right:0;
-      top:0;
-      background:#17aacf;
-    }
-
-    .dashboard a {
+    .icon-container {
       display:block;
       width:50%;
       text-align:center;
@@ -46,33 +33,38 @@ This component displays an icon with a label and the number of relevant notifica
     }
 
 
-    .dashboard a span {
+    .icon-container label {
       display:block;
       margin:0.8em 0 0 0;
       text-align:center;
       color:#fff;
+      font-size: 1.0em;
+      font-weight: 300;
+    }
 
-    }*/
-
-    .dashboard a .icon-container {
+    .icon-container {
       position: relative;
       display: inline-block;
     }
 
 
-    iron-icon.icon-home {
-      height: 60px;
-      width: 60px;
+    .icon-home {
+      color:#fff;
+      --iron-icon-height: 60px;
+    --iron-icon-width: 60px;
+    }
+
+    .iron-icon-button {
       color:#fff;
     }
     </style>
 
-<template>    
+<template>
       <div class="icon-container" on-click="handleIconClick">
-          <iron-icon icon="{{icon}}" src="{{src}}" class="icon-home"></iron-icon>
+          <paper-icon-button icon="{{icon}}" class="icon-home"></paper-icon-button>
           <div class="number">{{count}}</div>
           <label>{{label}}</label>
-      </div>  
+      </div>
 </template>
 
 	<script>
@@ -87,11 +79,6 @@ This component displays an icon with a label and the number of relevant notifica
         count: {
           type: Number,
           value: 0
-        },
-
-        src: {
-          type: String,
-          value: "Events"
         },
 
         icon: {
