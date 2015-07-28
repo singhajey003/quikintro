@@ -66,9 +66,13 @@ This component displays an icon with a label and the number of relevant notifica
     }
     </style>
 
-	<template>
-    <a href="#"><div class="icon-container"><iron-icon icon="qi:events" src={{src}} class="icon-home"></iron-icon><div class="number">{{count}}</div></div><span>Events</span></a>
-	</template>
+<template>    
+      <div class="icon-container" on-click="handleIconClick">
+          <iron-icon icon="{{icon}}" src="{{src}}" class="icon-home"></iron-icon>
+          <div class="number">{{count}}</div>
+          <label>{{label}}</label>
+      </div>  
+</template>
 
 	<script>
     // element registration
@@ -89,10 +93,19 @@ This component displays an icon with a label and the number of relevant notifica
           value: "Events"
         },
 
+        icon: {
+          type: String,
+          value: "qi:events"
+        },
+
         label: {
           type: String,
           value: "Events"
         }
+      },
+
+      handleIconClick: function(e){
+        //TODO: implement click
       }
     });
   </script>
