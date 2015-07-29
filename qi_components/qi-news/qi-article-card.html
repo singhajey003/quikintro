@@ -73,16 +73,16 @@
 
 	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select">
 	  
-		<div class="layout vertical">
-	  	<div class="title flex" on-click="expand">
-	  		<span>[[model.title]]</span>
-	  	</div>
+		<div class="flex layout vertical">
+		  	<div class="title flex" on-click="expand">
+		  		<span>[[model.title]]</span>
+		  	</div>
 
-	  	<div class="metatray layout horizontal">
-	  		<div style$="[[logoUrl]]" class="logo"></div>
-	  		<div class="feedName">[[feed.name]]</div>
-	  		<div class="createdDate">[[model.createdDate]]</div>
-	  	</div>
+		  	<div class="metatray layout horizontal">
+		  		<div style$="[[logoUrl]]" class="logo"></div>
+		  		<div class="feedName">[[feed.name]]</div>
+		  		<div class="createdDate">[[model.createdDate]]</div>
+		  	</div>
 	  	</div>
 
 	  	<div class="thumbnail" style$="[[thumbnailUrl]]">
@@ -150,6 +150,7 @@
 
 
   	expand:function(){
+  		console.log("expanding");
   		//TODO: implement expand article card functionality
   		
   	}

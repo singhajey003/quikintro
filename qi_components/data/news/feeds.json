@@ -4,6 +4,43 @@
         "icon": "icons/guardian.png",
         "topics": ["news"]
     }, {
+        "name": "NY Times",
+        "url": "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+        "icon": "icons/nytimes.png",
+        "topics": ["news"]
+    }, {
+        "name": "SF Chronicle Technology",
+        "url": "http://www.sfgate.com/rss/feed/Tech-News-449.php",
+        "icon": "icons/sfgate.jpg",
+        "topics": ["technology"]
+    }, {
+        "name": "LA Times",
+        "url": "http://www.latimes.com/rss2.0.xml",
+        "icon": "icons/latimes.png",
+        "topics": ["news"]
+    }, {
+        "name": "The Times",
+        "url": "http://www.thetimes.co.uk/tto/news/rss",
+        "icon": "icons/times.png",
+        "topics": ["news"]
+    }, {
+        "name": "The Times: Americas",
+        "url": "http://www.thetimes.co.uk/tto/news/world/americas/rss",
+        "icon": "icons/times.png",
+        "topics": ["news", "regional news"]
+    }, {
+        "name": "Financial Times: UK",
+        "url": "http://www.ft.com/rss/home/uk",
+        "icon": "icons/ft.png",
+        "topics": ["news", "business", "regional news"]
+    }, {
+        "name": "Mercury News",
+        "url": "http://feeds.mercurynews.com/mngi/rss/CustomRssServlet/568/200735.xml",
+        "icon": "icons/mercurynews.jpg",
+        "topics": ["news"]
+    },
+
+    {
         "name": "Guardian Technology",
         "url": "http://www.theguardian.com/us/technology/rss",
         "icon": "icons/guardian.png",
@@ -12,11 +49,6 @@
         "name": "Guardian US News",
         "url": "http://www.theguardian.com/us/rss",
         "icon": "icons/guardian.png",
-        "topics": ["news"]
-    }, {
-        "name": "NY Times",
-        "url": "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-        "icon": "icons/nytimes.png",
         "topics": ["news"]
     }, {
         "name": "NY Times Business",
@@ -84,19 +116,10 @@
         "icon": "icons/cnet.png",
         "topics": ["technology"]
     }, {
-        "name": "SF Chronicle Technology",
-        "url": "http://www.sfgate.com/rss/feed/Tech-News-449.php",
-        "icon": "icons/sfgate.jpg",
-        "topics": ["technology"]
-    }, {
         "name": "NY Times International Arts",
         "url": "http://www.nytimes.com/services/xml/rss/nyt/InternationalArts.xml",
         "icon": "icons/nytimes.png",
         "topics": ["Arts"]
-    }, {
-        "name": "LA Times",
-        "url": "http://www.latimes.com/rss2.0.xml",
-        "topics": ["news"]
     }, {
         "name": "SF Chronicle: Bay Area News",
         "url": "http://www.sfgate.com/bayarea/feed/Bay-Area-News-429.php",
@@ -107,26 +130,6 @@
         "url": "http://www.sfgate.com/rss/feed/Business-and-Technology-News-448.php",
         "icon": "icons/sfgate.jpg",
         "topics": ["technology"]
-    }, {
-        "name": "The Times",
-        "url": "http://www.thetimes.co.uk/tto/news/rss",
-        "icon": "icons/times.png",
-        "topics": ["news"]
-    }, {
-        "name": "The Times: Americas",
-        "url": "http://www.thetimes.co.uk/tto/news/world/americas/rss",
-        "icon": "icons/times.png",
-        "topics": ["news", "regional news"]
-    }, {
-        "name": "Financial Times: UK",
-        "url": "http://www.ft.com/rss/home/uk",
-        "icon": "icons/ft.png",
-        "topics": ["news", "business", "regional news"]
-    }, {
-        "name": "Mercury News",
-        "url": "http://feeds.mercurynews.com/mngi/rss/CustomRssServlet/568/200735.xml",
-        "icon": "icons/mercurynews.jpg",
-        "topics": ["news"]
     }, {
         "name": "Mercury News: Business",
         "url": "http://feeds.mercurynews.com/mngi/rss/CustomRssServlet/568/200770.xml",
@@ -183,12 +186,12 @@
         "name": "Cancer &amp; Metabolism",
         "url": "http://www.cancerandmetabolism.com/latest/rss",
         "icon": "",
-        "topics": ["cancer","metabolism"]
+        "topics": ["cancer", "metabolism"]
     }, {
         "name": "Cancer and Metastasis Reviews",
         "url": "http://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=10555&channel-name=Cancer and Metastasis Reviews",
         "icon": "",
-        "topics": ["cancer","metastasis"]
+        "topics": ["cancer", "metastasis"]
     }, {
         "name": "Cancer and Oncology Research",
         "url": "http://www.hrpub.org/journals/jour_rss.php?id=70",
@@ -203,7 +206,7 @@
         "name": "Cancer Biomarkers",
         "url": "http://iospress.metapress.com/content/113507?sortorder=asc&export=rss",
         "icon": "",
-        "topics": ["cancer","biomarker"]
+        "topics": ["cancer", "biomarker"]
     }, {
         "name": "Cancer Cell",
         "url": "http://rss.sciencedirect.com/publication/science/7133",
