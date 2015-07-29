@@ -1,11 +1,6 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
-
-<link rel="import" href="../qi-global/global.html">
-<link rel="import" href="../qi-event/qi-event-notice.html">
-<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
-
 <link rel="import" href="../qi-icon/qi-icon.html">
 
 
@@ -39,18 +34,15 @@
 
 	<template>
 
-		<qi-globals id="globals"></qi-globals>
-		<iron-localstorage name="notices" value="{{notifications}}"></iron-localstorage>
-
 		<div class="layout vertical flex">
-            <div class="dashboard">
-                <qi-icon icon="qi:events" label="Events" count="3"></qi-icon>
-                <qi-icon icon="qi:around" label="Around me"></qi-icon>
-                <qi-icon icon="qi:news" label="News" count="5"></qi-icon>
-                <qi-icon icon="qi:messages" label="Messages" count="4"></qi-icon>
-                <qi-icon icon="qi:contacts" label="Contacts" count="2"></qi-icon>
-                <qi-icon icon="qi:settings" label="Settings" count="2"></qi-icon>
-           </div>
+        <div class="dashboard">
+            <qi-icon icon="qi:events" label="Events" count="3" on-click="_handleEventClick"></qi-icon>
+            <qi-icon icon="qi:around" label="Around me" on-click="_handleClick"></qi-icon>
+            <qi-icon icon="qi:news" label="News" count="5" on-click="_handleNewsClick"></qi-icon>
+            <qi-icon icon="qi:messages" label="Messages" count="4" on-click="_handleMessagesClick"></qi-icon>
+            <qi-icon icon="qi:contacts" label="Contacts" count="2" on-click="_handleContactsClick"></qi-icon>
+            <qi-icon icon="qi:settings" label="Settings" count="2" on-click="_handleSettingsClick"></qi-icon>
+       </div>
 		</div>
 
 	</template>
@@ -59,16 +51,34 @@
 	Polymer({
    		is: 'qi-home',
 
-   		properties:{
-   			notifications:{type: Array, value:[], notify: true, observer:'notificationsChanged'}
-   		},
+ 
+      _handleClick: function(target){
+        this.fire('turn-page',{pageid: target});
+      },
 
-   		notificationsChanged: function(newValue, oldValue){
+      _handleEventClick: function(){
+        this._handleClick('events');
+      },
 
-   		}
+      _handleAroundMeClick: function(){
+        this._handleClick('aroundme');
+      },
 
+      _handleNewsClick: function(){
+        this._handleClick('news');
+      },
 
+      _handleMessagesClick: function(){
+        this._handleClick('messages');
+      },
 
+      _handleSettingsClick: function(){
+        this._handleClick('settings');
+      },
+
+      _handleContactsClick: function(){
+        this._handleClick('contacts');
+      }
 
 
 
@@ -77,23 +87,4 @@
 	</script>
 
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for:
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">,
- - Cleanup class=
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest()
- - Fix iron-list if needed
- - Fix indentation as need
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module> 
