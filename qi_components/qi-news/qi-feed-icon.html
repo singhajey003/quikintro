@@ -15,7 +15,7 @@
 		text-align: center;
 	}
 
-	:host ::content > .icon{
+	.icon{
 		--iron-icon-width: 50px;
 		--iron-icon-height: 50px;
 		width: 50px;
@@ -26,7 +26,7 @@
 
 
 	<template is="dom-if" if="{{!isIconNull}}">
-		<iron-icon class="icon" src$="[[iconUrl]]" style="--iron-icon-width: 50px; --iron-icon-height: 50px" on-click="_handleClick"></iron-icon>
+		<iron-icon class="icon" src$="[[iconUrl]]" on-click="_handleClick"></iron-icon>
 	</template>
 
 	<template is="dom-if" if="{{isIconNull}}">

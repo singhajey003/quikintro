@@ -33,7 +33,7 @@
 	}
 
 	.article{
-		width: 100%;
+		width: 100vw;
 		height: 100px;
 		border: 1px solid #505050;
 		background-color: white;
@@ -50,7 +50,7 @@
 
 
 	.selectedCard{
-		background-color: rgba(255,255,255,0.5);
+		border-left: 5px solid #3ea1e6;
 	}
 
 	.thumbnail{
@@ -71,7 +71,7 @@
 	</style>
     
 
-	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select">
+	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
 	  
 		<div class="flex layout vertical">
 		  	<div class="title flex" on-click="expand">
@@ -132,6 +132,12 @@
 
   	},
 
+  	_handleSwipe: function(e){
+  		if(e.detail.state == 'end'){
+  			this.fire('article-card-swipe', {model: this.model});
+  		}
+  	},
+
   	/**
   	 * This method retrieves the style used to indicate the source of the article.
   	 * @param the feed object
@@ -145,7 +151,7 @@
   	 * @param model the article object
   	 */
   	getThumbnailUrl: function(model){
-  		return "background-image: url(" + model.media[0].url +")";
+  		return  (model != null)?"background-image: url(" + model.media[0].url +")":"";
   	},
 
 

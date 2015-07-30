@@ -1,0 +1,96 @@
+<dom-module id="qi-article-page">
+
+	<style>
+	:host ::content .mediaholder{
+		width: 100%;
+		height: 150px;
+		background-size: cover;
+		back
+	}
+	:host ::content  .article-content{
+		padding-left: 2px;
+		overflow: scroll;
+	}
+
+	:host ::content figcaption{
+		font-size: 10pt;
+		font-weight: bold;
+	}
+
+	:host ::content .abstract{
+		overflow: scroll;
+	}
+
+	</style>
+
+
+	<template>
+	<div class="article-content" on-track="_handleSwipe">
+	<h2><span>[[model.title]]</span></h2>
+
+	<figure>
+  		
+  		<div class="mediaholder" style$="[[media]]"></div>
+  		<figcaption><span>[[desc]]</span></figcaption>
+	</figure>
+	
+
+	<div id="abstract"><span>[[model.abstract]]</span></div>
+
+
+	</div>
+	</template>
+
+	<script>
+	Polymer({
+		is: 'qi-article-page',
+		properties: {
+			model:{
+				type: Object
+			},
+
+			media:{
+				type: String,
+				computed: '_computeMedia(model)'
+			},
+			desc:{
+				type: String,
+				computed: '_computeDesc(model)'
+			},
+			height:{
+				type: Number,
+				computed: '_computeHeight(model)'
+			},
+			width:{
+				type: Number,
+				computed: '_computeWidth(model)'
+			}
+		},
+
+		_computeWidth: function(model){
+			return (model != null)? model.media[0].width:0;
+		},
+
+		_computeHeight: function(model){
+			return (model != null)? model.media[0].height:0;
+		},
+
+		_computeMedia:function(model){
+			return (model != null)? "background-image: url('" + model.media[0].url + "');" : "";
+		},
+
+		_computeDesc: function(model){
+			return (model != null)?model.media[0].description : "";
+		},
+
+		_handleSwipe: function(e){
+			this.fire('article-page-swipe',{});
+		}
+
+
+	});
+
+	</script>
+
+
+</dom-module>

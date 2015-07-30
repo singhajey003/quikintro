@@ -60,19 +60,23 @@ paper-header-panel > paper-toolbar {
   color: white;
   height: 64px; }
 
+/*
 iron-pages {
   top: 70px;
   bottom: 0;
   right: 0;
   position: absolute;
-  background-color: #ebebeb;
-  background-image: none;
+  background-color: $background;
+  background-image: $backgroundImage;
   background-repeat: no-repeat;
-  background-position: -500px -25px; }
+  background-position: -500px -25px;
+}
 
 iron-pages > section {
-  background-color: #eeeeee; }
+  background-color: #eeeeee;
+}
 
+*/
 paper-scroll-header-panel {
   top: 0;
   left: 0;
@@ -105,12 +109,6 @@ input[type=search] {
   background-color: rgba(255, 255, 255, 0.7);
   color: rgba(255, 255, 255, 0.7);
   padding: 4px 16px; }
-
-/** Default icon styling. */
-iron-icon {
-  height: 20px;
-  width: 20px;
-  border: 0; }
 
 .padding {
   padding: 15px; }

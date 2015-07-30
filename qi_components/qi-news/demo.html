@@ -2,36 +2,16 @@
 <html>
 <head>
 	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
 	<script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-	<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
-
-	<link rel="import" href="../data/qi-data-loader.html">
-	<link rel="import" href="qi-article-tray.html">
-	<link rel="import" href="qi-feed-tray.html">
-	
-	<style is="custom-style">
-	qi-article-tray{
-		width: 100%;
-		height: 500px;
-		--tray-bgcolor: #505050;
-	}
-
-	</style>
+	<link rel="import" href="qi-news-panel.html">
 
 </head>
 <body>
-	<template is="dom-bind">
-	<qi-data-loader></qi-data-loader>
-	<iron-localstorage name="news" value="{{news}}"></iron-localstorage>
-	<iron-localstorage  name="feeds" value="{{feeds}}"></iron-localstorage>
-	<div class="demotray layout vertical">
-		<qi-feed-tray model="[[feeds]]"></qi-feed-tray>
-		<qi-article-tray news="{{news}}" ></qi-article-tray>
-	</div>
-	
-	</template>
-
+<qi-news-panel></qi-news-panel>
 </body>
 </html>
