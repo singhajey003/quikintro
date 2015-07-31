@@ -17,6 +17,48 @@ QiTrayBehavior = {
 		return prefix + "-"  + id;
 	},
 
+	/**
+	 * This method is responsible for enabling/disabling the buttons in the button
+	 * tray.  Each button must be marked by the "selectable" CSS class.
+	 * @param isDisabled  a flag indicating that the button should be disabled
+	 */
+	_disableBtns: function(isDisabled){
+		var tray = this.$.fabtray;
+		var btns = tray.getElementsByClassName("selectable");
+		
+		for(var i=0; i < btns.length; i++){
+			var btn = btns[i];
+			btn.disabled = isDisabled;
+		}
+	},
+
+
+
+
+	ready: function(){
+		var cardtray = this.$.cardtray;
+		var msgs = this.msgs;
+		
+		// disable all buttons by default
+		this._disableBtns(true);
+
+		// whenever a card is selected/deselected, determine if the buttons should
+		// be enabled/disabled.
+		this.addEventListener('card-selected', function(e){
+			var selectedArticles = cardtray.getSelected();
+
+			for(article of selectedArticles){
+				this.msgs.push(this.cleanMessageText(article.title + "." + article.abstract));
+			}
+
+			var disabled = (selectedArticles.length == 0);
+			this._disableBtns(disabled);
+
+		});
+
+	},
+
+
 
 };
 </script>

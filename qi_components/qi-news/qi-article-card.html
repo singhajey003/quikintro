@@ -74,7 +74,7 @@
 	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
 	  
 		<div class="flex layout vertical">
-		  	<div class="title flex" on-click="expand">
+		  	<div class="title flex" >
 		  		<span>[[model.title]]</span>
 		  	</div>
 
@@ -152,14 +152,9 @@
   	 */
   	getThumbnailUrl: function(model){
   		return  (model != null)?"background-image: url(" + model.media[0].url +")":"";
-  	},
-
-
-  	expand:function(){
-  		console.log("expanding");
-  		//TODO: implement expand article card functionality
-  		
   	}
+
+
 
 
   });

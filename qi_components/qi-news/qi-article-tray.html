@@ -30,7 +30,7 @@
 
 	<template>
 				
-		<div class="fab-tray">
+		<div id="fabtray" class="fab-tray">
 			<paper-fab class="selectable" icon="av:skip-previous" on-click="back" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:play-arrow" on-click="play" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:pause" on-click="pause" mini></paper-fab>
@@ -82,17 +82,10 @@ Polymer({
 
 
 
-	ready: function(){
-		var cardtray = this.$.cardtray;
-		var msgs = this.msgs;
-		this.addEventListener('card-selected', function(e){
-			this.selectedArticles = cardtray.getSelected();
-			for(article of this.selectedArticles){
-				this.msgs.push(this.cleanMessageText(article.title + "." + article.abstract));
-			}
-		});
 
-	},
+
+
+
 
 
 
