@@ -1,0 +1,104 @@
+<!--
+  This component contains all messages, invitations and meeting requests.
+
+  @group QI Elements
+  @element qi-invite-page
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+
+<link rel="import" href="../qi-trait/qi-traitlist.html">
+<dom-module id="qi-invite-page">
+
+	<style>
+
+	.details > div[0]{
+
+	}
+
+	.details > div[1]{
+
+	}
+
+
+	</style>
+
+
+	<template>
+
+	<div class="fit vertical layout">
+		<div><span>[[fullname]]</span></div>
+
+		<div class="band vertical layout">
+
+			<div class="avatar" >
+				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
+
+			<div>
+
+			<div class="details">
+				<div><span class="title">[[model.sender.title]]</span> at <span class="company">[[model.sender.company]]</span></div>
+
+				<div><!-- personas go here --></div>
+				
+
+			</div>
+
+		</div>
+
+		<div class="layout horizontal">
+			<div class="layout vertical">
+				<label>Common Contacts</label>
+				<span>[[model.contacts.length]]
+			</div>
+
+			<div class="layout vertical">
+				<label>Persona Match</label>
+				<span>[[model.match]]</span>
+			</div>
+
+		</div>
+
+		<div class="traits">
+			<label>Matching Traits</label>
+			<qi-traitlist model="[[model.sender.interests]]"></qi-traitlist>
+		</div>
+
+		<div class="summary">
+			<label>Summary</label>
+			[[model.sender.summary]]
+		</div>
+
+	</div>
+
+	</template>
+
+	<script>
+
+		Polymer({
+			is: 'qi-invite-page',
+
+			properties: {
+				model:{
+					type: Object
+				},
+
+				fullname: {
+					type: String,
+					computed: '_computeFullName(model)'
+				}
+			},
+
+			_computeFullName: function(model){
+				return model.sender.firstName + " " + model.sender.lastName;
+			}
+
+
+
+		});
+
+
+
+	</script>
+
+
+</dom-module>

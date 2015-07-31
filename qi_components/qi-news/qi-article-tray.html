@@ -7,6 +7,8 @@
 <link rel="import" href="../data/qi-data-loader.html">
 
 <link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+
 <link rel="import" href="qi-article-card.html">
 <link rel="import" href="qi-speech-behavior.html">
 <link rel="import" href="qi-share-news-dialog.html">
@@ -41,8 +43,8 @@
 		<qi-card-tray id="cardtray">
 		<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
 			<span>[[feed.name]]</span>
-			<template is="dom-repeat" items="[[feed.articles]]" as="article">
-				<qi-article-card id="{{articleId}}" class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
+			<template is="dom-repeat" items="[[feed.articles]]" as="article" index-as="articleId">
+				<qi-article-card id="{{computeDomId('art',articleId)}}" class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
 			</template>
 
 		</template>
@@ -56,7 +58,7 @@
 Polymer({
 	is:'qi-article-tray',
 
-	behaviors: [QiSpeechBehavior],
+	behaviors: [QiTrayBehavior, QiSpeechBehavior],
 
 	properties:{
 		/**
@@ -67,14 +69,6 @@ Polymer({
 			value: null, 
 			notify: true, 
 			readonly: true
-		},
-
-		/**
-		 * A computed property that creates a unique article ID.
-		 */
-		articleId:{
-			type: String,
-			computed: 'getArticleId(id)'
 		},
 
 		/**
@@ -101,13 +95,6 @@ Polymer({
 	},
 
 
-
-	/**
-	 * A method that creates a unique article ID
-	 */
-	getArticleId: function(id){
-		return "art-" + id;
-	},
 
 	/**
 	 * This method displays the 

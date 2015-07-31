@@ -30,15 +30,16 @@
 <link rel="import" href="qi-settings/qi-settings.html">
 <link rel="import" href="qi-scaffold/qi-scaffold.html">
 <link rel="import" href="qi-home/qi-home.html">
+<link rel="import" href="qi-news/qi-news-panel.html">
 
 <link rel="import" href="qi-custom-icons/qi-icons.html">
 <link rel="import" href="qi-theme.html">
 
 <dom-module id='quik-intro'  > 
 
-  <style>
-    qi-toggle.anonToggle::shadow #icon{
-      --icon-color: white;
+  <style is="custom-style">
+    qi-toggle.anonToggle{
+      --toggle-icon-color: white;
     }
 
     paper-icon-item{
@@ -87,6 +88,12 @@
                 Settings
               </paper-item>
             </paper-icon-item>
+
+             <paper-icon-item id="newsItem" pageId="news"> 
+              <iron-icon icon="settings"></iron-icon>
+                News
+              </paper-item>
+            </paper-icon-item>
             
           </paper-menu>
         
@@ -129,6 +136,10 @@
 
           <section id="Settings" pageId="settings">
             <qi-settings></qi-settings>
+          </section>
+
+          <section id="News" pageId="news">
+            <qi-news-panel></qi-news-panel>
           </section>
         </iron-pages>
       </paper-header-panel>

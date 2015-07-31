@@ -23,12 +23,21 @@
 
 <link rel="import" href="qi-msg-card.html">
 <link rel="import" href="qi-mtg-card.html">
+<link rel="import" href="qi-mtg-tray.html">
 <link rel="import" href="qi-invite-tray.html">
 
 
 <dom-module id='qi-msg-panel'  >
 
   <link rel="stylesheet" href="qi-msg-panel.css">
+
+  <style is="custom-style">
+  :host ::content iron-pages{
+    top: 10px;
+    position: relative;
+  }
+
+  </style>
 
   <template>
  
@@ -61,9 +70,7 @@
       </div>
 
       <div id="mtgTray" class="fit" style="overflow:auto">
-        <template is="dom-repeat" items="{{mtgs}}" index-as="mtgId" as="mtg">
-          <qi-mtg-card mtg="{{mtg}}" id="{{mtgId}}"></qi-mtg-card>
-        </template>
+        <qi-mtg-tray model="[[mtgs]]"></qi-mtg-tray>
       </div>
 
       </iron-pages>

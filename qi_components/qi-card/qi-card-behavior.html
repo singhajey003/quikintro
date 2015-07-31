@@ -13,11 +13,6 @@ QiCardBehavior = {
 		 */
 		id:{type: Number},
 
-		domId:{
-			type: String,
-			computed: '_computeDomId(id)'
-		},
-
 		/**
 		 * The model behind the card.
 		 */
@@ -65,15 +60,6 @@ QiCardBehavior = {
 			notify: true
 		}
 
-	},
-
-	/**
-	 * This abstract method creates a DOM-specific ID that is guaranteed to
-	 * be unique in the DOM.
-	 * @param the ID that you want to use as the basis of the ID.
-	 */
-	_computeDomId: function(id){
-		return "" + id;
 	},
 
 	/**

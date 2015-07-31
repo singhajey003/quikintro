@@ -1,0 +1,22 @@
+<!--
+This behavior defines the properties and methods required of a card.
+
+@polymerBehavior QiCardBehavior
+-->
+
+<script>
+QiTrayBehavior = {
+
+
+	/**
+	 * This abstract method creates a DOM-specific ID that is guaranteed to
+	 * be unique in the DOM.
+	 * @param the ID that you want to use as the basis of the ID.
+	 */
+	computeDomId: function(prefix, id){
+		return prefix + "-"  + id;
+	},
+
+
+};
+</script>

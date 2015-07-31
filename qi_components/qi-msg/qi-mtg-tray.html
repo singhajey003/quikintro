@@ -2,9 +2,13 @@
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 
 <link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+
+<link rel="import" href="../qi-dialog/qi-msg-dialog.html">
+
 <link rel="import" href="qi-invite-card.html">
 
-<dom-module id="qi-invite-tray">
+<dom-module id="qi-mtg-tray">
 
 	<style is="custom-style">
 	qi-card-tray{
@@ -20,22 +24,37 @@
 	<template>
 
 		<div class="fab-tray">
-			<paper-fab class="selectable" icon="check" on-click="accept" mini>Accept</paper-fab>
-			<paper-fab class="selectable" icon="close" on-click="decline" mini>Decline</paper-fab>
+			<paper-fab class="selectable" icon="check" on-click="accept" mini></paper-fab>
+			<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
 		</div>
 
-		<qi-card-tray id="cardtray">
-		<template is="dom-repeat" items="[[model]]" index-as="id" as="invite">
-			<qi-invite-card id="[[inviteId]]" class="selectable-card" model="[[invite]]"></qi-invite-card>
-		</template>
-		</qi-card-tray>
+
+		<iron-pages selected="{{selected}}">
+
+		<div>
+		    <qi-card-tray id="cardtray">
+		        <template is="dom-repeat" items="[[model]]" index-as="id" as="invite">
+		            <qi-invite-card id="[[computeDomId('mtg', id)]]" class="selectable-card" model="[[invite]]"></qi-invite-card>
+		        </template>
+		    </qi-card-tray>
+		</div>
+
+
+		<div>
+			<qi-invite-page></qi-invite-page>
+		</div>
+
+		</iron-pages>
+
 
 	</template>
 
 
 	<script>
 	Polymer({
-		is: 'qi-invite-tray',
+		is: 'qi-mtg-tray',
+
+		behaviors:[QiTrayBehavior],
 
 		properties:{
 
@@ -44,20 +63,20 @@
 				value: []
 			},
 
-			inviteId:{
-				type: String,
-				computed: '_computeId(id)'
+			selected: {
+				type: Number,
+				value: 0
 			}
 
+
 		},
 
-		_computeId: function(id){
-			return "inv-" + id;
-		},
+
 
 		_removeCards: function(){
 			//TODO: implement the removal of selected cards.
 		},
+
 
 		accept: function(){
 			this._removeCards();
@@ -65,9 +84,9 @@
 
 		},
 
-		decline: function(){
+		deleted: function(){
 			_removeCards();
-			this.fire('show-toast', {text: 'Invitation(s) Declined'});
+			this.fire('show-toast', {text: 'Invitations(s) Deleted'});
 		}
 
 	});

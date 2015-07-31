@@ -15,13 +15,16 @@ an avatar.
 	<link rel="stylesheet" href="../qi-cards.css"> 
 
 	<style is="custom-style">
-	div.photo{
+	:host ::content div.photo{
 		width: 90px;
 		height: 90px;
       background-repeat: no-repeat;
       background-size: cover;
+      border-radius: 50%;
+      border: 3px solid white;
 	}
-	iron-icon{
+	
+   :host ::content iron-icon{
 		--iron-icon-width: 90px;
 		--iron-icon-height: 90px;
 		height: 90px;

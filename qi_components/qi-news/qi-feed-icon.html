@@ -5,7 +5,7 @@
 <template>
 
 	<style is="custom-style">
-	:host ::content > .fakeIcon{
+	:host ::content .fakeIcon{
 		background-color: #505050;
 		height: 50px;
 		width: 50px;
@@ -15,7 +15,7 @@
 		text-align: center;
 	}
 
-	.icon{
+	:host ::content .icon{
 		--iron-icon-width: 50px;
 		--iron-icon-height: 50px;
 		width: 50px;
@@ -86,7 +86,7 @@
 		 * This method appends the appropriate path to the icon.
 		 */
 		_getIconUrl: function(feed){
-			return "../data/news/" + feed.icon;
+			return "/qi_components/data/news/" + feed.icon;
 		},
 
 		/**

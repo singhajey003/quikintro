@@ -1,5 +1,5 @@
 <!--
-	This component displays invitation information.
+	This component displays connection invitation information.
 
 	@group QI Elements
 	@element qi-invite-card
@@ -40,27 +40,9 @@
             <div class="senderBlock">
                   <span class="senderName">[[wholename]]</span>
             </div>
-            <div class="msgBlock"><span>[[model.msg]]</span></div>
+           
          </div>
-         <div collapse>
-         	<div>
-            <qi-traitlist traits="[[model.sender.interests]]"></qi-traitlist>
-            </div>
-<!--
-            <div>
-				<qi-card-tray id="cardtray">
-				
-					<template is="dom-repeat" items="[[tweets]]" as="tweet">
-						<qi-tweet-card id="[[articleId]]" cardstyle="card card-wrapper layout horizontal" class="selectable-card" model="[[tweet]]" ></qi-tweet-card>
-					</template>
-
-				
-				</qi-card-tray>
-
-            </div>
--->
-
-         </div>
+ 
       </qi-collapse-card>
 
 	</template>
