@@ -66,6 +66,13 @@
               <iron-icon icon="home"></iron-icon>
               Home
             </paper-icon-item>
+
+             <paper-icon-item id="newsItem" pageId="news"> 
+              <iron-icon icon="settings"></iron-icon>
+                News
+              </paper-item>
+            </paper-icon-item>
+
             <paper-icon-item id="events" pageId="events">
               <iron-icon icon="event"></iron-icon>
               Events
@@ -89,11 +96,7 @@
               </paper-item>
             </paper-icon-item>
 
-             <paper-icon-item id="newsItem" pageId="news"> 
-              <iron-icon icon="settings"></iron-icon>
-                News
-              </paper-item>
-            </paper-icon-item>
+
             
           </paper-menu>
         
@@ -121,6 +124,10 @@
             <qi-home></qi-home>
           </section>
 
+          <section id="News" pageId="news">
+            <qi-news-panel></qi-news-panel>
+          </section>
+
           <section id="Event Stream" pageId="events" >
             <qi-event-stream id="eventStream" events="{{eventList}}" personas="{{personas}}"></qi-event-stream>
           </section>
@@ -138,9 +145,7 @@
             <qi-settings></qi-settings>
           </section>
 
-          <section id="News" pageId="news">
-            <qi-news-panel></qi-news-panel>
-          </section>
+          
         </iron-pages>
       </paper-header-panel>
 

@@ -1,23 +1,36 @@
+<!--
+  This component is responsible for rendering an article.
+  
+	@group QI Elements
+	@element qi-article-page
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../qi-trait/qi-traitlist.html">
+<link rel="import" href="qi-speech-behavior.html">
+
 <dom-module id="qi-article-page">
 
 	<style>
-	:host ::content .mediaholder{
+	.mediaholder{
 		width: 100%;
 		height: 150px;
 		background-size: cover;
 		back
 	}
-	:host ::content  .article-content{
+	.article-content{
 		padding-left: 2px;
 		overflow: scroll;
 	}
-
-	:host ::content figcaption{
-		font-size: 10pt;
-		font-weight: bold;
+	h2{
+		font-weight: normal;
 	}
 
-	:host ::content .abstract{
+	figcaption{
+		font-size: 10pt;
+		line-height: normal;
+	}
+
+	.abstract{
 		overflow: scroll;
 	}
 
@@ -29,13 +42,16 @@
 	<h2><span>[[model.title]]</span></h2>
 
 	<figure>
-  		
-  		<div class="mediaholder" style$="[[media]]"></div>
+  		<div class="mediaholder flex" style$="[[media]]"></div>
   		<figcaption><span>[[desc]]</span></figcaption>
 	</figure>
+
+	<div class="flex">
+	<qi-traitlist traits="[[model.keywords]]"></qi-traitlist>
+	</div>
 	
 
-	<div id="abstract"><span>[[model.abstract]]</span></div>
+	<div id="abstract">[[cleanMessageText(model.abstract)]]</div>
 
 
 	</div>
@@ -44,9 +60,11 @@
 	<script>
 	Polymer({
 		is: 'qi-article-page',
+		behaviors: [QiSpeechBehavior],
 		properties: {
 			model:{
-				type: Object
+				type: Object,
+				value: null
 			},
 
 			media:{
@@ -86,6 +104,8 @@
 		_handleSwipe: function(e){
 			this.fire('article-page-swipe',{});
 		}
+
+
 
 
 	});

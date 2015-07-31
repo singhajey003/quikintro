@@ -24,11 +24,6 @@
         "icon": "icons/times.png",
         "topics": ["news"]
     }, {
-        "name": "The Times: Americas",
-        "url": "http://www.thetimes.co.uk/tto/news/world/americas/rss",
-        "icon": "icons/times.png",
-        "topics": ["news", "regional news"]
-    }, {
         "name": "Financial Times: UK",
         "url": "http://www.ft.com/rss/home/uk",
         "icon": "icons/ft.png",
@@ -39,6 +34,13 @@
         "icon": "icons/mercurynews.jpg",
         "topics": ["news"]
     },
+
+    {
+        "name": "The Times: Americas",
+        "url": "http://www.thetimes.co.uk/tto/news/world/americas/rss",
+        "icon": "icons/times.png",
+        "topics": ["news", "regional news"]
+    }, 
 
     {
         "name": "Guardian Technology",

@@ -159,7 +159,7 @@ QiSpeechBehavior = {
 	 */
 	cleanMessageText: function(text){
 		var tmp = document.createElement("div");
-		tmp.innerHTML = article.title + "." + article.abstract;
+		tmp.innerHTML = text;
 		return tmp.textContent || tmp.innerText || "";
 	}
 

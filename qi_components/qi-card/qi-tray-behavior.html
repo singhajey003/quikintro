@@ -24,11 +24,13 @@ QiTrayBehavior = {
 	 */
 	_disableBtns: function(isDisabled){
 		var tray = this.$.fabtray;
-		var btns = tray.getElementsByClassName("selectable");
-		
-		for(var i=0; i < btns.length; i++){
-			var btn = btns[i];
-			btn.disabled = isDisabled;
+		if(tray){
+			var btns = tray.getElementsByClassName("selectable");
+
+			for(var i=0; i < btns.length; i++){
+				var btn = btns[i];
+				btn.disabled = isDisabled;
+			}
 		}
 	},
 

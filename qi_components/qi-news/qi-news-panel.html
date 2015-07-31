@@ -75,14 +75,10 @@
   		this.addEventListener('article-card-swipe', function(e){
   			this.articleModel = e.detail.model;
   			this.selected = 1;
-  			console.log("swiped card");
-  			console.log("model: " + e.detail.model);
   		});
 
   		this.addEventListener('article-page-swipe', function(e){
   			this.selected = 0;
-
-  			console.log("swiped page");
   		});
 
 
