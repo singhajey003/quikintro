@@ -16,11 +16,11 @@
 	
 	<style>
 
-	:host > ::content  .selectedCard{
+	.selectedCard{
 		border-left: 5px solid #3ea1e6;
 	}
 
-	:host > ::content  .selectable-card{
+	.selectable-card{
 		background-color: white;
 	}
 
@@ -29,25 +29,22 @@
 	
 	<template>
 	
-	<div id="[[msgId]]" class$="layout vertical justified selectable-card">
+	<div id="[[msgId]]" class$="{{selectedStyle}}" on-click="select">
 		<div class="layout horizontal"> 
 
 			<div class="avatarBlock">
-				<qi-avatar url="[[msg.sender.avatar]]"></qi-avatar>
+				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
 			</div>
 
 			<div class="mainPanel">
 				<div class="senderBlock">
 					<span class="senderName">[[wholename]]</span> 
-					<span class="time">[[msg.tstamp]]</span>
+					<span class="time">[[model.tstamp]]</span>
 				</div> 
-				<div class="msgBlock" >[[msg.msg]]</div>
+				<div class="msgBlock" >[[model.msg]]</div>
 			</div>
 		</div>
-		<div class="buttons horizontal justified layout">
-			<iron-icon icon="reply" on-click="replyDialog"></iron-icon>
-			<iron-icon icon="delete" on-click="deleteMsg"></iron-icon>
-		</iron-icon></div> 
+
 	</div>
 
 	</template>
@@ -61,19 +58,11 @@
 		properties:{
 
 			/**
-			 * The message object.
-			 */
-			msg:{
-				type: Object,
-				readonly: true
-			},
-
-			/**
 			 * The concatenated name of the sender.
 			 */
 			wholename:{
 				type: String, 
-				computed:'_concatName(msg.sender.firstName, msg.sender.lastName)'
+				computed:'_concatName(model.sender.firstName, model.sender.lastName)'
 			},
 
 			/**

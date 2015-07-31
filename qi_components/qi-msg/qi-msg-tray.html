@@ -2,7 +2,8 @@
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 
 <link rel="import" href="../qi-card/qi-card-tray.html">
-<link rel="import" href="qi-invite-card.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="qi-msg-card.html">
 
 <dom-module id="qi-msg-tray">
 
@@ -20,11 +21,12 @@
 
 		<div class="fab-tray">
 			<paper-fab class="selectable" icon="reply" on-click="reply" mini></paper-fab>
+			<paper-fab class="selectable" icon="delete" on-click="reply" mini></paper-fab>
 		</div>
 
 		<qi-card-tray id="cardtray">
-		<template is="dom-repeat" items="[[model]]" index-as="id" as="invite">
-			<qi-msg-card id="[[inviteId]]" class="selectable-card" model="[[invite]]"></qi-msg-card>
+		<template is="dom-repeat" items="[[model]]" index-as="id" as="msg">
+			<qi-msg-card id="[[computeDomId('msg', id)]]" class="selectable-card" model="[[msg]]"></qi-msg-card>
 		</template>
 		</qi-card-tray>
 
@@ -35,22 +37,11 @@
 	Polymer({
 		is: 'qi-msg-tray',
 
+		behaviors: [QiTrayBehavior],
+
 		properties:{
 
-			selectedCards:{
-				type: Array,
-				value: []
-			},
 
-			inviteId:{
-				type: String,
-				computed: '_computeId(id)'
-			}
-
-		},
-
-		_computeId: function(id){
-			return "inv-" + id;
 		},
 
 		_removeCards: function(){
@@ -61,6 +52,8 @@
 
 
 		}
+
+
 
 	});
 

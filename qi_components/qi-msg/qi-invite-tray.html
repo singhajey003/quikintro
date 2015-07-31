@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 
 <link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
 <link rel="import" href="qi-invite-card.html">
 
 <dom-module id="qi-invite-tray">
@@ -27,7 +28,7 @@
 
 		<qi-card-tray id="cardtray">
 		<template is="dom-repeat" items="[[model]]" index-as="id" as="invite">
-			<qi-invite-card id="[[inviteId]]" class="selectable-card" model="[[invite]]"></qi-invite-card>
+			<qi-invite-card id="[[computeDomId('inv', id)]]" class="selectable-card" model="[[invite]]"></qi-invite-card>
 		</template>
 		</qi-card-tray>
 
@@ -38,23 +39,8 @@
 	Polymer({
 		is: 'qi-invite-tray',
 
-		properties:{
+		behaviors: [QiTrayBehavior],
 
-			selectedCards:{
-				type: Array,
-				value: []
-			},
-
-			inviteId:{
-				type: String,
-				computed: '_computeId(id)'
-			}
-
-		},
-
-		_computeId: function(id){
-			return "inv-" + id;
-		},
 
 		_removeCards: function(){
 			//TODO: implement the removal of selected cards.

@@ -15,20 +15,19 @@ an avatar.
 	<link rel="stylesheet" href="../qi-cards.css"> 
 
 	<style is="custom-style">
-	:host ::content div.photo{
-		width: 90px;
-		height: 90px;
+	div.photo{
+		width: var(--avatar-width, 50px);
+		height: var(--avatar-height, 50px);
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 50%;
       border: 3px solid white;
 	}
 	
-   :host ::content iron-icon{
-		--iron-icon-width: 90px;
-		--iron-icon-height: 90px;
-		height: 90px;
-		width: 90px;
+   iron-icon{
+		--iron-icon-width: var(--avatar-width, 50px);
+		--iron-icon-height: var(--avatar-height, 50px);
+      border-radius: 50%;
 	}
 	</style>
 

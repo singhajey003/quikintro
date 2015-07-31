@@ -21,9 +21,11 @@
 
 <link rel="import" href="../qi-dialog/qi-msg-dialog.html">
 
-<link rel="import" href="qi-msg-card.html">
-<link rel="import" href="qi-mtg-card.html">
+
+<link rel="import" href="qi-msg-tray.html">
+
 <link rel="import" href="qi-mtg-tray.html">
+
 <link rel="import" href="qi-invite-tray.html">
 
 
@@ -32,7 +34,7 @@
   <link rel="stylesheet" href="qi-msg-panel.css">
 
   <style is="custom-style">
-  :host ::content iron-pages{
+  iron-pages{
     top: 10px;
     position: relative;
   }
@@ -47,7 +49,7 @@
 
   <div id="msgHeaderPanel" class="layout vertical fit flex"> 
 
-    <paper-tabs selected="{{selected}}" scrollable hideScrollButtons="false" no-bar >     
+    <paper-tabs selected="{{selected}}" scrollable hideScrollButtons="false" >     
         <paper-tab >Messages</paper-tab>
         <paper-tab >Invitations</paper-tab>
         <paper-tab >Meeting Requests</paper-tab>
@@ -56,17 +58,14 @@
 
     <iron-pages selected="{{selected}}" >
       <div id="msgTray" class="fit">
-        
-            <template id="msgTemplate" is="dom-repeat" items="{{msgs}}" as="msg" index-as="msgId">
-              <qi-msg-card msg="{{msg}}" id="{{msgId}}"></qi-msg-card>
-            </template>
+        <qi-msg-tray model="[[msgs]]"></qi-msg-tray>
        
         <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
       
       </div>
 
       <div id="invTray" class="fit" style="overflow:auto">
-        <qi-invite-tray class="fit" model="[[invites]]"></qi-invite-tray>
+        <qi-invite-tray  model="[[invites]]"></qi-invite-tray>
       </div>
 
       <div id="mtgTray" class="fit" style="overflow:auto">
@@ -107,24 +106,24 @@
    },
 
    msgsChanged:function(newValue, oldValue){
-    if (newValue != null && newValue.length > 0){
+    // if (newValue != null && newValue.length > 0){
 
-      var msgTray = this.$.msgTray;
+    //   var msgTray = this.$.msgTray;
 
-      var msgCard = new MsgCard();
-      msgCard.msg = newValue[newValue.length];
-      msgTray.appendChild(msgCard);
-    }
+    //   var msgCard = new MsgCard();
+    //   msgCard.msg = newValue[newValue.length];
+    //   msgTray.appendChild(msgCard);
+    // }
    },
 
    mtgsChanged: function(newValue, oldValue){
-    if(newValue != null && newValue.length > 0){
-      var mtgTray = this.$.mtgTray;
+    // if(newValue != null && newValue.length > 0){
+    //   var mtgTray = this.$.mtgTray;
  
-      var mtgCard = new MtgCard();
-      mtgCard.msg = newValue[newValue.length];
-      mtgTray.appendChild(mtgCard);
-    }
+    //   var mtgCard = new MtgCard();
+    //   mtgCard.msg = newValue[newValue.length];
+    //   mtgTray.appendChild(mtgCard);
+    // }
 
    },
 
