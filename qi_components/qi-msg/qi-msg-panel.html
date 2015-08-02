@@ -23,10 +23,9 @@
 
 
 <link rel="import" href="qi-msg-tray.html">
-
 <link rel="import" href="qi-mtg-tray.html">
-
 <link rel="import" href="qi-invite-tray.html">
+
 
 
 <dom-module id='qi-msg-panel'  >
@@ -64,13 +63,14 @@
       
       </div>
 
-      <div id="invTray" class="fit" style="overflow:auto">
+      <div id="invTray" class="fit">
         <qi-invite-tray  model="[[invites]]"></qi-invite-tray>
       </div>
 
-      <div id="mtgTray" class="fit" style="overflow:auto">
+      <div id="mtgTray" class="fit" >
         <qi-mtg-tray model="[[mtgs]]"></qi-mtg-tray>
       </div>
+
 
       </iron-pages>
 
@@ -141,6 +141,8 @@
         var mtgTray = this.$.mtgTray;
         var invTray = this.$.invTray;
 
+        var invPage = this.$.invPage;
+
         // add a message card in response to a msg-sent event
         window.addEventListener('msg-sent', function(e){
           
@@ -181,7 +183,7 @@
           node.parentNode.removeChild(node);
         });
 
-        // delete a message in response toa delete-msg event
+        // delete a message in response to a delete-msg event
         window.addEventListener('delete-msg', function(e){
           var msgId = e.detail.msgId;
           var id = e.detail.id;
@@ -195,7 +197,18 @@
           node.parentNode.removeChild(node);
         });
 
+        this.addEventListener('invite-card-swipe', function(e){
+          var invPageContent = invPage.querySelector('qi-invite-page');
+          invPageContent.model = e.detail.model;
+          this.selected = 3;
+        });
 
+        this.addEventListener('mtg-card-swipe', function(e){
+          var mtgPageContent = mtgPage.querySelector('qi-mtg-page');
+          mtgPageContent.model = e.detail.model;
+          this.selected = 4;
+
+        });
 
       }
     

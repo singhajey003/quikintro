@@ -11,6 +11,27 @@
 
 <dom-module id="qi-invite-page">
 
+	<style is="custom-style">
+
+	.band{
+		max-height: 100px
+		background-color: #5c91cc;
+	}
+
+	.avatar{
+
+	}
+
+	.details{
+		color: white;
+	}
+
+	.titleco{
+
+	}
+
+	</style>
+
 
 	<template>
 
@@ -24,7 +45,7 @@
 			<div>
 
 			<div class="details">
-				<div><span class="title">[[model.sender.title]]</span> at <span class="company">[[model.sender.company]]</span></div>
+				<div><span class="titleco">[[titleco]]</span></div>
 
 				<div><!-- personas go here --></div>
 				
@@ -41,7 +62,7 @@
 
 			<div class="layout vertical">
 				<label>Persona Match</label>
-				<span>[[model.match]]</span>
+				<span class="score">[[model.match]]</span><span class="pct">%</span>
 			</div>
 
 		</div>
@@ -51,9 +72,17 @@
 			<qi-traitlist model="[[model.sender.interests]]"></qi-traitlist>
 		</div>
 
+		
+
 		<div class="summary">
 			<label>Summary</label>
 			[[model.sender.summary]]
+		</div>
+
+
+		<div class="tweets">
+			<label>Matching tweets</label>
+			<qi-tweet-tray ></qi-tweet-tray>
 		</div>
 
 	</div>
@@ -73,7 +102,15 @@
 				fullname: {
 					type: String,
 					computed: '_computeFullName(model)'
+				},
+				titleco: {
+					type: String,
+					computed: '_computeTitleCo(model)'
 				}
+			},
+
+			_computeTitleCo: function(model){
+				return (model != null) ? model.sender.title + " at " + model.sender.company : "";
 			},
 
 			_computeFullName: function(model){

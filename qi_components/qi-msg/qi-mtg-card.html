@@ -14,18 +14,18 @@
 <link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
 
 <link rel="import" href="../qi-field/qi-field.html">
+<link rel="import" href="../qi-card/qi-card-behavior.html">
+
 <link rel="import" href="../qi-field/qi-date-field.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 
 <dom-module id='qi-mtg-card'  > 
 
-	<link rel="stylesheet" href="qi-msg-card.css" > 
-
 	
 	<template>
 
-	<div id="{{mtgId}}" class="card2 layout vertical">
+	<div id="{{id}}" class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
 		<div class="layout horizontal"> 
 			<div class="avatarBlock">
 				<qi-avatar url="[[mtg.sender.avatar]]"></qi-avatar>
@@ -39,10 +39,7 @@
 			</div>
 			
 		</div>
-		<div class="buttons horizontal justified layout">
-			<iron-icon icon="reply" on-click="replyDialog"></iron-icon>
-			<iron-icon icon="delete" on-click="delete"></iron-icon>
-		</div>
+
 	</div>
 
 	</template>
@@ -50,6 +47,8 @@
 	<script>
 	var MtgCard = Polymer({
    		is: 'qi-mtg-card',
+
+   		behaviors: [QiCardBehavior],
 
    		properties:{
    			/**
@@ -74,23 +73,9 @@
 			fullname: {
 				type: String,
 				computed: 'concat(mtg.sender.firstName, mtg.sender.lastName)'
-			},
-			
-			/**
-			 * The ID of the meeting.
-			 */
-			id:{
-				type: Number, 
-				value: 0
-			},
-
-			/**
-			 * A concatenated meeting ID used to uniquely identify the card in a DOM.
-			 */
-			mtgId:{
-				type: String,
-				computed: "concatId(id)"
 			}
+			
+
 		},
 
 		/**
@@ -102,13 +87,6 @@
 			return firstName + " " + lastName;
 		},
 
-		/**
-		 * This method prefixes the id.
-		 * @param id the id of the meeting
-		 */
-		concatId: function(id){
-			return "mtg-" + id;
-		},
 		
 		/**
 		 * This method displays the reply dialog.
@@ -130,8 +108,14 @@
 		 */
 		delete: function(e){
 			this.fire('delete-mtg', {mtgId: this.mtgId, id: this.id});
-		}
+		},
 		
+		_handleSwipe: function(e){
+			if(e.detail.state == 'end'){
+	  			this.fire('mtg-card-swipe', {model: this.model});
+	  		}
+   		},
+
 
 	});
 

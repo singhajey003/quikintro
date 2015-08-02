@@ -19,31 +19,55 @@
 
 
 	<style is="custom-style">
-	:host > ::content .senderBlock{
+	.senderName{
 		font-size: 15px;
+		color: #505050;
 	}
 
-	:host > ::content .msgBlock {
+	.titleco{
+		font-size: 12px;
+		color: #909090;
+		line-height: normal;
+	}
+
+	.msgBlock {
 		font-size: 12px;
 		color: #707070;
 	}
 
-	:host > ::content > qi-collapse-card{
-		background-color: white;
+	.score{
+		font-size: 20px;
+		color: #5c91cc;
 	}
+
+	.pct{
+		font-size: 10px;
+		color: #5c91cc;
+	}
+
 	</style>
 
 	<template>
 		
-      <qi-collapse-card id="[[domId]]" model="[[model]]" image="[[model.sender.avatar]]">
-         <div main>
-            <div class="senderBlock">
-                  <span class="senderName">[[wholename]]</span>
+      
+     <div class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
+        <div class="senderBlock flex horizontal layout">
+        	<div>
+        		<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
+        	</div>
+        	<div flex>
+              <span class="senderName">[[wholename]]</span><br/>
+              <span class="titleco">[[titleco]]</span>
             </div>
-           
-         </div>
+            <div>
+            	<span class="score">[[model.sender.score]]</span><span class="pct">%</span>
+
+            </div>
+        </div>
+       
+     </div>
  
-      </qi-collapse-card>
+     
 
 	</template>
 
@@ -55,22 +79,6 @@
 
    		properties: {
 
-   			/**
-   			 * The numeric ID of the invitation.
-   			 */
-   			id: {
-   				type: Number,
-   				readonly: true
-   			},
-
-
-   			/**
-   			 * The model for the invitation.
-   			 */
-   			invite: {
-   				type: Object, 
-   				readonly: true
-   			},
 
    			/**
    			 * The concatenated first and last names of the sender.
@@ -81,21 +89,26 @@
    			},
 
    			/**
-   			 * A flag indicating whether or not the collapse pane is open
+   			 * The concatenated title and company
    			 */
-   			isOpen:{
-   				type: Boolean,
-   				value: false
+   			titleco:{
+   				type: String,
+   				computed: '_concatTitleCo(model)'
    			}
+
+    	},
+
+   		_handleSwipe: function(e){
+			if(e.detail.state == 'end'){
+	  			this.fire('invite-card-swipe', {model: this.model});
+	  		}
    		},
 
-   		/**
-   		 * This method prefixes the ID.
-   		 * @param id the ID of the invitation.
-   		 */
-   		_computeDomId: function(id){
-			   return "inv-" + id;
-		},
+   		_concatTitleCo: function(model){
+   			return (model != null)?model.sender.title +" at " + model.sender.company : "";
+   			
+   		},
+
 
    		/**
    		 * This method concatenates the first and last name of the sender.

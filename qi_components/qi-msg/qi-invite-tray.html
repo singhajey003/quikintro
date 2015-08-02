@@ -25,12 +25,23 @@
 			<paper-fab class="selectable" icon="close" on-click="decline" mini>Decline</paper-fab>
 		</div>
 
+		<iron-pages selected="{{selectedPage}}">
+			<div>
+				<qi-card-tray id="cardtray">
+				<template is="dom-repeat" items="[[model]]" index-as="id" as="invite">
+					<qi-invite-card class="selectable-card" model="[[invite]]"></qi-invite-card>
+				</template>
+				</qi-card-tray>
+			</div>
 
-		<qi-card-tray id="cardtray">
-		<template is="dom-repeat" items="[[model]]" index-as="id" as="invite">
-			<qi-invite-card id="[[computeDomId('inv', id)]]" class="selectable-card" model="[[invite]]"></qi-invite-card>
-		</template>
-		</qi-card-tray>
+			<div>
+				<qi-invite-page id="invitePage"></qi-invite-page>
+			</div>
+
+		</iron-pages>
+
+
+
 
 	</template>
 
@@ -40,6 +51,17 @@
 		is: 'qi-invite-tray',
 
 		behaviors: [QiTrayBehavior],
+
+		properties:{
+			selectedPage:{
+				type: Number,
+				value: 0
+			}
+		},
+
+		ready: function(){
+			QiTrayBehavior.ready();
+		},
 
 
 		_removeCards: function(){
@@ -55,7 +77,9 @@
 		decline: function(){
 			_removeCards();
 			this.fire('show-toast', {text: 'Invitation(s) Declined'});
-		}
+		},
+
+
 
 	});
 

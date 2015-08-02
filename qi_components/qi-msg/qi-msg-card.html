@@ -14,7 +14,7 @@
 
 <dom-module id='qi-msg-card'  >
 	
-	<style>
+	<style is="custom-style">
 
 	.selectedCard{
 		border-left: 5px solid #3ea1e6;
@@ -22,6 +22,21 @@
 
 	.selectable-card{
 		background-color: white;
+		border: 1px solid #505050;
+	}
+
+	.senderName{
+		font-weight: bold;
+		font-size: 12px;
+	}
+
+	.time{
+		font-size: 10px;
+	}
+
+	.msgBlock{
+		font-size: 12px;
+		line-height: normal;
 	}
 
 	</style>
@@ -29,8 +44,9 @@
 	
 	<template>
 	
-	<div id="[[msgId]]" class$="{{selectedStyle}}" on-click="select">
-		<div class="layout horizontal"> 
+	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select">
+		
+		<div class="flex layout horizontal"> 
 
 			<div class="avatarBlock">
 				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
@@ -68,23 +84,11 @@
 			/**
 			 * The index of the message.
 			 */
-			id:{type: Number},
+			id:{type: Number}
 
-			/**
-			 * The concatenated ID of the message.
-			 */
-			msgId:{
-				type:String,
-				computed: 'concatId(id)'
-			}
+
 		},
 
-		/**
-		 * This method prefixes the ID.
-		 */
-		concatId: function(id){
-			return "msg-" + id;
-		},
 
 		/**
 		 * This method concatenates the first and last name of the sender.
