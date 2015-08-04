@@ -26,16 +26,16 @@
 	<template>
 
 	<div id="{{id}}" class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
-		<div class="layout horizontal"> 
+		<div class="flex layout horizontal"> 
 			<div class="avatarBlock">
-				<qi-avatar url="[[mtg.sender.avatar]]"></qi-avatar>
+				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
 			</div>
 			
 			<div class="senderBlock"> 
 				<qi-field label="Sender:" value="[[fullname]]"></qi-field>
-				<qi-date-field label="Time:" date="[[mtg.date]]" time="[[mtg.time]]"></qi-date-field>
-				<qi-field label="Location:" value="[[mtg.location]]"></qi-field>
-				<qi-field label="Description:" value="[[mtg.description]]"></qi-field>
+				<qi-date-field label="Time:" date="[[model.date]]" time="[[mtg.time]]"></qi-date-field>
+				<qi-field label="Location:" value="[[model.location]]"></qi-field>
+				<qi-field label="Description:" value="[[model.description]]"></qi-field>
 			</div>
 			
 		</div>
@@ -59,20 +59,14 @@
 				value:JSON.parse(localStorage.getItem("contacts"))
 			},
 
-			/**
-			 * The meeting object
-			 */
-			mtg:{
-				type: Object, 
-				value: null
-			},
+
 
 			/**
 			 * A computed property that concatenates the first and last name of the sender.
 			 */
 			fullname: {
 				type: String,
-				computed: 'concat(mtg.sender.firstName, mtg.sender.lastName)'
+				computed: '_concat(model.sender.firstName, model.sender.lastName)'
 			}
 			
 
@@ -83,7 +77,7 @@
 		 * @param firstName The first name of the sender
 		 * @param lastName the last name of the sender
 		 */
-		concat: function(firstName, lastName){
+		_concat: function(firstName, lastName){
 			return firstName + " " + lastName;
 		},
 

@@ -87,17 +87,17 @@
       /**
        * An array of messages.
        */
-      msgs:{type: Array, value:[], observer: 'msgsChanged'},
+      msgs:{type: Array, value:[]},
 
       /**
        * An array of meeting requests.
        */
-      mtgs:{type: Array, value: [], observer: 'mtgsChanged'},
+      mtgs:{type: Array, value: []},
 
       /**
        * An array of invitations.
        */
-      invites: {type: Array, value:[], observer: 'invitesChanged'},
+      invites: {type: Array, value:[]},
 
       /**
        * The index of the selected tab.
@@ -105,31 +105,6 @@
       selected: {type: Number, value: 0}
    },
 
-   msgsChanged:function(newValue, oldValue){
-    // if (newValue != null && newValue.length > 0){
-
-    //   var msgTray = this.$.msgTray;
-
-    //   var msgCard = new MsgCard();
-    //   msgCard.msg = newValue[newValue.length];
-    //   msgTray.appendChild(msgCard);
-    // }
-   },
-
-   mtgsChanged: function(newValue, oldValue){
-    // if(newValue != null && newValue.length > 0){
-    //   var mtgTray = this.$.mtgTray;
- 
-    //   var mtgCard = new MtgCard();
-    //   mtgCard.msg = newValue[newValue.length];
-    //   mtgTray.appendChild(mtgCard);
-    // }
-
-   },
-
-   invitesChanged: function(newValue, oldValue){
-
-   },
 
   
     ready: function(){

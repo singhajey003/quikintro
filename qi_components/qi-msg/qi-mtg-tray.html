@@ -4,15 +4,14 @@
 <link rel="import" href="../qi-card/qi-card-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 
-<link rel="import" href="../qi-dialog/qi-msg-dialog.html">
-
-<link rel="import" href="qi-invite-card.html">
+<link rel="import" href="qi-mtg-card.html">
+<link rel="import" href="qi-mtg-page.html">
 
 <dom-module id="qi-mtg-tray">
 
 	<style is="custom-style">
 	qi-card-tray{
-		--tray-width: 380px;
+		--tray-width: 100%;
 		background-color: var(--tray-bgcolor);
 	}
 
@@ -29,19 +28,19 @@
 		</div>
 
 
-		<iron-pages selected="{{selected}}">
+		<iron-pages selected="{{selectedPage}}">
 
 		<div>
 		    <qi-card-tray id="cardtray">
-		        <template is="dom-repeat" items="[[model]]" index-as="id" as="invite">
-		            <qi-invite-card id="[[computeDomId('mtg', id)]]" class="selectable-card" model="[[invite]]"></qi-invite-card>
+		        <template is="dom-repeat" items="[[model]]" index-as="id" as="mtg">
+		            <qi-mtg-card class="selectable-card" model="[[mtg]]"></qi-mtg-card>
 		        </template>
 		    </qi-card-tray>
 		</div>
 
 
 		<div>
-			<qi-invite-page></qi-invite-page>
+			<qi-mtg-page></qi-mtg-page>
 		</div>
 
 		</iron-pages>
@@ -56,6 +55,12 @@
 
 		behaviors:[QiTrayBehavior],
 
+		properties:{
+			selectedPage:{
+				type: Number,
+				value: 0
+			}
+		},
 
 
 		_removeCards: function(){
