@@ -6,6 +6,7 @@
  @element qi-avatar-tray
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="qi-avatar.html">
 
 <dom-module id="qi-avatar-tray">
 
@@ -22,10 +23,8 @@
 	<div class="layout horizontal">
 		<div id="avatartray" class="flex layout horizontal">
 
-
-
 		</div>
-		<div id="additional" >{{}}</div>
+		<div id="additional" >{{leftover}}</div>
 	</div>
 	</template>
 
@@ -59,7 +58,10 @@
 			}
 		},
 
-		_computeLeftOver: function(){
+		/**
+		 * This method computes the number of undisplayed avatars.
+		 */
+		_computeLeftOver: function(model, max){
 			var leftover = "";
 			if(model.length > max){
 				leftover = "+" + (model.length - max);
@@ -67,8 +69,18 @@
 			return leftover;
 		},
 
+		/**
+		 * This method initializes the component.
+		 */
 		init: function(){
-			//TODO add avatars to div
+			if(this.model.length > 0){
+				var tray = this.$.avatartray;
+				for(var i=0; i < this.model.length; i++){
+					var avatar = new Avatar();
+					avatar.model = this.model[i];
+					this.appendChild(avatar);
+				}
+			}
 		}
 	});
 

@@ -25,7 +25,7 @@
 	
 	<template>
 
-	<div id="{{id}}" class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
+	<div  class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
 		<div class="flex layout horizontal"> 
 			<div class="avatarBlock">
 				<qi-avatar url="[[model.invitees[0].avatar]]"></qi-avatar>
@@ -41,7 +41,7 @@
 			
 		</div>
 
-		<qi-avatar-tray model="[[model.invitees]]"></qi-avatar-tray>
+		<qi-avatar-tray model="[[avatars]]"></qi-avatar-tray>
 
 	</div>
 
@@ -69,10 +69,28 @@
 			 */
 			fullname: {
 				type: String,
-				computed: '_concat(model.invitees[0].firstName, model.invitees[0].lastName)'
+				computed: '_concat()'
+			},
+
+			avatars: {
+				type: Array,
+				computed: '_getAvatars(model)'
 			}
+
 			
 
+		},
+
+		/**
+		 * This method gets the avatars for the invitees
+		 * @param model the model object for the meeting
+		 */
+		_getAvatars: function(model){
+			var avatars = [];
+			for(invitee in model.invitees){
+				avatars.push(invitee.avatar);
+			}
+			return avatars;
 		},
 
 		/**
@@ -80,8 +98,8 @@
 		 * @param firstName The first name of the sender
 		 * @param lastName the last name of the sender
 		 */
-		_concat: function(firstName, lastName){
-			return firstName + " " + lastName;
+		_concat: function(model){
+			return model.invitees[0].firstName + " " + model.invitees[0].lastName
 		},
 
 		

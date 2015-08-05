@@ -20,6 +20,9 @@ it can be easily accessed by other components.
         <iron-ajax auto="true" url="invites.json" on-response="handleInvites" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="news/feeds.json" on-response="handleFeeds" handle-as="json"></iron-ajax>
 
+        <iron-ajax auto="true" url="meeting-requests.json" on-response="handleMtgs" handle-as="json"></iron-ajax>
+
+
         <iron-localstorage name="invites" value="{{invites}}"></iron-localstorage>
         <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
         <iron-localstorage name="events" value="{{eventList}}"></iron-localstorage>
@@ -29,6 +32,7 @@ it can be easily accessed by other components.
         <iron-localstorage name="profile" value="{{profile}}"></iron-localstorage>
         <iron-localstorage name="news" value="{{news}}"></iron-localstorage>
         <iron-localstorage name="feeds" value="{{feeds}}"></iron-localstorage>
+        <iron-localstorage name="mtgs" value="{{mtgs}}"></iron-localstorage>
     </template>
     <script>
     Polymer({
@@ -60,6 +64,9 @@ it can be easily accessed by other components.
                 type: Array
             },
             feeds:{
+                type: Array
+            },
+            mtgs:{
                 type: Array
             }
         },
@@ -94,6 +101,9 @@ it can be easily accessed by other components.
         },
         handleFeeds: function(e){
             this.feeds = e.detail.response;
+        },
+        handleMtgs: function(e){
+            this.mtgs = e.detail.response;
         }
 
     });
