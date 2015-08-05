@@ -14,46 +14,63 @@
 	<link rel="stylesheet" href="qi-splash.css" > 
 
 	<style>
+	/*
 	paper-input-container.splash{
 		--paper-input-container-color: white;
+		
 	}
+	*/
 
+	/*
 	paper-input.splash{
   		--paper-input-container-color: white;
-	}
-
+	}*/
+	/*
 	paper-button.splash{
 		--paper-button-raised-color: white;
 	}
+
+	*/
 
 	</style>
 
 	<template>
 	<qi-data-loader></qi-data-loader>
 	<div class="panel fit">
-		<div class="logo"></div>
+		<div class="logo flex" ></div>
 		<div class="wrapper"> 
 			<paper-input class="splash" label="User ID:" alwaysFloatLabel="true"></paper-input><br/>  
 			<paper-input-container class="splash" alwaysFloatLabel="true" > 
 				<label>Password:</label>
-				<input is="iron-input" type="password" name="password">
+				<input is="iron-input" type="password" name="password"> <a id="temp" href="forgot_password.html">Forgot Password</a>
 			</paper-input-container>
 
-			<paper-button class="splash noink primary raised" on-click="handleLogin">Login</paper-button> 
+			<paper-button class="signin noink primary raised" on-click="handleLogin">Login</paper-button> 
 		</div>
 	</div>
 
 	</template>
+
+	<iron-pages selected="0">
+
+
+
+	</iron-pages>
 
 	<script>
 	Polymer({
 	  	is: 'qi-splash', 
 
 		handleLogin: function(){
-			this.fire("login")
+			this.fire("login");
 		}
 		
 	});
+
+	document.addEventListener('click', function(e) {
+    var pages = document.querySelector('iron-pages');
+    pages.selectNext();
+  	});
 
 	</script>
 
