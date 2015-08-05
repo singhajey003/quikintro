@@ -1,0 +1,79 @@
+<!--
+ This component lays out an array of avatars horizontally up to some fixed
+ number of avatars.  It then displays the number of undisplayed avatars. 
+
+ @group QI Elements
+ @element qi-avatar-tray
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="qi-avatar-tray">
+
+	<style>
+
+	#additional{
+
+	}
+
+	</style>
+
+	
+	<template>
+	<div class="layout horizontal">
+		<div id="avatartray" class="flex layout horizontal">
+
+
+
+		</div>
+		<div id="additional" >{{}}</div>
+	</div>
+	</template>
+
+	<script>
+	Polymer({
+		is:'qi-avatar-tray',
+		properties:{
+
+			/**
+			 * An array of URLs for the avatars
+			 */
+			model: {
+				type: Array,
+				value:[]
+			},
+
+			/**
+			 * The maximum number of avatars to display.
+			 */
+			max: {
+				type: Number,
+				value: 3
+			},
+
+			/**
+			 * A computed property used to display the number of undisplayed avatars.
+			 */
+			leftover:{
+				type: Number,
+				computed: '_computeLeftOver(model, max)'
+			}
+		},
+
+		_computeLeftOver: function(){
+			var leftover = "";
+			if(model.length > max){
+				leftover = "+" + (model.length - max);
+			}
+			return leftover;
+		},
+
+		init: function(){
+			//TODO add avatars to div
+		}
+	});
+
+
+	</script>
+
+
+</dom-module>

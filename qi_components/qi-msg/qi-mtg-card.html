@@ -28,7 +28,7 @@
 	<div id="{{id}}" class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
 		<div class="flex layout horizontal"> 
 			<div class="avatarBlock">
-				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
+				<qi-avatar url="[[model.invitees[0].avatar]]"></qi-avatar>
 			</div>
 			
 			<div class="senderBlock"> 
@@ -37,8 +37,11 @@
 				<qi-field label="Location:" value="[[model.location]]"></qi-field>
 				<qi-field label="Description:" value="[[model.description]]"></qi-field>
 			</div>
+
 			
 		</div>
+
+		<qi-avatar-tray model="[[model.invitees]]"></qi-avatar-tray>
 
 	</div>
 
@@ -66,7 +69,7 @@
 			 */
 			fullname: {
 				type: String,
-				computed: '_concat(model.sender.firstName, model.sender.lastName)'
+				computed: '_concat(model.invitees[0].firstName, model.invitees[0].lastName)'
 			}
 			
 
