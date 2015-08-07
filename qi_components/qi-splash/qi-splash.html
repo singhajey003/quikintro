@@ -40,11 +40,14 @@
 		<div class="logo flex" ></div>
 		<div class="wrapper flex"> 
 			<paper-input class="splash flex" label="User ID:" alwaysFloatLabel="true"></paper-input><br/>  
-			<paper-input-container class="splash flex" alwaysFloatLabel="true"  id="password"> 
-				<label>Password:</label>
-				<input is="iron-input" type="password" name="password">
-				<!-- implement forgot password using pages -->
-			</paper-input-container>
+				<paper-input-container class="splash flex" alwaysFloatLabel="true"  id="password"> 
+					<label>Password:</label>
+					<div class="horizontal end-justified layout">
+					<div><input is="iron-input" type="password" name="password"></div>
+					<!-- implement forgot password using pages -->
+					<div><paper-button class="splash flex" on-click="handleForgotPassword">Forgot Password</paper-button></div>
+					</div>
+				</paper-input-container>
 		</div>
 
 		<!-- created a button class -->
@@ -54,7 +57,7 @@
 
 		<!-- Created a sign in class, needs to change a href to an overlay for creating new account-->
 		<div class="signup">
-			<p>DON'T HAVE AN ACCOUNT? <a href="#">SIGN UP</a></p>
+			<p>DON'T HAVE AN ACCOUNT? <paper-button class="splash" on-click="handleSignUp">Sign Up</paper-button></p>
 		</div>
 	</div>
 
@@ -66,7 +69,17 @@
 
 		handleLogin: function(){
 			this.fire("login");
+		},
+
+		handleSignUp: function(){
+			this.fire("signup");
+		},
+
+		handleForgotPassword: function(){
+			this.fire("forgot");
 		}
+
+
 		
 	});
 

@@ -25,9 +25,11 @@
   padding: 20px;
  }
 
-.sign{
-  background: url("signin.jpg") center no-repeat;
-  height: 50px;
+.sign{  
+  background: transparent url('signin.jpg') center no-repeat;
+  height: 8%;
+  /*color: #f7fffc;
+  font-family: arial; /*monotype */
   width: 100%;
   margin: 0;
   background-color: #17aacf; /* static color, needs to be change according to button background color */
@@ -39,4 +41,9 @@
   margin-top: 20px;
   text-align: center;
   font-size: 10px;
+}
+
+#password paper-button{
+  font-size: 10px;
+  margin: 0;
 }
