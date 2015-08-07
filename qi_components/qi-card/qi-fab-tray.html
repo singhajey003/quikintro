@@ -7,15 +7,21 @@
 
 		/* Default fab tray style */
 		.fab-tray{
+			transition:0.4s;
 			width: 100vw;
 			max-height: 54px;
 			min-height: 54px;
+			bottom:-54px;
+			position:fixed;
+			background:#17aacf;
+			display: visible;
 		}
 
 
 		/* Selected fab tray style */
 		.selectedFab{
-			background-color: red;
+			bottom:0;
+
 		}
 
 	</style>
@@ -33,7 +39,7 @@
 				 * A flag that indicates that one or more cards are selected.
 				 */
 				selected:{
-					type: Boolean, 
+					type: Boolean,
 					value: false,
 					notify: true,
 				},
@@ -65,7 +71,7 @@
 			 */
 			_computestyle: function(selected){
 				var style = this.traystyle;
-				style += (selected)? " selectedFab":"";				
+				style += (selected)? " selectedFab":"";
 				return style;
 			}
 
