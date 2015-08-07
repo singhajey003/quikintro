@@ -38,24 +38,27 @@
 	<qi-data-loader></qi-data-loader>
 	<div class="panel fit">
 		<div class="logo flex" ></div>
-		<div class="wrapper"> 
-			<paper-input class="splash" label="User ID:" alwaysFloatLabel="true"></paper-input><br/>  
-			<paper-input-container class="splash" alwaysFloatLabel="true" > 
+		<div class="wrapper flex"> 
+			<paper-input class="splash flex" label="User ID:" alwaysFloatLabel="true"></paper-input><br/>  
+			<paper-input-container class="splash flex" alwaysFloatLabel="true"  id="password"> 
 				<label>Password:</label>
-				<input is="iron-input" type="password" name="password"> <a id="temp" href="forgot_password.html">Forgot Password</a>
+				<input is="iron-input" type="password" name="password">
+				<!-- implement forgot password using pages -->
 			</paper-input-container>
+		</div>
 
-			<paper-button class="signin noink primary raised" on-click="handleLogin">Login</paper-button> 
+		<!-- created a button class -->
+		<div class="sign flex" >
+			<paper-button class="splash noink primary raised" on-click="handleLogin"></paper-button> 
+		</div>
+
+		<!-- Created a sign in class, needs to change a href to an overlay for creating new account-->
+		<div class="signup">
+			<p>DON'T HAVE AN ACCOUNT? <a href="#">SIGN UP</a></p>
 		</div>
 	</div>
 
 	</template>
-
-	<iron-pages selected="0">
-
-
-
-	</iron-pages>
 
 	<script>
 	Polymer({
@@ -66,11 +69,6 @@
 		}
 		
 	});
-
-	document.addEventListener('click', function(e) {
-    var pages = document.querySelector('iron-pages');
-    pages.selectNext();
-  	});
 
 	</script>
 

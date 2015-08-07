@@ -1,25 +1,38 @@
 .panel {
-  background-color: #17a8cc;
+  background-color: #FFFFFF;
   background-size: contain;
   width: 100%;
   height: 100%; }
 
 .logo {
-  background: transparent url("../../images/logo_slogan.svg") center top no-repeat;
-  width: 50%;
-  max-width: 300px;
-  min-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  background-size: contain;
-  height: 200px;
-  padding: 20px; }
+  /* "../../images/logo_slogan.svg"*/
+  background: transparent url("login.jpg") center top no-repeat;
+  width: 100%;
+  /*max-width: 300px;*/
+  /*min-width: 200px;*/
+  /*margin-left: auto;
+  margin-right: auto;*/
+  background-size: cover;
+  height: 50%;
+  /*padding: 20px;*/ }
 
 .wrapper {
-  width: 50%;
-  max-width: 300px;
+  /*max-width: 300px;*/
   min-width: 200px;
+  height: 25%;
   padding: 20px; }
 
-paper-input.splash {
-  --paper-input-color: white; }
+.sign {
+  background: url("signin.jpg") center no-repeat;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  background-color: #17aacf;
+  /* static color, needs to be change according to button background color */ }
+
+.signup {
+  width: 100%;
+  display: inline-block;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 10px; }
