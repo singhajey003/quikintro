@@ -4,6 +4,7 @@
 
 <link rel="import" href="../qi-theme.html"> 
 <link rel="import" href="qi-fab-tray.html">
+<link rel="import" href="qi-tray-behavior.html">
 
 <dom-module id="qi-card-tray">
 
@@ -15,28 +16,26 @@
 		overflow: scroll;
 	}
 
-
 	</style>
 
 	<template>
-	<div class="tray">
-		<div id="[[id]]" class="layout vertical">
 
-		<div class="flex">
-		<iron-selector id="selector" multi="true" attr-for-selected="model">
-			<content select=".selectable-card"></content>
-		</iron-selector>
+		<div class="tray">
+			<div id="[[id]]" class="layout vertical">
+
+			<div class="flex">
+			<iron-selector id="selector" multi="true" attr-for-selected="model">
+				<content select=".selectable-card"></content>
+			</iron-selector>
+			</div>
+
+			</div>
+
+			<qi-fab-tray id="fabtray">
+				<content select=".selectable"></content>	
+			</qi-fab-tray>
+			
 		</div>
-
-		</div>
-
-		<qi-fab-tray id="fabtray">
-			<content select=".selectable"></content>	
-		</qi-fab-tray>
-		
-
-
-	</div>
 
 
 	</template>
@@ -46,20 +45,11 @@
 	Polymer({
 		is: 'qi-card-tray',
 
+		behaviors: [QiTrayBehavior],
+
 		getSelected: function(){
 			return this.$.selector.selectedValues;
-		},
-
-		ready: function(){
-			var fabtray = this.$.fabtray;
-
-			this.addEventListener('card-selected', function(e){
-				var selectedArray = this.getSelected();
-				fabtray.selected = (selectedArray.length > 0);
-			});
-
 		}
-
 
 
 	});

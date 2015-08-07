@@ -34,7 +34,7 @@
 				<span>[[feed.name]]</span>
 				<template is="dom-repeat" items="[[feed.articles]]" as="article" index-as="articleId">
 				[[article.title]]
-					<qi-article-card id="{{computeDomId('art',articleId)}}" class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
+					<qi-article-card prefix="art" id="[[articleId]]" class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
 				</template>
 
 			</template>
@@ -85,9 +85,10 @@ Polymer({
 
 
 	/**
-	 * This method displays the 
+	 * This method displays the share dialog.
 	 */
 	openShareDialog: function(){
+		this.$.shareDialog.articles = this.getSelectedCards();
 		this.$.shareDialog.open();
 	}
 

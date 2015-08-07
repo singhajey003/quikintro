@@ -12,13 +12,17 @@ QiTrayBehavior = {
 
 		selectedCards:{
 			type: Array,
-			value: []
+			value: [],
+			notify: true,
+			observer: "selectedCardsChanged"
 		}
 
 
 	},
 
-
+	selectedCardsChanged: function(newValue, oldValue){
+		console.log(newValue);
+	},
 
 	/**
 	 * This abstract method creates a DOM-specific ID that is guaranteed to
@@ -46,33 +50,25 @@ QiTrayBehavior = {
 		}
 	},
 
-
-
-	/**
-	 * This function is used to initialize the tray.
-	 */
-	ready: function(){
-		var cardtray = this.$.cardtray;
-		var msgs = this.msgs;
-		
-		// disable all buttons by default
-		this._disableBtns(true);
-
-		// whenever a card is selected/deselected, determine if the buttons should
-		// be enabled/disabled.
-		this.addEventListener('card-selected', function(e){
-			var selectedArticles = cardtray.getSelected();
-
-			for(article of selectedArticles){
-				this.msgs.push(this.cleanMessageText(article.title + "." + article.abstract));
-			}
-
-			var disabled = (selectedArticles.length == 0);
-			this._disableBtns(disabled);
-
-		});
-
+	getSelectedCards: function(){
+		return this.$.selector.selectedValues;
 	},
+
+
+	ready: function(){
+		var selector = this.$.selector;
+
+		// change the fab tray style whenever a card is selected.
+		this.addEventListener('card-selected', function(e){
+			var selectedCards = selector.selectedValues;
+			this.selectedCards = selectedCards;
+			fabtray.selected = (selectedCards.length > 0);
+		});
+	}
+
+
+
+
 
 
 
