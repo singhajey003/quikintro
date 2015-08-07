@@ -13,6 +13,8 @@
 <link rel="import" href="../../bower_components/paper-item/paper-item.html" >
 <link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
 
+<link rel="import" href="../../bower_components/iron-icons/communication-icons.html">
+
 <link rel="import" href="../qi-field/qi-field.html">
 <link rel="import" href="../qi-card/qi-card-behavior.html">
 
@@ -22,19 +24,35 @@
 
 <dom-module id='qi-mtg-card'  > 
 
+	<style>
+	.title{
+		font-size: 12pt;
+	}
+	.people{
+		font-size: 9pt;
+	}
+
+	.desc{
+		font-size: 9pt;
+	}
+
+	</style>
 	
 	<template>
 
 	<div  class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
 		<div class="flex layout horizontal"> 
-			<div class="avatarBlock">
-				<qi-avatar url="[[model.invitees[0].avatar]]"></qi-avatar>
+			<div class="title">[[model.title]]</div>
+			<div class="people">[[fullname]]</div>
+			
+			<div class="desc">
+			[[model.description]]
 			</div>
 			
 			<div class="senderBlock"> 
-				<qi-field label="Sender:" value="[[fullname]]"></qi-field>
-				<qi-date-field label="Time:" date="[[model.date]]" time="[[mtg.time]]"></qi-date-field>
-				<qi-field label="Location:" value="[[model.location]]"></qi-field>
+				
+				<qi-date-field label="Time:" date="[[model.date]]" time="[[model.time]]"></qi-date-field>
+				<qi-icon-field id="location" icon="communication:location-on" value="[[location]]"></qi-field>
 				<qi-field label="Description:" value="[[model.description]]"></qi-field>
 			</div>
 
@@ -69,16 +87,29 @@
 			 */
 			fullname: {
 				type: String,
-				computed: '_concat()'
+				computed: '_concat(model)'
 			},
 
 			avatars: {
 				type: Array,
 				computed: '_getAvatars(model)'
+			},
+
+			location:{
+				type: String,
+				computed: '_getLocation(model)'
 			}
 
 			
 
+		},
+
+		_getLocation: function(model){
+			var loc = model.location.name;
+			if (model.location.room != null && model.location.room != ''){
+				loc += " - " + model.location.room;
+			}
+			return model.location.name + " " + model.location.room
 		},
 
 		/**

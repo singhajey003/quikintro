@@ -11,11 +11,14 @@
 
 	<template>
 	    <link rel="stylesheet" href="qi-field.css"> 
-		<div class="row flex layout horizontal justified" >  
+		<div class="row flex layout horizontal justified" > 
+
+			<template is="dom-if" if="{{labeled}}"> 
 	        <div class="labelCell">
 	            <iron-icon icon="[[icon]]"></iron-icon>
 	            <label>[[label]]</label>
 	        </div>
+	        </template>
 
 	        <template is="dom-if" if="{{!editable}}">
 	        <div class="fldValue flex"  two>  
@@ -33,18 +36,65 @@
 	Polymer({
    		is: 'qi-icon-field', 
    		properties:{
-   			label:{type: String},
+
+   			/**
+   			 * The text of the label to be displayed
+   			 */
+   			label:{
+   				type: String,
+   				value: ''
+   			},
+
+   			/**
+   			 * The ID of the label to be displayed
+   			 */
    			id: {type: String},
+
+   			/**
+   			 * The value of the field to be displayed
+   			 */
    			value: {type: String},
+
+   			/**
+   			 * The name of the icon (not the file name) to be used.
+   			 */
    			icon: {type: String},
-   			editable: {type: Boolean, value: false},
-   			floatingLabel: {type: Boolean, value: false}
+
+   			/**
+   			 * A flag indicating whether or not the field is to be editable.
+   			 */
+   			editable: {
+   				type: Boolean, 
+   				value: false
+   			},
+
+   			/**
+   			 * A flag indicating that a label has been provided.
+   			 */
+   			labeled: {
+   				type: Boolean,
+   				computed: '_isLabeled(label)'
+   			},
+
+   			/**
+   			 * A flag indicating that the label should float
+   			 */
+   			floatingLabel: {
+   				type: Boolean, 
+   				value: false
+   			}
+   		},
+
+   		/**
+   		 * This method determines whether or not a label exists.
+   		 */
+   		_isLabeled: function(label){
+   			return label != '';
    		}
 
 	});
 	</script>
-
-</dom-module> 
+ 
 
 
 </dom-module>

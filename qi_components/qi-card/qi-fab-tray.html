@@ -1,0 +1,75 @@
+<!--
+
+
+-->
+<dom-module id="qi-fab-tray">
+	<style>
+
+		/* Default fab tray style */
+		.fab-tray{
+			width: 100vw;
+			max-height: 54px;
+			min-height: 54px;
+		}
+
+
+		/* Selected fab tray style */
+		.selectedFab{
+			background-color: red;
+		}
+
+	</style>
+	<template>
+		<div class$="{{selectedTrayStyle}}">
+			<content></content>
+		</div>
+	</template>
+	<script>
+		var FabTray = Polymer({
+			is: 'qi-fab-tray',
+			properties:{
+
+				/**
+				 * A flag that indicates that one or more cards are selected.
+				 */
+				selected:{
+					type: Boolean, 
+					value: false,
+					notify: true,
+				},
+
+				/**
+				 * The default styles for the tray
+				 */
+				traystyle:{
+					type: String,
+					value: 'fab-tray',
+					notify: true
+				},
+
+				/**
+				 * The concatenated list of styles to be applied to the fab.
+				 */
+				selectedTrayStyle:{
+					type: String,
+					notify: true,
+					computed: '_computestyle(selected)'
+				}
+			},
+
+
+			/**
+			 * This concatenates the list of styles to be applied.
+			 * @param selected
+			 * @param traystyle
+			 */
+			_computestyle: function(selected){
+				var style = this.traystyle;
+				style += (selected)? " selectedFab":"";				
+				return style;
+			}
+
+
+		});
+	</script>
+</dom-module>

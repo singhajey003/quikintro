@@ -3,13 +3,11 @@
 <link rel="import" href="../../bower_components/iron-selector/iron-selector.html"> 
 
 <link rel="import" href="../qi-theme.html"> 
+<link rel="import" href="qi-fab-tray.html">
 
 <dom-module id="qi-card-tray">
 
 	<style is="custom-style">
-	:host ::content .iron-selected{
-		border: 1px solid #505050;
-	}
 
 	:host ::content .tray{
 		background-color: var(--tray-bgcolor);
@@ -22,18 +20,21 @@
 
 	<template>
 	<div class="tray">
-		<div id="[[id]]" class="layout horizontal">
+		<div id="[[id]]" class="layout vertical">
 
-		
+		<div class="flex">
 		<iron-selector id="selector" multi="true" attr-for-selected="model">
 			<content select=".selectable-card"></content>
 		</iron-selector>
+		</div>
+
+		</div>
+
+		<qi-fab-tray id="fabtray">
+			<content select=".selectable"></content>	
+		</qi-fab-tray>
 		
 
-		
-		<content select=".fab-tray"></content>	
-		
-		</div>
 
 	</div>
 
@@ -48,6 +49,16 @@
 		getSelected: function(){
 			return this.$.selector.selectedValues;
 		},
+
+		ready: function(){
+			var fabtray = this.$.fabtray;
+
+			this.addEventListener('card-selected', function(e){
+				var selectedArray = this.getSelected();
+				fabtray.selected = (selectedArray.length > 0);
+			});
+
+		}
 
 
 

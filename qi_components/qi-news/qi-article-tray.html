@@ -21,16 +21,26 @@
 		--tray-width: 100vw;
 		background-color: var(--tray-bgcolor);
 	}
-	.fab-tray{
-		width: 100vw;
-		max-height: 54px;
-	}
 
 	</style>
 
 	<template>
-				
-		<div id="fabtray" class="fab-tray">
+						
+
+		<qi-card-tray id="cardtray">
+
+		<!-- News Articles -->
+			<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
+				<span>[[feed.name]]</span>
+				<template is="dom-repeat" items="[[feed.articles]]" as="article" index-as="articleId">
+				[[article.title]]
+					<qi-article-card id="{{computeDomId('art',articleId)}}" class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
+				</template>
+
+			</template>
+		
+
+		<!-- FABs -->
 			<paper-fab class="selectable" icon="av:skip-previous" on-click="back" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:play-arrow" on-click="play" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:pause" on-click="pause" mini></paper-fab>
@@ -38,16 +48,8 @@
 			
 			<paper-fab class="selectable" icon="av:stop" on-click="stop" mini></paper-fab>
 			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog" mini></paper-fab>
-		</div>
+		
 
-		<qi-card-tray id="cardtray">
-		<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
-			<span>[[feed.name]]</span>
-			<template is="dom-repeat" items="[[feed.articles]]" as="article" index-as="articleId">
-				<qi-article-card id="{{computeDomId('art',articleId)}}" class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
-			</template>
-
-		</template>
 		</qi-card-tray>
 
 		<qi-share-news-dialog id="shareDialog" articles="[[selectedArticles]]"></qi-share-news-dialog>

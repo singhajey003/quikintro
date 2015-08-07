@@ -56,7 +56,7 @@ QiCardBehavior = {
 		 */
 		selectedStyle:{
 			type: String,
-			computed: 'computeStyle(selected, cardstyle)',
+			computed: '_computeStyle(selected, cardstyle)',
 			notify: true
 		}
 
@@ -75,7 +75,7 @@ QiCardBehavior = {
 	/**
 	 * This method calculates the style to be applied to the card.
 	 */
-	computeStyle: function(selected, cardstyle){
+	_computeStyle: function(selected, cardstyle){
 		var style = cardstyle;
 
 		if(selected){
