@@ -1,0 +1,45 @@
+<!--
+
+	@group QI Elements
+ 	@element qi-card-page-tray
+-->
+
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+
+<dom-module id="qi-card-page-tray">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	<template>
+		
+			
+	
+	<iron-pages selected="{{selectedPage}}">
+		<div>
+			<div class="flex">
+			<iron-selector id="selector" multi="true" attr-for-selected="model">
+				<content select=".selectable-card"></content>
+			</iron-selector>
+			</div>
+
+			<qi-fab-tray id="fabtray">
+				<content select=".selectable"></content>	
+			</qi-fab-tray>
+		</div>
+
+		<div>
+			<content select=".detail-page"></content>
+		</div>
+	</iron-pages>
+		
+		
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-card-page-tray',
+			behaviors: [QiTrayBehavior, QiTrayPageBehavior]
+		});
+	</script>
+</dom-module>

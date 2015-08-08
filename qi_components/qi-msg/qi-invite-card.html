@@ -61,7 +61,6 @@
             </div>
             <div>
             	<span class="score">[[model.sender.score]]</span><span class="pct">%</span>
-
             </div>
         </div>
        
@@ -99,14 +98,13 @@
     	},
 
    		_handleSwipe: function(e){
-			if(e.detail.state == 'end'){
+			  if(e.detail.state == 'end'){
 	  			this.fire('invite-card-swipe', {model: this.model});
 	  		}
    		},
 
    		_concatTitleCo: function(model){
    			return (model != null)?model.sender.title +" at " + model.sender.company : "";
-   			
    		},
 
 

@@ -41,19 +41,15 @@
 	<template>
 
 	<div  class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
-		<div class="flex layout horizontal"> 
+		<div class="flex layout vertical"> 
 			<div class="title">[[model.title]]</div>
 			<div class="people">[[fullname]]</div>
 			
-			<div class="desc">
-			[[model.description]]
-			</div>
+			<div class="desc"><span>[[model.description]]</span></div>
 			
 			<div class="senderBlock"> 
-				
 				<qi-date-field label="Time:" date="[[model.date]]" time="[[model.time]]"></qi-date-field>
 				<qi-icon-field id="location" icon="communication:location-on" value="[[location]]"></qi-field>
-				<qi-field label="Description:" value="[[model.description]]"></qi-field>
 			</div>
 
 			
@@ -80,8 +76,6 @@
 				value:JSON.parse(localStorage.getItem("contacts"))
 			},
 
-
-
 			/**
 			 * A computed property that concatenates the first and last name of the sender.
 			 */
@@ -90,11 +84,17 @@
 				computed: '_concat(model)'
 			},
 
+			/**
+			 * An array of avatar URLs
+			 */
 			avatars: {
 				type: Array,
 				computed: '_getAvatars(model)'
 			},
 
+			/**
+			 * The location of the meeting.
+			 */
 			location:{
 				type: String,
 				computed: '_getLocation(model)'
@@ -104,6 +104,10 @@
 
 		},
 
+		/**
+		 * This method concatenates the location information.
+		 * @param 
+		 */
 		_getLocation: function(model){
 			var loc = model.location.name;
 			if (model.location.room != null && model.location.room != ''){
@@ -137,7 +141,7 @@
 		/**
 		 * This method displays the reply dialog.
 		 */
-		replyDialog: function(e){
+		replyDialog: function(){
 			var profile = JSON.parse(localStorage.getItem("profile"));
 			var sender = {
 				firstName: profile.firstName,
@@ -148,14 +152,8 @@
 
 			this.fire('openPingDialog',{sender:sender, rcvr: this.mtg.sender});
 		},
-
-		/**
-		 * This method deletes the meeting.
-		 */
-		delete: function(e){
-			this.fire('delete-mtg', {mtgId: this.mtgId, id: this.id});
-		},
 		
+
 		_handleSwipe: function(e){
 			if(e.detail.state == 'end'){
 	  			this.fire('mtg-card-swipe', {model: this.model});

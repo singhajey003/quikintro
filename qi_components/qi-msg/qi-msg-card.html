@@ -81,11 +81,6 @@
 				computed:'_concatName(model.sender.firstName, model.sender.lastName)'
 			},
 
-			/**
-			 * The index of the message.
-			 */
-			id:{type: Number}
-
 
 		},
 
@@ -102,14 +97,8 @@
 		 */
 		replyDialog: function(e){
 			this.fire('openPingDialog',{sender:this.msg.rcvr, rcvr: this.msg.sender});
-		},
-
-		/**
-		 * This method causes a delete-msg event to be fired.
-		 */
-		deleteMsg: function(){
-			this.fire('delete-msg', {msgId: this.msgId, id: this.id});
 		}
+
 		
 
 	});

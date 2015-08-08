@@ -1,0 +1,26 @@
+<!--
+This behavior defines the properties and methods required of a card page.  This component consists of two pages. The first 
+is a tray containing a number of cards. The second is a page
+containing the details of a selected card.  Whenever the
+user swipes the card, the page appears.  Whenever the user
+swipes the page, the card tray appears.
+
+@polymerBehavior QiTrayPageBehavior
+-->
+
+<script>
+QiTrayPageBehavior = {
+
+	properties:{
+
+		/**
+		 * The index of the selected page.
+		 */
+		selectedPage:{
+			type: Number,
+			value: 0
+		}
+	}
+
+}
+</script>
