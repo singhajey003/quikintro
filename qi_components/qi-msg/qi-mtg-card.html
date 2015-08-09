@@ -17,9 +17,11 @@
 
 <link rel="import" href="../qi-field/qi-field.html">
 <link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
 
 <link rel="import" href="../qi-field/qi-date-field.html">
-<link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-field/qi-icon-field.html">
+<link rel="import" href="../qi-avatar/qi-avatar-tray.html">
 
 
 <dom-module id='qi-mtg-card'  > 
@@ -27,35 +29,55 @@
 	<style>
 	.title{
 		font-size: 12pt;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		font-weight: lighter;
 	}
 	.people{
 		font-size: 9pt;
+		font-weight: 100;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		color: #17aacf;
 	}
 
 	.desc{
 		font-size: 9pt;
 	}
 
+	.selectedCard{
+		border-left: 5px solid #3ea1e6;
+	}
+
+	.card{
+		margin-bottom: 25px;
+	}
+
+
+
+
 	</style>
 	
 	<template>
 
-	<div  class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
+	<div  class$="{{selectedstyle}}" on-click="select" on-track="handleCardSwipe">
 		<div class="flex layout vertical"> 
-			<div class="title">[[model.title]]</div>
-			<div class="people">[[fullname]]</div>
+			<h1 class="title">[[model.title]]</h1>
+			<h2 class="people">[[fullname]]</h2>
 			
 			<div class="desc"><span>[[model.description]]</span></div>
 			
-			<div class="senderBlock"> 
-				<qi-date-field label="Time:" date="[[model.date]]" time="[[model.time]]"></qi-date-field>
+			<div class="layout vertical"> 
+				<qi-icon-field id="date" icon="event" value="[[model.date]]"></qi-icon-field>
+				<qi-icon-field id="time" icon="alarm" value="[[startEndTime]]"></qi-icon-field>
 				<qi-icon-field id="location" icon="communication:location-on" value="[[location]]"></qi-field>
 			</div>
 
+			<qi-avatar-tray model="[[avatars]]"></qi-avatar-tray>
 			
 		</div>
 
-		<qi-avatar-tray model="[[avatars]]"></qi-avatar-tray>
+		
 
 	</div>
 
@@ -65,7 +87,7 @@
 	var MtgCard = Polymer({
    		is: 'qi-mtg-card',
 
-   		behaviors: [QiCardBehavior],
+   		behaviors: [QiCardBehavior, QiSwipeCardBehavior],
 
    		properties:{
    			/**
@@ -98,10 +120,20 @@
 			location:{
 				type: String,
 				computed: '_getLocation(model)'
+			},
+
+			startEndTime:{
+				type: String,
+				computed: '_startEndTime(model)'
 			}
+
 
 			
 
+		},
+
+		_startEndTime: function(model){
+			return model.time.start + ' - '+ model.time.end;
 		},
 
 		/**
@@ -122,9 +154,10 @@
 		 */
 		_getAvatars: function(model){
 			var avatars = [];
-			for(invitee in model.invitees){
+			for(invitee of model.invitees){
 				avatars.push(invitee.avatar);
 			}
+
 			return avatars;
 		},
 

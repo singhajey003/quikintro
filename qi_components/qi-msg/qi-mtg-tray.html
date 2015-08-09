@@ -8,7 +8,7 @@
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
 
-<link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-card/qi-card-page-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 
 <link rel="import" href="qi-mtg-card.html">
@@ -29,24 +29,15 @@
 
 	<template>
 
-	<qi-card-page-tray>	
+	<qi-card-page-tray id="mtgtray">	
 
+		<!-- Cards -->
+        <template is="dom-repeat" items="[[model]]" index-as="id" as="mtg">
+            <qi-mtg-card class="selectable-card" model="[[mtg]]"></qi-mtg-card>
+        </template>
 
-		<iron-pages selected="{{selectedPage}}">
-
-		<div>
-		    <qi-card-tray id="cardtray">
-		        <template is="dom-repeat" items="[[model]]" index-as="id" as="mtg">
-		            <qi-mtg-card class="selectable-card" model="[[mtg]]"></qi-mtg-card>
-		        </template>
-		    </qi-card-tray>
-		</div>
-
-
+        <!-- Detail Page -->
 		<qi-mtg-page class="detail-page"></qi-mtg-page>
-		
-
-		</iron-pages>
 
 		<!-- FABS -->
 		<paper-fab class="selectable" icon="check" on-click="accept" mini></paper-fab>
@@ -61,7 +52,7 @@
 	Polymer({
 		is: 'qi-mtg-tray',
 
-		behaviors:[QiTrayBehavior],
+		
 
 		properties:{
 			selectedPage:{

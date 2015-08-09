@@ -1,0 +1,17 @@
+<!--
+
+
+-->
+<script>
+	QiSwipePageBehavior={
+		
+
+
+
+		handlePageSwipe: function(e){
+			if(e.detail.state == 'end'){
+	  			this.fire('page-swipe', {});
+	  		}
+		}
+	}
+</script>

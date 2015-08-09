@@ -2,8 +2,8 @@
 
         "date": "06-Jan-2016",
         "time": {
-        	"start-time":"0900",
-        	"end-time":"1100"
+        	"start":"0900",
+        	"end":"1100"
         	},
         "location": {
         	"name":"Westin St. Francis",
@@ -139,8 +139,8 @@
     {
         "date": "7-Jan-2016",
         "time": {
-        	"start-time":"0900",
-        	"end-time":"1100"
+        	"start":"0900",
+        	"end":"1100"
         	},
         "location": {
         	"name":"Westin St. Francis",

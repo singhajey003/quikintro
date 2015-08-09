@@ -12,8 +12,19 @@
 
 	<style>
 
-	#additional{
+	qi-avatar{
+		--avatar-width: 25px;
+		--avatar-height: 25px;
+	}
 
+	#avatartray{
+		vertical-align: bottom;
+	}
+
+	.additional{
+		color: #17aacf;
+		vertical-align: bottom;
+		padding-top: 6px;
 	}
 
 	</style>
@@ -21,10 +32,14 @@
 	
 	<template>
 	<div class="layout horizontal">
-		<div id="avatartray" class="flex layout horizontal">
 
+		<div id="avatartray" class="layout horizontal">
+			<template is="dom-repeat" items="[[visibleAvatars]]" as="avatar">
+				<qi-avatar url="[[avatar]]"></qi-avatar>
+			</template>
 		</div>
-		<div id="additional" >{{leftover}}</div>
+
+		<div class="additional" >{{leftover}}</div>
 	</div>
 	</template>
 
@@ -39,6 +54,14 @@
 			model: {
 				type: Array,
 				value:[]
+			},
+
+			/**
+			 * An array of avatar URLs to be displayed.
+			 */
+			visibleAvatars:{
+				type: Array,
+				computed: '_computeVisibleAvatars(model)'
 			},
 
 			/**
@@ -59,7 +82,18 @@
 		},
 
 		/**
+		 * This method creates an array of avatar URLs to be displayed.
+		 * @param model an array of URLs for the avatars
+		 */
+		_computeVisibleAvatars: function(model){
+			var avatars = model.slice(0, this.max);
+			return avatars;
+		},
+
+		/**
 		 * This method computes the number of undisplayed avatars.
+		 * @param model an array of URLs for the avatars
+		 * @param max the maximum number of avatars to display
 		 */
 		_computeLeftOver: function(model, max){
 			var leftover = "";
@@ -67,21 +101,9 @@
 				leftover = "+" + (model.length - max);
 			}
 			return leftover;
-		},
-
-		/**
-		 * This method initializes the component.
-		 */
-		ready: function(){
-			if(this.model.length > 0){
-				var tray = this.$.avatartray;
-				for(var i=0; i < this.model.length; i++){
-					var avatar = new Avatar();
-					avatar.model = this.model[i];
-					this.appendChild(avatar);
-				}
-			}
 		}
+
+
 	});
 
 

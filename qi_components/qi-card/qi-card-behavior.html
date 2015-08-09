@@ -61,7 +61,7 @@ QiCardBehavior = {
 		 */
 		cardstyle:{
 			type: String, 
-			value:'article layout horizontal',
+			value:'card layout horizontal',
 			notify: true
 		},
 
@@ -70,7 +70,7 @@ QiCardBehavior = {
 		 * to the outermost div of a card like this: class$="{{selectedStyle}}"
 		 * to insure that the card shows that it has been selected
 		 */
-		selectedStyle:{
+		selectedstyle:{
 			type: String,
 			computed: '_computeStyle(selected, cardstyle)',
 			notify: true

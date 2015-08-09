@@ -5,6 +5,9 @@ containing the details of a selected card.  Whenever the
 user swipes the card, the page appears.  Whenever the user
 swipes the page, the card tray appears.
 
+To use this behavior, you must use the QiSwipeCardBehavior with the card, and the
+QiSwipePageBehavior with the detail-page. 
+
 @polymerBehavior QiTrayPageBehavior
 -->
 
@@ -19,8 +22,32 @@ QiTrayPageBehavior = {
 		selectedPage:{
 			type: Number,
 			value: 0
+		},
+
+		/**
+		 * The card model for the currently selected card.  This property must
+		 *  be bound to the detail-page.
+		 */
+		cardModel: {
+			type: Object,
+			value: null
 		}
-	}
+	},
+
+	ready: function(){
+
+  		// this event is triggerend whenever the article card is swiped
+  		this.addEventListener('card-swipe', function(e){
+  			this.cardModel = e.detail.model;
+  			this.selectedPage = 1;
+  		});
+
+  		this.addEventListener('page-swipe', function(e){
+  			this.selectedPage = 0;
+  		});
+
+
+  	}
 
 }
 </script>
