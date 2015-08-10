@@ -59,7 +59,7 @@
 				selectedTrayStyle:{
 					type: String,
 					notify: true,
-					computed: '_computestyle(selected)'
+					computed: '_computestyle(selected, traystyle)'
 				}
 			},
 
@@ -69,8 +69,8 @@
 			 * @param selected
 			 * @param traystyle
 			 */
-			_computestyle: function(selected){
-				var style = (this.traystyle) ? this.traystyle :'fab-tray';
+			_computestyle: function(selected, traystyle){
+				var style = traystyle; //(this.traystyle) ? this.traystyle :'fab-tray';
 				style += (selected)? " selectedFab":"";
 				console.log("style: " + style);
 				console.log("traystyle: " + this.traystyle);
