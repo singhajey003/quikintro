@@ -33,7 +33,7 @@
 
 		<!-- Cards -->
         <template is="dom-repeat" items="[[model]]" index-as="id" as="mtg">
-            <qi-mtg-card class="selectable-card" model="[[mtg]]"></qi-mtg-card>
+            <qi-mtg-card class="selectable-card" model="[[mtg]]" on-track="_handleSwipe"></qi-mtg-card>
         </template>
 
         <!-- Detail Page -->
@@ -61,6 +61,9 @@
 			}
 		},
 
+		_handleSwipe: function(e){
+			console.log("got here");
+		},
 
 		_removeCards: function(){
 			//TODO: implement the removal of selected cards.

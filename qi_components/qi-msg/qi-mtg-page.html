@@ -1,20 +1,29 @@
+<!--
+
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
+
 <dom-module id="qi-mtg-page">
 	<style>
 		:host {
 			display: block;
 		}
+
+		.detail-page{
+
+		}
 	</style>
 	<template>
+	 <div class="detail-page" on-track="handlePageSwipe">
 		<div>This is a meeting.</div>
+	</div>
 	</template>
 	<script>
 		Polymer({
 			is: 'qi-mtg-page',
-			properties: {
-				model:{
-					type: Object
-				}
-			}
+			behaviors: [QiSwipePageBehavior]
+			
 		});
 	</script>
 </dom-module>

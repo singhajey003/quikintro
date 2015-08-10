@@ -7,6 +7,7 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 <link rel="import" href="qi-speech-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
 
 <dom-module id="qi-article-page">
 
@@ -38,7 +39,7 @@
 
 
 	<template>
-	<div class="article-content" on-track="_handleSwipe">
+	<div class="article-content" on-track="handlePageSwipe">
 	<h2><span>[[model.title]]</span></h2>
 
 	<figure>
@@ -60,25 +61,37 @@
 	<script>
 	Polymer({
 		is: 'qi-article-page',
-		behaviors: [QiSpeechBehavior],
+		behaviors: [QiSpeechBehavior, QiSwipePageBehavior],
 		properties: {
-			model:{
-				type: Object,
-				value: null
-			},
 
+			/**
+			 * This property contains the URL used for the image.
+			 */
 			media:{
 				type: String,
 				computed: '_computeMedia(model)'
 			},
+
+			/**
+			 * This property contains the description/caption for the image.
+			 */
 			desc:{
 				type: String,
 				computed: '_computeDesc(model)'
 			},
+
+
+			/**
+			 * This property contains the height of the image.
+			 */
 			height:{
 				type: Number,
 				computed: '_computeHeight(model)'
 			},
+
+			/**
+			 * This property contains the width of the image.
+			 */
 			width:{
 				type: Number,
 				computed: '_computeWidth(model)'

@@ -53,6 +53,10 @@
 		margin-bottom: 25px;
 	}
 
+	.fields{
+		margin-left: 10px;
+	}
+
 
 
 
@@ -60,14 +64,14 @@
 	
 	<template>
 
-	<div  class$="{{selectedstyle}}" on-click="select" on-track="handleCardSwipe">
+	<div class$="{{selectedstyle}}" on-click="select" on-track="handleCardSwipe">
 		<div class="flex layout vertical"> 
 			<h1 class="title">[[model.title]]</h1>
 			<h2 class="people">[[fullname]]</h2>
 			
 			<div class="desc"><span>[[model.description]]</span></div>
 			
-			<div class="layout vertical"> 
+			<div class="layout vertical fields"> 
 				<qi-icon-field id="date" icon="event" value="[[model.date]]"></qi-icon-field>
 				<qi-icon-field id="time" icon="alarm" value="[[startEndTime]]"></qi-icon-field>
 				<qi-icon-field id="location" icon="communication:location-on" value="[[location]]"></qi-icon-field>
@@ -185,6 +189,7 @@
 		
 
 		_handleSwipe: function(e){
+			console.log("got here");
 			if(e.detail.state == 'end'){
 	  			this.fire('mtg-card-swipe', {model: this.model});
 	  		}

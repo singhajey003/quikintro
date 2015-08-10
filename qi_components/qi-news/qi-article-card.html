@@ -5,6 +5,7 @@
 	@element qi-article-card
 -->
 <link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
 
 <dom-module id="qi-article-card">
 
@@ -71,7 +72,7 @@
 
 	<template>
    
-	<div id="[[cardid]]" class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
+	<div id="[[cardid]]" class$="{{selectedStyle}}" on-click="select" on-track="handleCardSwipe">
 	  
 		<div class="flex layout vertical">
 		  	<div class="title flex" >
@@ -97,7 +98,7 @@
 	  var ArticleCard = Polymer({
 	  	is:'qi-article-card',
 
-	  	behaviors:[QiCardBehavior],
+	  	behaviors:[QiCardBehavior,QiSwipeCardBehavior],
 
 	  	properties:{
 
