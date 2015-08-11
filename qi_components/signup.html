@@ -37,7 +37,7 @@
 	<template>
 		<div class="panel fit">
 			<div class="heading horizontal layout">
-				<div class="closeButton start-justified"><paper-button class="close" on-click="#"></paper-button></div>
+				<div class="closeButton start-justified" on-click="handleSignIn"></div>
 				<div class="text flex "><p>Sign Up</p></div>
 				<div class="status end-justified"></div>
 			</div>
@@ -66,6 +66,10 @@
 
 			handleSignIn: function(){
 				this.fire("signin");
+			},
+
+			handleNext: function(){
+				this.fire("next1");
 			}
 		});
 	</script>

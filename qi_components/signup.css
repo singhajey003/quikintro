@@ -21,10 +21,6 @@
   padding: 10px 0 0 10px;
 }
 
-.close{
-  width: inherit;
-  height: inherit;
-}
 .status{
   background: transparent url("qi-signup/status1.jpg") center no-repeat;
   width: 40px;
