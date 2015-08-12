@@ -7,6 +7,8 @@
 <link rel="import" href="../qi-card/qi-card-behavior.html">
 <link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
 
+<link rel="import" href="../qi-card/qi-swipe-card.html">
+
 <dom-module id="qi-article-card">
 
 	<style is="custom-style">
@@ -73,7 +75,7 @@
 	<template>
    
 	<div >
-	<qi-swipe-card id="[[cardid]]" class$="{{selectedStyle}}" on-click="select" on-track="handleCardSwipe">
+	<qi-swipe-card id="[[cardid]]" >
 		<div class="flex layout vertical">
 		  	<div class="title flex" >
 		  		<span>[[model.title]]</span>
