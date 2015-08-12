@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+	<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+
+	<link rel="import" href="../data/qi-data-loader.html">
+	<link rel="import" href="qi-card-tray.html">
+	<link rel="import" href="qi-person-card.html">
+
+	<style>
+	qi-card-tray{
+		width: 100;
+	}
+
+	.fab-tray{
+		z-index: 3;
+		position: fixed;
+		vertical-align: bottom;
+		bottom: 0;
+		left: 300px;
+
+	}
+
+	.content-tray{
+		overflow: scroll;
+	}
+
+
+	</style>
+
+
+
+</head>
+<body>
+
+	<template is="dom-bind">
+		<qi-data-loader></qi-data-loader>
+		<iron-localstorage name="contacts" value="{{contacts}}"></iron-localstorage>
+		<qi-card-tray id="cardtray">
+		
+			
+			<template is="dom-repeat" items="{{contacts}}" as="contact">
+				<qi-person-card class="selectable-card" model="{{contact}}"></qi-person-card>
+			</template>
+			
+
+			<div class="fab-tray">
+				<paper-fab icon="add" onclick="tryIt()"></paper-fab>
+			</div>
+		
+		</qi-card-tray>
+
+
+
+	</template>
+
+	<script>
+	function tryIt(){
+		var cardTray = document.querySelector('qi-card-tray');
+		console.log(cardTray.getSelected());
+	}
+
+	</script>
+
+</body>
+</html>

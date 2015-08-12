@@ -1,0 +1,59 @@
+[
+	
+	{
+		"sender":{
+			"firstName":"Anirban",
+			"lastName":"Maitra",
+			"title":"Professor of Pathology and Translational Molecular Pathology",
+			"company":"MD Anderson Cancer Center",
+			"summary":"I am a Professor of Pathology and Translational Molecular Pathology at MD Anderson Cancer Center. I am also the Scientific Director and Co-Director of The Sheikh Ahmed Bin Zayed Al Nahyan Center for Pancreatic Cancer Research. You can follow me on twitter @aiims1742.  A brief overview of research can be found at https://gsbs.uth.edu/faculty/faculty-directory/faculty-profiles.htm?id=de2cb7be-2226-4310-85c5-f9c07286b667",
+			"interests":["cancer","oncology","clinical research","molecular biology","genetics","cell biology","medicine","pathology"],
+			"food":["indian","thai", "japanese"],
+			"drink":["tea"],
+			"score":100,
+			"avatar":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/1/000/09d/05b/1869f64.jpg",
+			"persona":"Cancer Biologist"
+		},
+		"msg":"Hi Mark, we have some things in common, specifically around pancreatic cancer research and I'd like to connect.",
+		"meetNow": true,
+		"meetLater": true
+	},	
+	{
+		"sender":{
+			"firstName":"Dimitri",
+			"lastName":"Arges",
+			"title":"CEO",
+			"company":"QuikIntro",
+			"id":42267,
+			"interests":["startups","cancer","bioinformatics"],
+			"score":100,
+		    "avatar": "https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+	        "food":["greek", "steak"],
+	        "drink":["merlot","cabernet"],
+		    "persona":"Default LinkedIn Persona"
+		    },
+		
+		"msg": "Hi Mark, we have some things in common and I’d like connect.",
+		"meetNow": true,
+		"meetLater": true
+	},
+	{
+		"sender":{
+			"firstName":"John",
+			"lastName":"Smith",
+			"title":"CSO",
+			"company":"Genentech",
+			"id":2,
+			"interests":["startups","cancer","antibodies","mAb","drug cocktails","CAR-T","clinical trials"],
+			"score":70,
+			"avatar":"",
+			"food":["thai","chinese","japanese","american","california cuisine", "steak"],
+	        "drink":["merlot","cabernet"],
+			"persona":"Cancer Biologist"
+		},
+		"msg": "Hi Mark, we have some things in common and I’d like connect.  I'm interested in learning more about the work you've been doing with mapping the target space for different types of cancer.",
+		"meetNow": true,
+		"meetLater": true
+
+	}
+]

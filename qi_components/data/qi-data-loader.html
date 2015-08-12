@@ -2,7 +2,8 @@
 This component is responsible for loading data from JSON files into local storage where
 it can be easily accessed by other components.
 
-
+    @group QI Elements
+    @element qi-data-loader
 -->
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
@@ -15,13 +16,23 @@ it can be easily accessed by other components.
         <iron-ajax auto="true" url="messages.json" on-response="handleMsgs" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="notices.json" on-response="handleNotices" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="linkedin-profile.json" on-response="handleProfile" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="news/guardian.multi.json" on-response="handleNews" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="invites.json" on-response="handleInvites" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="news/feeds.json" on-response="handleFeeds" handle-as="json"></iron-ajax>
 
+        <iron-ajax auto="true" url="meeting-requests.json" on-response="handleMtgs" handle-as="json"></iron-ajax>
+
+
+        <iron-localstorage name="invites" value="{{invites}}"></iron-localstorage>
         <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
         <iron-localstorage name="events" value="{{eventList}}"></iron-localstorage>
         <iron-localstorage name="contacts" value="{{contactList}}"></iron-localstorage>
         <iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
         <iron-localstorage name="notices" value="{{noticeList}}"></iron-localstorage>
         <iron-localstorage name="profile" value="{{profile}}"></iron-localstorage>
+        <iron-localstorage name="news" value="{{news}}"></iron-localstorage>
+        <iron-localstorage name="feeds" value="{{feeds}}"></iron-localstorage>
+        <iron-localstorage name="mtgs" value="{{mtgs}}"></iron-localstorage>
     </template>
     <script>
     Polymer({
@@ -45,6 +56,18 @@ it can be easily accessed by other components.
             },
             profile:{
                 type: Object
+            },
+            news:{
+                type: Object
+            },
+            invites:{
+                type: Array
+            },
+            feeds:{
+                type: Array
+            },
+            mtgs:{
+                type: Array
             }
         },
 
@@ -69,6 +92,18 @@ it can be easily accessed by other components.
         },
         handleProfile: function(e){
             this.profile = e.detail.response;
+        },
+        handleNews: function(e){
+            this.news = e.detail.response;
+        },
+        handleInvites: function(e){
+            this.invites = e.detail.response;
+        },
+        handleFeeds: function(e){
+            this.feeds = e.detail.response;
+        },
+        handleMtgs: function(e){
+            this.mtgs = e.detail.response;
         }
 
     });
