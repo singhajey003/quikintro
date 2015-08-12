@@ -30,36 +30,6 @@
     },
 
 
-     {
-       "name": "Wearables",
-       "blurb": "I'm interesting in finding a low-power chip supplier for my 1st party wearable and new 3rd party wearable partners for my fitness platform",
-       "aboutMe": {
-           "skills": ["SoC", "firmware", "Bluetooth LE", "business development", "product management", "SDK", "API", "iHealth", "Android Wear"],
-           "interests": ["fitness hardware", "wearables", "fitness apps", "low power wireless", "NFL", "Baltimore Ravens", "fabric sensors", "clothing"],
-           "interactions": ["I'm Open"]
-       },
-       "lookingFor": {
-           "skills": ["SOC", "Mesh Networking", "wearables", "Bluetooth LE", "API", "fabric sensors", "iHealth", "Android Wear"],
-           "interests": ["activity monitors", "connected health", "IoT"],
-           "interactions": ["semiconductor suppliers","activity monitors"]
-       },
-       "notLookingFor": {
-           "skills": ["consulting"],
-           "interests": ["Medical", "FDA"],
-           "interactions": ["Sales", "Recruiters"]
-       },
-       "msgTemplates": [{
-            "id": 1,
-            "title": "Sample Message",
-            "template": "Hi [name].  We have some things in common and I’d like connect."
-        }, {
-            "id": 2,
-            "title": "Sample Message II",
-            "template": "Hi.  We have some things in common and I’d like connect."
-        }]
-
-    },
-
     {
         "name": "Cancer Biologist",
         "blurb": "I'm a toolbuilder, and entrepreneur with an abiding interest in using technology to solve problems in cancer biology and drug discovery",
@@ -89,7 +59,7 @@
         }]
     }, 
     {
-        "name": "Default LinkedIn Persona",
+        "name": "LinkedIn Persona",
         "blurb": "I'm a toolbuilder, and entrepreneur with an abiding interest in using technology to solve problems in cancer biology and drug discovery",
         "aboutMe": {
             "skills": ["polymer", "css", "groovy", "java", "html5", "bioinformatics", "grails", "javascript"],
@@ -119,7 +89,7 @@
 
     }, 
     {
-        "name": "Default Facebook Persona",
+        "name": "Facebook Persona",
         "blurb": null,
         "aboutMe": {
             "skills": [],

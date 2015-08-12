@@ -5,9 +5,15 @@
 	@element qi-article-page
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 <link rel="import" href="qi-speech-behavior.html">
+
 <link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
+<link rel="import" href="../qi-persona/qi-persona-field.html">
+
+
 
 <dom-module id="qi-article-page">
 
@@ -31,14 +37,23 @@
 		line-height: normal;
 	}
 
-	.abstract{
+	#abstract{
 		overflow: scroll;
+		font-size: 12pt;
+		line-height: normal;
+	}
+
+	.help{
+		font-size: 9pt;
+		color: #17aacf;
 	}
 
 	</style>
 
 
 	<template>
+	<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
+
 	<div class="article-content" on-track="handlePageSwipe">
 	<h2><span>[[model.title]]</span></h2>
 
@@ -48,7 +63,16 @@
 	</figure>
 
 	<div class="flex">
-	<qi-traitlist traits="[[model.keywords]]"></qi-traitlist>
+	<qi-collapse-field label="Keywords">
+		<div>
+		
+		<qi-persona-field id="persona" model="{{personas}}" persona="LinkedIn Persona"></qi-persona-field>
+
+
+		<span class="help">Click to add a keyword to this persona</span>
+		<qi-traitlist traits="[[model.keywords]]"></qi-traitlist>
+		</div>
+	</qi-collapse-field>
 	</div>
 	
 
@@ -116,6 +140,16 @@
 
 		_handleSwipe: function(e){
 			this.fire('article-page-swipe',{});
+		},
+
+		ready: function(){
+			this.addEventListener("tag-selected", function(e){
+				var persona = document.getElementById("persona");
+				var msg = "Keyword '" + e.detail.tag +"' added to persona '" + persona.persona +"'";
+				this.fire('show-toast',{text:msg})
+			});
+
+			
 		}
 
 

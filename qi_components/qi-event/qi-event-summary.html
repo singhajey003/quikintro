@@ -19,6 +19,7 @@
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
 <link rel="import" href="../qi-field/qi-field-decorator.html">
+<link rel="import" href="../qi-persona/qi-persona-field.html">
 
 <dom-module id='qi-event-summary'  > 
 
@@ -29,7 +30,7 @@
 
     <template>
 
-    <iron-localstorage name="personas" value="[[personas]]"></iron-localstorage>
+    <iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
 
     <div class="layout vertical flex fit">
         <div class="card venue-bkgnd banner layout fit flex" style$="[[backgroundImage]]"> 
@@ -76,14 +77,8 @@
                 
              </qi-field-decorator>
 
-
-             <qi-field-decorator id="personaField" label="Persona" class="settings-row horizontal justified layout center" > 
-                <mat-dropdown id="persona" model="[[event.persona]]">
-                    <template is="dom-repeat" items="[[personas]]"  as="persona">
-                        <mat-option value="[[persona.name]]" label="[[persona.name]]"></mat-option>
-                    </template>              
-                 </mat-dropdown>
-             </qi-field-decorator>
+             <qi-persona-field persona="{{event.persona}}" model="{{personas}}"></qi-persona-field>
+             
 
              <qi-field-decorator label="Alert" class="settings-row horizontal justified layout" > 
                 <iron-input id="alarm">[[event.notification]]</iron-input>

@@ -13,16 +13,13 @@ QiTrayBehavior = {
 		selectedCards:{
 			type: Array,
 			value: [],
-			notify: true,
-			observer: "selectedCardsChanged"
+			notify: true
 		}
 
 
 	},
 
-	selectedCardsChanged: function(newValue, oldValue){
-		console.log(newValue);
-	},
+
 
 	/**
 	 * This abstract method creates a DOM-specific ID that is guaranteed to
