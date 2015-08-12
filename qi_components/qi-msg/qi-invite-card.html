@@ -1,5 +1,5 @@
 <!--
-	This component displays invitation information.
+	This component displays connection invitation information.
 
 	@group QI Elements
 	@element qi-invite-card
@@ -8,36 +8,65 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/paper-button/paper-button.html"> 
 
+<link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-card/qi-collapse-card.html">
+<link rel="import" href="../qi-trait/qi-traitlist.html">
+
+<link rel="import" href="../qi-card/qi-card-tray.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 <dom-module id='qi-invite-card' > 
 
 
-	<link rel="stylesheet" href="qi-msg-card.css" > 
+	<style is="custom-style">
+	.senderName{
+		font-size: 15px;
+		color: #505050;
+	}
+
+	.titleco{
+		font-size: 12px;
+		color: #909090;
+		line-height: normal;
+	}
+
+	.msgBlock {
+		font-size: 12px;
+		color: #707070;
+	}
+
+	.score{
+		font-size: 20px;
+		color: #5c91cc;
+	}
+
+	.pct{
+		font-size: 10px;
+		color: #5c91cc;
+	}
+
+	</style>
+
 	<template>
 		
-		<div id="[[invId]]" class="card2 layout vertical justified" >
-			<div class="layout horizontal" > 
-
-				<div class="avatarBlock">
-					<qi-avatar url="[[invite.sender.avatar]]"></qi-avatar> 
-				</div>
-
-				<div class="mainPanel">
-					<div class="senderBlock">
-						<span class="senderName">{{wholename}}</span>
-					</div>
-					<div class="msgBlock">[[invite.msg]]</div>
-				</div>
-
-			</div>
-
-			<div class="buttons horizontal justified layout">
-				<paper-button affirmative on-click="acceptAction">Accept</paper-button> 
-				<paper-button dismissive on-click="declineAction">Decline</paper-button> 
-			</div>
-
-		</div>
+      
+     <div class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
+        <div class="senderBlock flex horizontal layout">
+        	<div>
+        		<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
+        	</div>
+        	<div class="flex">
+              <span class="senderName">[[wholename]]</span><br/>
+              <span class="titleco">[[titleco]]</span>
+            </div>
+            <div>
+            	<span class="score">[[model.sender.score]]</span><span class="pct">%</span>
+            </div>
+        </div>
+       
+     </div>
+ 
+     
 
 	</template>
 
@@ -45,70 +74,62 @@
 	var InvCard = Polymer({
    		is: 'qi-invite-card', 
 
+   		behaviors:[QiCardBehavior],
+
    		properties: {
-   			/**
-   			 * The numeric ID of the invitation.
-   			 */
-   			id: {
-   				type: Number,
-   				readonly: true
-   			},
 
-   			/**
-   			 * The unique String version of the id, used for DOM manipulation.
-   			 */
-   			invId:{
-   				type: String,
-   				computed: 'concatId(id)'
-   			},
-
-   			/**
-   			 * The model for the invitation.
-   			 */
-   			invite: {
-   				type: Object, 
-   				readonly: true
-   			},
 
    			/**
    			 * The concatenated first and last names of the sender.
    			 */
    			wholename:{
    				type: String,
-   				computed: 'concatName(invite.sender.firstName, invite.sender.lastName)'
+   				computed: '_concatName(model.sender.firstName, model.sender.lastName)'
+   			},
+
+   			/**
+   			 * The concatenated title and company
+   			 */
+   			titleco:{
+   				type: String,
+   				computed: '_concatTitleCo(model)'
    			}
+
+    	},
+
+   		_handleSwipe: function(e){
+			  if(e.detail.state == 'end'){
+	  			this.fire('invite-card-swipe', {model: this.model});
+	  		}
    		},
 
-   		/**
-   		 * This method prefixes the ID.
-   		 * @param id the ID of the invitation.
-   		 */
-   		concatId: function(id){
-			return "inv-" + id;
-		},
+   		_concatTitleCo: function(model){
+   			return (model != null)?model.sender.title +" at " + model.sender.company : "";
+   		},
 
-		/**
-		 * This method concatenates the first and last name of the sender.
-		 * @param firstName the first name of the sender
-		 * @param lastName the last name of the sender
-		 */
-   		concatName: function(firstName, lastName){
+
+   		/**
+   		 * This method concatenates the first and last name of the sender.
+   		 * @param firstName the first name of the sender
+   		 * @param lastName the last name of the sender
+   		 */
+   		_concatName: function(firstName, lastName){
    			return firstName + " " + lastName;
    		},
 
    		/**
    		 * This method is used to accept an invitation.
    		 */
-		acceptAction: function(e){
-			this.fire('show-toast',{text:'Invitation accepted.'});
-		},
+   		acceptAction: function(e){
+   			this.fire('show-toast',{text:'Invitation accepted.'});
+   		},
 
-		/**
-		 * This method is used to decline an invitation.
-		 */
-		declineAction: function(e){
-			this.fire('show-toast',{text:'Invitation declined.'});
-		}
+   		/**
+   		 * This method is used to decline an invitation.
+   		 */
+   		declineAction: function(e){
+   			this.fire('show-toast',{text:'Invitation declined.'});
+   		}
 
 	});
 

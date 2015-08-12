@@ -1,0 +1,28 @@
+<!--
+This component represents a card.  
+
+-->
+<link rel="import" href="qi-card-behavior.html">
+
+<dom-module id="qi-card">
+
+	<link rel="stylesheet" href="../qi-cards.css">
+
+
+	<template>
+		<div id="[[cardid]]" on-click="select" class="card">
+		<content></content>
+		</div>
+	</template>
+
+	<script>
+	var card = Polymer({
+		is:'qi-card',
+
+		behaviors:[QiCardBehavior]
+
+	});
+	</script>
+
+
+</dom-module>

@@ -1,0 +1,129 @@
+<!--
+  This component contains all messages, invitations and meeting requests.
+
+  @group QI Elements
+  @element qi-invite-page
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+
+<link rel="import" href="../qi-trait/qi-traitlist.html">
+<link rel="import" href="../qi-avatar/qi-avatar.html">
+
+<dom-module id="qi-invite-page">
+
+	<style is="custom-style">
+
+	.band{
+		max-height: 100px
+		background-color: #5c91cc;
+	}
+
+	.avatar{
+
+	}
+
+	.details{
+		color: white;
+	}
+
+	.titleco{
+
+	}
+
+	</style>
+
+
+	<template>
+
+	<div class="fit vertical layout">
+		<div><span>[[fullname]]</span></div>
+
+		<div class="band vertical layout">
+
+			<div class="avatar" >
+				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
+			<div>
+
+			<div class="details">
+				<div><span class="titleco">[[titleco]]</span></div>
+
+				<div><!-- personas go here --></div>
+				
+
+			</div>
+
+		</div>
+
+		<div class="layout horizontal">
+			<div class="layout vertical">
+				<label>Common Contacts</label>
+				<span>[[model.contacts.length]]
+			</div>
+
+			<div class="layout vertical">
+				<label>Persona Match</label>
+				<span class="score">[[model.match]]</span><span class="pct">%</span>
+			</div>
+
+		</div>
+
+		<div class="traits">
+			<label>Matching Traits</label>
+			<qi-traitlist model="[[model.sender.interests]]"></qi-traitlist>
+		</div>
+
+		
+
+		<div class="summary">
+			<label>Summary</label>
+			[[model.sender.summary]]
+		</div>
+
+
+		<div class="tweets">
+			<label>Matching tweets</label>
+			<qi-tweet-tray ></qi-tweet-tray>
+		</div>
+
+	</div>
+
+	</template>
+
+	<script>
+
+		Polymer({
+			is: 'qi-invite-page',
+
+			properties: {
+				model:{
+					type: Object
+				},
+
+				fullname: {
+					type: String,
+					computed: '_computeFullName(model)'
+				},
+				titleco: {
+					type: String,
+					computed: '_computeTitleCo(model)'
+				}
+			},
+
+			_computeTitleCo: function(model){
+				return (model != null) ? model.sender.title + " at " + model.sender.company : "";
+			},
+
+			_computeFullName: function(model){
+				return model.sender.firstName + " " + model.sender.lastName;
+			}
+
+
+
+		});
+
+
+
+	</script>
+
+
+</dom-module>

@@ -1,6 +1,8 @@
 <!--
  This field displays an icon and a label.
 
+ 	@group QI Elements
+ 	@element qi-icon-label
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
@@ -30,7 +32,15 @@
 	Polymer({
 		is:'qi-icon-label',
 		properties:{
+
+			/**
+			 * The text of the label for the field.
+			 */
 			label:{type: String},
+
+			/**
+			 * The name of the icon from a given iconset.
+			 */
 			icon: {type: String}
 		}
 	})

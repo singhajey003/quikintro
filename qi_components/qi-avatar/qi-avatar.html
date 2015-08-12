@@ -16,14 +16,21 @@ an avatar.
 
 	<style is="custom-style">
 	div.photo{
-		width: 90px;
-		height: 90px;
+		width: var(--avatar-width, 50px);
+		height: var(--avatar-height, 50px);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 50%;
+      border: 3px solid white;
 	}
-	iron-icon{
-		--iron-icon-width: 90px;
-		--iron-icon-height: 90px;
-		height: 90px;
-		width: 90px;
+	
+   iron-icon{
+		--iron-icon-width: var(--avatar-width, 50px);
+		--iron-icon-height: var(--avatar-height, 50px);
+      border-radius: 50%;
+      border: 1px solid #909090;
+      color: var(--icon-color, #909090);
+      margin-top: 1px;
 	}
 	</style>
 
@@ -40,7 +47,7 @@ an avatar.
 	</template>
 
 	<script>
-	Polymer({
+	var Avatar = Polymer({
    		is: 'qi-avatar', 
 
    		properties:{

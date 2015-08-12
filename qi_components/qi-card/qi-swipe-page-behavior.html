@@ -1,0 +1,30 @@
+<!--
+This behavior contains the attributes and methods necessary for a detail page.
+The detail page contains more detailed information than a card can display.
+
+@polymerBehavior QiSwipePageBehavior
+-->
+<script>
+	QiSwipePageBehavior={
+		
+		properties:{
+
+			/**
+			 * This attribute represents the model used by the page.
+			 */
+			model:{
+				type: Object
+			}
+		},
+
+
+		/**
+		 * This method handles the page swipe gesture.
+		 */
+		handlePageSwipe: function(e){
+			if(e.detail.state == 'end'){
+	  			this.fire('page-swipe', {});
+	  		}
+		}
+	};
+</script>

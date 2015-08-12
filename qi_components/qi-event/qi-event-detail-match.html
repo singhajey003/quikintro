@@ -45,12 +45,15 @@ This component displays a matching user at an event.
 
 		<div class="card-wrapper"> 
 
-			<div class="card card-photo">
+			<div class="card card-photo layout vertical">
 
+
+			<div class="layout horizontal">
 				<div class="avatarBlock">
 					<qi-avatar url="[[match.avatar]]"></qi-avatar>
 				</div>
 
+				<div class="layout vertical">
 				<header>
 					<h3><span>{{fullname}}</span></h3>
 					
@@ -63,6 +66,8 @@ This component displays a matching user at an event.
 					<div class="matchPct"><span>[[match.match]]</span>% match</div>
 
 					<div class="distAway"> &lt; <span>[[match.distanceAway]]</span> meters away</div>
+				</div>
+				</div>
 				</div>
 
 				<div class="card-actions horizontal justified layout center" >  

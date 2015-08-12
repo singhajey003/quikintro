@@ -13,35 +13,72 @@
 <link rel="import" href="../../bower_components/paper-item/paper-item.html" >
 <link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
 
+<link rel="import" href="../../bower_components/iron-icons/communication-icons.html">
+
 <link rel="import" href="../qi-field/qi-field.html">
+<link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
+
 <link rel="import" href="../qi-field/qi-date-field.html">
-<link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-field/qi-icon-field.html">
+<link rel="import" href="../qi-avatar/qi-avatar-tray.html">
 
 
 <dom-module id='qi-mtg-card'  > 
 
-	<link rel="stylesheet" href="qi-msg-card.css" > 
+	<style>
+	.title{
+		font-size: 12pt;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		font-weight: lighter;
+	}
+	.people{
+		font-size: 9pt;
+		font-weight: 100;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		color: #17aacf;
+	}
 
+	.desc{
+		font-size: 9pt;
+	}
+
+	.selectedCard{
+		border-left: 5px solid #3ea1e6;
+	}
+
+	.card{
+		margin-bottom: 25px;
+	}
+
+	.fields{
+		margin-left: 10px;
+	}
+
+
+
+
+	</style>
 	
 	<template>
 
-	<div id="{{mtgId}}" class="card2 layout vertical">
-		<div class="layout horizontal"> 
-			<div class="avatarBlock">
-				<qi-avatar url="[[mtg.sender.avatar]]"></qi-avatar>
-			</div>
+	<div class$="{{selectedstyle}}" on-click="select" on-track="handleCardSwipe">
+		<div class="flex layout vertical"> 
+			<h1 class="title">[[model.title]]</h1>
+			<h2 class="people">[[fullname]]</h2>
 			
-			<div class="senderBlock"> 
-				<qi-field label="Sender:" value="[[fullname]]"></qi-field>
-				<qi-date-field label="Time:" date="[[mtg.date]]" time="[[mtg.time]]"></qi-date-field>
-				<qi-field label="Location:" value="[[mtg.location]]"></qi-field>
-				<qi-field label="Description:" value="[[mtg.description]]"></qi-field>
-			</div>
+			<div class="desc"><span>[[model.description]]</span></div>
 			
-		</div>
-		<div class="buttons horizontal justified layout">
-			<iron-icon icon="reply" on-click="replyDialog"></iron-icon>
-			<iron-icon icon="delete" on-click="delete"></iron-icon>
+			<div class="layout vertical fields"> 
+				<qi-icon-field id="date" icon="event" value="[[model.date]]"></qi-icon-field>
+				<qi-icon-field id="time" icon="alarm" value="[[startEndTime]]"></qi-icon-field>
+				<qi-icon-field id="location" icon="communication:location-on" value="[[location]]"></qi-icon-field>
+			</div>
+
+			<qi-avatar-tray model="[[avatars]]"></qi-avatar-tray>
+			
 		</div>
 	</div>
 
@@ -50,6 +87,8 @@
 	<script>
 	var MtgCard = Polymer({
    		is: 'qi-mtg-card',
+
+   		behaviors: [QiCardBehavior, QiSwipeCardBehavior],
 
    		properties:{
    			/**
@@ -61,36 +100,66 @@
 			},
 
 			/**
-			 * The meeting object
-			 */
-			mtg:{
-				type: Object, 
-				value: null
-			},
-
-			/**
 			 * A computed property that concatenates the first and last name of the sender.
 			 */
 			fullname: {
 				type: String,
-				computed: 'concat(mtg.sender.firstName, mtg.sender.lastName)'
-			},
-			
-			/**
-			 * The ID of the meeting.
-			 */
-			id:{
-				type: Number, 
-				value: 0
+				computed: '_concat(model)'
 			},
 
 			/**
-			 * A concatenated meeting ID used to uniquely identify the card in a DOM.
+			 * An array of avatar URLs
 			 */
-			mtgId:{
+			avatars: {
+				type: Array,
+				computed: '_getAvatars(model)'
+			},
+
+			/**
+			 * The location of the meeting.
+			 */
+			location:{
 				type: String,
-				computed: "concatId(id)"
+				computed: '_getLocation(model)'
+			},
+
+			startEndTime:{
+				type: String,
+				computed: '_startEndTime(model)'
 			}
+
+
+			
+
+		},
+
+		_startEndTime: function(model){
+			return model.time.start + ' - '+ model.time.end;
+		},
+
+		/**
+		 * This method concatenates the location information.
+		 * @param 
+		 */
+		_getLocation: function(model){
+			var loc = model.location.name;
+			if (model.location.room != null && model.location.room != ''){
+				loc += " - " + model.location.room;
+			}
+			return model.location.name + " " + model.location.room
+		},
+
+		/**
+		 * This method gets the avatars for the invitees
+		 * @param model the model object for the meeting
+		 */
+		_getAvatars: function(model){
+			var avatars = [];
+			for(invitee of model.invitees){
+				avatars.push(invitee.avatar);
+			}
+
+			return avatars;
 		},
 
 		/**
@@ -98,22 +167,15 @@
 		 * @param firstName The first name of the sender
 		 * @param lastName the last name of the sender
 		 */
-		concat: function(firstName, lastName){
-			return firstName + " " + lastName;
+		_concat: function(model){
+			return model.invitees[0].firstName + " " + model.invitees[0].lastName
 		},
 
-		/**
-		 * This method prefixes the id.
-		 * @param id the id of the meeting
-		 */
-		concatId: function(id){
-			return "mtg-" + id;
-		},
 		
 		/**
 		 * This method displays the reply dialog.
 		 */
-		replyDialog: function(e){
+		replyDialog: function(){
 			var profile = JSON.parse(localStorage.getItem("profile"));
 			var sender = {
 				firstName: profile.firstName,
@@ -124,14 +186,15 @@
 
 			this.fire('openPingDialog',{sender:sender, rcvr: this.mtg.sender});
 		},
-
-		/**
-		 * This method deletes the meeting.
-		 */
-		delete: function(e){
-			this.fire('delete-mtg', {mtgId: this.mtgId, id: this.id});
-		}
 		
+
+		_handleSwipe: function(e){
+			console.log("got here");
+			if(e.detail.state == 'end'){
+	  			this.fire('mtg-card-swipe', {model: this.model});
+	  		}
+   		},
+
 
 	});
 

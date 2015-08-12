@@ -1,0 +1,51 @@
+<!--
+
+	@group QI Elements
+ 	@element qi-card-page-tray
+-->
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-tray-page-behavior.html">
+<link rel="import" href="../qi-card/qi-fab-tray.html">
+
+<dom-module id="qi-card-page-tray">
+	<style>
+		:host {
+			display: block;
+		}
+		.tray{
+			padding-left: 2px;
+		}
+	</style>
+	<template>
+		
+			
+	<iron-pages selected="{{selectedPage}}">
+		<section>
+			<div class="flex tray">
+			<iron-selector id="selector" multi="true" attr-for-selected="model">
+				<content select=".selectable-card"></content>
+			</iron-selector>
+			</div>
+
+			<qi-fab-tray id="fabtray">
+				<content select=".selectable"></content>	
+			</qi-fab-tray>
+		</section>
+
+		<section>
+			<content select=".detail-page"></content>
+		</section>
+	</iron-pages>
+		
+		
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-card-page-tray',
+			behaviors: [QiTrayBehavior, QiTrayPageBehavior]
+
+
+  	});
+	</script>
+</dom-module>

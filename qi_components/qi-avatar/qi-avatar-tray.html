@@ -1,0 +1,113 @@
+<!--
+ This component lays out an array of avatars horizontally up to some fixed
+ number of avatars.  It then displays the number of undisplayed avatars. 
+
+ @group QI Elements
+ @element qi-avatar-tray
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="qi-avatar.html">
+
+<dom-module id="qi-avatar-tray">
+
+	<style>
+
+	qi-avatar{
+		--avatar-width: 25px;
+		--avatar-height: 25px;
+	}
+
+	#avatartray{
+		vertical-align: bottom;
+	}
+
+	.additional{
+		color: #17aacf;
+		vertical-align: bottom;
+		padding-top: 6px;
+	}
+
+	</style>
+
+	
+	<template>
+	<div class="layout horizontal">
+
+		<div id="avatartray" class="layout horizontal">
+			<template is="dom-repeat" items="[[visibleAvatars]]" as="avatar">
+				<qi-avatar url="[[avatar]]"></qi-avatar>
+			</template>
+		</div>
+
+		<div class="additional" >{{leftover}}</div>
+	</div>
+	</template>
+
+	<script>
+	Polymer({
+		is:'qi-avatar-tray',
+		properties:{
+
+			/**
+			 * An array of URLs for the avatars
+			 */
+			model: {
+				type: Array,
+				value:[]
+			},
+
+			/**
+			 * An array of avatar URLs to be displayed.
+			 */
+			visibleAvatars:{
+				type: Array,
+				computed: '_computeVisibleAvatars(model)'
+			},
+
+			/**
+			 * The maximum number of avatars to display.
+			 */
+			max: {
+				type: Number,
+				value: 3
+			},
+
+			/**
+			 * A computed property used to display the number of undisplayed avatars.
+			 */
+			leftover:{
+				type: Number,
+				computed: '_computeLeftOver(model, max)'
+			}
+		},
+
+		/**
+		 * This method creates an array of avatar URLs to be displayed.
+		 * @param model an array of URLs for the avatars
+		 */
+		_computeVisibleAvatars: function(model){
+			var avatars = model.slice(0, this.max);
+			return avatars;
+		},
+
+		/**
+		 * This method computes the number of undisplayed avatars.
+		 * @param model an array of URLs for the avatars
+		 * @param max the maximum number of avatars to display
+		 */
+		_computeLeftOver: function(model, max){
+			var leftover = "";
+			if(model.length > max){
+				leftover = "+" + (model.length - max);
+			}
+			return leftover;
+		}
+
+
+	});
+
+
+	</script>
+
+
+</dom-module>

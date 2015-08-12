@@ -1,0 +1,134 @@
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/av-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+
+
+<link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-news/qi-speech-behavior.html">
+<link rel="import" href="../qi-news/qi-share-news-dialog.html">
+
+<link rel="import" href="qi-tweet-card.html">
+<link rel="import" href="qi-twitter-note-dialog.html">
+<link rel="import" href="qi-twitter-reply-dialog.html">
+
+<link rel="import" href="../qi-dialog/qi-twitter-dialog.html">
+
+
+
+<dom-module id="qi-tweet-tray">
+
+	<style is="custom-style">
+	qi-card-tray{
+		--tray-width: 400px;
+		background-color: var(--tray-bgcolor);
+	}
+
+	qi-twitter-dialog{
+		--dialog-height: 300px;
+		--dialog-width: 300px;
+	}
+
+	paper-fab{
+		height: 40px;
+		width: 40px;
+	}
+
+	</style>
+
+	<template>
+				
+		<div class="fab-tray">
+			<paper-fab icon="create" mini on-click="createDialog"></paper-fab>
+			<paper-fab icon="note-add" mini on-click="noteDialog"></paper-fab> 
+			<paper-fab icon="reply" mini on-click="replyDialog"></paper-fab> 
+		</div>
+
+		<qi-card-tray id="cardtray">
+		
+			<template is="dom-repeat" items="[[tweets]]" as="tweet">
+				<qi-tweet-card id="[[articleId]]" cardstyle="card card-wrapper layout horizontal" class="selectable-card" model="[[tweet]]" ></qi-tweet-card>
+			</template>
+
+		
+		</qi-card-tray>
+
+		<qi-twitter-dialog id="twitterDialog" hashtag="[[hashtag]]"></qi-twitter-dialog>
+		<qi-twitter-note-dialog id="noteDialog"></qi-twitter-note-dialog>
+		<qi-twitter-reply-dialog id="replyDialog"></qi-twitter-reply-dialog>
+
+	</template>
+
+<script>
+Polymer({
+	is:'qi-tweet-tray',
+
+	behaviors: [QiSpeechBehavior],
+
+	properties:{
+		/**
+		 * An array of tweets
+		 */
+		tweets:{
+			type: Array, 
+			value: [], 
+			notify: true, 
+			readonly: true
+		},
+
+
+		/**
+		 * An array of the models for the selected article cards.
+		 */
+		selectedTweets: {
+			type: Array,
+			value: []
+		}
+	},
+
+
+
+	ready: function(){
+		var cardtray = this.$.cardtray;
+		var msgs = this.msgs;
+		this.addEventListener('card-selected', function(e){
+			this.selectedArticles = cardtray.getSelected();
+			for(article of this.selectedArticles){
+				this.msgs.push(this.cleanMessageText(article.title + "." + article.abstract));
+			}
+		});
+
+	},
+
+
+
+	/**
+	 * A method that creates a unique article ID
+	 */
+	getArticleId: function(id){
+		return "art-" + id;
+	},
+
+	/**
+	 * This method displays the 
+	 */
+	createDialog: function(){
+		this.$.twitterDialog.open();
+	},
+
+	noteDialog: function(){
+		this.$.noteDialog.open();
+	},
+
+	replyDialog: function(){
+		this.$.replyDialog.open();
+	}
+
+
+
+});
+
+</script>
+
+</dom-module>

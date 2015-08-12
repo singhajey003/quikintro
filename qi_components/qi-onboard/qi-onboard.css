@@ -13,7 +13,7 @@
 }
 
 
-.title{
+:host > ::content > .title{
 	font-size: 12pt;
 	/* padding-left: 20px; */
 	color: rgb(146, 144, 144);
