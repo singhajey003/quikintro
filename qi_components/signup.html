@@ -18,6 +18,7 @@
 <link rel="import" href="../bower_components/paper-input/paper-input-container.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
 
 <link rel="import" href="qi-signup/qi-signup.html">
 
@@ -73,9 +74,9 @@
 			</div>
 
 			<div class="imgs vertical layout">
-				<paper-button class="linkedin flex"><paper-progress value="10"></paper-progress></paper-button>
-				<paper-button class="twitter flex"></paper-button>
-				<paper-button class="meetup flex"></paper-button>
+				<paper-button class="linkedin flex" on-click="handleLinkedin"></paper-button>
+				<paper-button class="twitter flex" on-click="handleTwitter"></paper-button>
+				<paper-button class="meetup flex" on-click="handleMeetup"></paper-button>
 			</div>
 
 			<paper-button class="next flex noink primary raised" on-click="handleNext"></paper-button> 
@@ -85,9 +86,24 @@
 			</div>
 		</div>
 
+		<paper-dialog id="dialogBox" backdrop>
+			<h3>{{head}}</h3>
+			<paper-input class="splash flex" label="Username: "></paper-input>
+			<paper-input-container class="splash flex" alwaysFloatLabel="true"  id="password"> 
+				<label>Password:</label>
+				<div><input is="iron-input" type="password" name="password"></div>
+			</paper-input-container>
+			<div class="buttons">
+    			<paper-button dialog-dismiss>Cancel</paper-button>
+				<paper-button dialog-confirm on-click="handleImgChange">Sign In</paper-button>
+  			</div>
+		</paper-dialog>
+
+
 	</template>
 	-->
-	<!-- Page 3 -->
+
+	<!-- Page 3 
 	<template>
 		<div class="panel fit">
 			<div class="heading horizontal layout">
@@ -98,6 +114,7 @@
 
 			<div class = "personas vertical layout">
 				<div class="linkedipersona flex">
+					<paper-input class="splash flex" label="Linkedin Persona Here" alwaysFloatLabel="false"></paper-input>
 				</div>
 
 				<div class="meetuppersona flex">
@@ -111,7 +128,7 @@
 			</div>
 		</div>
 	</template>
-
+	-->
 
 	<!-- Page 4
 	<template>
@@ -127,6 +144,7 @@
 	</template>
 	-->
 	<script>
+
 		Polymer({
 			is: 'sign-up',
 
@@ -134,12 +152,33 @@
 				this.fire("signin");
 			},
 
+			handleLinkedin: function(){
+				this.head = "Linkedin";
+				document.querySelector("#dialogBox").toggle();
+			},
+
+			handleTwitter: function(){
+				this.head = "Twitter";
+				document.querySelector("#dialogBox").toggle();
+			},
+
+			handleMeetup: function(){
+				this.head = "Meetup";
+				document.querySelector("#dialogBox").toggle();
+			},
+
+			/* Not working: needs to be able to swap out images
+			handleImgChange: function(){
+				document.querySelector(".linkedin").style.background = "transparent url("qi-signup/twitter.jpg") center no-repeat";
+			},
+			*/
+
 			handleBack: function(){
 				this.fire("back");
 			},
 
 			handleNext: function(){
-				this.fire("next1");
+				this.fire("signin");
 			}
 		});
 	</script>
