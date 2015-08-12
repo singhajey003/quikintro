@@ -1,0 +1,163 @@
+<!--
+  This dialog box provides a means for users share news articles &amp; tweets.
+  It is assumed that the user has selected multiple articles from an article tray
+  and has tapped the share button to share the articles. When the dialog appears, 
+  the user can iterate through the messages and customize the messages.  The dialog
+  displays the keywords for the currently displayed article, and allows the user to
+  select keywords to be added as hashtags to the message.
+
+-->
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html"> 
+<link rel="import" href="../../bower_components/iron-icons/av-icons.html"> 
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html"> 
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html"> 
+
+
+<link rel="import" href="../qi-trait/qi-traitlist.html">
+<link rel="import" href="qi-speech-behavior.html">
+
+<dom-module id="qi-share-news-dialog">
+
+	<style>
+	paper-dialog{
+		min-height: 500px;
+		min-width: 300px;
+		max-width: 350px;
+	}
+	#textpane{
+		height: 200px;
+	}
+	#textpane > paper-textarea{
+		height:100px;
+	}
+
+	</style>
+
+	<template>
+	<paper-dialog id="newsDialog" class="layout vertical">
+
+		<div id="textpane" class="flex">
+			<paper-textarea value="{{msg}}" ></paper-textarea>
+			<qi-traitlist traits="[[traits]]"></qi-traitlist>
+		</div>
+
+		<div class="layout horizontal justified">
+			<paper-button on-click="prev"><iron-icon icon="av:skip-previous"></iron-icon></paper-button>
+			<paper-button  on-click="next"><iron-icon icon="av:skip-next"></iron-icon></paper-button>
+		</div>
+  		<div class="buttons layout horizontal justified">
+		  	<paper-button dialog-dismiss>Cancel</paper-button>
+		  	<paper-button id="sendBtn" on-click="scheduleAction" dialog-confirm>Schedule</paper-button>
+		  	<paper-button id="sendBtn" on-click="sendAction" dialog-confirm>Send</paper-button>
+	  	 </div>
+	</paper-dialog>
+
+	</template>
+
+	<script>
+	Polymer({
+		is: 'qi-share-news-dialog',
+
+		behaviors: [QiSpeechBehavior],
+
+		properties:{
+			/**
+			 * The articles selected for sharing.
+			 */
+			articles:{
+				type: Array,
+				value: []
+			},
+
+			/**
+			 * The traits for the current article.
+			 */
+			traits:{
+				type: Array,
+				value:[]
+			},
+
+			/**
+			 * The messages.
+			 */
+			msgs:{
+				type: Array,
+				value: []
+			},
+
+			/**
+			 * The currently displayed message.
+			 */
+			msg: {
+				type: String,
+			},
+
+			/**
+			 * The index of the current message.
+			 */
+			currIndex:{
+				type: Number,
+				value:0,
+				notify: true,
+				observer: 'currIndexChanged'
+			}
+
+		},
+
+		_update: function(index){
+			this.msg = "";
+			if(this.msgs){
+				this.msg = this.msgs[index];
+			}
+			if(this.articles){
+				this.traits = this.articles[index].keywords;
+			}
+
+		},
+
+		currIndexChanged: function(newValue, oldValue){
+			this._update(newValue);
+		},
+
+
+		next: function(){
+			if(this.currIndex < this.articles.length -1){
+				this.currIndex++;
+			}
+		},
+
+		prev: function(){
+			if (this.currIndex > 0){
+				this.currIndex--;
+			}
+		},
+
+		open: function(){
+			// use the titles of the articles as messages
+			for(article of this.articles){
+				this.msgs.push(article.title);
+			}
+
+			this._update(this.currIndex);
+
+			this.$.newsDialog.open();
+		},
+
+		ready: function(){
+			this.addEventListener('tag-selected', function(e){
+				this.msg = this.msg +  " \#" + e.detail.tag;
+				this.msgs[this.currIndex] = this.msg;
+				console.log("Tagged");
+			});
+
+		}
+
+	});
+
+
+	</script>
+
+
+</dom-module>

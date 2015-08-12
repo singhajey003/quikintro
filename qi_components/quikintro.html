@@ -30,15 +30,16 @@
 <link rel="import" href="qi-settings/qi-settings.html">
 <link rel="import" href="qi-scaffold/qi-scaffold.html">
 <link rel="import" href="qi-home/qi-home.html">
+<link rel="import" href="qi-news/qi-news-panel.html">
 
 <link rel="import" href="qi-custom-icons/qi-icons.html">
 <link rel="import" href="qi-theme.html">
 
 <dom-module id='quik-intro'  > 
 
-  <style>
-    qi-toggle.anonToggle::shadow #icon{
-      --icon-color: white;
+  <style is="custom-style">
+    qi-toggle.anonToggle{
+      --toggle-icon-color: white;
     }
 
     paper-icon-item{
@@ -65,6 +66,13 @@
               <iron-icon icon="home"></iron-icon>
               Home
             </paper-icon-item>
+
+             <paper-icon-item id="newsItem" pageId="news"> 
+              <iron-icon icon="settings"></iron-icon>
+                News
+              </paper-item>
+            </paper-icon-item>
+
             <paper-icon-item id="events" pageId="events">
               <iron-icon icon="event"></iron-icon>
               Events
@@ -87,6 +95,8 @@
                 Settings
               </paper-item>
             </paper-icon-item>
+
+
             
           </paper-menu>
         
@@ -95,10 +105,14 @@
       
       
       <paper-header-panel class="fit flex" main>
-        <paper-toolbar id="core_toolbar" class="horizontal justified layout"> 
+
+        <paper-toolbar id="core_toolbar" class="horizontal layout"> 
+          <div>
            <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo" style="display: block" paper-drawer-toggle></paper-icon-button> 
+          </div>
         
-          <div class="flex">{{panelTitle}}</div> 
+          <div class="flex">[[panelTitle]]</div> 
+
           <div><qi-toggle class="anonToggle" style="--icon-color: white" openicon="social:person" closedicon="social:person-outline"></qi-toggle></div>
         
 
@@ -108,6 +122,10 @@
 
           <section id="Home" pageId="home">
             <qi-home></qi-home>
+          </section>
+
+          <section id="News" pageId="news">
+            <qi-news-panel></qi-news-panel>
           </section>
 
           <section id="Event Stream" pageId="events" >
@@ -126,6 +144,8 @@
           <section id="Settings" pageId="settings">
             <qi-settings></qi-settings>
           </section>
+
+          
         </iron-pages>
       </paper-header-panel>
 

@@ -8,33 +8,59 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
 
+<link rel="import" href="../qi-theme.html">
+<link rel="import" href="../qi-card/qi-card-behavior.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 <dom-module id='qi-msg-card'  >
 	
+	<style is="custom-style">
 
-	<link rel="stylesheet" href="qi-msg-card.css" > 
+	.selectedCard{
+		border-left: 5px solid #3ea1e6;
+	}
+
+	.selectable-card{
+		background-color: white;
+		border: 1px solid #505050;
+	}
+
+	.senderName{
+		font-weight: bold;
+		font-size: 12px;
+	}
+
+	.time{
+		font-size: 10px;
+	}
+
+	.msgBlock{
+		font-size: 12px;
+		line-height: normal;
+	}
+
+	</style>
+
+	
 	<template>
 	
-	<div id="[[msgId]]" class="layout vertical justified card2">
-		<div class="layout horizontal"> 
+	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select">
+		
+		<div class="flex layout horizontal"> 
 
 			<div class="avatarBlock">
-				<qi-avatar url="[[msg.sender.avatar]]"></qi-avatar>
+				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
 			</div>
 
 			<div class="mainPanel">
 				<div class="senderBlock">
 					<span class="senderName">[[wholename]]</span> 
-					<span class="time">[[msg.tstamp]]</span>
+					<span class="time">[[model.tstamp]]</span>
 				</div> 
-				<div class="msgBlock" >[[msg.msg]]</div>
+				<div class="msgBlock" >[[model.msg]]</div>
 			</div>
 		</div>
-		<div class="buttons horizontal justified layout">
-			<iron-icon icon="reply" on-click="replyDialog"></iron-icon>
-			<iron-icon icon="delete" on-click="deleteMsg"></iron-icon>
-		</iron-icon></div> 
+
 	</div>
 
 	</template>
@@ -43,49 +69,26 @@
 	var MsgCard = Polymer({
         is: 'qi-msg-card', 
 
-		properties:{
+        behaviors: [QiCardBehavior],
 
-			/**
-			 * The message object.
-			 */
-			msg:{
-				type: Object,
-				readonly: true
-			},
+		properties:{
 
 			/**
 			 * The concatenated name of the sender.
 			 */
 			wholename:{
 				type: String, 
-				computed:'concatName(msg.sender.firstName, msg.sender.lastName)'
+				computed:'_concatName(model.sender.firstName, model.sender.lastName)'
 			},
 
-			/**
-			 * The index of the message.
-			 */
-			id:{type: Number},
 
-			/**
-			 * The concatenated ID of the message.
-			 */
-			msgId:{
-				type:String,
-				computed: 'concatId(id)'
-			}
 		},
 
-		/**
-		 * This method prefixes the ID.
-		 */
-		concatId: function(id){
-			return "msg-" + id;
-		},
 
 		/**
 		 * This method concatenates the first and last name of the sender.
 		 */
-		concatName: function(firstName, lastName){
+		_concatName: function(firstName, lastName){
 			return firstName + " " + lastName;
 		},
 		
@@ -94,14 +97,8 @@
 		 */
 		replyDialog: function(e){
 			this.fire('openPingDialog',{sender:this.msg.rcvr, rcvr: this.msg.sender});
-		},
-
-		/**
-		 * This method causes a delete-msg event to be fired.
-		 */
-		deleteMsg: function(){
-			this.fire('delete-msg', {msgId: this.msgId, id: this.id});
 		}
+
 		
 
 	});

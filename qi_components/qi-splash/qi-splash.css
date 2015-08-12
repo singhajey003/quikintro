@@ -1,10 +1,10 @@
-.panel {
+:host > ::content > .panel {
   background-color: #17a8cc;
   background-size: contain;
   width: 100%;
   height: 100%; }
 
-.logo {
+:host > ::content > .logo {
   background: transparent url("../../images/logo_slogan.svg") center top no-repeat;
   width: 50%;
   max-width: 300px;

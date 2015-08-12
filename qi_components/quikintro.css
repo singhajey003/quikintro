@@ -60,22 +60,6 @@ paper-header-panel > paper-toolbar {
   color: white;
   height: 64px; }
 
-iron-pages {
-  top: 70px;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  background-color: #ebebeb;
-  background-image: none;
-  background-repeat: no-repeat;
-  background-position: -500px -25px; }
-
-iron-pages .content {
-  padding: 30px; }
-
-iron-pages > section {
-  background-color: #eeeeee; }
-
 paper-scroll-header-panel {
   top: 0;
   left: 0;
@@ -144,10 +128,6 @@ paper-dropdown core-item {
 /* Buttons */
 paper-button a, paper-button a:link, paper-button a:visited {
   text-decoration: none; }
-
-/* Paper FAB */
-paper-fab {
-  margin: 5px 15px; }
 
 div.checkbox-row {
   margin-top: 10px; }

@@ -1,0 +1,64 @@
+<!--
+
+	@group QI Elements
+ 	@element qi-card-tray
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html"> 
+
+<link rel="import" href="../qi-theme.html"> 
+<link rel="import" href="qi-fab-tray.html">
+<link rel="import" href="qi-tray-behavior.html">
+
+<dom-module id="qi-card-tray">
+
+	<style is="custom-style">
+
+	:host ::content .tray{
+		background-color: var(--tray-bgcolor);
+		width: var(--tray-width);
+		overflow: scroll;
+	}
+
+	</style>
+
+	<template>
+
+		<div class="tray">
+			<div id="[[id]]" class="layout vertical">
+
+			<div class="flex">
+			<iron-selector id="selector" multi="true" attr-for-selected="model">
+				<content select=".selectable-card"></content>
+			</iron-selector>
+			</div>
+
+			</div>
+
+			<qi-fab-tray id="fabtray">
+				<content select=".selectable"></content>	
+			</qi-fab-tray>
+			
+		</div>
+
+
+	</template>
+
+	<script>
+
+	Polymer({
+		is: 'qi-card-tray',
+
+		behaviors: [QiTrayBehavior],
+
+		getSelected: function(){
+			return this.$.selector.selectedValues;
+		}
+
+
+	});
+
+	</script>
+
+</dom-module>

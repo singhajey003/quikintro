@@ -1,0 +1,112 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/av-icons.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-toggle/qi-toggle.html">
+
+
+<dom-module id='qi-tweet-card'> 
+
+	<style>
+	.photo{
+		min-width: 50px;
+		min-height: 50px;
+		background-repeat: none;
+		background-size: cover;
+	}
+
+	.content{
+		padding-left: 5px;
+		margin-top: 0px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+
+	.card-wrapper{
+		background-color: white;
+		height: 90px;
+		border-bottom: 2px solid #505050;
+	}
+
+	.selectedCard{
+		background-color: #9a9a9a;
+	}
+
+
+	</style>
+
+	<template>
+	
+	<div id="[[model.id]]" class$="[[selectedStyle]]" on-click="select">  
+
+		<div>
+
+			<div class="layout horizontal">
+				<div class="photo" style$="[[bgImage]]" ></div>
+
+				<div class="content layout vertical">
+					<div>
+					<a class="userName" href="[[userLink]]">[[model.user.name]]</a>
+					<span>[[screenName]]</span>
+					</div>
+					<span>[[model.text]]</span>
+				</div>
+			</div>
+			
+
+			<div class="card-actions horizontal justified layout center" >  				
+				<qi-toggle openIcon="star" closedIcon="star-outline"></qi-toggle>
+			</div>
+
+		</div>
+	</div>
+
+
+	</template>
+
+
+  <script>
+	var TwitterCard = Polymer({
+   		is: 'qi-tweet-card', 
+
+   		behaviors: [QiCardBehavior],
+
+   		properties:{
+   			bgImage: {
+   				type: String,
+   				computed:'_makeImage(model.user.profile_image_url)'
+   			},
+   			userLink: {
+   				type: String,
+   				computed: '_makeLink(model.user.screen_name)'
+   			},
+   			screenName: {
+   				type: String,
+   				computed: '_makeScreenName(model.user.screen_name)'
+   			}
+
+   		},
+
+   		_makeScreenName: function(name){
+   			return "@" + name;
+   		},
+
+   		_makeLink: function(name){
+   			return "https://twitter.com/" + name;
+   		},
+
+   		_makeImage: function(url){
+   			return "background-image:url('" + url +"')"
+   		}
+
+
+ 
+		
+	});
+
+   </script>
+
+</dom-module> 

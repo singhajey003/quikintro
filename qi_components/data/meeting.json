@@ -4,6 +4,7 @@
 	"location":"Suite 3",
 	"title":"Immuno-oncology Deal Room",
 	"description":"A meeting to discuss immuno-oncology programs available for investment.",
+    "keywords":["Cancer","immuno-oncology","CAR-Ts","Drug Development"],
 	"invitees":[
   
     {
@@ -23,6 +24,7 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=19198594&authType=name&authToken=EV4l&trk=api*a3227641*s3301901*"
         },
+        "interests":["Game of Thrones","CAR-Ts","Cancer","Drug Development"],
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"],
         "organizer":true,
@@ -36,6 +38,7 @@
         "id": 10192169,
         "industry": "Biotechnology",
         "lastName": "Palella",
+        "interests":["Game of Thrones","CAR-Ts","Cancer","Drug Development", "biotherapeutics"],
         "location": {
             "country": {
                 "code": "us"
@@ -64,6 +67,7 @@
         "notes": "Working on MPDL3280A for bladder cancer ",
         "rating": 4,
         "id":2,
+        "interests":["Game of Thrones","CAR-Ts","Cancer","Drug Development"],
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"],
         "avatar":"https://media.licdn.com/mpr/mpr/shrink_100_100/p/4/000/172/35a/1e9d392.jpg",
@@ -85,6 +89,7 @@
         "id":3,
         "food":["chinese","thai","sushi"],
         "drink":["merlot","chardonnay","riesling"],
+        "interests":["Game of Thrones","CAR-Ts","Cancer","Drug Development"],
         "avatar":"https://media.licdn.com/mpr/mpr/shrink_100_100/p/2/000/0b6/016/26968eb.jpg",
         "organizer": false,
         "isAContact":true
@@ -102,6 +107,7 @@
         "notes": "Currently working on getting nivolumab into the clinic.",
         "rating": 4,
         "id":4,
+        "interests":["Game of Thrones","CAR-Ts","Cancer","Drug Development"],
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"],
         "avatar":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/005/0aa/275/242b0e8.jpg",
@@ -117,6 +123,7 @@
         "mobile": "555-123-4567",
         "email": "philip.iredale@pfizer.com",
         "address": "",
+        "interests":["Game of Thrones","CAR-Ts","Cancer","Drug Development"],
         "tags": ["biotech", "cancer", "product/pipeine", "followup"],
         "notes": "Currently working on getting palbociclib into the clinic.",
         "rating": 4,
@@ -136,6 +143,7 @@
         "mobile": "555-123-4567",
         "email": "tom.sanford@gsk.com",
         "address": "",
+        "interests":["Game of Thrones","CAR-Ts","Cancer","Drug Development"],
         "tags": ["biotech", "cancer", "product/pipeine", "followup"],
         "notes": "CD-19 CAR-T program",
         "rating": 4,
@@ -155,6 +163,7 @@
         "mobile": "555-123-4567",
         "email": "jtobin@jnj.com",
         "address": "",
+        "interests":["Game of Thrones","CAR-Ts","Cancer","Drug Development"],
         "tags": ["biotech", "cancer", "product/pipeine", "followup"],
         "notes": "ARN-509 for prostate cancer",
         "rating": 4,
