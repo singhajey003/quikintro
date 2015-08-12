@@ -34,6 +34,9 @@ This component represents a swipeable card.
 
 		behaviors:[QiCardBehavior, QiSwipeCardBehavior],
 
+		/**
+		 * Handles the click event.
+		 */
 		_handleCardSwipe: function(e){
 			e.detail.model = this.model;
 			this.handleCardSwipe(e);
