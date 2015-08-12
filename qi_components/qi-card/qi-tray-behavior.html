@@ -56,16 +56,9 @@ QiTrayBehavior = {
 
 		// change the fab tray style whenever a card is selected.
 		this.addEventListener('card-selected', function(e){
-			var selector = e.srcElement.parentElement;
-			var selectedCards = [];
-			for(var i=0; i < selector.items.length; i++){
-				var card = selector.items[i];
-				if(card.selected){
-					selectedCards.push(card.model);
-				}
-			}
+			var selector = document.getElementById("selector");
+			var selectedCards = selector.selectedItems;
 
-			this.selectedCards = selectedCards;
 			var fabtray = document.getElementById("fabtray");
 			fabtray.selected = (selectedCards.length > 0);
 		});
