@@ -55,7 +55,7 @@ h1 {
 
 h2 {
   color: #7E8D9D;
-  font-size: 35px;
+  font-size: 28px;
   margin: 20px 0px;
 }
 
@@ -137,11 +137,12 @@ paper-toolbar a:visited, paper-toolbar a:focus {
 }
 
 paper-button.primary, paper-button.btn-primary, paper-button[primary] {
-  color: #3ea1e6;
+  color: #fff;
+  background:#17aacf;
 }
 paper-button.primary[raised], paper-button.btn-primary[raised],
 paper-button[primary][raised] {
-  background-color: #3ea1e6;
+  background-color: #17aacf;
   color: #fff;
 }
 paper-button.secondary, paper-button.btn-secondary, paper-button[secondary] {
@@ -197,7 +198,8 @@ paper-button[disabled] {
 
 paper-icon-button.primary, paper-icon-button.btn-primary,
 paper-icon-button[primary] {
-  color: #3ea1e6;
+  color: #fff;
+  background:#17aacf;
 }
 paper-icon-button.primary:hover, paper-icon-button.btn-primary:hover,
 paper-icon-button[primary]:hover {
@@ -324,6 +326,19 @@ section.hero paper-menu, section[hero] paper-menu {
 paper-tabs {
   background-color: #f8f8f9;
   color: #1d1d26;
+}
+
+
+/*UGLY OVERRIDES FOR QI-THEME AND QUIKINTRO.SCSS*/
+
+paper-header-panel > paper-toolbar {
+    height: 104px !important;
+}
+
+h4 {
+    color: inherit;
+    text-transform: none;
+    margin: auto;
 }
 
 </style>
