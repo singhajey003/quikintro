@@ -7,11 +7,23 @@ This component represents a swipeable card.
 
 <dom-module id="qi-swipe-card">
 
-	<link rel="stylesheet" href="../qi-cards.css">
+	<style>
 
+	.card{
+		width: 100vw;
+		border: 1px solid #BABABA;
+		background-color: white;
+	}
+
+	.selectedCard{
+		border-left: 5px solid #3ea1e6;
+	}
+
+
+	</style>
 
 	<template>
-		<div id="[[cardid]]" on-click="select" class="card" on-track="handleCardSwipe">
+		<div id="[[cardid]]" class$="{{selectedStyle}}" on-click="select" on-track="handleCardSwipe">
 		<content></content>
 		</div>
 	</template>

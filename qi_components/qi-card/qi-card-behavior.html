@@ -70,7 +70,7 @@ QiCardBehavior = {
 		 * to the outermost div of a card like this: class$="{{selectedStyle}}"
 		 * to insure that the card shows that it has been selected
 		 */
-		selectedstyle:{
+		selectedStyle:{
 			type: String,
 			computed: '_computeStyle(selected, cardstyle)',
 			notify: true
@@ -90,7 +90,7 @@ QiCardBehavior = {
 
 		if(selected){
 			style += (selected)? " selectedCard":"";
-		}
+		}	
 		return style;
 	},
 

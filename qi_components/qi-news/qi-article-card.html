@@ -72,8 +72,8 @@
 
 	<template>
    
-	<div id="[[cardid]]" class$="{{selectedStyle}}" on-click="select" on-track="handleCardSwipe">
-	  
+	<div >
+	<qi-swipe-card id="[[cardid]]" class$="{{selectedStyle}}" on-click="select" on-track="handleCardSwipe">
 		<div class="flex layout vertical">
 		  	<div class="title flex" >
 		  		<span>[[model.title]]</span>
@@ -89,7 +89,7 @@
 	  	<div class="thumbnail" style$="[[thumbnailUrl]]">
 	  	</div>
 
-	</div>
+	</qi-swipe-card>
 
 
     </template>
@@ -133,11 +133,6 @@
 
 	  	},
 
-	  	_handleSwipe: function(e){
-	  		if(e.detail.state == 'end'){
-	  			this.fire('article-card-swipe', {model: this.model});
-	  		}
-	  	},
 
 	  	/**
 	  	 * This method retrieves the style used to indicate the source of the article.
