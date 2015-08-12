@@ -21,9 +21,9 @@
 
 <link rel="import" href="qi-signup/qi-signup.html">
 
-<link rel="import" href="../data/qi-data-loader.html">
+<link rel="import" href="data/qi-data-loader.html">
 
-<link rel="import" href="../qi-theme.html">
+<link rel="import" href="qi-theme.html">
 
 
 <dom-module id="sign-up">
@@ -34,11 +34,13 @@
 			display: block;
 		}
 	</style>
+
+	<!-- Page 1
 	<template>
 		<div class="panel fit">
 			<div class="heading horizontal layout">
 				<div class="closeButton start-justified" on-click="handleSignIn"></div>
-				<div class="text flex "><p>Sign Up</p></div>
+				<div class="text flex center-justified"><p>Sign Up</p></div>
 				<div class="status end-justified"></div>
 			</div>
 			<div class="avatar flex"></div>
@@ -59,13 +61,81 @@
 				<p>ALREADY HAVE AN ACCOUNT?<paper-button class="splash" on-click="handleSignIn">Sign In</paper-button></p>
 			</div>
 		</div>
+	</template> -->
+
+	<!-- Page 2
+	<template>
+		<div class="panel fit">
+			<div class="heading horizontal layout">
+				<div class="backButton start-justified" on-click="handleBack"></div>
+				<div class="text flex center-justified"><p>Sign Up</p></div>
+				<div class="status2 end-justified"></div>
+			</div>
+
+			<div class="imgs vertical layout">
+				<paper-button class="linkedin flex"><paper-progress value="10"></paper-progress></paper-button>
+				<paper-button class="twitter flex"></paper-button>
+				<paper-button class="meetup flex"></paper-button>
+			</div>
+
+			<paper-button class="next flex noink primary raised" on-click="handleNext"></paper-button> 
+
+			<div class="skipstep">
+				<paper-button class="splash" on-click="handleNext">Skip Step</paper-button>
+			</div>
+		</div>
+
 	</template>
+	-->
+	<!-- Page 3 -->
+	<template>
+		<div class="panel fit">
+			<div class="heading horizontal layout">
+				<div class="backButton start-justified" on-click="handleBack"></div>
+				<div class="text flex center-justified"><p>Your first personas</p></div>
+				<div class="status3 end-justified"></div>
+			</div>
+
+			<div class = "personas vertical layout">
+				<div class="linkedipersona flex">
+				</div>
+
+				<div class="meetuppersona flex">
+				</div>
+			</div>
+
+			<paper-button class="next flex noink primary raised" on-click="handleNext"></paper-button> 
+
+			<div class="skipstep">
+				<paper-button class="splash" on-click="handleNext">Skip and Create Your Personas Later</paper-button>
+			</div>
+		</div>
+	</template>
+
+
+	<!-- Page 4
+	<template>
+		<div class="panel fit">
+			<div class="heading horizontal layout">
+				<div class="backButton start-justified" on-click="handleBack"></div>
+				<div class="text flex center-justified"><p>Select some friends to invite</p></div>
+				<div class="status4 end-justified"></div>
+			</div>
+
+			<paper-button class="finished flex noink primary raised" on-click="handleNext"></paper-button> 
+		</div>
+	</template>
+	-->
 	<script>
 		Polymer({
 			is: 'sign-up',
 
 			handleSignIn: function(){
 				this.fire("signin");
+			},
+
+			handleBack: function(){
+				this.fire("back");
 			},
 
 			handleNext: function(){

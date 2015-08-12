@@ -57,14 +57,12 @@
   height: 40%;
   padding: 20px; 
 }
-
-.finished {
+.next {
   background: transparent url("qi-signup/finished.jpg") center no-repeat;
   height: 8%;
   width: 100%;
   margin: 0;
-  bottom: 0;
-  position: absolute;
+  padding-top: 5%;
   background-color: #17aacf;
 }
 
