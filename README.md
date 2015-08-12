@@ -83,3 +83,7 @@ We currently use Google's Polymer library for developing web components.  You'll
 ### Setup (Not needed anymore as we run server directly from grunt task) ###
 To run the application, simply type:
 **python -M SimpleHTTPServer**
+
+# Link to wireframe photoshop file #
+
+[https://www.dropbox.com/s/r6ii4h40ra6scgo/Wireframe.psd?dl=0](https://www.dropbox.com/s/r6ii4h40ra6scgo/Wireframe.psd?dl=0)
