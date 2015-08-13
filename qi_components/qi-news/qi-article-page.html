@@ -1,10 +1,10 @@
 <!--
   This component is responsible for rendering an article.
-  
+
 	@group QI Elements
 	@element qi-article-page
 -->
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 <link rel="import" href="../qi-trait/qi-traitlist.html">
@@ -22,7 +22,6 @@
 		width: 100%;
 		height: 150px;
 		background-size: cover;
-		back
 	}
 	.article-content{
 		padding-left: 2px;
@@ -65,7 +64,7 @@
 	<div class="flex">
 	<qi-collapse-field label="Keywords">
 		<div>
-		
+
 		<qi-persona-field id="persona" model="{{personas}}" persona="LinkedIn Persona"></qi-persona-field>
 
 
@@ -74,7 +73,7 @@
 		</div>
 	</qi-collapse-field>
 	</div>
-	
+
 
 	<div id="abstract">[[cleanMessageText(model.abstract)]]</div>
 
@@ -149,7 +148,7 @@
 				this.fire('show-toast',{text:msg})
 			});
 
-			
+
 		}
 
 
