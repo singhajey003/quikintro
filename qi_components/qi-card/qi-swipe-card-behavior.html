@@ -5,6 +5,10 @@
 <script>
 	QiSwipeCardBehavior={
 
+		/**
+		 * This method hands the swiping gesture on a card.
+		 * @param e the gesture event.
+		 */
 		handleCardSwipe: function(e){
 			if(e.detail.state == 'end'){
 	  			this.fire('card-swipe', {model: this.model});
