@@ -2,12 +2,25 @@
         "name": "Guardian World News",
         "url": "http://www.theguardian.com/world/rss",
         "icon": "icons/guardian.png",
-        "topics": ["news"]
+        "topics": ["news"],
+        "avatars":[
+            "https://media.licdn.com/mpr/mprx/0_fXI2TMVCcOzEMh1s76o1TRw_vYCbJ61sDi0PTR4YEUnn6CXV_GRhfUuKUrGMs3-naFd-myEEW-c2",
+            "https://media.licdn.com/mpr/mprx/0_3rnHNp3mC_Nnyy2l7n5UNYG3CirZy0pliACBNxi-g6XW_UIAS9QXV0BpuSKQ04jgh1N9U4jh3JPa",
+            "https://media.licdn.com/mpr/mprx/0_ndxXKTxq5c4gFmK-q2mBKim9FqpKbm8-qHwUKiY64AH8ZoBtVf7HO_oHdsy7XWTOBogVxkhjJsMd",
+            "https://media.licdn.com/mpr/mprx/0_iWKW8jukhRXZQyiq_HG98YaUGOKnQ01qTmk98YYXjRkQMUXN7785aOoo2KrWL4-4GEtB7J2tPNdK"
+        ]
     }, {
         "name": "NY Times",
         "url": "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml",
         "icon": "icons/nytimes.png",
-        "topics": ["news"]
+        "topics": ["news"],
+        "avatars":[
+            "https://media.licdn.com/mpr/mprx/0_fXI2TMVCcOzEMh1s76o1TRw_vYCbJ61sDi0PTR4YEUnn6CXV_GRhfUuKUrGMs3-naFd-myEEW-c2",
+            "https://media.licdn.com/mpr/mprx/0_3rnHNp3mC_Nnyy2l7n5UNYG3CirZy0pliACBNxi-g6XW_UIAS9QXV0BpuSKQ04jgh1N9U4jh3JPa",
+            "https://media.licdn.com/mpr/mprx/0_ndxXKTxq5c4gFmK-q2mBKim9FqpKbm8-qHwUKiY64AH8ZoBtVf7HO_oHdsy7XWTOBogVxkhjJsMd",
+            "https://media.licdn.com/mpr/mprx/0_iWKW8jukhRXZQyiq_HG98YaUGOKnQ01qTmk98YYXjRkQMUXN7785aOoo2KrWL4-4GEtB7J2tPNdK"
+        ]
+ 
     }, {
         "name": "SF Chronicle Technology",
         "url": "http://www.sfgate.com/rss/feed/Tech-News-449.php",

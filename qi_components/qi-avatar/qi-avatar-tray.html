@@ -17,8 +17,12 @@
 		--avatar-height: 25px;
 	}
 
-	#avatartray{
+	.avatartray{
 		vertical-align: bottom;
+		width: 100%;
+	}
+	.avatartray > qi-avatar{
+		float: left;
 	}
 
 	.additional{
@@ -33,13 +37,14 @@
 	<template>
 	<div class="layout horizontal">
 
-		<div id="avatartray" class="layout horizontal">
+		<div class="avatartray flex horizontal layout">
 			<template is="dom-repeat" items="[[visibleAvatars]]" as="avatar">
 				<qi-avatar url="[[avatar]]"></qi-avatar>
 			</template>
+			<div class="additional" >{{leftover}}</div>
 		</div>
 
-		<div class="additional" >{{leftover}}</div>
+		
 	</div>
 	</template>
 
