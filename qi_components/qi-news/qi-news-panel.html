@@ -8,15 +8,26 @@ This component is the main component used to display the news.
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+
 <link rel="import" href="qi-feed-tray.html">
 <link rel="import" href="qi-article-tray.html">
 
 <dom-module id="qi-news-panel">
 
 	<style is="custom-style">
-	.demotray{
-		width: 100vw;
-	}
+
+/*
+  iron-pages{
+    top: 30px;
+    position: relative;
+  }
+*/
+
+  paper-tabs{
+    overflow: visible;
+  }
 
 	</style>
 
@@ -31,8 +42,9 @@ This component is the main component used to display the news.
 	<iron-localstorage name="news" value="{{news}}"></iron-localstorage>
 	<iron-localstorage  name="feeds" value="{{feeds}}"></iron-localstorage>
 
-<div class="flex">
-  <paper-tabs class="bottom fit" hideScrollButtons="true" scrollable="true" selected="0">
+<div class="fit flex layout vertical ">
+
+  <paper-tabs hideScrollButtons="true" scrollable="true" selected="{{selectedNewsTab}}">
     <paper-tab>World</paper-tab>
     <paper-tab>Contacts</paper-tab>
     <paper-tab>Bookmarks</paper-tab>
@@ -40,18 +52,18 @@ This component is the main component used to display the news.
   </paper-tabs>
 
 
-	<iron-pages selected="{{selectedPage}}">
+	<iron-pages selected="{{selectedNewsTab}}">
 
     <section>
       <qi-article-tray news="{{news}}"></qi-article-tray>
     </section>
     
     <section>
-
+    Page 2
     </section>
 
     <section>
-
+    Page 3
     </section>
 
     <section>
@@ -73,10 +85,9 @@ This component is the main component used to display the news.
   		news: {
   			type: Array
   		},
-  		selectedPage: {
+  		selectedNewsTab: {
   			type: Number,
-  			value: 0,
-  			notify: true
+  			value: 0
   		},
   		articleModel: {
   			type: Object,
@@ -89,22 +100,7 @@ This component is the main component used to display the news.
 
   	},
 
-  	ready: function(){
 
-  		// this event is triggerend whenever the article card is swiped
-  		this.addEventListener('card-swipe', function(e){
-  			this.articleModel = e.detail.model;
-  			this.selectedPage = 1;
-        e.stopPropagation();
-  		});
-
-  		this.addEventListener('page-swipe', function(e){
-  			this.selectedPage = 0;
-        e.stopPropagation();
-  		});
-
-
-  	}
   });
 
 </script>

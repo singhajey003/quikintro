@@ -60,7 +60,7 @@ of articles.
 			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog" mini></paper-fab>
 		
 
-			<qi-article-page class="detail-page" model="[[articleModel]]"></qi-article-page>
+			<qi-article-page class="detail-page" model="[[model]]"></qi-article-page>
 
 
 		</qi-swipe-card-tray>
@@ -94,6 +94,25 @@ Polymer({
 			value: []
 		}
 	},
+
+	ready: function(){
+
+  		// this event is triggerend whenever the article card is swiped
+  		this.addEventListener('card-swipe', function(e){
+
+  			var page = document.querySelector("qi-article-page");
+  			page.model = e.detail.model;
+  			this.selectedPage = 1;
+        	e.stopPropagation();
+  		});
+
+  		this.addEventListener('page-swipe', function(e){
+  			this.selectedPage = 0;
+        	e.stopPropagation();
+  		});
+
+
+  	},
 
 
 

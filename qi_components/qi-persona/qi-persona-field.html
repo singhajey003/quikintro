@@ -5,9 +5,12 @@ This component displays a dropdown list of personas.
     @element qi-persona-field
 -->
 
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<!-- 
 <link rel="import" href="../../bower_components/mat-dropdown/mat-dropdown.html">
 <link rel="import" href="../../bower_components/mat-option/mat-option.html">
+-->
 
 <link rel="import" href="../qi-field/qi-field-decorator.html">
 
@@ -31,11 +34,19 @@ This component displays a dropdown list of personas.
 	<template>
 		<qi-field-decorator id="personaField" label="Persona" class="settings-row horizontal justified layout center" > 
 
+			<select id="persona">
+ 				<template is="dom-repeat" items="[[model]]"  as="currmodel">
+                    <option value="[[currmodel.name]]">[[currmodel.name]]</option>
+                </template>  
+			</select>
+
+<!--
             <mat-dropdown id="persona" model="{{persona}}" >
                 <template is="dom-repeat" items="[[model]]"  as="currmodel">
                     <mat-option value="[[currmodel.name]]" label="[[currmodel.name]]"></mat-option>
                 </template>              
              </mat-dropdown>
+-->
         </qi-field-decorator>
 	</template>
 	<script>
