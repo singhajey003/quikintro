@@ -19,7 +19,6 @@
 
 
 	<template>
-
 		
 		<qi-card-tray id="cardtray">
 			<template is="dom-repeat" items="[[model]]" index-as="id" as="msg">
@@ -27,13 +26,9 @@
 			</template>
 
 			<paper-fab class="selectable" icon="reply" on-click="reply" mini></paper-fab>
-			<paper-fab class="selectable" icon="delete" on-click="reply" mini></paper-fab>
+			<paper-fab class="selectable" icon="delete" on-click="delete" mini></paper-fab>
 			
 		</qi-card-tray>
-			
-
-
-
 
 	</template>
 
@@ -43,6 +38,15 @@
 		is: 'qi-msg-tray',
 
 		behaviors: [QiTrayBehavior],
+		properties:{
+			/**
+			 * An array of the models for the selected msgs cards.
+			 */
+			selectedMsgs: {
+				type: Array,
+				value: []
+			}
+		},
 
 		_removeCards: function(){
 			//TODO: implement the removal of selected cards.

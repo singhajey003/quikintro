@@ -44,6 +44,24 @@
 	
 	<template>
 	
+	<qi-card  model="{{model}}">
+		<div class="flex layout horizontal" >
+			<div class="avatarBlock" >
+				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
+			</div>
+
+			<div class="mainPanel">
+				<div class="senderBlock">
+					<span class="senderName">[[wholename]]</span> 
+					<span class="time">[[model.tstamp]]</span>
+				</div> 
+				<div class="msgBlock" >[[model.msg]]</div>
+			</div>
+
+		</div>
+	</qi-card>
+
+	<!--
 	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select">
 		
 		<div class="flex layout horizontal"> 
@@ -62,7 +80,7 @@
 		</div>
 
 	</div>
-
+ -->
 	</template>
 
 	<script>
@@ -80,8 +98,6 @@
 				type: String, 
 				computed:'_concatName(model.sender.firstName, model.sender.lastName)'
 			},
-
-
 		},
 
 
