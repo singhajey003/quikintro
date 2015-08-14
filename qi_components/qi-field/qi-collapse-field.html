@@ -7,6 +7,8 @@
 
   Creates a collapsible text area field.
 
+	@group QI Elements
+	@element qi-collapse-field
 -->
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html"> 
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
@@ -63,7 +65,7 @@ Polymer({
 		hasLabel:{
 			type: Boolean,
 			computed: '_hasLabel(label)'
-		}
+		},
 
 		/**
 		 * A flag that indicates if the collapse pane is open or closed
@@ -84,7 +86,7 @@ Polymer({
 		/**
 		 * A field that indicates if there is an icon
 		 */
-		hasIcon{
+		hasIcon: {
 			type: Boolean,
 			computed: '_hasIcon(icon)'
 		}
@@ -104,7 +106,7 @@ Polymer({
 	 */
 	_hasIcon: function(icon){
 		return icon != null;
-	}
+	},
 
 
 

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>v
+	<title></title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
@@ -11,11 +11,16 @@
 
 	<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
+	<link rel="import" href="qi-calendar-page.html">
+
 </head>
 <body>
 	
-	<iron-localstorage name="meeting-requests" value="{{mtgs}}"></iron-localstorage>
+	<template is="dom-bind">
+		<iron-localstorage name="mtgs" value="{{mtgs}}"></iron-localstorage>
+		<qi-calendar-page model="{{mtgs.0}}"></qi-calendar-page>
+	</template>
 
-	<!-- CALENDAR TRAY GOES HERE -->
+
 </body>
 </html>

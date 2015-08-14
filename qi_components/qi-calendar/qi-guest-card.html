@@ -1,19 +1,52 @@
+<!--
+This component is used to render information about a guest at a meeting.
+
+	@group QI Elements
+	@element qi-guest-card
+-->
+
+<link rel="import" href="../qi-contact/qi-contact-behavior.html">
+
 <dom-module id="qi-guest-card",
 model:>
 	<style>
 		:host {
 			display: block;
 		}
+		:host > qi-card{
+			height: 50px;
+		}
+
+		:host > p.title{
+			margin-left: 5px;
+			font-size: 10pt;
+			color: rgb(146, 144, 144);
+		}
+
+		:host > p.company{
+			margin-left: 5px;
+			font-size: 10pt;
+			color: rgb(146, 144, 144);
+		}
+
 	</style>
 	<template>
 		<qi-card model="{{model}}">
 		
+			<qi-avatar url="[[model.avatar]]"></qi-avatar>
+
+			<header>
+				<h3>[[fullName]]</h3>
+				<p class="title">[[model.title]]</p>
+				<p class="company">[[model.company]]</p>
+				<p></p>
+			</header>
 		</qi-card>
 	</template>
 	<script>
 		Polymer({
 			is: 'qi-guest-card',
-
+			behaviors: [QiContactBehavior]
 		});
 	</script>
 </dom-module>
