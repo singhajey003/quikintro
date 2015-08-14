@@ -31,18 +31,12 @@
 		
 	<template>
 
-	<div class="card-wrapper"> 
-		<div class="card persona">
+		<qi-card>
 			<header>
 				<h3>[[persona.name]]</h3>
 				<p>[[persona.blurb]]</p>
 			</header>
 			<div class="card-actions horizontal justified layout center flex" >   
-				<div class="flex layout horizontal">   
-					<qi-icon-label label="Clone Persona" icon="content-copy"></qi-icon-label>
-					<qi-icon-label label="Delete Persona" icon="delete" ></qi-icon-label>
-					
-				</div>
 				<div >
 					<qi-toggle on-click="toggleAction"></qi-toggle> 
 				</div>
@@ -127,8 +121,7 @@
 
 			</iron-collapse>
 
-		</div>
-	</div>
+		</qi-card>
 
 
 	</template>
