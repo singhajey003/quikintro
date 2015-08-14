@@ -29,9 +29,16 @@
 Polymer({
 	is:'qi-trait', 
 	properties: {
+		/**
+		 * A single trait to be displayed
+		 */
 		trait: {
 			type: String
 		}
+	},
+
+	_select: function(e){
+		this.fire('tag-selected', {tag: e.srcElement.innerText});
 	}
 });
 
