@@ -53,27 +53,7 @@ point from which the user can access the functionality of the app.
             <qi-icon icon="qi:settings" label="Settings" count="2" on-click="_handleSettingsClick"></qi-icon>
        </div>
 
-		<qi-globals id="globals"></qi-globals>
-		<iron-localstorage name="notices" value="{{notifications}}"></iron-localstorage>
-
-
-			<label style="margin-left: 5px">Notifications</label>
-
-            <div class="dashboard">
-                <a href="#"><iron-icon class="icon-home" src="icons/events.svg"></iron-icon><span>Events</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/around.svg"></iron-icon><span>Around me</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/news.svg"></iron-icon><span>News</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/messages.svg"></iron-icon><span>Messages</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/contacts.svg"></iron-icon><span>Contacts</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/settings.svg"></iron-icon><span>Settings</span></a>
-            </div>
-
-            <div>
-				<template is="dom-repeat" items="{{notifications}}"  as="notice">
-					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
-				</template>
-			</div>
-
+ 
 		</div>
 
 	</template>
