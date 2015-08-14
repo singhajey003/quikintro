@@ -3,6 +3,8 @@
 <html>
 <head>
 
+<!-- TYPEKIT SCRIPT FOR MUSEO FONT -->
+
 <script src="//use.typekit.net/dzy0cbr.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
@@ -61,7 +63,34 @@
     margin: 0 24px 24px 24px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
+
+#drawer.paper-drawer-panel {
+background:rgba(23,170,207,0.95) !important;
+color:#fff;
+width:100% !important;
+}
+
+#drawer.paper-drawer-panel .paper-button-0 {
+  display:block;
+  background:transparent;
+}
+
+#drawer.paper-drawer-panel .centered {
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  width:100%;
+}
+
+#drawer.paper-drawer-panel .centered .row {
+    width: auto;
+}
+
 </style>
+
+<link rel="import" type="css" href="qi-new-theme.css">
 </head>
 
 <body>
@@ -104,8 +133,21 @@
 </div>
 <paper-drawer-panel responsive-width="4000px">
   <paper-header-panel drawer>
-
+    <div class="centered">
+      <div class="row">
+              <paper-button class="primary">Home</paper-button>
+              <paper-button class="primary">Events</paper-button>
+              <paper-button class="primary">Around Me</paper-button>
+              <paper-button class="primary">News</paper-button>
+              <paper-button class="primary">Messages</paper-button>
+              <paper-button class="primary">Contacts</paper-button>
+              <paper-button class="primary">Settings</paper-button>
+      </div>
+    </div>
   </paper-header-panel>
+
+<!-- TOP TOOLBAR -->
+
   <paper-header-panel main>
     <paper-toolbar>
       <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>

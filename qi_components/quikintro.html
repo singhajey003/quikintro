@@ -51,7 +51,6 @@ point at which all quikintro components are integrated.
       left: -100;
     }
 
-
   </style>
 
   <template>
@@ -64,7 +63,7 @@ point at which all quikintro components are integrated.
       <paper-drawer-panel narrow="true" forceNarrow="true" mode="waterfall" id="coreScaffold" >
 
         <paper-header-panel drawer>
-          <paper-toolbar></paper-toolbar>
+          <paper-toolbar>
           <paper-menu selected="{{page}}" valueattr="pageId"  class="fit">
 
             <paper-icon-item id="home" pageId="home" class="layout horizontal left">
@@ -103,8 +102,8 @@ point at which all quikintro components are integrated.
 
 
 
-          </paper-menu>
-
+            </paper-menu>
+          </paper-toolbar>
         </paper-header-panel>
 
 
@@ -115,7 +114,7 @@ point at which all quikintro components are integrated.
            <paper-icon-button id="menuButton" icon="menu" paper-drawer-toggle></paper-icon-button>
            <span class="flex" style="font-size:20px;font-weight:300;">[[panelTitle]]</span>
            <qi-toggle class="anonToggle" openicon="social:person" closedicon="social:person-outline"></qi-toggle>
-            
+
         </paper-toolbar>
 
         <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="fit flex" >
