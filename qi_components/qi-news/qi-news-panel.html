@@ -1,10 +1,15 @@
+<!--
+This component is the main component used to display the news.
+
+  @group QI Elements
+  @element qi-news-panel
+
+-->
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 
 <link rel="import" href="qi-feed-tray.html">
 <link rel="import" href="qi-article-tray.html">
-<link rel="import" href="qi-article-page.html">
-
 
 <dom-module id="qi-news-panel">
 
@@ -25,21 +30,36 @@
 
 	<iron-localstorage name="news" value="{{news}}"></iron-localstorage>
 	<iron-localstorage  name="feeds" value="{{feeds}}"></iron-localstorage>
+
+<div class="flex">
+  <paper-tabs class="bottom fit" hideScrollButtons="true" scrollable="true" selected="0">
+    <paper-tab>World</paper-tab>
+    <paper-tab>Contacts</paper-tab>
+    <paper-tab>Bookmarks</paper-tab>
+    <paper-tab>Sources</paper-tab>
+  </paper-tabs>
+
+
 	<iron-pages selected="{{selectedPage}}">
 
-		<div class="demotray layout vertical">
-			<!--<qi-feed-tray model="[[feeds]]"></qi-feed-tray>-->
-			<qi-article-tray news="{{news}}" ></qi-article-tray>
-		</div>
+    <section>
+      <qi-article-tray news="{{news}}"></qi-article-tray>
+    </section>
+    
+    <section>
 
-		<div>
+    </section>
 
-			<qi-article-page model="[[articleModel]]"></qi-article-page>
+    <section>
 
-		</div>
+    </section>
+
+    <section>
+      <qi-feed-tray model="{{feeds}}"></qi-feed-tray>
+    </section>
 
 	</iron-pages>
-
+</div>
 </template>
 
 <script>

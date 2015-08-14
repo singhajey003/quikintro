@@ -1,14 +1,17 @@
 <!--
+This component is responsible for displaying a list of qi-swipe-cards
+and a detail page used to display the detailed contents of a single, selected
+swipe-card.
 
 	@group QI Elements
- 	@element qi-card-page-tray
+ 	@element qi-swipe-card-tray
 -->
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 <link rel="import" href="../qi-card/qi-tray-page-behavior.html">
 <link rel="import" href="../qi-card/qi-fab-tray.html">
 
-<dom-module id="qi-card-page-tray">
+<dom-module id="qi-swipe-card-tray">
 	<style>
 		:host {
 			display: block;
@@ -42,7 +45,7 @@
 	</template>
 	<script>
 		Polymer({
-			is: 'qi-card-page-tray',
+			is: 'qi-swipe-card-tray',
 			behaviors: [QiTrayBehavior, QiTrayPageBehavior]
 
 

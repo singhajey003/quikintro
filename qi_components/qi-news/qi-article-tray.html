@@ -1,3 +1,11 @@
+<!--
+This component is responsible for displaying the a list
+of articles.
+
+ 	@group QI Elements
+ 	@element qi-article-tray
+-->
+
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
@@ -6,10 +14,12 @@
 
 <link rel="import" href="../data/qi-data-loader.html">
 
-<link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 
 <link rel="import" href="qi-article-card.html">
+<link rel="import" href="qi-article-page.html">
+
 <link rel="import" href="qi-speech-behavior.html">
 <link rel="import" href="qi-share-news-dialog.html">
 
@@ -27,7 +37,7 @@
 	<template>
 						
 
-		<qi-card-tray id="cardtray">
+		<qi-swipe-card-tray id="cardtray">
 
 		<!-- News Articles -->
 			<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
@@ -50,7 +60,10 @@
 			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog" mini></paper-fab>
 		
 
-		</qi-card-tray>
+			<qi-article-page class="detail-page" model="[[articleModel]]"></qi-article-page>
+
+
+		</qi-swipe-card-tray>
 
 		<qi-share-news-dialog id="shareDialog" articles="[[selectedArticles]]"></qi-share-news-dialog>
 

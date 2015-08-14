@@ -1,3 +1,8 @@
+<!--
+QuikIntro is a single-page app, and this page is the main
+point at which all quikintro components are integrated.
+
+-->
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
@@ -110,12 +115,7 @@
            <paper-icon-button id="menuButton" icon="menu" paper-drawer-toggle></paper-icon-button>
            <span class="flex" style="font-size:20px;font-weight:300;">[[panelTitle]]</span>
            <qi-toggle class="anonToggle" openicon="social:person" closedicon="social:person-outline"></qi-toggle>
-            <paper-tabs class="bottom fit" hideScrollButtons="true" scrollable="true" selected="0">
-              <paper-tab>WORLD</paper-tab>
-              <paper-tab>CONTACTS</paper-tab>
-              <paper-tab>BOOKMARKS</paper-tab>
-              <paper-tab>SOURCES</paper-tab>
-            </paper-tabs>
+            
         </paper-toolbar>
 
         <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="fit flex" >
