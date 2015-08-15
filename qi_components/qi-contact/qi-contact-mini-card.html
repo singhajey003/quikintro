@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+
+<link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-card/qi-card.html">
+<link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="qi-contact-behavior.html">
+
+<dom-module id="qi-contact-mini-card">
+
+	<style>
+		.selectedCard{
+			border-left: 5px solid #3ea1e6;
+		}
+	</style>
+	<template>
+		<qi-card model="[[model]]">
+		<qi-avatar url="[[model.avatar]]"></qi-avatar>
+			<header>
+				<h3><span>[[fullName]]</span></h3>
+				<p></p>
+			</header>
+		</qi-card>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-contact-mini-card',
+
+			behaviors: [QiCardBehavior]
+		});
+	</script>
+</dom-module>

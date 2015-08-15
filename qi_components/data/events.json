@@ -11,7 +11,7 @@
  		 "numOnsiteMeetings":3,
  		 "registrantCount":176676,
  		 "hashtag" : "#ces2016",
- 		 "persona": "Wearables",
+ 		 "persona": "Developer Persona",
  		 "notification" : "15 minutes before",
  		 "cloakingMode":true,
  		 "tweetUrl":"qi_components/data/ces2016.tweets.json",

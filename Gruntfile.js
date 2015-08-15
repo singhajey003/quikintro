@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 
         watch: {
           sass: {
-            files: ['./qi_components/**/*.scss'],
+            files: ['./qi_components/**/*.scss', './qi_components/**/*.html','./qi_components/**/*.js'],
             tasks: ['sass'],
             options: {
               // Start a live reload server on the default port 35729

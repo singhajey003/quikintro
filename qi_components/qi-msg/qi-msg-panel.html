@@ -21,14 +21,24 @@
 
 <link rel="import" href="../qi-dialog/qi-msg-dialog.html">
 
-<link rel="import" href="qi-msg-card.html">
-<link rel="import" href="qi-mtg-card.html">
-<link rel="import" href="qi-invite-card.html">
+
+<link rel="import" href="qi-msg-tray.html">
+<link rel="import" href="qi-mtg-tray.html">
+<link rel="import" href="qi-invite-tray.html">
+
 
 
 <dom-module id='qi-msg-panel'  >
 
   <link rel="stylesheet" href="qi-msg-panel.css">
+
+  <style is="custom-style">
+  iron-pages{
+    top: 10px;
+    position: relative;
+  }
+
+  </style>
 
   <template>
  
@@ -38,7 +48,7 @@
 
   <div id="msgHeaderPanel" class="layout vertical fit flex"> 
 
-    <paper-tabs selected="{{selected}}" scrollable hideScrollButtons="false" no-bar >     
+    <paper-tabs selected="{{selected}}" scrollable hideScrollButtons="false" >     
         <paper-tab >Messages</paper-tab>
         <paper-tab >Invitations</paper-tab>
         <paper-tab >Meeting Requests</paper-tab>
@@ -47,26 +57,20 @@
 
     <iron-pages selected="{{selected}}" >
       <div id="msgTray" class="fit">
-        
-            <template id="msgTemplate" is="dom-repeat" items="{{msgs}}" as="msg" index-as="msgId">
-              <qi-msg-card msg="{{msg}}" id="{{msgId}}"></qi-msg-card>
-            </template>
+        <qi-msg-tray model="[[msgs]]"></qi-msg-tray>
        
         <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
       
       </div>
 
-      <div id="invTray" class="fit" style="overflow:auto">
-          <template is="dom-repeat" items="{{invites}}" index-as="invId" as="inv">
-          <qi-invite-card invite="{{inv}}" id="{{invId}}"></qi-invite-card>
-          </template>
+      <div id="invTray" class="fit">
+        <qi-invite-tray  model="[[invites]]"></qi-invite-tray>
       </div>
 
-      <div id="mtgTray" class="fit" style="overflow:auto">
-        <template is="dom-repeat" items="{{mtgs}}" index-as="mtgId" as="mtg">
-          <qi-mtg-card mtg="{{mtg}}" id="{{mtgId}}"></qi-mtg-card>
-        </template>
+      <div id="mtgTray" class="fit" >
+        <qi-mtg-tray model="[[mtgs]]"></qi-mtg-tray>
       </div>
+
 
       </iron-pages>
 
@@ -83,17 +87,17 @@
       /**
        * An array of messages.
        */
-      msgs:{type: Array, value:[], observer: 'msgsChanged'},
+      msgs:{type: Array, value:[]},
 
       /**
        * An array of meeting requests.
        */
-      mtgs:{type: Array, value: [], observer: 'mtgsChanged'},
+      mtgs:{type: Array, value: []},
 
       /**
        * An array of invitations.
        */
-      invites: {type: Array, value:[], observer: 'invitesChanged'},
+      invites: {type: Array, value:[]},
 
       /**
        * The index of the selected tab.
@@ -101,37 +105,6 @@
       selected: {type: Number, value: 0}
    },
 
-   msgsChanged:function(newValue, oldValue){
-    if (newValue != null && newValue.length > 0){
-
-      var msgTray = this.$.msgTray;
-
-      var msgCard = new MsgCard();
-      msgCard.msg = newValue[newValue.length];
-      msgTray.appendChild(msgCard);
-    }
-   },
-
-   mtgsChanged: function(newValue, oldValue){
-    if(newValue != null && newValue.length > 0){
-      var mtgTray = this.$.mtgTray;
- 
-      var mtgCard = new MtgCard();
-      mtgCard.msg = newValue[newValue.length];
-      mtgTray.appendChild(mtgCard);
-    }
-
-   },
-
-   invitesChanged: function(newValue, oldValue){
-    if(newValue != null && newValue.length > 0){
-      var invTray = this.$.invTray;
-      var invCard = new InvCard();
-      invCard.msg = newValue[newValue.length];
-      invTray.appendChild(invCard)
-    }
-
-   },
 
   
     ready: function(){
@@ -142,6 +115,8 @@
         var msgTray = this.$.msgTray;
         var mtgTray = this.$.mtgTray;
         var invTray = this.$.invTray;
+
+        var invPage = this.$.invPage;
 
         // add a message card in response to a msg-sent event
         window.addEventListener('msg-sent', function(e){
@@ -183,7 +158,7 @@
           node.parentNode.removeChild(node);
         });
 
-        // delete a message in response toa delete-msg event
+        // delete a message in response to a delete-msg event
         window.addEventListener('delete-msg', function(e){
           var msgId = e.detail.msgId;
           var id = e.detail.id;
@@ -197,7 +172,18 @@
           node.parentNode.removeChild(node);
         });
 
+        this.addEventListener('invite-card-swipe', function(e){
+          var invPageContent = invPage.querySelector('qi-invite-page');
+          invPageContent.model = e.detail.model;
+          this.selected = 3;
+        });
 
+        this.addEventListener('mtg-card-swipe', function(e){
+          var mtgPageContent = mtgPage.querySelector('qi-mtg-page');
+          mtgPageContent.model = e.detail.model;
+          this.selected = 4;
+
+        });
 
       }
     

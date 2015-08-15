@@ -1,0 +1,14 @@
+<!--
+
+@polymerBehavior QiSwipeCardBehavior
+-->
+<script>
+	QiSwipeCardBehavior={
+
+		handleCardSwipe: function(e){
+			if(e.detail.state == 'end'){
+	  			this.fire('card-swipe', {model: this.model});
+	  		}
+		}
+	};
+</script>

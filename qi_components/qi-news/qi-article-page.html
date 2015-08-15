@@ -1,0 +1,163 @@
+<!--
+  This component is responsible for rendering an article.
+  
+	@group QI Elements
+	@element qi-article-page
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+
+<link rel="import" href="../qi-trait/qi-traitlist.html">
+<link rel="import" href="qi-speech-behavior.html">
+
+<link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
+<link rel="import" href="../qi-persona/qi-persona-field.html">
+
+
+
+<dom-module id="qi-article-page">
+
+	<style>
+	.mediaholder{
+		width: 100%;
+		height: 150px;
+		background-size: cover;
+		back
+	}
+	.article-content{
+		padding-left: 2px;
+		overflow: scroll;
+	}
+	h2{
+		font-weight: normal;
+	}
+
+	figcaption{
+		font-size: 10pt;
+		line-height: normal;
+	}
+
+	#abstract{
+		overflow: scroll;
+		font-size: 12pt;
+		line-height: normal;
+	}
+
+	.help{
+		font-size: 9pt;
+		color: #17aacf;
+	}
+
+	</style>
+
+
+	<template>
+	<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
+
+	<div class="article-content" on-track="handlePageSwipe">
+	<h2><span>[[model.title]]</span></h2>
+
+	<figure>
+  		<div class="mediaholder flex" style$="[[media]]"></div>
+  		<figcaption><span>[[desc]]</span></figcaption>
+	</figure>
+
+	<div class="flex">
+	<qi-collapse-field label="Keywords">
+		<div>
+		
+		<qi-persona-field id="persona" model="{{personas}}" persona="LinkedIn Persona"></qi-persona-field>
+
+
+		<span class="help">Click to add a keyword to this persona</span>
+		<qi-traitlist traits="[[model.keywords]]"></qi-traitlist>
+		</div>
+	</qi-collapse-field>
+	</div>
+	
+
+	<div id="abstract">[[cleanMessageText(model.abstract)]]</div>
+
+
+	</div>
+	</template>
+
+	<script>
+	Polymer({
+		is: 'qi-article-page',
+		behaviors: [QiSpeechBehavior, QiSwipePageBehavior],
+		properties: {
+
+			/**
+			 * This property contains the URL used for the image.
+			 */
+			media:{
+				type: String,
+				computed: '_computeMedia(model)'
+			},
+
+			/**
+			 * This property contains the description/caption for the image.
+			 */
+			desc:{
+				type: String,
+				computed: '_computeDesc(model)'
+			},
+
+
+			/**
+			 * This property contains the height of the image.
+			 */
+			height:{
+				type: Number,
+				computed: '_computeHeight(model)'
+			},
+
+			/**
+			 * This property contains the width of the image.
+			 */
+			width:{
+				type: Number,
+				computed: '_computeWidth(model)'
+			}
+		},
+
+		_computeWidth: function(model){
+			return (model != null)? model.media[0].width:0;
+		},
+
+		_computeHeight: function(model){
+			return (model != null)? model.media[0].height:0;
+		},
+
+		_computeMedia:function(model){
+			return (model != null)? "background-image: url('" + model.media[0].url + "');" : "";
+		},
+
+		_computeDesc: function(model){
+			return (model != null)?model.media[0].description : "";
+		},
+
+		_handleSwipe: function(e){
+			this.fire('article-page-swipe',{});
+		},
+
+		ready: function(){
+			this.addEventListener("tag-selected", function(e){
+				var persona = document.getElementById("persona");
+				var msg = "Keyword '" + e.detail.tag +"' added to persona '" + persona.persona +"'";
+				this.fire('show-toast',{text:msg})
+			});
+
+			
+		}
+
+
+
+
+	});
+
+	</script>
+
+
+</dom-module>

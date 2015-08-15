@@ -1,0 +1,129 @@
+
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<dom-module id="qi-feed-icon">
+
+	<style is="custom-style">
+	.fakeIcon{
+		background-color: #505050;
+		height: 50px;
+		width: 50px;
+		font-family: 'serif';
+		color: white;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+	.icon{
+		--iron-icon-width: 50px;
+		--iron-icon-height: 50px;
+		width: 50px;
+		height: 50px;
+	}
+
+	</style>
+
+
+
+	<template>
+
+		<template is="dom-if" if="{{!isIconNull}}">
+			<iron-icon class="icon" src$="[[iconUrl]]" on-click="_handleClick"></iron-icon>
+		</template>
+
+		<template is="dom-if" if="{{isIconNull}}">
+			<div class="fakeIcon" on-click="_handleClick">[[fakeIcon]]</div>
+		</template>
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'qi-feed-icon',
+
+			properties:{
+
+				/**
+				 * The model for the feed. 
+				 */
+				model:{
+					type: Object
+				},
+
+				/**
+				 * For those feeds that don't have an icon, this represents the 
+				 * text that will be displayed.
+				 */
+				fakeIcon:{
+					type: String,
+					computed: '_computeFakeIcon(model)'
+				},
+
+				/**
+				 * The icon path for the feed icon.
+				 */
+				icon:{
+					type: String,
+					computed: '_computeIcon(model)'
+				},
+
+				/**
+				 * Determines if an icon exists.
+				 */
+				isIconNull:{
+					type: Boolean,
+					computed: '_isIconNull(model)'
+				},
+
+				/**
+				 * A computed property that gets the icon URL.
+				 */
+				iconUrl: {
+					type: String,
+					computed: '_getIconUrl(model)'
+				}
+			},
+
+			/**
+			 * This method appends the appropriate path to the icon.
+			 */
+			_getIconUrl: function(feed){
+				return "/qi_components/data/news/" + feed.icon;
+			},
+
+			/**
+			 * This method determines if the feed has an icon or not.
+			 */
+			_isIconNull: function(feed){
+				return feed.icon == null || feed.icon == '';
+			},
+
+			/**
+			 * This method gets the first letter of the name of the feed and 
+			 * displays that in cases where there is no feed icon.
+			 */
+			_computeFakeIcon: function(feed){
+				return feed.name[0];
+			},
+
+			/**
+			 * This method gets the feeds icon.
+			 */
+			_computeIcon: function(feed){
+				return feed.icon;
+			},
+
+			/**
+			 * This method handles the click on the feed icon.
+			 */
+			_handleClick: function(e){
+				this.fire('feed-selected',{name: this.model.name});
+			}
+
+
+
+		});
+
+	</script>
+
+
+</dom-module>

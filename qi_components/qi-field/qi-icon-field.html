@@ -1,24 +1,68 @@
+<!--
+ This component is used to display a field with an associated icon.
+
+ 	@group QI Elements
+ 	@element qi-icon-field
+-->
+
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+
+
 <dom-module id='qi-icon-field'  > 
 
+   <style is="custom-style">
+   iron-icon{
+      --iron-icon-height: 14px;
+      --iron-icon-width: 14px;
+      height: 14px
+      width: 14px;
+      color: var(--icon-color, #909090);
+      padding-top: 4px;
+      padding-right: 2px;
+   }
+
+   label{
+      font-weight: var(--label-font-weight, bold);
+      font-size: var(--label-font-size: 10pt);
+      color: var(--label-color: black);
+   }
+
+   .fldValue{
+      font-weight: var(--fld-value-font-weight, plain);
+      font-size: var(--fld-value-font-size, 10pt);
+      color: var(--fld-value-color, #909090);
+      padding-top: 5px;
+   }
+
+
+
+   </style>
+
 	<template>
-	    <link rel="stylesheet" href="qi-field.css"> 
-		<div class="row flex layout horizontal justified" >  
+
+		<div class="row flex center layout horizontal justified" > 
+
+         <template is="dom-if" if="{{hasIcon}}">
+            <iron-icon icon="[[icon]]"></iron-icon>
+         </template>
+
+			<template is="dom-if" if="{{labeled}}"> 
 	        <div class="labelCell">
-	            <iron-icon icon="[[icon]]"></iron-icon>
 	            <label>[[label]]</label>
 	        </div>
+	      </template>
 
-	        <template is="dom-if" if="{{!editable}}">
+	      <template is="dom-if" if="{{!editable}}">
 	        <div class="fldValue flex"  two>  
 	            <span>{{value}}</span>
 	        </div>
-	        </template>
+	      </template>
 
-	        <template is="dom-if" if="{{editable}}">
+	      <template is="dom-if" if="{{editable}}">
 	        	<paper-input type="text" label="{{label}}" id="{{id}}" value="{{value}}" floatingLabel="{{floatingLabel}}"></paper-input>
-	        </template>
+	      </template>
 	    </div>
 	</template>
 
@@ -26,18 +70,74 @@
 	Polymer({
    		is: 'qi-icon-field', 
    		properties:{
-   			label:{type: String},
+
+   			/**
+   			 * The text of the label to be displayed
+   			 */
+   			label:{
+   				type: String,
+   				value: ''
+   			},
+
+   			/**
+   			 * The ID of the label to be displayed
+   			 */
    			id: {type: String},
+
+   			/**
+   			 * The value of the field to be displayed
+   			 */
    			value: {type: String},
+
+   			/**
+   			 * The name of the icon (not the file name) to be used.
+   			 */
    			icon: {type: String},
-   			editable: {type: Boolean, value: false},
-   			floatingLabel: {type: Boolean, value: false}
+
+   			/**
+   			 * A flag indicating whether or not the field is to be editable.
+   			 */
+   			editable: {
+   				type: Boolean, 
+   				value: false
+   			},
+
+   			/**
+   			 * A flag indicating that a label has been provided.
+   			 */
+   			labeled: {
+   				type: Boolean,
+   				computed: '_isLabeled(label)'
+   			},
+
+            hasIcon:{
+               type: Boolean,
+               computed: '_hasIcon(icon)'
+            },
+
+   			/**
+   			 * A flag indicating that the label should float
+   			 */
+   			floatingLabel: {
+   				type: Boolean, 
+   				value: false
+   			}
+   		},
+
+         _hasIcon: function(icon){
+            return icon != null && icon != '';
+         },
+
+   		/**
+   		 * This method determines whether or not a label exists.
+   		 */
+   		_isLabeled: function(label){
+   			return label != null && label != '';
    		}
 
 	});
 	</script>
-
-</dom-module> 
+ 
 
 
 </dom-module>

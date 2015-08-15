@@ -1,0 +1,100 @@
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/av-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+
+<link rel="import" href="../data/qi-data-loader.html">
+
+<link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+
+<link rel="import" href="qi-article-card.html">
+<link rel="import" href="qi-speech-behavior.html">
+<link rel="import" href="qi-share-news-dialog.html">
+
+
+<dom-module id="qi-article-tray">
+
+	<style is="custom-style">
+	qi-card-tray{
+		--tray-width: 100vw;
+		background-color: var(--tray-bgcolor);
+	}
+
+	</style>
+
+	<template>
+						
+
+		<qi-card-tray id="cardtray">
+
+		<!-- News Articles -->
+			<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
+				<span>[[feed.name]]</span>
+				<template is="dom-repeat" items="[[feed.articles]]" as="article" index-as="articleId">
+				[[article.title]]
+					<qi-article-card prefix="art" id="[[articleId]]" class="selectable-card" model="[[article]]" feed="[[feed]]"></qi-article-card>
+				</template>
+
+			</template>
+		
+
+		<!-- FABs -->
+			<paper-fab class="selectable" icon="av:skip-previous" on-click="back" mini></paper-fab>
+			<paper-fab class="selectable" icon="av:play-arrow" on-click="play" mini></paper-fab>
+			<paper-fab class="selectable" icon="av:pause" on-click="pause" mini></paper-fab>
+			<paper-fab class="selectable" icon="av:skip-next" on-click="next" mini></paper-fab>
+			
+			<paper-fab class="selectable" icon="av:stop" on-click="stop" mini></paper-fab>
+			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog" mini></paper-fab>
+		
+
+		</qi-card-tray>
+
+		<qi-share-news-dialog id="shareDialog" articles="[[selectedArticles]]"></qi-share-news-dialog>
+
+	</template>
+
+<script>
+Polymer({
+	is:'qi-article-tray',
+
+	behaviors: [QiTrayBehavior, QiSpeechBehavior],
+
+	properties:{
+		/**
+		 * A JSON object containing all news feeds.
+		 */
+		news:{
+			type: Object, 
+			value: null, 
+			notify: true, 
+			readonly: true
+		},
+
+		/**
+		 * An array of the models for the selected article cards.
+		 */
+		selectedArticles: {
+			type: Array,
+			value: []
+		}
+	},
+
+
+
+	/**
+	 * This method displays the share dialog.
+	 */
+	openShareDialog: function(){
+		this.$.shareDialog.articles = this.getSelectedCards();
+		this.$.shareDialog.open();
+	}
+
+
+});
+
+</script>
+
+</dom-module>

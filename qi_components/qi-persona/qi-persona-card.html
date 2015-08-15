@@ -19,9 +19,6 @@
 
 
 	<link rel="stylesheet" href="qi-persona-card.css" > 
-	<link rel="stylesheet" href="../quikintro.css" > 
-	<link rel="stylesheet" href="../qi-cards.css"> 
-	<link rel="stylesheet" href="../qi-trait/traitlist.css"> 
 	
 	<style>
 	div.persona > div.card-actions{
@@ -34,15 +31,14 @@
 	<div class="card-wrapper"> 
 		<div class="card persona">
 			<header>
-				<h3>[[persona.name]]</h3>
-				<p>[[persona.blurb]]</p>
+				<h3><span>{{persona.name}}</span></h3>
+				<p><span>[[persona.blurb]]</span></p>
+				<p>Imported Skills</p>
+				<qi-traitlist traits="[[persona.aboutMe.skills]]"></qi-traitlist>
+				<p>Imported Interests</p>
+				<qi-traitlist traits="[[persona.aboutMe.interests]]"></qi-traitlist>
 			</header>
 			<div class="card-actions horizontal justified layout center flex" >   
-				<div class="flex layout horizontal">   
-					<qi-icon-label label="Clone Persona" icon="content-copy"></qi-icon-label>
-					<qi-icon-label label="Delete Persona" icon="delete" ></qi-icon-label>
-					
-				</div>
 				<div >
 					<qi-toggle on-click="toggleAction"></qi-toggle> 
 				</div>
@@ -138,7 +134,10 @@
    		is: 'qi-persona-card', 
 
    		properties:{
-   			persona:{type: Object},
+   			persona:{
+   				type: Object,
+   				notify: true
+   			},
    			opened: {type: Boolean, value: false}
    		},
 

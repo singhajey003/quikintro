@@ -1,0 +1,172 @@
+<!--
+ This behavior contains properties and methods used by any component wishing 
+ to implement speech.
+
+ @polymerBehavior QiSpeechBehavior
+-->
+<script>
+QiSpeechBehavior = {
+
+	properties:{
+
+		/**
+		 * The index of the message currently being read.
+		 */
+		currIndex:{
+			type: Number,
+			value: 0,
+
+		},
+
+		/**
+		 * The speech utterance object.  This contains 
+		 * the configuration for the speech element.
+		 */
+		speech:{
+			type: Object,
+			value: new SpeechSynthesisUtterance()
+		},
+
+		/**
+		 *	The name of the voice
+		 */
+		voiceName:{
+			type: String,
+			value: 'Google UK English Female'
+		},
+
+		/**
+		 * This computed property contains the currently selected voice.
+		 */
+		voice:{
+			type: Object,
+			computed: '_getVoice(voiceName)'
+		},
+
+
+
+		/**
+		 * An array of text messages to be spoken.
+		 */
+		msgs:{
+			type: Array,
+			value: []
+		},
+
+		/**
+		 * A flag indicating that the speech synthesizer is paused.
+		 */
+		isPaused: {
+			type: Boolean,
+			value: false
+		}
+
+
+	},
+
+	/**
+	 * This method gets the specified voice
+	 * @param name the name of the voice
+	 */
+	_getVoice: function(name){
+		var voice = window.speechSynthesis.getVoices().filter(function(currVoice){
+			return currVoice.name = name;
+		});
+
+		return voice;
+	},
+
+
+	/**
+	 * This method 'plays' the current article.
+	 */
+	play: function(){
+		this.speech.text = this.msgs[this.currIndex];
+		console.log(this.speech.text);
+		window.speechSynthesis.cancel();
+		window.speechSynthesis.speak(this.speech);
+		
+	},
+
+	/**
+	 * Advances to the next message in the queue, stops the currently playing
+	 * speech, and starts the next speech.
+	 */
+	next: function(){
+		if (this.currIndex == this.msgs.length){
+			return;
+		}else {
+			this.currIndex++;
+		}
+		stop();
+		play();
+	},
+
+	/**
+	 * Advances to the previous message in the queue, stops the currently playing
+	 * speech, and starts the next speech.
+	 */
+	prev: function(){
+		if(this.currIndex == 0){
+			return;
+		}else {
+			this.currIndex--;
+		}
+		stop();
+		play();
+	},
+
+	/**
+	 * This method stops the speech synthesizer from speaking.
+	 */
+	stop: function(){
+		window.speechSynthesis.cancel();
+	},
+
+	/**
+	 * This method pauses the speech synthesizer.
+	 */
+	pause: function(){
+		window.speechSynthesis.pause();
+	},
+
+	/**
+	 * This method resumes the speech synthesis session.
+	 */
+	resume: function(){
+		window.speechSynthesis.resume();
+	},
+
+	/**
+	 * This method toggles between the paused/resumed state.
+	 */
+	togglePause: function(){
+		isPaused = !isPaused;
+		if(isPaused){
+			this.pause();
+		}else {
+			this.resume();
+		}
+	},
+
+
+
+
+	/**
+	 * Takes a message containing html and converts it to pure text
+	 * so that the speech synthesizer can read it properly.
+	 * @param text  the html text to be converted.
+	 */
+	cleanMessageText: function(text){
+		var tmp = document.createElement("div");
+		tmp.innerHTML = text;
+		return tmp.textContent || tmp.innerText || "";
+	}
+
+
+
+};
+
+
+
+</script>

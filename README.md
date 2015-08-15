@@ -11,6 +11,14 @@ You'll need to install the following tools if you haven't already
 * [Ruby](http://www.ruby-lang.org/en/downloads/) If you're on OS X or Linux you probably already have Ruby installed; test with `ruby -v` in your terminal. When you've confirmed you have Ruby installed, run `gem install sass` to install Sass.
 * [Sass](http://sass-lang.com/download.html)
 
+If you use Sublime as your editor, there's a collection of very useful Polymer snippets written by one of the lead developers of Polymer.  To install them:
+
+1. From the Tools menu, select the Command Palette menu item.
+1. Type "Add Repository" and add "http://github.com/robdodson/PolymerSnippets"
+1. From the Command Palette, enter "Install Package" and type "Polymer" (it should select PolymerSnippets).
+
+Use the PolymerSnippets project URL above to get the latest project documentation.  
+
 ###  Code Organization ###
 The index.html page is the main entry point.  Polymer (and other 3rd party) compounds are in the **bower_components** directory.  Customized QuickIntro components are in the **qi-components** directory.  Each subdirectory contains the CSS, HTML and JavaScript for a single component.  Each component starts with **qi** to differentiate it from other components.  Additional 3rd party components can be installed using the **bower install** command.
 
@@ -75,3 +83,7 @@ We currently use Google's Polymer library for developing web components.  You'll
 ### Setup (Not needed anymore as we run server directly from grunt task) ###
 To run the application, simply type:
 **python -M SimpleHTTPServer**
+
+### Link to wireframe photoshop file ###
+
+[https://www.dropbox.com/s/r6ii4h40ra6scgo/Wireframe.psd?dl=0](https://www.dropbox.com/s/r6ii4h40ra6scgo/Wireframe.psd?dl=0)

@@ -1,0 +1,75 @@
+<!--
+This behavior defines the properties and methods required of a card.
+
+@polymerBehavior QiCardBehavior
+-->
+
+<script>
+QiTrayBehavior = {
+
+
+	properties:{
+
+		selectedCards:{
+			type: Array,
+			value: [],
+			notify: true
+		}
+
+
+	},
+
+
+
+	/**
+	 * This abstract method creates a DOM-specific ID that is guaranteed to
+	 * be unique in the DOM.
+	 * @param the ID that you want to use as the basis of the ID.
+	 */
+	computeDomId: function(prefix, id){
+		return prefix + "-"  + id;
+	},
+
+	/**
+	 * This method is responsible for enabling/disabling the buttons in the button
+	 * tray.  Each button must be marked by the "selectable" CSS class.
+	 * @param isDisabled  a flag indicating that the button should be disabled
+	 */
+	_disableBtns: function(isDisabled){
+		var tray = this.$.fabtray;
+		if(tray){
+			var btns = tray.getElementsByClassName("selectable");
+
+			for(var i=0; i < btns.length; i++){
+				var btn = btns[i];
+				btn.disabled = isDisabled;
+			}
+		}
+	},
+
+	getSelectedCards: function(){
+		return this.$.selector.selectedValues;
+	},
+
+
+	ready: function(){
+		var selectedCards = this.selectedCards;
+
+		// change the fab tray style whenever a card is selected.
+		this.addEventListener('card-selected', function(e){
+			var selector = document.getElementById("selector");
+			selectedCards = selector.selectedItems;
+
+			var fabtray = document.getElementById("fabtray");
+			fabtray.selected = (selectedCards.length > 0);
+		});
+	}
+
+
+
+
+
+
+
+};
+</script>

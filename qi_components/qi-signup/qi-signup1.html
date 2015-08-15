@@ -1,0 +1,149 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
+
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+
+<link rel="import" href="../data/qi-data-loader.html">
+
+<link rel="import" href="../qi-trait/qi-trait.html">
+<link rel="import" href="../qi-trait/qi-traitlist.html">
+
+<link rel="import" href="../qi-theme.html">
+
+<link rel="import" href="../qi-persona/qi-persona-card.html">
+
+<dom-module id="qi-signup1">
+	<link rel="stylesheet" type="css" href="qi-signup1.css">
+	<link rel="stylesheet" href="../quikintro.css"> 
+
+	<style>
+
+	.panel{
+	  background-color: #FFFFFF;
+	  background-size: contain;
+	  width: 100%;
+	  height: 100%;
+	}
+	.heading{
+	  margin-top: 2.5%;
+	}
+	.text{
+	  width: 70%;
+	  text-align: center;
+	  height: 10vh;
+	}
+
+	.backButton{
+	  background: transparent url("back.jpg") center no-repeat;
+	  width: 40px;
+	  height:40px;
+	  padding: 10px 0 0 10px;
+	}
+
+	.status3{
+	  background: transparent url("status3.jpg") center no-repeat;
+	  width: 40px;
+	  height:40px;
+	  padding: 10px 10px 0 0;
+	}
+
+	.personas {
+	  /*max-width: 300px;*/
+	  padding-left: 20px; 
+	  padding-right: 20px;
+	}
+
+	.next{
+		background-color: #17aacf;
+		width: 100%;
+		margin: 0;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		color: #FFFFFF;
+	}
+	.skipstep {
+	  width: 100%;
+	  display: inline-block;
+	  margin: auto;
+	  text-align: center;
+	  font-size: 10px; 
+	}
+	</style>
+
+	<template>
+		<iron-localstorage name="personas" value="{{personas}}" as="personas"></iron-localstorage>
+		<qi-data-loader></qi-data-loader>
+		<div class="panel fit">
+			<div class="heading horizontal layout">
+				<div class="backButton start-justified" on-click="_handleBack"></div>
+				<div class="text flex center-justified"><p>Your first personas</p></div>
+				<div class="status3 end-justified"></div>
+			</div>
+
+			<hr>
+
+			<div class = "personas vertical layout">
+					
+				<qi-persona-card persona="[[personas.0]]" >
+				</qi-persona-card>
+				<hr>
+				<qi-persona-card persona="[[personas.1]]">
+				</qi-persona-card>
+			</div>
+
+			<div class="buttons flex">
+				<paper-button class="next flex noink primary raised" on-click="_handleNext">Next</paper-button>
+				<div class="skipstep">
+					<paper-button class="splash" on-click="_handleNext">Skip and Create Your Personas Later</paper-button>
+				</div>
+			</div>
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-signup1',
+
+			properties:{
+				personas:{
+					type: Array
+				},
+				linkedin:{
+					type: Object,
+					computed: '_getPersona(personas,0)'
+				}
+			},
+
+			_getPersona: function(personas, index){
+				console.log(personas[index]);
+				return personas[index];
+			},
+
+			_handleNext: function(){
+				this.fire("next");
+			},
+
+			_handleBack: function(){
+				this.fire("back");
+			}
+		});
+	</script>
+</dom-module>

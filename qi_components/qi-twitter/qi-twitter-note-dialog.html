@@ -1,0 +1,70 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+
+
+<dom-module id="qi-twitter-note-dialog">
+
+	<link rel="stylesheet" href="../qi-dialog/dialog.css"> 
+
+ 	<style is="custom-style">
+	 	paper-dialog{
+	 		height: var(--dialog-height);
+	 		width: var(--dialog-width);
+	 	}
+
+	 	#tweet{
+	 		height: 80px;
+	 	}
+ 	</style>
+
+	<template>
+	<paper-dialog id="noteDialog" class="layout vertical">
+		<h2>Add To Notebook</h2>
+		<paper-textarea id="tweet" class="flex" value="{{note}}" maxRows="3" ></paper-textarea>
+
+		<div class="buttons layout horizontal">
+		  	<paper-button dialog-dismiss>Cancel</paper-button>
+		  	<paper-button id="sendBtn" on-click="sendAction" dialog-confirm>Send</paper-button>
+	  	 </div>
+
+
+	</paper-dialog>
+	</template>
+
+	<script>
+	Polymer({
+		is:'qi-twitter-note-dialog',
+		properties: {
+
+			/**
+			 * The text of the note.
+			 */
+			note:{
+				type: String
+			},
+
+			/**
+			 * The folders/tags associated with the note.
+			 */
+			folders:{
+				type: Array,
+				value: []
+			}
+		},
+
+		open: function(){
+			this.$.noteDialog.open();
+
+		},
+
+		sendAction: function(){
+			//TODO: create the sendAction
+		}
+	});
+
+
+	</script>
+
+</dom-module>
