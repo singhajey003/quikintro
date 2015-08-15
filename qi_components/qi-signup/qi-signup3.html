@@ -1,0 +1,82 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+
+<link rel="import" href="../data/qi-data-loader.html">
+
+
+<link rel="import" href="../qi-theme.html">
+
+<link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-contact/qi-contact-mini-card.html">
+
+<dom-module id="qi-signup3">
+
+	<style>
+		.contactTray{
+			height: 70%;
+			width: 100%;
+		}
+
+		.close{
+			background-color: #17aacf;
+			width: 100%;
+			margin: 0;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			color: #FFFFFF;
+		}
+
+		.backButton{
+		  background: transparent url("back.jpg") center no-repeat;
+		  width: 40px;
+		  height:40px;
+		  padding: 10px 0 0 10px;
+		}
+
+
+		.status4{
+		  background: transparent url("status4.jpg") center no-repeat;
+		  width: 40px;
+		  height:40px;
+		  padding: 10px 10px 0 0;
+		}
+	</style>
+	<template>
+		<iron-localstorage name="contacts" value="{{contacts}}"></iron-localstorage>
+		
+		<div class="heading horizontal layout">
+				<div class="backButton start-justified" on-click="_handleBack"></div>
+				<div class="text flex center-justified"><p>Select Some Friends to Invite</p></div>
+				<div class="status4 end-justified"></div>
+			</div>
+
+		<div class="contactTray">
+			<qi-card-tray>
+				<template is="dom-repeat" items="{{contacts}}" as="contact">
+					<qi-contact-mini-card model="{{contact}}"></qi-contact-mini-card>
+				</template>
+			</qi-card-tray>
+		</div>
+
+		<paper-button class="close flex noink primary raised" on-click="_handleCreate">Create</paper-button>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-signup3',
+
+			_handleBack: function(){
+				this.fire("back");
+			},
+
+			_handleCreate: function(){
+				this.fire("login");
+			}
+		});
+	</script>
+</dom-module>
+

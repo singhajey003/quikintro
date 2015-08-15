@@ -2,62 +2,18 @@
 .panel{
   background-color: #FFFFFF;
   background-size: contain;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
 }
+
 .heading{
-  margin-top: 2.5%;
+  margin-top: 2.5vh;
 }
+
 .text{
   width: 70%;
   text-align: center;
-  height: 10%;
+  height: 10vh;
 }
 
-.closeButton{
-  background: transparent url("qi-signup/close.jpg") center no-repeat;
-  width: 40px;
-  height:40px;
-  padding: 10px 0 0 10px;
-}
 
-.status{
-  background: transparent url("qi-signup/status1.jpg") center no-repeat;
-  width: 40px;
-  height:40px;
-  padding: 10px 10px 0 0;
-}
-
-.avatar{
-  background: transparent url("qi-signup/temp_avatar.jpg") center no-repeat;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background-size: 30%;
-  height: 27%;
-}
-
-.wrapper {
-  /*max-width: 300px;*/
-  min-width: 200px;
-  height: 40%;
-  padding: 20px; 
-}
-
-.next {
-  background: transparent url("qi-signup/next.jpg") center no-repeat;
-  height: 8%;
-  /*color: #f7fffc;
-  font-family: arial; /*monotype */
-  width: 100%;
-  margin: 0;
-  padding-top: 5%;
-  background-color: #17aacf;
-}
-
-.signin {
-  width: 100%;
-  display: inline-block;
-  margin: auto;
-  text-align: center;
-  font-size: 10px; }

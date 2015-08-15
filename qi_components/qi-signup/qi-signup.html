@@ -1,4 +1,4 @@
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
@@ -19,15 +19,70 @@
 
 <link rel="import" href="../data/qi-data-loader.html">
 
+<link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input-behavior.html">
+
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
 <link rel="import" href="../qi-theme.html">
 
-<dom-module id="qi-signup1">
-	<link rel="stylesheet" type="css" href="qi-signup1.css">
+<dom-module id="qi-signup">
+	<link rel="stylesheet" type="css" href="qi-signup.css">
 	<link rel="stylesheet" href="../quikintro.css"> 
+
+	<style>
+		.closeButton{
+		  background: transparent url("close.jpg") center no-repeat;
+		  width: 40px;
+		  height:40px;
+		  padding: 10px 0 0 10px;
+		}
+
+		.status{
+		  background: transparent url("status1.jpg") center no-repeat;
+		  width: 40px;
+		  height:40px;
+		  padding: 10px 10px 0 0;
+		}
+
+		.avatar{
+		  background: transparent url("temp_avatar.jpg") center no-repeat;
+		  width: 100%;
+		  margin-left: auto;
+		  margin-right: auto;
+		  background-size: 30%;
+		  height: 27vh;
+		}
+
+		.next{
+			background-color: #17aacf;
+			width: 100%;
+			margin: 0;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			color: #FFFFFF;
+		}
+
+		.wrapper {
+		  /*max-width: 300px;*/
+		  min-height: 40vh;
+		  padding: 20px; 
+		}
+
+		.signin {
+		  width: 100%;
+		  display: inline-block;
+		  margin: auto;
+		  text-align: center;
+		  font-size: 10px; 
+		}
+
+	</style>
 	<template>
 		<div class="panel fit">
 			<div class="heading horizontal layout">
-				<div class="closeButton start-justified" on-click="handleSignIn"></div>
+				<div class="closeButton start-justified" on-click="_handleSignIn"></div>
 				<div class="text flex "><p>Sign Up</p></div>
 				<div class="status end-justified"></div>
 			</div>
@@ -41,25 +96,25 @@
 				<input is="iron-input" type="password" name="password">
 			</paper-input-container>
 			<paper-input class="splash flex" label="BIRTHDAY" alwaysFloatLabel="true"></paper-input><br/>    
-		</div>
+			</div>
 
-			<paper-button class="next flex noink primary raised" on-click="handleNext"></paper-button> 
+			<paper-button class="next flex noink primary raised" on-click="_handleNext">Next</paper-button> 
 
 			<div class="signin">
-				<p>ALREADY HAVE AN ACCOUNT?<paper-button class="splash" on-click="handleSignIn">Sign In</paper-button></p>
+				<p>ALREADY HAVE AN ACCOUNT?<paper-button class="splash" on-click="_handleSignIn"> Sign In</paper-button></p>
 			</div>
 		</div>
 	</template>
 	<script>
 		Polymer({
-			is: 'qi-signup1',
+			is: 'qi-signup',
 
-			handleSignIn: function(){
+			_handleSignIn: function(){
 				this.fire("signin");
 			},
 
-			handleNext: function(){
-				this.fire("next1");
+			_handleNext: function(){
+				this.fire("next");
 			}
 		});
 	</script>

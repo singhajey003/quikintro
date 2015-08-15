@@ -30,43 +30,87 @@
 <link rel="import" href="../qi-theme.html">
 
 <link rel="import" href="../qi-persona/qi-persona-card.html">
-<link rel="import" href="../qi-persona/qi-persona-panel.html">
 
 <dom-module id="qi-signup2">
-	<link rel="stylesheet" type="css" href="qi-signup2.css">
 	<link rel="stylesheet" href="../quikintro.css"> 
 
-	<iron-localstorage name="personas" value="{{personas}}" as="personas"></iron-localstorage>
-
 	<style>
-		.next{
-			background-color: #17aacf;
-			width: 100%;
-			margin: 0;
-			padding-bottom: 5px;
-			color: #FFFFFF;
-		}
+
+	.panel{
+	  background-color: #FFFFFF;
+	  background-size: contain;
+	  width: 100%;
+	  height: 100%;
+	}
+	.heading{
+	  margin-top: 2.5%;
+	}
+	.text{
+	  width: 70%;
+	  text-align: center;
+	  height: 10vh;
+	}
+
+	.backButton{
+	  background: transparent url("back.jpg") center no-repeat;
+	  width: 40px;
+	  height:40px;
+	  padding: 10px 0 0 10px;
+	}
+
+	.status3{
+	  background: transparent url("status3.jpg") center no-repeat;
+	  width: 40px;
+	  height:40px;
+	  padding: 10px 10px 0 0;
+	}
+
+	.personas {
+	  /*max-width: 300px;*/
+	  min-height: 70vh;
+	  padding-left: 20px; 
+	  padding-right: 20px;
+	}
+
+	.next{
+		background-color: #17aacf;
+		width: 100%;
+		margin: 0;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		color: #FFFFFF;
+	}
+	.skipstep {
+	  width: 100%;
+	  display: inline-block;
+	  margin: auto;
+	  text-align: center;
+	  font-size: 10px; 
+	}
 	</style>
 
 	<template>
+		<iron-localstorage name="personas" value="{{personas}}" as="personas"></iron-localstorage>
 		<qi-data-loader></qi-data-loader>
 		<div class="panel fit">
 			<div class="heading horizontal layout">
-				<div class="backButton start-justified" on-click="handleBack"></div>
+				<div class="backButton start-justified" on-click="_handleBack"></div>
 				<div class="text flex center-justified"><p>Your first personas</p></div>
 				<div class="status3 end-justified"></div>
 			</div>
 
+			<hr>
+
 			<div class = "personas vertical layout">
 					
-				<qi-persona-card model="[[personas.0]]" persona="Developer Persona" >
+				<qi-persona-card persona="[[personas.0]]" >
 				</qi-persona-card>
-
-				<qi-persona-card model="[[personas.1]]" persona="Cancer Biologist">
+				<hr>
+				<qi-persona-card persona="[[personas.1]]">
 				</qi-persona-card>
 			</div>
 
-			<div>
+			<div class="buttons flex">
 				<paper-button class="next flex noink primary raised" on-click="_handleNext">Next</paper-button>
 				<div class="skipstep">
 					<paper-button class="splash" on-click="_handleNext">Skip and Create Your Personas Later</paper-button>
@@ -77,6 +121,20 @@
 	<script>
 		Polymer({
 			is: 'qi-signup2',
+
+			properties:{
+				personas:{
+					type: Array
+				},
+				linkedin:{
+					type: Object,
+					computed: '_getPersona(personas,0)'
+				}
+			},
+
+			_getPersona: function(personas, index){
+				return personas[index];
+			},
 
 			_handleNext: function(){
 				this.fire("next");
