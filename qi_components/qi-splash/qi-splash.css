@@ -16,6 +16,12 @@
   height: 50%;
   /*padding: 20px;*/ }
 
+.wrapper {
+  /*max-width: 300px;*/
+  min-width: 200px;
+  height: 25%;
+  padding: 20px; }
+
 .sign {
   background: transparent url("signin.jpg") center no-repeat;
   height: 8%;

@@ -17,8 +17,7 @@
 
 <dom-module id='qi-persona-card'  > 
 
-
-	<link rel="stylesheet" href="qi-persona-card.css" > 
+	<link rel="stylesheet" href="qi-persona-card.css" >  
 	
 	<style>
 	div.persona > div.card-actions{
@@ -28,8 +27,7 @@
 		
 	<template>
 
-	<div class="card-wrapper"> 
-		<div class="card persona">
+		<qi-card>
 			<header>
 				<h3><span>{{persona.name}}</span></h3>
 				<p><span>[[persona.blurb]]</span></p>
@@ -123,8 +121,7 @@
 
 			</iron-collapse>
 
-		</div>
-	</div>
+		</qi-card>
 
 
 	</template>

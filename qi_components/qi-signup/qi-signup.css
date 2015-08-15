@@ -5,12 +5,15 @@
   width: 100%;
   height: 100%;
 }
+
 .heading{
-  margin-top: 2.5%;
+  margin-top: 2.5vh;
 }
+
 .text{
   width: 70%;
   text-align: center;
+<<<<<<< HEAD
   height: 10%;
 }
 
@@ -50,3 +53,9 @@
   margin: auto;
   text-align: center;
   font-size: 10px; }
+=======
+  height: 10vh;
+}
+
+
+>>>>>>> master
