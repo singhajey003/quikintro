@@ -1,0 +1,39 @@
+{
+  "name": "xp-selected-behavior",
+  "license": "BSD-3-Clause",
+  "version": "0.9.6",
+  "description": "A behavior used to add selection capabilities on the context element",
+  "homepage": "http://expandjs.com/elements/xp-selected-behavior",
+  "authors": [
+    "Giuliano Rullo <g.rullo@expandjs.com>",
+    "Maurizio Stefàno <m.stefano@expandjs.com>",
+    "Robert Manolea <r.manolea@expandjs.com>"
+  ],
+  "keywords": [
+    "web app",
+    "html5",
+    "expandjs",
+    "web-components"
+  ],
+  "main": [
+    "xp-selected-behavior.html"
+  ],
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "expandjs": "ExpandJS/expandjs#0.9.6",
+    "xp-finder-behavior": "ExpandJS/xp-finder-behavior#0.9.6",
+    "xp-targeter-behavior": "ExpandJS/xp-targeter-behavior#0.9.6",
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "_release": "0.9.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.9.6",
+    "commit": "6e853c46532e1635c22159d31fdb7638296d3612"
+  },
+  "_source": "git://github.com/ExpandJS/xp-selected-behavior.git",
+  "_target": "0.9.6",
+  "_originalSource": "ExpandJS/xp-selected-behavior"
+}
