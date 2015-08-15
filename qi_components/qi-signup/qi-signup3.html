@@ -1,5 +1,4 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
@@ -63,6 +62,7 @@
 	  min-height: 70vh;
 	  padding-left: 20px; 
 	  padding-right: 20px;
+	  overflow: scroll;
 	}
 
 	.next{
@@ -94,12 +94,14 @@
 			<hr>
 
 			<div class = "personas vertical layout">
-					
+				<div>
 				<qi-persona-card persona="[[personas.0]]" >
 				</qi-persona-card>
 				<hr>
 				<qi-persona-card persona="[[personas.1]]">
 				</qi-persona-card>
+
+				</div>
 			</div>
 
 			<div class="buttons flex">
