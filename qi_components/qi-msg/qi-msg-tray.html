@@ -16,12 +16,12 @@
 
 	</style>
 
-
+<!-- id="[[computeDomId('msg', id)]]" -->
 	<template>
 		
 		<qi-card-tray id="cardtray">
 			<template is="dom-repeat" items="[[model]]" index-as="id" as="msg">
-				<qi-msg-card id="[[computeDomId('msg', id)]]" class="selectable-card" model="[[msg]]"></qi-msg-card>
+				<qi-msg-card  class="selectable-card" model="{{msg}}"></qi-msg-card>
 			</template>
 
 			<paper-fab class="selectable" icon="reply" on-click="reply" mini></paper-fab>
@@ -35,21 +35,7 @@
 	<script>
 	Polymer({
 		is: 'qi-msg-tray',
-
 		behaviors: [QiTrayBehavior],
-		properties:{
-			/**
-			 * An array of the models for the selected msgs cards.
-			 */
-			selectedMsgs: {
-				type: Array,
-				value: []
-			}
-		},
-
-		_removeCards: function(){
-			//TODO: implement the removal of selected cards.
-		},
 
 		reply: function(){
 
