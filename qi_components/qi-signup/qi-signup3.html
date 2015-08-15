@@ -25,12 +25,9 @@
 
 <link rel="import" href="../data/qi-data-loader.html">
 
-<link rel="import" href="../qi-theme.html">
-
 <link rel="import" href="../qi-persona/qi-persona-card.html">
 
 <dom-module id="qi-signup3">
-	<link rel="stylesheet" href="../quikintro.css"> 
 
 	<style>
 
@@ -50,14 +47,12 @@
 	}
 
 	.backButton{
-	  background: transparent url("back.jpg") center no-repeat;
 	  width: 40px;
 	  height:40px;
 	  padding: 10px 0 0 10px;
 	}
 
 	.status3{
-	  background: transparent url("status3.jpg") center no-repeat;
 	  width: 40px;
 	  height:40px;
 	  padding: 10px 10px 0 0;
@@ -89,12 +84,11 @@
 
 	<template>
 		<iron-localstorage name="personas" value="{{personas}}" as="personas"></iron-localstorage>
-		<qi-data-loader></qi-data-loader>
 		<div class="panel fit">
 			<div class="heading horizontal layout">
-				<div class="backButton start-justified" on-click="_handleBack"></div>
+				<div class="backButton start-justified" on-click="_handleBack"><iron-icon icon="arrow-back"></div>
 				<div class="text flex center-justified"><p>Your first personas</p></div>
-				<div class="status3 end-justified"></div>
+				<div class="status3 end-justified">3/4</div>
 			</div>
 
 			<hr>

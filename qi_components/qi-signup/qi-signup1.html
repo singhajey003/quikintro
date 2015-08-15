@@ -25,17 +25,18 @@
 
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
-<link rel="import" href="../qi-theme.html">
-
 <dom-module id="qi-signup1">
 	<link rel="stylesheet" href="../quikintro.css"> 
 
 	<style>
 		.closeButton{
-		  background: transparent url("close.jpg") center no-repeat;
 		  width: 40px;
 		  height:40px;
 		  padding: 10px 0 0 10px;
+		}
+
+		.heading{
+		 	margin-top: 2.5%;
 		}
 
 		.text{
@@ -44,7 +45,6 @@
 			height: 10%;
 		}
 		.status{
-		  background: transparent url("status1.jpg") center no-repeat;
 		  width: 40px;
 		  height:40px;
 		  padding: 10px 10px 0 0;
@@ -86,9 +86,9 @@
 	<template>
 		<div class="panel fit">
 			<div class="heading horizontal layout">
-				<div class="closeButton start-justified" on-click="_handleSignIn"></div>
+				<div class="closeButton start-justified" on-click="_handleSignIn"><iron-icon icon="close"></div>
 				<div class="text flex center-justified"><p>Sign Up</p></div>
-				<div class="status end-justified"></div>
+				<div class="status end-justified">1/4</div>
 			</div>
 			<div class="avatar flex"></div>
 

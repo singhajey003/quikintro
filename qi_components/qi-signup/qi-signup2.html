@@ -43,13 +43,12 @@
 	}	
 
 	.status2{
-	  background: transparent url("status2.jpg") center no-repeat;
 	  width: 40px;
 	  height:40px;
+	  padding: 10px 10px 0 0;
 	 }
 
 	 .backButton{
-		background: transparent url("back.jpg") center no-repeat;
 		width: 40px;
 		height:40px;
 	 	padding: 10px 0 0 10px;
@@ -71,20 +70,13 @@
 	  text-align: center;
 	  font-size: 10px; 
 	}
-
-	iron-icon{
-		background-color: blue;
-		width: 100px;
-		margin: auto;
-		height: 100px;
-	}
   
 	</style>
 	<template>
 		<div class="heading horizontal layout">
-			<div class="backButton start-justified" on-click="_handleBack"></div>
+			<div class="backButton start-justified" on-click="_handleBack"><iron-icon icon="arrow-back"></div>
 			<div class="text flex center-justified"><p>Import account details</p></div>
-			<div class="status2 end-justified"></div>
+			<div class="status2 end-justified">2/4</div>
 		</div>
 
 		<div class="imgs vertical layout">
