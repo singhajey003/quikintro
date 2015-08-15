@@ -1,5 +1,4 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
@@ -8,8 +7,6 @@
 
 <link rel="import" href="../data/qi-data-loader.html">
 
-
-<link rel="import" href="../qi-theme.html">
 
 <link rel="import" href="../qi-card/qi-card-tray.html">
 <link rel="import" href="../qi-contact/qi-contact-mini-card.html">
@@ -64,7 +61,7 @@
 		<div class="contactTray">
 			<qi-card-tray>
 				<template is="dom-repeat" items="{{contacts}}" as="contact">
-					<qi-contact-mini-card model="{{contact}}"></qi-contact-mini-card>
+					<qi-contact-mini-card model="{{contact}}" class="selectable-card"></qi-contact-mini-card>
 				</template>
 			</qi-card-tray>
 		</div>
