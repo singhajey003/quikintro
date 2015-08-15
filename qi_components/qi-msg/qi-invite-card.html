@@ -12,8 +12,12 @@
 <link rel="import" href="../qi-card/qi-collapse-card.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 
+
 <link rel="import" href="../qi-card/qi-card-tray.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
+
+<link rel="import" href="../qi-card/qi-swipe-card.html">
 
 <dom-module id='qi-invite-card' > 
 
@@ -49,7 +53,29 @@
 
 	<template>
 		
-      
+     <qi-swipe-card id="[[carddio]]" model="{{model}}">
+      <div class= "senderBlock flex horizontal layout">
+
+          <div class="avatarBlock">
+            <qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
+          </div>
+
+          <div class="metatray mainPanel">
+             <div class ="flex"> 
+                <span class="senderName">[[wholename]]</span><br/>
+                <span class="titleco">[[titleco]]</span>
+             </div>
+
+             <div class="msgBlock">
+                <span class="score">[[model.sender.score]]</span>
+                <span class="pct">%</span>
+             </div>
+          </div>
+
+      </div>
+     </qi-swipe-card>
+
+     <!--  
      <div class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
         <div class="senderBlock flex horizontal layout">
         	<div>
@@ -65,7 +91,7 @@
         </div>
        
      </div>
- 
+    --> 
      
 
 	</template>
@@ -74,7 +100,7 @@
 	var InvCard = Polymer({
    		is: 'qi-invite-card', 
 
-   		behaviors:[QiCardBehavior],
+   		behaviors:[QiCardBehavior, QiSwipeCardBehavior],
 
    		properties: {
 
