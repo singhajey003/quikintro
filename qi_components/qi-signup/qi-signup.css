@@ -13,8 +13,7 @@
 .text{
   width: 70%;
   text-align: center;
-<<<<<<< HEAD
-  height: 10%;
+  height: 10vh;
 }
 
 .closeButton{
@@ -52,10 +51,6 @@
   display: inline-block;
   margin: auto;
   text-align: center;
-  font-size: 10px; }
-=======
-  height: 10vh;
+  font-size: 10px; 
 }
 
-
->>>>>>> master

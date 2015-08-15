@@ -1,5 +1,8 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
 
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
@@ -7,111 +10,115 @@
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html">
 
 <link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
-<link rel="import" href="../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
 
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 
 <link rel="import" href="../data/qi-data-loader.html">
 
+<link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input-behavior.html">
+
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
 <link rel="import" href="../qi-theme.html">
 
-<link rel="import" href="../qi-custom-icons/qi-icons.html">
-
 <dom-module id="qi-signup1">
-	<link rel="stylesheet" type="css" href="qi-signup1.css">
 	<link rel="stylesheet" href="../quikintro.css"> 
 
 	<style>
+		.closeButton{
+		  background: transparent url("close.jpg") center no-repeat;
+		  width: 40px;
+		  height:40px;
+		  padding: 10px 0 0 10px;
+		}
 
-	.panel{
-	  background-color: #FFFFFF;
-	  background-size: contain;
-	  width: 100%;
-	  height: 100%;
-	}
+		.text{
+			width: 70%;
+			text-align: center;
+			height: 10%;
+		}
+		.status{
+		  background: transparent url("status1.jpg") center no-repeat;
+		  width: 40px;
+		  height:40px;
+		  padding: 10px 10px 0 0;
+		}
 
-	.heading{
-	 	margin-top: 2.5%;
-	}
-	.text{
-		width: 70%;
-	  	text-align: center;
-	  	height: 10%;
-	}	
+		.avatar{
+		  background: transparent url("temp_avatar.jpg") center no-repeat;
+		  width: 100%;
+		  margin-left: auto;
+		  margin-right: auto;
+		  background-size: 30%;
+		  height: 27vh;
+		}
+		.next{
+			background-color: #17aacf;
+			width: 100%;
+			margin: 0;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			color: #FFFFFF;
+		}
 
-	.status2{
-	  background: transparent url("status2.jpg") center no-repeat;
-	  width: 40px;
-	  height:40px;
-	 }
+		.wrapper {
+		  /*max-width: 300px;*/
+		  min-height: 40vh;
+		  padding: 20px; 
+		}
 
-	 .backButton{
-		background: transparent url("back.jpg") center no-repeat;
-		width: 40px;
-		height:40px;
-	 	padding: 10px 0 0 10px;
-	}
+		.signin {
+		  width: 100%;
+		  display: inline-block;
+		  margin: auto;
+		  text-align: center;
+		  font-size: 10px; 
+		}
 
-	.next{
-		background-color: #17aacf;
-		width: 100%;
-		margin: 0;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		color: #FFFFFF;
-	}
-
-	.skipstep {
-	  width: 100%;
-	  display: inline-block;
-	  margin: auto;
-	  text-align: center;
-	  font-size: 10px; 
-	}
-
-	iron-icon{
-		background-color: blue;
-		width: 100px;
-		margin: auto;
-		height: 100px;
-	}
-  
 	</style>
+
 	<template>
-		<div class="heading horizontal layout">
-			<div class="backButton start-justified" on-click="_handleBack"></div>
-			<div class="text flex center-justified"><p>Import account details</p></div>
-			<div class="status2 end-justified"></div>
-		</div>
+		<div class="panel fit">
+			<div class="heading horizontal layout">
+				<div class="closeButton start-justified" on-click="_handleSignIn"></div>
+				<div class="text flex center-justified"><p>Sign Up</p></div>
+				<div class="status end-justified"></div>
+			</div>
+			<div class="avatar flex"></div>
 
-		<div class="imgs vertical layout">
-			<iron-icon icon="qi:linkedin"></iron-icon>
-			<iron-icon icon="qi:twitter"></iron-icon>
-			<iron-icon icon="qi:meetup"></iron-icon>
-		</div>
+			<div class="wrapper flex"> 
+			<paper-input class="splash flex" label="FULL NAME" alwaysFloatLabel="true"></paper-input><br/>
+			<paper-input class="splash flex" label="EMAIL" alwaysFloatLabel="true"></paper-input><br/>  
+			<paper-input-container class="splash flex" alwaysFloatLabel="true" id="password"> 
+				<label>Password:</label>
+				<input is="iron-input" type="password" name="password">
+			</paper-input-container>
+			<paper-input class="splash flex" label="BIRTHDAY" alwaysFloatLabel="true"></paper-input><br/>    
+			</div>
 
-		<div class="buttons flex">
-			<paper-button class="next flex noink primary raised" on-click="_handleNext">Next</paper-button>
-			<div class="skipstep">
-				<paper-button class="splash" on-click="_handleNext">Skip This Step</paper-button>
+			<paper-button class="next flex noink primary raised" on-click="_handleNext">Next</paper-button> 
+
+			<div class="signin">
+				<p>ALREADY HAVE AN ACCOUNT?<paper-button class="splash" on-click="_handleSignIn">Sign In</paper-button></p>
 			</div>
 		</div>
-
 	</template>
 	<script>
 		Polymer({
 			is: 'qi-signup1',
 
-			_handleNext: function(){
-				this.fire("next");
+			_handleSignIn: function(){
+				this.fire("signin");
 			},
 
-			_handleBack: function(){
-				this.fire("back");
+			_handleNext: function(){
+				this.fire("next");
 			}
 		});
 	</script>
