@@ -1,6 +1,6 @@
 <!--
  This component is responsible for displaying a minimal article.
- 
+
 	@group QI Elements
 	@element qi-article-card
 -->
@@ -12,7 +12,7 @@
 <dom-module id="qi-article-card">
 
 	<style is="custom-style">
-	
+
 
 	.title{
 		font-size: 15px;
@@ -24,7 +24,7 @@
 
 	.createdDate{
 		font-size: 10px;
-		color: #909090; 
+		color: #909090;
 		vertical-align: bottom;
 	}
 
@@ -73,22 +73,23 @@
 
 
 	<template>
-   
-	
+
+
 	<qi-swipe-card id="[[cardid]]" model="{{model}}">
-		<div class="flex layout vertical">
-		  	<div class="title flex" >
-		  		<span>[[model.title]]</span>
-		  	</div>
 
-		  	<div class="metatray layout horizontal">
-		  		<div style$="[[logoUrl]]" class="logo"></div>
-		  		<div class="feedName">[[feed.name]]</div>
-		  		<div class="createdDate">[[model.createdDate]]</div>
-		  	</div>
-	  	</div>
+		<div class="layout horizontal">
+			<div class="thumbnail" style$="[[thumbnailUrl]]"></div>
+			<div class="flex layout vertical">
+			  	<div class="title flex" >
+			  		<span>[[model.title]]</span>
+			  	</div>
 
-	  	<div class="thumbnail" style$="[[thumbnailUrl]]">
+			  	<div class="metatray layout horizontal">
+			  		<div style$="[[logoUrl]]" class="logo"></div>
+			  		<div class="feedName">[[feed.name]]</div>
+			  		<div class="createdDate">[[model.createdDate]]</div>
+			  	</div>
+	  		</div>
 	  	</div>
 
 	</qi-swipe-card>
@@ -108,9 +109,9 @@
 	  		 * The object containing the RSS feed information.
 	  		 */
 	  		feed: {
-	  			type: Object, 
-	  			value: null, 
-	  			notify: true, 
+	  			type: Object,
+	  			value: null,
+	  			notify: true,
 	  			readonly: true
 	  		},
 
@@ -120,7 +121,7 @@
 	  		 * be displayed in the article card.
 	  		 */
 	  		thumbnailUrl: {
-	  			type: String, 
+	  			type: String,
 	  			computed:'getThumbnailUrl(model)'
 	  		},
 
