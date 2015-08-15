@@ -11,6 +11,7 @@
 <link rel="import" href="../qi-theme.html">
 <link rel="import" href="../qi-card/qi-card-behavior.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-card/qi-card.html">
 
 <dom-module id='qi-msg-card'  >
 	
@@ -44,13 +45,13 @@
 	
 	<template>
 	
-	<qi-card  model="{{model}}">
+	<qi-card id="[[cardid]]" model="{{model}}">
 		<div class="flex layout horizontal" >
 			<div class="avatarBlock" >
 				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
 			</div>
 
-			<div class="mainPanel">
+			<div class="metatray mainPanel">
 				<div class="senderBlock">
 					<span class="senderName">[[wholename]]</span> 
 					<span class="time">[[model.tstamp]]</span>
@@ -61,26 +62,6 @@
 		</div>
 	</qi-card>
 
-	<!--
-	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select">
-		
-		<div class="flex layout horizontal"> 
-
-			<div class="avatarBlock">
-				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
-			</div>
-
-			<div class="mainPanel">
-				<div class="senderBlock">
-					<span class="senderName">[[wholename]]</span> 
-					<span class="time">[[model.tstamp]]</span>
-				</div> 
-				<div class="msgBlock" >[[model.msg]]</div>
-			</div>
-		</div>
-
-	</div>
- -->
 	</template>
 
 	<script>

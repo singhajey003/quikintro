@@ -47,20 +47,19 @@
   <iron-localstorage name="invites" value="{{invites}}"></iron-localstorage>
 
   <div id="msgHeaderPanel" class="layout vertical fit flex"> 
-
+  <!-- TABS -->
     <paper-tabs selected="{{selected}}" scrollable hideScrollButtons="false" >     
         <paper-tab >Messages</paper-tab>
         <paper-tab >Invitations</paper-tab>
         <paper-tab >Meeting Requests</paper-tab>
-      </paper-tabs>
+    </paper-tabs>
 
-
+   <!--tabs select here --> 
     <iron-pages selected="{{selected}}" >
-      <div id="msgTray" class="fit">
+
+      <div id="msgTray" class="demotray layout vertical">
         <qi-msg-tray model="[[msgs]]"></qi-msg-tray>
-       
         <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
-      
       </div>
 
       <div id="invTray" class="fit">
@@ -71,8 +70,7 @@
         <qi-mtg-tray model="[[mtgs]]"></qi-mtg-tray>
       </div>
 
-
-      </iron-pages>
+    </iron-pages>
 
 
      </div>
