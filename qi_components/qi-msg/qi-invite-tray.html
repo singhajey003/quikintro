@@ -2,7 +2,6 @@
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 
 <link rel="import" href="../qi-card/qi-card-tray.html">
-<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 <link rel="import" href="qi-invite-card.html">
 
@@ -20,17 +19,41 @@
 
 
 	<template>
-		<qi-swipe-card-tray id="cardtray">
+	<qi-card-tray id="cardtray">
 
-			<template is="dom-repeat" items="[[model]]" index-as"id" as="invite">
-				<qi-invite-card class="selectable-card" model="[[invite]]"></qi-invite-card>
-			</template>		
+		<template is="dom-repeat" items="[[model]]" index-as"id" as="invt">
+			<qi-invite-card class="selectable-card" model="[[invite]]"></qi-invite-card>
+		</template>		
+
+		<paper-fab class="selectable" icon="check" on-click="Accept" mini>Accept</paper-fab>
+		<paper-fab class="selectable" icon="close" on-click="decline" mini>Decline</paper-fab>
 
 
-			<paper-fab class="selectable" icon="check" on-click="Accept" mini></paper-fab>
-			<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
 
-		</qi-swipe-card-tray>
+	</qi-card-tray>
+	<!--
+
+		<div class="fab-tray">
+			<paper-fab class="selectable" icon="check" on-click="accept" mini>Accept</paper-fab>
+			<paper-fab class="selectable" icon="close" on-click="decline" mini>Decline</paper-fab>
+		</div>
+
+		<iron-pages selected="{{selectedPage}}">
+			<div>
+				<qi-card-tray id="cardtray">
+				<template is="dom-repeat" items="[[model]]" index-as="id" as="invite">
+					<qi-invite-card class="selectable-card" model="[[invite]]"></qi-invite-card>
+				</template>
+				</qi-card-tray>
+			</div>
+
+			<div>
+				<qi-invite-page id="invitePage"></qi-invite-page>
+			</div>
+
+		</iron-pages>
+-->
+
 
 
 	</template>
