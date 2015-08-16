@@ -9,10 +9,13 @@
 <link rel="import" href="../../bower_components/iron-icons/maps-icons.html">
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html">
 
+<link rel="import" href="../../bower_components/paper-badge/paper-badge.html">
+
 <link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
+<link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
 
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
@@ -50,13 +53,13 @@
 		}
 
 		.avatar{
-		  background: transparent url("temp_avatar.jpg") center no-repeat;
 		  width: 100%;
 		  margin-left: auto;
 		  margin-right: auto;
 		  background-size: 30%;
 		  height: 27vh;
 		}
+
 		.next{
 			background-color: #17aacf;
 			width: 100%;
@@ -89,8 +92,12 @@
 				<div class="text flex center-justified"><p>Sign Up</p></div>
 				<div class="status end-justified">1/4</div>
 			</div>
-			<div class="avatar flex"></div>
 
+			<div class="avatar">
+				<paper-badge label="+" for="avatar"></paper-badge>
+				<qi-avatar class="avatar flex"></qi-avatar>
+			</div>
+			
 			<div class="wrapper flex"> 
 			<paper-input class="splash flex" label="FULL NAME" alwaysFloatLabel="true"></paper-input><br/>
 			<paper-input class="splash flex" label="EMAIL" alwaysFloatLabel="true"></paper-input><br/>  
