@@ -16,11 +16,14 @@ This component is responsible for displaying a minimal amount of contact-related
 
 	<template>
 		<qi-card model="[[model]]">
+		<div class="horizontal layout">
 			<qi-avatar url="[[model.avatar]]"></qi-avatar>
 			<header>
 				<h3><span>[[fullName]]</span></h3>
 				<p></p>
 			</header>
+		</div>
+		<hr>
 		</qi-card>
 	</template>
 	<script>
