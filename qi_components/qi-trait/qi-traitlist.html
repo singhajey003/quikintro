@@ -6,18 +6,24 @@
 -->
 
 <link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="qi-trait.html">
 
 <dom-module id='qi-traitlist'  > 
 
 	<link rel="stylesheet" href="../quikintro.css" >
 	<link rel="stylesheet" href="traitlist.css">
 
+
 	<template>
+
 	 <div class="trait-wrapper"> 
+
+
 	    
 	 	<iron-selector id="traitSelector" multi="true" attr-for-selected="model">
 		<template is="dom-repeat" items="{{traits}}"  as="trait">
-			<span class="trait" model$="[[trait]]" on-click="_select">[[trait]]</span>
+			<qi-trait trait='[[trait]]' on-click='_select'>
+			</qi-trait>
 		</template>
 		</iron-selector>
 		

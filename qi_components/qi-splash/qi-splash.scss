@@ -1,31 +1,49 @@
 @import '../sass/_config';
 
-:host > ::content > .panel {
-  background-color: #17a8cc;
+.panel {
+  background-color: #FFFFFF;
   background-size: contain;
   width: 100%;
-  height: 100%;
-}
+  height: 100%; }
 
-:host > ::content > .logo {
-  background: transparent url('../../images/logo_slogan.svg') center top no-repeat;
-  width: 50%;
-  max-width: 300px;
+.logo {
+  /* "../../images/logo_slogan.svg"*/
+  background: transparent url("login.jpg") center top no-repeat;
+  width: 100%;
+  /*max-width: 300px;*/
+  /*min-width: 200px;*/
+  /*margin-left: auto;
+  margin-right: auto;*/
+  background-size: cover;
+  height: 50%;
+  /*padding: 20px;*/ }
+
+.wrapper{
+  /*max-width: 300px;*/
   min-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  background-size: contain;
-  height: 200px;
+  height: 25%;
   padding: 20px;
+ }
+
+.sign{  
+  background: transparent url('signin.jpg') center no-repeat;
+  height: 8%;
+  /*color: #f7fffc;
+  font-family: arial; /*monotype */
+  width: 100%;
+  margin: 0;
+  background-color: #17aacf; /* static color, needs to be change according to button background color */
 }
 
-.wrapper {
-  width: 50%;
-  max-width: 300px;
-  min-width: 200px;
-  padding: 20px;
+.signup{
+  width: 100%;
+  display: inline-block;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 10px;
 }
 
-paper-input.splash{
-  --paper-input-color: white;
+#password paper-button{
+  font-size: 10px;
+  margin: 0;
 }
