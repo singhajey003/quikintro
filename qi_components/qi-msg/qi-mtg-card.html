@@ -5,19 +5,11 @@
  	@group QI Elements
  	@element qi-mtg-card
 -->
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
-<link rel="import" href="../../bower_components/font-roboto/roboto.html" >
-<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
-<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
-<link rel="import" href="../../bower_components/iron-input/iron-input.html" >
-<link rel="import" href="../../bower_components/paper-item/paper-item.html" >
-<link rel="import" href="../../bower_components/iron-selector/iron-selector.html" >
-
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-icons/communication-icons.html">
 
 <link rel="import" href="../qi-field/qi-field.html">
 <link rel="import" href="../qi-card/qi-card-behavior.html">
-<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
 
 <link rel="import" href="../qi-field/qi-date-field.html">
 <link rel="import" href="../qi-field/qi-icon-field.html">
@@ -63,7 +55,7 @@
 	</style>
 	
 	<template>
-	<qi-swipe-card id="[[cardid]]" model="{{model}}">
+	<qi-swipe-card model="{{model}}">
 		<div class="flex layout vertical">
 			<h1 class="title">[[model.title]]</h1>
 			<h2 class="people">[[fullname]]</h2>
@@ -81,25 +73,7 @@
 		</div>
 	</qi-swipe-card>
 
-<!--
-	<div class$="{{selectedstyle}}" on-click="select" on-track="handleCardSwipe">
-		<div class="flex layout vertical"> 
-			<h1 class="title">[[model.title]]</h1>
-			<h2 class="people">[[fullname]]</h2>
-			
-			<div class="desc"><span>[[model.description]]</span></div>
-			
-			<div class="layout vertical fields"> 
-				<qi-icon-field id="date" icon="event" value="[[model.date]]"></qi-icon-field>
-				<qi-icon-field id="time" icon="alarm" value="[[startEndTime]]"></qi-icon-field>
-				<qi-icon-field id="location" icon="communication:location-on" value="[[location]]"></qi-icon-field>
-			</div>
 
-			<qi-avatar-tray model="[[avatars]]"></qi-avatar-tray>
-			
-		</div>
-	</div>
--->
 	</template>
 
 	<script>
@@ -205,14 +179,6 @@
 			this.fire('openPingDialog',{sender:sender, rcvr: this.mtg.sender});
 		},
 		
-
-		_handleSwipe: function(e){
-			console.log("got here");
-			if(e.detail.state == 'end'){
-	  			this.fire('mtg-card-swipe', {model: this.model});
-	  		}
-   		},
-
 
 	});
 

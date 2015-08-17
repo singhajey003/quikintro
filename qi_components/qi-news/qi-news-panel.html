@@ -78,6 +78,7 @@
   		});
 
   		this.addEventListener('page-swipe', function(e){
+        console.log("page swipe registered")
   			this.selectedPage = 0;
         e.stopPropagation();
   		});
