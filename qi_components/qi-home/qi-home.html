@@ -9,72 +9,35 @@ point from which the user can access the functionality of the app.
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
+
+<link rel="import" href="../qi-global/global.html">
+<link rel="import" href="../qi-event/qi-event-notice.html">
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+
+<link rel="import" href="../qi-custom-icons/qi-icons.html">
 <link rel="import" href="../qi-icon/qi-icon.html">
 
+<dom-module id='qi-home' > 
 
-<dom-module id='qi-home'  >
+  <style>
+  .dashboard{
+    overflow: auto;
+  }
 
-<style>
 
-.dashboard {
-  display: flex;
-  flex-wrap: wrap;
-  align-items:center;
-  align-content:stretch;
-  height:100%;
-  position: absolute;
-  right:0;
-  top:0;
-  background:#17aacf;
-}
-
-.dashboard qi-icon {
-  display:block;
-  width:50%;
-  text-align:center;
-  text-decoration:none;
-  position: relative;
-}
-
-</style>
-
-<link rel="stylesheet" href="../quikintro.css" >
+  </style>
 
 	<template>
 
-
-		<div class="layout vertical flex">
         <div class="dashboard">
-            <qi-icon icon="qi:events" label="Events" count="3" on-click="_handleEventClick"></qi-icon>
-            <qi-icon icon="qi:around" label="Around me" on-click="_handleClick"></qi-icon>
-            <qi-icon icon="qi:news" label="News" count="5" on-click="_handleNewsClick"></qi-icon>
-            <qi-icon icon="qi:messages" label="Messages" count="4" on-click="_handleMessagesClick"></qi-icon>
-            <qi-icon icon="qi:contacts" label="Contacts" count="2" on-click="_handleContactsClick"></qi-icon>
-            <qi-icon icon="qi:settings" label="Settings" count="2" on-click="_handleSettingsClick"></qi-icon>
-       </div>
+          <qi-icon icon="qi:events" label="Events" count="2" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:around" label="Around me" count="5" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:news" label="News" count="45" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:messages" label="Messages" count="3" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:contacts" label="Contacts"  count="3" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:settings" label="Settings"   on-click="_handleClick"></qi-icon>
+        </div>
 
-		<qi-globals id="globals"></qi-globals>
-		<iron-localstorage name="notices" value="{{notifications}}"></iron-localstorage>
-
-
-			<label style="margin-left: 5px">Notifications</label>
-
-            <div class="dashboard">
-                <a href="#"><iron-icon class="icon-home" src="icons/events.svg"></iron-icon><span>Events</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/around.svg"></iron-icon><span>Around me</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/news.svg"></iron-icon><span>News</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/messages.svg"></iron-icon><span>Messages</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/contacts.svg"></iron-icon><span>Contacts</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/settings.svg"></iron-icon><span>Settings</span></a>
-            </div>
-
-            <div>
-				<template is="dom-repeat" items="{{notifications}}"  as="notice">
-					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
-				</template>
-			</div>
-
-		</div>
 
 	</template>
 
@@ -82,34 +45,8 @@ point from which the user can access the functionality of the app.
 	Polymer({
    		is: 'qi-home',
 
- 
-      _handleClick: function(target){
-        this.fire('turn-page',{pageid: target});
-      },
+      _handleClick: function(){
 
-      _handleEventClick: function(){
-        this._handleClick('events');
-      },
-
-      _handleAroundMeClick: function(){
-        this._handleClick('aroundme');
-      },
-
-      _handleNewsClick: function(){
-        this._handleClick('news');
-      },
-
-      _handleMessagesClick: function(){
-        this._handleClick('messages');
-      },
-
-
-      _handleSettingsClick: function(){
-        this._handleClick('settings');
-      },
-
-      _handleContactsClick: function(){
-        this._handleClick('contacts');
       }
 
 
