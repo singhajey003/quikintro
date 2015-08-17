@@ -23,6 +23,9 @@ of articles.
 <link rel="import" href="qi-speech-behavior.html">
 <link rel="import" href="qi-share-news-dialog.html">
 
+<link rel="import" href="../../qi_components/qi-custom-icons/qi-icons.html">
+
+
 
 <dom-module id="qi-article-tray">
 
@@ -35,7 +38,7 @@ of articles.
 	</style>
 
 	<template>
-						
+
 
 		<qi-swipe-card-tray id="cardtray">
 
@@ -48,17 +51,16 @@ of articles.
 				</template>
 
 			</template>
-		
+
 
 		<!-- FABs -->
+			<paper-fab class="selectable" icon="qi:bookmark" on-click="" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:skip-previous" on-click="back" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:play-arrow" on-click="play" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:pause" on-click="pause" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:skip-next" on-click="next" mini></paper-fab>
-			
 			<paper-fab class="selectable" icon="av:stop" on-click="stop" mini></paper-fab>
 			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog" mini></paper-fab>
-		
 
 			<qi-article-page class="detail-page" model="[[model]]"></qi-article-page>
 
@@ -80,9 +82,9 @@ Polymer({
 		 * A JSON object containing all news feeds.
 		 */
 		news:{
-			type: Object, 
-			value: null, 
-			notify: true, 
+			type: Object,
+			value: null,
+			notify: true,
 			readonly: true
 		},
 

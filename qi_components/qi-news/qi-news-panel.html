@@ -18,12 +18,6 @@ This component is the main component used to display the news.
 
 	<style is="custom-style">
 
-/*
-  iron-pages{
-    top: 30px;
-    position: relative;
-  }
-*/
 
   paper-tabs{
     overflow: visible;
@@ -44,7 +38,7 @@ This component is the main component used to display the news.
 
 <div class="fit flex layout vertical ">
 
-  <paper-tabs hideScrollButtons="true" scrollable="true" selected="{{selectedNewsTab}}">
+  <paper-tabs noink="true" hideScrollButtons="true" scrollable="true" selected="{{selectedNewsTab}}">
     <paper-tab>World</paper-tab>
     <paper-tab>Contacts</paper-tab>
     <paper-tab>Bookmarks</paper-tab>
@@ -57,7 +51,7 @@ This component is the main component used to display the news.
     <section>
       <qi-article-tray news="{{news}}"></qi-article-tray>
     </section>
-    
+
     <section>
     Page 2
     </section>

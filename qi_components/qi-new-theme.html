@@ -14,7 +14,7 @@ html {
   font-size: 16px;
 }
 
-html, body {
+html /deep/, body /deep/ {
   margin: 0px;
   padding: 0px;
   min-height: 100%;
@@ -94,8 +94,8 @@ a:hover {
   --paper-checkbox-unchecked-color: #7E8D9D;
   --paper-checkbox-unchecked-ink-color: #7E8D9D;
   --paper-checkbox-label-color: #424540;
-  --paper-fab-background: #3ea1e6;
-  --paper-fab-disabled-background: #c9c9c9;
+  --paper-fab-background: #17aacf;
+  --paper-fab-disabled-background: #17aacf;
   --paper-fab-disabled-text: #7E8D9D;
   --paper-icon-button-disabled-text: #c9c9c9;
   --paper-input-container-color: #a8aca5;
@@ -323,11 +323,7 @@ section.hero paper-menu, section[hero] paper-menu {
   --paper-menu-background-color: #f5fcff;
 }
 
-paper-tabs {
-  background-color: #f8f8f9;
-  color: #1d1d26;
-  overflow: visible;
-}
+
 
 
 /*ICONS*/
@@ -371,5 +367,161 @@ html /deep/ #drawer.paper-drawer-panel .centered {
 html /deep/ #drawer.paper-drawer-panel .centered .row {
     width: auto;
 }
+
+/*CARD STYLES*/
+
+html /deep/ .card.qi-swipe-card {
+    border:none;
+    transition:all 1s;
+    display:block !important;
+    position:relative;
+}
+
+html /deep/ .card.qi-swipe-card:before {
+    content:"";
+    position:absolute;
+    bottom:0;
+    height:1px;
+    width:100%;
+    background: rgba(0,0,0,0.1);
+}
+
+html /deep/ .title.qi-article-card {
+    font-size: 15px;
+    font-weight:500;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    line-height: 18px;
+}
+
+html /deep/ qi-article-card .feedName{
+    font-size: 11px;
+    padding:0 10px 10px 10px;
+    font-weight:300;
+    color: #1d1d26;
+    opacity:0.6;
+    text-transform:uppercase;
+  }
+
+/* FAB TRAY */
+
+html /deep/ .fab-tray{
+      transition:0.4s;
+      width: 100vw;
+      height: 62px;
+      bottom:-62px;
+      position:fixed;
+      background:#17aacf;
+      display: visible;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+
+/* SELECTED FAB TRAY */
+html /deep/ .selectedFab{
+      bottom:0;
+
+    }
+
+/*SELECTED CARD STYLES*/
+
+html /deep/ .selectedCard.qi-swipe-card {
+    border-left: none;
+    background:#f2fcff;
+    transition:all 0.4s;
+}
+
+html /deep/ .card.qi-swipe-card:after {
+    content:"";
+    background:#3ea1e6;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:0;
+    transition:all 0.4s;
+}
+
+html /deep/ .selectedCard.qi-swipe-card:after {
+    content:"";
+    background:#3ea1e6;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:8px;
+}
+
+/*SWIPED ENTRY STYLES*/
+
+html /deep/ .qi-swipe-card-tray qi-article-page figure {
+  margin:0;
+}
+
+html /deep/ qi-swipe-card-tray qi-article-page h2 span {
+  padding:0.1em 1em;
+  display:block;
+}
+
+html /deep/ qi-swipe-card-tray qi-article-page #abstract {
+  padding:0.1em 1em;
+  margin:0 0 1em 0;
+}
+
+/*COLLAPSE DROPDOWN*/
+
+html /deep/ qi-swipe-card-tray qi-article-page > div > div.flex.style-scope.qi-article-page {
+  border:1px solid #ccc;
+  margin:1em;
+  background-color: #f8f8f9;
+}
+
+html /deep/ qi-swipe-card-tray qi-article-page qi-collapse-field > div > div {
+    display: flex;
+    align-items: center;
+}
+
+html /deep/ .row {
+  margin:0;
+  padding:0;
+}
+
+html /deep/ qi-article-page qi-collapse-field label > span {
+  padding-left:1em;
+}
+
+/*PAPER TABS*/
+
+html /deep/ paper-tabs {
+  background-color: #f8f8f9;
+  color: #1d1d26;
+  overflow: visible;
+  text-transform:uppercase;
+}
+
+html /deep/ #selectionBar.paper-tabs {
+    position: absolute;
+    height: 4px;
+    bottom: 0;
+}
+
+html /deep/ paper-tab:focus .tab-content.paper-tab {
+color:#17aacf;
+font-weight:500;
+}
+
+/*SELECTABLE BUTTONS*/
+
+html /deep/ paper-material.paper-material-0 {
+    box-shadow: none;
+}
+
+html /deep/ paper-fab.paper-fab-0 {
+    color: #ffffff;
+}
+
 
 </style>
