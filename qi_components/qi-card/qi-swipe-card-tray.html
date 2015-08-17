@@ -1,64 +1,51 @@
 <!--
 
 	@group QI Elements
- 	@element qi-card-tray
+ 	@element qi-card-page-tray
 -->
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-tray-page-behavior.html">
+<link rel="import" href="../qi-card/qi-fab-tray.html">
 
-<link rel="import" href="../../bower_components/iron-selector/iron-selector.html"> 
-
-<link rel="import" href="../qi-theme.html"> 
-<link rel="import" href="qi-fab-tray.html">
-<link rel="import" href="qi-swipe-page-behavior.html">
-
-<dom-module id="qi-swipe-card-tray">
-
-	<style is="custom-style">
-
-	:host ::content .tray{
-		background-color: var(--tray-bgcolor);
-		width: var(--tray-width);
-		overflow: scroll;
-	}
-
+<dom-module id="qi-card-page-tray">
+	<style>
+		:host {
+			display: block;
+		}
+		.tray{
+			padding-left: 2px;
+		}
 	</style>
-
 	<template>
-
-		<div class="tray">
-			<div id="[[id]]" class="layout vertical">
-
-			<div class="flex">
-			<iron-selector id="selector" multi="true" attr-for-selected="model" selectedClass="selectedCard">
+		
+			
+	<iron-pages selected="{{selectedPage}}">
+		<section>
+			<div class="flex tray">
+			<iron-selector id="selector" multi="true" attr-for-selected="model">
 				<content select=".selectable-card"></content>
 			</iron-selector>
-			</div>
-
 			</div>
 
 			<qi-fab-tray id="fabtray">
 				<content select=".selectable"></content>	
 			</qi-fab-tray>
-			
-		</div>
+		</section>
 
-
+		<section>
+			<content select=".detail-page"></content>
+		</section>
+	</iron-pages>
+		
+		
 	</template>
-
 	<script>
-
-	Polymer({
-		is: 'qi-card-tray',
-
-		behaviors: [QiTrayBehavior, QiSwipePageBehavior],
-
-		getSelected: function(){
-			return this.$.selector.selectedValues;
-		}
+		Polymer({
+			is: 'qi-card-page-tray',
+			behaviors: [QiTrayBehavior, QiTrayPageBehavior]
 
 
-	});
-
+  	});
 	</script>
-
 </dom-module>

@@ -10,6 +10,8 @@
 
 <link rel="import" href="../qi-card/qi-card-page-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
+
 
 <link rel="import" href="qi-mtg-card.html">
 <link rel="import" href="qi-mtg-page.html">
@@ -29,24 +31,35 @@
 
 	<template>
 
-	<qi-card-page-tray id="mtgtray">	
+		<qi-card-page-tray id="cardtray">
+			<template is="dom-repeat" items="[[model]]" index-as="id" as=mtg>
+			<qi-mtg-card class="selectable-card" model="[[mtg]]"></qi-mtg-card>
 
-		<!-- Cards -->
+			</template>
+		</qi-card-page-tray>
+
+
+		<paper-fab class="selectable" icon="check" on-click="accept" mini></paper-fab>
+		<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
+
+<!-- 
+	<qi-card-page-tray id="mtgtray">	
+		
+		cards	
         <template is="dom-repeat" items="[[model]]" index-as="id" as="mtg">
             <qi-mtg-card class="selectable-card" model="[[mtg]]" on-track="_handleSwipe"></qi-mtg-card>
         </template>
 
-        <!-- Detail Page -->
+		details
 		<qi-mtg-page class="detail-page"></qi-mtg-page>
 
-		<!-- FABS -->
+		fabs
 		<paper-fab class="selectable" icon="check" on-click="accept" mini></paper-fab>
 		<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
 
 	</qi-card-page-tray>
-
+-->
 	</template>
-
 
 	<script>
 	Polymer({

@@ -22,8 +22,8 @@
 <link rel="import" href="../qi-field/qi-date-field.html">
 <link rel="import" href="../qi-field/qi-icon-field.html">
 <link rel="import" href="../qi-avatar/qi-avatar-tray.html">
-
-
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card.html">
 <dom-module id='qi-mtg-card'  > 
 
 	<style>
@@ -63,7 +63,25 @@
 	</style>
 	
 	<template>
+	<qi-swipe-card id="[[cardid]]" model="{{model}}">
+		<div class="flex layout vertical">
+			<h1 class="title">[[model.title]]</h1>
+			<h2 class="people">[[fullname]]</h2>
 
+			<div class="desc"><span>[[model.description]]</span></div>
+
+			<div class="layout vertical fields"> 
+				<qi-icon-field id="date" icon="event" value="[[model.date]]"></qi-icon-field>
+				<qi-icon-field id="time" icon="alarm" value="[[startEndTime]]"></qi-icon-field>
+				<qi-icon-field id="location" icon="communication:location-on" value="[[location]]"></qi-icon-field>
+			</div>
+
+			<qi-avatar-tray model="[[avatars]]"></qi-avatar-tray>
+			
+		</div>
+	</qi-swipe-card>
+
+<!--
 	<div class$="{{selectedstyle}}" on-click="select" on-track="handleCardSwipe">
 		<div class="flex layout vertical"> 
 			<h1 class="title">[[model.title]]</h1>
@@ -81,7 +99,7 @@
 			
 		</div>
 	</div>
-
+-->
 	</template>
 
 	<script>
