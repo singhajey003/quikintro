@@ -28,6 +28,8 @@
 
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+
 <dom-module id="qi-signup1">
 
 	<style>
@@ -52,12 +54,29 @@
 		  padding: 10px 10px 0 0;
 		}
 
-		.avatar{
-		  width: 100%;
-		  margin-left: auto;
-		  margin-right: auto;
-		  background-size: 30%;
-		  height: 27vh;
+
+		qi-avatar{
+			--avatar-width: 30vh;
+			--avatar-height: 30vh;
+		}
+
+		paper-badge{
+			--paper-badge-width: 10vh;
+			--paper-badge-height: 10vh;
+			--paper-badge-margin-bottom:-10vh;
+			--paper-badge-margin-left: -10vh; 
+		}
+
+		.avatarIcon{
+		 	background-size: 30vh;
+		 	position: relative;
+		}
+
+
+		/* creates a invisible div for the paper badge to align correctly with qi-avatar */
+
+		:host .paperbadge ::content > #badge{
+			font-size: 42px;
 		}
 
 		.next{
@@ -93,11 +112,11 @@
 				<div class="status end-justified">1/4</div>
 			</div>
 
-			<div class="avatar">
-				<paper-badge label="+" for="avatar"></paper-badge>
-				<qi-avatar class="avatar flex"></qi-avatar>
+			<div class="avatarIcon flex center-justified horizontal layout">
+				<qi-avatar id="avatar1"></qi-avatar>
+				<paper-badge label="+" class="paperbadge" for="avatar1" on-click="_handleAvatar"></paper-badge>
 			</div>
-			
+
 			<div class="wrapper flex"> 
 			<paper-input class="splash flex" label="FULL NAME" alwaysFloatLabel="true"></paper-input><br/>
 			<paper-input class="splash flex" label="EMAIL" alwaysFloatLabel="true"></paper-input><br/>  
@@ -114,6 +133,15 @@
 				<p>ALREADY HAVE AN ACCOUNT?<paper-button class="splash" on-click="_handleSignIn">Sign In</paper-button></p>
 			</div>
 		</div>
+
+		<paper-dialog id="avatarDialog">
+		 	 <h2>New Avatar</h2>
+		 	 <paper-input class="splash flex" label="Avatar URL" alwaysFloatLabel="true"></paper-input>
+		  <div class="buttons">
+		    <paper-button dialog-dismiss>Cancel</paper-button>
+		    <paper-button dialog-confirm>Accept</paper-button>
+		  </div>
+		</paper-dialog>
 	</template>
 	<script>
 		Polymer({
@@ -125,6 +153,10 @@
 
 			_handleNext: function(){
 				this.fire("next");
+			},
+
+			_handleAvatar: function(){
+				document.querySelector("#avatarDialog").toggle();
 			}
 		});
 	</script>
