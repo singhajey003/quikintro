@@ -1,0 +1,42 @@
+<link rel="import" href="../../bower_components/iron-/iron-.html">
+
+<dom-module id="qi-day-card">
+	<style>
+		:host {
+			display: block;
+		}
+		.day{
+			text-align: center;
+		}
+
+		.current-day{
+			color: blue;
+		}
+
+		.mtg-tray{
+			overflow: scroll;
+		}
+	</style>
+	<template>
+		<div class="layout horizontal">
+			<div class="day">
+			<span>[[model.day]]</span>
+			<span>[[model.dayOfWeek]]
+			</div>
+
+			<div class="mtg-tray layout vertical">
+
+			</div>
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-day-card',
+			properties:{
+				model:{
+
+				}
+			}
+		});
+	</script>
+</dom-module>
