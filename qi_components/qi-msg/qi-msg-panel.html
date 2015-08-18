@@ -172,20 +172,8 @@
           node.parentNode.removeChild(node);
         });
 
-        this.addEventListener('invite-card-swipe', function(e){
-          var invPageContent = invPage.querySelector('qi-invite-page');
-          invPageContent.model = e.detail.model;
-          this.selected = 3;
-        });
-
-        this.addEventListener('mtg-card-swipe', function(e){
-          var mtgPageContent = mtgPage.querySelector('qi-mtg-page');
-          mtgPageContent.model = e.detail.model;
-          this.selected = 4;
-
-        });
-
       }
+      
     
       });
 

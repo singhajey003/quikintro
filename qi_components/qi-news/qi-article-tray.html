@@ -6,8 +6,10 @@
 
 <link rel="import" href="../data/qi-data-loader.html">
 
-<link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-tray-behavior.html">
+
 
 <link rel="import" href="qi-article-card.html">
 <link rel="import" href="qi-speech-behavior.html">
@@ -27,7 +29,7 @@
 	<template>
 						
 
-		<qi-card-tray id="cardtray">
+		<qi-swipe-card-tray id="cardtray" detailpageid="articlePage">
 
 		<!-- News Articles -->
 			<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
@@ -48,9 +50,11 @@
 			
 			<paper-fab class="selectable" icon="av:stop" on-click="stop" mini></paper-fab>
 			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog" mini></paper-fab>
-		
 
-		</qi-card-tray>
+
+			<qi-article-page id="articlePage" class="detail-page" model="{{cardModel}}"></qi-article-page>
+		
+		</qi-swipe-card-tray>
 
 		<qi-share-news-dialog id="shareDialog" articles="[[selectedArticles]]"></qi-share-news-dialog>
 
@@ -60,7 +64,7 @@
 Polymer({
 	is:'qi-article-tray',
 
-	behaviors: [QiTrayBehavior, QiSpeechBehavior],
+	behaviors: [QiTrayBehavior, QiSwipeCardBehavior, QiSpeechBehavior],
 
 	properties:{
 		/**
