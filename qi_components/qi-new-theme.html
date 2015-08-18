@@ -42,9 +42,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1em;
 }
 
-h1, h3, h5 {
-/*  font-family: 'Arimo', sans-serif;
-*/
+html /deep/ h1, html /deep/ h3, html /deep/ h5 {
+
 font-family: "museo-sans",sans-serif;
 }
 
@@ -261,12 +260,11 @@ paper-checkbox::shadow #checkmark.paper-checkbox {
   border-color: #fff !important;
 }
 
-paper-dialog {
+html /deep/ paper-dialog {
   color: #424540;
   background-color: #ffffff;
-/*  font-family: 'Arimo', sans-serif;
-*/  font-family: "museo-sans",sans-serif;
-font-size:500;
+  font-family: "museo-sans",sans-serif;
+  font-size:500;
 }
 paper-dialog h1, paper-dialog h2, paper-dialog h3, paper-dialog h4,
 paper-dialog h5, paper-dialog h6 {
@@ -325,16 +323,34 @@ section.hero paper-menu, section[hero] paper-menu {
 
 
 
+/*MORE IN-DEPTH CUSTOM STYLES*/
 
-/*ICONS*/
+
+/*ICON STYLING*/
 
 .myIcon.add, .myIcon.search {stroke:#ccc;}
 
-
-/*UGLY OVERRIDES FOR QI-THEME AND QUIKINTRO.SCSS*/
+/*STYLEGUIDE ONLY*/
 
 paper-toolbar {
     height: 104px !important;
+}
+
+/*OVERLAY MENU*/
+
+html /deep/ .centered paper-menu.paper-menu-0 {
+  background:transparent;
+  color:#fff;
+}
+
+html /deep/ .centered .fit {
+  position:inherit;
+  }
+
+/*HIDDEN TOOLBAR DROP-SHADOW*/
+
+html /deep/ .paper-header-panel-0 #dropShadow.paper-header-panel {
+  display:none;
 }
 
 h4 {
@@ -421,6 +437,7 @@ html /deep/ .fab-tray{
 
 
 /* SELECTED FAB TRAY */
+
 html /deep/ .selectedFab{
       bottom:0;
 
@@ -510,7 +527,7 @@ html /deep/ #selectionBar.paper-tabs {
 
 html /deep/ paper-tab:focus .tab-content.paper-tab {
 color:#17aacf;
-font-weight:500;
+font-weight:800;
 }
 
 /*SELECTABLE BUTTONS*/
