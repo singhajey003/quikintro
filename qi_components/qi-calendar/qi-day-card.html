@@ -1,4 +1,13 @@
+<!--
+This component is responsible for displaying the meetings
+for a given day.
+
+
+
+-->
 <link rel="import" href="../../bower_components/iron-/iron-.html">
+
+<link rel="import" href="qi-mtg-mini-card.html">
 
 <dom-module id="qi-day-card">
 	<style>
@@ -21,11 +30,15 @@
 		<div class="layout horizontal">
 			<div class="day">
 			<span>[[model.day]]</span>
-			<span>[[model.dayOfWeek]]
+			<span>[[model.dayOfWeek]]</span>
 			</div>
 
 			<div class="mtg-tray layout vertical">
+			<template is="dom-repeat" items="[[model]]" as="mtg">
+			<qi-mtg-mini-card model="[[mtg]]"></qi-mtg-mini-card>
 
+
+			</template>
 			</div>
 		</div>
 	</template>

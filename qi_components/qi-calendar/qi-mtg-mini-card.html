@@ -7,6 +7,8 @@ This component is responsible for displaying calendar items.
 -->
 
 <link rel="import" href="../qi-card/qi-card-behavior.html">
+
+<link rel="import"
 <dom-module id="qi-mtg-mini-card">
 	<style>
 		:host {
@@ -14,12 +16,15 @@ This component is responsible for displaying calendar items.
 		}
 	</style>
 	<template>
+
+		<qi-card>
 		<div class="vertical layout">
 			<div><span>[[model.title]]</span></div>
 			<div>
 				<span>[[mtgtime]]</span><span>[[model.location]</span>
 			</div>
 		</div>
+		</qi-card>
 	</template>
 	<script>
 		Polymer({
