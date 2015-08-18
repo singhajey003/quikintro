@@ -23,7 +23,7 @@ This component represents a swipeable card.
 	</style>
 
 	<template>
-		<div class$="{{selectedStyle}}" on-click="select" on-track="_handleCardSwipe">
+		<div class$="{{selectedStyle}}" on-tap="select" on-track="_handleCardSwipe" touch-action="none">
 		<content></content>
 		</div>
 	</template>
@@ -35,6 +35,7 @@ This component represents a swipeable card.
 		behaviors:[QiCardBehavior, QiSwipeCardBehavior],
 
 		_handleCardSwipe: function(e){
+			console.log("got here");
 			e.detail.model = this.model;
 			this.handleCardSwipe(e);
 		}

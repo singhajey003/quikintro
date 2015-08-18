@@ -1,11 +1,22 @@
 <!--
+This component is used to display a collection of cards, a collection of buttons used to interact
+with those cards, and a detail-page used to display the details behind a single card.
+
+There are two basic use cases that are supported:
+
+ <ul>
+	<li>Swiping a card to view the details behind the card</
+	<li>Batch operations on cards.  The user can tap on each card to select it.  This causes a tray with a series of fab-buttons to appear.  Each button performs a batch action on the selected cards.
+	</li>
+ </ul>
+
 
 	@group QI Elements
- 	@element qi-swipe-card-page
+ 	@element qi-swipe-card-tray
 -->
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
-<link rel="import" href="../qi-card/qi-tray-page-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-tray-behavior.html">
 <link rel="import" href="../qi-card/qi-fab-tray.html">
 
 <dom-module id="qi-swipe-card-tray">
@@ -17,35 +28,37 @@
 			padding-left: 2px;
 		}
 	</style>
+
+
 	<template>
 		
-			
-	<iron-pages selected="{{selectedPage}}">
-		<section>
-			<div class="flex tray">
-			<iron-selector id="selector" multi="true" attr-for-selected="model">
-				<content select=".selectable-card"></content>
-			</iron-selector>
-			</div>
+		<div touch-action="none">
+		<iron-pages id$="{{pagesid}}" selected="{{selectedPage}}">
+			<section>
+				<div class="flex tray" style="touch-action: none">
+				<iron-selector id="selector" multi="true" attr-for-selected="model">
+					<content select=".selectable-card"></content>
+				</iron-selector>
+				</div>
 
-			<qi-fab-tray id="fabtray">
-				<content select=".selectable"></content>	
-			</qi-fab-tray>
-		</section>
+				<qi-fab-tray id$="{{fabtrayid}}">
+					<content select=".selectable"></content>	
+				</qi-fab-tray>
+			</section>
 
-		<section>
-			<content select=".detail-page"></content>
-		</section>
-	</iron-pages>
-		
+			<section>
+				<content select=".detail-page"></content>
+			</section>
+		</iron-pages>
+		</div>	
 		
 	</template>
+
 	<script>
 		Polymer({
 			is: 'qi-swipe-card-tray',
-			behaviors: [QiTrayBehavior, QiTrayPageBehavior]
+			behaviors: [QiTrayBehavior, QiSwipeTrayBehavior]
 
-
-  	});
+ 	});
 	</script>
 </dom-module>

@@ -8,6 +8,8 @@
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
 
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
+
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 <link rel="import" href="../qi-card/qi-swipe-card-tray.html">
 
@@ -19,7 +21,7 @@
 
 	<style is="custom-style">
 	qi-card-tray{
-		--tray-width: 100%;
+		--tray-width: 100vw;
 		background-color: var(--tray-bgcolor);
 	}
 
@@ -30,21 +32,21 @@
 
 	<template>
 
-		<qi-swipe-card-tray id="cardtray">
-			<template is="dom-repeat" items="[[model]]" index-as="id" as="mtg">
-			<qi-mtg-card class="selectable-card" model="[[mtg]]"></qi-mtg-card>
-			</template>
+	<qi-swipe-card-tray id="cardtray" detailpageid="mtg-page" fabtrayid="mtg-fab-tray">
+
+		<!-- Cards -->
+        <template is="dom-repeat" items="[[model]]" index-as="id" as="mtg">
+            <qi-mtg-card class="selectable-card" model="[[mtg]]"></qi-mtg-card>
+        </template>
+
+        <!-- Detail Page -->
+		<qi-mtg-page id="mtg-page" class="detail-page"></qi-mtg-page>
+
 
 		<paper-fab class="selectable" icon="check" on-click="accept" mini></paper-fab>
 		<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
 
-
-		<div class="detail-page">
-			<qi-mtg-page ></qi-mtg-page>
-		</div>
-
 	</qi-swipe-card-tray>
-
 
 
 	</template>
@@ -52,8 +54,6 @@
 	<script>
 	Polymer({
 		is: 'qi-mtg-tray',
-
-		
 
 		properties:{
 			selectedPage:{
@@ -64,10 +64,6 @@
 				type: Object,
 				value: null
 			}
-		},
-
-		_handleSwipe: function(e){
-			console.log("got here");
 		},
 
 		_removeCards: function(){
@@ -90,6 +86,8 @@
 			this.articleModel = model;
 
 		},
+
+/*		
 		ready: function(){
 
   		// this event is triggerend whenever the article card is swiped
@@ -108,7 +106,7 @@
 
 
   	}
-
+*/
 
 	});
 

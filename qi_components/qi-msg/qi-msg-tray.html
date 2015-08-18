@@ -16,10 +16,9 @@
 
 	</style>
 
-<!-- id="[[computeDomId('msg', id)]]" -->
 	<template>
 		
-		<qi-card-tray id="cardtray">
+		<qi-card-tray id="cardtray" fabtrayid="msg-fab-tray">
 			<template is="dom-repeat" items="[[model]]" index-as="id" as="msg">
 				<qi-msg-card  class="selectable-card" model="{{msg}}"></qi-msg-card>
 			</template>

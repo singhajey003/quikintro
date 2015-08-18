@@ -26,18 +26,10 @@
 	<iron-localstorage name="news" value="{{news}}"></iron-localstorage>
 	<iron-localstorage  name="feeds" value="{{feeds}}"></iron-localstorage>
 
-	<iron-pages selected="{{selectedPage}}">
-	
 		<div class="demotray layout vertical">
 			<qi-feed-tray model="[[feeds]]"></qi-feed-tray>
 			<qi-article-tray news="{{news}}" ></qi-article-tray>
 		</div>
-
-		<div>
-			<qi-article-page model="[[articleModel]]"></qi-article-page>
-		</div>
-
-	</iron-pages>
 
 </template>
 
@@ -63,28 +55,8 @@
   		}
   	},
 
-  	_displayPage: function(model){
-  		this.articleModel = model;
-
-  	},
-
-  	ready: function(){
-
-  		// this event is triggerend whenever the article card is swiped
-  		this.addEventListener('card-swipe', function(e){
-  			this.articleModel = e.detail.model;
-  			this.selectedPage = 1;
-        e.stopPropagation();
-  		});
-
-  		this.addEventListener('page-swipe', function(e){
-        console.log("page swipe registered")
-  			this.selectedPage = 0;
-        e.stopPropagation();
-  		});
 
 
-  	}
   });
 
 </script>

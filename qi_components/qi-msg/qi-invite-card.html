@@ -9,11 +9,9 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html"> 
 
 <link rel="import" href="../qi-card/qi-card-behavior.html">
-<link rel="import" href="../qi-card/qi-collapse-card.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 
 
-<link rel="import" href="../qi-card/qi-card-tray.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
 
@@ -122,12 +120,6 @@
    			}
 
     	},
-
-   		_handleSwipe: function(e){
-			  if(e.detail.state == 'end'){
-	  			this.fire('invite-card-swipe', {model: this.model});
-	  		}
-   		},
 
    		_concatTitleCo: function(model){
    			return (model != null)?model.sender.title +" at " + model.sender.company : "";
