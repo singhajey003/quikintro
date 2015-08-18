@@ -8,8 +8,11 @@
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
 
-<link rel="import" href="../qi-card/qi-card-page-tray.html">
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
+
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
+
 
 <link rel="import" href="qi-mtg-card.html">
 <link rel="import" href="qi-mtg-page.html">
@@ -18,7 +21,7 @@
 
 	<style is="custom-style">
 	qi-card-tray{
-		--tray-width: 100%;
+		--tray-width: 100vw;
 		background-color: var(--tray-bgcolor);
 	}
 
@@ -29,40 +32,38 @@
 
 	<template>
 
-	<qi-card-page-tray id="mtgtray">	
+	<qi-swipe-card-tray id="cardtray" detailpageid="mtg-page" fabtrayid="mtg-fab-tray">
 
 		<!-- Cards -->
         <template is="dom-repeat" items="[[model]]" index-as="id" as="mtg">
-            <qi-mtg-card class="selectable-card" model="[[mtg]]" on-track="_handleSwipe"></qi-mtg-card>
+            <qi-mtg-card class="selectable-card" model="[[mtg]]"></qi-mtg-card>
         </template>
 
         <!-- Detail Page -->
-		<qi-mtg-page class="detail-page"></qi-mtg-page>
+		<qi-mtg-page id="mtg-page" class="detail-page"></qi-mtg-page>
 
-		<!-- FABS -->
+
 		<paper-fab class="selectable" icon="check" on-click="accept" mini></paper-fab>
 		<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
 
-	</qi-card-page-tray>
+	</qi-swipe-card-tray>
+
 
 	</template>
-
 
 	<script>
 	Polymer({
 		is: 'qi-mtg-tray',
 
-		
-
 		properties:{
 			selectedPage:{
 				type: Number,
 				value: 0
+			},
+			mtgModel:{
+				type: Object,
+				value: null
 			}
-		},
-
-		_handleSwipe: function(e){
-			console.log("got here");
 		},
 
 		_removeCards: function(){
@@ -79,7 +80,33 @@
 		deleted: function(){
 			_removeCards();
 			this.fire('show-toast', {text: 'Invitations(s) Deleted'});
-		}
+		},
+
+		_displayPage: function(model){
+			this.articleModel = model;
+
+		},
+
+/*		
+		ready: function(){
+
+  		// this event is triggerend whenever the article card is swiped
+  		this.addEventListener('card-swipe', function(e){
+  			console.log("card swipped")
+  			this.mtgModel = e.detail.model;
+  			this.selectedPage = 1;
+  			e.stopPropagation();
+  		});
+
+  		this.addEventListener('page-swipe', function(e){
+  			console.log("page swiped ")
+  			this.selectedPage = 0;
+  			e.stopPropagation();
+  		});
+
+
+  	}
+*/
 
 	});
 
