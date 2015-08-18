@@ -94,6 +94,7 @@
 
   		// this event is triggerend whenever the article card is swiped
   		this.addEventListener('card-swipe', function(e){
+  			console.log("card swipped")
   			this.mtgModel = e.detail.model;
   			this.selectedPage = 1;
   			e.stopPropagation();

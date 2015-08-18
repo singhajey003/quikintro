@@ -5,7 +5,7 @@
 <link rel="import" href="../qi-card/qi-swipe-card-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 <link rel="import" href="qi-invite-card.html">
-
+<link rel="import" href="qi-mtg-page.html">
 <dom-module id="qi-invite-tray">
 
 	<style is="custom-style">
@@ -30,7 +30,11 @@
 			<paper-fab class="selectable" icon="check" on-click="Accept" mini></paper-fab>
 			<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
 
-		</qi-swipe-card-page>
+			<div class="detail-page">
+				<qi-mtg-page ></qi-mtg-page>
+			</div>
+
+		</qi-swipe-card-tray>
 
 
 	</template>
@@ -69,7 +73,21 @@
 			this.fire('show-toast', {text: 'Invitation(s) Declined'});
 		},
 
+		ready: function() {
+  		this.addEventListener('card-swipe', function(e){
+  			console.log("card swipped")
+  			this.mtgModel = e.detail.model;
+  			this.selectedPage = 1;
+  			e.stopPropagation();
+  		});
 
+  		this.addEventListener('page-swipe', function(e){
+  			console.log("page swiped ")
+  			this.selectedPage = 0;
+  			e.stopPropagation();
+  		});
+
+  	}
 
 	});
 

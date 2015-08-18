@@ -25,7 +25,7 @@
 <link rel="import" href="qi-msg-tray.html">
 <link rel="import" href="qi-mtg-tray.html">
 <link rel="import" href="qi-invite-tray.html">
-
+<link rel="import" href="./../qi-theme.html">
 
 
 <dom-module id='qi-msg-panel'  >
@@ -177,12 +177,7 @@
           this.selected = 3;
         });
 
-        this.addEventListener('mtg-card-swipe', function(e){
-          var mtgPageContent = mtgPage.querySelector('qi-mtg-page');
-          mtgPageContent.model = e.detail.model;
-          this.selected = 4;
 
-        });
 
       }
     
