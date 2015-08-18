@@ -8,7 +8,7 @@
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
 
-<link rel="import" href="../qi-card/qi-card-page-tray.html">
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 
 <link rel="import" href="qi-mtg-card.html">
@@ -29,7 +29,7 @@
 
 	<template>
 
-	<qi-card-page-tray id="mtgtray">	
+	<qi-swipe-card-tray id="mtgtray">	
 
 		<!-- Cards -->
         <template is="dom-repeat" items="[[model]]" index-as="id" as="mtg">
@@ -43,7 +43,7 @@
 		<paper-fab class="selectable" icon="check" on-click="accept" mini></paper-fab>
 		<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
 
-	</qi-card-page-tray>
+	</qi-swipe-card-tray>
 
 	</template>
 

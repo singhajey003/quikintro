@@ -40,10 +40,12 @@ QiTrayPageBehavior = {
   		this.addEventListener('card-swipe', function(e){
   			this.cardModel = e.detail.model;
   			this.selectedPage = 1;
+  			e.stopPropagation()
   		});
 
   		this.addEventListener('page-swipe', function(e){
   			this.selectedPage = 0;
+  			e.stopPropagation();
   		});
 
 

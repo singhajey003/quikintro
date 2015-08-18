@@ -68,6 +68,7 @@ QiTrayBehavior = {
 			this.selectedCards = selectedCards;
 			var fabtray = document.getElementById("fabtray");
 			fabtray.selected = (selectedCards.length > 0);
+			e.stopPropagation();
 		});
 	}
 
