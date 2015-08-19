@@ -1,0 +1,30 @@
+<!--
+This behavior defines the properties and methods required of the service icon.
+
+@polymerBehavior QiServiceIconBehavior
+-->
+
+<script>
+
+	QiServiceIconBehavior ={
+		properties: {
+
+				icon: {type: String},
+
+				/* This attribute represents the state of the icon */
+				selected: {type: Boolean, value: false},
+
+				/* This attribute represents the style of the icon state */
+				divStyle: {type: String, computed:'_handleStyle(selected)'}
+		},
+
+		listeners: {
+			'click': '_handleStyle(true)'
+		},
+		/* This method handles toggling between service icon being selected or not */
+		_handleStyle: function(selected){
+			return (selected) ? 'service-selected' : 'service-not-selected';
+		}
+
+	};
+</script>

@@ -21,8 +21,12 @@
 
 <link rel="import" href="../qi-custom-icons/qi-icons.html">
 
+<link rel="import" href="../qi-custom-icons/qi-service-icon.html">
+
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+
+
 <dom-module id="qi-signup2">
-	<link rel="stylesheet" href="../quikintro.css"> 
 
 	<style is="custom-style">
 
@@ -63,6 +67,7 @@
 		color: #FFFFFF;
 	}
 
+
 	.skipstep {
 	  width: 100%;
 	  display: inline-block;
@@ -70,19 +75,27 @@
 	  text-align: center;
 	  font-size: 10px; 
 	}
+
+	paper-dialog{
+		max-height: 250px;
+	}
   
 	</style>
 	<template>
 		<div class="heading horizontal layout">
-			<div class="backButton start-justified" on-click="_handleBack"><iron-icon icon="arrow-back"></div>
+			<div class="backButton start-justified" on-click="_handleBack"><iron-icon icon="arrow-back"></iron-icon></div>
 			<div class="text flex center-justified"><p>Import account details</p></div>
 			<div class="status2 end-justified">2/4</div>
 		</div>
 
-		<div class="imgs vertical layout">
-			<iron-icon icon="qi:linkedin"></iron-icon>
-			<iron-icon icon="qi:twitter"></iron-icon>
-			<iron-icon icon="qi:meetup"></iron-icon>
+		<div class="imgs vertical center-justified layout">
+
+			<qi-service-icon icon="qi:linkedin" id="linkedin-icon" on-click="_handleLinkedin"></qi-service-icon>
+
+			<qi-service-icon icon="qi:twitter" id="twitter-icon" on-click="_handleTwitter"></qi-service-icon>
+			
+			<qi-service-icon icon="qi:meetup" id="meetup-icon" on-click="_handleMeetup"></qi-service-icon>
+		
 		</div>
 
 		<div class="buttons flex">
@@ -91,6 +104,21 @@
 				<paper-button class="splash" on-click="_handleNext">Skip This Step</paper-button>
 			</div>
 		</div>
+
+		<paper-dialog id="dialogBox" backdrop>
+			<h3>{{heading}}</h3>
+			<paper-input class="splash flex" label="Username: "></paper-input>
+			<paper-input-container class="splash flex" alwaysFloatLabel="true"  id="password"> 
+				<label>Password:</label>
+				<div><input is="iron-input" type="password" name="password"></div>
+			</paper-input-container>
+			<div class="buttons">
+    			<paper-button dialog-dismiss>Cancel</paper-button>
+				<paper-button dialog-confirm on-click="_handleImgChange">Sign In</paper-button>
+  			</div>
+		</paper-dialog>
+
+
 
 	</template>
 	<script>
@@ -103,7 +131,31 @@
 
 			_handleBack: function(){
 				this.fire("back");
+			},
+
+			_handleLinkedin: function(){
+				this.heading="Linkedin Login";
+				this.head = "linkedin-icon";
+				document.querySelector("#dialogBox").toggle();
+			},
+
+			_handleTwitter: function(){
+				this.heading="Twitter Login";
+				this.head="twitter-icon";
+				document.querySelector("#dialogBox").toggle();
+			},
+
+			_handleMeetup: function(){
+				this.heading="Meetup Login";
+				this.head = "meetup-icon";
+				document.querySelector("#dialogBox").toggle();
+			},
+
+			_handleImgChange: function(){
+				document.querySelector(this.head);
+				this.fire("service-selected")
 			}
+
 		});
 	</script>
 </dom-module>
