@@ -1,10 +1,11 @@
 <!--
-
+This component is responsible for rendering the appointments
+for a specific month.
 
 	@group QI Elements
 	@element qi-month-card
 -->
-
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="qi-day-card.html">
 <dom-module id="qi-month-card.html">
 	<style>
@@ -13,7 +14,7 @@
 		}
 	</style>
 	<template>
-		<div>
+		<div class="fit">
 		   <div><span>{{month}}</span></div>
 
 		   <div class="layout vertical">
@@ -29,8 +30,20 @@
 		Polymer({
 			is: 'qi-month-card',
 			properties:{
+
+				/**
+				 * The name of the month as it will appear at the top
+				 * of the card.
+				 */
 				month: {
 					type: String
+				},
+
+				/**
+				 * The model containing the meetings for the month.
+				 */
+				model:{
+					type: Object
 				}
 			}
 		});
