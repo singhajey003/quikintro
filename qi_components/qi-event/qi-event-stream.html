@@ -13,23 +13,36 @@
 
 
 	<template>
-	    <link rel="stylesheet" href="../quikintro.css" > 
+	    <link rel="stylesheet" href="../quikintro.css" >
 	    <link rel="stylesheet" href="../qi-cards.css" >
-	    <link rel="stylesheet" href="qi-events.css" > 
+	    <link rel="stylesheet" href="qi-events.css" >
 
 	    <iron-localstorage name="events" value="{{events}}"></iron-localstorage>
 
-		<style>	
-			.container {
-/*			padding: 10px;  */
-				height: 100%;
-			}
-		</style>
+		<div class="flex layout vertical ">
+
+		  <paper-tabs noink="true" selected="{{selectedEventPage}}">
+		    <paper-tab>Scheduled</paper-tab>
+		    <paper-tab>Suggested</paper-tab>
+		  </paper-tabs>
 
 
-		<div class="layout vertical flex"  > 
+			<iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical flex">
 
-			<iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical flex fit"> 
+			  	<div selected>
+					<div id="schedEvents"></div>
+				 </div>
+
+				<div >
+					<qi-event-detail id="detail"></qi-event-detail>
+				</div>
+
+			</iron-pages>
+		</div>
+
+		<!-- <div class="layout vertical flex"  >
+
+			<iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical flex fit">
 			  	<div selected>
 					<h4>My Scheduled Events</h4>
 					<div id="schedEvents">
@@ -38,7 +51,7 @@
 					<h4>Suggested Events</h4>
 					<div id="suggEvents">
 					</div>
-			
+
 				 </div>
 
 				<div >
@@ -46,14 +59,14 @@
 				</div>
 
 			</iron-pages>
-		
-		</div>
-		
+
+		</div> -->
+
 	</template>
 
 	<script>
 		Polymer({
-    		is: 'qi-event-stream', 
+    		is: 'qi-event-stream',
 
     		properties:{
     			events:{type: Array, observer: 'eventsChanged'},
@@ -66,16 +79,16 @@
 					this.fire('nav-changed', {id:'null',title: 'Events', type:'sub-level'})
 				}
 			},
-			
+
 			cardClickHandler: function(e){
 				var event = e.srcElement.event;
-				
+
 				var detail = this.$.detail;
 				detail.event = event;
 				this.selectedEventPage = 1;
 				this.fire('nav-changed', {id:event.id, title: event.title, type:'event'})
 			},
-			
+
 			eventsChanged: function(newEvents, oldEvents){
 				if (newEvents != null && newEvents.length > 0){
 					var schedEvents = this.$.schedEvents;
@@ -94,7 +107,7 @@
 						}
 					}
 				}
-				
+
 			},
 
 			ready: function(){
@@ -103,7 +116,7 @@
 				})
 			}
 
-			
+
 
 		});
 
