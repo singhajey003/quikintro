@@ -13,6 +13,7 @@
         "title": "Oncology Sync Meeting",
         "description": "Let's meet to discuss progress on our shared programs",
         "keywords": ["Cancer"],
+        "accepted": true,
         "invitees": [{
                 "firstName": "Sean",
                 "lastName": "Bohen",
@@ -147,6 +148,7 @@
         	"address":"335 Powell Street San Francisco, California 94102",
         	"room":"Elizabethan Ballroom"
         },
+        "accepted": false,
         "title": "Immuno-oncology Deal Room",
         "description": "A meeting to discuss immuno-oncology programs available for investment.",
         "keywords": ["Cancer", "immuno-oncology", "CAR-Ts", "Drug Development"],

@@ -7,6 +7,7 @@ This component is responsible for displaying calendar items.
 -->
 
 <link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="qi-cal-behavior.html">
 
 <link rel="import"
 <dom-module id="qi-mtg-mini-card">
@@ -29,7 +30,13 @@ This component is responsible for displaying calendar items.
 	<script>
 		Polymer({
 			is: 'qi-mtg-mini-card',
-			behaviors:[QiCardBehavior]
+			behaviors:[QiCardBehavior, QiCalBehavior],
+			properties:{
+				mtgtime:{
+					type: String,
+					computed: 'startEndTime(model.time.start, model.time.end)'
+				}
+			}
 		});
 	</script>
 </dom-module>

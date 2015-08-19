@@ -1,9 +1,47 @@
 <script>
 QiCalBehavior={
 
+	properties:{
+		weekDays:{
+			type: Array,
+			value: ['Sun','Mon','Tue','Wed','Th','Fri','Sat'],
+			readonly: true
+		},
+
+		months:{
+			type: Array,
+			value: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'],
+			readonly: true
+		}
+	},
+
+	/**
+	 * This method concatenates the start and end time of a meeting into a single string.
+	 * @param startTime  the starting time of the meeting
+	 * @param endTime the ending time of the meeting
+	 */
 	startEndTime(startTime, endTime){
 		return startTime + " - " + endTime;
+	},
+
+
+	/**
+	 * This method determines the day of the week given the index of the day returned by the 
+	 * Date.getDay() method.
+	 * @param the index of the day into the 'weekDays' array (declared above)
+	 */
+	dayOfWeek(val){
+		return weekDays[val];
+	},
+
+	/**
+	 * This method determines the month given an index into the 'months' array
+	 * @param monthIndex an index into the 'months' array
+	 */
+	getMonth(monthIndex){
+		return months[monthIndex];
 	}
+
 
 };
 </script>
