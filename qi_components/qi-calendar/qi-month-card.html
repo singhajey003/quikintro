@@ -1,0 +1,38 @@
+<!--
+
+
+	@group QI Elements
+	@element qi-month-card
+-->
+
+<link rel="import" href="qi-day-card.html">
+<dom-module id="qi-month-card.html">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	<template>
+		<div>
+		   <div><span>{{month}}</span></div>
+
+		   <div class="layout vertical">
+		   <!-- TODO: Fix this so that we are iterating through days -->
+		   		<template is="dom-repeat" items="[[model]]" as="mtg">
+		   			<qi-day-card model="[[mtg]]"></qi-day-card>
+		   		</template>
+		   </div>
+
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-month-card',
+			properties:{
+				month: {
+					type: String
+				}
+			}
+		});
+	</script>
+</dom-module>

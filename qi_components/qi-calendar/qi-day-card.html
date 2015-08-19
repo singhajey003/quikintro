@@ -3,9 +3,12 @@ This component is responsible for displaying the meetings
 for a given day.
 
 
-
+	@group QI Elements
+	@element qi-day-card
 -->
-<link rel="import" href="../../bower_components/iron-/iron-.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+
+<link rel="import" href="qi-cal-behavior.html">
 
 <link rel="import" href="qi-mtg-mini-card.html">
 
@@ -29,15 +32,13 @@ for a given day.
 	<template>
 		<div class="layout horizontal">
 			<div class="day">
-			<span>[[model.day]]</span>
-			<span>[[model.dayOfWeek]]</span>
+			<span>[[day]]</span>
+			<span>[[dayOfWeek]]</span>
 			</div>
 
 			<div class="mtg-tray layout vertical">
 			<template is="dom-repeat" items="[[model]]" as="mtg">
-			<qi-mtg-mini-card model="[[mtg]]"></qi-mtg-mini-card>
-
-
+				<qi-mtg-mini-card model="[[mtg]]"></qi-mtg-mini-card>
 			</template>
 			</div>
 		</div>
@@ -45,10 +46,36 @@ for a given day.
 	<script>
 		Polymer({
 			is: 'qi-day-card',
+			behaviors: [QiCalBehavior],
 			properties:{
 				model:{
-
+					type: Object
+				},
+				date: {
+					type: Date,
+					computed: '_computeDate(model.date)'
+				},
+				dayOfWeek:{
+					type: String,
+					value: '',
+					computed: '_computeDayOfWeek(date)'
+				},
+				day:{
+					type: Number,
+					computed: '_computeDay(date)'
 				}
+			},
+
+			_computeDayOfWeek: function(date){
+				return dayOfWeek(date.getDay());
+			},
+
+			_computeDay: function(date){
+				return date.getDate() + 1;
+			},
+
+			_computeDate: function(dateStr){
+				return new Date(dateStr);
 			}
 		});
 	</script>

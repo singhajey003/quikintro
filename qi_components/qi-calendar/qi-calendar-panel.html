@@ -4,6 +4,9 @@ This is the top-level calendar component.
 	@group QI Elements
 	@element qi-calendar-panel
 -->
+
+<link rel="import" href="qi-month-card.html">
+
 <dom-module id="qi-calendar-panel">
 	<style>
 		:host {
@@ -11,7 +14,11 @@ This is the top-level calendar component.
 		}
 	</style>
 	<template>
-		
+		<qi-month-card month="[[month]]">
+		  <template is="dom-repeat" items="[[model]]" as="mtg" >
+
+		  </template>
+		</qi-month-card>
 	</template>
 	<script>
 		Polymer({
@@ -23,6 +30,9 @@ This is the top-level calendar component.
 				 */
 				model: {
 					type: Object
+				},
+				month:{
+					type: String
 				}
 			}
 		});
