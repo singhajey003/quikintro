@@ -136,24 +136,24 @@
 			_handleLinkedin: function(){
 				this.heading="Linkedin Login";
 				this.head = "linkedin-icon";
-				document.querySelector("#dialogBox").toggle();
+				document.querySelector("#dialogBox").open();
 			},
 
 			_handleTwitter: function(){
 				this.heading="Twitter Login";
 				this.head="twitter-icon";
-				document.querySelector("#dialogBox").toggle();
+				document.querySelector("#dialogBox").open();
 			},
 
 			_handleMeetup: function(){
 				this.heading="Meetup Login";
 				this.head = "meetup-icon";
-				document.querySelector("#dialogBox").toggle();
+				document.querySelector("#dialogBox").open();
 			},
 
 			_handleImgChange: function(){
 				document.querySelector(this.head);
-				this.fire("service-selected")
+				this.fire("foobar");
 			}
 
 		});

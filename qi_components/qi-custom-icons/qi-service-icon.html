@@ -5,6 +5,8 @@ This component represents a service icon.
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="qi-service-behavior.html">
 
+<link rel="import" href="../../bower_components/paper-badge/paper-badge.html">
+
 <dom-module id="qi-service-icon">
 	<style>
 
@@ -26,6 +28,20 @@ This component represents a service icon.
 			margin: 20px auto;
 		}
 
+		paper-badge{
+			--paper-badge-margin-bottom:-15vh;
+			--paper-badge-margin-left: -5vh; 
+			--paper-badge-background: #000000;
+		}
+
+		.badge-not-selected{
+			visibility: hidden;
+		}
+
+		.badge-selected{
+			visibility: visible;
+		}
+
 
 		:host .icon{
 			width: 30px;
@@ -36,8 +52,9 @@ This component represents a service icon.
 	</style>
 
 	<template>
-		<div class$="{{divStyle}}">
+		<div class$="{{divStyle}}" id="icon">
 			<iron-icon class="icon" icon="[[icon]]"></iron-icon>
+			<paper-badge label="✓" class$="{{badgeStyle}}" for="icon"></paper-badge>
 		</div>
 	</template>
 
