@@ -78,7 +78,7 @@ point at which all quikintro components are integrated.
             <paper-button id="securityItem" pageId="security" class="primary">Security</paper-button>
 
             <!-- Close button -->
-            <paper-icon-button id="close" class="close primary" icon="close"></paper-icon-button>
+            <paper-icon-button id="close" class="close primary" icon="close" on-click="_handleClose"></paper-icon-button>
 
 
           </paper-menu>
@@ -248,6 +248,10 @@ point at which all quikintro components are integrated.
         var config = this.conf[newValue];
         this.fire('nav-changed', {id: newValue, title: config.panelTitle, type:'top-level'})
 
+      },
+
+      _handleClose: function(){
+        this.$.coreScaffold.closeDrawer();
       },
 
 
