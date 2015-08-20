@@ -59,7 +59,7 @@ This component is responsible for rendering an event.
 			<qi-icon-field id="registrants" icon="social:group" value="{{event.registrantCount}}"></qi-icon-field>
 		</div>
 
-			<qi-avatar-tray model="[[model.avatars]]"></qi-avatar-tray>
+			<qi-avatar-tray model="{{avatars}}"></qi-avatar-tray>
 
 
 
@@ -76,7 +76,33 @@ This component is responsible for rendering an event.
    			/**
    			 * The event model
    			 */
-   			event:{type: Object}
+   			event:{
+   				type: Object,
+   				notify: true
+   			},
+
+   			/**
+   			 * A computed property that gets the avatars from the model.
+   			 */
+   			avatars:{
+   				type: Array,
+   				computed: '_getAvatars(event)'
+   			}
+   		},
+
+   		/**
+   		 * This method gets the avatar URLs for the contacts attending the meeting.
+   		 * @param model the meeting model.
+   		 */
+   		_getAvatars: function(model){
+   			
+   			var avatars = [];
+   			if(model.contacts != null && model.contacts !== "undefined"){
+	   			for(var i=0; i < model.contacts.length; i++){
+	   				avatars.push(model.contacts[i].avatar);
+	   			}
+   			}
+   			return avatars;
    		},
 
 	    tapAction: function(evt){
