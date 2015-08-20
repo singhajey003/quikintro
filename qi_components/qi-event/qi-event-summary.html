@@ -101,26 +101,17 @@
                   </mat-dropdown>
              </qi-field-decorator>
 
-            <qi-field-decorator id="personaField" label="Persona" class="horizontal justified layout" >
-                  <mat-dropdown id="persona" model="[[event.persona]]">
-                        <mat-option value="DEV" label="Developer Persona"></mat-option>
-                        <mat-option value="CANCER" label="Cancer Biologist"></mat-option>
-                        <mat-option value="LINKEDIN" label="Linkedin Persona"></mat-option>
-                        <mat-option value="FACEBOOK" label="Facebook Persona"></mat-option>
-                  </mat-dropdown>
-             </qi-field-decorator>
-
-             <!--<qi-persona-field persona="{{event.persona}}" model="{{personas}}"></qi-persona-field>-->
+             <qi-persona-field persona="{{event.persona}}" model="{{personas}}"></qi-persona-field>
 
              <qi-field-decorator label="Alert" class="horizontal justified layout" >
-                    <mat-dropdown id="alert" model="[[event.alert]]">
-                        <mat-option value="fifteen" label="15 minutes before"></mat-option>
-                        <mat-option value="hour" label="1 hour before"></mat-option>
-                        <mat-option value="day" label="1 day before"></mat-option>
-                        <mat-option value="noalert" label="Don't notify me"></mat-option>
+                    <mat-dropdown id="alert" model="[[event.notification]]">
+                        <mat-option value="15 minutes before" label="15 minutes before"></mat-option>
+                        <mat-option value="1 hour before" label="1 hour before"></mat-option>
+                        <mat-option value="1 day before" label="1 day before"></mat-option>
+                        <mat-option value="Don't notify me" label="Don't notify me"></mat-option>
                   </mat-dropdown>
 
-                <!--<iron-input id="alarm">[[event.notification]]</iron-input>-->
+               
              </qi-field-decorator>
 
         </div>
