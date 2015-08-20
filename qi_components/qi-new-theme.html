@@ -7,8 +7,7 @@
  * Compatible with Polymer 1.0
  */
 
-/*@import 'sass/_config';
-*/
+/*@import 'sass/_config';*/
 
 html /deep/, body /deep/ {
   margin: 0px;
@@ -566,15 +565,19 @@ html /deep/ .eventCard{
       background:#f3f3f3;
     }
 
-html /deep/ .eventCard header {
+html /deep/ .eventCard header, html /deep/ .eventDetails header {
       position:relative;
 }
 
-html /deep/ .eventCard header .image{
+html /deep/ .eventCard header .image, html /deep/ .eventDetails header .image{
       background-size: cover;
       background-position: top left;
       background-repeat: no-repeat;
       position:relative;
+}
+
+html /deep/ .eventDetails header .image{
+      min-height:280px;
 }
 
 html /deep/ .eventCard header .image:after{
@@ -587,7 +590,7 @@ html /deep/ .eventCard header .image:after{
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-html /deep/ .eventCard header .titlearea{
+html /deep/ .eventCard header .titlearea, html /deep/ .eventDetails header .titlearea {
       position:absolute;
       bottom:1em;
       left:1em;
@@ -595,43 +598,50 @@ html /deep/ .eventCard header .titlearea{
       z-index:1;
 }
 
-html /deep/ .eventCard header .title{
+html /deep/ .eventCard header .title, html /deep/ .eventDetails header .title{
       color:#fff;
       margin:0;
 }
 
-html /deep/ .eventCard header .location{
+html /deep/ .eventCard header .location, html /deep/ .eventDetails header .location{
       color:#fff;
       opacity:0.8;
       margin:0;
 }
 
 
-html /deep/ .eventCard .summary {
+html /deep/ .eventCard .summary, html /deep/ .eventDetails .summary {
   padding:1em;
+  background:#f3f3f3;
 }
 
-html /deep/ .eventCard .eventMatches, html /deep/ .eventCard .eventContacts, html /deep/ .eventCard .eventMeetings {
+html /deep/ .eventMatches, html /deep/ .eventContacts, html /deep/ .eventMeetings, html /deep/ .eventDate, html /deep/ .eventSubscribers{
   text-align: center;
   padding:0 1.4em;
 }
 
-html /deep/ .eventCard .eventContacts {
+html /deep/ .eventContacts {
  border-left:1px solid #ccc;
  border-right:1px solid #ccc;
 }
 
-html /deep/ .eventCard .bottomLabel {
+html /deep/ .eventDate .text, html /deep/ .eventSubscribers .text {
+font-size:20px;
+font-weight:500;
+margin:5px 0 5px 0;
+}
+
+html /deep/ .bottomLabel {
   font-size: 11pt;
   margin:0 0 1em 0;
 }
 
-html /deep/ .eventCard .count {
+html /deep/ .count {
   font-size: 32pt;
   margin:0 0 0.2em 0;
 }
 
-html /deep/ .eventCard .eventStats {
+html /deep/ .eventStats {
   font-size: 12pt;
   line-height: 1.6;
 
@@ -642,28 +652,39 @@ html /deep/ .eventCard .eventStats {
   }
 }
 
-html /deep/ .eventCard label{
-  padding-top: 5px;
-  font-family: Verdana;
-  font-size: 10px;
+html /deep/ .eventCard label, html /deep/ .eventDetails label {
+  font-size: 16px;
 }
 
 html /deep/ .eventCard .info {
-  background:#e6e6e6;
-  padding:1em 0;
+  padding:1em;
 }
 
-html /deep/ .eventCard iron-icon.qi-icon-field {
+html /deep/ iron-icon.qi-icon-field {
 color:#000;
 height:24px;
 width:24px;
 opacity:0.4;
 }
 
-html /deep/ .eventCard .fldValue.qi-icon-field {
+html /deep/ .fldValue.qi-icon-field {
 font-size:16px;
 margin-left:0.2em;
 }
+
+html /deep/ .eventCard .info .photo.qi-avatar, html /deep/ .eventCard .info iron-icon.qi-avatar {
+  width:32px;
+  height:32px;
+  background-repeat:no-repeat;
+  background-size:cover;
+  border-radius:50%;
+  border:none;
+  margin:0 0.2em;
+}
+
+html /deep/ .eventCard .info iron-icon.qi-avatar {
+  background:#e6e6e6;
+  }
 
 html /deep/ .eventCard .info #date {
 }
@@ -671,6 +692,24 @@ html /deep/ .eventCard .info #date {
 html /deep/ .eventCard .info #registrants {
 }
 
+/* EVENT PAGE */
+
+html /deep/ #mainContainer.paper-scroll-header-panel {
+background:#fff;
+  }
+
+html /deep/ .qi-field-decorator {
+  align-items: center;
+  justify-content: center;
+}
+
+html /deep/ .eventSettings {
+  margin:1em;
+}
+
+html /deep/ .eventSettings {
+  margin:1em;
+}
 
 /* TRANSFERRED QI-CARDS STYLES */
 
