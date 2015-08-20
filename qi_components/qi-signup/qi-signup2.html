@@ -90,11 +90,11 @@
 
 		<div class="imgs vertical center-justified layout">
 
-			<qi-service-icon icon="qi:linkedin" id="linkedin-icon" on-click="_handleLinkedin"></qi-service-icon>
+			<qi-service-icon icon="qi:linkedin" id="linkedin-icon" selected="{{selected}}" on-click="_handleLinkedin"></qi-service-icon>
 
-			<qi-service-icon icon="qi:twitter" id="twitter-icon" on-click="_handleTwitter"></qi-service-icon>
+			<qi-service-icon icon="qi:twitter" id="twitter-icon" on-click="_handleTwitter" selected="{{selected}}"></qi-service-icon>
 			
-			<qi-service-icon icon="qi:meetup" id="meetup-icon" on-click="_handleMeetup"></qi-service-icon>
+			<qi-service-icon icon="qi:meetup" id="meetup-icon" on-click="_handleMeetup" selected="{{selected}}"></qi-service-icon>
 		
 		</div>
 
@@ -105,7 +105,7 @@
 			</div>
 		</div>
 
-		<paper-dialog id="dialogBox" backdrop>
+		<paper-dialog id="dialogBox" >
 			<h3>{{heading}}</h3>
 			<paper-input class="splash flex" label="Username: "></paper-input>
 			<paper-input-container class="splash flex" alwaysFloatLabel="true"  id="password"> 
@@ -114,7 +114,7 @@
 			</paper-input-container>
 			<div class="buttons">
     			<paper-button dialog-dismiss>Cancel</paper-button>
-				<paper-button dialog-confirm on-click="_handleImgChange">Sign In</paper-button>
+				<paper-button dialog-confirm on-click="_handleSelected">Sign In</paper-button>
   			</div>
 		</paper-dialog>
 
@@ -124,6 +124,11 @@
 	<script>
 		Polymer({
 			is: 'qi-signup2',
+
+			properties: {
+				head: {type: String},
+				heading: {type: String}
+			},
 
 			_handleNext: function(){
 				this.fire("next");
@@ -151,9 +156,10 @@
 				document.querySelector("#dialogBox").open();
 			},
 
-			_handleImgChange: function(){
-				document.querySelector(this.head);
-				this.fire("foobar");
+			_handleSelected: function(){
+				var iconVal = this.head;
+				var elmt = document.getElementById(iconVal);
+				elmt.selected=true;
 			}
 
 		});

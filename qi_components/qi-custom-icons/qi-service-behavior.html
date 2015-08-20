@@ -20,9 +20,6 @@ This behavior defines the properties and methods required of the service icon.
 				badgeStyle: {type: String, computed:'_handleBadge(selected)'}
 		},
 
-		listeners: {
-			'click': '_handleSelected'
-		},
 		/* This method handles toggling between service icon being selected or not */
 		_handleStyle: function(selected){
 			return (selected) ? 'service-selected' : 'service-not-selected';
@@ -30,11 +27,9 @@ This behavior defines the properties and methods required of the service icon.
 
 		_handleBadge: function(selected){
 			return (selected) ? 'badge-selected' : 'badge-not-selected';
-		},
-
-		_handleSelected: function(){
-			this.selected = true;
 		}
-
 	};
+
+	
+
 </script>
