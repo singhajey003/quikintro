@@ -10,7 +10,7 @@
 
 <dom-module id="qi-avatar-tray">
 
-	<style>
+	<style is="custom-style">
 
 	qi-avatar{
 		--avatar-width: 25px;
@@ -20,6 +20,7 @@
 	.avatartray{
 		vertical-align: bottom;
 		width: 100%;
+		min-height: var(--avatar-height, 25px);
 	}
 	.avatartray > qi-avatar{
 		float: left;
