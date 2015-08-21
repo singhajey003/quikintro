@@ -70,7 +70,7 @@ This component displays the detailed contents of a contact.
 	<template>
 		<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
 
-		<div class="vertical layout">
+		<div class="vertical layout" on-track="handlePageSwipe">
 
 			<div class="avatar-panel">
 				<qi-avatar url="[[model.avatar]]"></qi-avatar>
