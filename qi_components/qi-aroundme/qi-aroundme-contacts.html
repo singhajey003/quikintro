@@ -9,6 +9,8 @@ This component displays a list of contacts located near the user
 
 <link rel="import" href="../qi-contact/qi-contact-tray.html">
 
+<link rel="import" href="qi-aroundme-behavior.html">
+
 <dom-module id="qi-aroundme-contacts">
 	<style>
 		:host {
@@ -18,17 +20,27 @@ This component displays a list of contacts located near the user
 		paper-slider{
 			--paper-slider-bar-color: #17aacf;
 			--paper-slider-active-color: white;
-			--paper-slider-secondary-color
+			--paper-slider-secondary-color: white;
+			--paper-slider-knob-start-color: white;
+			--paper-slider-pin-color: white;
+			--paper-slider-knob-color: white;
 			width: 100%;
+			height: 40px;
 		}
 	</style>
 
+
+
 	<template>
-		<div class="fit layout vertical">
+		<div class="layout vertical">
 
-		<paper-slider min="10" max="500" value="{{matchRadius}}" step="100" snaps="true"></paper-slider>
+			<div>
+				<paper-slider min="0" max="500" step="100" value="{{matchRadius}}" snaps="true"></paper-slider>
+			</div>
 
-		<qi-contact-tray model="{{model}}"></qi-contact-tray>
+			<div class="flex">
+				<qi-contact-tray model="{{model}}"></qi-contact-tray>
+			</div>
 
 		</div>		
 	</template>
@@ -36,15 +48,7 @@ This component displays a list of contacts located near the user
 	<script>
 		Polymer({
 			is: 'qi-aroundme-contacts',
-			properties:{
-				matchRadius:{
-					type: Number,
-					value: 100
-				},
-				model:{
-					type: Array
-				}
-			}
+			behaviors: [QiAroundMeBehavior]
 		});
 	</script>
 </dom-module>

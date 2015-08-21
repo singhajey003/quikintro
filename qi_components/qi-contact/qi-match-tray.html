@@ -21,6 +21,7 @@ This component displays a list of matches.
 	<template>
 	
 	<qi-swipe-card-tray detailpageid="match-detail" fabtrayid="match-fabtray">
+	
 		<template is="dom-repeat" items="[[model]]" as="contact">
 			<qi-match-mini-card class="selectable-card" model="{{contact}}"></qi-match-mini-card>
 		</template>

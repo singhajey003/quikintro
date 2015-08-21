@@ -13,7 +13,9 @@
 <link rel="import" href="../qi-contact/qi-contact-card.html">
 <link rel="import" href="qi-aroundme-matches.html">
 <link rel="import" href="qi-aroundme-contacts.html">
+
 <dom-module id='qi-aroundme-panel'>
+
     <template>
         <iron-localstorage name="matches" value="{{matches}}"></iron-localstorage>
         <iron-localstorage name="contacts" value="{{contacts}}"></iron-localstorage>
@@ -23,21 +25,23 @@
                 <paper-tab>Contacts</paper-tab>
             </paper-tabs>
             <iron-pages selected="{{selectedAroundMePage}}">
-                <section>
+                <section class="flex">
                     <qi-aroundme-matches model="{{matches}}" match-radius="300"></qi-aroundme-matches>
                 </section>
-                <section>
+                <section class="flex">
                     <qi-aroundme-contacts model="{{contacts}}" match-radius="300"></qi-aroundme-contacts>
                 </section>
             </iron-pages>
         </div>
     </template>
+
     <script>
     Polymer({
         is: 'qi-aroundme-panel',
         properties: {
             selectedAroundMePage: {
-                type: Number
+                type: Number,
+                value: 0
             }
         }
 

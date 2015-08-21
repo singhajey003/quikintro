@@ -39,7 +39,6 @@
 		"msg": "Hi Mark, we have some things in common and I’d like connect.",
 		"meetNow": true,
 		"meetLater": true
-		
 	},
 	{
 		"sender":{
@@ -50,9 +49,9 @@
 			"id":2,
 			"interests":["startups","cancer","antibodies","mAb","drug cocktails","CAR-T","clinical trials"],
 			"score":70,
-			"summary":"I am passionate about developing novel medicines to address the pathogenic mechanisms of important human diseases. For instance, I investigated beta amyloid peptide’s impact on the complement cascade and innate immunity in the age-related macular degeneration. My team elucidated the critical roles of the cytokine interleukin 7 in the effector memory T cell function and pathogenesis of multiple sclerosis and type 1 diabetes. My responsibility has expanded into leading the overall strategy of cancer immunology at Pfizer, including novel checkpoint inhibitors and genetically engineered T cell therapy, since 2013.",
+			"summary": "I am passionate about developing novel medicines to address the pathogenic mechanisms of important human diseases. For instance, I investigated beta amyloid peptide’s impact on the complement cascade and innate immunity in the age-related macular degeneration. My team elucidated the critical roles of the cytokine interleukin 7 in the effector memory T cell function and pathogenesis of multiple sclerosis and type 1 diabetes. My responsibility has expanded into leading the overall strategy of cancer immunology at Pfizer, including novel checkpoint inhibitors and genetically engineered T cell therapy, since 2013.",
 			"avatar":"",
-			"food":["thai","chinese","japanese","american","california cuisine", "steak"],
+			"food": ["thai","chinese","japanese","american","california cuisine","steak"],
 	        "drink":["merlot","cabernet"],
 			"persona":"Cancer Biologist",
 			"commonContacts": 5

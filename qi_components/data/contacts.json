@@ -360,7 +360,6 @@
         "drink":["merlot","chardonnay"]
     },
 
-
     {
 
         "firstName": "Donald",
@@ -381,7 +380,6 @@
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"]
     }
-
 
 
 ]
