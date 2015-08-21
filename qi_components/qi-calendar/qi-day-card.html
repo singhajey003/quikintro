@@ -33,13 +33,13 @@ for a given day.
 		<div class="layout horizontal">
 			<div class="day">
 			<span>[[day]]</span>
-			<span>[[dayOfWeek]]</span>
+			<span>[[dayOfWeekStr]]</span>
 			</div>
 
 			<div class="mtg-tray layout vertical">
-			<template is="dom-repeat" items="[[model]]" as="mtg">
-				<qi-mtg-mini-card model="[[mtg]]"></qi-mtg-mini-card>
-			</template>
+			
+				<qi-mtg-mini-card model="[[model]]"></qi-mtg-mini-card>
+			
 			</div>
 		</div>
 	</template>
@@ -49,13 +49,16 @@ for a given day.
 			behaviors: [QiCalBehavior],
 			properties:{
 				model:{
-					type: Object
+					type: Object,
+					notify: true,
+					value: null,
+					observer: '_modelChanged'
 				},
 				date: {
 					type: Date,
 					computed: '_computeDate(model.date)'
 				},
-				dayOfWeek:{
+				dayOfWeekStr:{
 					type: String,
 					value: '',
 					computed: '_computeDayOfWeek(date)'
@@ -66,8 +69,12 @@ for a given day.
 				}
 			},
 
+			_modelChanged: function(newValue, oldValue){
+				console.log("new day card model: " + newValue);
+			},
+
 			_computeDayOfWeek: function(date){
-				return dayOfWeek(date.getDay());
+				return this.dayOfWeek(date.getDay());
 			},
 
 			_computeDay: function(date){
@@ -76,6 +83,10 @@ for a given day.
 
 			_computeDate: function(dateStr){
 				return new Date(dateStr);
+			},
+
+			ready: function(){
+				console.log("day card model: " + this.model);
 			}
 		});
 	</script>

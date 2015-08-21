@@ -20,7 +20,7 @@ QiCalBehavior={
 	 * @param startTime  the starting time of the meeting
 	 * @param endTime the ending time of the meeting
 	 */
-	startEndTime(startTime, endTime){
+	startEndTime: function(startTime, endTime){
 		return startTime + " - " + endTime;
 	},
 
@@ -30,7 +30,7 @@ QiCalBehavior={
 	 * Date.getDay() method.
 	 * @param the index of the day into the 'weekDays' array (declared above)
 	 */
-	dayOfWeek(val){
+	dayOfWeek: function(val){
 		return weekDays[val];
 	},
 
@@ -38,7 +38,7 @@ QiCalBehavior={
 	 * This method determines the month given an index into the 'months' array
 	 * @param monthIndex an index into the 'months' array
 	 */
-	getMonth(monthIndex){
+	getMonth: function(monthIndex){
 		return months[monthIndex];
 	}
 

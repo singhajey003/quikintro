@@ -6,32 +6,72 @@
 -->
 
 <link rel="import" href="qi-day-card.html">
-<dom-module id="qi-month-card.html">
+<dom-module id="qi-month-card">
 	<style>
 		:host {
 			display: block;
 		}
+		.month{
+			height: 30px;
+			background-color: #17aacf;
+			color: white;
+			font-family: Verdana;
+			padding-left: 5px;
+			padding-top: 3px;
+		}
+		.month-wrapper{
+			border: 1px solid #17aacf;
+		}
 	</style>
+
 	<template>
-		<div>
-		   <div><span>{{month}}</span></div>
+		<div class="month-wrapper">
+		   <div class="month"><span>[[month]]</span></div>
 
 		   <div class="layout vertical">
 		   <!-- TODO: Fix this so that we are iterating through days -->
-		   		<template is="dom-repeat" items="[[model]]" as="mtg">
-		   			<qi-day-card model="[[mtg]]"></qi-day-card>
-		   		</template>
+
+	   		<template is="dom-repeat" items="[[model]]" as="mtg">
+	   			<qi-day-card model="[[mtg]]"></qi-day-card>
+	   		</template>
+
+		   		
 		   </div>
 
 		</div>
 	</template>
+
 	<script>
 		Polymer({
 			is: 'qi-month-card',
 			properties:{
+
+				/**
+				 * A string containing the month to be displayed.
+				 */
 				month: {
-					type: String
+					type: String,
+					value: ''
+					
+				},
+
+				/**
+				 * An array of meetings.
+				 */
+				model: {
+					type: Array,
+					value: [],
+					notify: true,
+					observer: '_modelChanged'
 				}
+			},
+
+			_modelChanged: function(newValue, oldValue){
+				console.log("new model: " + newValue);
+			},
+
+			ready: function(){
+				console.log("ready: " + this.model);
 			}
 		});
 	</script>
