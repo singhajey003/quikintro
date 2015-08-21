@@ -1,0 +1,53 @@
+<!--
+	This component displays contact information.
+
+	@group QI Elements
+	@element qi-aroundme-matches
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-slider/paper-slider.html">
+
+<link rel="import" href="../qi-contact/qi-match-tray.html">
+
+<dom-module id="qi-aroundme-matches">
+	<style is="custom-style">
+		:host {
+			display: block;
+		}
+
+		paper-slider{
+			--paper-slider-bar-color: #17aacf;
+		}
+	</style>
+	<template>
+		<div class="layout vertical">
+		<paper-slider min="10" max="500" value="{{matchRadius}}"></paper-slider>
+
+		<qi-match-tray model="model"></qi-match-tray>
+
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-aroundme-matches',
+			properties:{
+
+				/**
+				 * The radius in meters from the user.  Used to 
+				 * filter the list.
+				 */
+				matchRadius:{
+					type: Number,
+					value: 100
+				},
+
+				/**
+				 * An array of matches
+				 */
+				model:{
+					type: Array
+				}
+			}
+		});
+	</script>
+</dom-module>

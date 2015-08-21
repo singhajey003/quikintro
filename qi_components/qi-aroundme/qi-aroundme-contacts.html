@@ -1,0 +1,50 @@
+<!--
+This component displays a list of contacts located near the user
+
+	@group QI Elements
+	@element qi-aroundme-contacts
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-slider/paper-slider.html">
+
+<link rel="import" href="../qi-contact/qi-contact-tray.html">
+
+<dom-module id="qi-aroundme-contacts">
+	<style>
+		:host {
+			display: block;
+		}
+
+		paper-slider{
+			--paper-slider-bar-color: #17aacf;
+			--paper-slider-active-color: white;
+			--paper-slider-secondary-color
+			width: 100%;
+		}
+	</style>
+
+	<template>
+		<div class="fit layout vertical">
+
+		<paper-slider min="10" max="500" value="{{matchRadius}}" step="100" snaps="true"></paper-slider>
+
+		<qi-contact-tray model="{{model}}"></qi-contact-tray>
+
+		</div>		
+	</template>
+
+	<script>
+		Polymer({
+			is: 'qi-aroundme-contacts',
+			properties:{
+				matchRadius:{
+					type: Number,
+					value: 100
+				},
+				model:{
+					type: Array
+				}
+			}
+		});
+	</script>
+</dom-module>
