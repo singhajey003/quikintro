@@ -3,7 +3,7 @@
 @import '../sass/_config';
 
 .trait-wrapper{
-	background-color: $trait-wrapper-background;
+	background-color: none;
 	padding: 5px;
 	overflow: auto;
 	margin-left: 10px;
@@ -11,12 +11,13 @@
 }
 
 .trait {
-	background-color: $trait-background;
+	background-color: none;
 	border-radius: 4px;
 	margin: 2px;
 	padding: 2px;
 	display: inline-block;
 	font-size: 10pt;
+	
 }
 
 .trait-pair {

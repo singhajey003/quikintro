@@ -1,13 +1,13 @@
 /* Trait styles */
 .trait-wrapper {
-  background-color: #ebebeb;
+  background-color: none;
   padding: 5px;
   overflow: auto;
   margin-left: 10px;
   margin-bottom: 10px; }
 
 .trait {
-  background-color: #cccccc;
+  background-color: none;
   border-radius: 4px;
   margin: 2px;
   padding: 2px;
