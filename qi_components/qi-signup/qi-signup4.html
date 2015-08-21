@@ -15,7 +15,7 @@
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
-
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 
 
 <dom-module id="qi-signup4">
@@ -30,7 +30,7 @@
 			background-color: #17aacf;
 			width: 100%;
 			margin: 0;
-			padding-top: 5px;
+			padding-top: 10px;
 			padding-bottom: 5px;
 			color: #FFFFFF;
 		}
@@ -70,7 +70,7 @@
 			<hr>
 
 		<div>
-			<qi-card-tray id="cardtray">
+			<qi-card-tray id="cardtray" fabtrayid="contact-fab-tray">
 				<template is="dom-repeat" items="{{contacts}}" as="contact">
 					<qi-contact-mini-card model="{{contact}}" class="selectable-card"></qi-contact-mini-card>
 				</template>
@@ -80,7 +80,10 @@
 			</qi-card-tray>
 		</div>
 
-		<!--<paper-button class="close flex noink primary raised" on-click="_handleCreate">Finish</paper-button>-->
+		<paper-button class="close flex noink primary raised" on-click="_handleFinish">Finish</paper-button>
+
+
+		
 
 	</template>
 	<script>
@@ -91,12 +94,8 @@
 				this.fire("back");
 			},
 
-			_handleCreate: function(){
-				this.fire("login");
-			},
-
-			invite: function(){
-				//do something
+			_handleFinish: function(){
+				window.location="../../index2.html";
 			}
 
 		});
