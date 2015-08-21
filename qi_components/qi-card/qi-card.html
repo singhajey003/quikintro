@@ -10,7 +10,7 @@ This component represents a card.
 
 	.card{
 		width: 100vw;
-		border: 1px solid #BABABA;
+		border: 1px solid #F9F9F9;
 		background-color: white;
 	}
 
@@ -23,7 +23,7 @@ This component represents a card.
 
 
 	<template>
-		<div id="[[cardid]]" class$="{{selectedStyle}}" on-tap="select">
+		<div id="[[cardid]]" class$="{{selectedStyle}}" on-click="select" touch-action="none">
 		<content></content>
 		</div>
 	</template>

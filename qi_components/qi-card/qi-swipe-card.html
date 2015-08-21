@@ -11,8 +11,9 @@ This component represents a swipeable card.
 
 	.card{
 		width: 100vw;
-		border: 1px solid #BABABA;
+		border: 1px solid #F9F9F9;
 		background-color: white;
+		padding-left: 2px;
 	}
 
 	.selectedCard{
@@ -35,7 +36,6 @@ This component represents a swipeable card.
 		behaviors:[QiCardBehavior, QiSwipeCardBehavior],
 
 		_handleCardSwipe: function(e){
-			console.log("got here");
 			e.detail.model = this.model;
 			this.handleCardSwipe(e);
 		}

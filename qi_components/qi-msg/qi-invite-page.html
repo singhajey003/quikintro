@@ -9,7 +9,7 @@
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
-
+<link rel="import" href="./../qi-new-theme.html">
 <dom-module id="qi-invite-page">
 
 	<style is="custom-style">
@@ -36,7 +36,7 @@
 
 	<template>
 
-	<div class="fit vertical layout">
+	<div class="detail-page" on-track="handlePageSwipe">
 		<div><span>[[fullname]]</span></div>
 
 		<div class="band vertical layout">
@@ -58,7 +58,7 @@
 		<div class="layout horizontal">
 			<div class="layout vertical">
 				<label>Common Contacts</label>
-				<span>[[model.contacts.length]]
+				<span>[[model.contacts.length]]</span>
 			</div>
 
 			<div class="layout vertical">
@@ -94,6 +94,7 @@
 
 		Polymer({
 			is: 'qi-invite-page',
+			behaviors: [QiSwipePageBehavior],
 	
 			properties: {
 				model:{
