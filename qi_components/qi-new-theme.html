@@ -76,7 +76,7 @@ a:hover {
 }
 
 :root {
-  --default-primary-color: #3ea1e6;
+  --default-primary-color: #17aacf;
   --dark-primary-color: #7ec0ee;
   --light-primary-color: #c5cae9;
   --text-primary-color: #ffffff;
@@ -86,8 +86,8 @@ a:hover {
   --secondary-text-color: #7E8D9D;
   --disabled-text-color: #7E8D9D;
   --divider-color: #e0e0e0;
-  --paper-checkbox-checked-color: #3ea1e6;
-  --paper-checkbox-checked-ink-color: #3ea1e6;
+  --paper-checkbox-checked-color: #17aacf;
+  --paper-checkbox-checked-ink-color: #17aacf;
   --paper-checkbox-unchecked-color: #7E8D9D;
   --paper-checkbox-unchecked-ink-color: #7E8D9D;
   --paper-checkbox-label-color: #424540;
@@ -96,31 +96,31 @@ a:hover {
   --paper-fab-disabled-text: #7E8D9D;
   --paper-icon-button-disabled-text: #c9c9c9;
   --paper-input-container-color: #a8aca5;
-  --paper-input-container-focus-color: #3ea1e6;
+  --paper-input-container-focus-color: #17aacf;
   --paper-input-container-invalid-color: #db5656;
   --paper-input-container-input-color: #a8aca5;
   --paper-menu-background-color: #f5fcff;
   --paper-menu-color: #424540;
   --paper-menu-disabled-color: #c9c9c9;
-  --paper-progress-active-color: #3ea1e6;
+  --paper-progress-active-color: #17aacf;
   --paper-progress-secondary-color: #78bdee;
-  --paper-radio-button-checked-color: #3ea1e6;
+  --paper-radio-button-checked-color: #17aacf;
   --paper-radio-button-checked-ink-color: white;
   --paper-radio-button-unchecked-color: #424540;
   --paper-radio-button-unchecked-ink-color: #424540;
   --paper-radio-button-label-color: #424540;
-  --paper-slider-knob-color: #3ea1e6;
-  --paper-slider-active-color: #3ea1e6;
-  --paper-slider-pin-color: #3ea1e6;
-  --paper-spinner-layer-1-color: #3ea1e6;
-  --paper-spinner-layer-2-color: #3ea1e6;
-  --paper-spinner-layer-3-color: #3ea1e6;
-  --paper-spinner-layer-4-color: #3ea1e6;
+  --paper-slider-knob-color: #17aacf;
+  --paper-slider-active-color: #17aacf;
+  --paper-slider-pin-color: #17aacf;
+  --paper-spinner-layer-1-color: #17aacf;
+  --paper-spinner-layer-2-color: #17aacf;
+  --paper-spinner-layer-3-color: #17aacf;
+  --paper-spinner-layer-4-color: #17aacf;
   --paper-tabs-selection-bar-color: #17aacf;
   --paper-tab-ink: #17aacf;
-  --paper-toggle-button-checked-bar-color: #3ea1e6;
-  --paper-toggle-button-checked-button-color: #3ea1e6;
-  --paper-toggle-button-checked-ink-color: #3ea1e6;
+  --paper-toggle-button-checked-bar-color: #17aacf;
+  --paper-toggle-button-checked-button-color: #17aacf;
+  --paper-toggle-button-checked-ink-color: #17aacf;
   --paper-toggle-button-unchecked-bar-color: #7E8D9D;
   --paper-toggle-button-unchecked-button-color: white;
   --paper-toggle-button-unchecked-ink-color: white;
@@ -276,12 +276,12 @@ paper-fab {
 }
 
 paper-fab {
-  background-color: #3ea1e6;
+  background-color: #17aacf;
   color: #fff;
   --paper-fab-keyboard-focus-background: #135e92;
 }
 paper-fab.primary, paper-fab.btn-primary, paper-fab[primary] {
-  background-color: #3ea1e6;
+  background-color: #17aacf;
   color: #fff;
   --paper-fab-keyboard-focus-background: #135e92;
 }
@@ -320,8 +320,18 @@ section.hero paper-menu, section[hero] paper-menu {
 }
 
 
-
 /*MORE IN-DEPTH CUSTOM STYLES*/
+
+/*BUTTONS*/
+
+html /deep/ paper-button {
+  text-transform:none;
+}
+
+html /deep/ iron-icon.blue {
+  color:#17aacf;
+}
+
 
 /*COLORS*/
 
@@ -346,6 +356,10 @@ html /deep/ .centered paper-menu.paper-menu-0 {
   color:#fff;
 }
 
+html /deep/ .centered paper-button {
+  text-transform:uppercase;
+}
+
 html /deep/ .centered .fit {
   position:inherit;
   }
@@ -362,17 +376,24 @@ html /deep/ .centered .close iron-icon {
   height:30px;
 }
 
+/*TOOLBAR*/
+
+html /deep/ #topBar.paper-toolbar {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex:1;
+}
+
+html /deep/ .toolbar-tools > ::content paper-icon-button[icon=menu] {
+      margin-right: 12px;
+    }
 
 /*HIDDEN TOOLBAR DROP-SHADOW*/
 
 html /deep/ .paper-header-panel-0 #dropShadow.paper-header-panel {
   display:none;
-}
-
-h4 {
-    color: inherit;
-    text-transform: none;
-    margin: auto;
 }
 
 
@@ -470,7 +491,7 @@ html /deep/ .selectedCard.qi-swipe-card {
 
 html /deep/ .card.qi-swipe-card:after {
     content:"";
-    background:#3ea1e6;
+    background:#17aacf;
     position:absolute;
     top:0;
     left:0;
@@ -481,7 +502,7 @@ html /deep/ .card.qi-swipe-card:after {
 
 html /deep/ .selectedCard.qi-swipe-card:after {
     content:"";
-    background:#3ea1e6;
+    background:#17aacf;
     position:absolute;
     top:0;
     left:0;
@@ -491,6 +512,9 @@ html /deep/ .selectedCard.qi-swipe-card:after {
 
 /*SWIPED ENTRY STYLES*/
 
+html /deep/ .qi-swipe-card-tray {
+  padding:0;
+}
 html /deep/ .qi-swipe-card-tray qi-article-page figure {
   margin:0;
 }
@@ -503,6 +527,10 @@ html /deep/ qi-swipe-card-tray qi-article-page h2 span {
 html /deep/ qi-swipe-card-tray qi-article-page #abstract {
   padding:0.1em 1em;
   margin:0 0 1em 0;
+}
+
+html /deep/ .article-content.qi-article-page {
+    padding: 0;
 }
 
 /*COLLAPSE DROPDOWN*/
@@ -580,7 +608,7 @@ html /deep/ .eventDetails header .image{
       min-height:280px;
 }
 
-html /deep/ .eventCard header .image:after{
+html /deep/ .eventCard header .image:after, html /deep/ .eventDetails header .image:after{
   content:'';
   position:absolute;
   top:0;
@@ -682,8 +710,16 @@ html /deep/ .eventCard .info .photo.qi-avatar, html /deep/ .eventCard .info iron
   margin:0 0.2em;
 }
 
-html /deep/ .eventCard .info iron-icon.qi-avatar {
-  background:#e6e6e6;
+html /deep/ .eventCard iron-icon.qi-avatar {
+    width: 26px;
+    height: 26px;
+    padding: 3px;
+  }
+
+html /deep/ iron-icon.qi-avatar {
+    background: #e6e6e6;
+    color: #aaa;
+    border:none;
   }
 
 html /deep/ .eventCard .info #date {
@@ -692,7 +728,7 @@ html /deep/ .eventCard .info #date {
 html /deep/ .eventCard .info #registrants {
 }
 
-/* EVENT PAGE */
+/* EVENT SUMMARY */
 
 html /deep/ #mainContainer.paper-scroll-header-panel {
 background:#fff;
@@ -710,6 +746,45 @@ html /deep/ .eventSettings {
 html /deep/ .eventSettings {
   margin:1em;
 }
+
+/* EVENT MATCHES */
+
+html /deep/ .inner.card {
+  padding:1em;
+  border-bottom:1px solid #f3f3f3;
+}
+
+html /deep/ .inner.card qi-avatar {
+  margin-right:0.8em;
+}
+
+html /deep/ .inner.card iron-icon.qi-avatar {
+    width: 38px;
+    height: 38px;
+    padding: 6px;
+}
+
+html /deep/ .inner.card .name {
+  margin-top:0.2em;
+  margin-bottom:0.2em;
+}
+
+html /deep/ .matchPct {
+  font-size: 28px;
+  color:#17cf8c;
+}
+
+html /deep/ .matchPct span {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 2px;
+}
+
+html /deep/ .inner.card .sub {
+  color:#939396;
+  font-size:14px;
+}
+
 
 /* TRANSFERRED QI-CARDS STYLES */
 
