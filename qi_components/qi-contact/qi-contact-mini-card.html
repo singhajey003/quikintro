@@ -18,12 +18,27 @@ This component is responsible for displaying a minimal amount of contact-related
 		}
 
 		.fullname{
-			
+			font-size: 12px;
+			padding-left: 70px;
+
 		}
+
+		.selectedCard{
+			background-color: #ADD8ED;
+		}
+
+		qi-avatar{
+			margin-left: 20px;
+		}
+
+		hr{
+			margin: 0;
+		}
+
 	</style>
 
 	<template>
-		<qi-card model="[[model]]">
+		<qi-card model="[[model]]" class$="{{selectedStyle}}" on-click="select">
 		<div class="horizontal layout">
 			<qi-avatar url="[[model.avatar]]"></qi-avatar>
 			<header class="name">
@@ -31,8 +46,8 @@ This component is responsible for displaying a minimal amount of contact-related
 				<p></p>
 			</header>
 		</div>
-		<hr>
 		</qi-card>
+		<hr>
 	</template>
 	<script>
 		Polymer({
