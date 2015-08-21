@@ -7,25 +7,43 @@ for a specific month.
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="qi-day-card.html">
-<dom-module id="qi-month-card.html">
+<dom-module id="qi-month-card">
 	<style>
 		:host {
 			display: block;
 		}
+		.month{
+			height: 30px;
+			background-color: #17aacf;
+			color: white;
+			font-family: Verdana;
+			padding-left: 5px;
+			padding-top: 3px;
+		}
+		.month-wrapper{
+			border: 1px solid #17aacf;
+		}
 	</style>
+
 	<template>
-		<div class="fit">
-		   <div><span>{{month}}</span></div>
+
+		<div class="month-wrapper">
+		   <div class="month"><span>[[month]]</span></div>
+
 
 		   <div class="layout vertical">
 		   <!-- TODO: Fix this so that we are iterating through days -->
-		   		<template is="dom-repeat" items="[[model]]" as="mtg">
-		   			<qi-day-card model="[[mtg]]"></qi-day-card>
-		   		</template>
+
+	   		<template is="dom-repeat" items="[[model]]" as="mtg">
+	   			<qi-day-card model="[[mtg]]"></qi-day-card>
+	   		</template>
+
+		   		
 		   </div>
 
 		</div>
 	</template>
+
 	<script>
 		Polymer({
 			is: 'qi-month-card',
@@ -35,16 +53,29 @@ for a specific month.
 				 * The name of the month as it will appear at the top
 				 * of the card.
 				 */
+
 				month: {
-					type: String
+					type: String,
+					value: ''	
 				},
 
 				/**
-				 * The model containing the meetings for the month.
+				 * An array of meetings.
 				 */
-				model:{
-					type: Object
+				model: {
+					type: Array,
+					value: [],
+					notify: true,
+					observer: '_modelChanged'
 				}
+			},
+
+			_modelChanged: function(newValue, oldValue){
+				console.log("new model: " + newValue);
+			},
+
+			ready: function(){
+				console.log("ready: " + this.model);
 			}
 		});
 	</script>
