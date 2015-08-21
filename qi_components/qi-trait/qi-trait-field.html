@@ -1,0 +1,45 @@
+<!--
+This component displays a trait list with a labeled field.
+
+	@group QI Elements
+	@element qi-trait-field
+-->
+<link rel="import" href="../qi-field/qi-field-decorator.html">
+<link rel="import" href="qi-traitlist.html">
+
+<dom-module id="qi-trait-field">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	<template>
+		<qi-field-decorator label="[[label]]" is-stacked="{{isStacked}}">
+			<qi-traitlist traits="[[model]]"></qi-traitlist>
+		</qi-field-decorator>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-trait-field',
+			properties:{
+
+				/**
+				 * A String array of traits.
+				 */
+				model:{
+					type: Array,
+					value: []
+				},
+
+				label:{
+					type: String,
+					value: 'Matching traits'
+				},
+				isStacked:{
+					type: Boolean, 
+					value: false
+				}
+			}
+		});
+	</script>
+</dom-module>
