@@ -22,7 +22,7 @@ The detail page contains more detailed information than a card can display.
 		 * This method handles the page swipe gesture.
 		 */
 		handlePageSwipe: function(e){
-			if(e.detail.state == 'end'){
+			if(e.detail.state == 'start'){
 	  			this.fire('page-swipe', {});
 	  		}
 		}

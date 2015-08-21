@@ -6,25 +6,14 @@
  	@element qi-msg-card
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
-<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
 
-<link rel="import" href="../qi-theme.html">
 <link rel="import" href="../qi-card/qi-card-behavior.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-card/qi-card.html">
 
 <dom-module id='qi-msg-card'  >
 	
 	<style is="custom-style">
-
-	.selectedCard{
-		border-left: 5px solid #3ea1e6;
-	}
-
-	.selectable-card{
-		background-color: white;
-		border: 1px solid #505050;
-	}
-
 	.senderName{
 		font-weight: bold;
 		font-size: 12px;
@@ -38,30 +27,31 @@
 		font-size: 12px;
 		line-height: normal;
 	}
+	.avatarBlock{
+		margin-right: 3px;
+	}
 
 	</style>
 
 	
 	<template>
 	
-	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select">
-		
-		<div class="flex layout horizontal"> 
-
-			<div class="avatarBlock">
+	<qi-card id="[[cardid]]" model="{{model}}">
+		<div class="flex layout horizontal" >
+			<div class="avatarBlock" >
 				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
 			</div>
 
-			<div class="mainPanel">
+			<div class="metatray mainPanel">
 				<div class="senderBlock">
 					<span class="senderName">[[wholename]]</span> 
 					<span class="time">[[model.tstamp]]</span>
 				</div> 
 				<div class="msgBlock" >[[model.msg]]</div>
 			</div>
-		</div>
 
-	</div>
+		</div>
+	</qi-card>
 
 	</template>
 
@@ -80,8 +70,6 @@
 				type: String, 
 				computed:'_concatName(model.sender.firstName, model.sender.lastName)'
 			},
-
-
 		},
 
 
