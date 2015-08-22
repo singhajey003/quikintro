@@ -19,23 +19,22 @@ This component is responsible for displaying detailed information about a file.
 		.preview{
 			background-repeat: none;
 			background-size: cover;
+			height: 100px;
 		}
 
 		.desc{
 			font-size: 10pt;
 			color: #505050;
+			line-height: normal;
 		}
 
 	</style>
 	<template>
-		<div class="layout vertical">
-		<div class="title">[[model.name]]</div>
-
-		<div class="preview" style$="[[background]]"></div>
-
-		<div class="desc"><span>[[model.description]]</span></div>
-		<qi-trait-field model="[[model.keywords]]"></qi-trait-field>
-
+		<div class="layout vertical" on-track="handlePageSwipe">
+		    <div class="title">[[model.name]]</div>
+		    <div class="preview flex" style$="[[background]]"></div>
+		    <div class="desc"><span>[[model.description]]</span></div>
+		    <qi-trait-field model="[[model.keywords]]" label="Keywords" is-stacked="true"></qi-trait-field>
 		</div>
 	</template>
 	<script>

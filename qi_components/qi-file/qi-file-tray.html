@@ -7,6 +7,8 @@ This component is responsible for rendering a collection of files.
 
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../qi-card/qi-swipe-card-tray.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-tray-behavior.html">
 
 <link rel="import" href="qi-file-page.html">
 <link rel="import" href="qi-file-card.html">
@@ -27,12 +29,13 @@ This component is responsible for rendering a collection of files.
 			<qi-file-page id="file-page" class="detail-page"></qi-file-page>
 
 			<paper-fab icon="image:camera" class="selectable"></paper-fab>
-			<paper-fab icon="image:camera" class="selectable"></paper-fab>
+			<paper-fab icon="backup" class="selectable"></paper-fab>
 		</qi-swipe-card-tray>
 	</template>
 	<script>
 		Polymer({
-			is: 'qi-file-tray'
+			is: 'qi-file-tray',
+			behaviors: [QiTrayBehavior, QiSwipeTrayBehavior]
 		});
 	</script>
 </dom-module>

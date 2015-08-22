@@ -1,0 +1,49 @@
+<!--
+This component displays a list of matches.
+
+	@group QI Elements
+	@element qi-match-tray
+-->
+
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
+<link rel="import" href="qi-match-mini-card.html">
+<link rel="import" href="qi-match-page.html">
+
+<dom-module id="qi-match-tray">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	<template>
+	
+	<qi-swipe-card-tray detailpageid="match-detail" fabtrayid="match-fabtray">
+	
+		<template is="dom-repeat" items="[[model]]" as="contact">
+			<qi-match-mini-card class="selectable-card" model="{{contact}}"></qi-match-mini-card>
+		</template>
+
+		<qi-match-page id="match-detail" class="detail-page"></qi-match-page>
+
+		<paper-fab icon="add" class="selectable"></paper-fab>
+
+	</qi-swipe-card-tray>
+
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-match-tray',
+
+				/**
+				 * An array of matches
+				 */
+				model:{
+					type: Array,
+					value: []
+				}
+		});
+	</script>
+</dom-module>

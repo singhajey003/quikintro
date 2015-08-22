@@ -1,0 +1,113 @@
+<!--
+This component displays the detailed contents of a contact.
+
+	@group QI Elements
+	@element qi-match-page
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
+
+<link rel="import" href="qi-contact-behavior.html">
+
+<dom-module id="qi-match-page">
+
+	<style is="custom-style">
+		:host {
+			display: block;
+		}
+
+		avatar-panel{
+			background-color: #17aacf;
+			height: 100px;
+		}
+
+		qi-avatar{
+			--avatar-height: 100px;
+			--avatar-width: 100px;
+		}
+
+		.title{
+			font-size: 10pt;
+			font-family: Verdana;
+			color: white;
+		}
+		.company{
+			font-size: 10pt;
+			font-family: Verdana;
+			font-weight: bold;
+			color: white;
+		}
+
+		.stats{
+			display: table;
+			font-family: Verdana;
+		}
+
+		.stats-row{
+			display: table-row;
+		}
+
+		.stats > .header-cell{
+			display: table-cell;
+			text-align: center;
+			color: #818084;
+		}
+
+		.stats > .data-cell{
+			display: table-cell;
+			font-size:;
+		}
+
+		.contact-count{
+			color: black;
+			border-right: 1px solid #eaeaec;
+		}
+
+		.persona-match{
+			color: #17aacf;
+		}
+	</style>
+	<template>
+		<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
+
+		<div class="vertical layout" on-track="handlePageSwipe">
+
+			<div class="avatar-panel">
+				<qi-avatar url="[[model.avatar]]"></qi-avatar>
+
+				<div>
+					<span class="title">[[model..sender.title]]</span> at <span class="company">[[model.sender.company]]</span>
+					<qi-persona-field model="{{personas}}" persona="[[model.sender.persona]]"></qi-persona-field>
+				</div>
+			</div>
+
+
+			<div class="stats">
+				<div class="stats-row">
+					<div class="header-cell">Common Contacts</div>
+					<div class="header-cell">Persona Match</div>
+				</div>
+
+				<div class="stats-row">
+					<div class="data-cell contact-count">[[model.sender.contactCount]]</div>
+					<div class="data-cell persona-match">[[model.sender.score]]</div>
+				</div>
+			</div>
+
+
+
+			<qi-trait-field model="[[model.sender.interests]]"></qi-trait-field>
+
+			
+
+		</div>
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'qi-match-page',
+			behaviors: [QiSwipePageBehavior, QiContactBehavior],
+		});
+	</script>
+</dom-module>
