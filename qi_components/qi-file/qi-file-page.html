@@ -1,0 +1,58 @@
+<!--
+This component is responsible for displaying detailed information about a file.
+
+    @group QI Elements
+    @element qi-file-page
+-->
+<link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
+
+<link rel="import" href="../qi-trait/qi-trait-field.html">
+
+<dom-module id="qi-file-page">
+	<style>
+		:host {
+			display: block;
+		}
+		.title{
+
+		}
+		.preview{
+			background-repeat: none;
+			background-size: cover;
+		}
+
+		.desc{
+			font-size: 10pt;
+			color: #505050;
+		}
+
+	</style>
+	<template>
+		<div class="layout vertical">
+		<div class="title">[[model.name]]</div>
+
+		<div class="preview" style$="[[background]]"></div>
+
+		<div class="desc"><span>[[model.description]]</span></div>
+		<qi-trait-field model="[[model.keywords]]"></qi-trait-field>
+
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-file-page',
+			behaviors: [QiSwipePageBehavior],
+
+			properties:{
+				background:{
+					type: String, 
+					computed: '_preview(model.preview)'
+				}
+			},
+
+			_preview: function(preview){
+				return "background-image: url('" + preview + "')";
+			}
+		});
+	</script>
+</dom-module>

@@ -1,0 +1,81 @@
+<!--
+
+	@group QI Elements
+	@element qi-invite-card
+-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/image-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/av-icons.html">
+
+<link rel="import" href="../qi-card/qi-swipe-card.html">
+<link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
+
+<dom-module id="qi-file-card">
+	<style>
+		:host {
+			display: block;
+		}
+		.doc-card{
+			display: table-row;
+		}
+		.icon{
+			display: table-cell;
+			margin-right: 5px;
+		}
+		.title{
+			display: table-cell;
+			overflow: hidden;
+			font-size: 10pt;
+			color: #505050;
+
+		}
+	</style>
+	<template>
+		<qi-swipe-card model="[[model]]">
+			<div class="layout horizontal doc-card">
+				<div class="icon">
+					<iron-icon icon="[[icon]]"></iron-icon>
+				</div>
+
+				<div class="title"><span>[[model.name]]</span></div>
+
+			</div>
+		</qi-swipe-card>
+	</template>
+	
+	<script>
+		Polymer({
+			is: 'qi-file-card',
+			behaviors:[QiCardBehavior, QiSwipeCardBehavior],
+			properties:{
+				model:{
+					type: Object
+				},
+				icon:{
+					type: String,
+					computed: '_getIcon(model.type)'
+				},
+				typemap:{
+					type: Object,
+					readonly: true,
+					value:{
+						"bookmark":"bookmark",
+						"doc":"description",
+						"pdf":"description",
+						"video":"av:movie",
+						"image":"image:camera",
+						"spreadsheet":"view-list",
+						"slides":"image:slideshow"
+					}
+				}
+			},
+
+			_getIcon: function(mimishtype){
+				return this.typemap[mimishtype];
+			}
+		});
+	</script>
+</dom-module>
