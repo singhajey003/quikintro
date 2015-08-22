@@ -1,0 +1,48 @@
+[
+
+	{
+		"name":"A Brief(ish) History of Big Data",
+		"type":"slides",
+		"description":"Many believe Big Data is a brand new phenomenon. It isn't, it is part of an evolution that reaches far back history. Here are some of the key milestones in this development.",
+		"url":"http://www.slideshare.net/BernardMarr/a-brief-history-of-big-data?qid=e740b027-eb9f-4072-8e6b-9f9f987c772d&v=qf1&b=&from_search=10",
+		"keywords":["big data","hadoopworld2015"],
+		"preview":"../data/files/slides-preview.jpg"
+	},
+
+	{
+		"name":"Big Data, Big Hype?",
+		"type":"bookmark",
+		"description":"FIRST THERE WAS 'Big Data,'' and then there was 'Big Data Analytics.'' These terms are everywhere, but there has been a recent media backlash about the effectiveness of Big Data. Tim Harford summed this up in a recent Financial Times article by saying 'Big Data has arrived, but big insights have not.'",
+		"url":"http://www.wired.com/insights/2014/04/big-data-big-hype/",
+		"keywords":["big data","hadoopworld2015"],
+		"preview":"http://www.wired.com/wp-content/uploads/2013/01/bigdata_660.png"
+	},
+
+	{
+		"name":"Fibroblast growth factor receptor signaling in hereditary and neoplastic disease: biologic and clinical implications",
+		"type":"pdf",
+		"description": "Fibroblast growth factors (FGFs) and their receptors (FGFRs) are transmembrane growth factor receptors with wide tissue distribution.FGF / FGFR signaling is involved in neoplastic behavior and also development, differentiation, growth, and survival.FGFR germline mutations(activating) can cause skeletal disorders, primarily dwarfism(generally mutations in FGFR3), and craniofacial malformation syndromes(usually mutations in FGFR1 and FGFR2); intriguingly, some of these activating FGFR mutations are also seen in human cancers.FGF / FGFR aberrations reported in cancers are mainly thought to be gain - of - function changes, and several cancers have high frequencies of FGFR alterations, including breast, bladder, or squamous cell carcinomas(lung and head and neck).FGF ligand aberrations(predominantly gene amplifications) are also frequently seen in cancers, in contrast to hereditary syndromes.There are several pharmacologic agents that have been or are being developed for inhibition of FGFR / FGF signaling.These include both highly selective inhibitors as well as multi - kinase inhibitors.Of note, only four agents(ponatinib, pazopanib, regorafenib, and recently lenvatinib) are FDA - approved for use in cancer, although the approval was not based on their activity against FGFR ",
+		"url":"http://download.springer.com/static/pdf/447/art%253A10.1007%252Fs10555-015-9579-8.pdf?originUrl=http%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs10555-015-9579-8&token2=exp=1438710478~acl=%2Fstatic%2Fpdf%2F447%2Fart%25253A10.1007%25252Fs10555-015-9579-8.pdf%3ForiginUrl%3Dhttp%253A%252F%252Flink.springer.com%252Farticle%252F10.1007%252Fs10555-015-9579-8*~hmac=8500d12f99d771968f7fd6dc4cd713a5b76a8bb075de5ff8dee67689c491f130",
+		"keywords":["cancer","FGFR"],
+		"preview":"../data/files/pdf-preview.jpg"
+	},
+
+	{
+		"name":"Personalized Pancreatic Cancer Therapy",
+		"description":"Dr. Andrew V. Biankin - Keynote Speaker Wolfson Wohl Cancer Research Centre, University of Glasgow Inaugural Gloria Pearl Educational Symposium",
+		"type":"video",
+		"preview":"../data/files/video-preview.jpg",
+		"url":"https://youtu.be/z7nRyEH0aFo?list=FL_fHpAvYJ6leGxEW8o0Wbjw",
+		"keywords":["cancer","personalized medicine"]
+	},
+
+	{
+		"name":"AACR 2015 - Tyler Jacks Keynote",
+		"type":"image",
+		"description":"Tyler Jacks Keynote on Modeling Cancer",
+		"preview":"https://pbs.twimg.com/media/CGl-fDFUkAI-luS.jpg",
+		"url":"https://pbs.twimg.com/media/CGl-fDFUkAI-luS.jpg",
+		"keywords":["cancer","AACR","#aacr15"]
+	}
+
+]
