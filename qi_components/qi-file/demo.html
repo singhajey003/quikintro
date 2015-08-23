@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-	<script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
 	<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
-	<link rel="import" href="qi-month-card.html">
+	<link rel="import" href="../data/qi-data-loader.html">
+	<link rel="import" href="qi-file-panel.html">
+
 </head>
 <body>
-	
-	<template is="dom-bind">
-		<iron-localstorage id="mtgEl" name="mtgs" value="{{mtgs}}"></iron-localstorage>
-		<qi-month-card month="January" model="{{mtgs}}"></qi-month-card>
-	</template>
 
+	<template is="dom-bind">
+		<qi-data-loader></qi-data-loader>
+		<iron-localstorage name="files" value="{{files}}"></iron-localstorage>
+		<qi-file-panel model="{{files}}"></qi-file-panel>
+	</template>
 </body>
 </html>

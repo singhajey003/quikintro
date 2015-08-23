@@ -1,10 +1,11 @@
 <!--
-
+This component is responsible for rendering the appointments
+for a specific month.
 
 	@group QI Elements
 	@element qi-month-card
 -->
-
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="qi-day-card.html">
 <dom-module id="qi-month-card">
 	<style>
@@ -63,7 +64,6 @@
 					value: [],
 					notify: true,
 					observer: '_modelChanged'
-				}
 			},
 
 			_modelChanged: function(newValue, oldValue){

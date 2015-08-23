@@ -1,0 +1,41 @@
+<!--
+This component is responsible for rendering a collection of files.
+
+	@group QI Elements
+	@element qi-invite-card
+-->
+
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-tray-behavior.html">
+
+<link rel="import" href="qi-file-page.html">
+<link rel="import" href="qi-file-card.html">
+
+<dom-module id="qi-file-tray">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	<template>
+		
+		<qi-swipe-card-tray id="file-tray" detailpageid="file-page" fabtrayid="file-fabtray">
+			<template is="dom-repeat" items="{{model}}" as="file">
+				<qi-file-card model="{{file}}" class="selectable-card"></qi-file-card>
+			</template>
+
+			<qi-file-page id="file-page" class="detail-page"></qi-file-page>
+
+			<paper-fab icon="image:camera" class="selectable"></paper-fab>
+			<paper-fab icon="backup" class="selectable"></paper-fab>
+		</qi-swipe-card-tray>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-file-tray',
+			behaviors: [QiTrayBehavior, QiSwipeTrayBehavior]
+		});
+	</script>
+</dom-module>

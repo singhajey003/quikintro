@@ -17,11 +17,20 @@ QiContactBehavior = {
 			},
 
 			/**
-			 * This computed property concatenates the first and last name of the model.
+			 * This computed property concatenates the first and 
+			 * last name of the model.
 			 */
 			fullName: {
-				type:String,
+				type: String,
 				computed: '_computeName(model.firstName, model.lastName)' 
+			},
+
+			/**
+			 *
+			 */
+			extTitle:{
+				type: String,
+				computed: '_computeExtTitle(model.title, model.company)'
 			}
 
 	},
@@ -34,6 +43,15 @@ QiContactBehavior = {
 	_computeName: function(firstName, lastName){
 		return firstName + " " + lastName;
 	},
+
+	/**
+	 * This method concatenates the title and company of the contact
+	 * @param title the contact's title
+	 * @param company the name of the contact's company
+	 */
+	_computeExtTitle: function(title, company){
+		return title + " at " + company;
+	}
 
 
 };

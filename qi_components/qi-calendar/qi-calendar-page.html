@@ -8,7 +8,7 @@ This component is responsible for displaying meeting information.
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html">
-
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 <link rel="import" href="../qi-field/qi-icon-field.html">
 <link rel="import" href="../qi-field/qi-collapse-field.html">
@@ -25,7 +25,8 @@ This component is responsible for displaying meeting information.
 		}
 
 		header > span{
-
+			color: white;
+			background-color: blue;
 		}
 	</style>
 	<template>
@@ -44,6 +45,11 @@ This component is responsible for displaying meeting information.
 			<template is="dom-repeat" items="[[model.invitees]" as="guest">
 				<qi-guest-card model="[[guest]]"></qi-guest-card>
 			</template>
+		</qi-collapse-field>
+
+		<qi-collapse-field icon="work">
+			<iron-localstorage name="files" value="{{files}}"></iron-localstorage>
+			<qi-file-tray model="{{files}}"></qi-file-tray>
 		</qi-collapse-field>
 
 		</div>

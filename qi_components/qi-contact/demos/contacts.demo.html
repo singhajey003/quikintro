@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+
+    <link rel="import" href="../../../bower_components/iron-localstorage/iron-localstorage.html">
+
+    <link rel="import" href="../qi-contact-tray.html">
+
+</head>
+<body>
+
+<template is="dom-bind">
+
+<iron-localstorage name="contacts" value="{{contacts}}"></iron-localstorage>
+
+<qi-contact-tray model="{{contacts}}"></qi-contact-tray>
+
+
+</template>
+</body>
+</html>
