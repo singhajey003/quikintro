@@ -9,7 +9,6 @@ for a given day.
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 
 <link rel="import" href="qi-cal-behavior.html">
-
 <link rel="import" href="qi-mtg-mini-card.html">
 
 <dom-module id="qi-day-card">
@@ -17,8 +16,17 @@ for a given day.
 		:host {
 			display: block;
 		}
+		.day-row{
+			display: table-row;
+		}
 		.day{
 			text-align: center;
+			font-family: Verdana;
+			min-width: 50px;
+			display: table-cell;
+		}
+		.today{
+			background-color: rgba(23, 170, 207, 0.26)
 		}
 
 		.current-day{
@@ -26,14 +34,14 @@ for a given day.
 		}
 
 		.mtg-tray{
-			overflow: scroll;
+			display: table-cell;
 		}
 	</style>
 	<template>
-		<div class="layout horizontal">
-			<div class="day">
-			<span>[[day]]</span>
-			<span>[[dayOfWeekStr]]</span>
+		<div class="day-row">
+			<div class="day" style$="[[today]]">
+				<span>[[dayOfWeekStr]]</span><br/>
+				<span>[[day]]</span>
 			</div>
 
 			<div class="mtg-tray layout vertical">
@@ -51,8 +59,7 @@ for a given day.
 				model:{
 					type: Object,
 					notify: true,
-					value: null,
-					observer: '_modelChanged'
+					value: null
 				},
 				date: {
 					type: Date,
@@ -66,12 +73,18 @@ for a given day.
 				day:{
 					type: Number,
 					computed: '_computeDay(date)'
+				},
+				today:{
+					type: String,
+					computed: '_today()'
 				}
 			},
 
-			_modelChanged: function(newValue, oldValue){
-				console.log("new day card model: " + newValue);
+			_today: function(){
+				console.log("day: "+this.date.getDay());
+				return  (this.date.day == 7) ? "background-color: rgba(23, 170, 207, 0.26)":"";
 			},
+
 
 			_computeDayOfWeek: function(date){
 				return this.dayOfWeek(date.getDay());
@@ -83,11 +96,9 @@ for a given day.
 
 			_computeDate: function(dateStr){
 				return new Date(dateStr);
-			},
-
-			ready: function(){
-				console.log("day card model: " + this.model);
 			}
+
+
 		});
 	</script>
 </dom-module>

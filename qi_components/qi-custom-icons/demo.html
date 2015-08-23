@@ -14,7 +14,8 @@
 	
 	<link rel="import" href="qi-icons.html">
 	<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
-	<style>
+
+	<style is="custom-style">
 		body{
 			background-color: #505050;
 		}
@@ -22,14 +23,28 @@
 			color: white;
 			width:120px !important;
 			height:120px !important;
+			--iron-icon-height: 128px;
+    		--iron-icon-width: 128px;
+			margin:20px;
+		}
+		.myIcon.logo circle, .myIcon.uber .st1 {
+		    opacity: 0.20;
 		}
 
 		.myIcon.add, .myIcon.search {stroke:#ffffff;}
 	</style>
+
 </head>
 <body>
+
 	<iron-icon class="myIcon" icon="qi:logo"></iron-icon>
 	<iron-icon class="myIcon add" icon="qi:add"></iron-icon>
 	<iron-icon class="myIcon search" icon="qi:search"></iron-icon>
+
+	<iron-icon class="myIcon logo" icon="qi:logo" size="120" ></iron-icon>
+	<iron-icon class="myIcon uber" icon="qi:uber" size="120" ></iron-icon>
+	<iron-icon class="myIcon grubhub" icon="qi:grubhub" size="120" ></iron-icon>
+	<iron-icon class="myIcon opentable" icon="qi:opentable" size="120" ></iron-icon>
+
 </body>
 </html>

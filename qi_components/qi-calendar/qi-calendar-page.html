@@ -10,6 +10,7 @@ This component is responsible for displaying meeting information.
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html">
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
+<link rel="import" href="../qi-custom-icons/qi-icons">
 <link rel="import" href="../qi-field/qi-icon-field.html">
 <link rel="import" href="../qi-field/qi-collapse-field.html">
 <link rel="import" href="qi-guest-card.html">
@@ -40,6 +41,12 @@ This component is responsible for displaying meeting information.
 		</div>
 
 		<qi-icon-field icon="event" date="[[model.date]]" time="[[time]]"></qi-icon-field>
+
+		<div class="horizontal layout justify">
+			<iron-icon icon="qi:uber"></iron-icon>
+			<iron-icon icon="qi:opentable"></iron-icon>
+			<iron-icon icon="qi:grubhub"></iron-icon>
+		</div>
 
 		<qi-collapse-field icon="social:people">
 			<template is="dom-repeat" items="[[model.invitees]" as="guest">
