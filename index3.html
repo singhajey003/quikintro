@@ -10,11 +10,13 @@
 	<title></title>
 	<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
 
-	<link rel="import" href="qi_components/quikintro.html">
-	<link rel="import" href="qi_components/qi-signup/qi-signup1.html"><!--
+
+	<link rel="import" href="qi_components/qi-theme.html">
+	<link rel="import" href="qi_components/qi-signup/qi-signup1.html">
 	<link rel="import" href="qi_components/qi-signup/qi-signup2.html">
 	<link rel="import" href="qi_components/qi-signup/qi-signup3.html">
-	<link rel="import" href="qi_components/qi-signup/qi-signup4.html">-->
+	<link rel="import" href="qi_components/qi-signup/qi-signup4.html">
+
 </head>
 <body>
 	<iron-pages selected="0">
@@ -23,12 +25,24 @@
 		<qi-signup3></qi-signup3>
 		<qi-signup4></qi-signup4>
 	</iron-pages>
-<!--	<qi-signup1></qi-signup1>
-	<qi-signup2></qi-signup2>
-	<qi-signup3></qi-signup3>
-	<qi-signup4></qi-signup4>
+<!--	<qi-signup4></qi-signup4>
 -->
 
 
+<script>
+	this.addEventListener("next", function(){
+		var pages = document.querySelector('iron-pages');
+		pages.selectNext();
+	});
+
+	this.addEventListener("back", function(){
+		var pages = document.querySelector("iron-pages");
+		pages.selectPrevious();
+	});
+
+	this.addEventListener("signin", function(){
+		window.location = "../../index.html";
+	});
+</script>
 </body>
 </html>
