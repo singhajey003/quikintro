@@ -31,12 +31,12 @@ point from which the user can access the functionality of the app.
 
         <div class="dashboard">
 
-          <qi-icon icon="qi:events" label="Events" count="2" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:around" label="Around me" count="5" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:news" label="News" count="45" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:messages" label="Messages" count="3" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:contacts" label="Contacts"  count="3" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:settings" label="Settings"   on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:events" label="Events" count="2" id="events" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:around" label="Around me" count="5" id="aroundme" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:news" label="News" count="45" id="news" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:messages" label="Messages" count="3" id="messages" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:contacts" label="Contacts"  count="3" id="contacts" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:settings" label="Settings" id="settings" on-click="_handleClick"></qi-icon>
         </div>
 
 
@@ -47,8 +47,9 @@ point from which the user can access the functionality of the app.
 	Polymer({
    		is: 'qi-home',
 
-      _handleClick: function(){
-
+      _handleClick: function(e){
+        var idValue = e.currentTarget.getAttribute("id");
+        this.fire('page-changed', {id: idValue} );
       }
 
 

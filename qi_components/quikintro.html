@@ -67,12 +67,6 @@
               Home
             </paper-icon-item>
 
-             <paper-icon-item id="newsItem" pageId="news"> 
-              <iron-icon icon="settings"></iron-icon>
-                News
-              </paper-item>
-            </paper-icon-item>
-
             <paper-icon-item id="events" pageId="events">
               <iron-icon icon="event"></iron-icon>
               Events
@@ -81,6 +75,13 @@
               <iron-icon icon="maps:my-location"></iron-icon>
               Around Me
             </paper-icon-item>
+
+            <paper-icon-item id="newsItem" pageId="news"> 
+              <iron-icon icon="settings"></iron-icon>
+                News
+              </paper-item>
+            </paper-icon-item>
+
             <paper-icon-item id="messages"   pageId="messages">
               <iron-icon icon="communication:forum"></iron-icon>
               Messages
@@ -124,19 +125,21 @@
             <qi-home></qi-home>
           </section>
 
-          <section id="News" pageId="news">
-            <qi-news-panel></qi-news-panel>
-          </section>
-
           <section id="Event Stream" pageId="events" >
             <qi-event-stream id="eventStream" events="{{eventList}}" personas="{{personas}}"></qi-event-stream>
           </section>
           <section id="Around Me" pageId="aroundme" >
             <qi-aroundme-panel id="aroundMe" ></qi-aroundme-panel>
           </section>
+
+           <section id="News" pageId="news">
+            <qi-news-panel></qi-news-panel>
+          </section>
+
           <section id="Messages" pageId="messages">
             <qi-msg-panel ></qi-msg-panel>
           </section>
+
           <section id="Contacts" pageId="contacts">
             <qi-contact-panel id="contactPanel" contacts="{{contactList}}"></qi-contact-panel>
           </section>
@@ -173,6 +176,7 @@
                 qi.$.coreScaffold.openDrawer();
               }
             },
+
             {
               id:'events',
               panelTitle: 'Events',
@@ -196,6 +200,16 @@
             {
               id:'aroundme',
               panelTitle: 'Around Me',
+              icon: 'qi:logo',
+              clickHandler: function(){
+                var qi = document.querySelector('quik-intro');
+                qi.$.coreScaffold.openDrawer();
+              }        
+            },
+
+            {
+              id:'news',
+              panelTitle: 'News',
               icon: 'qi:logo',
               clickHandler: function(){
                 var qi = document.querySelector('quik-intro');
@@ -380,6 +394,11 @@
           // scaffolding.handleClick = e.clickHandler;
           }
         });
+
+        //when an icon is clicked on the home page, change current page.
+        this.addEventListener('page-changed', function(e){
+            this.setPage(e.detail.id);
+        })
       },
 
       handleToggle: function(){
