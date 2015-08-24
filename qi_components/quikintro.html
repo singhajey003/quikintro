@@ -3,6 +3,7 @@ QuikIntro is a single-page app, and this page is the main
 point at which all quikintro components are integrated.
 
 -->
+
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
@@ -38,9 +39,9 @@ point at which all quikintro components are integrated.
 <link rel="import" href="qi-news/qi-news-panel.html">
 
 <link rel="import" href="qi-custom-icons/qi-icons.html">
-<link rel="import" href="qi-new-theme.html">
+<link rel="import" href="qi-theme.html">
 
-<dom-module id='quik-intro'>
+<dom-module id='quik-intro'> 
 
   <style is="custom-style">
     qi-toggle.anonToggle{
@@ -51,55 +52,79 @@ point at which all quikintro components are integrated.
       left: -100;
     }
 
+
   </style>
 
   <template>
-    <link rel="stylesheet" href="quikintro.css" >
+    <link rel="stylesheet" href="quikintro.css" > 
+
     <iron-localstorage name="events" value="{{eventList}}"></iron-localstorage>
     <iron-localstorage name="contacts" value="{{contactList}}"></iron-localstorage>
     <iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
 
-
-      <paper-drawer-panel narrow="true" forceNarrow="true" mode="waterfall" id="coreScaffold" >
-
+   
+      <paper-drawer-panel narrow="true" forceNarrow="true" mode="waterfall" id="coreScaffold" > 
+     
         <paper-header-panel drawer>
-
-          <div class="centered">
-            <div class="row">
-
+          <paper-toolbar></paper-toolbar>
           <paper-menu selected="{{page}}" valueattr="pageId"  class="fit">
+            <paper-icon-item id="home" pageId="home" class="layout horizontal left">
+              <iron-icon icon="home"></iron-icon>
+              Home
+            </paper-icon-item>
 
-            <paper-button id="home" pageId="home" class="primary">Home</paper-button>
-            <paper-button id="newsItem" pageId="news" class="primary">News</paper-button>
-            <paper-button id="events" pageId="events" class="primary">Events</paper-button>
-            <paper-button id="aroundme" pageId="aroundme" class="primary">Around Me</paper-button>
-            <paper-button id="messages" pageId="messages" class="primary">Messages</paper-button>
-            <paper-button id="contacts" pageId="contacts" class="primary">Contacts</paper-button>
-            <paper-button id="securityItem" pageId="security" class="primary">Security</paper-button>
+             <paper-icon-item id="newsItem" pageId="news"> 
+              <iron-icon icon="settings"></iron-icon>
+                News
+              </paper-item>
+            </paper-icon-item>
 
-            <!-- Close button -->
-            <paper-icon-button id="close" class="close primary" icon="close" on-click="_handleClose"></paper-icon-button>
+            <paper-icon-item id="events" pageId="events">
+              <iron-icon icon="event"></iron-icon>
+              Events
+            </paper-icon-item>
+            <paper-icon-item id="aroundme"  pageId="aroundme">
+              <iron-icon icon="maps:my-location"></iron-icon>
+              Around Me
+            </paper-icon-item>
+            <paper-icon-item id="messages"   pageId="messages">
+              <iron-icon icon="communication:forum"></iron-icon>
+              Messages
+            </paper-icon-item>
+            <paper-icon-item id="contacts"  pageId="contacts">
+              <iron-icon icon="face"></iron-icon>
+              Contacts
+            </paper-icon-item>
+          
+            <paper-icon-item id="securityItem" pageId="security"> 
+              <iron-icon icon="settings"></iron-icon>
+                Settings
+              </paper-item>
+            </paper-icon-item>
 
 
+            
           </paper-menu>
-
-
-              </div>
-            </div>
+        
         </paper-header-panel>
 
-
-
+      
+      
       <paper-header-panel class="fit flex" main>
 
-        <paper-toolbar id="core_toolbar" class="horizontal layout">
-           <paper-icon-button id="menuButton" icon="menu" paper-drawer-toggle></paper-icon-button>
-           <span class="flex" style="font-size:20px;font-weight:300;">[[panelTitle]]</span>
-           <qi-toggle class="anonToggle horizontal end-justified layout" openicon="social:person" closedicon="social:person-outline"></qi-toggle>
+        <paper-toolbar id="core_toolbar" class="horizontal layout"> 
+          <div>
+           <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo" style="display: block" paper-drawer-toggle></paper-icon-button> 
+          </div>
+        
+          <div class="flex">[[panelTitle]]</div> 
+
+          <div><qi-toggle class="anonToggle" style="--icon-color: white" openicon="social:person" closedicon="social:person-outline"></qi-toggle></div>
+        
 
         </paper-toolbar>
 
-        <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="fit flex" >
+        <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="fit flex" > 
 
           <section id="Home" pageId="home">
             <qi-home></qi-home>
@@ -126,21 +151,21 @@ point at which all quikintro components are integrated.
             <qi-settings></qi-settings>
           </section>
 
-
+          
         </iron-pages>
       </paper-header-panel>
 
       </paper-drawer-panel>
 
-
-
+      
+     
     <paper-toast id="toast"></paper-toast>
   </template>
 
   <script>
 
     Polymer({
-      is: 'quik-intro',
+      is: 'quik-intro', 
 
       properties:{
         conf: {type: Array, readonly: true, value:[
@@ -159,7 +184,7 @@ point at which all quikintro components are integrated.
               panelTitle: 'Events',
               icon: 'qi:logo',
               clickHandler: function(e){
-
+               
                 var qi = document.querySelector("quik-intro");
 
                 var selectedEventPage = qi.$.pages.querySelector('qi-event-stream').selectedEventPage;
@@ -181,7 +206,7 @@ point at which all quikintro components are integrated.
               clickHandler: function(){
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
-              }
+              }        
             },
 
             {
@@ -191,7 +216,7 @@ point at which all quikintro components are integrated.
               clickHandler: function(){
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
-              }
+              }      
             },
 
             {
@@ -199,9 +224,10 @@ point at which all quikintro components are integrated.
               panelTitle:'Contacts',
               icon:'qi:logo',
               clickHandler: function(){
+                //alert("I'm Contacts");
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
-              }
+              }       
             },
 
             {
@@ -213,7 +239,7 @@ point at which all quikintro components are integrated.
                 qi.$.coreScaffold.openDrawer();
               }
             },
-
+          
           ]
         },
 
@@ -221,37 +247,58 @@ point at which all quikintro components are integrated.
         panelTitle: {type: String, value: 'QuikIntro'},
         eventList: {type: Array,  value:[], notify: true, observer:'eventListChanged'},
         contactList: {type: Array, value: [], notify: true, observer:'contactListChanged'},
-        personaList: {type: Array, value: [], notify: true, observer:'personaListChanged'},
-
+        personaList: {type: Array, value: [], notify: true, },
+        
       },
 
+      /**
+       * This method sets the currently displayed page.
+       * @param pageId the id of the page as specified in the conf variable, 
+       *        and in the sections pageId attribute.
+       */
+      setPage: function(pageId){
+        for(var i=0; i < this.conf.length; i++){
+          var page = this.conf[i];
+          //alert("page id: " + page.id + " actual:" + pageId  + " i: " + i);
+          if(page.id == pageId){
+            this.page = i;
+            break;
+          }
+        }
+      },
+
+      /**
+       * This change listener is triggered whenever the contact list is changed.
+       * @param newValue
+       */
       contactListChanged: function(newValue, oldValue){
         var contactPanel = this.$.contactPanel;
         contactPanel.contacts = newValue;
 
         var aroundMe = this.$.aroundMe;
         aroundMe.contacts = newValue;
+        //TODO: double check that this method is still needed
       },
 
 
       eventListChanged: function(newValue, oldValue){
         var eventPanel = this.$.eventStream;
         eventPanel.events = newValue;
+
+        //TODO: double check that this method is still needed
       },
 
-      personaListChanged: function(newValue, oldValue){
-
-      },
-
+      
+      /**
+       * This change listener is triggered whenever the 'page' variable is changed.
+       * @param newValue the new page index number
+       * @param oldValue the old page index number
+       */
       pageChanged: function(newValue, oldValue){
         this.$.coreScaffold.closeDrawer();
         var config = this.conf[newValue];
         this.fire('nav-changed', {id: newValue, title: config.panelTitle, type:'top-level'})
-
-      },
-
-      _handleClose: function(){
-        this.$.coreScaffold.closeDrawer();
+        
       },
 
 
@@ -262,14 +309,18 @@ point at which all quikintro components are integrated.
           //TODO add login code here.
 
           // after login is complete, segue to the home page
-          e.currentTarget.selected = 6;
+          this.setPage('home');
         });
 
         var panelTitle = this.panelTitle;
 
+        this.addEventListener('turn-page', function(e){
+           this.setPage(e.detail.pageid);
+        });
+
         this.addEventListener('nav-changed', function(e){
           var nuTitle = e.detail.title;
-
+         
           if(nuTitle.length > 10) {
             nuTitle = nuTitle.substring(0, 10);
             nuTitle += "...";
@@ -303,10 +354,10 @@ point at which all quikintro components are integrated.
 
 
         this.$.pages.addEventListener("core-select", function(e){
-
+          
           var qi = document.querySelector('quik-intro');
           var scaffolding = qi.$.coreScaffold;
-          var menuButton = scaffolding.getMenuButton();
+          var menuButton = this.$.menuButton;
 
           if(e.detail.item.id == 'Event Stream'){
             var qiEventStream = e.detail.item.firstElementChild;
@@ -318,10 +369,10 @@ point at which all quikintro components are integrated.
           if(e.srcElement.id == 'pages'){
             var id = e.detail.item.id;
             if(id != null &&  id != ""){
-
+              
               var conf = qi.conf[id];
 
-              // set the menu button icon
+              // set the menu button icon              
               menuButton.icon = conf.icon;
 
               // set the click handler for the button
@@ -330,18 +381,23 @@ point at which all quikintro components are integrated.
               this.fire('nav-changed', {id: id, title: conf.panelTitle, type:'top-level'})
             }
           }else {
-
+           
           //otherwise the event came from some sub-level page
           // qi.panelTitle = e.panelTitle;
           // menuButton.icon = e.icon;
           // scaffolding.handleClick = e.clickHandler;
           }
         });
+
+        this.addEventListener("page-changed", function(e){
+            alert("page_chagned: " + e.detail.id);
+            this.setPage(e.detail.id);
+        });
       },
 
       handleToggle: function(){
         this.$.coreScaffold.openDrawer();
-      }
+      }  
 
     });
 
