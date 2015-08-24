@@ -20,8 +20,9 @@ it can be easily accessed by other components.
         <iron-ajax auto="true" url="invites.json" on-response="handleInvites" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="news/feeds.json" on-response="handleFeeds" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="meeting-requests.json" on-response="handleMtgs" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="meetings.json" on-response="handleMtgs2" handle-as="json"></iron-ajax>
+        <iron-ajax auto="true" url="files/files.json" on-response="handleFiles" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="matches.json" on-response="handleMatches" handle-as="json"></iron-ajax>
-
         <iron-ajax auto="true" url="files/files.json" on-response="handleFiles" handle-as="json"></iron-ajax>
 
 
@@ -35,8 +36,13 @@ it can be easily accessed by other components.
         <iron-localstorage name="news" value="{{news}}"></iron-localstorage>
         <iron-localstorage name="feeds" value="{{feeds}}"></iron-localstorage>
         <iron-localstorage name="mtgs" value="{{mtgs}}"></iron-localstorage>
-        <iron-localstorage name="matches" value="{{matches}}"></iron-localstorage>
+
+        <iron-localstorage name="calendar" value="{{mtgs2}}"></iron-localstorage>
+
         <iron-localstorage name="files" value="{{files}}"></iron-localstorage>
+
+        <iron-localstorage name="matches" value="{{matches}}"></iron-localstorage>
+
 
     </template>
     <script>
@@ -74,12 +80,18 @@ it can be easily accessed by other components.
             mtgs:{
                 type: Array
             },
+
             matches:{
                 type: Array
+            }
+            mtgs2:{
+                type: Array
             },
+
             files:{
                 type: Array
             }
+
         },
 
         handleEvents: function(e) {
@@ -117,14 +129,17 @@ it can be easily accessed by other components.
             this.mtgs = e.detail.response;
         },
 
-        handleMatches: function(e){
-            this.matches = e.detail.response;
+        handleMtgs2: function(e){
+            this.mtgs2 = e.detail.response;
         },
 
         handleFiles: function(e){
             this.files = e.detail.response;
-        }
+        },
 
+        handleMatches: function(e){
+            this.matches = e.detail.response;
+        }
 
     });
     </script>
