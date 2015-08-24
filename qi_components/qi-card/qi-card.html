@@ -1,6 +1,8 @@
 <!--
-This component represents a card.  
+This component represents a basic card.  
 
+ 	@group QI Elements
+ 	@element qi-card
 -->
 <link rel="import" href="qi-card-behavior.html">
 
@@ -23,8 +25,9 @@ This component represents a card.
 
 
 	<template>
-		<div id="[[cardid]]" class$="{{selectedStyle}}" on-click="select" touch-action="none">
-		<content></content>
+
+		<div class$="{{selectedStyle}}" on-click="select" touch-action="none">
+			<content></content>
 		</div>
 	</template>
 

@@ -17,6 +17,8 @@ It's typically used as follows:
 
 	<template>
 		<link rel="stylesheet" href="qi-field.css"> 
+
+		<template is="dom-if" if="{{!isStacked}}">
 		<div class="row flex layout horizontal justified" > 
 			<div class="labelCell">
 				<label><span>[[label]]</span></label>
@@ -25,13 +27,37 @@ It's typically used as follows:
 				<content></content>
 			</div>
 		</div>
+		</template>
+
+
+		<template is="dom-if" if="{{isStacked}}">
+		<div class="row flex layout vertical justified" > 
+			<div class="labelCell">
+				<label><span>[[label]]</span></label>
+			</div>
+			<div class="fldValue flex"  two> 
+				<content></content>
+			</div>
+		</div>
+		</template>
+
+
+
 	</template>
 
 	<script>
 	Polymer({
    		is: 'qi-field-decorator', 
    		properties:{
-   			label: {type: String}
+   			/**
+   			 * The text of the label
+   			 */
+   			label: {type: String},
+
+   			isStacked:{
+   				type: Boolean,
+   				value: false
+   			}
    		}
 
 	});

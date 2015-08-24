@@ -1,8 +1,10 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 
 <link rel="import" href="../qi-avatar/qi-avatar.html">
-<link rel="import" href="../qi-card/qi-card.html">
+<link rel="import" href="../qi-card/qi-swipe-card.html">
 <link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
+
 <link rel="import" href="qi-contact-behavior.html">
 
 <dom-module id="qi-contact-mini-card">
@@ -11,21 +13,39 @@
 		.selectedCard{
 			border-left: 5px solid #3ea1e6;
 		}
+
+		header {
+			margin-left: 50px;
+		}
+
+
+		header > h3{
+			font-family: Verdana;
+			font-size: 10pt;
+		}
+		.title{
+			font-family: Verdana;
+			color: #707070;
+			font-size: 8pt;
+		}
 	</style>
 	<template>
-		<qi-card model="[[model]]">
-		<qi-avatar url="[[model.avatar]]"></qi-avatar>
+		<qi-swipe-card model="[[model]]">
+
+			
+			<qi-avatar url="[[model.avatar]]"></qi-avatar>
+		
 			<header>
 				<h3><span>[[fullName]]</span></h3>
-				<p></p>
+				<p class="title">[[extTitle]]</p>
 			</header>
-		</qi-card>
+		</qi-swipe-card>
 	</template>
 	<script>
 		Polymer({
 			is: 'qi-contact-mini-card',
 
-			behaviors: [QiCardBehavior, QiContactBehavior]
+			behaviors: [QiCardBehavior, QiContactBehavior, QiSwipeCardBehavior]
 		});
 	</script>
 </dom-module>

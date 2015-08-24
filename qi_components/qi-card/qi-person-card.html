@@ -18,6 +18,7 @@
 <link rel="import" href="../qi-toggle/qi-toggle.html">
 
 <link rel="import" href="qi-card-behavior.html">
+<link rel="import" href="../qi-contact/qi-contact-behavior.html">
 
 <dom-module id="qi-person-card">
 
@@ -108,7 +109,7 @@
 	Polymer({
    		is: 'qi-person-card', 
 
-   		behaviors: [QiCardBehavior],
+   		behaviors: [QiCardBehavior, QiContactBehavior],
 
    		properties: {
 
@@ -131,25 +132,10 @@
 				value: false
 			},
 
-			/**
-			 * This computed property concatenates the first and last name of the model.
-			 */
-			fullName: {
-				type:String,
-				computed: 'computeName(model.firstName, model.lastName)' 
-			}
 			
 		},
 
 
-		/**
-		 * This method concatenates the first and last name of the contact.
-		 * @param firstName the first name of the contact
-		 * @param lastName the last name of the contact
-		 */
-		computeName: function(firstName, lastName){
-			return firstName + " " + lastName;
-		},
 
 		/**
 		 * This observer sets the visibility of the card, whenever the visibility

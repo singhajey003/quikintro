@@ -1,0 +1,82 @@
+
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-tray-behavior.html">
+
+<link rel="import" href="qi-invite-card.html">
+<link rel="import" href="qi-invite-page.html">
+<dom-module id="qi-invite-tray">
+
+	<style is="custom-style">
+	qi-card-tray{
+		--tray-width: 100%;
+		background-color: var(--tray-bgcolor);
+	}
+
+
+	</style>
+
+
+
+	<template>
+		<qi-swipe-card-tray id="invite-tray" fabtrayid="invite-fab-tray" detailpageid="invite-page">
+
+			<template is="dom-repeat" items="[[model]]" index-as"id" as="invite">
+				<qi-invite-card class="selectable-card" model="[[invite]]"></qi-invite-card>
+			</template>		
+
+
+			<paper-fab class="selectable" icon="check" on-click="Accept" mini></paper-fab>
+			<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
+
+
+			<qi-invite-page id="invite-page" class="detail-page"></qi-invite-page>
+
+
+		</qi-swipe-card-tray>
+
+
+	</template>
+
+
+	<script>
+	Polymer({
+		is: 'qi-invite-tray',
+
+		properties:{
+			selectedPage:{
+				type: Number,
+				value: 0
+			}
+		},
+
+		ready: function(){
+			
+		},
+
+
+		_removeCards: function(){
+			//TODO: implement the removal of selected cards.
+		},
+
+		accept: function(){
+			this._removeCards();
+			this.fire('show-toast',{text: 'Invitation(s) Accepted'});
+
+		},
+
+		decline: function(){
+			_removeCards();
+			this.fire('show-toast', {text: 'Invitation(s) Declined'});
+		}
+
+
+	});
+
+
+	</script>
+
+
+</dom-module>

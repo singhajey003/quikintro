@@ -1,0 +1,27 @@
+/*
+input{ visibility: visible}
+button{background-color: #526E9C; color: white;}
+input{background-color: white;}
+
+
+.content{
+  margin-top: 10px;
+  border-top-style: 1px solid black;
+  padding: 30px;
+}
+*/
+
+iron-pages{
+	left: 0px;
+	margin-top: 0px;
+	top: 0px;
+}
+
+
+paper-toolbar{
+	height: 52px;
+	width: 100%;
+}
+
+
+
