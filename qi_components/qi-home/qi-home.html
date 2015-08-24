@@ -44,23 +44,23 @@ point from which the user can access the functionality of the app.
 
       _handleClickEvent: function(){
         alert("1");
-        this.fire("page-changed", {id: "events"});
+        this.fire("page-changed", {id: "aroundme"});
       },
       _handleClickAround: function(){
         alert("2");
-        this.fire("page-changed", {id: "aroundme"});
+        this.fire("page-changed", {id: "messages"});
       },
       _handleClickNews: function(){
         alert("3");
-        this.fire("page-changed", {id: "news"});
+        this.fire("page-changed", {id: "events"});
       },
       _handleClickMsg: function(){
         alert("4");
-        this.fire("page-changed", {id: "messages"});
+        this.fire("page-changed", {id: "contacts"});
       },
       _handleClickContacts: function(){
         alert("5");
-        this.fire("page-changed", {id: "contacts"});
+        this.fire("page-changed", {id: "settings"});
       },
       _handleClickSettings: function(){
         alert("6");
