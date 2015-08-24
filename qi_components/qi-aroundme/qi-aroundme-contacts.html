@@ -27,6 +27,10 @@ This component displays a list of contacts located near the user
 			width: 100%;
 			height: 40px;
 		}
+
+		.slider-holder{
+			background-color: #17aacf;
+		}
 	</style>
 
 
@@ -34,7 +38,7 @@ This component displays a list of contacts located near the user
 	<template>
 		<div class="layout vertical">
 
-			<div>
+			<div class="slider-holder">
 				<paper-slider min="0" max="500" step="100" value="{{matchRadius}}" snaps="true"></paper-slider>
 			</div>
 
