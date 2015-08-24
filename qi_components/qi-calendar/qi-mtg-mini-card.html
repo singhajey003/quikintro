@@ -7,8 +7,9 @@ This component is responsible for displaying calendar items.
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
-<link rel="import" href="../qi-card/qi-card.html">
+<link rel="import" href="../qi-card/qi-swipe-card.html">
 <link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
 
 <link rel="import" href="qi-cal-behavior.html">
 
@@ -18,27 +19,89 @@ This component is responsible for displaying calendar items.
 		:host {
 			display: block;
 		}
+
+		.mtg{
+			font-family: Verdana;
+			font-size: 9pt;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			padding-left: 3px;
+			padding-bottom: 3px;
+		}
+
+		.session{
+			border: 1px solid rgba(168, 218, 168, 0.56);
+		}
+
+		.session-accepted{
+			border: 1px solid rgba(168, 218, 168, 0.56);
+			background-color: rgba(168, 218, 168, 0.56);
+		}
+
+		.meeting{
+			border: 1px solid  #D865CA;
+		}
+
+		.meeting-accepted{
+			border: 1px solid rgba(216, 165, 210, 0.53);
+			background-color: rgba(216, 165, 210, 0.53);
+		}
+
+		.time{
+			font-size: 8pt;
+			color: #505050;
+		}
+
+		qi-swipe-card{
+			--card-width: 80vw;
+		}
+
 	</style>
 	<template>
 
-		<qi-card>
-		<div class="vertical layout">
+		<qi-swipe-card>
+		<div class$="{{mtgstyle}}" on-track="handleCardSwipe" touch-action="none">
 			<div><span>[[model.title]]</span></div>
-			<div>
-				<span>[[mtgtime]]</span><span>[[model.location]</span>
+			<div class="time">
+				<span>[[mtgtime]]</span> &nbsp;<span>[[model.location]]</span>
 			</div>
 		</div>
-		</qi-card>
+		</qi-swipe-card>
 	</template>
 	<script>
 		Polymer({
 			is: 'qi-mtg-mini-card',
-			behaviors:[QiCardBehavior, QiCalBehavior],
+			behaviors:[QiCardBehavior, QiCalBehavior, QiSwipeCardBehavior],
 			properties:{
 				mtgtime:{
 					type: String,
 					computed: 'startEndTime(model.time.start, model.time.end)'
+				},
+
+				mtgstyle:{
+					type: String,
+					computed: '_computeStyle(model)'
 				}
+			},
+
+			_computeStyle: function(model){
+				
+				var style = "mtg vertical layout ";
+				if (model.type !== undefined){
+					if (model.type == 'meeting' && model.RSVP == true){
+						style += "meeting-accepted";
+					}else if (model.type == 'meeting' && model.RSVP == false){
+						style += "meeting";
+					}else if (model.type == 'session' && model.RSVP == true){
+						style += "session-accepted";
+					}else if (model.type == 'session' && model.RSVP == false){
+						style += "session";
+					}
+				}else{
+					console.log("model undefined: " + model);
+
+				}
+				return style;
 			}
 		});
 	</script>

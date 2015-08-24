@@ -24,9 +24,10 @@ for a given day.
 			font-family: Verdana;
 			min-width: 50px;
 			display: table-cell;
+			border-bottom: 1px solid #909090;
 		}
 		.today{
-			background-color: rgba(23, 170, 207, 0.26)
+			background-color: rgba(117, 211, 234, 0.26);
 		}
 
 		.current-day{
@@ -35,19 +36,20 @@ for a given day.
 
 		.mtg-tray{
 			display: table-cell;
+			border-bottom: 1px solid #909090;
 		}
 	</style>
 	<template>
 		<div class="day-row">
-			<div class="day" style$="[[today]]">
+			<div class="day" style$="{{today}}">
 				<span>[[dayOfWeekStr]]</span><br/>
 				<span>[[day]]</span>
 			</div>
 
 			<div class="mtg-tray layout vertical">
-			
-				<qi-mtg-mini-card model="[[model]]"></qi-mtg-mini-card>
-			
+				<template is="dom-repeat" items="[[model.meetings]]" as="mtg">
+					<qi-mtg-mini-card model="[[mtg]]"></qi-mtg-mini-card>
+				</template>
 			</div>
 		</div>
 	</template>
@@ -76,13 +78,13 @@ for a given day.
 				},
 				today:{
 					type: String,
-					computed: '_today()'
+					computed: '_today(date)'
 				}
 			},
 
-			_today: function(){
-				console.log("day: "+this.date.getDay());
-				return  (this.date.day == 7) ? "background-color: rgba(23, 170, 207, 0.26)":"";
+
+			_today: function(date){
+				return  (date.getDate() == 7) ? "background-color: rgba(23, 170, 207, 0.26)":"";
 			},
 
 
@@ -91,7 +93,7 @@ for a given day.
 			},
 
 			_computeDay: function(date){
-				return date.getDate() + 1;
+				return date.getDate();
 			},
 
 			_computeDate: function(dateStr){

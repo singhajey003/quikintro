@@ -8,10 +8,10 @@ This component represents a basic card.
 
 <dom-module id="qi-card">
 
-	<style>
+	<style is="custom-style">
 
 	.card{
-		width: 100vw;
+		width: var(--card-width, 100vw);
 		border: 1px solid #BABABA;
 		background-color: white;
 	}

@@ -22,6 +22,8 @@ it can be easily accessed by other components.
 
         <iron-ajax auto="true" url="meeting-requests.json" on-response="handleMtgs" handle-as="json"></iron-ajax>
 
+        <iron-ajax auto="true" url="meetings.json" on-response="handleMtgs2" handle-as="json"></iron-ajax>
+
 
         <iron-ajax auto="true" url="files/files.json" on-response="handleFiles" handle-as="json"></iron-ajax>
 
@@ -39,6 +41,8 @@ it can be easily accessed by other components.
         <iron-localstorage name="news" value="{{news}}"></iron-localstorage>
         <iron-localstorage name="feeds" value="{{feeds}}"></iron-localstorage>
         <iron-localstorage name="mtgs" value="{{mtgs}}"></iron-localstorage>
+
+        <iron-localstorage name="calendar" value="{{mtgs2}}"></iron-localstorage>
 
         <iron-localstorage name="files" value="{{files}}"></iron-localstorage>
 
@@ -79,6 +83,9 @@ it can be easily accessed by other components.
                 type: Array
             },
             mtgs:{
+                type: Array
+            },
+            mtgs2:{
                 type: Array
             },
 
@@ -124,6 +131,10 @@ it can be easily accessed by other components.
         },
         handleMtgs: function(e){
             this.mtgs = e.detail.response;
+        },
+
+        handleMtgs2: function(e){
+            this.mtgs2 = e.detail.response;
         },
 
         handleFiles: function(e){

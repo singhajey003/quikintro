@@ -26,20 +26,22 @@ for a specific month.
 	</style>
 
 	<template>
-		<div class="month-wrapper">
-		   <div class="month"><span>[[month]]</span></div>
+		<iron-pages selected="{{selectedCalPage}}">
+			<div class="month-wrapper">
+			   <div class="month"><span>[[month]]</span></div>
 
-		   <div class="layout vertical">
-		   <!-- TODO: Fix this so that we are iterating through days -->
+			   <div class="layout vertical">
+			   <!-- TODO: Fix this so that we are iterating through days -->
 
-	   		<template is="dom-repeat" items="[[model]]" as="mtg">
-	   			<qi-day-card model="[[mtg]]"></qi-day-card>
-	   		</template>
+		   		<template is="dom-repeat" items="[[model]]" as="day">
+		   			<qi-day-card model="[[day]]"></qi-day-card>
+		   		</template>
+			   </div>
 
-		   		
-		   </div>
+			</div>
 
-		</div>
+			<qi-calendar-page id="calendarPage"></qi-calendar-page>
+		</iron-pages>
 	</template>
 
 	<script>
@@ -53,7 +55,6 @@ for a specific month.
 				month: {
 					type: String,
 					value: ''
-					
 				},
 
 				/**
@@ -62,18 +63,27 @@ for a specific month.
 				model: {
 					type: Array,
 					value: [],
-					notify: true,
-					observer: '_modelChanged'
+					notify: true
+				},
+
+				selectedCalPage:{
+					type: Number,
+					value: 0
 				}
 			},
 
-			_modelChanged: function(newValue, oldValue){
-				console.log("new model: " + newValue);
-			},
-
 			ready: function(){
-				console.log("ready: " + this.model);
+				this.addEventListener('card-swipe', function(e){
+					this.$.calendarPage.model = e.detail.model;
+					this.selectedCalPage = 1;
+				});
+
+				this.addEventListener('page-swipe', function(){
+					this.selectedCalPage = 0;
+				})
 			}
+
+
 		});
 	</script>
 </dom-module>

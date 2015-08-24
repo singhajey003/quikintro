@@ -11,7 +11,7 @@ This behavior is used for swipeable cards.
 		 * This method is responsible for handling the swiping gesture on the card.
 		 */
 		handleCardSwipe: function(e){
-			if(e.detail.state == 'end'){
+			if(e.detail.state == 'start' || e.detail.state == "track"){
 	  			this.fire('card-swipe', {model: this.model});
 	  			e.stopPropagation();
 	  		}
