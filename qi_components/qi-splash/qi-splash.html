@@ -9,6 +9,8 @@
 
 <link rel="import" href="../qi-theme.html">
 
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+
 <dom-module id='qi-splash'  > 
 
 	<link rel="stylesheet" href="qi-splash.css" > 
@@ -59,6 +61,16 @@
 		</div>
 	</div>
 
+	<paper-dialog id="dialogBox" >
+			<h3>Forgot Password</h3>
+			<paper-input class="splash flex" label="Username: "></paper-input>
+			<paper-input class="splash flex" label="Email: "></paper-input>
+			<div class="buttons">
+    			<paper-button dialog-dismiss>Cancel</paper-button>
+				<paper-button dialog-confirm>Submit</paper-button>
+  			</div>
+		</paper-dialog>
+
 	</template>
 	<script>
 	Polymer({
@@ -73,7 +85,7 @@
 		},
 
 		handleForgotPassword: function(){
-			this.fire("forgot");
+			document.querySelector("#dialogBox").open();
 		}
 
 
