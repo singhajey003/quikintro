@@ -6,7 +6,10 @@ for a specific month.
 	@element qi-month-card
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="qi-day-card.html">
+<link rel="import" href="qi-calendar-page.html">
+
 <dom-module id="qi-month-card">
 	<style>
 		:host {
@@ -35,20 +38,24 @@ for a specific month.
 		   <!-- TODO: Fix this so that we are iterating through days -->
 
 		<iron-pages selected="{{selectedCalPage}}">
-			<div class="month-wrapper">
-			   <div class="month"><span>[[month]]</span></div>
+			<section>
+				<div class="month-wrapper">
+				   <div class="month"><span>[[month]]</span></div>
 
-			   <div class="layout vertical">
-			   <!-- TODO: Fix this so that we are iterating through days -->
+				   <div class="layout vertical">
+				   <!-- TODO: Fix this so that we are iterating through days -->
 
-		   		<template is="dom-repeat" items="[[model]]" as="day">
-		   			<qi-day-card model="[[day]]"></qi-day-card>
-		   		</template>
-			   </div>
+			   		<template is="dom-repeat" items="[[model]]" as="day">
+			   			<qi-day-card model="[[day]]"></qi-day-card>
+			   		</template>
+				   </div>
 
-			</div>
+				</div>
+			</section>
 
-			<qi-calendar-page id="calendarPage"></qi-calendar-page>
+			<section>
+				<qi-calendar-page id="calendarPage"></qi-calendar-page>
+			</section>
 		</iron-pages>
 	</template>
 
