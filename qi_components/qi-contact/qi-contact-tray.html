@@ -24,9 +24,16 @@ This component displays a list of contacts.
 	<template>
 		
 	<qi-swipe-card-tray detailpageid="contact-detail" fabtrayid="contact-fabtray">
+	<template is="dom-if" if="{{hasContacts}}" >
 		<template is="dom-repeat" items="[[model]]" as="contact">
 			<qi-contact-mini-card class="selectable-card" model="{{contact}}"></qi-contact-mini-card>
 		</template>
+	</template>
+
+	<template is="dom-if" if="{{!hasContacts}}" >
+		No Contacts
+	</template>
+
 
 		<qi-contact-page id="contact-detail" class="detail-page"></qi-contact-page>
 
@@ -48,7 +55,17 @@ This component displays a list of contacts.
 				model:{
 					type: Array,
 					value: []
+				},
+				hasContacts:{
+					type: Boolean,
+					computed: '_computedHasContacts(model)'
 				}
+
+
+			},
+			_computedHasContacts: function(model){
+				//console.log(model);
+				//return(model.sender.contacts.length==0);
 			}
 		});
 	</script>

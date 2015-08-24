@@ -5,12 +5,21 @@
   @element qi-invite-page
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
-
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
+
 <link rel="import" href="./../qi-new-theme.html">
+<link rel="import" href="../qi-persona/qi-persona-field.html">
+
+<link rel="import" href="../qi-field/qi-field-decorator.html">
+<link rel="import" href="../qi-contact/qi-contact-tray.html">
+
+
+
 <dom-module id="qi-invite-page">
+
 
 	<style is="custom-style">
 
@@ -24,7 +33,7 @@
 	}
 
 	.details{
-		color: white;
+		
 	}
 
 	.titleco{
@@ -36,6 +45,8 @@
 
 	<template>
 
+	<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
+
 	<div class="detail-page" on-track="handlePageSwipe">
 		<div><span>[[fullname]]</span></div>
 
@@ -43,12 +54,12 @@
 
 			<div class="avatar" >
 				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
-			<div>
+			</div>
 
 			<div class="details">
 				<div><span class="titleco">[[titleco]]</span></div>
 
-				<div><!-- personas go here --></div>
+				<div><qi-persona-field model="[[personas]]" personal = "[[model.sender.persona]]"></qi-persona-field></div>
 				
 
 			</div>
@@ -57,9 +68,11 @@
 
 		<div class="layout horizontal">
 			<div class="layout vertical">
-				<label>Common Contacts</label>
-				<span>[[model.contacts.length]]</span>
-			</div>
+
+			<qi-field-decorator label="Common Contacts" >
+				<qi-contact-tray model="[[model.sender.contacts]]"></qi-contact-tray>
+			</qi-field-decorator>
+		</div>
 
 			<div class="layout vertical">
 				<label>Persona Match</label>
@@ -117,6 +130,10 @@
 
 			_computeFullName: function(model){
 				return model.sender.firstName + " " + model.sender.lastName;
+			},
+
+			ready: function(){
+				console.log(this.model);
 			}
 
 
