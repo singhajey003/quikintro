@@ -9,10 +9,15 @@ This component is responsible for displaying meeting information.
 
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html">
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 
-<link rel="import" href="../qi-custom-icons/qi-icons">
-<link rel="import" href="../qi-field/qi-icon-field.html">
+<link rel="import" href="../qi-custom-icons/qi-icons.html">
+<link rel="import" href="../qi-field/qi-date-field.html">
 <link rel="import" href="../qi-field/qi-collapse-field.html">
+<link rel="import" href="../qi-file/qi-file-tray.html">
+
+<link rel="import" href="../qi-card/">
+
 <link rel="import" href="qi-guest-card.html">
 
 <dom-module id="qi-calendar-page">
@@ -22,39 +27,63 @@ This component is responsible for displaying meeting information.
 		}
 
 		.description{
-
+			padding-left: 3px;
+			font-size: 9pt;
+			color: #707070;
 		}
 
-		header > span{
+		header{
 			color: white;
-			background-color: blue;
+			background-color: #17aacf;
+			height: 45px;
+			padding-top: 10px;
+			padding-left: 3px;
+			vertical-align: middle;
 		}
+
+		.services{
+			padding-left: 10px;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			text-align: center;
+		}
+
+		.services > iron-icon{
+			--iron-icon-width: 40px;
+			--iron-icon-height: 40px;
+			color: #707070;
+			padding-right: 20px;
+		}
+
+
 	</style>
 	<template>
-		<div>
+		<div class="flex" on-track="handlePageSwipe">
 		<header>
 			<span>[[model.title]]</span>
 		</header>
+
+		<qi-date-field icon="event" date="[[model.date]]" time="[[time]]"></qi-date-field>
 
 		<div class="description">
 			<span>[[model.description]]</span>
 		</div>
 
-		<qi-icon-field icon="event" date="[[model.date]]" time="[[time]]"></qi-icon-field>
-
-		<div class="horizontal layout justify">
+		<div class="services center horizontal layout">
 			<iron-icon icon="qi:uber"></iron-icon>
 			<iron-icon icon="qi:opentable"></iron-icon>
 			<iron-icon icon="qi:grubhub"></iron-icon>
 		</div>
 
-		<qi-collapse-field icon="social:people">
+		<template is="dom-if" if="{{model.invitees.length > 0}}">
+		<qi-collapse-field icon="social:people" label="Attendees">
 			<template is="dom-repeat" items="[[model.invitees]" as="guest">
 				<qi-guest-card model="[[guest]]"></qi-guest-card>
 			</template>
 		</qi-collapse-field>
+		</template>
 
-		<qi-collapse-field icon="work">
+		<qi-collapse-field icon="work" label="Documents">
 			<iron-localstorage name="files" value="{{files}}"></iron-localstorage>
 			<qi-file-tray model="{{files}}"></qi-file-tray>
 		</qi-collapse-field>
@@ -64,6 +93,7 @@ This component is responsible for displaying meeting information.
 	<script>
 		Polymer({
 			is: 'qi-calendar-page',
+			behaviors: [QiSwipePageBehavior],
 			properties:{
 				time: {
 					model:{
@@ -72,7 +102,7 @@ This component is responsible for displaying meeting information.
 
 					time:{
 						type: String,
-						computed: '_concateTime(model.time.start, model.time.end)'
+						computed: '_concatTime(model.time.start, model.time.end)'
 					}
 				}
 			},
@@ -82,7 +112,7 @@ This component is responsible for displaying meeting information.
 			 * @param start the start time
 			 * @param end the end time
 			 */
-			_concateTime: function(start, end){
+			_concatTime: function(start, end){
 				return start + " - " + end;
 			}
 		});

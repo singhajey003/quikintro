@@ -1,21 +1,23 @@
 [
 
 	{
-		"name":"A Brief(ish) History of Big Data",
+		"name":"Recent Advances in Pancreatic Cancer",
+		"author":"Dr. E. Kaushik Kumar",
 		"type":"slides",
-		"description":"Many believe Big Data is a brand new phenomenon. It isn't, it is part of an evolution that reaches far back history. Here are some of the key milestones in this development.",
-		"url":"http://www.slideshare.net/BernardMarr/a-brief-history-of-big-data?qid=e740b027-eb9f-4072-8e6b-9f9f987c772d&v=qf1&b=&from_search=10",
-		"keywords":["big data","hadoopworld2015"],
+		"description":"Comprehensive coverage of recent advances in Pancreatic cancer over the past decade",
+		"url":"http://www.slideshare.net/crickaush100/recent-advances-in-pancreatic-cancer-48563633?qid=41949e16-c419-4dd7-b3af-676e824f2718&v=default&b=&from_search=10",
+		"keywords":["cancer","pancreatic cancer"],
 		"preview":"../data/files/slides-preview.jpg"
 	},
 
 	{
-		"name":"Big Data, Big Hype?",
+		"name":"Tumor Heterogeneity",
+		"author":"Ed Yong",
 		"type":"bookmark",
-		"description":"FIRST THERE WAS 'Big Data,'' and then there was 'Big Data Analytics.'' These terms are everywhere, but there has been a recent media backlash about the effectiveness of Big Data. Tim Harford summed this up in a recent Financial Times article by saying 'Big Data has arrived, but big insights have not.'",
-		"url":"http://www.wired.com/insights/2014/04/big-data-big-hype/",
-		"keywords":["big data","hadoopworld2015"],
-		"preview":"http://www.wired.com/wp-content/uploads/2013/01/bigdata_660.png"
+		"description":"When I used to work at a cancer charity, I would often hear people asking why there isn’t a cure yet. This frustration is understandable. Despite the billions of dollars and pounds that go into cancer research, and the decades since a war on cancer was declared, the “cure” remains elusive.",
+		"url":"http://blogs.discovermagazine.com/notrocketscience/2012/03/07/a-world-within-a-tumour-%E2%80%93-new-study-shows-just-how-complex-cancer-can-be/#.VdtQeehVhBc",
+		"keywords":["cancer","tumor heterogeneity"],
+		"preview":"http://blogs.discovermagazine.com/notrocketscience/files/2012/02/Keyhole.jpg"
 	},
 
 	{
