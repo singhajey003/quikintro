@@ -15,7 +15,7 @@
 
 <link rel="import" href="../qi-field/qi-field-decorator.html">
 <link rel="import" href="../qi-contact/qi-contact-tray.html">
-
+<link rel="import" href="../qi-twitter/qi-twitter-panel.html">
 
 
 <dom-module id="qi-invite-page">
@@ -29,15 +29,30 @@
 	}
 
 	.avatar{
-
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 
 	.details{
 		
 	}
+	.contacts{
+	}
+	.contactBlock{
+		margin: auto;
+	}
 
 	.titleco{
-
+		margin-right: 25px;
+	}
+	.score{
+		color: #5c91cc;
+		max-width: 50px;
+		margin-right: 1px;
+	}
+	.pct{
+		color: #5c91cc;
+		max-width: 30px;
 	}
 
 	</style>
@@ -45,12 +60,18 @@
 
 	<template>
 
+		<iron-ajax id="ajax"
+		auto="true"
+	  url="../data/aacr15.tweets.json"
+	  handleAs="json"
+	  last-response="{{response}}" on-error="errorHandler"></iron-ajax>
+
 	<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
 
 	<div class="detail-page" on-track="handlePageSwipe">
 		<div><span>[[fullname]]</span></div>
 
-		<div class="band vertical layout">
+		<div class="band horizontal layout">
 
 			<div class="avatar" >
 				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
@@ -67,36 +88,43 @@
 		</div>
 
 		<div class="layout horizontal">
-			<div class="layout vertical">
+			<div class="flex layout vertical contactBlock">
 
-			<qi-field-decorator label="Common Contacts" >
-				<qi-contact-tray model="[[model.sender.contacts]]"></qi-contact-tray>
+				<qi-field-decorator is-stacked="true" label="Common Contacts" >
+				<span class="contacts">[[model.sender.contacts]]</span>
 			</qi-field-decorator>
 		</div>
 
-			<div class="layout vertical">
-				<label>Persona Match</label>
-				<span class="score">[[model.match]]</span><span class="pct">%</span>
+		<div class="flex layout vertical">
+			<label>Persona Match</label>
+			<div class="layout horizontal">
+				<span class="score">[[model.sender.score]]</span><span class="pct">%</span>
 			</div>
+		</div>
 
 		</div>
 
 		<div class="traits">
 			<label>Matching Traits</label>
-			<qi-traitlist model="[[model.sender.interests]]"></qi-traitlist>
+			<qi-traitlist traits="[[model.sender.interests]]"></qi-traitlist>
 		</div>
 
 		
 
 		<div class="summary">
-			<label>Summary</label>
-			[[model.sender.summary]]
+			<qi-field-decorator is-stacked="true" label="Summary" >
+				<span>[[model.sender.summary]]</span>
+			</qi-field-decorator>
+	
 		</div>
 
 
 		<div class="tweets">
+
 			<label>Matching tweets</label>
-			<qi-tweet-tray ></qi-tweet-tray>
+			<template is="dom-repeat" items="[[response.statuses]]" as="tweet">
+				<qi-tweet-card id="[[articleId]]" cardstyle="card card-wrapper layout horizontal" class="selectable-card" model="[[tweet]]" ></qi-tweet-card>
+			</template>
 		</div>
 
 	</div>
