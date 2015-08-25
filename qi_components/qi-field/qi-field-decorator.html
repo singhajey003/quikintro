@@ -12,8 +12,9 @@ It's typically used as follows:
  	@element qi-field-decorator
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<dom-module id='qi-field-decorator'  > 
+
+<dom-module id='qi-field-decorator'  >
+
 
 
 	<style>
@@ -28,12 +29,13 @@ It's typically used as follows:
 	<template>
 		
 
+
 		<template is="dom-if" if="{{!isStacked}}">
 		<div class="row flex layout horizontal justified" > 
 			<div class="labelCell">
 				<label><span>[[label]]</span></label>
 			</div>
-			<div class="fldValue flex"  two> 
+			<div class="flex fldValue">
 				<content></content>
 			</div>
 		</div>
@@ -57,8 +59,10 @@ It's typically used as follows:
 
 	<script>
 	Polymer({
-   		is: 'qi-field-decorator', 
+   		is: 'qi-field-decorator',
+   		
    		properties:{
+
    			/**
    			 * The text of the label
    			 */
@@ -77,4 +81,4 @@ It's typically used as follows:
 	});
 	</script>
 
-</dom-module> 
+</dom-module>

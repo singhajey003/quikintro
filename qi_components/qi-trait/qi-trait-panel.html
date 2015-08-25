@@ -1,15 +1,14 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
-<dom-module id='qi-trait-panel'  > 
+<dom-module id='qi-trait-panel'  >
 
-    <link rel="stylesheet" href="../quikintro.css" > 
-    <link rel="stylesheet" href="traitlist.css" > 
+    <link rel="stylesheet" href="traitlist.css" >
 
 
   <template>
 
     <div style="padding-left: 30px; padding-right: 30px;">
-    <div class="card-wrapper"> 
+    <div class="card-wrapper">
           <div class="card traits">
             <h3>My Interests</h3>
 
@@ -19,23 +18,23 @@
               <paper-progress class="type1" value="[[interest.percent]]"></paper-progress> <span>[[interest.percent]]</span>%
             </div>
             </template>
-            
+
           </div>
         </div>
-        <div class="card-wrapper">  
+        <div class="card-wrapper">
           <div class="card traits">
-            <h3>Attendee Interests</h3> 
+            <h3>Attendee Interests</h3>
 
-            <template is="dom-repeat" items="[[event.traitstats.attendeeInterests]]" as="interest"> 
-            <div class="trait-pair horizontal layout"> 
+            <template is="dom-repeat" items="[[event.traitstats.attendeeInterests]]" as="interest">
+            <div class="trait-pair horizontal layout">
               <paper-checkbox ></paper-checkbox>
-              <div class="vertical layout">  
+              <div class="vertical layout">
                 <h4><span>[[interest.name]]</span> - <span>[[interest.percent]]</span>%</h4>
               </div>
             </div>
             </template>
 
-           
+
           </div>
         </div>
         </div>
@@ -44,7 +43,7 @@
 
   <script>
     Polymer({
-     is: 'qi-trait-panel', // CONVERTED WIP 
+     is: 'qi-trait-panel', // CONVERTED WIP
      properties:{
       event:{type: Object}
      }
@@ -52,4 +51,4 @@
 
   </script>
 
-</dom-module> 
+</dom-module>

@@ -1,6 +1,6 @@
 <!--
  This module is used to render a list of traits.
- 
+
 	@group QI Elements
 	@element qi-traitlist
 -->
@@ -8,23 +8,23 @@
 <link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="qi-trait.html">
 
-<dom-module id='qi-traitlist'  > 
+<dom-module id='qi-traitlist'  >
 
-	<link rel="stylesheet" href="../quikintro.css" >
+
 	<link rel="stylesheet" href="traitlist.css">
 
 
 	<template>
 
 	 <div class="trait-wrapper"> 
-    
+
 	 	<iron-selector id="traitSelector" multi="true" attr-for-selected="model">
 		<template is="dom-repeat" items="{{traits}}"  as="trait">
 			<qi-trait trait='[[trait]]' on-click='_select'>
 			</qi-trait>
 		</template>
 		</iron-selector>
-		
+
 
 		<template is="dom-if" if="{{traits.length == 0}}">
 		<span>[[emptymsg]]</span>
@@ -36,7 +36,7 @@
 
 	<script>
 	Polymer({
-   		is: 'qi-traitlist', 
+   		is: 'qi-traitlist',
 
    		properties:{
 
@@ -58,13 +58,16 @@
    			}
    		},
 
+   		/**
+   		 * This method allows a host component to add the selected trait to the user's persona.
+		 */
    		_select: function(e){
    			this.fire('tag-selected', {tag: e.srcElement.innerText});
    		}
-   		
+
 
 	});
 
 	</script>
 
-</dom-module> 
+</dom-module>

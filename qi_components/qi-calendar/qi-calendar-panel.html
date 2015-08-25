@@ -4,6 +4,7 @@ This is the top-level calendar component.
 	@group QI Elements
 	@element qi-calendar-panel
 -->
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 <link rel="import" href="qi-month-card.html">
 
@@ -14,11 +15,9 @@ This is the top-level calendar component.
 		}
 	</style>
 	<template>
-		<qi-month-card month="[[month]]">
-		  <template is="dom-repeat" items="[[model]]" as="mtg" >
+		<iron-localstorage name="calendar" value="{{mtgs}}"></iron-localstorage>
+		<qi-month-card month="[[month]]" model="{{mtgs}}"></qi-month-card>
 
-		  </template>
-		</qi-month-card>
 	</template>
 	<script>
 		Polymer({
@@ -32,7 +31,8 @@ This is the top-level calendar component.
 					type: Object
 				},
 				month:{
-					type: String
+					type: String,
+					value: "January"
 				}
 			}
 		});

@@ -11,8 +11,10 @@
      "avatar": "https://media.licdn.com/mpr/mpr/shrink_100_100/AAEAAQAAAAAAAAMyAAAAJGFjY2U0NDM3LTE5YTktNGQxNy1iMjE1LWQ4Y2E0MWQ3OGJiNQ.jpg",
      "food": ["thai", "chinese", "vietnamese", "spanish", "mexican", "american diners", "tex-mex", "cuban", "greek"],
      "drink": ["cabernet", "merlot", "port"],
-     "music":["Miles Davis", "John Coltrane","JS Bach","Tomaso Albinoni","Haydn","Vivaldi", "BB King", "Robert Cray", "John Lee Hooker", "Buddy Guy","Albert Collins","Frank Sinatra","Nat King Cole","Mozart","Rush", "The Beatles","The Byrds","Aaron Copland","Domenico Scarlatti", "Collective Soul","The Church","The Verge","Alan Hovhaness"],
+
+     "music":["Miles Davis", "John Coltrane","JS Bach","Tomaso Albinoni","Haydn","Vivaldi", "BB King", "Robert Cray","Stevie Ray Vaughn", "John Lee Hooker", "Buddy Guy","Albert Collins","Frank Sinatra","Nat King Cole","Mozart","Rush", "The Beatles","The Byrds","Aaron Copland","Domenico Scarlatti", "Collective Soul","The Church","The Verge","Alan Hovhaness"],
      "art":["The PreRaphaelites","Edward Burne-Jones","The Impressionists","Monet","Manet","John Singer Sargent"],
+
      "positions": {
          "_total": 10,
          "values": [
