@@ -29,6 +29,8 @@ it can be easily accessed by other components.
 
         <iron-ajax auto="true" url="matches.json" on-response="handleMatches" handle-as="json"></iron-ajax>
 
+        <iron-ajax auto="true" url="action-items.json" on-response="handleActionItems" handle-as="json"></iron-ajax>
+      
 
 
         <iron-localstorage name="invites" value="{{invites}}"></iron-localstorage>
@@ -47,6 +49,8 @@ it can be easily accessed by other components.
         <iron-localstorage name="files" value="{{files}}"></iron-localstorage>
 
         <iron-localstorage name="matches" value="{{matches}}"></iron-localstorage>
+
+        <iron-localstorage name="actionItems" value="{{actionItems}}"></iron-localstorage>
 
 
     </template>
@@ -143,6 +147,10 @@ it can be easily accessed by other components.
 
         handleMatches: function(e){
             this.matches = e.detail.response;
+        },
+
+        handleActionItems: function(e){
+            this.actionItems = e.detail.response;
         }
 
 

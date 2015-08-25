@@ -1,0 +1,125 @@
+<!--
+This component displays an icon with a label and a number of relevant notifications
+
+
+	@group QI Elements
+	@element qi-icon
+-->
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html" >
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
+
+<dom-module id='qi-icon'>
+
+	<style is="custom-style">
+
+   .number {
+     background: #fff;
+     width: 22px;
+     height: 22px;
+     position: absolute;
+     bottom: 35px;
+     right: 2px;
+     border-radius: 999px;
+     font-size: 0.8em;
+     font-weight: bold;
+   }
+
+    .icon-container {
+      display:block;
+      width:50%;
+      text-align:center;
+      text-decoration:none;
+      position: relative;
+      display: inline-block;
+    }
+
+
+    .icon-container label {
+      display:block;
+      margin:0.8em 0 0 0;
+      text-align:center;
+      color:#fff;
+      font-size: 1.0em;
+      font-weight: 300;
+      width: 50%;
+    }
+
+
+
+    .icon-home {
+      color:#fff;
+      --iron-icon-height: 60px;
+      --iron-icon-width: 60px;
+    }
+
+    .iron-icon-button {
+      color:#fff;
+    }
+    </style>
+
+<template>
+      <div class="icon-container">
+          <paper-icon-button icon="{{icon}}" class="icon-home"></paper-icon-button>
+          <template is="dom-if" if="{{hasCount}}">
+            <div class="number">{{count}}</div>
+          </template>
+          <label>{{label}}</label>
+      </div>
+</template>
+
+	<script>
+    // element registration
+    Polymer({
+      is: "qi-icon",
+
+
+      properties: {
+        
+        /**
+         * An optional count of the number of new objects associated with the icon. This could be new 
+         * meeting requests, new invitation requests, etc.
+         */
+        count: {
+          type: Number,
+          value: 0
+        },
+
+        /**
+         * The name of the icon to be displayed.  Must be an icon found in one of the icon sets.
+         */
+        icon: {
+          type: String,
+          value: "qi:events"
+        },
+
+        /**
+         * The label to be displayed beneath the icon.
+         */
+        label: {
+          type: String,
+          value: "Events"
+        },
+
+        /**
+         * Determines whether or not there is a 'count' that must be displayed.
+         */
+        hasCount:{
+          type: Boolean,
+          computed: '_hasCount(count)'
+        }
+      },
+
+      /**
+       * Determines whether or not there is a 'count' that must be displayed.
+       * If the value is zero, the count will not be displayed.
+       * @param count a count to be displayed. The default is zero.
+       */
+      _hasCount: function(count){
+        return count > 0;
+      }
+
+
+    });
+  </script>
+
+</dom-module>

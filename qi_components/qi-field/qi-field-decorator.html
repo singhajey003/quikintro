@@ -15,8 +15,18 @@ It's typically used as follows:
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <dom-module id='qi-field-decorator'  > 
 
+
+	<style>
+	.labelCell{
+		font-family: var(--label-font, Verdana);
+		font-size: var(--label-size, 10pt);
+		color: var(--label-color, #17aacf);
+	}
+
+	</style>
+
 	<template>
-		<link rel="stylesheet" href="qi-field.css"> 
+		
 
 		<template is="dom-if" if="{{!isStacked}}">
 		<div class="row flex layout horizontal justified" > 
