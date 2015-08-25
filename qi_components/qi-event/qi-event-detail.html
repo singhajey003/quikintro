@@ -1,12 +1,12 @@
 <!--
   This class contains all of the detailed information for an event and includes
-  tabs to display that information.  
+  tabs to display that information.
 
   @group QI Elements
   @element qi-event-detail
 -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
@@ -32,36 +32,27 @@
 
 
 
-<dom-module id='qi-event-detail'  > 
-
-  <link rel="stylesheet" href="../quikintro.css" > 
-  <link rel="stylesheet" href="qi-events.css" >
-  <!--<link rel="stylesheet" href="../qi-cards.css" >-->
-
-
+<dom-module id='qi-event-detail'>
 
   <template>
-  
-  <paper-scroll-header-panel id="eventDetailHeaderPanel" condenses="false" fixed="true" class="layout flex fit" noReveal="true" 
-  > 
 
-    <paper-toolbar class="flex" style="min-height: 40px">  
-    
-      <paper-tabs id="scrollableTabs" selected="{{selected}}" disableDrag="false" scrollable="true" role="tablist" hideScrollButton="false" class="flex" no-bar >  
+  <paper-scroll-header-panel id="eventDetailHeaderPanel" condenses="false" fixed="true" class="layout flex fit" noReveal="true">
+
+
+      <paper-tabs id="scrollableTabs" noink="true" selected="{{selected}}"  scrollable="true" role="tablist" hideScrollButton="false" class="flex">
         <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
         <paper-tab role="tab" >Matches</paper-tab>
         <paper-tab role="tab" >Contacts</paper-tab>
         <paper-tab role="tab" >Meetings</paper-tab>
         <paper-tab role="tab" >Tweets</paper-tab>
         <paper-tab role="tab" >Traits</paper-tab>
-        <paper-tab role="tab" >Notes</paper-tab>      
+        <paper-tab role="tab" >Notes</paper-tab>
       </paper-tabs>
-    
-    </paper-toolbar>
-    
 
-    <div > 
-    <iron-pages id="eventPages" selected="{{selected}}" class="layout flex fit" >
+
+
+    <div >
+    <iron-pages id="eventPages" selected="{{selected}}" class="layout flex" >
 
       <div id="summary" >
         <qi-event-summary event="{{event}}" personas="{{personas}}"></qi-event-summary>
@@ -71,16 +62,16 @@
         <template is="dom-repeat" items="{{event.matches}}"  as="match">
           <qi-event-detail-match match="[[match]]"></qi-event-detail-match>
         </template>
-  
-        <qi-invite-dialog id="inviteDialog"></qi-invite-dialog> 
+
+        <qi-invite-dialog id="inviteDialog"></qi-invite-dialog>
       </div>
 
       <div id="contacts">
          <template is="dom-repeat" items="{{event.contacts}}" as="contact">
           <qi-contact-card contact="{{contact}}"></qi-contact-card>
-        </template> 
+        </template>
         <qi-mtg-dialog id="mtgDialog"></qi-mtg-dialog>
-        <qi-msg-dialog id="msgDialog"></qi-msg-dialog>   
+        <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
       </div>
 
       <div id="meetings">
@@ -101,8 +92,8 @@
 
 
       <div id="traits">
-       <qi-trait-panel event="{{event}}"></qi-trait-panel> 
-       
+       <qi-trait-panel event="{{event}}"></qi-trait-panel>
+
       </div>
 
       <div id="notes">
@@ -111,25 +102,25 @@
     </iron-pages>
     </div>
     </paper-scroll-header-panel>
-    
+
 
    </template>
 
    <script>
 
   Polymer({
-      is: 'qi-event-detail', 
+      is: 'qi-event-detail',
 
       properties:{
         /**
          * The event model.
          */
         event:{
-          type: Object, 
+          type: Object,
           observer:'eventChanged'
         },
 
-        /** 
+        /**
          * An array of personas for the currently logged-in user.
          */
         personas:{type: Array},
@@ -140,7 +131,7 @@
         selected:{type: Number, value: 0}
       },
 
- 
+
       /**
        * This event is used to update the navigation element.
        * @param newValue  the new event
@@ -199,21 +190,21 @@
             mtgDialog.contact = e.detail.contact;
             mtgDialog.open();
           });
-          
+
         },
 
         backHandler: function(){
           this.fire('core-select', {panelTitle:'Event Stream', icon:'arrow-back', clickHandler: function(){}});
         }
 
-    
 
 
 
-       
-    
+
+
+
       });
 
    </script>
 
-</dom-module> 
+</dom-module>

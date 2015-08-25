@@ -7,9 +7,7 @@
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html" >
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html" >
 
-<link rel="import" href="../qi-theme.html">
-
-<dom-module id='qi-toggle'  > 
+<dom-module id='qi-toggle'  >
 
 	<style is="custom-style">
 
@@ -20,12 +18,12 @@
 	</style>
 
 	<template>
-		<paper-icon-button class="iconBtn" icon="{{curricon}}" on-click="toggleAction"></paper-icon-button> 
+		<paper-icon-button class="iconBtn" icon="{{curricon}}" on-click="toggleAction"></paper-icon-button>
 	</template>
 
 	<script>
 		Polymer({
-    		is: 'qi-toggle', 
+    		is: 'qi-toggle',
 
     		properties:{
 				/**
@@ -46,7 +44,7 @@
 				curricon:{type: String,  value:''},
 
 				/**
-				 * A flag indicating whether or not the toggle is open or closed. 
+				 * A flag indicating whether or not the toggle is open or closed.
 				 */
 				isOpened:{type: Boolean,  value:false}
 			},
@@ -70,4 +68,4 @@
 
 	</script>
 
-</dom-module> 
+</dom-module>

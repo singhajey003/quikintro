@@ -19,32 +19,55 @@
 		body{
 			background-color: #505050;
 		}
+
 		.myIcon{
 			color: white;
+
+			--iron-icon-height: 40px;
+			--iron-icon-width: 40px;
+		}
+
+
+		html /deep/ .myIcon{
+			color: white !important;
+
 			width:120px !important;
 			height:120px !important;
+
 			--iron-icon-height: 128px;
     		--iron-icon-width: 128px;
 			margin:20px;
 		}
 		.myIcon.logo circle, .myIcon.uber .st1 {
 		    opacity: 0.20;
+
 		}
 
-		.myIcon.add, .myIcon.search {stroke:#ffffff;}
+
+		.myIcon.add, .myIcon.search, .myIcon.menu {stroke:#ffffff;}
+
 	</style>
 
 </head>
 <body>
 
+
 	<iron-icon class="myIcon" icon="qi:logo"></iron-icon>
 	<iron-icon class="myIcon add" icon="qi:add"></iron-icon>
 	<iron-icon class="myIcon search" icon="qi:search"></iron-icon>
 
-	<iron-icon class="myIcon logo" icon="qi:logo" size="120" ></iron-icon>
+
 	<iron-icon class="myIcon uber" icon="qi:uber" size="120" ></iron-icon>
 	<iron-icon class="myIcon grubhub" icon="qi:grubhub" size="120" ></iron-icon>
 	<iron-icon class="myIcon opentable" icon="qi:opentable" size="120" ></iron-icon>
+
+	<iron-icon class="myIcon linkedin" icon="qi:linkedin"></iron-icon>
+	<iron-icon class="myIcon twitter" icon="qi:twitter"></iron-icon>
+	<iron-icon class="myIcon meetup" icon="qi:meetup"></iron-icon>
+
+	<iron-icon class="myIcon menu" icon="qi:menu"></iron-icon>
+	<iron-icon class="myIcon bookmark" icon="qi:bookmark"></iron-icon>
+
 
 </body>
 </html>

@@ -373,10 +373,7 @@
             },
             "name": "Greater San Diego Area"
         },
-        "avatar": "https://media.licdn.com/mpr/mprx/0_iWKW8jukhRXZQyiq_HG98YaUGOKnQ01qTmk98YYXjRkQMUXN7785aOoo2KrWL4-4GEtB7J2tPNdK",
-        "siteStandardProfileRequest": {
-            "url": "https://www.linkedin.com/profile/view?id=5160589&authType=name&authToken=T2xO&trk=api*a3227641*s3301901*"
-        },
+        "avatar":null,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"]
     }

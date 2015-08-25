@@ -5,7 +5,7 @@ This component displays a matching user at an event.
 	@elements qi-event-detail-match
 -->
 
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
 
@@ -14,11 +14,7 @@ This component displays a matching user at an event.
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 
-<dom-module id='qi-event-detail-match'  > 
-
-	<link rel="stylesheet" href="../quikintro.css" > 
-	<link rel="stylesheet" href="qi-events.css" > 
-	<link rel="stylesheet" href="../qi-contact/qi-contact-card.css" > 
+<dom-module id='qi-event-detail-match'  >
 
 	<style>
 	#collapse{
@@ -40,48 +36,55 @@ This component displays a matching user at an event.
 		text-align: right;
 	}
 	</style>
- 	
+
 	<template>
 
-		<div class="card-wrapper"> 
+		<div class="card-wrapper">
 
-			<div class="card card-photo layout vertical">
+			<div class="inner card card-photo layout vertical">
 
-
-			<div class="layout horizontal">
-				<div class="avatarBlock">
+				<!-- First row -->
+				<div class="layout horizontal">
+					<!-- Left part -->
 					<qi-avatar url="[[match.avatar]]"></qi-avatar>
+
+					<!-- Middle part -->
+					<div class="layout vertical flex">
+						<header>
+							<h3 class="name"><span>{{fullname}}</span></h3>
+							<div class="sub title">[[match.title]]</div>
+							<div class="sub company">[[match.company]]</div>
+						</header>
+
+						<div class="summary horizontal justified layout end" >
+<!-- 							<div class="distAway"> &lt; <span>[[match.distanceAway]]</span> meters away</div>
+ -->						</div>
+
+					</div>
+
+					<!-- Right part -->
+					<div class="horizontal end-justified layout matchPct">[[match.match]]<span class="small">%</span></div>
+
 				</div>
 
-				<div class="layout vertical">
-				<header>
-					<h3><span>{{fullname}}</span></h3>
-					
+				<!-- Second row-->
+				<div class="layout horizontal end-justified">
+ 					<paper-button role="button" id="invite" on-click="openInviteDialog"><iron-icon class="blue" icon="add-circle-outline"></iron-icon> Introduce Yourself</paper-button>
+ 				</div>
 
-					<p class="title">[[match.title]]</p>
-					<p class="company">[[match.company]]</p>
-				</header>
+				<!-- <div class="card-actions horizontal justified layout center" >
 
-				<div class="summary horizontal justified layout end" >  
-					<div class="matchPct"><span>[[match.match]]</span>% match</div>
 
-					<div class="distAway"> &lt; <span>[[match.distanceAway]]</span> meters away</div>
-				</div>
-				</div>
-				</div>
-
-				<div class="card-actions horizontal justified layout center" >  
-					<paper-button role="button" id="invite" on-click="openInviteDialog">Introduce Yourself</paper-button> 
 					<qi-toggle isOpened="[[opened]]" on-click="toggleAction"></qi-toggle>
-				</div>
+				</div> -->
 
-				<iron-collapse id="collapse" opened="{{opened}}">
+<!-- 				<iron-collapse id="collapse" opened="{{opened}}">
 					<h4>Traits you have in common:</h4>
 				  <qi-traitlist traits="[[match.interests]]"></qi-traitlist>
 				</iron-collapse>
-
+ -->
 			</div>
-		
+
 		</div>
 	</template>
 
@@ -95,7 +98,7 @@ This component displays a matching user at an event.
    			 * The match object.
    			 */
    			match: {
-   				type: Object, 
+   				type: Object,
    				notify: true
    			},
 
@@ -103,8 +106,8 @@ This component displays a matching user at an event.
    			 * A flag that indicates that the collapse pane was opened.
    			 */
 			opened:{
-				type: Boolean, 
-				value: false, 
+				type: Boolean,
+				value: false,
 				notify: true
 			},
 
@@ -112,7 +115,7 @@ This component displays a matching user at an event.
 			 * This computed property concatenates the first and last name
 			 */
 			fullname:{
-				type: String, 
+				type: String,
 				computed:'concatName(match.firstName, match.lastName)'
 			}
 		},
@@ -160,4 +163,4 @@ This component displays a matching user at an event.
 	</script>
 
 
-</dom-module> 
+</dom-module>

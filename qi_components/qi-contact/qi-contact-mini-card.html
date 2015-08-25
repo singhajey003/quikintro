@@ -1,3 +1,9 @@
+<!--
+This component is responsible for displaying a minimal amount of contact-related information.
+
+	@group QI Elements
+	@element qi-contact-mini-card
+-->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 
 <link rel="import" href="../qi-avatar/qi-avatar.html">
@@ -8,14 +14,25 @@
 <link rel="import" href="qi-contact-behavior.html">
 
 <dom-module id="qi-contact-mini-card">
-
 	<style>
-		.selectedCard{
-			border-left: 5px solid #3ea1e6;
+		.name{
+			padding-left: 10px;
 		}
 
+		.fullname{
+			font-size: 12px;
+			padding-left: 70px;
+
+		}
+
+		.selectedCard{
+			background-color: #ADD8ED;
+		}
+
+
 		header {
-			margin-left: 50px;
+			margin-left: 10px;
+			overflow-x: visible;
 		}
 
 
@@ -28,18 +45,28 @@
 			color: #707070;
 			font-size: 8pt;
 		}
-	</style>
-	<template>
-		<qi-swipe-card model="[[model]]">
 
-			
+		.mini-card{
+			height: 60px;
+		}
+
+	</style>
+
+	<template>
+
+
+		<qi-swipe-card model="[[model]]" class$="{{selectedStyle}}" on-click="select">
+
+			<div class="mini-card horizontal layout">
 			<qi-avatar url="[[model.avatar]]"></qi-avatar>
 		
 			<header>
 				<h3><span>[[fullName]]</span></h3>
 				<p class="title">[[extTitle]]</p>
 			</header>
+			</div>
 		</qi-swipe-card>
+
 	</template>
 	<script>
 		Polymer({

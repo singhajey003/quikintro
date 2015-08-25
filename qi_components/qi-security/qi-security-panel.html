@@ -1,10 +1,8 @@
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
-<link rel="import" href="../qi-theme.html">
-
-<dom-module id='qi-security-panel'  > 
+<dom-module id='qi-security-panel'  >
 
   <style>
   .passwordPanel{
@@ -13,11 +11,11 @@
   </style>
 
   <template>
-  
+
     <div class="passwordPanel layout vertical flex">
-    
-       
-          <h3>Change Password</h3> 
+
+
+          <h3>Change Password</h3>
             <paper-input-container floatingLabel="true">
               <label>New Password:</label>
               <input id="nuPassword" is="iron-input" type="password" name="password" >
@@ -29,23 +27,23 @@
             </paper-input-container>
 
             <paper-button class="primary" raised on-click="savePassword">Save Password</paper-button>
-    
+
 
     </div>
 </template>
 
 <script>
   Polymer({
-      is: 'qi-security-panel', 
+      is: 'qi-security-panel',
 
       savePassword: function(){
         if(this.$.nuPassword.value == this.$.confPassword.value){
           this.fire('show-toast', {text: 'Password Updated'});
         }
       }
-    
+
       });
 
 </script>
 
-</dom-module> 
+</dom-module>
