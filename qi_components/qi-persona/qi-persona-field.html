@@ -29,7 +29,7 @@ This component displays a dropdown list of personas.
 		}
 	</style>
 	<template>
-		<qi-field-decorator id="personaField" label="Persona" class="settings-row horizontal justified layout center" > 
+		<qi-field-decorator id="personaField" label="[[label" class="settings-row horizontal justified layout center" > 
 
             <mat-dropdown id="persona" model="{{persona}}" >
                 <template is="dom-repeat" items="[[model]]"  as="currmodel">
@@ -49,6 +49,10 @@ This component displays a dropdown list of personas.
 				persona:{
 					type: String,
 					notify: true
+				},
+				label:{
+					type: String,
+					value: "Persona"
 				},
 
 				/**
