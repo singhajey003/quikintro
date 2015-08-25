@@ -26,19 +26,20 @@ the "selectable-card" CSS class
 
 	<template>
 
-		<div class="tray">
+		<div class="tray" touch-action="none">
 			<div id="[[id]]" class="layout vertical">
 
 			<div class="flex">
-			<iron-selector id="selector" multi="true" attr-for-selected="model">
+			<iron-selector id="selector" multi="true" attr-for-selected="model" selectedClass="selectedCard">
 				<content select=".selectable-card"></content>
 			</iron-selector>
 			</div>
 
 			</div>
 
-			<qi-fab-tray id="fabtray">
-				<content select=".selectable"></content>
+
+			<qi-fab-tray id$="{{fabtrayid}}">
+				<content select=".selectable"></content>	
 			</qi-fab-tray>
 
 		</div>

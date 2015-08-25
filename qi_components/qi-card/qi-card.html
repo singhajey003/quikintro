@@ -1,5 +1,6 @@
 <!--
-This component represents a card.  
+This component represents a basic card.  
+
 
 	@group QI Elements
 	@element qi-card
@@ -23,10 +24,9 @@ This component represents a card.
 
 	</style>
 
-
 	<template>
-		<div id="[[cardid]]" on-click="select" class$="{{selectedStyle}}" >
-		<content></content>
+		<div class$="{{selectedStyle}}" on-click="select" touch-action="none">
+			<content></content>
 		</div>
 	</template>
 

@@ -1,4 +1,5 @@
 <!--
+This behavior is used for swipeable cards.
 
 @polymerBehavior QiSwipeCardBehavior
 -->
@@ -6,12 +7,13 @@
 	QiSwipeCardBehavior={
 
 		/**
-		 * This method hands the swiping gesture on a card.
+		 * This method handles the swiping gesture on a card.
 		 * @param e the gesture event.
 		 */
 		handleCardSwipe: function(e){
-			if(e.detail.state == 'end'){
+			if(e.detail.state == 'start'){
 	  			this.fire('card-swipe', {model: this.model});
+	  			e.stopPropagation();
 	  		}
 		}
 	};

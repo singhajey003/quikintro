@@ -36,6 +36,7 @@ This component is the main component used to display the news.
 	<iron-localstorage name="news" value="{{news}}"></iron-localstorage>
 	<iron-localstorage  name="feeds" value="{{feeds}}"></iron-localstorage>
 
+
 <div class="fit flex layout vertical ">
 
   <paper-tabs noink="true" hideScrollButtons="true" scrollable="true" selected="{{selectedNewsTab}}">
@@ -53,11 +54,11 @@ This component is the main component used to display the news.
     </section>
 
     <section>
-    Page 2
+      <qi-article-tray news="{{news}}"></qi-article-tray>
     </section>
 
     <section>
-    Page 3
+      <qi-article-tray news="{{news}}"></qi-article-tray>
     </section>
 
     <section>
@@ -66,6 +67,7 @@ This component is the main component used to display the news.
 
 	</iron-pages>
 </div>
+
 </template>
 
 <script>
@@ -89,10 +91,13 @@ This component is the main component used to display the news.
   		}
   	},
 
+<<<<<<< HEAD
   	_displayPage: function(model){
   		this.articleModel = model;
 
   	},
+=======
+>>>>>>> master
 
 
   });

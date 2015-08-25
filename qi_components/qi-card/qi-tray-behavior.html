@@ -10,10 +10,21 @@ QiTrayBehavior = {
 
 	properties:{
 
+		/**
+		 * An array of selected cards
+		 */
 		selectedCards:{
 			type: Array,
 			value: [],
 			notify: true
+		},
+
+		/**
+		 * The ID of the tray containing the FABs.
+		 */
+		fabtrayid:{
+			type: String,
+			value: null,
 		}
 
 
@@ -57,6 +68,8 @@ QiTrayBehavior = {
 
 		// change the fab tray style whenever a card is selected.
 		this.addEventListener('card-selected', function(e){
+
+			/*
 			var selector = document.getElementById("selector");
 			if(selector != null){
 				selectedCards = selector.selectedItems;
@@ -64,13 +77,19 @@ QiTrayBehavior = {
 				var fabtray = document.getElementById("fabtray");
 				fabtray.selected = (selectedCards.length > 0);
 			}
+			*/
+
+			if(this.fabtrayid == null){
+				throw "The fabtray id was not set";
+			}
+
+			selectedCards = document.getElementsByClassName("selectedCard");
+			var fabtray = document.getElementById(this.fabtrayid);
+			fabtray.selected = (selectedCards != null && selectedCards.length > 0);
+			e.stopPropagation();
+
 		});
 	}
-
-
-
-
-
 
 
 };

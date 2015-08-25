@@ -1,0 +1,58 @@
+<!--
+This behavior defines the properties and methods required of a card.
+
+@polymerBehavior QiContactBehavior
+-->
+
+<script>
+QiContactBehavior = {
+
+	properties:{
+
+			/** 
+			 * The contact object
+			 */
+			model:{
+				type: Object
+			},
+
+			/**
+			 * This computed property concatenates the first and 
+			 * last name of the model.
+			 */
+			fullName: {
+				type: String,
+				computed: '_computeName(model.firstName, model.lastName)' 
+			},
+
+			/**
+			 *
+			 */
+			extTitle:{
+				type: String,
+				computed: '_computeExtTitle(model.title, model.company)'
+			}
+
+	},
+
+	/**
+	 * This method concatenates the first and last name of the contact.
+	 * @param firstName the first name of the contact
+	 * @param lastName the last name of the contact
+	 */
+	_computeName: function(firstName, lastName){
+		return firstName + " " + lastName;
+	},
+
+	/**
+	 * This method concatenates the title and company of the contact
+	 * @param title the contact's title
+	 * @param company the name of the contact's company
+	 */
+	_computeExtTitle: function(title, company){
+		return title + " at " + company;
+	}
+
+
+};
+</script>

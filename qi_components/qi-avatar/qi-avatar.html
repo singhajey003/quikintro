@@ -33,15 +33,17 @@ an avatar.
 	</style>
 
 	<template>
-   <div>
-		<template is="dom-if" if="{{isUrlNull}}">
-			<iron-icon icon="social:person" ></iron-icon>
-		</template>
 
-		<template is="dom-if" if="{{!isUrlNull}}">
-			<div class="photo" style$="{{background}}" ></div>
-		</template>
-   </div>
+      <div>
+   		<template is="dom-if" if="{{isUrlNull}}">
+   			<iron-icon class="photo" icon="social:person" ></iron-icon>
+   		</template>
+
+   		<template is="dom-if" if="{{!isUrlNull}}">
+   			<div class="photo" style$="{{background}}" ></div>
+   		</template>
+      </div>
+
 	</template>
 
 	<script>

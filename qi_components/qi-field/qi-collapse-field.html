@@ -7,10 +7,13 @@
 
   Creates a collapsible text area field.
 
-   	@group QI Elements
- 	@element qi-collapse-field
+
+	@group QI Elements
+	@element qi-collapse-field
+
 -->
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html"> 
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../qi-toggle/qi-toggle.html"> 
 
 <dom-module id="qi-collapse-field">
@@ -25,10 +28,19 @@
 	<link rel="stylesheet" href="qi-field.css"> 
 
 	<div class="layout vertical">
-		<div class="row flex layout horizontal justified" >  
-	        <div class="labelCell"><label><span>{{label}}</span></label></div><br/>
-	        <qi-toggle on-click="handleClick"></qi-toggle>
+		<div class="row flex layout horizontal justified" > 
+
+			<template is="dom-if" if="[[hasIcon]]">
+				<iron-icon icon="[[icon]]"></iron-icon>
+			</template>
+
+			<template is="dom-if" if="[[hasLabel]]">
+		        <div class="labelCell"><label><span>{{label}}</span></label></div>
+		    </template>
+
+	        <qi-toggle on-click="_handleClick"></qi-toggle>
 	    </div>
+	    
 	    <iron-collapse id="collapse" opened="{{opened}}">
 	    <content></content>
 	    </iron-collapse>
@@ -40,10 +52,71 @@
 Polymer({
 	is:'qi-collapse-field',
 	properties:{
-		label: {type: String},
-		opened: {type: Boolean, value: false}
+		
+		/**
+		 * The optional label to be displayed.
+		 */
+		label: {
+			type: String,
+			value: null
+		},
+
+		/**
+		 * A field that indicates if there is a label
+		 */
+		hasLabel:{
+			type: Boolean,
+			computed: '_hasLabel(label)'
+		},
+
+		/**
+		 * A flag that indicates if the collapse pane is open or closed
+		 */
+		opened: {
+			type: Boolean, 
+			value: false
+		},
+
+		/**
+		 * The name of the icon or iconset name + icon name
+		 */
+		icon: {
+			type: String,
+			value: null
+		},
+
+		/**
+		 * A field that indicates if there is an icon
+		 */
+		hasIcon:{
+			type: Boolean,
+			computed: '_hasIcon(icon)'
+		}
 	},
-	handleClick: function(e){
+
+	/**
+	 * Determines if the label is null
+	 * @param label the label text
+	 */
+	_hasLabel: function(label){
+		return label != null;
+	},
+
+	/**
+	 * Determines if the icon is null
+	 * @param icon the icon name
+	 */
+	_hasIcon: function(icon){
+		return icon != null;
+	},
+
+
+
+	/**
+	 * This method handles the click action of the collapse fields toggle button.
+	 * @param the click event object
+	 */
+	_handleClick: function(e){
 		this.opened != this.opened;
 		this.$.collapse.toggle();
 	}
