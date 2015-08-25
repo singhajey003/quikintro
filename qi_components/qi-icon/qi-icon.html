@@ -8,6 +8,10 @@ This component displays an icon with a label and a number of relevant notificati
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html" >
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
 
+<link rel="import" href="../../bower_components/paper-badge/paper-badge.html">
+
+<link rel="import" href="../qi-custom-icons/qi-icons.html">
+
 <dom-module id='qi-icon'>
 
 	<style is="custom-style">
@@ -26,11 +30,12 @@ This component displays an icon with a label and a number of relevant notificati
 
     .icon-container {
       display:block;
-      width:50%;
+      width: 80px;
       text-align:center;
       text-decoration:none;
       position: relative;
       display: inline-block;
+      border: 1px solid black;
     }
 
 
@@ -38,16 +43,14 @@ This component displays an icon with a label and a number of relevant notificati
       display:block;
       margin:0.8em 0 0 0;
       text-align:center;
-      color:#fff;
+      color: var(--icon-label-color, white);
       font-size: 1.0em;
       font-weight: 300;
-      width: 50%;
     }
 
 
-
     .icon-home {
-      color:#fff;
+      --iron-icon-color: var(--icon-color, #505050);
       --iron-icon-height: 60px;
       --iron-icon-width: 60px;
     }
@@ -55,13 +58,14 @@ This component displays an icon with a label and a number of relevant notificati
     .iron-icon-button {
       color:#fff;
     }
+
     </style>
 
 <template>
       <div class="icon-container">
-          <paper-icon-button icon="{{icon}}" class="icon-home"></paper-icon-button>
+          <iron-icon id="{{id}}" icon="{{icon}}" class="icon-home"></iron-icon>
           <template is="dom-if" if="{{hasCount}}">
-            <div class="number">{{count}}</div>
+            <paper-badge for="{{id}}" label="{{count}}"></paper-badge>
           </template>
           <label>{{label}}</label>
       </div>
@@ -74,6 +78,13 @@ This component displays an icon with a label and a number of relevant notificati
 
 
       properties: {
+
+        /**
+         * The id of the icon.
+         */
+        id:{
+          type: String
+        },
         
         /**
          * An optional count of the number of new objects associated with the icon. This could be new 

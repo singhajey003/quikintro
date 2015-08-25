@@ -19,27 +19,54 @@ point from which the user can access the functionality of the app.
 
 <dom-module id='qi-home' > 
 
-  <style>
+  <style is="custom-style">
   .dashboard{
+  	padding-top: 10px;
     overflow: auto;
+    background-color: white;
   }
 
+  qi-icon{
+  	color: red;
+  	--icon-label-color: black;
+  	--icon-width: 70px;
+  	--icon-height: 70px;
+  	margin-left: 20px;
+  	margin-top: 20px;
+  }
+
+  .icon-row{
+  	text-align: center;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 30px;
+  }
 
   </style>
 
 	<template>
 
-        <div class="dashboard">
+        <div class="dashboard vertical layout">
 
-          <qi-icon icon="qi:events" label="Events" count="2" on-click="_handleClick"></qi-icon>
-          
-          <qi-icon icon="qi:news" label="News" count="45" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:calendar" label="News" count="0" on-click="_handleClick"></qi-icon>
+        <div class="icon-row center-justified horizontal layout">
+          <qi-icon icon="qi:events" label="Events" count="2" id="events" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:events" label="Calendar" count="0" id="calendar" on-click="_handleClick"></qi-icon>
+        </div>
 
-          <qi-icon icon="qi:around" label="Around me" count="5" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:messages" label="Messages" count="3" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:contacts" label="Contacts"  count="3" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:settings" label="Settings"   on-click="_handleClick"></qi-icon>
+        <div class="icon-row center horizontal layout">
+          <qi-icon icon="qi:around" label="Around me" count="5" id="aroundme" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:news" label="News" count="45" id="news" on-click="_handleClick"></qi-icon>
+        </div>
+
+        <div class="icon-row center horizontal layout">
+          <qi-icon icon="qi:messages" label="Messages" count="3" id="messages" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:contacts" label="Contacts"  count="3" id="contacts" on-click="_handleClick"></qi-icon>
+         </div>
+
+        <div class="icon-row center horizontal layout">
+          <qi-icon icon="qi:settings" label="Settings" id="settings" on-click="_handleClick"></qi-icon>
+        </div>
+
         </div>
 
 
@@ -50,8 +77,9 @@ point from which the user can access the functionality of the app.
 	Polymer({
    		is: 'qi-home',
 
-      _handleClick: function(){
-
+      _handleClick: function(e){
+        var idValue = e.currentTarget.getAttribute("id");
+        this.fire('page-changed', {id: idValue} );
       }
 
 
