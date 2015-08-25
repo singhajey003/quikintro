@@ -11,6 +11,7 @@
         "interests": ["startups","healthcare","big data","mobile"],
         "avatar": "https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
         "rating": 5,
+        "summary":"Focused on Post-EHR Cloud, Connected Care and Big Data analytics, applications and services.",
         "id":42267,
         "food":["greek", "steak"],
         "drink":["merlot","cabernet"]
@@ -23,6 +24,8 @@
         "industry": "Financial Services",
         "lastName": "Birch",
         "title":"Consultant",
+        "interests":["data visualization", "big data"],
+        "summary":"Creating meaningful stories out of data is my passion. I have worked with data visualization for the past 14 years in various roles. Understanding the domain of what is being displayed is crucial. I'm extremely fortunate in my current role to apply my academic financial education to real world situations at State Street Global Advisors. ",
         "location": {
             "country": {
                 "code": "us"
@@ -45,6 +48,7 @@
         "title": "Executive Recruiter",
         "id": "B3RtvfQOXh",
         "industry": "Staffing and Recruiting",
+        "summary":"Executive Recruiter focused in the pharmaceutical, biotechnology, and medical device industries, with proven expertise in placing candidates in both biological (biotherapeutics) and small molecule drug discovery and development for multiple therapeutic areas (oncology, infectious diseases, immunology, CNS, and others.)",
         "lastName": "Boehner",
         "location": {
             "country": {
@@ -58,7 +62,8 @@
         },
         "id":160087,
         "food":["chinese","thai","steak"],
-        "drink":["merlot","chardonnay"]
+        "drink":["merlot","chardonnay"],
+        "interests":["recruiting","biotech"]
     },
 
 
@@ -66,9 +71,11 @@
         "firstName": "Chris",
         "headline": "Technical Recruiter",
         "title": "Technical Recruiter",
+        "company":"Microsoft",
         "id": "2mDGj_60yk",
         "industry": "Internet",
         "lastName": "Cruz",
+        "summary":"Named one of BooleanStrings.com Top 25 ranked recruiters/sourcers/researchers. Always open to talk shop. I manage a blog focused on talent acquisition strategy for startups: www.startupheadhunter.com ",
         "location": {
             "country": {
                 "code": "us"
@@ -81,7 +88,8 @@
         },
         "id":63222273,
         "food":["chinese","thai","steak"],
-        "drink":["merlot","chardonnay"]
+        "drink":["merlot","chardonnay"],
+        "interests":["recruiting"]
     },
 
     {
@@ -89,6 +97,7 @@
         "headline": "Lead Service Manager at Shell IT International",
         "title": "Lead Service Manager",
         "company": "Shell IT International",
+        "summary":"MBA. PMP Certified Project Manager. ITIL Foundation certified (Service Management). Works in Major global initiatives in Shell since 1999.",
         "id": "KnGCirNnU2",
         "industry": "Oil & Energy",
         "lastName": "De Bock, MBA, PMP, ITIL",
@@ -104,7 +113,8 @@
         },
         "id":2424729,
         "food":["chinese","thai","steak"],
-        "drink":["merlot","chardonnay"]
+        "drink":["merlot","chardonnay"],
+        "interests":["IT"]
     },
 
 
@@ -121,15 +131,16 @@
         "rating": 4,
         "id":3,
         "avatar":null,
+        "summary":"",
         "food":["chinese","thai","japanese"],
         "drink":["merlot","chardonnay"]
     },
 
     {
         "firstName": "Ken",
-        "headline": "Senior Recruiting Manager Doosan Fuel Cell America",
-        "title": "Senior Recruiting Manager",
-        "company": "Doosan Fuel Cell America",
+        "headline": "Senior Aerospace Recruiter CDI Corporation",
+        "title": "Senior Aerospace Recruiter",
+        "company": "CDI Corporation",
         "id": 5415765,
         "industry": "Staffing and Recruiting",
         "lastName": "Drake",
@@ -152,8 +163,9 @@
 
         "firstName": "Asha",
         "headline": "Director of Business Development at Vaco Technology",
-        "title": "Director of Business Development",
-        "company": "Vaco Technology",
+        "title": "Sr. Technical Talent Acquisition Partner",
+        "company": "FTD",
+        "summary":"Asha's focus is on developing candidate relationships in the Greater San Diego Area within companies ranging from Fortune 500 firms to emerging and fast growing start-ups within multiple industries. Her passion has always been partnering with different levels of management to deliver recruiting strategies and top talent resources for their teams. Since starting in the industry back in 2009 she has placed over 320 candidates and produced over $4.5MM in revenues. Asha is passionate about keeping up with whatever disruptive new advances are happening in the technology space and serving as a consultant to her client/candidate relationships built over the years. You can find her at every event, seminar and gathering throughout southern California.",
         "id": 16819848,
         "industry": "Information Technology and Services",
         "lastName": "Ewing",
@@ -168,7 +180,8 @@
             "url": "https://www.linkedin.com/profile/view?id=16819848&authType=name&authToken=8Y5f&trk=api*a3227641*s3301901*"
         },
         "food":["chinese","thai","steak"],
-        "drink":["merlot","chardonnay"]
+        "drink":["merlot","chardonnay"],
+        "interests":["recruiting"]
     },
 
     {
@@ -179,6 +192,7 @@
         "id": 4339076,
         "industry": "Information Technology and Services",
         "lastName": "Haver",
+        "summary":"I own and run Foundation Recruiting and Consulting; http://foundrec.com/. My background is in Technical Recruiting with an IT focus. I truly enjoy learning about technology, helping companies grow by finding them outstanding people, and helping candidates by finding them good homes. I feel that my love of technology and helping people and companies is what makes me successful. I also have a diverse background and extensive training including personal experience in RF and Microwave technologies in the Marine Corps, Operations Management experience in the Marine Corps and at the iStore, and AIRS Recruiting training and certifications (CIR, ACIR, CDR). I employ a variety of methods to locate quality candidates including but not limited to direct sourcing, networking, online networking, social media, referrals, user groups, niche and community sites, internet searches, blogs, internal database searches, and job board searches and postings.",
         "location": {
             "country": {
                 "code": "us"
@@ -236,7 +250,7 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=19198594&authType=name&authToken=EV4l&trk=api*a3227641*s3301901*"
         },
-        "food":["chinese","thai","steak"],
+        "food":["chinese","thai","steak","vietnamese"],
         "drink":["merlot","chardonnay"]
     },
 
@@ -346,7 +360,6 @@
         "drink":["merlot","chardonnay"]
     },
 
-
     {
 
         "firstName": "Donald",
@@ -364,7 +377,6 @@
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"]
     }
-
 
 
 ]

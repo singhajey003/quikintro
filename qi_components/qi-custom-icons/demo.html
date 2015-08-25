@@ -9,6 +9,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
+    <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
 	
 	<link rel="import" href="qi-icons.html">
 	<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
@@ -17,20 +19,31 @@
 		body{
 			background-color: #505050;
 		}
+
 		html /deep/ .myIcon{
 			color: white !important;
 			width:120px !important;
 			height:120px !important;
 		}
-		html /deep/ .myIcon.add, .myIcon.search {stroke:#ffffff;}
+
+
+		.myIcon.add, .myIcon.search, .myIcon.menu {stroke:#ffffff;}
+
 	</style>
 </head>
 <body>
+
 	<iron-icon class="myIcon logo" icon="qi:logo"></iron-icon>
 	<iron-icon class="myIcon add" icon="qi:add"></iron-icon>
 	<iron-icon class="myIcon search" icon="qi:search"></iron-icon>
+
 	<iron-icon class="myIcon linkedin" icon="qi:linkedin"></iron-icon>
 	<iron-icon class="myIcon twitter" icon="qi:twitter"></iron-icon>
 	<iron-icon class="myIcon meetup" icon="qi:meetup"></iron-icon>
+
+	<iron-icon class="myIcon menu" icon="qi:menu"></iron-icon>
+	<iron-icon class="myIcon bookmark" icon="qi:bookmark"></iron-icon>
+
+
 </body>
 </html>

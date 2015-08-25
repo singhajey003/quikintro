@@ -1,11 +1,17 @@
 <!--
+This component is responsible for displaying a list of feeds.
 
 	@group QI Elements
 	@element qi-feed-tray
 -->
 
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
-<link rel="import" href="qi-feed-icon.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+
+<link rel="import" href="qi-feed-card.html">
+
 <dom-module id="qi-feed-tray">
 
 	<template>
@@ -28,16 +34,13 @@
 	</style>
 
 	<div>
-
-		<div class="feedtray layout horizontal">
+	<qi-card-tray fabtrayid="feed-fabtray">
 		<template is="dom-repeat" items="[[model]]" as="feed">
-			<qi-feed-icon model="[[feed]]"></qi-feed-icon>
+			<qi-feed-card model="[[feed]]" class="selectable-card"></qi-feed-card>
 		</template>
-		</div>
 
-		<div id="labeltray" class="labeltray">
-
-		</div>
+		<paper-fab icon="check" class="selectable"></paper-fab>
+	</qi-card-tray>
 	</div>
 
 
@@ -46,21 +49,20 @@
 	<script>
 	Polymer({
 		is: 'qi-feed-tray',
+		
+		behaviors:[QiTrayBehavior],
+
 		properties: {
+
+			/**
+			 * An array of feeds to be displayed
+			 */
 			model: {
 				type: Array,
 				value: []
 			}
 		},
-		ready: function(){
-			var labeltray = this.$.labeltray;
 
-			this.addEventListener('feed-selected', function(e){
-				labeltray.textContent = e.detail.name;
-
-				//TODO: add integration with news end point here.
-			})
-		}
 	});
 	</script>
 

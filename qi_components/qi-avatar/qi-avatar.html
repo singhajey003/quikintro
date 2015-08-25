@@ -12,8 +12,6 @@ an avatar.
 <dom-module id='qi-avatar'  > 
 
 
-	<link rel="stylesheet" href="../qi-cards.css"> 
-
 	<style is="custom-style">
 	div.photo{
 		width: var(--avatar-width, 50px);
@@ -35,6 +33,7 @@ an avatar.
 	</style>
 
 	<template>
+
       <div>
    		<template is="dom-if" if="{{isUrlNull}}">
    			<iron-icon class="photo" icon="social:person" ></iron-icon>
@@ -44,6 +43,7 @@ an avatar.
    			<div class="photo" style$="{{background}}" ></div>
    		</template>
       </div>
+
 	</template>
 
 	<script>
@@ -66,7 +66,7 @@ an avatar.
    			 */
    			isUrlNull: {
    				type: Boolean, 
-   				computed: 'computeUrlNull(url)'
+   				computed: '_computeUrlNull(url)'
    			},
 
    			/**
@@ -74,7 +74,7 @@ an avatar.
    			 */
    			background: {
    				type: String,
-   				computed: 'computeBackground(url)'
+   				computed: '_computeBackground(url)'
    			}
    		}, 
 
@@ -83,7 +83,7 @@ an avatar.
    		 * A method that creates a background image style.
    		 * @param url  The URL for the image.
    		 */
-   		computeBackground: function(url){
+   		_computeBackground: function(url){
    			return "background-image:url('" + url + "');";
    		},
 
@@ -91,8 +91,9 @@ an avatar.
    		 * A method that determines if the URL is null.
    		 * @param url The URL for the image.
    		 */
-   		computeUrlNull: function(url){
-   			return url == null || url == '';
+   		_computeUrlNull: function(url){
+            var isNull = (url == null || url == '' || url === undefined || url == "null");
+    			return isNull;
    		}
 
 

@@ -1,0 +1,55 @@
+<!--
+This component displays a list of contacts.
+
+	@group QI Elements
+	@element qi-contact-tray
+-->
+
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
+<link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-tray-behavior.html">
+
+<link rel="import" href="qi-contact-mini-card.html">
+<link rel="import" href="qi-contact-page.html">
+
+<dom-module id="qi-contact-tray">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	<template>
+		
+	<qi-swipe-card-tray detailpageid="contact-detail" fabtrayid="contact-fabtray">
+		<template is="dom-repeat" items="[[model]]" as="contact">
+			<qi-contact-mini-card class="selectable-card" model="{{contact}}"></qi-contact-mini-card>
+		</template>
+
+		<qi-contact-page id="contact-detail" class="detail-page"></qi-contact-page>
+
+		<paper-fab icon="add" class="selectable"></paper-fab>
+
+	</qi-swipe-card-tray>
+
+
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-contact-tray',
+
+			properties:{
+
+				/**
+				 * An array of contacts
+				 */
+				model:{
+					type: Array,
+					value: []
+				}
+			}
+		});
+	</script>
+</dom-module>
