@@ -6,9 +6,11 @@ This component is responsible for displaying a list of feeds.
 -->
 
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
-<link rel="import" href="qi-feed-card.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
+
+<link rel="import" href="qi-feed-card.html">
 
 <dom-module id="qi-feed-tray">
 
@@ -32,10 +34,12 @@ This component is responsible for displaying a list of feeds.
 	</style>
 
 	<div>
-	<qi-card-tray>
+	<qi-card-tray fabtrayid="feed-fabtray">
 		<template is="dom-repeat" items="[[model]]" as="feed">
 			<qi-feed-card model="[[feed]]" class="selectable-card"></qi-feed-card>
 		</template>
+
+		<paper-fab icon="check" class="selectable"></paper-fab>
 	</qi-card-tray>
 	</div>
 

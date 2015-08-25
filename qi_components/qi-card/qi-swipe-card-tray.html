@@ -8,7 +8,9 @@ swipe-card.
 -->
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
-<link rel="import" href="../qi-card/qi-tray-page-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-tray-behavior.html">
+
+
 <link rel="import" href="../qi-card/qi-fab-tray.html">
 
 <dom-module id="qi-swipe-card-tray">
@@ -46,7 +48,7 @@ swipe-card.
 	<script>
 		Polymer({
 			is: 'qi-swipe-card-tray',
-			behaviors: [QiTrayBehavior, QiTrayPageBehavior]
+			behaviors: [QiTrayBehavior, QiSwipeTrayBehavior]
 
 
   	});
