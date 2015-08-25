@@ -12,7 +12,8 @@
 			"drink":["tea"],
 			"score":100,
 			"avatar":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/1/000/09d/05b/1869f64.jpg",
-			"persona":"Cancer Biologist"
+			"persona":"Cancer Biologist",
+			"commonContacts":10
 		},
 		"msg":"Hi Mark, we have some things in common, specifically around pancreatic cancer research and I'd like to connect.",
 		"meetNow": true,
@@ -25,12 +26,14 @@
 			"title":"CEO",
 			"company":"QuikIntro",
 			"id":42267,
+			"summary":"Focused on Post-EHR Cloud, Connected Care and Big Data analytics, applications and services.",
 			"interests":["startups","cancer","bioinformatics"],
 			"score":100,
 		    "avatar": "https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
 	        "food":["greek", "steak"],
 	        "drink":["merlot","cabernet"],
-		    "persona":"Default LinkedIn Persona"
+		    "persona":"Default LinkedIn Persona",
+		    "commonContacts":5
 		    },
 		
 		"msg": "Hi Mark, we have some things in common and I’d like connect.",
@@ -46,14 +49,16 @@
 			"id":2,
 			"interests":["startups","cancer","antibodies","mAb","drug cocktails","CAR-T","clinical trials"],
 			"score":70,
+			"summary": "I am passionate about developing novel medicines to address the pathogenic mechanisms of important human diseases. For instance, I investigated beta amyloid peptide’s impact on the complement cascade and innate immunity in the age-related macular degeneration. My team elucidated the critical roles of the cytokine interleukin 7 in the effector memory T cell function and pathogenesis of multiple sclerosis and type 1 diabetes. My responsibility has expanded into leading the overall strategy of cancer immunology at Pfizer, including novel checkpoint inhibitors and genetically engineered T cell therapy, since 2013.",
 			"avatar":"",
-			"food":["thai","chinese","japanese","american","california cuisine", "steak"],
+			"food": ["thai","chinese","japanese","american","california cuisine","steak"],
 	        "drink":["merlot","cabernet"],
-			"persona":"Cancer Biologist"
+			"persona":"Cancer Biologist",
+			"commonContacts": 5
 		},
 		"msg": "Hi Mark, we have some things in common and I’d like connect.  I'm interested in learning more about the work you've been doing with mapping the target space for different types of cancer.",
 		"meetNow": true,
 		"meetLater": true
-
+		
 	}
 ]

@@ -78,12 +78,18 @@ QiCardBehavior = {
 
 	},
 
+	/**
+	 * This method computes an ID that is unique within the DOM.
+	 * @param id the numeric id value.
+	 */
 	_computeDomId: function(id){
 		return this.prefix + "-" + id;
 	},
 
 	/**
-	 * This method calculates the style to be applied to the card.
+	 * This method calculates the style to be applied to the card.  If the card is selected, it appends the "selectedCard" class reference to the default card styles.
+	 * @param selected a flag indicating whether or not the card is selected.
+	 * @param cardstyle the default card styles.
 	 */
 	_computeStyle: function(selected, cardstyle){
 		var style = cardstyle;
@@ -102,6 +108,7 @@ QiCardBehavior = {
 	 */
 	select: function(){
 		this.selected = !this.selected;
+
 		this.fire('card-selected',{id: this.id, model: this.model, selected: this.selected});
 	},
 

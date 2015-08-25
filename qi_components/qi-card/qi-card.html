@@ -1,16 +1,31 @@
 <!--
-This component represents a card.  
+This component represents a basic card.  
 
+
+	@group QI Elements
+	@element qi-card
 -->
 <link rel="import" href="qi-card-behavior.html">
 
 <dom-module id="qi-card">
 
-	<link rel="stylesheet" href="../qi-cards.css">
 
+	<style>
+
+	.card{
+		width: 100vw;
+		border: 1px solid #BABABA;
+		background-color: white;
+	}
+
+	.selectedCard{
+		border-left: 5px solid #3ea1e6;
+	}
+
+	</style>
 
 	<template>
-		<div id="[[cardid]]" on-click="select" class="card">
+		<div id="[[cardid]]" on-click="select" class$="{{selectedCard}}" touch-action="none">
 		<content></content>
 		</div>
 	</template>

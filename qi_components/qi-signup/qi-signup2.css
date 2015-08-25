@@ -16,35 +16,19 @@
 }
 
 .backButton{
-  background: transparent url("qi-signup/back.jpg") center no-repeat;
+  background: transparent url("back.jpg") center no-repeat;
   width: 40px;
   height:40px;
   padding: 10px 0 0 10px;
 }
 
 .status2{
-  background: transparent url("qi-signup/status2.jpg") center no-repeat;
+  background: transparent url("status3.jpg") center no-repeat;
   width: 40px;
   height:40px;
   padding: 10px 10px 0 0;
 }
 
-
-.linkedin{
-  background: transparent url("qi-signup/linkedin.jpg") center no-repeat;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background-size: 30%;
-}
-
-.twitter{
-  background: transparent url("qi-signup/twitter.jpg") center no-repeat;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background-size: 30%;
-}
 
 .imgs{
   height: 70%;
@@ -52,35 +36,9 @@
   margin-bottom: 15px;
 }
 
-.meetup{
-  background: transparent url("qi-signup/meetup.jpg") center no-repeat;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background-size: 30%;
-}
 .wrapper {
   /*max-width: 300px;*/
   min-width: 200px;
   height: 40%;
   padding: 20px; 
 }
-
-.next {
-  background: transparent url("qi-signup/next.jpg") center no-repeat;
-  height: 8%;
-  /*color: #f7fffc;
-  font-family: arial; /*monotype */
-  width: 100%;
-  margin: 0;
-  padding-top: 5%;
-  background-color: #17aacf;
-}
-
-.skipstep {
-  width: 100%;
-  display: inline-block;
-  margin: auto;
-  height: ;
-  text-align: center;
-  font-size: 10px; }

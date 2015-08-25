@@ -11,6 +11,8 @@
      "avatar": "https://media.licdn.com/mpr/mpr/shrink_100_100/AAEAAQAAAAAAAAMyAAAAJGFjY2U0NDM3LTE5YTktNGQxNy1iMjE1LWQ4Y2E0MWQ3OGJiNQ.jpg",
      "food": ["thai", "chinese", "vietnamese", "spanish", "mexican", "american diners", "tex-mex", "cuban", "greek"],
      "drink": ["cabernet", "merlot", "port"],
+     "music":[],
+     "art":[],
      "positions": {
          "_total": 10,
          "values": [{

@@ -1,6 +1,6 @@
 <!--
  This module is used to render a list of traits.
- 
+
 	@group QI Elements
 	@element qi-traitlist
 -->
@@ -8,9 +8,9 @@
 <link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="qi-trait.html">
 
-<dom-module id='qi-traitlist'  > 
+<dom-module id='qi-traitlist'  >
 
-	<link rel="stylesheet" href="../quikintro.css" >
+
 	<link rel="stylesheet" href="traitlist.css">
 
 
@@ -18,15 +18,13 @@
 
 	 <div class="trait-wrapper"> 
 
-
-	    
 	 	<iron-selector id="traitSelector" multi="true" attr-for-selected="model">
 		<template is="dom-repeat" items="{{traits}}"  as="trait">
 			<qi-trait trait='[[trait]]' on-click='_select'>
 			</qi-trait>
 		</template>
 		</iron-selector>
-		
+
 
 		<template is="dom-if" if="{{traits.length == 0}}">
 		<span>[[emptymsg]]</span>
@@ -38,28 +36,38 @@
 
 	<script>
 	Polymer({
-   		is: 'qi-traitlist', 
+   		is: 'qi-traitlist',
 
    		properties:{
 
    			/**
    			 * An array of traits to be displayed
    			 */
-   			traits:{type: Array, value:[]},
+   			traits:{
+   				type: Array, 
+   				value:[]
+   			},
 
    			/**
    			 * A message to be displayed if the traits array is empty
    			 */
-   			emptymsg:{type: String}
+   			emptymsg:{
+   				type: String,
+   				value: 'No matching traits found'
+
+   			}
    		},
 
+   		/**
+   		 * This method allows a host component to add the selected trait to the user's persona.
+		 */
    		_select: function(e){
    			this.fire('tag-selected', {tag: e.srcElement.innerText});
    		}
-   		
+
 
 	});
 
 	</script>
 
-</dom-module> 
+</dom-module>

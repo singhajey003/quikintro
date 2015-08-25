@@ -1,6 +1,8 @@
 <!--
 This component represents a swipeable card.  
 
+ 	@group QI Elements
+ 	@element qi-swipe-card
 -->
 <link rel="import" href="qi-card-behavior.html">
 <link rel="import" href="qi-swipe-card-behavior.html">
@@ -15,6 +17,7 @@ This component represents a swipeable card.
 		background-color: white;
 	}
 
+
 	.selectedCard{
 		border-left: 5px solid #3ea1e6;
 	}
@@ -23,7 +26,7 @@ This component represents a swipeable card.
 	</style>
 
 	<template>
-		<div id="[[cardid]]" class$="{{selectedStyle}}" on-click="select" on-track="_handleCardSwipe">
+		<div class$="{{selectedStyle}}" on-tap="select" on-track="_handleCardSwipe" touch-action="none">
 		<content></content>
 		</div>
 	</template>
@@ -34,6 +37,9 @@ This component represents a swipeable card.
 
 		behaviors:[QiCardBehavior, QiSwipeCardBehavior],
 
+		/**
+		 * Handles the swipe event.
+		 */
 		_handleCardSwipe: function(e){
 			e.detail.model = this.model;
 			this.handleCardSwipe(e);

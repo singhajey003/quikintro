@@ -24,7 +24,6 @@ point from which the user can access the functionality of the app.
     overflow: auto;
   }
 
-
   </style>
 
 	<template>
@@ -40,17 +39,21 @@ point from which the user can access the functionality of the app.
         </div>
 
 
-
 	</template>
 
 	<script>
 	Polymer({
    		is: 'qi-home',
 
+      /**
+       * This method handles the click action on the buttons.
+       * @param e the event object
+       */
       _handleClick: function(e){
         var idValue = e.currentTarget.getAttribute("id");
         this.fire('page-changed', {id: idValue} );
       }
+
 
 
 	});

@@ -18,30 +18,22 @@
 <dom-module id='qi-persona-card'  > 
 
 
-	<link rel="stylesheet" href="qi-persona-card.css" >  
-	
-	<style>
-	div.persona > div.card-actions{
-		padding-left: 5px;
-	}
-	</style>
-		
 	<template>
 
 		<qi-card>
 			<header>
-				<h3><span>[[persona.name]]</span></h3>
+				<h3><span>{{persona.name}}</span></h3>
 				<p><span>[[persona.blurb]]</span></p>
-				<p>Skills</p>
+				<p>Imported Skills</p>
 				<qi-traitlist traits="[[persona.aboutMe.skills]]"></qi-traitlist>
 				<p>Imported Interests</p>
 				<qi-traitlist traits="[[persona.aboutMe.interests]]"></qi-traitlist>
 			</header>
-			<div class="card-actions horizontal justified layout center flex" >   
+			<!-- <div class="card-actions horizontal justified layout center flex" >   
 				<div >
 					<qi-toggle on-click="toggleAction"></qi-toggle> 
 				</div>
-			</div>
+			</div> -->
 
 			<iron-collapse id="collapse" opened="{{opened}}">
 				<h4>About Me</h4>
@@ -132,7 +124,10 @@
    		is: 'qi-persona-card', 
 
    		properties:{
-   			persona:{type: Object, notify: true},
+   			persona:{
+   				type: Object,
+   				notify: true
+   			},
    			opened: {type: Boolean, value: false}
    		},
 
@@ -148,23 +143,4 @@
 	</script>
 
 
-</dom-module> <!-- CONVERTED -->
-
-<!-- CONVERSION NOTES TODO:
- Review code and look for: 
- - textContent binding from <div>First: {{first}}</div> TO First <span>{{first}}</span><br>
- - polymer-element default attributes such as tabindex="0" move to hostAttributes: {  tabindex: 0}
- - custom elements correct JSON quotes required, change from <my-element foo="{ 'title': 'Persuasion', 'author': 'Austen' }"> to </my-element> to <my-element foo="{ "title": "Persuasion", "author": "Austen" }"></my-element>
- - custom elements attribute use dash-case not camelCase, change from  <my-element fooBar= to <my-element foo-bar
- - Polymer( fix mixins use Behaviors after is: see https://www.polymer-project.org/1.0/docs/devguide/behaviors.html
- - Check layout attributes replaced by layout classes <div layout horizontal center>` to `<div class="layout horizontal center">, 
- - Cleanup class= 
- - Convert core- to iron- or paper- replacement elements at PolymerElements
- - Remove unresolved from <body> tag
- - Cleanup iron-ajax params url for embedded bindings {{}}
- - iron-ajax replace this.$.xxx_ajax.abort(); and this.$.xxx_ajax.go(); with this.$.xxx_ajax.generateRequest() 
- - Fix iron-list if needed 
- - Fix indentation as need 
- - Cleanup Comments to reflect changes ,
- - see https://www.polymer-project.org/1.0/docs/migration.html
-   -->
+</dom-module> 

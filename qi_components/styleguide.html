@@ -3,6 +3,8 @@
 <html>
 <head>
 
+<!-- TYPEKIT SCRIPT FOR MUSEO FONT -->
+
 <script src="//use.typekit.net/dzy0cbr.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
@@ -61,7 +63,13 @@
     margin: 0 24px 24px 24px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
+
+
+
+
+
 </style>
+
 </head>
 
 <body>
@@ -104,8 +112,21 @@
 </div>
 <paper-drawer-panel responsive-width="4000px">
   <paper-header-panel drawer>
-
+    <div class="centered">
+      <div class="row">
+              <paper-button class="primary">Home</paper-button>
+              <paper-button class="primary">Events</paper-button>
+              <paper-button class="primary">Around Me</paper-button>
+              <paper-button class="primary">News</paper-button>
+              <paper-button class="primary">Messages</paper-button>
+              <paper-button class="primary">Contacts</paper-button>
+              <paper-button class="primary">Settings</paper-button>
+      </div>
+    </div>
   </paper-header-panel>
+
+<!-- TOP TOOLBAR -->
+
   <paper-header-panel main>
     <paper-toolbar>
       <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
@@ -113,10 +134,10 @@
       <paper-icon-button class="myIcon add" icon="qi:add" size="40" ></paper-icon-button>
       <paper-icon-button class="myIcon search" icon="qi:search" size="40" ></paper-icon-button>
       <paper-tabs class="bottom fit" hideScrollButtons="true" scrollable="true" selected="0">
-        <paper-tab>WORLD</paper-tab>
-        <paper-tab>CONTACTS</paper-tab>
-        <paper-tab>BOOKMARKS</paper-tab>
-        <paper-tab>SOURCES</paper-tab>
+        <paper-tab>World</paper-tab>
+        <paper-tab>Contacts</paper-tab>
+        <paper-tab>Bookmarks</paper-tab>
+        <paper-tab>Sources</paper-tab>
       </paper-tabs>
     </paper-toolbar>
     <div>
@@ -965,23 +986,8 @@
 
 <section id="footer-section">
     <footer id="footer">
-        <div class="polymer-themes-logo-container">
-            <div class="polymer-icon-container"><i class="material-icons">polymer</i></div>
-            <h4>Polymer Themes</h4>
-        </div>
-        <div id="followus-container-main" style="padding: 0px 0px 30px 0px;">
-            <div class="followus-links" data-page="PolymerThemes" data-clickthrough="1" data-opennew="1"></div>
-            <script defer src="https://secure.followus.com/widget.js"></script>
-        </div>
-        <div class="footer-links">
-            <a href="/contact/">Contact Us</a>
-            <span style="opacity:0.5;">|</span>
-            <a href="/help/license/">Terms of Use</a>
-            <span style="opacity:0.5;">|</span>
-            <a href="/help/">Help</a>
-        </div>
         <div class="small">
-            &copy; 2015 Polymer Themes
+            &copy; 2015 Quikintro
         </div>
     </footer>
 </section>

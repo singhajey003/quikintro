@@ -1,10 +1,10 @@
 <!--
   This component is responsible for rendering an article.
-  
+
 	@group QI Elements
 	@element qi-article-page
 -->
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 <link rel="import" href="../qi-trait/qi-traitlist.html">
@@ -12,6 +12,7 @@
 
 <link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
 <link rel="import" href="../qi-persona/qi-persona-field.html">
+<link rel="import" href="../qi-field/qi-collapse-field.html">
 
 
 
@@ -22,7 +23,6 @@
 		width: 100%;
 		height: 150px;
 		background-size: cover;
-		back
 	}
 	.article-content{
 		padding-left: 2px;
@@ -55,7 +55,7 @@
 	<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
 
 	<div class="article-content" on-track="handlePageSwipe">
-	<h2><span>[[model.title]]</span></h2>
+	<h2><span>{{model.title}}</span></h2>
 
 	<figure>
   		<div class="mediaholder flex" style$="[[media]]"></div>
@@ -63,9 +63,9 @@
 	</figure>
 
 	<div class="flex">
-	<qi-collapse-field label="Keywords">
+	<qi-collapse-field horizontal layout center label="Keywords">
 		<div>
-		
+
 		<qi-persona-field id="persona" model="{{personas}}" persona="LinkedIn Persona"></qi-persona-field>
 
 
@@ -74,7 +74,7 @@
 		</div>
 	</qi-collapse-field>
 	</div>
-	
+
 
 	<div id="abstract">[[cleanMessageText(model.abstract)]]</div>
 
@@ -149,7 +149,7 @@
 				this.fire('show-toast',{text:msg})
 			});
 
-			
+
 		}
 
 

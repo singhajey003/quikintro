@@ -1,3 +1,11 @@
+<!--
+This component is responsible for displaying the a list
+of articles.
+
+ 	@group QI Elements
+ 	@element qi-article-tray
+-->
+
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
@@ -6,12 +14,19 @@
 
 <link rel="import" href="../data/qi-data-loader.html">
 
-<link rel="import" href="../qi-card/qi-card-tray.html">
+<link rel="import" href="../qi-card/qi-swipe-card-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-tray-behavior.html">
+
 
 <link rel="import" href="qi-article-card.html">
+<link rel="import" href="qi-article-page.html">
+
 <link rel="import" href="qi-speech-behavior.html">
 <link rel="import" href="qi-share-news-dialog.html">
+
+<link rel="import" href="../../qi_components/qi-custom-icons/qi-icons.html">
+
 
 
 <dom-module id="qi-article-tray">
@@ -25,9 +40,9 @@
 	</style>
 
 	<template>
-						
 
-		<qi-card-tray id="cardtray">
+
+		<qi-swipe-card-tray id$="{{id}}" detailpageid="articlePage" fabtrayid="news-fabtray">
 
 		<!-- News Articles -->
 			<template is="dom-repeat" items="[[news.feeds]]" index-as="i" as="feed">
@@ -38,19 +53,21 @@
 				</template>
 
 			</template>
-		
+
 
 		<!-- FABs -->
+			<paper-fab class="selectable" icon="qi:bookmark" on-click="" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:skip-previous" on-click="back" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:play-arrow" on-click="play" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:pause" on-click="pause" mini></paper-fab>
 			<paper-fab class="selectable" icon="av:skip-next" on-click="next" mini></paper-fab>
-			
 			<paper-fab class="selectable" icon="av:stop" on-click="stop" mini></paper-fab>
 			<paper-fab class="selectable" icon="social:share"  on-click="openShareDialog" mini></paper-fab>
-		
 
-		</qi-card-tray>
+
+			<qi-article-page id="articlePage" class="detail-page" model="{{cardModel}}"></qi-article-page>
+		
+		</qi-swipe-card-tray>
 
 		<qi-share-news-dialog id="shareDialog" articles="[[selectedArticles]]"></qi-share-news-dialog>
 
@@ -67,9 +84,9 @@ Polymer({
 		 * A JSON object containing all news feeds.
 		 */
 		news:{
-			type: Object, 
-			value: null, 
-			notify: true, 
+			type: Object,
+			value: null,
+			notify: true,
 			readonly: true
 		},
 
@@ -81,6 +98,25 @@ Polymer({
 			value: []
 		}
 	},
+
+	ready: function(){
+
+  		// this event is triggerend whenever the article card is swiped
+  		this.addEventListener('card-swipe', function(e){
+
+  			var page = document.querySelector("qi-article-page");
+  			page.model = e.detail.model;
+  			this.selectedPage = 1;
+        	e.stopPropagation();
+  		});
+
+  		this.addEventListener('page-swipe', function(e){
+  			this.selectedPage = 0;
+        	e.stopPropagation();
+  		});
+
+
+  	},
 
 
 

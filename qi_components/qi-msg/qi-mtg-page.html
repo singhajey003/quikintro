@@ -1,4 +1,9 @@
 <!--
+This component is responsible for displaying the details
+of a meeting.
+
+ 	@group QI Elements
+ 	@element qi-mtg-page
 
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
@@ -14,11 +19,17 @@
 
 		}
 	</style>
+
+
+
 	<template>
-	 <div class="detail-page" on-track="handlePageSwipe">
-		<div>This is a meeting.</div>
-	</div>
+		<div class="detail-page" on-track="handlePageSwipe">
+			<div>This is a meeting.</div>
+		</div>
 	</template>
+
+
+
 	<script>
 		Polymer({
 			is: 'qi-mtg-page',

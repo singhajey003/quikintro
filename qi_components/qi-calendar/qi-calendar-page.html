@@ -1,0 +1,77 @@
+<!--
+This component is responsible for displaying meeting information.
+
+	@group QI Elements
+ 	@element qi-calendar-page
+-->
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+
+
+<link rel="import" href="../qi-field/qi-icon-field.html">
+<link rel="import" href="../qi-field/qi-collapse-field.html">
+<link rel="import" href="qi-guest-card.html">
+
+<dom-module id="qi-calendar-page">
+	<style>
+		:host {
+			display: block;
+		}
+
+		.description{
+
+		}
+
+		header > span{
+
+		}
+	</style>
+	<template>
+		<div>
+		<header>
+			<span>[[model.title]]</span>
+		</header>
+
+		<div class="description">
+			<span>[[model.description]]</span>
+		</div>
+
+		<qi-icon-field icon="event" date="[[model.date]]" time="[[time]]"></qi-icon-field>
+
+		<qi-collapse-field icon="social:people">
+			<template is="dom-repeat" items="[[model.invitees]" as="guest">
+				<qi-guest-card model="[[guest]]"></qi-guest-card>
+			</template>
+		</qi-collapse-field>
+
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-calendar-page',
+			properties:{
+				time: {
+					model:{
+						type: Object
+					},
+
+					time:{
+						type: String,
+						computed: '_concateTime(model.time.start, model.time.end)'
+					}
+				}
+			},
+
+			/**
+			 * This method concatenates the start and end times
+			 * @param start the start time
+			 * @param end the end time
+			 */
+			_concateTime: function(start, end){
+				return start + " - " + end;
+			}
+		});
+	</script>
+</dom-module>
