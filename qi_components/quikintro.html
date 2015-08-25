@@ -1,3 +1,9 @@
+<!--
+QuikIntro is a single-page app, and this page is the main
+point at which all quikintro components are integrated.
+
+-->
+
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
@@ -35,7 +41,7 @@
 <link rel="import" href="qi-custom-icons/qi-icons.html">
 <link rel="import" href="qi-theme.html">
 
-<dom-module id='quik-intro'  > 
+<dom-module id='quik-intro'> 
 
   <style is="custom-style">
     qi-toggle.anonToggle{
@@ -218,6 +224,7 @@
               panelTitle:'Contacts',
               icon:'qi:logo',
               clickHandler: function(){
+                //alert("I'm Contacts");
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
               }       
@@ -240,28 +247,53 @@
         panelTitle: {type: String, value: 'QuikIntro'},
         eventList: {type: Array,  value:[], notify: true, observer:'eventListChanged'},
         contactList: {type: Array, value: [], notify: true, observer:'contactListChanged'},
-        personaList: {type: Array, value: [], notify: true, observer:'personaListChanged'},
+        personaList: {type: Array, value: [], notify: true, },
         
       },
 
+      /**
+       * This method sets the currently displayed page.
+       * @param pageId the id of the page as specified in the conf variable, 
+       *        and in the sections pageId attribute.
+       */
+      setPage: function(pageId){
+        for(var i=0; i < this.conf.length; i++){
+          var page = this.conf[i];
+          //alert("page id: " + page.id + " actual:" + pageId  + " i: " + i);
+          if(page.id == pageId){
+            this.page = i;
+            break;
+          }
+        }
+      },
+
+      /**
+       * This change listener is triggered whenever the contact list is changed.
+       * @param newValue
+       */
       contactListChanged: function(newValue, oldValue){
         var contactPanel = this.$.contactPanel;
         contactPanel.contacts = newValue;
 
         var aroundMe = this.$.aroundMe;
         aroundMe.contacts = newValue;
+        //TODO: double check that this method is still needed
       },
 
 
       eventListChanged: function(newValue, oldValue){
         var eventPanel = this.$.eventStream;
         eventPanel.events = newValue;
+
+        //TODO: double check that this method is still needed
       },
 
-      personaListChanged: function(newValue, oldValue){
-
-      },
       
+      /**
+       * This change listener is triggered whenever the 'page' variable is changed.
+       * @param newValue the new page index number
+       * @param oldValue the old page index number
+       */
       pageChanged: function(newValue, oldValue){
         this.$.coreScaffold.closeDrawer();
         var config = this.conf[newValue];
@@ -277,10 +309,14 @@
           //TODO add login code here.
 
           // after login is complete, segue to the home page
-          e.currentTarget.selected = 6;
+          this.setPage('home');
         });
 
         var panelTitle = this.panelTitle;
+
+        this.addEventListener('turn-page', function(e){
+           this.setPage(e.detail.pageid);
+        });
 
         this.addEventListener('nav-changed', function(e){
           var nuTitle = e.detail.title;
@@ -321,7 +357,7 @@
           
           var qi = document.querySelector('quik-intro');
           var scaffolding = qi.$.coreScaffold;
-          var menuButton = scaffolding.getMenuButton();
+          var menuButton = this.$.menuButton;
 
           if(e.detail.item.id == 'Event Stream'){
             var qiEventStream = e.detail.item.firstElementChild;
@@ -351,6 +387,11 @@
           // menuButton.icon = e.icon;
           // scaffolding.handleClick = e.clickHandler;
           }
+        });
+
+        this.addEventListener("page-changed", function(e){
+            //alert("page_changed to: " + e.detail.id);
+            this.setPage(e.detail.id);
         });
       },
 

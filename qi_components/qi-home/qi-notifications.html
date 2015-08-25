@@ -1,0 +1,31 @@
+<!--
+This component is used to display notifications.
+
+ 	@group QI Elements
+ 	@element qi-notifications
+-->
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+
+<dom-module id="qi-notifications">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+
+	<template>
+
+		<iron-localstorage name="notices" value="{{notifications}}"></iron-localstorage>
+
+		<template is="dom-repeat" items="{{notifications}}" as="notice">
+			<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
+		</template>
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'qi-notifications'
+		});
+	</script>
+</dom-module>

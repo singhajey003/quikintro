@@ -111,26 +111,8 @@
 			     "distanceAway" : 50,
 			     "match": 82,
 			     "food":["chinese","thai"]
-			 },
+			 }
 
-  		 	{
-  		 		"firstName":null,
-  		 		"lastName":null,
-  		 		"avatar":null,
- 		 		"title":"Director, Product Management",
- 		 		"company":"FitBit",
- 		 		"interests":["wearables", "fitness apps", "NFL", "San Francisco 49ers", "fitness hardware", "lean startups"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "wearables",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			     "distanceAway" : 100,
-			     "match": 82
- 		 	}
 
 
 
@@ -153,7 +135,27 @@
 				"notes":"Remember to ask him about new personalized medicine startups.",
 				"food":["greek","sushi"],
 				"drink":["pinot noir","zinfandel"]
-			}
+			},
+
+			{
+  		 		"firstName":"Bill",
+  		 		"lastName":"James",
+  		 		"avatar":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/04b/09d/0986dad.jpg",
+ 		 		"title":"Director, Product Management",
+ 		 		"company":"FitBit",
+ 		 		"interests":["wearables", "fitness apps", "NFL", "San Francisco 49ers", "fitness hardware", "lean startups"],
+				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
+				"industry": "wearables",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 100,
+			     "match": 82
+ 		 	}
+
 
 
 
@@ -198,10 +200,71 @@
  		 "tweetUrl":"qi_components/data/jpm15.tweets.json",
  		 "background":"images/city-san-diego.jpg",
  		 "rsvp":"YES",
- 		 "contacts":[],
+ 		 "contacts":[
+
+			{
+  		 		"firstName":"Michael",
+  		 		"lastName":"Roberts",
+  		 		"avatar":"http://photos4.meetupstatic.com/photos/member/8/9/d/c/member_198155292.jpeg",
+ 		 		"title":"Director, Product Management",
+ 		 		"company":"Zeeto Media",
+ 		 		"interests":["javascript"],
+				"tags": [],
+				"industry": "wearables",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 100,
+			     "match": 82
+ 		 	},
+
+ 		 	{
+  		 		"firstName":"Jim",
+  		 		"lastName":"Eccles",
+  		 		"avatar":"http://photos1.meetupstatic.com/photos/member/d/6/7/e/member_247134910.jpeg",
+ 		 		"title":"Director, Talent Acquisition",
+ 		 		"company":"Tillster",
+ 		 		"interests":["javascript"],
+				"tags": [],
+				"industry": "wearables",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 100,
+			     "match": 82
+ 		 	},
+
+ 		 	{
+  		 		"firstName":"Gregory",
+  		 		"lastName":"Chapman",
+  		 		"avatar":"http://photos4.meetupstatic.com/photos/member/a/3/2/c/member_245141772.jpeg",
+ 		 		"title":"Sr. Software Engineer",
+ 		 		"company":"HealthFusion",
+ 		 		"interests":["javascript"],
+				"tags": [],
+				"industry": "wearables",
+				"location":  {
+			        "country":  {
+			          "code": "us"
+			        },
+			        "name": "Greater San Diego Area"
+			     },
+			     "distanceAway" : 100,
+			     "match": 82
+ 		 	}
+
+
+
+ 		 ],
  		 "startTime":"26-May-2015",
  		 "endTime":"26-May-2015",
-		"meetings":[
+		 "meetings":[
 			{
 			"date":"26-May-2015",
 			"time":"1900",
@@ -574,8 +637,8 @@
 
  		"matches":[
  		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
+ 		 		"firstName":"John",
+ 		 		"lastName":"Doe",
  		 		"title":"CSO",
  		 		"company":"Genentech",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
@@ -592,11 +655,12 @@
 			     "match": 82
  		 	},
 
-  		 	{
-  		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CBO",
- 		 		"company":"Genentech",
+		 	
+		 	{
+ 		 		"firstName":"Adam",
+ 		 		"lastName":"Richardson",
+ 		 		"title":"Director, Cancer Metabolism Resources",
+ 		 		"company":"SBMRI",
  		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
 				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
 				"industry": "Biotechnology",
@@ -606,87 +670,10 @@
 			        },
 			        "name": "Greater San Diego Area"
 			     },
-			      "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 82
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Novartis",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 75
- 		 	},
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"5 Prime Therapeutics",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 50,
-			     "match": 90
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Merck",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 100,
-			     "match": 93
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Pfizer",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
+			      "avatar":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/5/005/03c/2f9/20d9bb8.jpg",
 			     "distanceAway" : 100,
 			     "match": 77
  		 	}
-		 	
-
  		 ],
 
 		"contacts":[

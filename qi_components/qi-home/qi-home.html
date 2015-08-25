@@ -15,34 +15,21 @@ point from which the user can access the functionality of the app.
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 <dom-module id='qi-home'  > 
-<!--
-
--->
-<link rel="stylesheet" href="../quikintro.css" >
 
 	<template>
 
-		<qi-globals id="globals"></qi-globals>
-		<iron-localstorage name="notices" value="{{notifications}}"></iron-localstorage>
 
+		<label style="margin-left: 5px">Notifications</label>
 
-			<label style="margin-left: 5px">Notifications</label>
+        <div class="dashboard">
+            <a href="#"><iron-icon class="icon-home" src="icons/events.svg" on-click="_handleClickEvent"></iron-icon><span>Events</span></a>
+            <a href="#"><iron-icon class="icon-home" src="icons/around.svg" on-click="_handleClickAround"></iron-icon><span>Around me</span></a>
+            <a href="#"><iron-icon class="icon-home" src="icons/news.svg" on-click="_handleClickNews"></iron-icon><span>News</span></a>
+            <a href="#"><iron-icon class="icon-home" src="icons/messages.svg" on-click="_handleClickMsg"></iron-icon><span>Messages</span></a>
+            <a href="#"><iron-icon class="icon-home" src="icons/contacts.svg" on-click="_handleClickContacts"></iron-icon><span>Contacts</span></a>
+            <a href="#"><iron-icon class="icon-home" src="icons/settings.svg" on-click="_handleClickSettings"></iron-icon><span>Settings</span></a>
+        </div>
 
-            <div class="dashboard">
-                <a href="#"><iron-icon class="icon-home" src="icons/events.svg"></iron-icon><span>Events</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/around.svg"></iron-icon><span>Around me</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/news.svg"></iron-icon><span>News</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/messages.svg"></iron-icon><span>Messages</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/contacts.svg"></iron-icon><span>Contacts</span></a>
-                <a href="#"><iron-icon class="icon-home" src="icons/settings.svg"></iron-icon><span>Settings</span></a>
-            </div>
-
-            <div>
-				<template is="dom-repeat" items="{{notifications}}"  as="notice">
-					<qi-event-notice notice="{{notice}}">{{notice.text}}</qi-event-notice>
-				</template>
-			</div>
-		</div>
 
 	</template>
 
@@ -51,8 +38,35 @@ point from which the user can access the functionality of the app.
    		is: 'qi-home',
 
    		properties:{
-   			notifications:{type: Array, value:[], notify: true, observer:'notificationsChanged'}
+   			notifications:{type: Array, value:[], notify: true, observer:'notificationsChanged'},
+        id: {type:String, value: "null"}
    		},
+
+      _handleClickEvent: function(){
+ 
+        this.fire("page-changed", {id: "aroundme"});
+      },
+      _handleClickAround: function(){
+
+        this.fire("page-changed", {id: "messages"});
+      },
+      _handleClickNews: function(){
+
+        this.fire("page-changed", {id: "events"});
+      },
+      _handleClickMsg: function(){
+
+        this.fire("page-changed", {id: "contacts"});
+      },
+      _handleClickContacts: function(){
+
+        this.fire("page-changed", {id: "settings"});
+      },
+      _handleClickSettings: function(){
+
+        this.fire("page-changed", {id: "settings"});
+      },
+
 
    		notificationsChanged: function(newValue, oldValue){
 
