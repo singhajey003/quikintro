@@ -6,14 +6,14 @@
  	@element qi-field
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../bower_components/polymer/polymer.html">
+
 <dom-module id='qi-field'  > 
 
 	<template>
 	    <link rel="stylesheet" href="qi-field.css"> 
-		<div class="row flex layout horizontal justified" >  
-	        <div class="labelCell"><label><span>[[label]]</span></label></div>
-	        <div class="fldValue flex"  two>  
+		<div class="row horizontal justified layout" >  
+	        <div class="labelCell flex"><label><span>[[label]]</span></label></div>
+	        <div class="fldValue"  two>  
 	            <span>{{value}}</span>
 	        </div>
 	    </div>

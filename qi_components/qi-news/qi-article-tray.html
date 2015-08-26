@@ -101,6 +101,11 @@ Polymer({
 
 	ready: function(){
 
+		this.addEventListener('card-selected', function(e){
+			var txt = this.cleanMessageText(e.detail.model);
+			this.msgs.push(txt);
+		});
+
   		// this event is triggerend whenever the article card is swiped
   		this.addEventListener('card-swipe', function(e){
 
