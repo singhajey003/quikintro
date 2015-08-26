@@ -7,13 +7,17 @@ This component is used to display notifications.
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 <dom-module id="qi-notifications">
+
 	<style>
 		:host {
 			display: block;
 		}
 	</style>
 
+
 	<template>
+
+		<label style="margin-left: 5px">Notifications</label>
 
 		<iron-localstorage name="notices" value="{{notifications}}"></iron-localstorage>
 
@@ -25,7 +29,12 @@ This component is used to display notifications.
 
 	<script>
 		Polymer({
-			is: 'qi-notifications'
+
+			is: 'qi-notifications',
+			properties:{
+   				notifications:{type: Array, value:[], notify: true }
+   			}
+
 		});
 	</script>
 </dom-module>

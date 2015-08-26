@@ -14,20 +14,28 @@ point from which the user can access the functionality of the app.
 <link rel="import" href="../qi-event/qi-event-notice.html">
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
-<dom-module id='qi-home'  > 
+<link rel="import" href="../qi-custom-icons/qi-icons.html">
+<link rel="import" href="../qi-icon/qi-icon.html">
+
+<dom-module id='qi-home' > 
+
+  <style>
+  .dashboard{
+    overflow: auto;
+  }
+
+  </style>
 
 	<template>
 
-
-		<label style="margin-left: 5px">Notifications</label>
-
         <div class="dashboard">
-            <a href="#"><iron-icon class="icon-home" src="icons/events.svg" on-click="_handleClickEvent"></iron-icon><span>Events</span></a>
-            <a href="#"><iron-icon class="icon-home" src="icons/around.svg" on-click="_handleClickAround"></iron-icon><span>Around me</span></a>
-            <a href="#"><iron-icon class="icon-home" src="icons/news.svg" on-click="_handleClickNews"></iron-icon><span>News</span></a>
-            <a href="#"><iron-icon class="icon-home" src="icons/messages.svg" on-click="_handleClickMsg"></iron-icon><span>Messages</span></a>
-            <a href="#"><iron-icon class="icon-home" src="icons/contacts.svg" on-click="_handleClickContacts"></iron-icon><span>Contacts</span></a>
-            <a href="#"><iron-icon class="icon-home" src="icons/settings.svg" on-click="_handleClickSettings"></iron-icon><span>Settings</span></a>
+
+          <qi-icon icon="qi:events" label="Events" count="2" id="events" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:around" label="Around me" count="5" id="aroundme" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:news" label="News" count="45" id="news" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:messages" label="Messages" count="3" id="messages" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:contacts" label="Contacts"  count="3" id="contacts" on-click="_handleClick"></qi-icon>
+          <qi-icon icon="qi:settings" label="Settings" id="settings" on-click="_handleClick"></qi-icon>
         </div>
 
 
@@ -37,40 +45,15 @@ point from which the user can access the functionality of the app.
 	Polymer({
    		is: 'qi-home',
 
-   		properties:{
-   			notifications:{type: Array, value:[], notify: true, observer:'notificationsChanged'},
-        id: {type:String, value: "null"}
-   		},
+      /**
+       * This method handles the click action on the buttons.
+       * @param e the event object
+       */
+      _handleClick: function(e){
+        var idValue = e.currentTarget.getAttribute("id");
+        this.fire('page-changed', {id: idValue} );
+      }
 
-      _handleClickEvent: function(){
- 
-        this.fire("page-changed", {id: "aroundme"});
-      },
-      _handleClickAround: function(){
-
-        this.fire("page-changed", {id: "messages"});
-      },
-      _handleClickNews: function(){
-
-        this.fire("page-changed", {id: "events"});
-      },
-      _handleClickMsg: function(){
-
-        this.fire("page-changed", {id: "contacts"});
-      },
-      _handleClickContacts: function(){
-
-        this.fire("page-changed", {id: "settings"});
-      },
-      _handleClickSettings: function(){
-
-        this.fire("page-changed", {id: "settings"});
-      },
-
-
-   		notificationsChanged: function(newValue, oldValue){
-
-   		}
 
 
 	});

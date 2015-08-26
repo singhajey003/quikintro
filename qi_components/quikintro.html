@@ -23,6 +23,8 @@ point at which all quikintro components are integrated.
 
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
 <link rel="import" href="qi-event/qi-event-panel.html">
 <link rel="import" href="qi-aroundme/qi-aroundme-panel.html">
 <link rel="import" href="qi-profile/qi-profile-panel.html">
@@ -44,12 +46,15 @@ point at which all quikintro components are integrated.
 <dom-module id='quik-intro'> 
 
   <style is="custom-style">
-    qi-toggle.anonToggle{
-      --toggle-icon-color: white;
-    }
+
 
     paper-icon-item{
       left: -100;
+    }
+
+    #menubutton{
+      color: #505050;
+      margin-right: 4px;
     }
 
 
@@ -73,12 +78,6 @@ point at which all quikintro components are integrated.
               Home
             </paper-icon-item>
 
-             <paper-icon-item id="newsItem" pageId="news"> 
-              <iron-icon icon="settings"></iron-icon>
-                News
-              </paper-item>
-            </paper-icon-item>
-
             <paper-icon-item id="events" pageId="events">
               <iron-icon icon="event"></iron-icon>
               Events
@@ -87,6 +86,13 @@ point at which all quikintro components are integrated.
               <iron-icon icon="maps:my-location"></iron-icon>
               Around Me
             </paper-icon-item>
+
+            <paper-icon-item id="newsItem" pageId="news"> 
+              <iron-icon icon="settings"></iron-icon>
+                News
+              </paper-item>
+            </paper-icon-item>
+
             <paper-icon-item id="messages"   pageId="messages">
               <iron-icon icon="communication:forum"></iron-icon>
               Messages
@@ -114,12 +120,12 @@ point at which all quikintro components are integrated.
 
         <paper-toolbar id="core_toolbar" class="horizontal layout"> 
           <div>
-           <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo" style="display: block" paper-drawer-toggle></paper-icon-button> 
+           <iron-icon id="menuButton" icon="menu" style="display: block" paper-drawer-toggle></iron-icon> 
           </div>
         
           <div class="flex">[[panelTitle]]</div> 
 
-          <div><qi-toggle class="anonToggle" style="--icon-color: white" openicon="social:person" closedicon="social:person-outline"></qi-toggle></div>
+          <div><qi-toggle class="anonToggle horizontal end-justified layout" style="--icon-color: white" openicon="social:person" closedicon="social:person-outline"></qi-toggle></div>
         
 
         </paper-toolbar>
@@ -130,19 +136,21 @@ point at which all quikintro components are integrated.
             <qi-home></qi-home>
           </section>
 
-          <section id="News" pageId="news">
-            <qi-news-panel></qi-news-panel>
-          </section>
-
           <section id="Event Stream" pageId="events" >
             <qi-event-stream id="eventStream" events="{{eventList}}" personas="{{personas}}"></qi-event-stream>
           </section>
           <section id="Around Me" pageId="aroundme" >
             <qi-aroundme-panel id="aroundMe" ></qi-aroundme-panel>
           </section>
+
+           <section id="News" pageId="news">
+            <qi-news-panel></qi-news-panel>
+          </section>
+
           <section id="Messages" pageId="messages">
             <qi-msg-panel ></qi-msg-panel>
           </section>
+
           <section id="Contacts" pageId="contacts">
             <qi-contact-panel id="contactPanel" contacts="{{contactList}}"></qi-contact-panel>
           </section>
@@ -179,6 +187,7 @@ point at which all quikintro components are integrated.
                 qi.$.coreScaffold.openDrawer();
               }
             },
+
             {
               id:'events',
               panelTitle: 'Events',
@@ -202,6 +211,16 @@ point at which all quikintro components are integrated.
             {
               id:'aroundme',
               panelTitle: 'Around Me',
+              icon: 'qi:logo',
+              clickHandler: function(){
+                var qi = document.querySelector('quik-intro');
+                qi.$.coreScaffold.openDrawer();
+              }        
+            },
+
+            {
+              id:'news',
+              panelTitle: 'News',
               icon: 'qi:logo',
               clickHandler: function(){
                 var qi = document.querySelector('quik-intro');
@@ -259,7 +278,7 @@ point at which all quikintro components are integrated.
       setPage: function(pageId){
         for(var i=0; i < this.conf.length; i++){
           var page = this.conf[i];
-          //alert("page id: " + page.id + " actual:" + pageId  + " i: " + i);
+
           if(page.id == pageId){
             this.page = i;
             break;
@@ -389,10 +408,12 @@ point at which all quikintro components are integrated.
           }
         });
 
-        this.addEventListener("page-changed", function(e){
-            //alert("page_changed to: " + e.detail.id);
+
+        //when an icon is clicked on the home page, change current page.
+        this.addEventListener('page-changed', function(e){
             this.setPage(e.detail.id);
-        });
+        })
+
       },
 
       handleToggle: function(){

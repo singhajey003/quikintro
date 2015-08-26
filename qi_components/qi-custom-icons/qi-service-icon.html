@@ -1,0 +1,71 @@
+<!--
+This component represents a service icon.  
+
+-->
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="qi-service-behavior.html">
+
+<link rel="import" href="../../bower_components/paper-badge/paper-badge.html">
+
+<dom-module id="qi-service-icon">
+	<style>
+
+		.service-selected{
+			width: 100px;
+			height: 100px;
+			background-color: #17aacf;
+			border-radius: 50%;
+			color: white;
+			margin: 20px auto;
+		}
+
+		.service-not-selected{
+			width: 100px;
+			height: 100px;
+			background-color: #cbcbcb;
+			border-radius: 50%;
+			color: white;
+			margin: 20px auto;
+		}
+
+		paper-badge{
+			--paper-badge-margin-bottom:-15vh;
+			--paper-badge-margin-left: -5vh; 
+			--paper-badge-background: #000000;
+		}
+
+		.badge-not-selected{
+			visibility: hidden;
+		}
+
+		.badge-selected{
+			visibility: visible;
+		}
+
+
+		:host .icon{
+			width: 30px;
+			height: 30px;
+			margin: 35px 35px;
+		}
+
+	</style>
+
+	<template>
+		<div class$="{{divStyle}}" id="icon">
+			<iron-icon class="icon" icon="[[icon]]"></iron-icon>
+			<paper-badge label="✓" class$="{{badgeStyle}}" for="icon"></paper-badge>
+		</div>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'qi-service-icon',
+
+			behaviors: [QiServiceIconBehavior]
+
+		});
+
+	</script>
+
+</dom-module>
