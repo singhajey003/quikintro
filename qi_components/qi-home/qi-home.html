@@ -9,7 +9,6 @@ point from which the user can access the functionality of the app.
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
-
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-event/qi-event-notice.html">
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
@@ -22,6 +21,26 @@ point from which the user can access the functionality of the app.
   <style>
   .dashboard{
     overflow: auto;
+    background-color: #17aacf;
+  }
+
+
+  qi-icon{
+  	--icon-color: white;
+ 	  --icon-width: 80px;
+  	--icon-height: 80px;
+  	margin-top: 20px;
+  }
+
+  .right-icon{
+    margin-left: 90px;
+  }
+
+  .icon-row{
+  	text-align: center;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 30px;
   }
 
   </style>
@@ -31,10 +50,20 @@ point from which the user can access the functionality of the app.
         <div class="dashboard">
 
           <qi-icon icon="qi:events" label="Events" count="2" id="events" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:around" label="Around me" count="5" id="aroundme" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:news" label="News" count="45" id="news" on-click="_handleClick"></qi-icon>
+          <qi-icon class="right-icon" icon="qi:around" label="Around me" count="5" id="aroundme" on-click="_handleClick"></qi-icon>
+        </div>
+
+        <div class="icon-row center horizontal layout">
+          <qi-icon icon="event" label="Calendar" count="0" id="calendar" on-click="_handleClick"></qi-icon>
+          <qi-icon class="right-icon" icon="qi:news" label="News" count="45" id="news" on-click="_handleClick"></qi-icon>
+        </div>
+
+        <div class="icon-row center horizontal layout">
           <qi-icon icon="qi:messages" label="Messages" count="3" id="messages" on-click="_handleClick"></qi-icon>
-          <qi-icon icon="qi:contacts" label="Contacts"  count="3" id="contacts" on-click="_handleClick"></qi-icon>
+          <qi-icon class="right-icon" icon="qi:contacts" label="Contacts"  count="3" id="contacts" on-click="_handleClick"></qi-icon>
+         </div>
+
+        <div class="icon-row center horizontal layout">
           <qi-icon icon="qi:settings" label="Settings" id="settings" on-click="_handleClick"></qi-icon>
         </div>
 

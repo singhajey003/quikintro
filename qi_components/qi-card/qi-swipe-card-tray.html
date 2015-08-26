@@ -32,7 +32,8 @@ swipe-card.
 			</iron-selector>
 			</div>
 
-			<qi-fab-tray id$="{{fabtrayid}}">
+
+			<qi-fab-tray id$="[[fabtrayid]]">
 				<content select=".selectable"></content>	
 			</qi-fab-tray>
 		</section>
@@ -48,8 +49,6 @@ swipe-card.
 		Polymer({
 			is: 'qi-swipe-card-tray',
 			behaviors: [QiTrayBehavior, QiSwipeTrayBehavior]
-
-
   	});
 	</script>
 </dom-module>

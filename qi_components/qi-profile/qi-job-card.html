@@ -25,12 +25,10 @@ TODO
 
 			<qi-field label="Title:" value="[[job.title]]"></qi-field>
 			<qi-field label="Company:" value="[[job.company.name]]"></qi-field>
-			<qi-field label="Start Date:" value="{{convertDate(job.startDate)}}"></qi-field>
-			
-			<qi-field-decorator label="End Date:">
-				<span>{{convertDate(job.endDate)}}</span>
-			</qi-field-decorator>
+			<qi-field label="Start Date:" value="{{startDate}}"></qi-field>
 
+			<qi-field label="End Date:" value="{{endDate)}}"></qi-field>
+			
 
 			<qi-collapse-field label="Summary">	
 			    <div>[[job.summary]]</div>
@@ -48,10 +46,27 @@ TODO
    		is: 'qi-job-card', 
 
    		properties:{
-   			job:{type: Object}
+
+   			/**
+   			 * The job object
+   			 */
+   			job:{type: Object},
+
+   			startDate:{
+   				type: String,
+   				computed: '_convertDate(job.startDate)'
+   			},
+
+   			/**
+   			 * The end date
+   			 */
+   			endDate: {
+   				type: String,
+   				computed: '_convertDate(job.endDate)'
+   			}
    		},
 
-   		convertDate: function(date){
+   		_convertDate: function(date){
    			if(date == null){
    				return "Current"	
    			}else{
