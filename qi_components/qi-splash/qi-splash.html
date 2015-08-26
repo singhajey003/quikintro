@@ -1,5 +1,4 @@
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
-<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
@@ -7,11 +6,12 @@
 
 <link rel="import" href="../data/qi-data-loader.html">
 
-<link rel="import" href="../qi-theme.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 
 <dom-module id='qi-splash'  > 
 
-	<link rel="stylesheet" href="qi-splash.css" > 
+
+	<link rel="stylesheet" href="qi-splash.css" >
 
 	<style>
 	/*
@@ -37,6 +37,7 @@
 	<template>
 	<qi-data-loader></qi-data-loader>
 	<div class="panel fit">
+
 		<div class="logo flex" ></div>
 		<div class="wrapper flex"> 
 			<paper-input class="splash flex" label="User ID:" alwaysFloatLabel="true"></paper-input><br/>  
@@ -56,13 +57,24 @@
 		<!-- Created a sign in class, needs to change a href to an overlay for creating new account-->
 		<div class="signup">
 			<p>DON'T HAVE AN ACCOUNT? <paper-button class="splash" on-click="handleSignUp">Sign Up</paper-button></p>
+
 		</div>
 	</div>
+
+	<paper-dialog id="dialogBox" >
+			<h3>Forgot Password</h3>
+			<paper-input class="splash flex" label="User ID: "></paper-input>
+			<paper-input class="splash flex" label="Email: "></paper-input>
+			<div class="buttons">
+    			<paper-button dialog-dismiss>Cancel</paper-button>
+				<paper-button dialog-confirm>Submit</paper-button>
+  			</div>
+		</paper-dialog>
 
 	</template>
 	<script>
 	Polymer({
-	  	is: 'qi-splash', 
+	  	is: 'qi-splash',
 
 		handleLogin: function(){
 			this.fire("login");
@@ -73,14 +85,13 @@
 		},
 
 		handleForgotPassword: function(){
-			this.fire("forgot");
+			document.querySelector("#dialogBox").open();
 		}
 
 
-		
 	});
 
 	</script>
 
-</dom-module> 
+</dom-module>
 

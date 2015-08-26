@@ -4,7 +4,7 @@ This component is responsible for rendering an event.
 	@group QI Elements
 	@element qi-event-card
 -->
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html" >
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html" >
@@ -18,90 +18,106 @@ This component is responsible for rendering an event.
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html" >
 
 <link rel="import" href="qi-event-summary.html" >
+<link rel="import" href="../qi-avatar/qi-avatar-tray.html">
 
+<dom-module id='qi-event-card'>
 
-<dom-module id='qi-event-card'  > 
-
-	<link rel="stylesheet" href="../quikintro.css" >
-	<link rel="stylesheet" href="../qi-cards.css" >
-	<link rel="stylesheet" href="qi-events.css" > 
-	<link rel="stylesheet" href="qi-event-card.css" > 
 
 	<template>
-	
 
-	<style>
-		paper-dialog:{display: none;}
-		.eventCard{
-			background-size: cover;
-			background-position: top left;
-			background-repeat: no-repeat;
-		}
-		header{
-			margin-top: 0px;
-			vertical-align: top;
-			text-align: center;
-		}
-		header > h3#titleBlock{
-			font-weight: lighter;
-			color: white;
-			font-size: 20px;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			height: 20px;
-			margin: 0px;
-		}
-		header > div{
-			color: white;
-		}
-	</style>
-	
-	<div class="eventCard card reverse" style$="{{computeBackground(event.background)}}" on-tap="tapAction">   
-		<div class="overlay"></div>
+
+	<div class="eventCard card reverse" on-tap="tapAction">
 		<header>
-			<h3 id="titleBlock">{{event.title}}</h3>
-			<div><span>{{event.startTime}}</span> at <span>{{event.location}}</span></div> 
-			<div><span>{{event.registrantCount}}</span> Registrants</div>
+			<div class="titlearea">
+				<h3 class="title">{{event.title}}</h3>
+				<h4 class="location">{{event.location}}</h3>
+			</div>
+			<div class="image" style$="{{computeBackground(event.background)}}"></div>
 		</header>
 
-    	<div class="summary horizontal layout justified flex" > 
+    	<div class="summary horizontal around-justified layout">
 
-			<div class="eventNewMatches">
-				<div class="match-count font-light">{{event.matches.length}}</div>
-				<div class="bottomLabel">New<br>Matches</div>
+			<div class="eventMatches">
+				<div class="bottomLabel">Matches</div>
+				<div class="count turqoize">{{event.matches.length}}</div>
 			</div>
 
-			<div class="eventStats font-light">
-				<div class="eventItem"><span>{{event.contacts.length}}</span> Existing Contacts</div>
-				<div class="eventItem"><span>{{event.meetings.length}}</span> Meetings</div>
+			<div class="eventContacts">
+				<div class="bottomLabel">Contacts</div>
+				<div class="count">{{event.contacts.length}}</div>
+			</div>
+
+			<div class="eventMeetings">
+				<div class="bottomLabel">Meetings</div>
+				<div class="count green">{{event.meetings.length}}</div>
 			</div>
 
 		</div>
+
+	<div class="info horizontal justified layout">
+		<div class="vertical layout" style="">
+			<qi-icon-field id="date" icon="event" value="{{event.startTime}}"></qi-icon-field>
+			<qi-icon-field id="registrants" icon="social:group" value="{{event.registrantCount}}"></qi-icon-field>
+		</div>
+		<div>
+			<qi-avatar-tray model="{{avatars}}"></qi-avatar-tray>
+    	</div>
+	</div>
+
+
+
+
 	</div>
 
 	</template>
 
 	<script>
 	var EventCard = Polymer({
-   		is: 'qi-event-card', 
+   		is: 'qi-event-card',
 
    		properties:{
 
    			/**
    			 * The event model
    			 */
-   			event:{type: Object}
+   			event:{
+   				type: Object,
+   				notify: true
+   			},
+
+   			/**
+   			 * A computed property that gets the avatars from the model.
+   			 */
+   			avatars:{
+   				type: Array,
+   				computed: '_getAvatars(event)'
+   			}
+   		},
+
+   		/**
+   		 * This method gets the avatar URLs for the contacts attending the meeting.
+   		 * @param model the meeting model.
+   		 */
+   		_getAvatars: function(model){
+
+   			var avatars = [];
+   			if(model.contacts != null && model.contacts !== "undefined"){
+	   			for(var i=0; i < model.contacts.length; i++){
+	   				avatars.push(model.contacts[i].avatar);
+	   			}
+   			}
+   			return avatars;
    		},
 
 	    tapAction: function(evt){
-	     	//this.$.collapse.toggle();	  
+	     	//this.$.collapse.toggle();
 	     	this.fire('expand-card');
 	     },
 
 	     computeBackground: function(imageUrl){
 	     	return "min-height: 160px; background-image:url('"+ imageUrl + "')";
 	     },
-	    
+
 
 	     twitter: function(evt){
 	     	var url = "http://twitter.com/" + this.event.hashtag;

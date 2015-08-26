@@ -1,10 +1,10 @@
 <!--
 	This card displays a message.
 
-
  	@group QI Elements
  	@element qi-msg-card
 -->
+
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 
 <link rel="import" href="../qi-card/qi-card-behavior.html">
@@ -12,7 +12,7 @@
 <link rel="import" href="../qi-card/qi-card.html">
 
 <dom-module id='qi-msg-card'  >
-	
+
 	<style is="custom-style">
 	.senderName{
 		font-weight: bold;
@@ -27,26 +27,40 @@
 		font-size: 12px;
 		line-height: normal;
 	}
+
+	.mainPanel{
+		margin-left: 7px;
+}
 	.avatarBlock{
 		margin-right: 3px;
+
 	}
 
 	</style>
 
-	
+
 	<template>
+<!--
+
+	<div id="[[id]]" class$="{{selectedStyle}}" on-click="select">
+
+		<div class="flex layout horizontal">
+
+			<div class="avatarBlock">
+-->
 	
-	<qi-card id="[[cardid]]" model="{{model}}">
+	<qi-card model="{{model}}">
 		<div class="flex layout horizontal" >
 			<div class="avatarBlock" >
+
 				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
 			</div>
 
 			<div class="metatray mainPanel">
 				<div class="senderBlock">
-					<span class="senderName">[[wholename]]</span> 
+					<span class="senderName">[[wholename]]</span>
 					<span class="time">[[model.tstamp]]</span>
-				</div> 
+				</div>
 				<div class="msgBlock" >[[model.msg]]</div>
 			</div>
 
@@ -57,7 +71,7 @@
 
 	<script>
 	var MsgCard = Polymer({
-        is: 'qi-msg-card', 
+        is: 'qi-msg-card',
 
         behaviors: [QiCardBehavior],
 
@@ -67,7 +81,7 @@
 			 * The concatenated name of the sender.
 			 */
 			wholename:{
-				type: String, 
+				type: String,
 				computed:'_concatName(model.sender.firstName, model.sender.lastName)'
 			},
 		},
@@ -79,7 +93,7 @@
 		_concatName: function(firstName, lastName){
 			return firstName + " " + lastName;
 		},
-		
+
 		/**
 		 * This method causes the message dialog to appear.
 		 */
@@ -87,7 +101,7 @@
 			this.fire('openPingDialog',{sender:this.msg.rcvr, rcvr: this.msg.sender});
 		}
 
-		
+
 
 	});
 

@@ -1,37 +1,34 @@
 <style is="custom-style">
 /*
- * PolymerThemes v1.0.3
- * Homepage: https://polymerthemes.com
- * Copyright 2015 Polymer Themes
- * Licensed under BSD
- * Based on Polymer: http://www.polymer-project.org/
+ * Quikintro custom PolymerTheme v0.1
+ * Homepage: https://www.quikintro.com
+ * Copyright 2015
+  * Based on Polymer: http://www.polymer-project.org/
  * Compatible with Polymer 1.0
  */
 
-@import url("//fonts.googleapis.com/css?family=Arimo:400,700");
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  font-size: 16px;
-}
+/*@import 'sass/_config';*/
 
-html, body {
+html /deep/, body /deep/ {
   margin: 0px;
   padding: 0px;
   min-height: 100%;
   color: #424540;
   background-color: #ffffff;
-  font-family: 'Arimo', sans-serif;
-  font-weight: 400;
+  font-family: "museo-sans",sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing:antialiased;
 }
 
 section {
   padding: 40px 0px;
   text-align: center;
 }
+
 section[hero] {
   background-color: #f5fcff;
 }
+
 section:after {
   content: if false, 'one', 'two';
 }
@@ -43,8 +40,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1em;
 }
 
-h1, h3, h5 {
-  font-family: 'Arimo', sans-serif;
+html /deep/ h1, html /deep/ h3, html /deep/ h5 {
+
+font-family: "museo-sans",sans-serif;
 }
 
 h1 {
@@ -54,7 +52,7 @@ h1 {
 
 h2 {
   color: #7E8D9D;
-  font-size: 35px;
+  font-size: 28px;
   margin: 20px 0px;
 }
 
@@ -78,7 +76,7 @@ a:hover {
 }
 
 :root {
-  --default-primary-color: #3ea1e6;
+  --default-primary-color: #17aacf;
   --dark-primary-color: #7ec0ee;
   --light-primary-color: #c5cae9;
   --text-primary-color: #ffffff;
@@ -88,60 +86,60 @@ a:hover {
   --secondary-text-color: #7E8D9D;
   --disabled-text-color: #7E8D9D;
   --divider-color: #e0e0e0;
-  --paper-checkbox-checked-color: #3ea1e6;
-  --paper-checkbox-checked-ink-color: #3ea1e6;
+  --paper-checkbox-checked-color: #17aacf;
+  --paper-checkbox-checked-ink-color: #17aacf;
   --paper-checkbox-unchecked-color: #7E8D9D;
   --paper-checkbox-unchecked-ink-color: #7E8D9D;
   --paper-checkbox-label-color: #424540;
-  --paper-fab-background: #3ea1e6;
-  --paper-fab-disabled-background: #c9c9c9;
+  --paper-fab-background: #17aacf;
+  --paper-fab-disabled-background: #17aacf;
   --paper-fab-disabled-text: #7E8D9D;
   --paper-icon-button-disabled-text: #c9c9c9;
   --paper-input-container-color: #a8aca5;
-  --paper-input-container-focus-color: #3ea1e6;
+  --paper-input-container-focus-color: #17aacf;
   --paper-input-container-invalid-color: #db5656;
   --paper-input-container-input-color: #a8aca5;
   --paper-menu-background-color: #f5fcff;
   --paper-menu-color: #424540;
   --paper-menu-disabled-color: #c9c9c9;
-  --paper-progress-active-color: #3ea1e6;
+  --paper-progress-active-color: #17aacf;
   --paper-progress-secondary-color: #78bdee;
-  --paper-radio-button-checked-color: #3ea1e6;
+  --paper-radio-button-checked-color: #17aacf;
   --paper-radio-button-checked-ink-color: white;
   --paper-radio-button-unchecked-color: #424540;
   --paper-radio-button-unchecked-ink-color: #424540;
   --paper-radio-button-label-color: #424540;
-  --paper-slider-knob-color: #3ea1e6;
-  --paper-slider-active-color: #3ea1e6;
-  --paper-slider-pin-color: #3ea1e6;
-  --paper-spinner-layer-1-color: #3ea1e6;
-  --paper-spinner-layer-2-color: #3ea1e6;
-  --paper-spinner-layer-3-color: #3ea1e6;
-  --paper-spinner-layer-4-color: #3ea1e6;
-  --paper-tabs-selection-bar-color: #ffff8d;
-  --paper-tab-ink: #ffff8d;
-  --paper-toggle-button-checked-bar-color: #3ea1e6;
-  --paper-toggle-button-checked-button-color: #3ea1e6;
-  --paper-toggle-button-checked-ink-color: #3ea1e6;
+  --paper-slider-knob-color: #17aacf;
+  --paper-slider-active-color: #17aacf;
+  --paper-slider-pin-color: #17aacf;
+  --paper-spinner-layer-1-color: #17aacf;
+  --paper-spinner-layer-2-color: #17aacf;
+  --paper-spinner-layer-3-color: #17aacf;
+  --paper-spinner-layer-4-color: #17aacf;
+  --paper-tabs-selection-bar-color: #17aacf;
+  --paper-tab-ink: #17aacf;
+  --paper-toggle-button-checked-bar-color: #17aacf;
+  --paper-toggle-button-checked-button-color: #17aacf;
+  --paper-toggle-button-checked-ink-color: #17aacf;
   --paper-toggle-button-unchecked-bar-color: #7E8D9D;
   --paper-toggle-button-unchecked-button-color: white;
   --paper-toggle-button-unchecked-ink-color: white;
-  --paper-toolbar-background: #17aacf;
-  --paper-toolbar-color: #ffffff;
-
+  --paper-toolbar-background: #fff;
+  --paper-toolbar-color: #1d1d26;
 }
 
 paper-toolbar a, paper-toolbar a:hover, paper-toolbar a:active,
 paper-toolbar a:visited, paper-toolbar a:focus {
-  color: #ffffff;
+  color: #1d1d26;
 }
 
 paper-button.primary, paper-button.btn-primary, paper-button[primary] {
-  color: #3ea1e6;
+  color: #fff;
+  background:#17aacf;
 }
 paper-button.primary[raised], paper-button.btn-primary[raised],
 paper-button[primary][raised] {
-  background-color: #3ea1e6;
+  background-color: #17aacf;
   color: #fff;
 }
 paper-button.secondary, paper-button.btn-secondary, paper-button[secondary] {
@@ -197,7 +195,8 @@ paper-button[disabled] {
 
 paper-icon-button.primary, paper-icon-button.btn-primary,
 paper-icon-button[primary] {
-  color: #3ea1e6;
+  color: #fff;
+  background:#17aacf;
 }
 paper-icon-button.primary:hover, paper-icon-button.btn-primary:hover,
 paper-icon-button[primary]:hover {
@@ -259,11 +258,11 @@ paper-checkbox::shadow #checkmark.paper-checkbox {
   border-color: #fff !important;
 }
 
-paper-dialog {
+html /deep/ paper-dialog {
   color: #424540;
   background-color: #ffffff;
-  font-family: 'Arimo', sans-serif;
-  font-weight: 400;
+  font-family: "museo-sans",sans-serif;
+  font-size:500;
 }
 paper-dialog h1, paper-dialog h2, paper-dialog h3, paper-dialog h4,
 paper-dialog h5, paper-dialog h6 {
@@ -277,12 +276,12 @@ paper-fab {
 }
 
 paper-fab {
-  background-color: #3ea1e6;
+  background-color: #17aacf;
   color: #fff;
   --paper-fab-keyboard-focus-background: #135e92;
 }
 paper-fab.primary, paper-fab.btn-primary, paper-fab[primary] {
-  background-color: #3ea1e6;
+  background-color: #17aacf;
   color: #fff;
   --paper-fab-keyboard-focus-background: #135e92;
 }
@@ -316,39 +315,952 @@ paper-fab[disabled] {
   background: #c9c9c9 !important;
 }
 
-
 section.hero paper-menu, section[hero] paper-menu {
   --paper-menu-background-color: #f5fcff;
 }
 
-paper-tabs {
-  background-color: #7ec0ee;
-  color: #ffffff;
+
+/*MORE IN-DEPTH CUSTOM STYLES*/
+
+/*BUTTONS*/
+
+html /deep/ paper-button {
+  text-transform:none;
 }
 
-paper-icon-button.qi-logo {
-  width: 30px;
-  height: 30px; 
+html /deep/ iron-icon.blue {
+  color:#17aacf;
 }
 
-paper-icon-button.qi-logo circle {
-  color: #ffffff;
-  opacity: 0.20;
-  stroke: #ffffff;
-  stroke-width: 10; 
+
+/*COLORS*/
+
+html /deep/ .turqoize {color:#17aacf;}
+html /deep/ .green {color:#17cf47;}
+
+
+/*ICON STYLING*/
+
+.myIcon.add, .myIcon.search {stroke:#ccc;}
+
+/*STYLEGUIDE ONLY*/
+
+paper-toolbar {
+    height: 104px !important;
 }
 
-paper-icon-button.qi-logo circle#center-fill {
-  color: #ffffff;
-  opacity: 0.1; 
+/*OVERLAY MENU*/
+
+html /deep/ .centered paper-menu.paper-menu-0 {
+  background:transparent;
+  color:#fff;
 }
 
-paper-icon-button.qi-logo circle#center-stroke {
-  opacity: 1;
-  stroke: #ffffff;
-  stroke-width: 10; 
+html /deep/ .centered paper-button {
+  text-transform:uppercase;
 }
 
+html /deep/ .centered .fit {
+  position:inherit;
+  }
+
+html /deep/ .centered .close {
+  position:absolute;
+  top:20px;
+  right:20px;
+}
+
+html /deep/ .centered .close iron-icon {
+  color:#fff;
+  width:30px;
+  height:30px;
+}
+
+/*TOOLBAR*/
+
+html /deep/ #topBar.paper-toolbar {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex:1;
+}
+
+html /deep/ .toolbar-tools > ::content paper-icon-button[icon=menu] {
+      margin-right: 12px;
+    }
+
+/*HIDDEN TOOLBAR DROP-SHADOW*/
+
+html /deep/ .paper-header-panel-0 #dropShadow.paper-header-panel {
+  display:none;
+}
+
+
+html /deep/ #drawer.paper-drawer-panel {
+background:rgba(23,170,207,0.95) !important;
+color:#fff;
+width:100% !important;
+z-index:3;
+}
+
+html /deep/ #drawer.paper-drawer-panel .paper-button-0 {
+  display:block;
+  background:transparent;
+}
+
+html /deep/ #drawer.paper-drawer-panel .centered {
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  width:100%;
+}
+
+html /deep/ #drawer.paper-drawer-panel .centered .row {
+    width: auto;
+}
+
+/*CARD STYLES*/
+
+html /deep/ .card.qi-swipe-card {
+    border:none;
+    transition:all 1s;
+    display:block !important;
+    position:relative;
+}
+
+html /deep/ .card.qi-swipe-card:before {
+    content:"";
+    position:absolute;
+    bottom:0;
+    height:1px;
+    width:100%;
+    background: rgba(0,0,0,0.1);
+}
+
+html /deep/ .title.qi-article-card {
+    font-size: 15px;
+    font-weight:500;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    line-height: 18px;
+}
+
+html /deep/ qi-article-card .feedName{
+    font-size: 11px;
+    padding:0 10px 10px 10px;
+    font-weight:300;
+    color: #1d1d26;
+    opacity:0.6;
+    text-transform:uppercase;
+  }
+
+/* FAB TRAY */
+
+html /deep/ .fab-tray{
+      transition:0.4s;
+      width: 100vw;
+      height: 62px;
+      bottom:-62px;
+      position:fixed;
+      background:#17aacf;
+      display: visible;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+
+/* SELECTED FAB TRAY */
+
+html /deep/ .selectedFab{
+      bottom:0;
+
+    }
+
+/*SELECTED CARD STYLES*/
+
+html /deep/ .selectedCard.qi-swipe-card {
+    border-left: none;
+    background:#f2fcff;
+    transition:all 0.4s;
+}
+
+html /deep/ .card.qi-swipe-card:after {
+    content:"";
+    background:#17aacf;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:0;
+    transition:all 0.4s;
+}
+
+html /deep/ .selectedCard.qi-swipe-card:after {
+    content:"";
+    background:#17aacf;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:8px;
+}
+
+/*SWIPED ENTRY STYLES*/
+
+html /deep/ .qi-swipe-card-tray {
+  padding:0;
+}
+html /deep/ .qi-swipe-card-tray qi-article-page figure {
+  margin:0;
+}
+
+html /deep/ qi-swipe-card-tray qi-article-page h2 span {
+  padding:0.1em 1em;
+  display:block;
+}
+
+html /deep/ qi-swipe-card-tray qi-article-page #abstract {
+  padding:0.1em 1em;
+  margin:0 0 1em 0;
+}
+
+html /deep/ .article-content.qi-article-page {
+    padding: 0;
+}
+
+/*COLLAPSE DROPDOWN*/
+
+html /deep/ qi-swipe-card-tray qi-article-page > div > div.flex.style-scope.qi-article-page {
+  border:1px solid #ccc;
+  margin:1em;
+  background-color: #f8f8f9;
+}
+
+html /deep/ qi-swipe-card-tray qi-article-page qi-collapse-field > div > div {
+    display: flex;
+    align-items: center;
+}
+
+html /deep/ .row {
+  margin:0;
+  padding:0;
+}
+
+html /deep/ qi-article-page qi-collapse-field label > span {
+  padding-left:1em;
+}
+
+/*PAPER TABS*/
+
+html /deep/ paper-tabs {
+  background-color: #f8f8f9;
+  color: #1d1d26;
+  overflow: visible;
+  text-transform:uppercase;
+}
+
+html /deep/ #selectionBar.paper-tabs {
+    position: absolute;
+    height: 4px;
+    bottom: 0;
+}
+
+html /deep/ paper-tab:focus .tab-content.paper-tab, html /deep/ paper-tab.iron-selected .tab-content.paper-tab {
+color:#17aacf;
+font-weight:800;
+}
+
+/*SELECTABLE BUTTONS*/
+
+html /deep/ paper-material.paper-material-0 {
+    box-shadow: none;
+}
+
+html /deep/ paper-fab.paper-fab-0 {
+    color: #ffffff;
+}
+
+/*EVENT LIST*/
+
+html /deep/ .eventCard{
+      margin:1em;
+      position:relative;
+      background:#f3f3f3;
+    }
+
+html /deep/ .eventCard header, html /deep/ .eventDetails header {
+      position:relative;
+}
+
+html /deep/ .eventCard header .image, html /deep/ .eventDetails header .image{
+      background-size: cover;
+      background-position: top left;
+      background-repeat: no-repeat;
+      position:relative;
+}
+
+html /deep/ .eventDetails header .image{
+      min-height:280px;
+}
+
+html /deep/ .eventCard header .image:after, html /deep/ .eventDetails header .image:after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+html /deep/ .eventCard header .titlearea, html /deep/ .eventDetails header .titlearea {
+      position:absolute;
+      bottom:1em;
+      left:1em;
+      right:1em;
+      z-index:1;
+}
+
+html /deep/ .eventCard header .title, html /deep/ .eventDetails header .title{
+      color:#fff;
+      margin:0;
+}
+
+html /deep/ .eventCard header .location, html /deep/ .eventDetails header .location{
+      color:#fff;
+      opacity:0.8;
+      margin:0;
+}
+
+
+html /deep/ .eventCard .summary, html /deep/ .eventDetails .summary {
+  padding:1em;
+  background:#f3f3f3;
+}
+
+html /deep/ .eventMatches, html /deep/ .eventContacts, html /deep/ .eventMeetings, html /deep/ .eventDate, html /deep/ .eventSubscribers{
+  text-align: center;
+  padding:0 1.4em;
+}
+
+html /deep/ .eventContacts {
+ border-left:1px solid #ccc;
+ border-right:1px solid #ccc;
+}
+
+html /deep/ .eventDate .text, html /deep/ .eventSubscribers .text {
+font-size:20px;
+font-weight:500;
+margin:5px 0 5px 0;
+}
+
+html /deep/ .bottomLabel {
+  font-size: 11pt;
+  margin:0 0 1em 0;
+}
+
+html /deep/ .count {
+  font-size: 32pt;
+  margin:0 0 0.2em 0;
+}
+
+html /deep/ .eventStats {
+  font-size: 12pt;
+  line-height: 1.6;
+
+  span {
+    width: 40px;
+    text-align: right;
+    display: inline-block;
+  }
+}
+
+html /deep/ .eventCard label, html /deep/ .eventDetails label {
+  font-size: 16px;
+}
+
+html /deep/ .eventCard .info {
+  padding:1em;
+}
+
+html /deep/ iron-icon.qi-icon-field {
+color:#000;
+height:24px;
+width:24px;
+opacity:0.4;
+}
+
+html /deep/ .fldValue.qi-icon-field {
+font-size:16px;
+margin-left:0.2em;
+}
+
+html /deep/ .eventCard .info .photo.qi-avatar, html /deep/ .eventCard .info iron-icon.qi-avatar {
+  width:32px;
+  height:32px;
+  background-repeat:no-repeat;
+  background-size:cover;
+  border-radius:50%;
+  border:none;
+  margin:0 0.2em;
+}
+
+html /deep/ .eventCard iron-icon.qi-avatar {
+    width: 26px;
+    height: 26px;
+    padding: 3px;
+  }
+
+html /deep/ iron-icon.qi-avatar {
+    background: #e6e6e6;
+    color: #aaa;
+    border:none;
+  }
+
+html /deep/ .eventCard .info #date {
+}
+
+html /deep/ .eventCard .info #registrants {
+}
+
+/* EVENT SUMMARY */
+
+html /deep/ #mainContainer.paper-scroll-header-panel {
+background:#fff;
+  }
+
+html /deep/ .qi-field-decorator {
+  align-items: center;
+  justify-content: center;
+}
+
+html /deep/ .eventSettings {
+  margin:1em;
+}
+
+html /deep/ .eventSettings {
+  margin:1em;
+}
+
+/* EVENT MATCHES */
+
+html /deep/ .inner.card {
+  padding:1em;
+  border-bottom:1px solid #f3f3f3;
+}
+
+html /deep/ .inner.card qi-avatar {
+  margin-right:0.8em;
+}
+
+html /deep/ .inner.card iron-icon.qi-avatar {
+    width: 38px;
+    height: 38px;
+    padding: 6px;
+}
+
+html /deep/ .inner.card .name {
+  margin-top:0.2em;
+  margin-bottom:0.2em;
+}
+
+html /deep/ .matchPct {
+  font-size: 28px;
+  color:#17cf8c;
+}
+
+html /deep/ .matchPct span {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 2px;
+}
+
+html /deep/ .inner.card .sub {
+  color:#939396;
+  font-size:14px;
+}
+
+
+/* TRANSFERRED QI-CARDS STYLES */
+
+$card-padding-top-bottom: 5px;
+$card-padding-left-right: 10px;
+
+$base-height: 40px;
+$header-height: $base-height + 20px;
+$summary-height: $base-height - 15px;
+$actions-height: $base-height;
+$actions-position-top: $header-height + $summary-height;
+$card-height: $header-height + $summary-height + $actions-height;
+
+
+$event-card-header-height: $base-height*1.5 + $card-padding-top-bottom*2;
+$event-card-summary-height: $base-height*3 + $card-padding-top-bottom*2;
+$event-card-summary-top-position: $event-card-header-height + $card-padding-top-bottom*2 + 10px;
+$event-card-height:
+  $event-card-header-height +
+  $event-card-summary-height;
+
+$contact-card-header-height: 0px;
+$contact-card-summary-height: 0px;
+$contact-card-height:
+  $contact-card-header-height +
+  $contact-card-summary-height;
+
+
+
+// ****** Basic card
+.card-wrapper {
+  padding: $page-padding;
+  padding-bottom: 0;
+}
+
+.card {
+  box-sizing: border-box;
+  background-color: $white;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  min-width: 300px;
+  font-size: 10pt;
+  line-height: 1.2;
+
+  p {
+    margin: 2px 0;
+    @include text-truncate;
+  }
+  h3 {
+    font-size: 20px;
+    margin: 4px 0;
+    @include text-truncate;
+  }
+}
+
+.card header {
+  height: $header-height;
+  padding: $card-padding-top-bottom $card-padding-left-right;
+  @include absolute(top 0 right 0 bottom 0 left 0);
+}
+
+.card .summary {
+  height: $summary-height;
+  line-height: 0.75;
+  padding: $card-padding-top-bottom $card-padding-left-right;
+  @include absolute(top $header-height right 0 bottom 0 left 0);
+}
+
+.card-actions {// Card footer
+  height: $base-height;
+  border-top: 1px solid $qi-gray-light;
+  @include absolute(top $actions-position-top right 0 bottom 0 left 0);
+}
+
+// ****** Card Variations
+
+// Event Venue Cards
+.card.venue-bkgnd {
+  height: $event-card-height;
+  background-color: $qi-gray-dark2;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: $page-padding - 5px;
+
+  header {
+    height: $event-card-header-height;
+    text-align: center;
+    border-bottom: $border-reverse;
+  }
+
+  .summary {
+    height: $event-card-summary-height;
+    @include absolute(top $event-card-summary-top-position right 0 bottom 0 left 0);
+  }
+}
+
+
+
+// Photo cards
+
+$photo-height: $base-height*2.5 + $card-padding-top-bottom*2;
+
+$photo-card-header-height: ($photo-height * 2/3) - $card-padding-top-bottom*2;
+$photo-card-summary-height: ($photo-height * 1/3) - $card-padding-top-bottom;
+$photo-card-summary-top-position: $photo-card-header-height;
+$photo-card-actions-position-top:
+  $photo-card-header-height +
+  $photo-card-summary-height +
+  $card-padding-top-bottom*3;
+$photo-card-height:
+  $photo-card-header-height +
+  $photo-card-summary-height +
+  $actions-height +
+  $card-padding-top-bottom*3;
+
+
+.card.card-photo {
+  height: $photo-card-height;
+
+  /deep/ .photo, /deep/ core-icon.photo {
+    background-color: $qi-gray;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #bce6d5;
+  }
+
+  header {
+    left: $base-height*2;
+    height: $photo-card-header-height;
+    margin-left: 5px;
+  }
+  .summary {
+    left: $base-height*2;
+    height: $photo-card-summary-height;
+    top: $photo-card-summary-top-position;
+  }
+  .card-actions {// Card footer
+    top: $photo-card-actions-position-top;
+  }
+
+  core-collapse {
+    background-color: $trait-wrapper-background;
+    border: 5px solid $white;
+    border-top: 0;
+    font-size: 12pt;
+    padding: $card-padding-top-bottom $card-padding-left-right;
+    margin-top: $base-height;
+  }
+  .matchPercentage {
+    font-size: 18pt;
+    display: inline;
+
+    span {
+      font-size: 8pt;
+    }
+  }
+
+  .distanceAway {
+    font-size: 9pt;
+    display: inline;
+    padding-bottom: 2px
+  }
+}
+
+// Event Notification Cards
+
+$notice-card-height: 60px;
+
+.card.card-notice {
+  height: $notice-card-height;
+
+  .avatar {
+    height: $notice-card-height;
+  }
+  .core-icon-wrapper {
+    min-height: $notice-card-height;
+    min-width: $notice-card-height;
+    background-color: $qi-gray;
+    text-align: center;
+  }
+  core-icon{
+    height: $notice-card-height*0.6;
+    width: $notice-card-height*0.6;
+    color: $white;
+    margin-top: $card-padding-left-right;
+  }
+  .noticeContent {
+    height: $notice-card-height;
+    padding: $card-padding-top-bottom $card-padding-left-right;
+  }
+}
+
+// ****** Meeting card
+
+$meeting-card-header-height: $base-height - 10px;
+$meeting-card-summary-height: $base-height*2;
+$meeting-card-height: $meeting-card-header-height + $meeting-card-summary-height;
+
+.card.meeting {
+  font-size: 10pt;
+  line-height: 1.2;
+  height: auto;
+
+  p {
+    margin: 8px 4px;
+    overflow: auto;
+    text-overflow: initial;
+    white-space: normal;
+    position: relative;
+
+    span {
+      @include absolute(top 0 right 0 bottom 0 left 90px);
+    }
+  }
+
+  header {
+    height: auto;
+    position: relative;
+    background-color: $qi-green-light;
+  }
+
+  .summary {
+    height: auto;
+    line-height: 1.5;
+    position: relative;
+    top: 0;
+    max-height: 200px;
+    overflow: auto;
+  }
+
+}
+
+
+// ****** Tweet card
+
+$tweet-logo-height: 48px;
+$tweet-card-header-height: $tweet-logo-height;
+$tweet-card-summary-height: $tweet-logo-height*1.5;
+$tweet-card-summary-top-position: $tweet-card-header-height;
+$tweet-card-actions-position-top:
+  $tweet-card-header-height +
+  $tweet-card-summary-height +
+  $card-padding-top-bottom*3;
+$tweet-card-height:
+  $tweet-card-header-height +
+  $tweet-card-summary-height +
+  $actions-height;
+
+.card.card-photo.tweet {
+  height: $tweet-card-height;
+
+  /deep/ .photo {
+    height: $tweet-logo-height;
+    width: $tweet-logo-height;
+  }
+
+  header {
+    left: $tweet-card-header-height;
+    height: $tweet-card-header-height;
+
+    a.userName {
+      text-decoration: none;
+      font-size: 9pt;
+    }
+    h3 {
+      font-size: 16pt;
+      margin: 2px 0;
+    }
+  }
+  .summary {
+    left: 0;
+    height: $tweet-card-summary-height;
+    top: $tweet-card-header-height;
+    line-height: 1.5;
+  }
+
+  .card-actions {// Card footer
+    top: $tweet-card-header-height + $tweet-card-summary-height;
+  }
+
+}
+
+// ****** Trait card
+
+.card.traits {
+  padding: $card-padding-top-bottom $card-padding-left-right;
+  height: auto;
+}
+
+// ****** Note card
+
+.card.note {
+  padding: $card-padding-top-bottom $card-padding-left-right;
+  height: auto;
+
+  p {
+    white-space: normal;
+    margin-bottom: 10px;
+  }
+}
+
+// ****** Job card
+
+.card.job {
+  padding: $page-padding;
+  height: auto;
+
+  p {
+    white-space: normal;
+    margin: 5px 0;
+  }
+}
+
+// ****** Persona card
+
+.card.persona {
+  height: auto;
+
+  header {
+    padding: $page-padding;
+    position: relative;
+    height: auto;
+  }
+
+  p {
+    white-space: normal;
+    margin-bottom: 10px;
+  }
+
+  .card-actions {// Card footer
+    height: $base-height;
+    border-top: 1px solid $qi-gray-light;
+    position: relative;
+    top: 0;
+
+    core-icon {
+      width: 20px;
+      height: 20px;
+      margin: 15px;
+    }
+  }
+
+  core-collapse {
+    background-color: $trait-wrapper-background;
+    border: 5px solid $white;
+    border-top: 0;
+    font-size: 12pt;
+    padding: $card-padding-top-bottom $card-padding-left-right;
+    margin-top: 5px;
+
+    h4 {
+      margin-top: $page-padding;
+    }
+  }
+
+}
+
+
+/*TRANSFERRED QI-PROFILE STYLES*/
+
+section{
+  background-color: #fff
+}
+
+.skill {
+  background-color: $trait-background;
+  border-radius: 4px;
+  margin: 8px 3px;
+  padding: 10px 8px;
+  display: inline-block;
+}
+
+.summary{
+  width: 100%;
+}
+
+
+.trait-wrapper{
+  background-color: transparent;
+}
+
+.profile-overview {
+  padding: $page-padding;
+  background-color: $qi-gray-dark2;
+  color: $white;
+
+  h4, .label-text {
+    color: $white;
+  }
+
+  .profile-name {
+    padding: 0 $page-padding;
+  }
+
+  paper-input {
+    font-size: 10pt;
+  }
+
+  paper-input::shadow paper-input-decorator {
+    width: 80%;
+  }
+
+  .summary.textfield {
+    max-height: 250px;
+  }
+
+  paper-autogrow-textarea::shadow ::content textarea.profile {
+    font-size: 9pt;
+    line-height: 1.5;
+    max-height: 250px;
+    background-color: darken($qi-gray-dark2, 7%);
+    border: 0;
+    color: $white;
+    padding: $page-padding;
+    border-bottom: 5px solid darken($qi-gray-dark2, 11%);
+  }
+
+}
+
+.work-history {
+  background-color: $qi-gray-dark2;
+  margin: 20px 0;
+
+  h4 {
+    color: $white;
+    padding: $page-padding;
+    padding-bottom: 0;
+  }
+}
+
+
+
+
+ h1{
+  padding-left: 5px;
+  font-size: 14pt;
+  color: #505050;
+ }
+ h4 {
+  margin-bottom: 6px;
+ }
+ label{
+  font-size: 10pt;
+  padding-right: 5px;
+ }
+ #panelContent{
+  padding-left: 5px;
+
+ }
+ button{
+  background-color: #526E9C;
+  color: white;
+  font-size: 10pt;
+ }
+
+ .skill{
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  margin: 4px;
+  padding: 5px;
+  display: inline-block;
+ }
+ .textfield{
+  font-size: 9pt;
+  margin-left: 5px;
+ }
+
+ paper-autogrow-textarea{
+  width: 100%;
+ }
+ paper-autogrow-textarea > textarea{
+  padding: 5px;
+ }
 
 
 </style>

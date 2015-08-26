@@ -1,0 +1,92 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html"> 
+
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+
+
+<link rel="import" href="qi-tweet-tray.html">
+<dom-module id='qi-twitter-panel'  >
+
+	<style>
+	
+	.label{
+		font-size: 9pt;
+		font-weight: bold;
+		margin-right: 5px;
+		color: #6c6c6c;
+	}
+	.value{
+		font-size: 9pt;
+		color: #5C9AA9;
+	}
+	</style>
+
+ 
+	<template>
+
+		<iron-ajax id="ajax"
+			auto="true"
+		  url="[[dataurl]]"
+		  handleAs="json"
+		  last-response="{{response}}" on-error="errorHandler"></iron-ajax>
+
+		<paper-header-panel class="flex fit layout vertical"> 
+
+			<div class="hashtagBanner layout horizontal">
+				<div class="label">Event Hashtag:</div> <span >[[hashtag]]</span>
+			</div> 
+		 
+		    <qi-tweet-tray tweets="{{response.statuses}}" hashtag="[[hashtag]]"></qi-tweet-tray>
+		</paper-header-panel>
+
+	</template>
+
+
+	<script>
+		Polymer({
+    		is: 'qi-twitter-panel', 
+
+    		properties:{
+    			dataurl: {
+    				type: String, 
+    				value:'', 
+    				notify: true, 
+    				observer: 'dataUrlChanged'
+    			},
+
+    			hashtag: {
+    				type: String
+    			},
+
+    			response: {
+    				type: Object, 
+    				notify: true
+    			}
+    		},
+
+    		dataUrlChanged: function(newUrl, oldUrl){
+    			if(newUrl != null && newUrl != ''){
+	    			this.$.ajax.url = newUrl;
+	    			this.$.ajax.generateRequest();
+	    		}
+	    	},
+
+
+	    	errorHandler: function(e){
+	    		console.log("An error occurred");
+	    		console.log(e);
+	    	},
+
+			ready: function(){
+				
+			}
+
+
+
+		
+		});
+
+	</script>
+
+</dom-module> 

@@ -11,10 +11,38 @@
 
 <dom-module id='qi-profile-panel'  > 
 
-	<link rel="stylesheet" href="../quikintro.css"> 
 	<link rel="stylesheet" href="../qi-cards.css"> 
+
 	<link rel="stylesheet" href="../qi-trait/traitlist.css">
-	<link rel="stylesheet" href="qi-profile-panel.css"> 
+
+	<style>
+	 #profile{
+	 	padding: 4px;
+	 }
+	 .summary{
+	 	line-height: normal;
+	 }
+
+	 .avatar-panel{
+	 	background-color: #17aacf;
+	 	max-height: 100px;
+	 }
+
+	 qi-avatar{
+	 	top: 10px;
+	 	left: 10px;
+	 	position: relative;
+	 	--avatar-height: 100px;
+	 	--avatar-width: 100px;
+	 }
+	 .profile-name{
+	 	top: 20px;
+	 	position: relative;
+	 	left: 20px;
+	 	color: white;
+	 	font-weight: 300;
+	 }
+	</style>
 
 
 	<template>
@@ -22,13 +50,14 @@
 	<section id="profile" >
 
 		<div class="profile-overview layout vertical flex fit">
-			<div class="horizontal layout" > 
+			<div class="avatar-panel horizontal layout" > 
 				<div>
 					<qi-avatar url="[[profile.avatar]]"></qi-avatar>
 				</div>
 				<div class="profile-name flex" >  
-					<paper-input id="firstname" label="First Name" value="[[profile.firstName]]"></paper-input>
-					<paper-input id="lastname" label="Last Name" value="[[profile.lastName]]"></paper-input>
+					<span>[[profile.firstName]]</span>
+					<span>[[profile.lastName]]</span>
+					
 				</div>
 			</div>
 
@@ -43,6 +72,14 @@
 
 		<div class="card-wrapper"> 
 			<qi-titled-panel paneltitle="skills" traits="[[profile.skills.values]]"></qi-titled-panel>
+		</div>
+
+		<div class="card-wrapper"> 
+			<qi-titled-panel paneltitle="music" traits="[[profile.music]]"></qi-titled-panel>
+		</div>
+
+		<div class="card-wrapper"> 
+			<qi-titled-panel paneltitle="art" traits="[[profile.art]]"></qi-titled-panel>
 		</div>
 
 		<div class="card-wrapper"> 	

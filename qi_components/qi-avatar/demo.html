@@ -4,17 +4,52 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="import" href="../../bower_components/polymer/polymer.html">
+	<script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+	<link rel="import" href="../../bower_components/iron-meta/iron-meta.html">
+		<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+
 	<link rel="import" href="qi-avatar.html">
 
 
+	<style is="custom-style">
+	qi-avatar{
+		--avatar-height: 100px;
+		--avatar-width: 100px;
+	}
+
+	</style>
+
 </head>
 <body>
+
+
    <template is="dom-bind">
-	<qi-avatar></qi-avatar>
 
+    <div class$="{{null}}"></div>
+    <div class="something"></div>
 
+	<qi-avatar url="{{null}}"></qi-avatar>
 	<qi-avatar url="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/1/000/09d/05b/1869f64.jpg"></qi-avatar>
+
    </template>
+
+   <script>
+   console.log("Got here");
+   var divs = document.querySelectorAll("div");
+   
+   for(var i= 0; divs.length; i++){
+   	console.log("div: " + divs[i]);
+   }
+  
+   var avatars = document.querySelectorAll("qi-avatar");
+   console.log(avatars);
+   for(var i=0; i < avatars.length; i++){
+   	console.log("avatar: " + avatars[i].url)
+   }
+
+   </script>
+
+   
 </body>
 </html>

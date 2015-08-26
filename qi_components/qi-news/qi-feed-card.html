@@ -1,0 +1,66 @@
+<!--
+This component is responsible for displaying the metadata
+for a single feed.
+
+	@group QI Elements
+	@element qi-feed-card
+-->
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+
+<link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-card/qi-card.html">
+
+<link rel="import" href="../qi-avatar/qi-avatar-tray.html">
+
+<link rel="import" href="qi-feed-icon.html">
+
+
+<dom-module id="qi-feed-card">
+	<style>
+		:host {
+			display: block;
+		}
+
+		.feedcard{
+			max-height: 50px;
+			display: table-row;
+		}
+
+		.card-detail{
+			height: 50px;
+			vertical-align: top;
+			display: table-cell;
+			padding-left: 5px;
+			width: 100%;
+		}
+		
+	</style>
+
+	<template>
+
+		<div>
+		<qi-card model="[[model]]">
+		
+			<div class="feedcard layout justified">
+				
+				<div style="display: table-cell"><qi-feed-icon model="[[model]]"></qi-feed-icon></div>
+				
+				<div class="card-detail">
+					<div><span>[[model.name]]</span></div>
+
+					<qi-avatar-tray model="[[model.avatars]]"></qi-avatar-tray>
+				</div>
+			</div>
+		
+		</qi-card>
+		</div>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'qi-feed-card',
+			behaviors:[QiCardBehavior]	
+		});
+	</script>
+</dom-module>

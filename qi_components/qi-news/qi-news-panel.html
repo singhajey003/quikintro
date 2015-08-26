@@ -1,23 +1,33 @@
+<!--
+This component is the main component used to display the news.
+
+  @group QI Elements
+  @element qi-news-panel
+
+-->
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+
 <link rel="import" href="qi-feed-tray.html">
 <link rel="import" href="qi-article-tray.html">
-<link rel="import" href="qi-article-page.html">
-
 
 <dom-module id="qi-news-panel">
 
 	<style is="custom-style">
-	.demotray{
-		width: 100vw;
-	}
+
+
+  paper-tabs{
+    overflow: visible;
+  }
 
 	</style>
 
 <template>
-	
-<!-- Enable if you need to initialize the data for this 
+
+<!-- Enable if you need to initialize the data for this
 	<qi-data-loader></qi-data-loader>
 
 -->
@@ -26,10 +36,37 @@
 	<iron-localstorage name="news" value="{{news}}"></iron-localstorage>
 	<iron-localstorage  name="feeds" value="{{feeds}}"></iron-localstorage>
 
-		<div class="demotray layout vertical">
-			<qi-feed-tray model="[[feeds]]"></qi-feed-tray>
-			<qi-article-tray news="{{news}}" ></qi-article-tray>
-		</div>
+
+<div class="fit flex layout vertical ">
+
+  <paper-tabs noink="true" hideScrollButtons="true" scrollable="true" selected="{{selectedNewsTab}}">
+    <paper-tab>World</paper-tab>
+    <paper-tab>Contacts</paper-tab>
+    <paper-tab>Bookmarks</paper-tab>
+    <paper-tab>Sources</paper-tab>
+  </paper-tabs>
+
+
+	<iron-pages selected="{{selectedNewsTab}}">
+
+    <section>
+      <qi-article-tray news="{{news}}"></qi-article-tray>
+    </section>
+
+    <section>
+      <qi-article-tray news="{{news}}"></qi-article-tray>
+    </section>
+
+    <section>
+      <qi-article-tray news="{{news}}"></qi-article-tray>
+    </section>
+
+    <section>
+      <qi-feed-tray model="{{feeds}}"></qi-feed-tray>
+    </section>
+
+	</iron-pages>
+</div>
 
 </template>
 
@@ -43,11 +80,10 @@
 
   		news: {
   			type: Array
-  		}, 
-  		selectedPage: {
+  		},
+  		selectedNewsTab: {
   			type: Number,
-  			value: 0,
-  			notify: true
+  			value: 0
   		},
   		articleModel: {
   			type: Object,
@@ -55,6 +91,12 @@
   		}
   	},
 
+/*
+  	_displayPage: function(model){
+  		this.articleModel = model;
+
+  	},
+*/
 
 
   });

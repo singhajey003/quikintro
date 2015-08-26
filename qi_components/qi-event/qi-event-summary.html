@@ -5,7 +5,7 @@
     @element qi-event-summary
 -->
 
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
@@ -21,76 +21,111 @@
 <link rel="import" href="../qi-field/qi-field-decorator.html">
 <link rel="import" href="../qi-persona/qi-persona-field.html">
 
-<dom-module id='qi-event-summary'  > 
+<dom-module id='qi-event-summary'  >
 
-    <link rel="stylesheet" href="../quikintro.css" > 
-    <link rel="stylesheet" href="../qi-cards.css" > 
-    <link rel="stylesheet" href="qi-events.css" > 
-    <link rel="stylesheet" href="qi-event-summary.css" > 
+    <link rel="stylesheet" href="../quikintro.css" >
+    <link rel="stylesheet" href="../qi-cards.css" >
+    <link rel="stylesheet" href="qi-events.css" >
+    <link rel="stylesheet" href="qi-event-summary.css" >
 
     <template>
 
     <iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
 
-    <div class="layout vertical flex fit">
-        <div class="card venue-bkgnd banner layout fit flex" style$="[[backgroundImage]]"> 
-            <div class="overlay"></div>
+    <div class="layout vertical flex">
+        <div class="card eventDetails venue-bkgnd banner layout flex">
 
-            <div style="height:200px; position: relative;">
-            <header>
-                <div><span>[[event.startTime]]</span> - <span>[[event.endTime]]</span> at <span>[[event.location]]</span></div> 
-                <div><span>[[event.registrantCount]]</span> Registrants</div>
-            </header>
+
+        <header>
+            <div class="titlearea">
+                <h3 class="title">{{event.title}}</h3>
+                <h4 class="location">{{event.location}}</h3>
+            </div>
+            <div class="image" style$="[[backgroundImage]]"></div>
+        </header>
+
+
+        <div class="summary horizontal around-justified layout">
+
+            <div class="eventMatches">
+                <div class="bottomLabel">Matches</div>
+                <div class="count turqoize">[[event.matches.length]]</div>
             </div>
 
-            <div class="summary horizontal layout justified flex" > 
-
-                <div class="eventNewMatches">
-                    <div class="match-count font-light"><span>[[event.matches.length]]</span></div>
-                    <div class="bottomLabel">New<br>Matches</div>
-                </div>
-                <div class="eventStats font-light">
-                    <div class="eventItem"><span>[[event.contacts.length]]</span> Existing Contacts</div>
-                    <div class="eventItem"><span>[[event.meetings.length]]</span> Meetings</div>
-                </div>
-
+            <div class="eventContacts">
+                <div class="bottomLabel">Contacts</div>
+                <div class="count">[[event.contacts.length]]</div>
             </div>
+
+            <div class="eventMeetings">
+                <div class="bottomLabel">Meetings</div>
+                <div class="count green">[[event.meetings.length]]</div>
+            </div>
+
+        </div>
+
+
+
+
+
+
         </div>
 
         <div class="eventSettings layout flex">
-            <div class="eventDescription"><span>[[event.description]]</span></div>
 
-            <div class="settings-row">
-                <google-map id="map" zoom="18" style="width: 100%;" minZoom="9" maxZoom="20" libraries="visualization" zoomable="true" fitToMarkers>  
-                    <google-map-marker id="marker" latitude="[[event.coordinates.latitude]]" longitude="[[event.coordinates.longitude]]"></google-map-marker>
-                </google-map>
+        <div class="horizontal around-justified layout">
+            <div class="eventDate">
+                <iron-icon icon="event" style="width: 48px; height: 48px;"></iron-icon>
+                <div class="text">[[event.startTime]]</div>
+                <div class="bottomLabel">Event Date</div>
             </div>
 
-            <h4>Event Settings</h4>
-              <qi-field-decorator id="rsvpField" label="Going?" class="settings-row horizontal justified layout" > 
+            <div class="eventSubscribers">
+                <iron-icon icon="social:group" style="width: 48px; height: 48px;"></iron-icon>
+                <div class="text">[[event.registrantCount]]</div>
+                <div class="bottomLabel">Registrants</div>
+            </div>
 
+        </div>
+
+        <h4>Description</h4>
+        <div class="eventDescription"><span>[[event.description]]</span></div>
+
+
+        <h4>Settings</h4>
+              <qi-field-decorator id="rsvpField" label="Going?" class="horizontal justified layout" >
                   <mat-dropdown id="rsvp" model="[[event.rsvp]]">
                         <mat-option value="YES" label="Yes"></mat-option>
                         <mat-option value="NO" label="No"></mat-option>
                         <mat-option value="MAYBE" label="Maybe"></mat-option>
-                  </mat-dropdown>  
-                
+                  </mat-dropdown>
              </qi-field-decorator>
 
              <qi-persona-field persona="{{event.persona}}" model="{{personas}}"></qi-persona-field>
-             
 
-             <qi-field-decorator label="Alert" class="settings-row horizontal justified layout" > 
-                <iron-input id="alarm">[[event.notification]]</iron-input>
+             <qi-field-decorator label="Alert" class="horizontal justified layout" >
+                    <mat-dropdown id="alert" model="[[event.notification]]">
+                        <mat-option value="15 minutes before" label="15 minutes before"></mat-option>
+                        <mat-option value="1 hour before" label="1 hour before"></mat-option>
+                        <mat-option value="1 day before" label="1 day before"></mat-option>
+                        <mat-option value="Don't notify me" label="Don't notify me"></mat-option>
+                  </mat-dropdown>
+
+               
              </qi-field-decorator>
+
         </div>
-        
+
+        <google-map id="map" zoom="18" style="width: 100%;height:200px;" minZoom="9" maxZoom="20" libraries="visualization" zoomable="true" fitToMarkers>
+                <google-map-marker id="marker" latitude="[[event.coordinates.latitude]]" longitude="[[event.coordinates.longitude]]"></google-map-marker>
+        </google-map>
+
     </div>
 
     </template>
     <script>
     Polymer({
-        is: 'qi-event-summary', 
+        is: 'qi-event-summary',
 
         properties:{
 
@@ -98,8 +133,8 @@
              * The event model object.
              */
             event: {
-                type: Object, 
-                value: null, 
+                type: Object,
+                value: null,
                 notify: true
             },
 
@@ -125,7 +160,7 @@
             return "background-image:url('"+ imageUrl + "')";
          },
 
-       
+
          /**
           * This method updates the map.
           * @param event the event model
@@ -173,7 +208,7 @@
         eventChanged: function(newValue, oldValue){
             //this.fixMap(newValue);
         }
-       
+
     });
     </script>
-</dom-module> 
+</dom-module>

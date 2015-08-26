@@ -1,0 +1,148 @@
+<!--
+	This component displays connection invitation information.
+
+	@group QI Elements
+	@element qi-invite-card
+-->
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/paper-button/paper-button.html"> 
+
+<link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-trait/qi-traitlist.html">
+
+
+<link rel="import" href="../qi-avatar/qi-avatar.html">
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
+
+<link rel="import" href="../qi-card/qi-swipe-card.html">
+
+<dom-module id='qi-invite-card' > 
+
+
+	<style is="custom-style">
+	.senderName{
+		font-size: 15px;
+		color: #505050;
+	}
+
+	.titleco{
+		font-size: 12px;
+		color: #909090;
+		line-height: normal;
+	}
+
+	.pctBlock {
+		font-size: 12px;
+		color: #707070;
+    right: 3px;
+    position: relative;
+    max-width: 60px;
+    margin-top: 5px;
+	}
+
+	.score{
+		font-size: 20px;
+		color: #5c91cc;
+	}
+
+	.pct{
+		font-size: 10px;
+		color: #5c91cc;
+	}
+  .mainPanel{
+    margin-left: 7px;
+  }
+  .senderBlock{
+
+  }
+
+	</style>
+
+	<template>
+		
+     <qi-swipe-card id="[[cardid]]" model="{{model}}">
+      <div class= " flex horizontal layout">
+
+          <div class="avatarBlock">
+            <qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
+          </div>
+
+          <div class="metatray mainPanel flex">
+             <div class ="senderBlock"> 
+                <span class="senderName">[[wholename]]</span><br/>
+                <span class="titleco">[[titleco]]</span>
+             </div>
+          </div>
+          
+          <div class="pctBlock">
+                <span class="score">[[model.sender.score]]</span>
+                <span class="pct">%</span>
+             </div>
+
+      </div>
+     </qi-swipe-card>
+     
+
+	</template>
+
+	<script>
+	var InvCard = Polymer({
+   		is: 'qi-invite-card', 
+
+   		behaviors:[QiCardBehavior, QiSwipeCardBehavior],
+
+   		properties: {
+
+
+   			/**
+   			 * The concatenated first and last names of the sender.
+   			 */
+   			wholename:{
+   				type: String,
+   				computed: '_concatName(model.sender.firstName, model.sender.lastName)'
+   			},
+
+   			/**
+   			 * The concatenated title and company
+   			 */
+   			titleco:{
+   				type: String,
+   				computed: '_concatTitleCo(model)'
+   			}
+
+    	},
+
+   		_concatTitleCo: function(model){
+   			return (model != null)?model.sender.title +" at " + model.sender.company : "";
+   		},
+
+
+   		/**
+   		 * This method concatenates the first and last name of the sender.
+   		 * @param firstName the first name of the sender
+   		 * @param lastName the last name of the sender
+   		 */
+   		_concatName: function(firstName, lastName){
+   			return firstName + " " + lastName;
+   		},
+
+   		/**
+   		 * This method is used to accept an invitation.
+   		 */
+   		acceptAction: function(e){
+   			this.fire('show-toast',{text:'Invitation accepted.'});
+   		},
+
+   		/**
+   		 * This method is used to decline an invitation.
+   		 */
+   		declineAction: function(e){
+   			this.fire('show-toast',{text:'Invitation declined.'});
+   		}
+
+	});
+
+	</script>
+
+</dom-module> 

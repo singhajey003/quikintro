@@ -13,8 +13,9 @@ This component represents a swipeable card.
 
 	.card{
 		width: 100vw;
-		border: 1px solid #BABABA;
+		border: 1px solid #F9F9F9;
 		background-color: white;
+		padding-left: 2px;
 	}
 
 
@@ -26,7 +27,7 @@ This component represents a swipeable card.
 	</style>
 
 	<template>
-		<div class$="{{selectedStyle}}" on-tap="select" on-track="_handleCardSwipe" touch-action="none">
+		<div class$="{{selectedStyle}}" on-click="select" on-track="_handleCardSwipe" touch-action="none">
 		<content></content>
 		</div>
 	</template>

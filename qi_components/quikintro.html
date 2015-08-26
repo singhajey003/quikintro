@@ -1,3 +1,9 @@
+<!--
+QuikIntro is a single-page app, and this page is the main
+point at which all quikintro components are integrated.
+
+-->
+
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
@@ -17,6 +23,8 @@
 
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
 <link rel="import" href="qi-event/qi-event-panel.html">
 <link rel="import" href="qi-aroundme/qi-aroundme-panel.html">
 <link rel="import" href="qi-profile/qi-profile-panel.html">
@@ -35,15 +43,18 @@
 <link rel="import" href="qi-custom-icons/qi-icons.html">
 <link rel="import" href="qi-theme.html">
 
-<dom-module id='quik-intro'  > 
+<dom-module id='quik-intro'> 
 
   <style is="custom-style">
-    qi-toggle.anonToggle{
-      --toggle-icon-color: white;
-    }
+
 
     paper-icon-item{
       left: -100;
+    }
+
+    #menubutton{
+      color: #505050;
+      margin-right: 4px;
     }
 
 
@@ -67,12 +78,6 @@
               Home
             </paper-icon-item>
 
-             <paper-icon-item id="newsItem" pageId="news"> 
-              <iron-icon icon="settings"></iron-icon>
-                News
-              </paper-item>
-            </paper-icon-item>
-
             <paper-icon-item id="events" pageId="events">
               <iron-icon icon="event"></iron-icon>
               Events
@@ -81,6 +86,13 @@
               <iron-icon icon="maps:my-location"></iron-icon>
               Around Me
             </paper-icon-item>
+
+            <paper-icon-item id="newsItem" pageId="news"> 
+              <iron-icon icon="settings"></iron-icon>
+                News
+              </paper-item>
+            </paper-icon-item>
+
             <paper-icon-item id="messages"   pageId="messages">
               <iron-icon icon="communication:forum"></iron-icon>
               Messages
@@ -108,12 +120,12 @@
 
         <paper-toolbar id="core_toolbar" class="horizontal layout"> 
           <div>
-           <paper-icon-button class="qi-logo" id="menuButton" icon="qi:logo" style="display: block" paper-drawer-toggle></paper-icon-button> 
+           <iron-icon id="menuButton" icon="menu" style="display: block" paper-drawer-toggle></iron-icon> 
           </div>
         
           <div class="flex">[[panelTitle]]</div> 
 
-          <div><qi-toggle class="anonToggle" style="--icon-color: white" openicon="social:person" closedicon="social:person-outline"></qi-toggle></div>
+          <div><qi-toggle class="anonToggle horizontal end-justified layout" style="--icon-color: white" openicon="social:person" closedicon="social:person-outline"></qi-toggle></div>
         
 
         </paper-toolbar>
@@ -124,19 +136,21 @@
             <qi-home></qi-home>
           </section>
 
-          <section id="News" pageId="news">
-            <qi-news-panel></qi-news-panel>
-          </section>
-
           <section id="Event Stream" pageId="events" >
             <qi-event-stream id="eventStream" events="{{eventList}}" personas="{{personas}}"></qi-event-stream>
           </section>
           <section id="Around Me" pageId="aroundme" >
             <qi-aroundme-panel id="aroundMe" ></qi-aroundme-panel>
           </section>
+
+           <section id="News" pageId="news">
+            <qi-news-panel></qi-news-panel>
+          </section>
+
           <section id="Messages" pageId="messages">
             <qi-msg-panel ></qi-msg-panel>
           </section>
+
           <section id="Contacts" pageId="contacts">
             <qi-contact-panel id="contactPanel" contacts="{{contactList}}"></qi-contact-panel>
           </section>
@@ -173,6 +187,7 @@
                 qi.$.coreScaffold.openDrawer();
               }
             },
+
             {
               id:'events',
               panelTitle: 'Events',
@@ -204,6 +219,16 @@
             },
 
             {
+              id:'news',
+              panelTitle: 'News',
+              icon: 'qi:logo',
+              clickHandler: function(){
+                var qi = document.querySelector('quik-intro');
+                qi.$.coreScaffold.openDrawer();
+              }        
+            },
+
+            {
               id:'messages',
               panelTitle: 'Messages',
               icon: 'qi:logo',
@@ -218,6 +243,7 @@
               panelTitle:'Contacts',
               icon:'qi:logo',
               clickHandler: function(){
+                //alert("I'm Contacts");
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
               }       
@@ -240,28 +266,53 @@
         panelTitle: {type: String, value: 'QuikIntro'},
         eventList: {type: Array,  value:[], notify: true, observer:'eventListChanged'},
         contactList: {type: Array, value: [], notify: true, observer:'contactListChanged'},
-        personaList: {type: Array, value: [], notify: true, observer:'personaListChanged'},
+        personaList: {type: Array, value: [], notify: true, },
         
       },
 
+      /**
+       * This method sets the currently displayed page.
+       * @param pageId the id of the page as specified in the conf variable, 
+       *        and in the sections pageId attribute.
+       */
+      setPage: function(pageId){
+        for(var i=0; i < this.conf.length; i++){
+          var page = this.conf[i];
+
+          if(page.id == pageId){
+            this.page = i;
+            break;
+          }
+        }
+      },
+
+      /**
+       * This change listener is triggered whenever the contact list is changed.
+       * @param newValue
+       */
       contactListChanged: function(newValue, oldValue){
         var contactPanel = this.$.contactPanel;
         contactPanel.contacts = newValue;
 
         var aroundMe = this.$.aroundMe;
         aroundMe.contacts = newValue;
+        //TODO: double check that this method is still needed
       },
 
 
       eventListChanged: function(newValue, oldValue){
         var eventPanel = this.$.eventStream;
         eventPanel.events = newValue;
+
+        //TODO: double check that this method is still needed
       },
 
-      personaListChanged: function(newValue, oldValue){
-
-      },
       
+      /**
+       * This change listener is triggered whenever the 'page' variable is changed.
+       * @param newValue the new page index number
+       * @param oldValue the old page index number
+       */
       pageChanged: function(newValue, oldValue){
         this.$.coreScaffold.closeDrawer();
         var config = this.conf[newValue];
@@ -277,10 +328,14 @@
           //TODO add login code here.
 
           // after login is complete, segue to the home page
-          e.currentTarget.selected = 6;
+          this.setPage('home');
         });
 
         var panelTitle = this.panelTitle;
+
+        this.addEventListener('turn-page', function(e){
+           this.setPage(e.detail.pageid);
+        });
 
         this.addEventListener('nav-changed', function(e){
           var nuTitle = e.detail.title;
@@ -321,7 +376,7 @@
           
           var qi = document.querySelector('quik-intro');
           var scaffolding = qi.$.coreScaffold;
-          var menuButton = scaffolding.getMenuButton();
+          var menuButton = this.$.menuButton;
 
           if(e.detail.item.id == 'Event Stream'){
             var qiEventStream = e.detail.item.firstElementChild;
@@ -352,6 +407,13 @@
           // scaffolding.handleClick = e.clickHandler;
           }
         });
+
+
+        //when an icon is clicked on the home page, change current page.
+        this.addEventListener('page-changed', function(e){
+            this.setPage(e.detail.id);
+        })
+
       },
 
       handleToggle: function(){

@@ -32,9 +32,13 @@
 		line-height: normal;
 	}
 
-	.msgBlock {
+	.pctBlock {
 		font-size: 12px;
 		color: #707070;
+    right: 3px;
+    position: relative;
+    max-width: 60px;
+    margin-top: 5px;
 	}
 
 	.score{
@@ -46,8 +50,16 @@
 		font-size: 10px;
 		color: #5c91cc;
 	}
+
+  .mainPanel{
+    margin-left: 7px;
+  }
+  .senderBlock{
+
+}
   .avatarBlock{
     margin-right: 3px;
+
   }
 
 	</style>
@@ -55,44 +67,27 @@
 	<template>
 		
      <qi-swipe-card id="[[cardid]]" model="{{model}}">
-      <div class= "senderBlock flex horizontal layout">
+      <div class= " flex horizontal layout">
 
           <div class="avatarBlock">
             <qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
           </div>
 
-          <div class="metatray mainPanel">
+          <div class="metatray mainPanel flex">
              <div class ="senderBlock"> 
                 <span class="senderName">[[wholename]]</span><br/>
                 <span class="titleco">[[titleco]]</span>
              </div>
 
-             <div class="msgBlock">
+
+          </div>
+                       <div class="pctBlock">
                 <span class="score">[[model.sender.score]]</span>
                 <span class="pct">%</span>
              </div>
-          </div>
 
       </div>
      </qi-swipe-card>
-
-     <!--  
-     <div class$="{{selectedStyle}}" on-click="select" on-track="_handleSwipe">
-        <div class="senderBlock flex horizontal layout">
-        	<div>
-        		<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
-        	</div>
-        	<div class="flex">
-              <span class="senderName">[[wholename]]</span><br/>
-              <span class="titleco">[[titleco]]</span>
-            </div>
-            <div>
-            	<span class="score">[[model.sender.score]]</span><span class="pct">%</span>
-            </div>
-        </div>
-       
-     </div>
-    --> 
      
 
 	</template>

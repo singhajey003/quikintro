@@ -43,6 +43,7 @@ QiSwipeTrayBehavior = {
         	computed: '_computePagesId(id)'
         }
 
+
     },
 
     _computePagesId: function(id){
@@ -54,7 +55,6 @@ QiSwipeTrayBehavior = {
     
         // this event is triggerend whenever the article card is swiped
         this.addEventListener('card-swipe', function(e) {
-
         	if(this.detailpageid == null){
         		throw "The detail page id was not set";
         	}
