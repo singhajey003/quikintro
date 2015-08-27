@@ -13,6 +13,7 @@
         "rating": 5,
         "summary":"Focused on Post-EHR Cloud, Connected Care and Big Data analytics, applications and services.",
         "id":42267,
+        "distanceAway":50,
         "food":["greek", "steak"],
         "drink":["merlot","cabernet"]
     },
@@ -37,6 +38,7 @@
             "url": "https://www.linkedin.com/profile/view?id=133300&authType=name&authToken=53ET&trk=api*a3227641*s3301901*"
         },
         "id":133300,
+        "distanceAway":50,
         "food":["chinese", "steak"],
         "drink":["single malt","cabernet"]
     },
@@ -61,6 +63,7 @@
             "url": "https://www.linkedin.com/profile/view?id=160087&authType=name&authToken=l3rM&trk=api*a3227641*s3301901*"
         },
         "id":160087,
+        "distanceAway":500,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"],
         "interests":["recruiting","biotech"]
@@ -87,6 +90,7 @@
             "url": "https://www.linkedin.com/profile/view?id=63222273&authType=name&authToken=GVQU&trk=api*a3227641*s3301901*"
         },
         "id":63222273,
+        "distanceAway":150,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"],
         "interests":["recruiting"]
@@ -112,6 +116,7 @@
             "url": "https://www.linkedin.com/profile/view?id=2424729&authType=name&authToken=rArj&trk=api*a3227641*s3301901*"
         },
         "id":2424729,
+        "distanceAway":50,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"],
         "interests":["IT"]
@@ -132,6 +137,7 @@
         "id":3,
         "avatar":null,
         "summary":"",
+        "distanceAway":50,
         "food":["chinese","thai","japanese"],
         "drink":["merlot","chardonnay"]
     },
@@ -154,6 +160,7 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=5415765&authType=name&authToken=jYKk&trk=api*a3227641*s3301901*"
         },
+        "distanceAway":50,
         "food":["chinese","thai","sushi"],
         "drink":["merlot","chardonnay"]
 
@@ -179,6 +186,7 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=16819848&authType=name&authToken=8Y5f&trk=api*a3227641*s3301901*"
         },
+        "distanceAway":50,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"],
         "interests":["recruiting"]
@@ -203,6 +211,7 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=4339076&authType=name&authToken=a1I8&trk=api*a3227641*s3301901*"
         },
+        "distanceAway":50,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"]
     },
@@ -226,6 +235,7 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=203096724&authType=name&authToken=9b8n&trk=api*a3227641*s3301901*"
         },
+        "distanceAway":50,
         "food":["indian","thai","steak"],
         "drink":["merlot","chardonnay"]
     },
@@ -247,6 +257,7 @@
             "name": "Greater Boston Area"
         },
         "avatar":null,
+        "distanceAway":400,
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=19198594&authType=name&authToken=EV4l&trk=api*a3227641*s3301901*"
         },
@@ -273,6 +284,7 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=42875897&authType=name&authToken=BLvq&trk=api*a3227641*s3301901*"
         },
+        "distanceAway":200,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"]
     },
@@ -295,6 +307,7 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=22189649&authType=name&authToken=D3XU&trk=api*a3227641*s3301901*"
         },
+        "distanceAway":250,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"]
     },
@@ -317,7 +330,8 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=10192169&authType=name&authToken=WgLt&trk=api*a3227641*s3301901*"
         },
-        "food":["chinese","thai","steak"],
+        "distanceAway":150,
+        "food":["chinese","thai","steak","sushi","japanese"],
         "drink":["merlot","chardonnay"]
     },
 
@@ -339,6 +353,7 @@
         "siteStandardProfileRequest": {
             "url": "https://www.linkedin.com/profile/view?id=3741367&authType=name&authToken=wL3I&trk=api*a3227641*s3301901*"
         },
+        "distanceAway": 150,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"]
     },
@@ -357,7 +372,8 @@
         "id":2,
         "avatar":null,
         "food":["chinese","thai","steak"],
-        "drink":["merlot","chardonnay"]
+        "drink":["merlot","chardonnay"],
+        "distanceAway":300
     },
 
     {
@@ -374,6 +390,7 @@
             "name": "Greater San Diego Area"
         },
         "avatar":null,
+        "distanceAway":350,
         "food":["chinese","thai","steak"],
         "drink":["merlot","chardonnay"]
     }

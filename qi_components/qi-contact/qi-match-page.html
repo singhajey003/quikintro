@@ -16,7 +16,7 @@ This component displays the detailed contents of a contact.
 			display: block;
 		}
 
-		avatar-panel{
+		.avatar-panel{
 			background-color: #17aacf;
 			height: 100px;
 		}
@@ -24,6 +24,9 @@ This component displays the detailed contents of a contact.
 		qi-avatar{
 			--avatar-height: 100px;
 			--avatar-width: 100px;
+			position: relative;
+			top: 10px;
+			left: 10px;
 		}
 
 		.title{
@@ -41,31 +44,44 @@ This component displays the detailed contents of a contact.
 		.stats{
 			display: table;
 			font-family: Verdana;
-			background-color: #9a9a9a;
+			background-color: #E8E5E5;
+			width: 100%;
+			margin-top: 20px;
 		}
 
 		.stats-row{
 			display: table-row;
+
 		}
 
-		.stats > .header-cell{
+		.header-cell{
 			display: table-cell;
 			text-align: center;
 			color: #818084;
 		}
 
-		.stats > .data-cell{
+		.data-cell{
 			display: table-cell;
-			font-size:;
 		}
 
 		.contact-count{
 			color: black;
 			border-right: 1px solid #eaeaec;
+			text-align: center;
 		}
 
 		.persona-match{
 			color: #17aacf;
+			text-align: center;
+		}
+		.summary{
+			line-height: normal;
+			color: #707070;
+			width: 100%;
+			margin-top: 10px;
+		}
+		qi-trait-field{
+			margin-top: 10px;
 		}
 	</style>
 	<template>
@@ -73,15 +89,14 @@ This component displays the detailed contents of a contact.
 
 		<div class="vertical layout" on-track="handlePageSwipe">
 
-			<div class="avatar-panel">
+			<div class="avatar-panel layout horizontal">
 				<qi-avatar url="[[model.avatar]]"></qi-avatar>
 
 				<div>
-					<span class="title">[[model..sender.title]]</span> at <span class="company">[[model.sender.company]]</span>
-					<qi-persona-field model="{{personas}}" persona="[[model.sender.persona]]"></qi-persona-field>
+					<span class="title">[[model.title]]</span> at <span class="company">[[model.company]]</span>
+					
 				</div>
 			</div>
-
 
 			<div class="stats">
 				<div class="stats-row">
@@ -90,14 +105,19 @@ This component displays the detailed contents of a contact.
 				</div>
 
 				<div class="stats-row">
-					<div class="data-cell contact-count">[[model.sender.contactCount]]</div>
-					<div class="data-cell persona-match">[[model.sender.score]]</div>
+					<div class="data-cell contact-count">[[model.contactCount]]</div>
+					<div class="data-cell persona-match">[[model.match]]</div>
 				</div>
+			</div>
+
+			<div class="summary">
+			<span>[[model.summary]]</span>
+
 			</div>
 
 
 
-			<qi-trait-field model="[[model.sender.interests]]"></qi-trait-field>
+			<qi-trait-field model="[[model.interests]]" is-stacked="true" label="Common Interests"></qi-trait-field>
 
 			
 

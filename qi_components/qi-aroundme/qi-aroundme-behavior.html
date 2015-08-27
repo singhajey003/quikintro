@@ -1,13 +1,16 @@
 <script>
 QiAroundMeBehavior={
 
+	properties:{
+
 		/**
 		 * The radius in meters from the user.  Used to 
 		 * filter the list.
 		 */
 		matchRadius:{
 			type: Number,
-			value: 100
+			value: 100,
+			notify: true
 		},
 
 		/**
@@ -16,6 +19,9 @@ QiAroundMeBehavior={
 		model:{
 			type: Array
 		}
+	},
+
+
 
 };
 </script>

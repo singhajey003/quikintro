@@ -10,6 +10,7 @@ This component is used to display a minimal amount of match information.
 
 <link rel="import" href="../qi-card/qi-swipe-card.html">
 <link rel="import" href="../qi-card/qi-card-behavior.html">
+<link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
 
 <link rel="import" href="qi-contact-behavior.html">
 
@@ -28,7 +29,7 @@ This component is used to display a minimal amount of match information.
 			right: 3px;
 		}
 		.mini-card{
-			height: 50px;
+			min-height: 60px;
 		}
 
 		header {
@@ -45,6 +46,7 @@ This component is used to display a minimal amount of match information.
 			font-family: Verdana;
 			color: #707070;
 			font-size: 8pt;
+			line-height: normal;
 		}
 
 
@@ -52,7 +54,7 @@ This component is used to display a minimal amount of match information.
 
 	<template>
 		<qi-swipe-card model="[[model]]">
-			<div class="mini-card layout horizontal">
+			<div class="mini-card layout horizontal" touch-action="pan-x">
 
 			<qi-avatar url="[[model.avatar]]"></qi-avatar>
 
@@ -71,7 +73,7 @@ This component is used to display a minimal amount of match information.
 	<script>
 		Polymer({
 			is: 'qi-match-mini-card',
-			behaviors: [QiCardBehavior, QiContactBehavior],
+			behaviors: [QiCardBehavior, QiContactBehavior, QiSwipeCardBehavior]
 		});
 	</script>
 </dom-module>

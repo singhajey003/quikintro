@@ -6,14 +6,20 @@ This component displays a list of contacts.
 -->
 
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 
 <link rel="import" href="../qi-card/qi-swipe-card-tray.html">
 <link rel="import" href="../qi-card/qi-tray-behavior.html">
 <link rel="import" href="../qi-card/qi-swipe-tray-behavior.html">
 
+<link rel="import" href="../qi-dialog/qi-mtg-dialog.html">
+<link rel="import" href="../qi-dialog/qi-msg-dialog.html">
+
 <link rel="import" href="qi-contact-mini-card.html">
 <link rel="import" href="qi-contact-page.html">
+
+
 
 <dom-module id="qi-contact-tray">
 	<style>
@@ -30,10 +36,13 @@ This component displays a list of contacts.
 
 		<qi-contact-page id="contact-detail" class="detail-page"></qi-contact-page>
 
-		<paper-fab icon="add" class="selectable"></paper-fab>
+		<paper-fab icon="mail" class="selectable" on-click="_showMailDialog"></paper-fab>
+		<paper-fab icon="social:person" class="selectable" on-click="_showMtgDialog"></paper-fab>
 
 	</qi-swipe-card-tray>
 
+	<qi-msg-dialog id="msgDialog"></qi-msg-dialog>
+	<qi-mtg-dialog id="mtgDialog"></qi-mtg-dialog>	
 
 	</template>
 	<script>
@@ -49,7 +58,34 @@ This component displays a list of contacts.
 					type: Array,
 					value: []
 				}
+			},
+
+
+			/**
+			 * This method filters the contacts by their distance from the user.
+			 * @param radius
+			 */
+			filterByRadius: function(radius){
+				var cards = document.querySelectorAll("qi-contact-mini-card");
+				for(var i=0; i < cards.length; i++){
+					cards[i].style.display = (cards[i].model.distanceAway > radius)? "none":"initial";
+				}
+			},
+
+			/**
+			 * This method displays the meeting dialog.
+			 */
+			_showMtgDialog: function(){
+				this.$.mtgDialog.open();
+			},
+
+			/**
+			 * This method displays the message dialog
+			 */
+			_showMailDialog: function(){
+				this.$.msgDialog.open();
 			}
+
 		});
 	</script>
 </dom-module>

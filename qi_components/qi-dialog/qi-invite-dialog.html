@@ -24,12 +24,14 @@
 		    <h2>Introduce Yourself</h2>
 		    <div>
 				<div >
-				<mat-dropdown id="msgTemplate" model="{{persona.msgTemplates}}" label="Message Type" floating-label="true">
+				<mat-dropdown id="msgTemplate" model="{{persona.msgTemplates}}" label="Message Type" floating-label="true" xp-select="selectedTemplateChanged">
 					<template is="dom-repeat" items="{{persona.msgTemplates}}" as="msgTemplate">
 						<mat-option value="{{msgTemplate}}" label="{{msgTemplate.title}}"></mat-option>
 					</template>
                    
               	</mat-dropdown>  
+
+              	
 
 				</div>
 
@@ -39,8 +41,8 @@
 				</div>
 				
 				<div class="checkbox-row">
-					<paper-checkbox id="meetNow" checked label="Meet Now"></paper-checkbox>
-					<paper-checkbox id="meetLater" checked label="Meet Later"></paper-checkbox>
+					<paper-checkbox id="meetNow" checked >Meet Now</paper-checkbox>
+					<paper-checkbox id="meetLater" checked >Meet Later</paper-checkbox>
 				</div>
 			</div>
 			
@@ -63,7 +65,7 @@
 
 
 		selectedTemplateChanged: function(newValue, oldValue){
-			var selectedObj = this.persona.msgTemplates[newValue]
+			var selectedObj = newValue;
 			this.$.msg.value = selectedObj.template;
 		},
 
@@ -103,6 +105,13 @@
 
 		close: function(){
 			this.$.dialog.close();
+		},
+
+		ready: function(){
+			this.$.msgTemplate.addEventListener('xp-select', function(e){
+				var selectedObj = e.detail.item;
+				this.$.msg.value = selectedObj.template;
+			});
 		}
 
 	});
