@@ -9,7 +9,7 @@
 
 <dom-module id='qi-tweet-card'> 
 
-	<style>
+	<style is="custom-style">
 	.photo{
 		min-width: 50px;
 		min-height: 50px;
@@ -22,17 +22,22 @@
 		margin-top: 0px;
 		padding-top: 5px;
 		padding-bottom: 5px;
+		line-height: normal;
 	}
 
 
 	.card-wrapper{
 		background-color: white;
-		height: 90px;
+		min-height: 80px;
 		border-bottom: 2px solid #505050;
 	}
 
 	.selectedCard{
 		background-color: #9a9a9a;
+	}
+
+	qi-toggle{
+		--toggle-icon-color: #505050;
 	}
 
 
@@ -54,11 +59,6 @@
 					</div>
 					<span>[[model.text]]</span>
 				</div>
-			</div>
-			
-
-			<div class="card-actions horizontal justified layout center" >  				
-				<qi-toggle openIcon="star" closedIcon="star-outline"></qi-toggle>
 			</div>
 
 		</div>

@@ -16,6 +16,7 @@
 <link rel="import" href="../qi-field/qi-field-decorator.html">
 <link rel="import" href="../qi-contact/qi-contact-tray.html">
 <link rel="import" href="../qi-twitter/qi-twitter-panel.html">
+<link rel="import" href="../qi-twitter/qi-tweet-tray.html">
 
 
 <dom-module id="qi-invite-page">
@@ -93,6 +94,15 @@
 		border-right: 1px solid;
 		border-color: #B8B8B8;
 	}
+	.summary{
+		line-height: normal;
+		margin-top: 5px;
+	}
+
+	.detail-page{
+		padding-left: 4px;
+		padding-right: 4px;
+	}
 
 	</style>
 
@@ -156,18 +166,15 @@
 		</div>
 
 		<div class="traits">
-			<label class="sectionTitle">Matching Interests</label>
-			<qi-traitlist traits="[[model.sender.interests]]"></qi-traitlist>
+			<qi-trait-field model="[[model.sender.interests]]" is-stacked="true" label="Matching Interests"></qi-trait-field>
 		</div>
 
 		
 
 		<div class="tweets">
-
-			<label class="sectionTitle">Matching tweets</label>
-			<template is="dom-repeat" items="[[response.statuses]]" as="tweet">
-				<qi-tweet-card id="[[articleId]]" cardstyle="card card-wrapper layout horizontal" class="selectable-card" model="[[tweet]]" ></qi-tweet-card>
-			</template>
+			<qi-field-decorator is-stacked="true" label="Matching Tweets">
+				<qi-tweet-tray tweets="{{response.tweets}}"></qi-tweet-tray>
+			</qi-field-decorator>
 		</div>
 
 	</div>

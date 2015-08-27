@@ -35,6 +35,8 @@
 	.msgBlock {
 		font-size: 12px;
 		color: #707070;
+    position: absolute;
+    right: 0px;
 	}
 
 	.score{
@@ -50,6 +52,10 @@
     margin-right: 3px;
   }
 
+  .senderBlock{
+    line-height: normal;
+  }
+
 	</style>
 
 	<template>
@@ -61,7 +67,7 @@
             <qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
           </div>
 
-          <div class="metatray mainPanel">
+          <div class="metatray mainPanel layout horizontal">
              <div class ="senderBlock"> 
                 <span class="senderName">[[wholename]]</span><br/>
                 <span class="titleco">[[titleco]]</span>
