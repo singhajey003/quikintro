@@ -34,7 +34,7 @@ This component displays a list of matches.
 
 	</qi-swipe-card-tray>
 
-		<qi-invite-dialog persona="[[personas.1]]"></qi-invite-dialog>
+		<qi-invite-dialog id="matchInviteDialog" persona="[[personas.1]]"></qi-invite-dialog>
 
 	</template>
 	<script>
@@ -54,7 +54,7 @@ This component displays a list of matches.
 			},
 
 			_showInviteDialog: function(e){
-				document.querySelector("qi-invite-dialog").open();
+				this.$.matchInviteDialog.open();
 			},
 
 			filterByRadius: function(radius){

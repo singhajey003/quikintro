@@ -7,7 +7,10 @@ point from which the user can access the functionality of the app.
 -->
 
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/maps-icons.html">
 
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-event/qi-event-notice.html">
@@ -50,7 +53,7 @@ point from which the user can access the functionality of the app.
         <div class="dashboard">
 
           <qi-icon icon="qi:events" label="Events" count="2" id="events" on-click="_handleClick"></qi-icon>
-          <qi-icon class="right-icon" icon="qi:around" label="Around me" count="5" id="aroundme" on-click="_handleClick"></qi-icon>
+          <qi-icon class="right-icon" icon="maps:place" label="Around me" count="5" id="aroundme" on-click="_handleClick"></qi-icon>
         </div>
 
         <div class="icon-row center horizontal layout">

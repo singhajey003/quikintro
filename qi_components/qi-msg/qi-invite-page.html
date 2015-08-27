@@ -20,7 +20,6 @@
 
 <dom-module id="qi-invite-page">
 
-
 	<style is="custom-style">
 
 	.band{
@@ -148,13 +147,6 @@
 
 		</div>
 
-		<div class="traits">
-			<label class="sectionTitle">Matching Traits</label>
-			<qi-traitlist traits="[[model.sender.interests]]"></qi-traitlist>
-		</div>
-
-		
-
 		<div class="summary">
 			<qi-field-decorator is-stacked="true" label="Summary" >
 				<span>[[model.sender.summary]]</span>
@@ -162,6 +154,12 @@
 	
 		</div>
 
+		<div class="traits">
+			<label class="sectionTitle">Matching Interests</label>
+			<qi-traitlist traits="[[model.sender.interests]]"></qi-traitlist>
+		</div>
+
+		
 
 		<div class="tweets">
 
@@ -182,32 +180,46 @@
 			behaviors: [QiSwipePageBehavior],
 	
 			properties: {
+
+				/**
+				 * The model for the invitation
+				 */
 				model:{
 					type: Object
 				},
 
+				/**
+				 * The full name (first and last) of the sender
+				 */
 				fullname: {
 					type: String,
 					computed: '_computeFullName(model)'
 				},
+
+				/**
+				 * The concatenated title and company of the sender.
+				 */
 				titleco: {
 					type: String,
 					computed: '_computeTitleCo(model)'
 				}
 			},
 
+			/**
+			 * Concatenates the sender's title and company
+			 * @param model  the model of the invitation
+			 */
 			_computeTitleCo: function(model){
 				return (model != null) ? model.sender.title + " at " + model.sender.company : "";
 			},
 
+			/**
+			 * Concatenates the sender's first and last names
+			 * @param model the model of the invitation
+			 */
 			_computeFullName: function(model){
 				return model.sender.firstName + " " + model.sender.lastName;
-			},
-
-			ready: function(){
-				console.log(this.model);
 			}
-
 
 
 		});
