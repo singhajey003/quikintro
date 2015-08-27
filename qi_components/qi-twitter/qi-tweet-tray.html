@@ -39,17 +39,18 @@
 
 	<template>
 				
-		<div class="fab-tray">
-			<paper-fab icon="create" mini on-click="createDialog"></paper-fab>
-			<paper-fab icon="note-add" mini on-click="noteDialog"></paper-fab> 
-			<paper-fab icon="reply" mini on-click="replyDialog"></paper-fab> 
-		</div>
-
-		<qi-card-tray id="cardtray">
+		
+		<qi-card-tray id="cardtray" fabtrayid="tweet-fab-tray">
 		
 			<template is="dom-repeat" items="[[tweets]]" as="tweet">
 				<qi-tweet-card id="[[articleId]]" cardstyle="card card-wrapper layout horizontal" class="selectable-card" model="[[tweet]]" ></qi-tweet-card>
 			</template>
+
+			<div class="tweet-fab-tray">
+				<paper-fab icon="create" mini class="selectable" on-click="createDialog"></paper-fab>
+				<paper-fab icon="note-add" mini class="selectable" on-click="noteDialog"></paper-fab> 
+				<paper-fab icon="reply" mini class="selectable" on-click="replyDialog"></paper-fab> 
+			</div>
 
 		
 		</qi-card-tray>

@@ -35,10 +35,9 @@
 	.pctBlock {
 		font-size: 12px;
 		color: #707070;
-    right: 3px;
-    position: relative;
-    max-width: 60px;
-    margin-top: 5px;
+    position: absolute;
+    right: 0px;
+
 	}
 
 	.score{
@@ -62,6 +61,10 @@
 
   }
 
+  .senderBlock{
+    line-height: normal;
+  }
+
 	</style>
 
 	<template>
@@ -73,7 +76,8 @@
             <qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
           </div>
 
-          <div class="metatray mainPanel flex">
+
+          <div class="metatray mainPanel layout horizontal">
              <div class ="senderBlock"> 
                 <span class="senderName">[[wholename]]</span><br/>
                 <span class="titleco">[[titleco]]</span>
@@ -81,10 +85,10 @@
 
 
           </div>
-                       <div class="pctBlock">
-                <span class="score">[[model.sender.score]]</span>
-                <span class="pct">%</span>
-             </div>
+          <div class="pctBlock">
+              <span class="score">[[model.sender.score]]</span>
+              <span class="pct">%</span>
+          </div>
 
       </div>
      </qi-swipe-card>
@@ -99,7 +103,6 @@
    		behaviors:[QiCardBehavior, QiSwipeCardBehavior],
 
    		properties: {
-
 
    			/**
    			 * The concatenated first and last names of the sender.

@@ -24,6 +24,7 @@ It's typically used as follows:
 		text-align: left;
 	}
 
+
 	</style>
 
 	<template>
@@ -44,7 +45,7 @@ It's typically used as follows:
 
 		<template is="dom-if" if="{{isStacked}}">
 		<div class="row flex layout vertical justified" > 
-			<div class="labelCell">
+			<div class="labelCell" style="width: 100%">
 				<label><span>[[label]]</span></label>
 			</div>
 			<div class="fldValue flex"  two> 
