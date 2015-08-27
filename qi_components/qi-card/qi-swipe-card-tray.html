@@ -19,6 +19,9 @@ swipe-card.
 			display: block;
 		}
 		.tray{
+			padding-left: 2px;
+			height: 100%;
+			overflow: scroll;
 		}
 	</style>
 	<template>
@@ -26,7 +29,7 @@ swipe-card.
 			
 	<iron-pages selected="{{selectedPage}}">
 		<section>
-			<div class="flex tray">
+			<div class="tray">
 			<iron-selector id="selector" multi="true" attr-for-selected="model">
 				<content select=".selectable-card"></content>
 			</iron-selector>

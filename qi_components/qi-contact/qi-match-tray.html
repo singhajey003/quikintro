@@ -7,7 +7,9 @@ This component displays a list of matches.
 
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
+<link rel="import" href="../qi-dialog/qi-invite-dialog.html">
 <link rel="import" href="../qi-card/qi-swipe-card-tray.html">
 <link rel="import" href="qi-match-mini-card.html">
 <link rel="import" href="qi-match-page.html">
@@ -19,7 +21,7 @@ This component displays a list of matches.
 		}
 	</style>
 	<template>
-	
+	<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
 	<qi-swipe-card-tray detailpageid="match-detail" fabtrayid="match-fabtray">
 	
 		<template is="dom-repeat" items="[[model]]" as="contact">
@@ -28,14 +30,19 @@ This component displays a list of matches.
 
 		<qi-match-page id="match-detail" class="detail-page"></qi-match-page>
 
-		<paper-fab icon="add" class="selectable"></paper-fab>
+		<paper-fab icon="add" class="selectable" on-click="_showInviteDialog"></paper-fab>
 
 	</qi-swipe-card-tray>
+
+		<qi-invite-dialog persona="[[personas.1]]"></qi-invite-dialog>
 
 	</template>
 	<script>
 		Polymer({
 			is: 'qi-match-tray',
+
+
+			properties:{
 
 				/**
 				 * An array of matches
@@ -44,6 +51,18 @@ This component displays a list of matches.
 					type: Array,
 					value: []
 				}
+			},
+
+			_showInviteDialog: function(e){
+				document.querySelector("qi-invite-dialog").open();
+			},
+
+			filterByRadius: function(radius){
+				var cards = document.querySelectorAll("qi-match-mini-card");
+				for(var i=0; i < cards.length; i++){
+					cards[i].style.display = (cards[i].model.distanceAway > radius)? "none":"initial";
+				}
+			}
 		});
 	</script>
 </dom-module>
