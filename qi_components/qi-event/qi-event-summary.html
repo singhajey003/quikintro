@@ -41,7 +41,7 @@
                 <h3 class="title">{{event.title}}</h3>
                 <h4 class="location">{{event.location}}</h3>
             </div>
-            <div class="image" style$="[[backgroundImage]]"></div>
+            <div class="image" style$="[[background]]"></div>
         </header>
 
 
@@ -146,9 +146,9 @@
             /**
              * This computed property creates a background image CSS style.
              */
-            backgroundImage: {
+            background: {
                 type: String,
-                computed: 'computeBackground(event.background)'
+                computed: '_computeBackground(event.background)'
             }
         },
 
@@ -156,8 +156,8 @@
          * This method creates the background image style.
          * @param imageUrl  The URL for the background image.
          */
-        computeBackground: function(imageUrl){
-            return "background-image:url('"+ imageUrl + "')";
+        _computeBackground: function(imageUrl){
+            return "background-image: url('"+ imageUrl + "')";
          },
 
 
