@@ -5,30 +5,93 @@
   @element qi-invite-page
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
-
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
 
+<link rel="import" href="./../qi-new-theme.html">
+<link rel="import" href="../qi-persona/qi-persona-field.html">
+
+<link rel="import" href="../qi-field/qi-field-decorator.html">
+<link rel="import" href="../qi-contact/qi-contact-tray.html">
+<link rel="import" href="../qi-twitter/qi-twitter-panel.html">
+
+
 <dom-module id="qi-invite-page">
+
 
 	<style is="custom-style">
 
 	.band{
-		max-height: 100px
+		max-height: 125px;
 		background-color: #5c91cc;
 	}
-
+	qi-avatar{
+		--avatar-width: 120px;
+		--avatar-height: 120px;
+	}
 	.avatar{
-
+		margin-top: 18px;
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 
 	.details{
+		overflow: auto;
 		color: white;
+	}
+	.contacts{
+		margin-left: auto;
+		margin-right: auto;	
+		margin-top: 5px;
+		font-size: 32px;
+	}
+	.contactBlock{
+		margin-left: auto;
+		margin-right: auto;
+
 	}
 
 	.titleco{
-
+		margin-right: 25px;
+		
+	}
+	.score{
+		color: #5c91cc;
+		max-width: 50px;
+		margin-right: 1px;
+	}
+	.pct{
+		color: #5c91cc;
+		max-width: 30px;
+	}
+	.centerLabel{
+		text-align: center;
+		font-size: 12px;
+	}
+	.middleBlock{
+		background-color: #f8f8f9;
+		height: 80px;
+		padding-top: 40px;
+		padding-bottom: 20px;
+	}
+	.name{
+		margin: 20px;
+		margin-left: 40px;
+		font-size: 20px;
+	}
+	.match{
+		font-size: 30px;
+		padding-top: 4px;
+	}
+	.sectionTitle{
+		font-size: 15px;
+		padding-left: 15px;
+	}
+	.commonDiv{
+		border-right: 1px solid;
+		border-color: #B8B8B8;
 	}
 
 	</style>
@@ -36,54 +99,75 @@
 
 	<template>
 
-	<div class="fit vertical layout">
-		<div><span>[[fullname]]</span></div>
+		<iron-ajax id="ajax"
+		auto="true"
+	  url="../data/aacr15.tweets.json"
+	  handleAs="json"
+	  last-response="{{response}}" on-error="errorHandler"></iron-ajax>
 
-		<div class="band vertical layout">
+	<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
+
+	<div class="detail-page" on-track="handlePageSwipe">
+		<div class = "name"><span>[[fullname]]</span></div>
+
+		<div class="band horizontal layout">
 
 			<div class="avatar" >
 				<qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
-			<div>
+			</div>
 
 			<div class="details">
 				<div><span class="titleco">[[titleco]]</span></div>
-
-				<div><!-- personas go here --></div>
+				<!--
+				<div><qi-persona-field model="[[personas]]" persona = "[[model.sender.persona]]" label=" "></qi-persona-field></div>
+				-->
 				
 
 			</div>
 
 		</div>
 
-		<div class="layout horizontal">
-			<div class="layout vertical">
-				<label>Common Contacts</label>
-				<span>[[model.contacts.length]]
+		<div class="middleBlock layout horizontal">
+
+			<div class=" contactBlock flex layout vertical">
+				<div class=" flex layout vertical commonDiv">
+				<label class="centerLabel">
+				Common Contacts</label>
+				<span class="contacts">[[model.sender.contacts]]</span>
+				</div>
+				
 			</div>
 
-			<div class="layout vertical">
-				<label>Persona Match</label>
-				<span class="score">[[model.match]]</span><span class="pct">%</span>
+
+			<div class="flex layout vertical">
+				<label class="centerLabel">Persona Match</label>
+				<div class="center-justified layout horizontal match">
+					<span class="score">[[model.sender.score]]</span><span class="pct">%</span>
+				</div>
 			</div>
 
 		</div>
 
+		<div class="summary">
+			<qi-field-decorator is-stacked="true" label="Summary" >
+				<span>[[model.sender.summary]]</span>
+			</qi-field-decorator>
+	
+		</div>
+
 		<div class="traits">
-			<label>Matching Traits</label>
-			<qi-traitlist model="[[model.sender.interests]]"></qi-traitlist>
+			<label class="sectionTitle">Matching Interests</label>
+			<qi-traitlist traits="[[model.sender.interests]]"></qi-traitlist>
 		</div>
 
 		
 
-		<div class="summary">
-			<label>Summary</label>
-			[[model.sender.summary]]
-		</div>
-
-
 		<div class="tweets">
-			<label>Matching tweets</label>
-			<qi-tweet-tray ></qi-tweet-tray>
+
+			<label class="sectionTitle">Matching tweets</label>
+			<template is="dom-repeat" items="[[response.statuses]]" as="tweet">
+				<qi-tweet-card id="[[articleId]]" cardstyle="card card-wrapper layout horizontal" class="selectable-card" model="[[tweet]]" ></qi-tweet-card>
+			</template>
 		</div>
 
 	</div>
@@ -94,6 +178,7 @@
 
 		Polymer({
 			is: 'qi-invite-page',
+			behaviors: [QiSwipePageBehavior],
 	
 			properties: {
 				model:{
@@ -116,6 +201,10 @@
 
 			_computeFullName: function(model){
 				return model.sender.firstName + " " + model.sender.lastName;
+			},
+
+			ready: function(){
+				console.log(this.model);
 			}
 
 
