@@ -4,8 +4,9 @@
 	@group QI Elements
 	@element qi-note-card
 -->
-
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../qi-card/qi-card.html">
+
 <dom-module id='qi-note-card'  > 
 
 		<style>
@@ -28,6 +29,18 @@
 		  	right: 0px;
 		  }
 
+		  .public-type{
+		  	color: green;
+		  }
+
+		  .in-network-type{
+		  	color: orange;
+		  }
+
+		  .public-type{
+		  	color: green;
+		  }
+
 		  .time-block{
 		  	position: absolute;
 		  	right: 0px;
@@ -39,6 +52,7 @@
 		  }
 
 
+
 		</style>
 	
 	<template>
@@ -48,13 +62,13 @@
 			<div class="note-content">
 			<div class="layout horizontal">
 				<div class="title">[[note.title]]</div>
-				<div class="type-block"><span>[[note.type]]</span></div>
+				<div class$="[[typeStyle]]"><span>[[note.type]]</span></div>
 			</div>
 			<div><span>[[note.description]]</span></div>
 
 			<div class="layout horizontal">
-				<div class="metadata">By: &nbsp;<span>[[note.author]]</span></div>
-				<div class="metadata timeBlock"><span>[[note.time]]</span></div>
+				<div class="metadata">By: &nbsp;<span>[[author]]</span></div>
+				<div class="metadata time-block"><span>[[note.time]]</span></div>
 			</div>
 			</div>
 			
@@ -72,7 +86,48 @@
 			 */
 			note:{type: Object},
 
+			/**
+			 * The concatenated first and last names of the author
+			 */
+			author:{
+				type: String,
+				computed: '_computeName(note.author)'
+			},
+
+			/**
+			 * The style to be applied to the note type.
+			 */
+			typeStyle:{
+				type: String,
+				computed: '_computeStyle(note.type)'
+			}
 			
+		},
+
+
+		/**
+		 * This method concatenates the names of the author
+		 * @param author  the author object
+		 */
+		_computeName: function(author){
+			return author.firstName + " " + author.lastName;
+		},
+
+		/**
+		 * This method determines the style classes that should
+		 * be applied to the note.type field.
+		 * @param noteType the type of note (public | in-network | private)
+		 */
+		_computeStyle: function(noteType){
+			var style = "type-block ";
+				if(noteType == "public"){
+					style += "public-type";
+				}else if (noteType == "in-network"){
+					style += "in-network-type";
+				} else if (noteType == ""){
+					style += "private-type";
+				}
+			return style;
 		}
 	});
 	</script>

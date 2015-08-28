@@ -36,6 +36,7 @@
 
 	.desc{
 		font-size: 9pt;
+		line-height: normal;
 	}
 
 
@@ -156,7 +157,12 @@
 		 * @param lastName the last name of the sender
 		 */
 		_concat: function(model){
-			return model.invitees[0].firstName + " " + model.invitees[0].lastName
+			var inv = model.invitees[0];
+			var name = ""
+			if(inv.firstName !== undefined && inv.lastName !== undefined){
+			 	name = model.invitees[0].firstName + " " + model.invitees[0].lastName;
+			}
+			return name;
 		},
 
 		

@@ -1,8 +1,11 @@
 [
 	{
 		"title":"CES",
-		"startTime":"6 Jan 2016",
- 		 "endTime":"9 Jan 2016",
+		"time":{
+			"start":"6 Jan 2016",
+ 		 	"end":"9 Jan 2016"
+		}
+		,
  		 "location":"Las Vegas Convention Center",
  		 "coordinates":{
  		 	"latitude": 36.131805,
@@ -161,22 +164,40 @@
 
  		 ],
  		 "meetings":[
- 		 {
- 		 	"date": "6-Jan-2015",
- 		 	"time": "0900",
- 		 	"location":"Suite 3",
- 		 	"title":"Low Power Partner Discussion",
- 		 	"invitees":[1,2,3],
- 		 	"description":"A meeting to discuss low power RF programs and potential partnership opportunities."
- 		 },
- 		 {
- 		 	"date": "7-Jan-2015",
- 		 	"time": "0900",
- 		 	"location":"Suite 3",
- 		 	"title":"Wearable API Discussion",
- 		 	"invitees":[1,2,3],
- 		 	"description":"A meeting to discuss HealthKit, and Google Fit APIs."
- 		 }
+	 		 {	"date": "6-Jan-2015",
+	 		 	"meetings":[
+	 		 	{
+	 		 		"time": {
+	 		 			"start":"0900",
+	 		 			"end":"1000"
+	 		 		},
+		 		 	"location":{
+		 		 		"room":"Suite 3",
+		 		 		"name":"Marriott"
+		 		 	},
+		 		 	"title":"Low Power Partner Discussion",
+		 		 	"invitees":[1,2,3],
+		 		 	"description":"A meeting to discuss low power RF programs and potential partnership opportunities."
+	 		 	}]
+	 		 },
+	 		 {
+	 		 	"date": "7-Jan-2015",
+	 		 	"meetings":[
+		 		 	{
+			 		 	"time": {
+			 		 		"start":"0900",
+			 		 		"end":"1000"
+			 		 		},
+			 		 	"location":{
+			 		 		"room":"Suite 3",
+			 		 		"name":"Marriott"
+			 		 	},
+			 		 	"title":"Wearable API Discussion",
+			 		 	"invitees":[1,2,3],
+			 		 	"description":"A meeting to discuss HealthKit, and Google Fit APIs."
+			 		}
+	 		 	]
+	 		 }
 
  		 ]
 	},
