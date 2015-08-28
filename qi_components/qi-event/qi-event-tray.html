@@ -1,0 +1,84 @@
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
+
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
+<link rel="import" href="qi-event-card.html">
+<link rel="import" href="qi-event-detail.html">
+
+<dom-module id="qi-event-tray">
+	<style>
+		:host {
+			display: block;
+		}
+
+		.event-tray{
+			height: 100%;
+			overflow: auto;
+			scroll-behavior: auto;
+		}
+	</style>
+	<template>
+		
+		<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
+		
+		<iron-pages selected="{{selectedEventPage}}">
+		    <div class="event-tray layout vertical" > 
+		    
+		      <template is="dom-repeat" items="{{model}}"  filter="byScheduled" observe="rsvp">
+		      
+		        <qi-event-card model="{{item}}" personas="{{personas}}" on-click="_expand"></qi-event-card>
+
+		      </template>
+		      
+		    </div>
+
+		    <div>
+		    	<qi-event-detail id="eventDetail"></qi-event-detail>
+		    </div>
+	    </iron-pages>
+		
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-event-tray',
+
+			properties: {
+
+				/**
+				 * An array of events to be displayed
+				 */
+				model: {
+					type: Array,
+					value: [],
+					notify: true
+				},
+
+				isScheduled: {
+					type: Boolean,
+					value: true
+				},
+
+				selectedEventPage:{
+					type: Number,
+					value: 0
+				}
+
+			},
+
+			_expand: function(e){
+				var cardModel = e.currentTarget.model;
+				this.$.eventDetail.event = cardModel;
+				this.selectedEventPage = 1;
+			},
+
+			byScheduled: function(item){
+
+				if (this.isScheduled){
+					return item.rsvp == "YES" || item.rsvp == null;
+				}else {
+					return item.rsvp == "NO";
+				}
+			}
+		});
+	</script>
+</dom-module>
