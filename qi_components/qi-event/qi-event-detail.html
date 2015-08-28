@@ -24,6 +24,8 @@
 <link rel="import" href="../qi-contact/qi-contact-tray.html">
 <link rel="import" href="../qi-contact/qi-match-tray.html">
 
+<link rel="import" href="../qi-msg/qi-mtg-tray.html">
+
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail-match.html">
 <link rel="import" href="qi-meeting-card.html">
@@ -72,9 +74,14 @@
           <label>No Meetings Scheduled</label>
         </template>
 
+        <!--
         <template is="dom-repeat" items="{{event.meetings}}" as="meeting">
           <qi-meeting-card meeting="{{meeting}}"></qi-meeting-card>
         </template>
+
+        -->
+
+        <qi-mtg-tray model="[[event.meetings]]"></qi-mtg-tray>
 
       </div>
 
