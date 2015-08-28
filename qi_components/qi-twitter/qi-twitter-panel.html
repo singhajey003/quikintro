@@ -31,14 +31,14 @@
 	  handleAs="json"
 	  last-response="{{response}}" on-error="errorHandler"></iron-ajax>
 
-	<paper-header-panel class="flex fit layout vertical"> 
+	<div class="layout vertical"> 
 
 		<div class="hashtagBanner layout horizontal">
 			<div class="label">Event Hashtag:</div> <span >[[hashtag]]</span>
 		</div> 
 	 
 	    <qi-tweet-tray tweets="{{response.statuses}}" hashtag="[[hashtag]]"></qi-tweet-tray>
-	</paper-header-panel>
+	</div>
 
 	</template>
 

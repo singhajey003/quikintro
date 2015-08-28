@@ -1,41 +1,79 @@
-<!-- <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> add  to top with other imports  -->
+<!--
+ This component is responsible for displaying a note.
+
+	@group QI Elements
+	@element qi-note-card
+-->
+
+<link rel="import" href="../qi-card/qi-card.html">
 <dom-module id='qi-note-card'  > 
 
-	  <link rel="stylesheet" href="../quikintro.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
-	  <link rel="stylesheet" href="../qi-cards.css" > <!-- TODO Move line about <template>  CONVERTED WIP -->
 		<style>
 		 
-		  .authorBlock{
+		  .metadata{
 		  	font-size: 8pt;
 		  }
+
+		  .title{
+		  	font-size: 12pt;
+		  	font-weight: bold;
+		  }
+
+		  p{
+		  	line-height: normal;
+		  }
+
+		  .type-block{
+		  	position: absolute;
+		  	right: 0px;
+		  }
+
+		  .time-block{
+		  	position: absolute;
+		  	right: 0px;
+		  }
+
+		  .note-content{
+		  	border-bottom: 1px solid #505050;
+		  	margin-top: 10px;
+		  }
+
 
 		</style>
 	
 	<template>
 
-		<div class="card-wrapper">  
-			<div class="card note">
-				<h3>[[note.title]]</h3>
-					<p>[[note.description]]</p>
-					<div class="authorBlock">Author: <span>[[concatName(note.author)]]</span></div>
-					<div class="authorBlock">Published at : <span>[[note.time]]</span></div>
-					<div class="authorBlock">Type: <span>[[note.type]]</span></div>
+		<qi-card>
+
+			<div class="note-content">
+			<div class="layout horizontal">
+				<div class="title">[[note.title]]</div>
+				<div class="type-block"><span>[[note.type]]</span></div>
 			</div>
-		</div>
+			<div><span>[[note.description]]</span></div>
+
+			<div class="layout horizontal">
+				<div class="metadata">By: &nbsp;<span>[[note.author]]</span></div>
+				<div class="metadata timeBlock"><span>[[note.time]]</span></div>
+			</div>
+			</div>
+			
+		</qi-card>
 
 	</template>
 
 	<script>
 	var NoteCard = Polymer({
-   		is: 'qi-note-card',  
+   		is: 'qi-note-card',
+
 		properties:{
-			note:{type: Object}
-		},
+			/**
+			 * The model for the note object
+			 */
+			note:{type: Object},
 
-		concatName: function(author){
-			return author.firstName + " " + author.lastName
+			
 		}
-
 	});
 	</script>
 

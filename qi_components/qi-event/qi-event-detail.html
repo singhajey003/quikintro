@@ -5,14 +5,12 @@
   @group QI Elements
   @element qi-event-detail
 -->
-<link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
-<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
-<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
 
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
 
 
 <link rel="import" href="../qi-twitter/qi-twitter-panel.html">
@@ -22,6 +20,9 @@
 <link rel="import" href="../qi-dialog/qi-msg-dialog.html">
 <link rel="import" href="../qi-dialog/qi-mtg-dialog.html">
 
+
+<link rel="import" href="../qi-contact/qi-contact-tray.html">
+<link rel="import" href="../qi-contact/qi-match-tray.html">
 
 <link rel="import" href="qi-event-card.html">
 <link rel="import" href="qi-event-detail-match.html">
@@ -36,11 +37,11 @@
 
   <template>
 
-  <paper-scroll-header-panel id="eventDetailHeaderPanel" condenses="false" fixed="true" class="layout flex fit" noReveal="true">
+  <div>
 
 
       <paper-tabs id="scrollableTabs" noink="true" selected="{{selected}}"  scrollable="true" role="tablist" hideScrollButton="false" class="flex">
-        <paper-tab role="tab" class="core-selected" >Summary</paper-tab>
+        <paper-tab role="tab" >Summary</paper-tab>
         <paper-tab role="tab" >Matches</paper-tab>
         <paper-tab role="tab" >Contacts</paper-tab>
         <paper-tab role="tab" >Meetings</paper-tab>
@@ -59,19 +60,11 @@
       </div>
 
       <div id="matches">
-        <template is="dom-repeat" items="{{event.matches}}"  as="match">
-          <qi-event-detail-match match="[[match]]"></qi-event-detail-match>
-        </template>
-
-        <qi-invite-dialog id="inviteDialog"></qi-invite-dialog>
+        <qi-match-tray model="[[event.matches]]"></qi-match-tray>
       </div>
 
       <div id="contacts">
-         <template is="dom-repeat" items="{{event.contacts}}" as="contact">
-          <qi-contact-card contact="{{contact}}"></qi-contact-card>
-        </template>
-        <qi-mtg-dialog id="mtgDialog"></qi-mtg-dialog>
-        <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
+        <qi-contact-tray model="[[event.contacts]]"></qi-contact-tray>
       </div>
 
       <div id="meetings">
@@ -87,21 +80,22 @@
 
 
       <div id="twitter">
-       <qi-twitter-panel dataUrl="[[event.tweetUrl]]" hashtag="[[event.hashtag]]"></qi-twitter-panel>
+       <qi-twitter-panel dataUrl="[[tweetUrl]]" hashtag="[[event.hashtag]]"></qi-twitter-panel>
       </div>
 
 
       <div id="traits">
        <qi-trait-panel event="{{event}}"></qi-trait-panel>
-
       </div>
 
       <div id="notes">
        <qi-event-notes-panel notes="{{event.notes}}"></qi-event-notes-panel>
       </div>
+
     </iron-pages>
     </div>
-    </paper-scroll-header-panel>
+
+    </div>
 
 
    </template>
@@ -128,7 +122,16 @@
         /**
          * The index of the selected tab.
          */
-        selected:{type: Number, value: 0}
+        selected:{type: Number, value: 0},
+
+        tweetUrl:{
+          type: String,
+          computed: '_computeTweetUrl(event.tweetUrl)'
+        }
+      },
+
+      _computeTweetUrl: function(url){
+        return "../../" + url;
       },
 
 
@@ -196,11 +199,6 @@
         backHandler: function(){
           this.fire('core-select', {panelTitle:'Event Stream', icon:'arrow-back', clickHandler: function(){}});
         }
-
-
-
-
-
 
 
       });

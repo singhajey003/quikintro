@@ -1,44 +1,43 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
-<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
-<link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
-<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
-<link rel="import" href="../../bower_components/iron-input/iron-input.html">
-<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 
-<link rel="import" href="qi-event-card.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
 
-<dom-module id='qi-event-panel'  > 
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 
- <link rel="stylesheet" href="../quikintro.css"> 
+<link rel="import" href="qi-event-tray.html">
 
-  <template>
- 
-  <style>
-    .content {
-      padding: 30px;
-      background-color: #c1e5db;
+<dom-module id='qi-event-panel' > 
+
+   <style>
+    section{
+      overflow: scroll;
     }
-    
+
+
   </style>
 
-  
-  
-  <div class="flex">
-    <paper-toolbar>
-      <div flex>Events</div> 
-      <input id="searchText" type="search" placeholder="Search..." />
-      <paper-icon-button icon="search"></paper-icon-button>
-    </paper-toolbar>
-    <div class="content layout vertical flex" > 
-    
-      <template is="dom-repeat" items="{{response}}"  as="event">
-        <qi-event-card event="{{event}}" personas="{{personas}}"></qi-event-card>
-      </template>
-      
-    </div>
+  <template>
+    <iron-localstorage name="events" value="{{events}}"></iron-localstorage>
 
-   </div>
+      <paper-tabs noink="true" selected="{{selectedEventPage}}">
+        <paper-tab>Scheduled</paper-tab>
+        <paper-tab>Suggested</paper-tab>
+      </paper-tabs>
+
+
+      <iron-pages id="eventPages" selected="{{selectedEventPage}}" class="layout vertical">
+
+        <section>
+          <qi-event-tray model="[[events]]" is-scheduled="true"> </qi-event-tray>
+        </section>
+
+        <section>
+          <qi-event-tray model="[[events]]" is-scheduled="false"> </qi-event-tray>
+        </section>
+
+      </iron-pages>
+
    </template>
 
    <script>
@@ -46,8 +45,10 @@
       is: 'qi-event-panel', 
 
       properties:{
-        event:{type: Object},
-        personas: {type: Array}
+          selectedEventPage: {
+            type: Number,
+            value: 0
+          }
       }
     
       });
