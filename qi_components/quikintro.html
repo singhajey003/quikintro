@@ -72,7 +72,8 @@ point at which all quikintro components are integrated.
       <paper-drawer-panel narrow="true" forceNarrow="true" mode="waterfall" id="coreScaffold" >
 
         <paper-header-panel drawer>
-          <paper-toolbar></paper-toolbar>
+          <!--<paper-toolbar></paper-toolbar>
+
           <paper-menu selected="{{page}}" valueattr="pageId"  class="fit">
             <paper-icon-item id="home" pageId="home" class="layout horizontal left">
               <iron-icon icon="home"></iron-icon>
@@ -91,7 +92,7 @@ point at which all quikintro components are integrated.
 
 
             <paper-icon-item id="aroundme"  pageId="aroundme">
-              <iron-icon icon="maps:my-location"></iron-icon>
+              <iron-icon icon="around"></iron-icon>
               Around Me
             </paper-icon-item>
 
@@ -116,11 +117,34 @@ point at which all quikintro components are integrated.
               <iron-icon icon="settings"></iron-icon>
                 Settings
               </paper-item>
-            </paper-icon-item>
+            </paper-icon-item>-->
+
+          <div class="centered">
+            <div class="row">
+
+            <paper-menu selected="{{page}}" valueattr="pageId"  class="fit">
+
+              <paper-button id="home" pageId="home" class="primary">Home</paper-button>
+              <paper-button id="events" pageId="events" class="primary">Events</paper-button>
+              <paper-button id="calendar" pageId="calendar" class="primary">Calendar</paper-button>
+              <paper-button id="aroundme" pageId="aroundme" class="primary">Around Me</paper-button>
+              <paper-button id="newsItem" pageId="news" class="primary">News</paper-button>
+              <paper-button id="messages" pageId="messages" class="primary">Messages</paper-button>
+              <paper-button id="contacts" pageId="contacts" class="primary">Contacts</paper-button>
+              <paper-button id="securityItem" pageId="security" class="primary">Security</paper-button>
+
+            <!-- Close button -->
+            <paper-icon-button id="close" class="close primary" icon="close"></paper-icon-button>
+
+
+            </paper-menu>
+            </div>
+          </div>
 
 
 
-          </paper-menu>
+
+          <!--</paper-menu>-->
 
         </paper-header-panel>
 
