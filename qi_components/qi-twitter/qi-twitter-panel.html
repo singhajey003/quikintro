@@ -1,5 +1,5 @@
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
-<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
@@ -9,7 +9,7 @@
 <dom-module id='qi-twitter-panel'  >
 
 	<style>
-	
+
 	.label{
 		font-size: 9pt;
 		font-weight: bold;
@@ -22,7 +22,7 @@
 	}
 	</style>
 
- 
+
 	<template>
 
 	<iron-ajax id="ajax"
@@ -31,12 +31,12 @@
 	  handleAs="json"
 	  last-response="{{response}}" on-error="errorHandler"></iron-ajax>
 
-	<paper-header-panel class="flex fit layout vertical"> 
+	<paper-header-panel class="flex layout vertical">
 
 		<div class="hashtagBanner layout horizontal">
 			<div class="label">Event Hashtag:</div> <span >[[hashtag]]</span>
-		</div> 
-	 
+		</div>
+
 	    <qi-tweet-tray tweets="{{response.statuses}}" hashtag="[[hashtag]]"></qi-tweet-tray>
 	</paper-header-panel>
 
@@ -45,13 +45,13 @@
 
 	<script>
 		Polymer({
-    		is: 'qi-twitter-panel', 
+    		is: 'qi-twitter-panel',
 
     		properties:{
     			dataurl: {
-    				type: String, 
-    				value:'', 
-    				notify: true, 
+    				type: String,
+    				value:'',
+    				notify: true,
     				observer: 'dataUrlChanged'
     			},
 
@@ -60,7 +60,7 @@
     			},
 
     			response: {
-    				type: Object, 
+    				type: Object,
     				notify: true
     			}
     		},
@@ -79,9 +79,9 @@
 	    	},
 
 
-		
+
 		});
 
 	</script>
 
-</dom-module> 
+</dom-module>

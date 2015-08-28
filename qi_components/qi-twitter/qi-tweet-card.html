@@ -1,4 +1,4 @@
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower_components/iron-icons/av-icons.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
@@ -7,7 +7,7 @@
 <link rel="import" href="../qi-toggle/qi-toggle.html">
 
 
-<dom-module id='qi-tweet-card'> 
+<dom-module id='qi-tweet-card'>
 
 	<style>
 	.photo{
@@ -27,8 +27,7 @@
 
 	.card-wrapper{
 		background-color: white;
-		height: 90px;
-		border-bottom: 2px solid #505050;
+		border-bottom: 2px solid #f3f3f3;
 	}
 
 	.selectedCard{
@@ -39,8 +38,8 @@
 	</style>
 
 	<template>
-	
-	<div id="[[model.id]]" class$="[[selectedStyle]]" on-click="select">  
+
+	<div id="[[model.id]]" class$="[[selectedStyle]]" on-click="select">
 
 		<div>
 
@@ -55,11 +54,11 @@
 					<span>[[model.text]]</span>
 				</div>
 			</div>
-			
 
-			<div class="card-actions horizontal justified layout center" >  				
+
+			<!--<div class="card-actions horizontal justified layout center" >
 				<qi-toggle openIcon="star" closedIcon="star-outline"></qi-toggle>
-			</div>
+			</div>-->
 
 		</div>
 	</div>
@@ -70,7 +69,7 @@
 
   <script>
 	var TwitterCard = Polymer({
-   		is: 'qi-tweet-card', 
+   		is: 'qi-tweet-card',
 
    		behaviors: [QiCardBehavior],
 
@@ -103,10 +102,10 @@
    		}
 
 
- 
-		
+
+
 	});
 
    </script>
 
-</dom-module> 
+</dom-module>
