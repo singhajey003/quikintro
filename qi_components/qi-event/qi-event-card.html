@@ -29,35 +29,35 @@ This component is responsible for rendering an event.
 	<div class="eventCard card reverse" on-tap="tapAction">
 		<header>
 			<div class="titlearea">
-				<h3 class="title">{{event.title}}</h3>
-				<h4 class="location">{{event.location}}</h3>
+				<h3 class="title">{{model.title}}</h3>
+				<h4 class="location">{{model.location}}</h3>
 			</div>
-			<div class="image" style$="{{computeBackground(event.background)}}"></div>
+			<div class="image" style$="{{background}}"></div>
 		</header>
 
     	<div class="summary horizontal around-justified layout">
 
 			<div class="eventMatches">
 				<div class="bottomLabel">Matches</div>
-				<div class="count turqoize">{{event.matches.length}}</div>
+				<div class="count turqoize">{{model.matches.length}}</div>
 			</div>
 
 			<div class="eventContacts">
 				<div class="bottomLabel">Contacts</div>
-				<div class="count">{{event.contacts.length}}</div>
+				<div class="count">{{model.contacts.length}}</div>
 			</div>
 
 			<div class="eventMeetings">
 				<div class="bottomLabel">Meetings</div>
-				<div class="count green">{{event.meetings.length}}</div>
+				<div class="count green">{{model.meetings.length}}</div>
 			</div>
 
 		</div>
 
 	<div class="info horizontal justified layout">
 		<div class="vertical layout" style="">
-			<qi-icon-field id="date" icon="event" value="{{event.startTime}}"></qi-icon-field>
-			<qi-icon-field id="registrants" icon="social:group" value="{{event.registrantCount}}"></qi-icon-field>
+			<qi-icon-field id="date" icon="event" value="{{model.startTime}}"></qi-icon-field>
+			<qi-icon-field id="registrants" icon="social:group" value="{{model.registrantCount}}"></qi-icon-field>
 		</div>
 		<div>
 			<qi-avatar-tray model="{{avatars}}"></qi-avatar-tray>
@@ -80,7 +80,7 @@ This component is responsible for rendering an event.
    			/**
    			 * The event model
    			 */
-   			event:{
+   			model:{
    				type: Object,
    				notify: true
    			},
@@ -90,7 +90,12 @@ This component is responsible for rendering an event.
    			 */
    			avatars:{
    				type: Array,
-   				computed: '_getAvatars(event)'
+   				computed: '_getAvatars(model)'
+   			},
+
+   			background: {
+   				type: String,
+   				computed: '_computeBackground(model.background)'
    			}
    		},
 
@@ -114,8 +119,8 @@ This component is responsible for rendering an event.
 	     	this.fire('expand-card');
 	     },
 
-	     computeBackground: function(imageUrl){
-	     	return "min-height: 160px; background-image: url('"+ imageUrl + "')";
+	     _computeBackground: function(imageUrl){
+	     	return "min-height: 160px; background-image: url('../../"+ imageUrl + "')";
 	     },
 
 
