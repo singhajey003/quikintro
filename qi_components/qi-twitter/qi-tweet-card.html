@@ -1,4 +1,11 @@
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<!--
+  This component displays the tweets.
+
+  @group QI Elements
+  @element qi-tweet-card
+-->
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower_components/iron-icons/av-icons.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
@@ -7,7 +14,7 @@
 <link rel="import" href="../qi-toggle/qi-toggle.html">
 
 
-<dom-module id='qi-tweet-card'> 
+<dom-module id='qi-tweet-card'>
 
 	<style is="custom-style">
 	.photo{
@@ -28,8 +35,7 @@
 
 	.card-wrapper{
 		background-color: white;
-		min-height: 80px;
-		border-bottom: 2px solid #505050;
+		border-bottom: 2px solid #f3f3f3;
 	}
 
 	.selectedCard{
@@ -44,8 +50,8 @@
 	</style>
 
 	<template>
-	
-	<div id="[[model.id]]" class$="[[selectedStyle]]" on-click="select">  
+
+	<div id="[[model.id]]" class$="[[selectedStyle]]" on-click="select">
 
 		<div>
 
@@ -70,19 +76,31 @@
 
   <script>
 	var TwitterCard = Polymer({
-   		is: 'qi-tweet-card', 
+   		is: 'qi-tweet-card',
 
    		behaviors: [QiCardBehavior],
 
    		properties:{
+
+   			/**
+   			 * The twitter avatar image.
+   			 */
    			bgImage: {
    				type: String,
    				computed:'_makeImage(model.user.profile_image_url)'
    			},
+
+   			/**
+   			 * The link to the tweet's original poster.
+   			 */
    			userLink: {
    				type: String,
    				computed: '_makeLink(model.user.screen_name)'
    			},
+
+   			/**
+   			 * The screen name for the tweet's original poster
+   			 */
    			screenName: {
    				type: String,
    				computed: '_makeScreenName(model.user.screen_name)'
@@ -90,23 +108,33 @@
 
    		},
 
+   		/**
+   		 * This method creates a screen name with the twitter '@'
+   		 * @param name the screen name
+   		 */
    		_makeScreenName: function(name){
    			return "@" + name;
    		},
 
+   		/**
+   		 * This method creates a link to the original poster's twitter page.
+   		 * @param name the screen name
+   		 */
    		_makeLink: function(name){
    			return "https://twitter.com/" + name;
    		},
 
+   		/**
+   		 * This method creates the avatar for the original poster.
+   		 * @param url the url for the avatar image.
+   		 */
    		_makeImage: function(url){
    			return "background-image:url('" + url +"')"
    		}
 
 
- 
-		
 	});
 
    </script>
 
-</dom-module> 
+</dom-module>
