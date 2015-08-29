@@ -44,7 +44,7 @@ point at which all quikintro components are integrated.
 <link rel="import" href="qi-custom-icons/qi-icons.html">
 <link rel="import" href="qi-theme.html">
 
-<dom-module id='quik-intro'> 
+<dom-module id='quik-intro'>
 
   <style is="custom-style">
 
@@ -62,15 +62,15 @@ point at which all quikintro components are integrated.
   </style>
 
   <template>
-    <link rel="stylesheet" href="quikintro.css" > 
+    <link rel="stylesheet" href="quikintro.css" >
 
     <iron-localstorage name="events" value="{{eventList}}"></iron-localstorage>
     <iron-localstorage name="contacts" value="{{contactList}}"></iron-localstorage>
     <iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
 
-   
-      <paper-drawer-panel narrow="true" forceNarrow="true" mode="waterfall" id="coreScaffold" > 
-     
+
+      <paper-drawer-panel narrow="true" forceNarrow="true" mode="waterfall" id="coreScaffold" >
+
         <paper-header-panel drawer>
           <paper-toolbar></paper-toolbar>
           <paper-menu selected="{{page}}" valueattr="pageId"  class="fit">
@@ -95,7 +95,7 @@ point at which all quikintro components are integrated.
               Around Me
             </paper-icon-item>
 
-            <paper-icon-item id="newsItem" pageId="news"> 
+            <paper-icon-item id="newsItem" pageId="news">
               <iron-icon icon="qi:news"></iron-icon>
                 News
               </paper-item>
@@ -109,43 +109,37 @@ point at which all quikintro components are integrated.
               <iron-icon icon="face"></iron-icon>
               Contacts
             </paper-icon-item>
-          
-            <paper-icon-item id="securityItem" pageId="security"> 
+
+            <paper-icon-item id="securityItem" pageId="security">
               <iron-icon icon="settings"></iron-icon>
                 Settings
               </paper-item>
             </paper-icon-item>
 
 
-            
+
           </paper-menu>
-        
+
         </paper-header-panel>
 
-      
-      
+
+
       <paper-header-panel class="fit flex" main>
 
-        <paper-toolbar id="core_toolbar" class="horizontal layout"> 
-          <div>
-           <iron-icon id="menuButton" icon="menu" style="display: block" paper-drawer-toggle></iron-icon> 
-          </div>
-        
-          <div class="flex">[[panelTitle]]</div> 
-
-          <div><qi-toggle class="anonToggle horizontal end-justified layout" style="--icon-color: white" openicon="social:person" closedicon="social:person-outline"></qi-toggle></div>
-        
-
+        <paper-toolbar id="core_toolbar" class="horizontal layout">
+           <paper-icon-button id="menuButton" icon="menu" paper-drawer-toggle></paper-icon-button>
+           <span class="flex" style="font-size:20px;font-weight:300;">[[panelTitle]]</span>
+           <qi-toggle class="anonToggle horizontal end-justified layout" openicon="social:person" closedicon="social:person-outline"></qi-toggle>
         </paper-toolbar>
 
-        <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="fit flex" > 
+        <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="fit flex" >
 
           <section id="Home" pageId="home">
             <qi-home></qi-home>
           </section>
 
           <section id="Event Stream" pageId="events" >
-            <qi-event-stream id="eventStream" events="{{eventList}}" personas="{{personas}}"></qi-event-stream>
+            <qi-event-panel id="eventStream" ></qi-event-panel>
           </section>
 
           <section id="Calendar" pageId="calendar">
@@ -172,21 +166,21 @@ point at which all quikintro components are integrated.
             <qi-settings></qi-settings>
           </section>
 
-          
+
         </iron-pages>
       </paper-header-panel>
 
       </paper-drawer-panel>
 
-      
-     
+
+
     <paper-toast id="toast"></paper-toast>
   </template>
 
   <script>
 
     Polymer({
-      is: 'quik-intro', 
+      is: 'quik-intro',
 
       properties:{
         conf: {type: Array, readonly: true, value:[
@@ -206,7 +200,7 @@ point at which all quikintro components are integrated.
               panelTitle: 'Events',
               icon: 'qi:logo',
               clickHandler: function(e){
-               
+
                 var qi = document.querySelector("quik-intro");
 
                 var selectedEventPage = qi.$.pages.querySelector('qi-event-stream').selectedEventPage;
@@ -228,7 +222,7 @@ point at which all quikintro components are integrated.
               clickHandler: function(){
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
-              }        
+              }
             },
 
             {
@@ -238,7 +232,7 @@ point at which all quikintro components are integrated.
               clickHandler: function(){
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
-              }        
+              }
             },
 
             {
@@ -248,7 +242,7 @@ point at which all quikintro components are integrated.
               clickHandler: function(){
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
-              }        
+              }
             },
 
             {
@@ -258,7 +252,7 @@ point at which all quikintro components are integrated.
               clickHandler: function(){
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
-              }      
+              }
             },
 
             {
@@ -269,7 +263,7 @@ point at which all quikintro components are integrated.
                 //alert("I'm Contacts");
                 var qi = document.querySelector('quik-intro');
                 qi.$.coreScaffold.openDrawer();
-              }       
+              }
             },
 
             {
@@ -281,7 +275,7 @@ point at which all quikintro components are integrated.
                 qi.$.coreScaffold.openDrawer();
               }
             },
-          
+
           ]
         },
 
@@ -290,12 +284,12 @@ point at which all quikintro components are integrated.
         eventList: {type: Array,  value:[], notify: true, observer:'eventListChanged'},
         contactList: {type: Array, value: [], notify: true, observer:'contactListChanged'},
         personaList: {type: Array, value: [], notify: true, },
-        
+
       },
 
       /**
        * This method sets the currently displayed page.
-       * @param pageId the id of the page as specified in the conf variable, 
+       * @param pageId the id of the page as specified in the conf variable,
        *        and in the sections pageId attribute.
        */
       setPage: function(pageId){
@@ -330,7 +324,7 @@ point at which all quikintro components are integrated.
         //TODO: double check that this method is still needed
       },
 
-      
+
       /**
        * This change listener is triggered whenever the 'page' variable is changed.
        * @param newValue the new page index number
@@ -340,7 +334,7 @@ point at which all quikintro components are integrated.
         this.$.coreScaffold.closeDrawer();
         var config = this.conf[newValue];
         this.fire('nav-changed', {id: newValue, title: config.panelTitle, type:'top-level'})
-        
+
       },
 
 
@@ -362,7 +356,7 @@ point at which all quikintro components are integrated.
 
         this.addEventListener('nav-changed', function(e){
           var nuTitle = e.detail.title;
-         
+
           if(nuTitle.length > 10) {
             nuTitle = nuTitle.substring(0, 10);
             nuTitle += "...";
@@ -396,7 +390,7 @@ point at which all quikintro components are integrated.
 
 
         this.$.pages.addEventListener("core-select", function(e){
-          
+
           var qi = document.querySelector('quik-intro');
           var scaffolding = qi.$.coreScaffold;
           var menuButton = this.$.menuButton;
@@ -411,10 +405,10 @@ point at which all quikintro components are integrated.
           if(e.srcElement.id == 'pages'){
             var id = e.detail.item.id;
             if(id != null &&  id != ""){
-              
+
               var conf = qi.conf[id];
 
-              // set the menu button icon              
+              // set the menu button icon
               menuButton.icon = conf.icon;
 
               // set the click handler for the button
@@ -423,7 +417,7 @@ point at which all quikintro components are integrated.
               this.fire('nav-changed', {id: id, title: conf.panelTitle, type:'top-level'})
             }
           }else {
-           
+
           //otherwise the event came from some sub-level page
           // qi.panelTitle = e.panelTitle;
           // menuButton.icon = e.icon;
@@ -441,7 +435,7 @@ point at which all quikintro components are integrated.
 
       handleToggle: function(){
         this.$.coreScaffold.openDrawer();
-      }  
+      }
 
     });
 

@@ -131,11 +131,14 @@
 		 * @param 
 		 */
 		_getLocation: function(model){
-			var loc = model.location.name;
-			if (model.location.room != null && model.location.room != ''){
-				loc += " - " + model.location.room;
+
+			var loc = "";
+			if(model.location !== undefined){			
+				if (model.location.room != null && model.location.room != ''){
+					loc +=  model.location.name + " - " + model.location.room;
+				}
 			}
-			return model.location.name + " " + model.location.room
+			return loc;
 		},
 
 		/**
@@ -144,8 +147,10 @@
 		 */
 		_getAvatars: function(model){
 			var avatars = [];
-			for(invitee of model.invitees){
-				avatars.push(invitee.avatar);
+			if(model.invitees !== undefined){
+				for(invitee of model.invitees){
+					avatars.push(invitee.avatar);
+				}
 			}
 
 			return avatars;
@@ -157,10 +162,13 @@
 		 * @param lastName the last name of the sender
 		 */
 		_concat: function(model){
-			var inv = model.invitees[0];
+			
 			var name = ""
-			if(inv.firstName !== undefined && inv.lastName !== undefined){
-			 	name = model.invitees[0].firstName + " " + model.invitees[0].lastName;
+			if(model.invitees !== undefined){
+				var inv = model.invitees[0];
+				if(inv.firstName !== undefined && inv.lastName !== undefined){
+					name = model.invitees[0].firstName + " " + model.invitees[0].lastName;
+				}
 			}
 			return name;
 		},

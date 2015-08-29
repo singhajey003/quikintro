@@ -21,6 +21,8 @@
 <link rel="import" href="../qi-field/qi-field-decorator.html">
 <link rel="import" href="../qi-persona/qi-persona-field.html">
 
+<link rel="import" href="../qi-calendar/qi-cal-behavior.html">
+
 <dom-module id='qi-event-summary'  >
 
     <link rel="stylesheet" href="../quikintro.css" >
@@ -76,7 +78,7 @@
         <div class="horizontal around-justified layout">
             <div class="eventDate">
                 <iron-icon icon="event" style="width: 48px; height: 48px;"></iron-icon>
-                <div class="text">[[event.startTime]]</div>
+                <div class="text">[[date]]</div>
                 <div class="bottomLabel">Event Date</div>
             </div>
 
@@ -127,6 +129,8 @@
     Polymer({
         is: 'qi-event-summary',
 
+        behaviors: [QiCalBehavior],
+
         properties:{
 
             /**
@@ -149,8 +153,15 @@
             background: {
                 type: String,
                 computed: '_computeBackground(event.background)'
+            },
+
+            date: {
+                type: String,
+                computed: 'startEndTime(event.time.start, event.time.end)'
             }
+
         },
+
 
         /**
          * This method creates the background image style.

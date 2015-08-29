@@ -283,8 +283,10 @@
 
 
  		 ],
- 		 "startTime":"26-May-2015",
- 		 "endTime":"26-May-2015",
+ 		 "time":{
+	 		 "start":"26-May-2015",
+	 		 "end":"26-May-2015"
+	 	 },
 		 "meetings":[
 			{
 			"date":"26-May-2015",
@@ -387,8 +389,10 @@
 
 	{
  		"title":"JP Morgan Healthcare",
- 		"startTime":"12 Jan 2015",
- 		 "endTime":"15 Jan 2015",
+ 		"time":{
+	 		"start":"12 Jan 2015",
+	 		 "end":"15 Jan 2015"
+	 	},
  		 "location":"Four Seasons Hotel",
  		 "coordinates":{
  		 	"latitude": 37.786471,
@@ -624,8 +628,10 @@
 	},
 	{
 		"title":"AACR",
-		"startTime":"18-Apr-2015",
-		"endTime":"22 Apr 2015",
+		"time":{
+			"start":"18-Apr-2015",
+			"end":"22 Apr 2015"
+		},
 		"location":"Pennsylvania Convention Center 1103-1131 Arch Street, Philadelphia, PA 19107, USA",
 		"coordinates":{
  		 	"latitude": 39.948421,
@@ -750,8 +756,10 @@
 
 	{
  		"title":"ASCO",
- 		"startTime":"29 May 2015",
- 		 "endTime":"02 Jun 2015",
+ 		"time":{
+	 		"start":"29 May 2015",
+	 		"end":"02 Jun 2015"
+ 		 },
  		 "location":"McCormick Place",
  		 "coordinates":{
  		 	"latitude": 41.851389,
@@ -908,8 +916,10 @@
 
 	 {         
 	 	"title":"Google IO",
-	 	"startTime":"28 May 2015",
-	 	"endTime":"29 May 2015",
+	 	"time":{
+		 	"start":"28 May 2015",
+		 	"end":"29 May 2015"
+		 },
 	 	"location":"Moscone Center West, San Francisco, CA",
 	 	"coordinates":{
  		 	"latitude": 37.784173,
@@ -1058,8 +1068,10 @@
 
      {
      	"title":"JavaOne",
-     	"startTime":"25 Oct 2015",
-     	"endTime":"29 Oct 2015",
+     	"time":{
+	     	"start":"25 Oct 2015",
+	     	"end":"29 Oct 2015"
+	     },
      	"location":"Moscone Center, San Francisco, CA",
      	"coordinates":{
  		 	"latitude": 37.784173,

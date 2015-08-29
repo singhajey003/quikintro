@@ -74,14 +74,8 @@
           <label>No Meetings Scheduled</label>
         </template>
 
-        <!--
-        <template is="dom-repeat" items="{{event.meetings}}" as="meeting">
-          <qi-meeting-card meeting="{{meeting}}"></qi-meeting-card>
-        </template>
 
-        -->
-
-        <qi-mtg-tray model="[[event.meetings]]"></qi-mtg-tray>
+        <qi-mtg-tray model="[[meetings]]"></qi-mtg-tray>
 
       </div>
 
@@ -92,11 +86,11 @@
 
 
       <div id="traits">
-       <qi-trait-panel event="{{event}}"></qi-trait-panel>
+       <qi-trait-panel event="[[event]]"></qi-trait-panel>
       </div>
 
       <div id="notes">
-       <qi-event-notes-panel notes="{{event.notes}}"></qi-event-notes-panel>
+       <qi-event-notes-panel notes="[[event.notes]]"></qi-event-notes-panel>
       </div>
 
     </iron-pages>
@@ -134,7 +128,25 @@
         tweetUrl:{
           type: String,
           computed: '_computeTweetUrl(event.tweetUrl)'
+        },
+
+        meetings: {
+          type: Array,
+          computed: '_collapseMtgs(event.meetings)'
         }
+      },
+
+      _collapseMtgs: function(meetings){
+        var meetingArray = [];
+        if(meetings !== undefined){
+          for(var i=0; i < meetings.length; i++){
+            var currMtgs = meetings[i].meetings;
+            for(var j=0; j < currMtgs; j++ ){
+              meetingArray.push(currMtgs.meetings[j]);
+            }
+          }
+        }
+        return meetingArray;
       },
 
       _computeTweetUrl: function(url){
