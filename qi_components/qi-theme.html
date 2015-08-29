@@ -342,6 +342,9 @@ html /deep/ .green {color:#17cf47;}
 /*ICON STYLING*/
 
 .myIcon.add, .myIcon.search {stroke:#ccc;}
+html /deep/ iron-icon #Backdrop {opacity:0;}
+
+html /deep/ #menuButton iron-icon {width:36px; height:36px;}
 
 /*STYLEGUIDE ONLY*/
 
@@ -422,6 +425,12 @@ html /deep/ #drawer.paper-drawer-panel .centered .row {
     width: auto;
 }
 
+/* HOME ICONS */
+
+html /deep/ .dashboard iron-icon {
+  color:#fff;
+}
+
 /*CARD STYLES*/
 
 html /deep/ .card.qi-swipe-card {
@@ -442,7 +451,7 @@ html /deep/ .card.qi-swipe-card:before {
 
 html /deep/ .title.qi-article-card {
     font-size: 15px;
-    font-weight:500;
+    font-weight:600;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
@@ -567,12 +576,12 @@ html /deep/ paper-tabs {
 html /deep/ #selectionBar.paper-tabs {
     position: absolute;
     height: 4px;
-    bottom: 0;
+    top: 0;
 }
 
 html /deep/ paper-tab:focus .tab-content.paper-tab, html /deep/ paper-tab.iron-selected .tab-content.paper-tab {
 color:#17aacf;
-font-weight:800;
+font-weight:600;
 }
 
 /*SELECTABLE BUTTONS*/
@@ -750,7 +759,7 @@ html /deep/ .eventSettings {
 
 html /deep/ .inner.card {
   padding:1em;
-  border-bottom:1px solid #f3f3f3;
+  border-bottom:2px solid #f3f3f3;
 }
 
 html /deep/ .inner.card qi-avatar {
@@ -782,6 +791,13 @@ html /deep/ .matchPct span {
 html /deep/ .inner.card .sub {
   color:#939396;
   font-size:14px;
+}
+
+/* EVENT TWEETS */
+
+html /deep/ #mainContainer.paper-header-panel {
+  overflow-x:visible;
+  overflow-y:visible;
 }
 
 
