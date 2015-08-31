@@ -14,6 +14,12 @@ This component displays a dropdown list of personas.
 
 <link rel="import" href="../qi-field/qi-field-decorator.html">
 
+<style>
+.personaBar{
+	padding-left:10px;
+}
+
+</style>
 
 
 <dom-module id="qi-persona-field">
@@ -22,16 +28,8 @@ This component displays a dropdown list of personas.
 
 		<qi-field-decorator id="personaField" label="[[label]]" class="settings-row horizontal justified layout center" > 
 
-<!--
-			<select id="persona">
- 				<template is="dom-repeat" items="[[model]]"  as="currmodel">
-                    <option value="[[currmodel.name]]">[[currmodel.name]]</option>
-                </template>
-			</select>
--->
 
-
-            <mat-dropdown id="persona" model="{{persona}}" >
+            <mat-dropdown id="persona" model="{{persona}}" class=" personaBar" >
                 <template is="dom-repeat" items="[[model]]"  as="currmodel">
                     <mat-option value="[[currmodel.name]]" label="[[currmodel.name]]"></mat-option>
                 </template>
