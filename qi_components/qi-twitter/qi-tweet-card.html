@@ -17,29 +17,14 @@
 <dom-module id='qi-tweet-card'>
 
 	<style is="custom-style">
-	.photo{
-		min-width: 50px;
-		min-height: 50px;
-		background-repeat: none;
-		background-size: cover;
-	}
-
-	.content{
-		padding-left: 5px;
-		margin-top: 0px;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		line-height: normal;
-	}
-
 
 	.card-wrapper{
-		background-color: white;
 		border-bottom: 2px solid #f3f3f3;
 	}
 
 	.selectedCard{
-		background-color: #9a9a9a;
+		background-color: #E4F9FF;
+        border-bottom: 2px solid #CBE7EF;
 	}
 
 	qi-toggle{
@@ -58,12 +43,10 @@
 			<div class="layout horizontal">
 				<div class="photo" style$="[[bgImage]]" ></div>
 
-				<div class="content layout vertical">
-					<div>
-					<a class="userName" href="[[userLink]]">[[model.user.name]]</a>
-					<span>[[screenName]]</span>
-					</div>
-					<span>[[model.text]]</span>
+				<div class="flex content layout vertical">
+					<div class="userName"><a  href="[[userLink]]">[[model.user.name]]</a></div>
+					<span class="screenName">[[screenName]]</span>
+					<div class="text">[[model.text]]</div>
 				</div>
 			</div>
 

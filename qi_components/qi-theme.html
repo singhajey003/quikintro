@@ -573,6 +573,14 @@ html /deep/ paper-tabs {
   text-transform:uppercase;
 }
 
+html /deep/ paper-tabs.secondary {
+  background-color: #e4e4e4;
+}
+
+html /deep/ paper-tabs.secondary #selectionBar {
+  display:none;
+}
+
 html /deep/ #selectionBar.paper-tabs {
     position: absolute;
     height: 4px;
@@ -800,6 +808,57 @@ html /deep/ #mainContainer.paper-header-panel {
   overflow-y:visible;
 }
 
+html /deep/ .content.qi-tweet-card {
+    padding: 10px;
+    line-height: normal;
+}
+
+html /deep/ .content.qi-tweet-card .userName a {
+  font-size:15px;
+  font-weight:600;
+  text-decoration: none;
+}
+
+html /deep/ .content.qi-tweet-card .screenName {
+  font-size:13px;
+  font-weight:600;
+  opacity:0.5;
+}
+
+html /deep/ .content.qi-tweet-card .text {
+  font-size:13px;
+  font-weight:300;
+  line-height: 1.25;
+  padding:5px 0 0 0;
+}
+
+html /deep/ .photo.qi-tweet-card {
+    width: 80px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:10px;
+    border-radius:4px;
+  }
+
+html /deep/ .qi-twitter-panel .hashtagBanner {
+  text-transform: uppercase;
+  font-weight: 300;
+  background:#3a3a3a;
+  padding:10px;
+}
+
+html /deep/ .qi-twitter-panel .hashtagBanner div {
+  color:#949494;
+  font-weight: 600;
+  font-size:14px;
+}
+
+html /deep/ .qi-twitter-panel .hashtagBanner span {
+  color:#17aacf;
+  font-weight: 600;
+  font-size:16px;
+}
 
 /* TRANSFERRED QI-CARDS STYLES */
 
