@@ -69,8 +69,9 @@
 
 	<template>
 		
-     <qi-swipe-card id="[[cardid]]" model="{{model}}">
-      <div class= " flex horizontal layout">
+
+     <qi-swipe-card model="{{model}}">
+      <div class= "senderBlock flex horizontal layout">
 
           <div class="avatarBlock">
             <qi-avatar url="[[model.sender.avatar]]"></qi-avatar>
@@ -122,6 +123,10 @@
 
     	},
 
+      /**
+       * This method concatenates the title and company.
+       * @param model the model for the invitation
+       */
    		_concatTitleCo: function(model){
    			return (model != null)?model.sender.title +" at " + model.sender.company : "";
    		},

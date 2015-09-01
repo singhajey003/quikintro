@@ -74,6 +74,10 @@ QiCardBehavior = {
 			type: String,
 			computed: '_computeStyle(selected, cardstyle)',
 			notify: true
+		},
+
+		fabTrayId:{
+			type:String
 		}
 
 	},
@@ -93,12 +97,12 @@ QiCardBehavior = {
 	 */
 	_computeStyle: function(selected, cardstyle){
 		var style = cardstyle;
-
 		if(selected){
 			style += (selected)? " selectedCard":"";
 		}	
 		return style;
 	},
+
 
 
 	/**

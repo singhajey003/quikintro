@@ -25,8 +25,9 @@ This component represents a basic card.
 	</style>
 
 	<template>
-		<div class$="{{selectedStyle}}" on-click="select" touch-action="none">
-			<content></content>
+
+		<div id$="[[cardid]]" on-click="select" class$="{{selectedStyle}}" touch-action="none">
+		<content></content>
 		</div>
 	</template>
 
