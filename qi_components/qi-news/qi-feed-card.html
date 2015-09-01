@@ -6,7 +6,7 @@ for a single feed.
 	@element qi-feed-card
 -->
 
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="../qi-card/qi-card-behavior.html">
 <link rel="import" href="../qi-card/qi-card.html">
@@ -22,37 +22,23 @@ for a single feed.
 			display: block;
 		}
 
-		.feedcard{
-			max-height: 50px;
-			display: table-row;
-		}
 
-		.card-detail{
-			height: 50px;
-			vertical-align: top;
-			display: table-cell;
-			padding-left: 5px;
-			width: 100%;
-		}
-		
 	</style>
 
 	<template>
 
 		<div>
 		<qi-card model="[[model]]">
-		
-			<div class="feedcard layout justified">
-				
-				<div style="display: table-cell"><qi-feed-icon model="[[model]]"></qi-feed-icon></div>
-				
-				<div class="card-detail">
-					<div><span>[[model.name]]</span></div>
 
+			<div class="feedcard layout horizontal">
+
+				<div><qi-feed-icon model="[[model]]"></qi-feed-icon></div>
+				<div class="flex layout vertical card-detail">
+					<div class="title">[[model.name]]</div>
 					<qi-avatar-tray model="[[model.avatars]]"></qi-avatar-tray>
 				</div>
 			</div>
-		
+
 		</qi-card>
 		</div>
 	</template>
@@ -60,7 +46,7 @@ for a single feed.
 	<script>
 		Polymer({
 			is: 'qi-feed-card',
-			behaviors:[QiCardBehavior]	
+			behaviors:[QiCardBehavior]
 		});
 	</script>
 </dom-module>
