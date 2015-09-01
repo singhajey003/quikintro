@@ -20,10 +20,6 @@
 <dom-module id="qi-tweet-tray">
 
 	<style is="custom-style">
-	qi-card-tray{
-		--tray-width: 400px;
-		background-color: var(--tray-bgcolor);
-	}
 
 	qi-twitter-dialog{
 		--dialog-height: 300px;
@@ -38,21 +34,21 @@
 	</style>
 
 	<template>
-				
-		
+
+
 		<qi-card-tray id="cardtray" fabtrayid="tweet-fab-tray">
-		
+
 			<template is="dom-repeat" items="[[tweets]]" as="tweet">
 				<qi-tweet-card id="[[articleId]]" cardstyle="card card-wrapper layout horizontal" class="selectable-card" model="[[tweet]]" ></qi-tweet-card>
 			</template>
 
 			<div class="tweet-fab-tray">
 				<paper-fab icon="create" mini class="selectable" on-click="createDialog"></paper-fab>
-				<paper-fab icon="note-add" mini class="selectable" on-click="noteDialog"></paper-fab> 
-				<paper-fab icon="reply" mini class="selectable" on-click="replyDialog"></paper-fab> 
+				<paper-fab icon="note-add" mini class="selectable" on-click="noteDialog"></paper-fab>
+				<paper-fab icon="reply" mini class="selectable" on-click="replyDialog"></paper-fab>
 			</div>
 
-		
+
 		</qi-card-tray>
 
 		<qi-twitter-dialog id="twitterDialog" hashtag="[[hashtag]]"></qi-twitter-dialog>
@@ -72,9 +68,9 @@ Polymer({
 		 * An array of tweets
 		 */
 		tweets:{
-			type: Array, 
-			value: [], 
-			notify: true, 
+			type: Array,
+			value: [],
+			notify: true,
 			readonly: true
 		},
 
@@ -112,7 +108,7 @@ Polymer({
 	},
 
 	/**
-	 * This method displays the 
+	 * This method displays the
 	 */
 	createDialog: function(){
 		this.$.twitterDialog.open();
