@@ -67,19 +67,7 @@
         </div>
       </iron-collapse>
       </div>
-    
-
-      <div class="contactPanel">  
-        
-        <template is="dom-repeat" items="{{contacts}}"  as="contact">
-          <qi-contact-card contact="{{contact}}"></qi-contact-card>
-        </template>
-
-        
-        <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
-        <qi-mtg-dialog id="mtgDialog"></qi-mtg-dialog>
-       
-      </div>
+  <qi-contact-tray model="{{contacts}}"></qi-contact-tray>
 
 
      </div>
