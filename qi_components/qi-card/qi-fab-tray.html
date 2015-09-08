@@ -6,7 +6,6 @@ This component is responsible for displaying Floating Action Buttons (FABs).
 -->
 <dom-module id="qi-fab-tray">
 	<style>
-
 	.fab-tray{
 		transition: 0.4s;
 		width: 100vw;
@@ -20,7 +19,6 @@ This component is responsible for displaying Floating Action Buttons (FABs).
 	.selectedFab{
 		bottom: 0px;
 	}
-
 
 	</style>
 	<template>
@@ -68,9 +66,9 @@ This component is responsible for displaying Floating Action Buttons (FABs).
 			 * @param traystyle
 			 */
 			_computestyle: function(selected, traystyle){
-				var style = traystyle; //(this.traystyle) ? this.traystyle :'fab-tray';
-				style += (selected)? " selectedFab":"";
-				return style;
+					var style = traystyle; //(this.traystyle) ? this.traystyle :'fab-tray';
+					style += (selected)? " selectedFab":"";
+					return style;
 			}
 
 
