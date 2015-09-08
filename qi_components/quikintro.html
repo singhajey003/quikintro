@@ -23,7 +23,9 @@ point at which all quikintro components are integrated.
 
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 
-<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+
+<link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
 
 <link rel="import" href="qi-event/qi-event-panel.html">
 <link rel="import" href="qi-aroundme/qi-aroundme-panel.html">
@@ -69,7 +71,7 @@ point at which all quikintro components are integrated.
     <iron-localstorage name="personas" value="{{personaList}}"></iron-localstorage>
 
 
-      <paper-drawer-panel narrow="true" forceNarrow="true" mode="waterfall" id="coreScaffold" >
+      <paper-drawer-panel narrow="true" forceNarrow="true" mode="waterfall" id="coreScaffold">
 
         <paper-header-panel drawer>
           <!--<paper-toolbar></paper-toolbar>
@@ -131,11 +133,10 @@ point at which all quikintro components are integrated.
               <paper-button id="contacts" pageId="contacts" class="primary">Contacts</paper-button>
               <paper-button id="securityItem" pageId="security" class="primary">Security</paper-button>
 
-            <!-- Close button -->
-            <paper-icon-button id="close" class="close primary" icon="close"></paper-icon-button>
-
 
             </paper-menu>
+            <!-- Close button -->
+            <paper-icon-button id="close" class="close primary" paper-drawer-toggle icon="close"></paper-icon-button>
             </div>
           </div>
 
@@ -458,7 +459,7 @@ point at which all quikintro components are integrated.
       },
 
       handleToggle: function(){
-        this.$.coreScaffold.openDrawer();
+        this.$.coreScaffold.togglePanel();
       }
 
     });
