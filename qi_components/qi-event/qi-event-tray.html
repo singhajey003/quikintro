@@ -55,7 +55,7 @@
 
 				isScheduled: {
 					type: Boolean,
-					value: true
+					value: false
 				},
 
 				selectedEventPage:{
@@ -72,11 +72,10 @@
 			},
 
 			byScheduled: function(item){
-
 				if (this.isScheduled){
-					return item.rsvp == "YES" || item.rsvp == null;
+					return item.rsvp == "YES";
 				}else {
-					return item.rsvp == "NO";
+					return item.rsvp == "NO" || item.rsvp == null;
 				}
 			}
 		});
