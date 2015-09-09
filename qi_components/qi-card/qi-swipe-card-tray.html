@@ -23,13 +23,17 @@ swipe-card.
 			height: 100%;
 			overflow: scroll;
 		}
+
+		.selectedFab{
+			bottom: 0;
+		}
 	</style>
 	<template>
 		
 			
 	<iron-pages selected="{{selectedPage}}">
 		<section>
-			<div class="tray">
+			<div id="cardTray" class="tray">
 			<iron-selector id="selector" multi="true" attr-for-selected="model">
 				<content select=".selectable-card"></content>
 			</iron-selector>
