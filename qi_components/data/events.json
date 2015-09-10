@@ -135,28 +135,35 @@
 				"avatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
 				"interests":["startups", "social media"],
 				"score":4,
+				"summary":"Focused on Post-EHR Cloud, Connected Care and Big Data analytics, applications and services.",
 				"notes":"Remember to ask him about new personalized medicine startups.",
 				"food":["greek","sushi"],
 				"drink":["pinot noir","zinfandel"]
 			},
 
 			{
-  		 		"firstName":"Bill",
-  		 		"lastName":"James",
-  		 		"avatar":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/04b/09d/0986dad.jpg",
- 		 		"title":"Director, Product Management",
- 		 		"company":"FitBit",
- 		 		"interests":["wearables", "fitness apps", "NFL", "San Francisco 49ers", "fitness hardware", "lean startups"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "wearables",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			     "distanceAway" : 100,
-			     "match": 82
+        "firstName": "Asha",
+        "headline": "Director of Business Development at Vaco Technology",
+        "title": "Sr. Technical Talent Acquisition Partner",
+        "company": "FTD",
+        "summary":"Asha's focus is on developing candidate relationships in the Greater San Diego Area within companies ranging from Fortune 500 firms to emerging and fast growing start-ups within multiple industries. Her passion has always been partnering with different levels of management to deliver recruiting strategies and top talent resources for their teams. Since starting in the industry back in 2009 she has placed over 320 candidates and produced over $4.5MM in revenues. Asha is passionate about keeping up with whatever disruptive new advances are happening in the technology space and serving as a consultant to her client/candidate relationships built over the years. You can find her at every event, seminar and gathering throughout southern California.",
+        "id": 16819848,
+        "industry": "Information Technology and Services",
+        "lastName": "Ewing",
+        "location": {
+            "country": {
+                "code": "us"
+            },
+            "name": "Greater San Diego Area"
+        },
+        "avatar": "https://media.licdn.com/mpr/mprx/0_-OwaAq6LzlL0fk3jyMJjAnhXcN3YfFKjKJxlABTZHBzmr_bgY4UGxcznJpTTuhlA1jWrOr1bITA7",
+        "siteStandardProfileRequest": {
+            "url": "https://www.linkedin.com/profile/view?id=16819848&authType=name&authToken=8Y5f&trk=api*a3227641*s3301901*"
+        },
+        "distanceAway":50,
+        "food":["chinese","thai","steak"],
+        "drink":["merlot","chardonnay"],
+        "interests":["recruiting"]
  		 	}
 
 
