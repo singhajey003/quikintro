@@ -15,6 +15,7 @@ This component displays the detailed contents of a contact.
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
 <link rel="import" href="qi-contact-behavior.html">
+<link rel="import" href="../qi-theme.html">
 
 
 
@@ -27,24 +28,25 @@ This component displays the detailed contents of a contact.
 
 		.panel-wrapper{
 			height: 150px;
+			margin-top: 0px;
 		}
 
 		.avatar-panel{
-			background-color: #17aacf;
-			height: 100px;
+			background-color: #5c91cc;
+			height: 125px;
 		}
 
 
 		qi-avatar{
-			--avatar-height: 100px;
-			--avatar-width: 100px;
+			--avatar-height: 120px;
+			--avatar-width: 120px;
 			position: relative;
 			top: 30px;
 			left: 30px;
 		}
 
 		.persona-row{
-			margin-top: 40px;
+			margin-top: 52px;
 		}
 
 		.detail-panel{
@@ -52,7 +54,7 @@ This component displays the detailed contents of a contact.
 			float: right;
 			display: block;
 			max-width: 50vw;
-			font-size: 10pt;
+			font-size: 12pt;
 			color: white;
 			position: absolute;
 			right: 3px;
@@ -60,17 +62,36 @@ This component displays the detailed contents of a contact.
 		}
 
 		.title{
-			font-size: 10pt;
-			font-family: Verdana;
-			color: white;
+			/*font-size: 10pt;*/
+			
+			/*color: white;*/
 			line-height: normal;
+			font-family: "museo-sans",sans-serif;
 		}
 		.company{
-			font-size: 10pt;
+			font-size: 12pt;
 			font-family: Verdana;
 			font-weight: bold;
 			color: white;
-			line-height: normal
+			line-height: normal;
+			font-family: "museo-sans",sans-serif;
+		}
+		.namePanel{
+			height: 90px;
+			background-color: white;
+			color: black;
+			font-size: 20px;
+			padding: 20px;
+			padding-left: 40px;
+			margin-top: -2px;
+			font-family: "museo-sans",sans-serif;
+			color: #424540;
+		}
+		.summary{
+			margin-left: 6px;
+			font-family: Verdana;
+			color: #424540;
+			font-family: "museo-sans",sans-serif;
 		}
 
 
@@ -80,11 +101,14 @@ This component displays the detailed contents of a contact.
 
 		<div class="fit vertical layout" on-track="handlePageSwipe">
 
+		<div class="namePanel"><span class="title">[[fullName]]</span></div>
 			<div class="panel-wrapper">
+
 			<div class="avatar-panel layout horizontal">
 				<qi-avatar url="[[model.avatar]]"></qi-avatar>
 
 				<div class="detail-panel">
+
 					<span class="title">[[model.title]]</span> at <span class="company">[[model.company]]</span>
 				</div>
 			</div>
@@ -99,12 +123,10 @@ This component displays the detailed contents of a contact.
 			<div>
 			<qi-trait-field label="Interests" model="[[model.interests]]" is-stacked="true"></qi-trait-field>
 			</div>
-
 		
-
 			<div>
 			<qi-field-decorator label="Summary" is-stacked="true">
-				<span>[[model.summary]]</span>
+				<span class = "summary">[[model.summary]]</span>
 			</qi-field-decorator>
 			</div>
 
@@ -128,6 +150,21 @@ This component displays the detailed contents of a contact.
 		Polymer({
 			is: 'qi-contact-page',
 			behaviors: [QiSwipePageBehavior, QiContactBehavior],
+			properties:{
+				summary:{
+					type:String,
+					computed: '_computedSummary(model.summary)'
+				}
+			},
+
+			_computedSummary: function(summary){
+				return summary;
+			}
 		});
+
+
 	</script>
 </dom-module>
+
+
+
