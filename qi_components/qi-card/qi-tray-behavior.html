@@ -52,6 +52,9 @@ QiTrayBehavior = {
 		}
 	},
 
+	/**
+	 * This method gets the selected cards.
+	 */
 	getSelectedCards: function(){
 		var cards = this.$.cardTray.getElementsByClassName("selectable-card");
 		var cardArray = [];
@@ -63,6 +66,9 @@ QiTrayBehavior = {
 		return cardArray;
 	},
 
+	/**
+	 * This method determines if there are selected cards.
+	 */
 	hasSelectedCards: function(){
 		var cards = this.$.cardTray.getElementsByClassName("selectedCard");		
 		return cards.length > 0;
@@ -71,6 +77,9 @@ QiTrayBehavior = {
 
 	ready: function(){
 		var selectedCards = this.selectedCards;
+		var fabs = this.getElementsByTagName('qi-fab-tray');
+		var fabtray = fabs[0];
+
 
 		// change the fab tray style whenever a card is selected.
 		this.addEventListener('card-selected', function(e){
@@ -79,14 +88,11 @@ QiTrayBehavior = {
 				throw "The fabtray id was not set";
 			}
 			
-			var fabtray = document.getElementById(this.fabtrayid);
 			if(e.srcElement.selected){
 				fabtray.selected = true;
 			}else{
 				fabtray.selected = this.hasSelectedCards()
 			}
-			console.log("fabtray.id: " + this.fabtrayid);
-			console.log("fabtray.selected: " + fabtray.selected);
 			
 			e.stopPropagation();
 		});
