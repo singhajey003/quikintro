@@ -59,7 +59,8 @@ QiSwipeTrayBehavior = {
         		throw "The detail page id was not set";
         	}
             
-            var detailPage = document.getElementById(this.detailpageid);
+            var detailTemp = this.getElementsByTagName('qi-contact-page');
+            var detailPage = detailTemp[0];
 
             if(detailPage == null){
             	throw "Cannot find detail page corresponding to id: " + this.detailpageid;
