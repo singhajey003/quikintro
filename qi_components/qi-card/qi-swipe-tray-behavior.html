@@ -33,11 +33,17 @@ QiSwipeTrayBehavior = {
             notify: true
         },
 
+        /**
+         * The ID of the detail page.
+         */
         detailpageid: {
             type: String,
             value: null
         },
 
+        /**
+         * The ID of the page.
+         */
         pagesid: {
         	type: String,
         	computed: '_computePagesId(id)'
@@ -52,15 +58,15 @@ QiSwipeTrayBehavior = {
 
     ready: function() {
 
-    
-        // this event is triggerend whenever the article card is swiped
+        // this event is triggered whenever the article card is swiped
         this.addEventListener('card-swipe', function(e) {
         	if(this.detailpageid == null){
         		throw "The detail page id was not set";
         	}
             
-            var detailTemp = this.getElementsByTagName('qi-contact-page');
-            var detailPage = detailTemp[0];
+            var tray = e.srcElement.parentElement.parentElement;
+            
+            var detailPage = tray.querySelector("#" + this.detailpageid);
 
             if(detailPage == null){
             	throw "Cannot find detail page corresponding to id: " + this.detailpageid;
@@ -71,6 +77,7 @@ QiSwipeTrayBehavior = {
             
         });
 
+        // this event is triggered whenever the article page is swiped
         this.addEventListener('page-swipe', function(e) {
             this.selectedPage = 0;
             e.stopPropagation();

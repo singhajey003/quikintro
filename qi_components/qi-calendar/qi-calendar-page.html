@@ -114,10 +114,54 @@ This component is responsible for displaying meeting information.
 		</qi-collapse-field>
 		</template>
 
-		<qi-collapse-field icon="work" label="Documents">
+		<qi-field-decorator icon="work" label="Documents">
 			<iron-localstorage name="files" value="{{files}}"></iron-localstorage>
 			<qi-file-tray model="{{files}}"></qi-file-tray>
-		</qi-collapse-field>
+		</qi-field-decorator>
+
+
+		<qi-field-decorator label="Notes &amp; Agenda" is-stacked="true">
+			<textarea style="width: 100%"></textarea>
+		</qi-field-decorator>
+
+		<qi-field-decorator label="Action Items" is-stacked="true">
+
+			<table>
+			<thead>
+			<tr><th>Completed?</th><th>Name</th><th>Description</th></tr>
+			</thead>
+			<tbody>
+			<template is="dom-repeat" items="[[actionItems]]" as="actionItem">
+				<tr>
+
+				<td>
+					<template is="dom-if" if="{{actionItem.completed}}">
+						<iron-icon class="done" icon="check"></iron-icon>
+					</template>
+					<template is="dom-if" if="{{!actionItem.completed}}">
+						<iron-icon class="not-done" icon="clear"></iron-icon>
+					</template>
+				</td>
+
+				<td>
+				<span>[[actionItem.date]]</span>
+				</td>
+
+
+				<td>
+				<span>[[actionItem.name]]</span>
+				</td>
+
+				<td>
+				<span>[[actionItem.description]]</span>
+				</td>
+				</tr>
+			</template>
+			</tbody>
+			</table>
+
+		</qi-field-decorator>
+
 
 		</div>
 	</template>
@@ -127,10 +171,17 @@ This component is responsible for displaying meeting information.
 			behaviors: [QiSwipePageBehavior],
 			properties:{
 				time: {
+
+					/**
+					 * The model for the calendar.
+					 */
 					model:{
 						type: Object
 					},
 
+					/**
+					 * The start and end time for the event
+					 */
 					time:{
 						type: String,
 						computed: '_concatTime(model.time.start, model.time.end)'
