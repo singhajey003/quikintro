@@ -50,8 +50,27 @@ QiSwipeTrayBehavior = {
     	return id + "-pages";
     },
 
-    ready: function() {
+    /**
+     * This method searches for the tray component that contains the card
+     * where the swipe event originated. 
+     * @param e  the 'card-swipe' event
+     */
+    _getComponentRoot: function(e){
+        var root = e.srcElement;
 
+        for(var i=0; i < 6; i++){
+
+            root = root.parentElement;
+            if(root.nodeName == 'qi-swipe-card-tray'){
+                break;
+            }
+        }
+
+
+        return root;
+    },
+
+    ready: function() {
     
         // this event is triggerend whenever the article card is swiped
         this.addEventListener('card-swipe', function(e) {
@@ -60,11 +79,17 @@ QiSwipeTrayBehavior = {
         		throw "The detail page id was not set";
         	}
             
-            var detailPage = document.getElementById(this.detailpageid);
+
+            var tray = this._getComponentRoot(e);
+            
+            // find the detail page
+            var detailPage = tray.querySelector("#" + this.detailpageid);
 
             if(detailPage == null){
             	throw "Cannot find detail page corresponding to id: " + this.detailpageid;
             }
+
+            // set the detail page model, and switch to the detail page.
             detailPage.model = e.detail.model;
             this.selectedPage = 1;
             e.stopPropagation();
