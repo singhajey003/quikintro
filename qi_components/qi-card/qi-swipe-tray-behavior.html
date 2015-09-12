@@ -64,13 +64,10 @@ QiSwipeTrayBehavior = {
         		throw "The detail page id was not set";
         	}
             
-            var tray = e.srcElement.parentElement.parentElement;
-            
-            var detailPage = tray.querySelector("#" + this.detailpageid);
+            var detailTemp = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
 
-            if(detailPage == null){
-            	throw "Cannot find detail page corresponding to id: " + this.detailpageid;
-            }
+            var detailPage = detailTemp.querySelector(".detail-page");
+
             detailPage.model = e.detail.model;
             this.selectedPage = 1;
             //e.stopPropagation();
