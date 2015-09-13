@@ -1,5 +1,6 @@
 [{
         "name": "Guardian World News",
+        "short-name":"guardian-world",
         "url": "http://www.theguardian.com/world/rss",
         "icon": "icons/guardian.png",
         "topics": ["news"],
@@ -11,6 +12,7 @@
         ]
     }, {
         "name": "NY Times",
+        "short-name":"nytimes",
         "url": "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml",
         "icon": "icons/nytimes.png",
         "topics": ["news"],
@@ -23,26 +25,31 @@
  
     }, {
         "name": "SF Chronicle Technology",
+        "short-name":"sfchron-tech",
         "url": "http://www.sfgate.com/rss/feed/Tech-News-449.php",
         "icon": "icons/sfgate.jpg",
         "topics": ["technology"]
     }, {
         "name": "LA Times",
+        "short-name":"latimes",
         "url": "http://www.latimes.com/rss2.0.xml",
         "icon": "icons/latimes.png",
         "topics": ["news"]
     }, {
         "name": "The Times",
+        "short-name":"thetimes",
         "url": "http://www.thetimes.co.uk/tto/news/rss",
         "icon": "icons/times.png",
         "topics": ["news"]
     }, {
         "name": "Financial Times: UK",
+        "short-name":"financial-times",
         "url": "http://www.ft.com/rss/home/uk",
         "icon": "icons/ft.png",
         "topics": ["news", "business", "regional news"]
     }, {
         "name": "Mercury News",
+        "short-name":"sj-mercury-news",
         "url": "http://feeds.mercurynews.com/mngi/rss/CustomRssServlet/568/200735.xml",
         "icon": "icons/mercurynews.jpg",
         "topics": ["news"]
@@ -50,6 +57,7 @@
 
     {
         "name": "The Times: Americas",
+        "short-name":"thetimes-americas",
         "url": "http://www.thetimes.co.uk/tto/news/world/americas/rss",
         "icon": "icons/times.png",
         "topics": ["news", "regional news"]
@@ -57,101 +65,120 @@
 
     {
         "name": "Guardian Technology",
+        "short-name":"guardian-tech",
         "url": "http://www.theguardian.com/us/technology/rss",
         "icon": "icons/guardian.png",
         "topics": ["technology"]
     }, {
         "name": "Guardian US News",
+        "short-name":"guardian-us",
         "url": "http://www.theguardian.com/us/rss",
         "icon": "icons/guardian.png",
         "topics": ["news"]
     }, {
         "name": "NY Times Business",
+        "short-name":"nytimes-business",
         "url": "http://feeds.nytimes.com/nyt/rss/Business",
         "icon": "icons/nytimes.png",
         "topics": ["business"]
     }, {
         "name": "Fierce Biotech",
+        "short-name":"fierce-biotech",
         "url": "http://www.fiercebiotech.com/feed",
         "icon": "icons/fiercebiotech.jpg",
         "topics": ["biotech"]
     }, {
         "name": "Fierce Biotech IT",
+        "short-name":"fierce-biotech-it",
         "url": "http://www.fiercebiotechit.com/feed",
         "icon": "icons/fiercebiotech.jpg",
         "topics": ["biotech", "informatics"]
     }, {
         "name": "Fierce Pharma",
+        "short-name":"fierce-pharma",
         "url": "http://www.fiercepharma.com/feed",
         "icon": "icons/fiercebiotech.jpg",
         "topics": ["biotech", "pharma"]
     }, {
         "name": "Fierce Diagnostics",
+        "short-name":"fierce-dx",
         "url": "http://www.fiercediagnostics.com/feed",
         "icon": "icons/fiercebiotech.jpg",
         "topics": ["biotech", "diagnostics"]
     }, {
         "name": "Fierce Big Data",
+        "short-name":"fierce-bigdata",
         "url": "http://www.fiercebigdata.com/feed",
         "icon": "icons/fiercebiotech.jpg",
         "topics": ["big data"]
     }, {
         "name": "Fierce CIO",
+        "short-name":"fierce-cio",
         "url": "http://www.fiercecio.com/feed",
         "icon": "icons/fiercebiotech.jpg",
         "topics": ["biotech"]
     }, {
         "name": "Fierce Vaccines",
+        "short-name":"fierce-vax",
         "url": "http://www.fiercevaccines.com/feed",
         "icon": "icons/fiercebiotech.jpg",
         "topics": ["biotech"]
     }, {
         "name": "Fierce Health IT",
+        "short-name":"fierce-health-it",
         "url": "http://www.fiercehealthit.com/feed",
         "icon": "icons/fiercebiotech.jpg",
         "topics": ["biotech"]
     }, {
         "name": "NY Times Technology",
+        "short-name":"nytimes-tech",
         "url": "http://feeds.nytimes.com/nyt/rss/Technology",
         "icon": "icons/nytimes.png",
         "topics": ["technology"]
     }, {
         "name": "NY Times Science",
+        "short-name":"nytimes-sci",
         "url": "http://www.nytimes.com/services/xml/rss/nyt/Science.xml",
         "icon": "icons/nytimes.png",
         "topics": ["science"]
     }, {
         "name": "NY Times Research",
+        "short-name":"nytimes-research",
         "url": "http://www.nytimes.com/services/xml/rss/nyt/Research.xml",
         "icon": "icons/nytimes.png",
         "topics": ["research"]
     }, {
         "name": "CNET",
+        "short-name":"cnet",
         "url": "http://www.cnet.com/rss/news/",
         "icon": "icons/cnet.png",
         "topics": ["technology"]
     }, {
         "name": "NY Times International Arts",
+        "short-name":"nytimes-arts",
         "url": "http://www.nytimes.com/services/xml/rss/nyt/InternationalArts.xml",
         "icon": "icons/nytimes.png",
         "topics": ["Arts"]
     }, {
         "name": "SF Chronicle: Bay Area News",
+        "short-name":"sfchron",
         "url": "http://www.sfgate.com/bayarea/feed/Bay-Area-News-429.php",
-
         "topics": ["news", "regional news"]
     }, {
         "name": "SF Chronicle: Technology",
+        "short-name":"sfchron-tech",
         "url": "http://www.sfgate.com/rss/feed/Business-and-Technology-News-448.php",
         "icon": "icons/sfgate.jpg",
         "topics": ["technology"]
     }, {
         "name": "Mercury News: Business",
+        "short-name":"sj-mercury-news-business",
         "url": "http://feeds.mercurynews.com/mngi/rss/CustomRssServlet/568/200770.xml",
         "icon": "icons/mercurynews.jpg",
         "topics": ["business"]
     }, {
         "name": "Mercury News: VC Survey",
+        "short-name":"sj-mercury-news-vc",
         "url": "http://feeds.mercurynews.com/mngi/rss/CustomRssServlet/568/200774.xml",
         "icon": "icons/mercurynews.jpg",
         "topics": ["business"]
@@ -159,251 +186,301 @@
 
     {
         "name": "Advances in Cancer Research",
+        "short-name":"adv-cr",
         "url": "http://rss.sciencedirect.com/publication/science/18037",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Biomarkers in Cancer",
+        "short-name":"biomarkers-cancer",
         "url": "http://www.la-press.com/feed.php?journal_id=154",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "BMC Cancer",
+        "short-name":"bmc-cancer",
         "url": "http://www.biomedcentral.com/bmccancer/rss",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Breast Cancer : Targets and Therapy",
+        "short-name":"brca-targets",
         "url": "http://www.dovepress.com/feed.php?journal_id=69",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Breast Cancer Research",
+        "short-name":"brca-research",
         "url": "http://breast-cancer-research.com/rss",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Breast Cancer Research and Treatment",
+        "short-name":"brca-res-treatment",
         "url": "http://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=10549&channel-name=Breast Cancer Research and Treatment",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "British Journal of Cancer",
+        "short-name":"british-journal-cancer",
         "url": "http://www.nature.com/bjc/current_issue/rss/",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer",
+        "short-name":"cancer",
         "url": "http://onlinelibrary.wiley.com/rss/journal/10.1002/%28ISSN%291097-0142",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer &amp; Metabolism",
+        "short-name":"cancer-metabolism",
         "url": "http://www.cancerandmetabolism.com/latest/rss",
         "icon": "",
         "topics": ["cancer", "metabolism"]
     }, {
         "name": "Cancer and Metastasis Reviews",
+        "short-name":"cancer-metastasis-rev",
         "url": "http://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=10555&channel-name=Cancer and Metastasis Reviews",
         "icon": "",
         "topics": ["cancer", "metastasis"]
     }, {
         "name": "Cancer and Oncology Research",
+        "short-name":"cancer-onc-research",
         "url": "http://www.hrpub.org/journals/jour_rss.php?id=70",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Biology &amp; Therapy",
+        "short-name":"cancer-bio-therapy",
         "url": "http://www.tandfonline.com/action/showFeed?ui=0&mi=6b657i&ai=1gqct&jc=kcbt20&type=etoc&feed=rss",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Biomarkers",
+        "short-name":"cancer-biomarkers",
         "url": "http://iospress.metapress.com/content/113507?sortorder=asc&export=rss",
         "icon": "",
         "topics": ["cancer", "biomarker"]
     }, {
         "name": "Cancer Cell",
+        "short-name":"cancer-cell",
         "url": "http://rss.sciencedirect.com/publication/science/7133",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Cell &amp; Microenvironment",
+        "short-name":"cancer-cell-microenv",
         "url": "http://www.smartscitech.com/index.php/CCM/gateway/plugin/WebFeedGatewayPlugin/rss",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Chemotherapy and Pharmacology",
+        "short-name":"cancer-chemo-pharm",
         "url": "http://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=280&channel-name=Cancer Chemotherapy and Pharmacology",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Discovery",
+        "short-name":"cancer-disc",
         "url": "http://cancerdiscovery.aacrjournals.org/rss/current.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Gene Therapy",
+        "short-name":"cancer-gene-therapy",
         "url": "http://feeds.nature.com/cgt/rss/current?format=xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Genetics",
+        "short-name":"cancer-genetics",
         "url": "http://rss.sciencedirect.com/publication/science/22107762",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Informatics",
+        "short-name":"cancer-informatics",
         "url": "http://www.la-press.com/feed.php?journal_id=10",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Research",
+        "short-name":"cancer-res",
         "url": "http://cancerres.aacrjournals.org/rss/current.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Science",
+        "short-name":"cancer-sci",
         "url": "http://www3.interscience.wiley.com/rss/journal/118489811",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Translational Medicine",
+        "short-name":"cancer-trans-med",
         "url": "http://www.cancertm.com/rssfeed.asp",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Cancer Treatment Reviews",
+        "short-name":"cancer-treat-rev",
         "url": "http://rss.sciencedirect.com/publication/science/03057372",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Clinical Cancer Research",
+        "short-name":"clin-cancer-res",
         "url": "http://clincancerres.aacrjournals.org/rss/current.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Current Cancer Drug Targets",
+        "short-name":"curr-cancer-drug-targets",
         "url": "http://api.ingentaconnect.com/content/ben/ccdt/latest?format=rss",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Current Problems in Cancer",
+        "short-name":"curr-prob-cancer",
         "url": "http://rss.sciencedirect.com/publication/science/01470272",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Epigenetics in Cancer",
+        "short-name":"epigenetics-cancer",
         "url": "http://www.degruyter.com/dg/rssalerts/$002fj$002fepic/Epigenetics$0020in$0020Cancer/toc/NaN",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "European Journal of Cancer",
+        "short-name":"euro-journal-cancer",
         "url": "http://rss.sciencedirect.com/publication/science/09598049",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Genes & Cancer",
+        "short-name":"genes-cancer",
         "url": "http://gan.sagepub.com/rss/current.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Genes, Chromosomes and Cancer",
+        "short-name":"genes-chrom-cancer",
         "url": "http://www3.interscience.wiley.com/rss/journal/38250",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Inflammation and Cancer",
+        "short-name":"inflam-cancer",
         "url": "http://www.degruyter.com/dg/rssalerts/$002fj$002finac/Inflammation$0020and$0020Cancer/toc/NaN",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Integrative Cancer Therapies",
+        "short-name":"integrative-cancer-tx",
         "url": "http://ict.sagepub.com/rss/current.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "International Journal of Cancer Research",
+        "short-name":"intl-journal-cancer-res",
         "url": "http://feeds.feedburner.com/1811-9727?format=xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of Cancer",
+        "short-name":"journal-cancer",
         "url": "http://www.jcancer.org/rss/current.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of Cancer Metastasis and Treatment",
+        "short-name":"journal-cancer-met-tx",
         "url": "http://www.jcmtjournal.com/rssfeed.asp",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of Cancer Pain & Symptom Palliation",
+        "short-name":"journal-cancer-pain-palliation",
         "url": "http://www.informaworld.com/ampp/rss~content=15437671",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of Cancer Research",
+        "short-name":"journal-cancer-res",
         "url": "http://www.hindawi.com/journals/jcr/rss.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of Cancer Research and Experimental Oncology",
+        "short-name":"journal-cancer-res-exp-bio",
         "url": "http://www.academicjournals.org/articles/j_articles/JCREO.rss",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of Cancer Research and Therapeutics",
+        "short-name":"journal-cancer-res-tx",
         "url": "http://www.cancerjournal.net/rssfeed.asp",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of Cancer Research and Treatment",
+        "short-name":"journal-cancer-res-tmt",
         "url": "http://www.sciepub.com/JCRT.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of Cancer Therapeutics and Research",
+        "short-name":"journal-cancer-tx-res",
         "url": "http://www.hoajonline.com/journals/rss/rss.php?journalid=8",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of Cancer Therapy",
+        "short-name":"journal-cancer-tx",
         "url": "http://file.scirp.org/Rss/jct.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Journal of the National Cancer Institute",
+        "short-name":"journal-nci",
         "url": "http://jncicancerspectrum.oxfordjournals.org/rss/current.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Molecular Cancer",
+        "short-name":"mol-cancer",
         "url": "http://www.molecular-cancer.com/rss",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Molecular Cancer Research",
+        "short-name":"mol-cancer-res",
         "url": "http://mcr.aacrjournals.org/rss/current.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Molecular Cancer Therapeutics",
+        "short-name":"mol-cancer-tx",
         "url": "http://mct.aacrjournals.org/rss/current.xml",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Nature Reviews Cancer",
+        "short-name":"nature-rev-cancer",
         "url": "http://www.nature.com/nrc/current_issue/rss",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "OA Cancer",
+        "short-name":"oa-cancer",
         "url": "http://www.oapublishinglondon.com/oa-cancer/rss",
         "icon": "",
         "topics": ["cancer"]
     }, {
         "name": "Seminars in Cancer Biology",
+        "short-name":"sem-cancer-bio",
         "url": "http://rss.sciencedirect.com/publication/science/1044579X",
         "icon": "",
         "topics": ["cancer"]

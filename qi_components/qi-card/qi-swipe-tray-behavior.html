@@ -52,6 +52,7 @@ QiSwipeTrayBehavior = {
 
     ready: function() {
 
+
     
         // this event is triggerend whenever the article card is swiped
         this.addEventListener('card-swipe', function(e) {
@@ -60,9 +61,9 @@ QiSwipeTrayBehavior = {
         		throw "The detail page id was not set";
         	}
             
-            var detailTemp = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+            var tray = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
 
-            var detailPage = detailTemp.querySelector(".detail-page");
+            var detailPage = tray.querySelector("#" + this.detailpageid);
 
             detailPage.model = e.detail.model;
             this.selectedPage = 1;

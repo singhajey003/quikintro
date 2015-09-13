@@ -3,18 +3,21 @@
 	{
 		"name": "James Smith",
 		"description":"Look into perineural invasion pathway",
+		"date": "02-14-2015",
 		"completed": false
 	},
 
 	{
 		"name": "Jane Doe",
 		"description":"Look into VEGF pathway",
+		"date": "02-14-2015",
 		"completed": false
 	},
 
 	{
 		"name": "Anirban Maitra",
 		"description":"Look into axon guidance pathway",
+		"date": "02-14-2015",
 		"completed": true
 	}
 ]
