@@ -50,6 +50,7 @@
 			var tstamp = date.toLocaleDateString() + " " + date.toLocaleTimeString();
 
 			this.msgText = this.$.msgTextArea.value;
+			console.log("msgText is: "+this.msgText);
 
 			var msgs = JSON.parse(localStorage.getItem("msgs"));
 			if(msgs == null){
