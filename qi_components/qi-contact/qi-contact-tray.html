@@ -35,6 +35,7 @@ This component displays a list of contacts.
 		
 		<template is="dom-repeat" items="[[model]]" as="contact">
 			<qi-contact-mini-card class="selectable-card" model="{{contact}}"></qi-contact-mini-card>
+
 		</template>
 
 		<qi-contact-page id="contact-detail" class="detail-page"></qi-contact-page>
@@ -46,11 +47,15 @@ This component displays a list of contacts.
 		<paper-fab icon="mail" class="selectable" on-click="_showMailDialog"></paper-fab>
 		<paper-fab icon="social:person" class="selectable" on-click="_showMtgDialog"></paper-fab>
 
+d
 		<!--create a mtg and msg dialog-->
 <!--
 		<paper-fab class="selectable" icon="add" on-click="foobar"></paper-fab>
 -->
 	</qi-swipe-card-tray>
+
+				<qi-mtg-dialog id="mtgDialog" contact="{{contact}}"></qi-mtg-dialog>
+			<qi-msg-dialog id="msgDialog" contact="{{contact}}"></qi-msg-dialog>
 
 	</template>
 	<script>
