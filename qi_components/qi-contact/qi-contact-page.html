@@ -61,6 +61,15 @@ This component displays the detailed contents of a contact.
 			line-height: normal;
 		}
 
+		.name{
+			/*font-size: 10pt;*/
+			
+			/*color: white;*/
+			line-height: normal;
+			font-weight: bold;
+			font-family: "museo-sans",sans-serif;
+		}
+
 		.title{
 			/*font-size: 10pt;*/
 			
@@ -101,14 +110,13 @@ This component displays the detailed contents of a contact.
 
 		<div class="fit vertical layout" on-track="handlePageSwipe">
 
-		<div class="namePanel"><span class="title">[[fullName]]</span></div>
 			<div class="panel-wrapper">
 
 			<div class="avatar-panel layout horizontal">
 				<qi-avatar url="[[model.avatar]]"></qi-avatar>
 
 				<div class="detail-panel">
-
+					<span class="name">[[fullName]]</span> <br/>
 					<span class="title">[[model.title]]</span> at <span class="company">[[model.company]]</span>
 				</div>
 			</div>
