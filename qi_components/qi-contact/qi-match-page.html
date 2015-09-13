@@ -28,7 +28,16 @@ This component displays the detailed contents of a contact.
 			top: 10px;
 			left: 10px;
 		}
-
+		.name{
+			/*font-size: 10pt;*/
+			
+			/*color: white;*/
+			font-size: 10pt;
+			font-family: Verdana;
+			line-height: normal;
+			font-weight: bold;
+			color: white;
+		}
 		.title{
 			font-size: 10pt;
 			font-family: Verdana;
@@ -39,8 +48,18 @@ This component displays the detailed contents of a contact.
 			font-family: Verdana;
 			font-weight: bold;
 			color: white;
+		}	
+		.detail-panel{
+			margin-top: 15px;
+			float: right;
+			display: block;
+			max-width: 50vw;
+			font-size: 12pt;
+			color: white;
+			position: absolute;
+			right: 3px;
+			line-height: normal;
 		}
-
 		.stats{
 			display: table;
 			font-family: Verdana;
@@ -92,7 +111,8 @@ This component displays the detailed contents of a contact.
 			<div class="avatar-panel layout horizontal">
 				<qi-avatar url="[[model.avatar]]"></qi-avatar>
 
-				<div>
+				<div class="detail-panel">
+					<span class="name">[[fullName]]</span> <br/>
 					<span class="title">[[model.title]]</span> at <span class="company">[[model.company]]</span>
 					
 				</div>
