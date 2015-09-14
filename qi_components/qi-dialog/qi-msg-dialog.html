@@ -3,6 +3,9 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../qi-config/qi-config-behavior.html">
+
 <dom-module id='qi-msg-dialog'  > 
 
 	<link rel="stylesheet" href="../quikintro.css" > 
@@ -33,12 +36,17 @@
 		    <paper-button dialog-dismiss>Cancel</paper-button>
 		    <paper-button dialog-confirm on-click="sendAction">Send</paper-button> 
 		    </div>
+
+		    <iron-ajax id="ajax" ></iron-ajax>
+
 		</paper-dialog>
 	</template>
 
 	<script>
 	Polymer({
    		is: 'qi-msg-dialog', 
+
+   		behaviors:[QiConfigBehavior],
 
 		properties:{
 			contact:{type: Object, value: null},
@@ -70,13 +78,15 @@
 			localStorage.setItem("msgs", JSON.stringify(msgs));
 
 			this.fire('msg-sent', {msg: msg});
-	       
+			this.$.ajax.url=QiConfigBehavior.getURL(true, "sendMsg");
+	       	this.$.ajax.generateRequest();
 		},
 
 		open: function(){
 			this.$.msgTextArea.value = "";
 			this.$.msgDialog.open();
 		}
+
 
 	});
 

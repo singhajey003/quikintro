@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../qi-config/qi-config-behavior.html">
 
 
 <dom-module id='qi-mtg-dialog'  > 
@@ -30,6 +31,8 @@
              <paper-button dialog-dismiss>Cancel</paper-button>
              <paper-button dialog-confirm on-click="sendAction">Send</paper-button> 
           </div> 
+          <iron-ajax id="ajax" ></iron-ajax>
+
       </paper-dialog>
      </template>
 
@@ -70,6 +73,8 @@
                localStorage.setItem("mtgs",JSON.stringify(mtgs));
 
                this.fire('mtg-sent', {mtg: mtg});
+               this.$.ajax.url=QiConfigBehavior.getURL(true, "sendMtg");
+               this.$.ajax.generateRequest();
 
           },
 
