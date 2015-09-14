@@ -1,0 +1,31 @@
+<script>
+QiConfigBehavior = {
+	properties:{
+
+		local:{
+			type: Object,
+			value: {sendMsg: 'http://localhost:9000/index2.html', 
+					sendMtg: 'http://localhost:9000/index2.html',
+					sendInvite: 'http://localhost:9000/index2.html'}
+		},
+
+		remote:{
+			type: Object, 
+			value:  {sendMsg: 'http://localhost:9000/index2.html', 
+					sendMtg: 'http://localhost:9000/index2.html', 
+					sendInvite: 'http://localhost:9000/index2.html'}
+		}
+
+	},
+
+	getURL: function(isLocal, key){
+			//var conf = (isLocal) ? this.local : this.remote;
+			var conf =this.properties.local;
+			var URL = eval("conf.value."+ key);
+			console.log("returning url is: " + URL);
+			return URL;
+	}
+
+
+};
+</script>

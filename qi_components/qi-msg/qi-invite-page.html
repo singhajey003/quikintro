@@ -10,6 +10,8 @@
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
 
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
 <link rel="import" href="./../qi-new-theme.html">
 <link rel="import" href="../qi-persona/qi-persona-field.html">
 
@@ -112,13 +114,12 @@
 		<iron-ajax id="ajax"
 		auto="true"
 	  url="../data/aacr15.tweets.json"
-	  handleAs="json"
+	  handle-as="json"
 	  last-response="{{response}}" on-error="errorHandler"></iron-ajax>
 
 	<iron-localstorage name="personas" value="{{personas}}"></iron-localstorage>
 
 	<div class="detail-page" on-track="handlePageSwipe">
-		<div class = "name"><span>[[fullname]]</span></div>
 
 		<div class="band horizontal layout">
 
@@ -127,6 +128,8 @@
 			</div>
 
 			<div class="details">
+				<span class = "name">[[fullname]]</span> <br />
+
 				<div><span class="titleco">[[titleco]]</span></div>
 				<!--
 				<div><qi-persona-field model="[[personas]]" persona = "[[model.sender.persona]]" label=" "></qi-persona-field></div>
@@ -173,7 +176,7 @@
 
 		<div class="tweets">
 			<qi-field-decorator is-stacked="true" label="Matching Tweets">
-				<qi-tweet-tray tweets="{{response.tweets}}"></qi-tweet-tray>
+				<qi-tweet-tray tweets="[[response.statuses]]"></qi-tweet-tray>
 			</qi-field-decorator>
 		</div>
 
@@ -208,7 +211,12 @@
 
 			_computeFullName: function(model){
 				return model.sender.firstName + " " + model.sender.lastName;
-			}
+			},
+
+			errorHandler: function(e){
+	    		console.log("An error occurred");
+	    		console.log(e);
+	    	},
 
 
 		});
