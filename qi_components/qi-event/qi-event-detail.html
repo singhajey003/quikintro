@@ -162,7 +162,7 @@
           var eventPages = this.$.eventPages;
 
           window.addEventListener('mtg-sent', function(e){
-            var mtgCard = new MtgCard2();
+            var mtgCard = new MtgCard();
             mtgCard.meeting = e.detail.mtg;
             mtgsTray.appendChild(mtgCard);
           });
