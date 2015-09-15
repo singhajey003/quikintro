@@ -160,7 +160,11 @@
                     "start": "900",
                     "end": "1100"
                 },
-                "location": "Suite 3",
+                "location": {
+                    "name": "Westin St. Francis",
+                    "address": "335 Powell Street San Francisco, California 94102",
+                    "room": "California Ballroom"
+                },
                 "title": "Low Power Partner Discussion",
                 "invitees": [1, 2, 3],
                 "description": "A meeting to discuss low power RF programs and potential partnership opportunities."
@@ -170,7 +174,11 @@
                     "start": "900",
                     "end": "1100"
                 },
-                "location": "Suite 3",
+                "location": {
+                    "name": "Westin St. Francis",
+                    "address": "335 Powell Street San Francisco, California 94102",
+                    "room": "California Ballroom"
+                },
                 "title": "Wearable API Discussion",
                 "invitees": [1, 2, 3],
                 "description": "A meeting to discuss HealthKit, and Google Fit APIs."
@@ -630,7 +638,11 @@
                     "start": "900",
                     "end": "1100"
                 },
-                "location": "Suite 3",
+                "location": {
+                    "name": "Westin St. Francis",
+                    "address": "335 Powell Street San Francisco, California 94102",
+                    "room": "California Ballroom"
+                },
                 "title": "ADC Partner Discussion",
                 "invitees": [1, 2, 3],
                 "description": "A meeting to discuss current antibody-drug conjugate programs and potential partnership opportunities."
@@ -640,7 +652,11 @@
                     "start": "900",
                     "end": "1100"
                 },
-                "location": "Suite 3",
+                "location": {
+                    "name": "Westin St. Francis",
+                    "address": "335 Powell Street San Francisco, California 94102",
+                    "room": "California Ballroom"
+                },
                 "title": "Immunoncology Partner Discussion",
                 "invitees": [1, 2, 3],
                 "description": "A meeting to discuss current CAR-T programs and potential partnership opportunities"
@@ -777,7 +793,11 @@
                     "start": "900",
                     "end": "1100"
                 },
-                "location": "Suite 3",
+                "location": {
+                    "name": "Westin St. Francis",
+                    "address": "335 Powell Street San Francisco, California 94102",
+                    "room": "California Ballroom"
+                },
                 "title": "ADC Partner Discussion",
                 "invitees": [1, 2, 3],
                 "description": "A meeting to discuss current antibody-drug conjugate programs and potential partnership opportunities."
@@ -787,7 +807,11 @@
                     "start": "900",
                     "end": "1100"
                 },
-                "location": "Suite 3",
+                "location": {
+                    "name": "Westin St. Francis",
+                    "address": "335 Powell Street San Francisco, California 94102",
+                    "room": "California Ballroom"
+                },
                 "title": "Immunoncology Partner Discussion",
                 "invitees": [1, 2, 3],
                 "description": "A meeting to discuss current CAR-T programs and potential partnership opportunities"
