@@ -32,12 +32,14 @@
 <link rel="import" href="qi-event-notes-panel.html">
 
 <link rel="import" href="../qi-trait/qi-trait-panel.html">
-
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 
 <dom-module id='qi-event-detail'>
 
   <template>
+
+  <iron-localstorage name="mtgs" value="{{mtgs}}"></iron-localstorage>
 
   <div>
 
@@ -74,14 +76,8 @@
           <label>No Meetings Scheduled</label>
         </template>
 
-        <!--
-        <template is="dom-repeat" items="{{event.meetings}}" as="meeting">
-          <qi-meeting-card meeting="{{meeting}}"></qi-meeting-card>
-        </template>
+          <qi-mtg-tray model="[[event.meetings]]"></qi-mtg-tray>
 
-        -->
-
-        <qi-mtg-tray model="[[event.meetings]]"></qi-mtg-tray>
 
       </div>
 
@@ -131,12 +127,19 @@
          */
         selected:{type: Number, value: 0},
 
+
+        /**
+         * The URL for the event-related tweets.
+         */
         tweetUrl:{
           type: String,
           computed: '_computeTweetUrl(event.tweetUrl)'
         }
       },
 
+      /**
+       * This method gets the URL for the tweets.
+       */
       _computeTweetUrl: function(url){
         return "../../" + url;
       },

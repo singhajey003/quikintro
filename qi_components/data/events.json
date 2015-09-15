@@ -1,1217 +1,1244 @@
-[
-	{
-		"title":"CES",
-		"time":{
-			"start":"6 Jan 2016",
- 		 	"end":"9 Jan 2016"
-		}
-		,
- 		 "location":"Las Vegas Convention Center",
- 		 "coordinates":{
- 		 	"latitude": 36.131805,
- 		 	"longitude": -115.152001
- 		 },
- 		 "numOnsiteMeetings":3,
- 		 "registrantCount":176676,
- 		 "hashtag" : "#ces2016",
- 		 "persona": "Developer Persona",
- 		 "notification" : "15 minutes before",
- 		 "cloakingMode":true,
- 		 "tweetUrl":"qi_components/data/ces2016.tweets.json",
- 		 "background":"images/city-las-vegas-3.jpg",
- 		 "rsvp":"YES",
- 		 "description":"CES is a global consumer electronics and consumer technology tradeshow that takes place every January in Las Vegas, Nevada.",
+[{
+        "title": "CES",
+        "time": {
+            "start": "6 Jan 2016",
+            "end": "9 Jan 2016"
+        },
+        "location": "Las Vegas Convention Center",
+        "coordinates": {
+            "latitude": 36.131805,
+            "longitude": -115.152001
+        },
+        "numOnsiteMeetings": 3,
+        "registrantCount": 176676,
+        "hashtag": "#ces2016",
+        "persona": "Developer Persona",
+        "notification": "15 minutes before",
+        "cloakingMode": true,
+        "tweetUrl": "qi_components/data/ces2016.tweets.json",
+        "background": "images/city-las-vegas-3.jpg",
+        "rsvp": "YES",
+        "description": "CES is a global consumer electronics and consumer technology tradeshow that takes place every January in Las Vegas, Nevada.",
 
- 		 "traitstats":{
- 		 	"interests":[
- 		 		{
- 		 			"name":"wearables", 
- 		 			"percent":82
- 		 		},
- 		 		{
- 		 			"name":"fitness hardware",
- 		 			"percent":44
- 		 		},
- 		 		{
- 		 			"name": "fitness apps",
- 		 			"percent":60
- 		 		},
- 		 		{
- 		 			"name":"low power wireless",
- 		 			"percent":10
- 		 		},
- 		 		{
- 		 			"name":"NFL",
- 		 			"percent":60
- 		 		},
+        "traitstats": {
+            "interests": [{
+                    "name": "wearables",
+                    "percent": 82
+                }, {
+                    "name": "fitness hardware",
+                    "percent": 44
+                }, {
+                    "name": "fitness apps",
+                    "percent": 60
+                }, {
+                    "name": "low power wireless",
+                    "percent": 10
+                }, {
+                    "name": "NFL",
+                    "percent": 60
+                },
 
- 		 		{
- 		 			"name":"Baltimore Ravens",
- 		 			"percent":10
- 		 		}
- 		 	],
- 		 	"attendeeInterests":[
- 		 		{
- 		 			"name":"electronics", 
- 		 			"percent":99
- 		 		},
+                {
+                    "name": "Baltimore Ravens",
+                    "percent": 10
+                }
+            ],
+            "attendeeInterests": [{
+                    "name": "electronics",
+                    "percent": 99
+                },
 
- 		 		{
- 		 			"name":"TVs", 
- 		 			"percent":80
- 		 		},
- 		 		{
- 		 			"name":"computers", 
- 		 			"percent":83
- 		 		},
-	 		 	{
- 		 			"name":"IoT", 
- 		 			"percent":80
- 		 		}
+                {
+                    "name": "TVs",
+                    "percent": 80
+                }, {
+                    "name": "computers",
+                    "percent": 83
+                }, {
+                    "name": "IoT",
+                    "percent": 80
+                }
 
- 		 	]
+            ]
 
- 		 },
+        },
 
- 		  "notes": [{
- 		      "title": "APIs",
- 		      "description": "FitBit, Jawbone have private APIs.  FitBit open to exposing API under the right conditions.  ",
- 		      "author": {
- 		      	"firstName":"Dimitri ",
- 		      	"lastName":"Arges",
- 		      	"id":42267
- 		      	},
- 		      "time": "04/13/2015 4:55PM",
- 		      "type":"public"
- 		  }, {
- 		      "title": "Semiconductors",
- 		      "description": "New Nordic chip may be 20% cheaper and have 15% better battery perf. compared to current chip.",
- 		      "author": {
- 		      	"firstName":"Dimitri", 
- 		      	"lastName":"Arges",
- 		      	"id":12573579
- 		      	},
- 		      "time": "04/11/2015 2:15PM",
- 		      "type":"in-network"
- 		  }],
-
-		  "matches":[
- 		 	{
- 		 		"firstName":"John",
- 		 		"lastName":"Doe",
- 		 		"avatar":null,
- 		 		"title":"Vice President, Low Power Group",
- 		 		"company":"Nordic Semiconductor",
- 		 		"interests":["low power wireless", "wearables", "beacons", "Oslo, Norway", "semiconductors", "fabric sensors", "chess", "Magnus Carlsen", "smart home"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "wearables",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			     "distanceAway" : 50,
-			     "match": 82,
-			     "food":["chinese","thai"]
-			 }
-
-
-
-
- 		 ],
-
- 		 "contacts":[
-			{
-				"firstName": "Dimitri",
-				"lastName": "Arges",
-				"title":"CEO",
-				"company":"QuikIntro",
-				"mobile":"619.823.4530",
-				"office":"555.123.4567",
-				"email":"darges@quikintro.com",
-				"address": "425 Broadway Street, Redwood City, CA 94063",
-				"skills":["business development", "investor relations"],
-				"avatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
-				"interests":["startups", "social media"],
-				"score":4,
-				"summary":"Focused on Post-EHR Cloud, Connected Care and Big Data analytics, applications and services.",
-				"notes":"Remember to ask him about new personalized medicine startups.",
-				"food":["greek","sushi"],
-				"drink":["pinot noir","zinfandel"]
-			},
-
-			{
-        "firstName": "Asha",
-        "headline": "Director of Business Development at Vaco Technology",
-        "title": "Sr. Technical Talent Acquisition Partner",
-        "company": "FTD",
-        "summary":"Asha's focus is on developing candidate relationships in the Greater San Diego Area within companies ranging from Fortune 500 firms to emerging and fast growing start-ups within multiple industries. Her passion has always been partnering with different levels of management to deliver recruiting strategies and top talent resources for their teams. Since starting in the industry back in 2009 she has placed over 320 candidates and produced over $4.5MM in revenues. Asha is passionate about keeping up with whatever disruptive new advances are happening in the technology space and serving as a consultant to her client/candidate relationships built over the years. You can find her at every event, seminar and gathering throughout southern California.",
-        "id": 16819848,
-        "industry": "Information Technology and Services",
-        "lastName": "Ewing",
-        "location": {
-            "country": {
-                "code": "us"
+        "notes": [{
+            "title": "APIs",
+            "description": "FitBit, Jawbone have private APIs.  FitBit open to exposing API under the right conditions.  ",
+            "author": {
+                "firstName": "Dimitri ",
+                "lastName": "Arges",
+                "id": 42267
             },
-            "name": "Greater San Diego Area"
+            "time": "04/13/2015 4:55PM",
+            "type": "public"
+        }, {
+            "title": "Semiconductors",
+            "description": "New Nordic chip may be 20% cheaper and have 15% better battery perf. compared to current chip.",
+            "author": {
+                "firstName": "Dimitri",
+                "lastName": "Arges",
+                "id": 12573579
+            },
+            "time": "04/11/2015 2:15PM",
+            "type": "in-network"
+        }],
+
+        "matches": [{
+                "firstName": "John",
+                "lastName": "Doe",
+                "avatar": null,
+                "title": "Vice President, Low Power Group",
+                "company": "Nordic Semiconductor",
+                "interests": ["low power wireless", "wearables", "beacons", "Oslo, Norway", "semiconductors", "fabric sensors", "chess", "Magnus Carlsen", "smart home"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "wearables",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "distanceAway": 50,
+                "match": 82,
+                "food": ["chinese", "thai"]
+            }
+
+
+
+
+        ],
+
+        "contacts": [{
+                "firstName": "Dimitri",
+                "lastName": "Arges",
+                "title": "CEO",
+                "company": "QuikIntro",
+                "mobile": "619.823.4530",
+                "office": "555.123.4567",
+                "email": "darges@quikintro.com",
+                "address": "425 Broadway Street, Redwood City, CA 94063",
+                "skills": ["business development", "investor relations"],
+                "avatar": "https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+                "interests": ["startups", "social media"],
+                "score": 4,
+                "summary": "Focused on Post-EHR Cloud, Connected Care and Big Data analytics, applications and services.",
+                "notes": "Remember to ask him about new personalized medicine startups.",
+                "food": ["greek", "sushi"],
+                "drink": ["pinot noir", "zinfandel"]
+            },
+
+            {
+                "firstName": "Asha",
+                "headline": "Director of Business Development at Vaco Technology",
+                "title": "Sr. Technical Talent Acquisition Partner",
+                "company": "FTD",
+                "summary": "Asha's focus is on developing candidate relationships in the Greater San Diego Area within companies ranging from Fortune 500 firms to emerging and fast growing start-ups within multiple industries. Her passion has always been partnering with different levels of management to deliver recruiting strategies and top talent resources for their teams. Since starting in the industry back in 2009 she has placed over 320 candidates and produced over $4.5MM in revenues. Asha is passionate about keeping up with whatever disruptive new advances are happening in the technology space and serving as a consultant to her client/candidate relationships built over the years. You can find her at every event, seminar and gathering throughout southern California.",
+                "id": 16819848,
+                "industry": "Information Technology and Services",
+                "lastName": "Ewing",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": "https://media.licdn.com/mpr/mprx/0_-OwaAq6LzlL0fk3jyMJjAnhXcN3YfFKjKJxlABTZHBzmr_bgY4UGxcznJpTTuhlA1jWrOr1bITA7",
+                "siteStandardProfileRequest": {
+                    "url": "https://www.linkedin.com/profile/view?id=16819848&authType=name&authToken=8Y5f&trk=api*a3227641*s3301901*"
+                },
+                "distanceAway": 50,
+                "food": ["chinese", "thai", "steak"],
+                "drink": ["merlot", "chardonnay"],
+                "interests": ["recruiting"]
+              }
+              ],
+              "meetings": [{
+                      "date": "6-Jan-2015",
+                                  "time": {
+                "start": "900",
+                "end": "1100"
+            },
+                      "location": "Suite 3",
+                      "title": "Low Power Partner Discussion",
+                      "invitees": [1, 2, 3],
+                      "description": "A meeting to discuss low power RF programs and potential partnership opportunities."
+                  }, {
+                      "date": "7-Jan-2015",
+                                  "time": {
+                "start": "900",
+                "end": "1100"
+            },                      "location": "Suite 3",
+                      "title": "Wearable API Discussion",
+                      "invitees": [1, 2, 3],
+                      "description": "A meeting to discuss HealthKit, and Google Fit APIs."
+                  }
+
+        ]
+    },
+
+    {
+        "title": "North County JS Monthly Meeting",
+        "location": "WalmartLabs",
+        "address": "1530 Faraday Ave Carlsbad, CA 92008",
+        "description": "San Diego Javascript meets the first Tuesday of each month, at EvoNexus Downtown. We typically have two talks and then head over to a local bar for drinks and socializing.",
+        "coordinates": {
+            "latitude": 33.1377915,
+            "longitude": -117.2954346
         },
-        "avatar": "https://media.licdn.com/mpr/mprx/0_-OwaAq6LzlL0fk3jyMJjAnhXcN3YfFKjKJxlABTZHBzmr_bgY4UGxcznJpTTuhlA1jWrOr1bITA7",
-        "siteStandardProfileRequest": {
-            "url": "https://www.linkedin.com/profile/view?id=16819848&authType=name&authToken=8Y5f&trk=api*a3227641*s3301901*"
+
+        "numOnsiteMeetings": 0,
+        "registrantCount": 44,
+        "hashtag": "#jpm15",
+        "persona": "Developer Persona",
+        "notification": "15 minutes before",
+        "cloakingMode": true,
+        "tweetUrl": "qi_components/data/jpm15.tweets.json",
+        "background": "images/city-san-diego.jpg",
+        "rsvp": "YES",
+        "contacts": [
+
+            {
+                "firstName": "Michael",
+                "lastName": "Roberts",
+                "avatar": "http://photos4.meetupstatic.com/photos/member/8/9/d/c/member_198155292.jpeg",
+                "title": "Director, Product Management",
+                "company": "Zeeto Media",
+                "interests": ["javascript"],
+                "tags": [],
+                "industry": "wearables",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "distanceAway": 100,
+                "match": 82
+            },
+
+            {
+                "firstName": "Jim",
+                "lastName": "Eccles",
+                "avatar": "http://photos1.meetupstatic.com/photos/member/d/6/7/e/member_247134910.jpeg",
+                "title": "Director, Talent Acquisition",
+                "company": "Tillster",
+                "interests": ["javascript"],
+                "tags": [],
+                "industry": "wearables",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "distanceAway": 100,
+                "match": 82
+            },
+
+            {
+                "firstName": "Gregory",
+                "lastName": "Chapman",
+                "avatar": "http://photos4.meetupstatic.com/photos/member/a/3/2/c/member_245141772.jpeg",
+                "title": "Sr. Software Engineer",
+                "company": "HealthFusion",
+                "interests": ["javascript"],
+                "tags": [],
+                "industry": "wearables",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "distanceAway": 100,
+                "match": 82
+            }
+
+
+
+        ],
+        "time": {
+            "start": "26-May-2015",
+            "end": "26-May-2015"
         },
-        "distanceAway":50,
-        "food":["chinese","thai","steak"],
-        "drink":["merlot","chardonnay"],
-        "interests":["recruiting"]
- 		 	}
-
-
-
-
- 		 ],
- 		 "meetings":[
-	 		 {	"date": "6-Jan-2015",
-	 		 	"meetings":[
-	 		 	{
-	 		 		"time": {
-	 		 			"start":"0900",
-	 		 			"end":"1000"
-	 		 		},
-		 		 	"location":{
-		 		 		"room":"Suite 3",
-		 		 		"name":"Marriott"
-		 		 	},
-		 		 	"title":"Low Power Partner Discussion",
-		 		 	"invitees":[1,2,3],
-		 		 	"description":"A meeting to discuss low power RF programs and potential partnership opportunities."
-	 		 	}]
-	 		 },
-	 		 {
-	 		 	"date": "7-Jan-2015",
-	 		 	"meetings":[
-		 		 	{
-			 		 	"time": {
-			 		 		"start":"0900",
-			 		 		"end":"1000"
-			 		 		},
-			 		 	"location":{
-			 		 		"room":"Suite 3",
-			 		 		"name":"Marriott"
-			 		 	},
-			 		 	"title":"Wearable API Discussion",
-			 		 	"invitees":[1,2,3],
-			 		 	"description":"A meeting to discuss HealthKit, and Google Fit APIs."
-			 		}
-	 		 	]
-	 		 }
-
- 		 ]
-	},
-
-	{
-		"title":"North County JS Monthly Meeting",
-		"location":"WalmartLabs",
-		"address":"1530 Faraday Ave Carlsbad, CA 92008",
-		"description":"San Diego Javascript meets the first Tuesday of each month, at EvoNexus Downtown. We typically have two talks and then head over to a local bar for drinks and socializing.",
-		"coordinates":{
-			"latitude":33.1377915,
-			"longitude":-117.2954346
-		},
-
- 		 "numOnsiteMeetings":0,
- 		 "registrantCount":44,
- 		 "hashtag" : "#jpm15",
- 		 "persona": "Developer Persona",
- 		 "notification" : "15 minutes before",
- 		 "cloakingMode":true,
- 		 "tweetUrl":"qi_components/data/jpm15.tweets.json",
- 		 "background":"images/city-san-diego.jpg",
- 		 "rsvp":"YES",
- 		 "contacts":[
-
-			{
-  		 		"firstName":"Michael",
-  		 		"lastName":"Roberts",
-  		 		"avatar":"http://photos4.meetupstatic.com/photos/member/8/9/d/c/member_198155292.jpeg",
- 		 		"title":"Director, Product Management",
- 		 		"company":"Zeeto Media",
- 		 		"interests":["javascript"],
-				"tags": [],
-				"industry": "wearables",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			     "distanceAway" : 100,
-			     "match": 82
- 		 	},
-
- 		 	{
-  		 		"firstName":"Jim",
-  		 		"lastName":"Eccles",
-  		 		"avatar":"http://photos1.meetupstatic.com/photos/member/d/6/7/e/member_247134910.jpeg",
- 		 		"title":"Director, Talent Acquisition",
- 		 		"company":"Tillster",
- 		 		"interests":["javascript"],
-				"tags": [],
-				"industry": "wearables",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			     "distanceAway" : 100,
-			     "match": 82
- 		 	},
-
- 		 	{
-  		 		"firstName":"Gregory",
-  		 		"lastName":"Chapman",
-  		 		"avatar":"http://photos4.meetupstatic.com/photos/member/a/3/2/c/member_245141772.jpeg",
- 		 		"title":"Sr. Software Engineer",
- 		 		"company":"HealthFusion",
- 		 		"interests":["javascript"],
-				"tags": [],
-				"industry": "wearables",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			     "distanceAway" : 100,
-			     "match": 82
- 		 	}
-
-
-
- 		 ],
- 		 "startTime":"26-May-2015",
- 		 "endTime":"26-May-2015",
-		 "meetings":[
-			{
-			"date":"26-May-2015",
-			"time":"1900",
-			"location":"WalmartLabs",
-			"speakers":["Chris Griffith"],
-			"title":"Ionic Framework",
-			"description":"Chris Griffith will introduce you to the Ionic framework (http://ionicframework.com). What is the Ionic Framework? The Ionic Framework combines Google's AngularJS with Apache's Cordova to create fast and beautiful cross-platform mobile apps for iOS and Android. In this talk we will explore Ionic, show how to install it, and finally build a quick and dirty app and deploy it to both iOS and Android. "
-			}
-		],
-		"matches":[
-			{
-			    "id": 171694432,
-			    "firstName": "Aditya",
-			    "lastName": "Degwekar",
-			    "title": "Web Developer",
-			    "interests": ["web development", "javascript", "angularjs"],
-			    "company": "Walmart",
-			    "distanceAway": 10,
-			    "match": 50,
-			    "avatar": "http://photos4.meetupstatic.com/photos/member/a/b/e/2/member_227504002.jpeg"
-			}, {
-			    "id": 186135724,
-			    "firstName": "Anil",
-			    "lastName": "Singh",
-			    "title": "Sr. Software Engineer",
-			    "avatar": "http://photos3.meetupstatic.com/photos/member/5/e/3/6/member_245364118.jpeg",
- 				"distanceAway": 10,
-			    "match": 50
-			}, {
-			    "id": 4125176,
-
-			    "firstName": "Attila",
-			    "lastName": "",
-			    "title": "Web Developer",
-			    "interests": ["web development", "javascript", "angularjs"],
-			    "avatar": "http://photos3.meetupstatic.com/photos/member/6/0/a/6/member_240744742.jpeg",
-			    "company": "Walmart",
-			    "distanceAway": 10,
-			    "match": 50
-			}, {
-			    "member_id": 5807820,
-
-			    "firstName": "Basil",
-			    "lastName": "Maloney",
-			    "interests": ["web development", "javascript", "angularjs"],
-			    "avatar": "http://photos2.meetupstatic.com/photos/member/5/d/3/6/member_196703862.jpeg",
-			    "company": "Walmart",
-			    "distanceAway": 10,
-			    "match": 50
-
-			}, {
-			    "member_id": 76273272,
-
-			    "firstName": "Brian",
-			    "lastName": "Manning",
-			    "interests": ["web development", "javascript", "angularjs"],
-			    "avatar": "http://photos4.meetupstatic.com/photos/member/7/8/c/a/member_94410922.jpeg",
-			    "company": "Walmart",
-			    "distanceAway": 10,
-			    "match": 50
-
-			}, {
-			    "member_id": 7274805,
-			    "firstName": "Che",
-			    "lastName": "Carsner",
-			    "interests": ["web development", "javascript", "angularjs"],
-			    "avatar": "http://photos4.meetupstatic.com/photos/member/6/e/3/1/member_3988209.jpeg",
-			    "company": "Walmart",
-			    "distanceAway": 10,
-			    "match": 50
-
-			}, {
-			    "member_id": 68342152,
-			    "firstName": "Chris",
-			    "lastName": "Baily",
-			    "interests": ["web development", "javascript", "angularjs"],
-
-			    "avatar": "http://photos3.meetupstatic.com/photos/member/9/e/e/member_80282542.jpeg",
-			    "company": "Walmart",
-			    "distanceAway": 10,
-			    "match": 50
-
-			}, {
-			    "member_id": 48430552,
-
-			    "firstName": "Cory",
-			    "lastName":"Silva",
-			 	"interests": ["web development", "javascript", "angularjs"],
-			    "avatar": "http://photos2.meetupstatic.com/photos/member/4/0/4/e/member_91096462.jpeg",
-			    "company": "Walmart",
-			    "distanceAway": 10,
-			    "match": 50
-
-			}
-
-		]
-
-	},
-
-	{
- 		"title":"JP Morgan Healthcare",
- 		"startTime":"12 Jan 2015",
- 		 "endTime":"15 Jan 2015",
- 		 "location":"Four Seasons Hotel",
- 		 "coordinates":{
- 		 	"latitude": 37.786471,
- 		 	"longitude": -122.40372
- 		 },
- 		
- 		
- 		 "numOnsiteMeetings":3,
- 		 "registrantCount":30000,
- 		 "hashtag" : "#jpm15",
- 		 "persona": "Cancer Biologist",
- 		 "notification" : "15 minutes before",
- 		 "cloakingMode":true,
- 		 "tweetUrl":"qi_components/data/jpm15.tweets.json",
- 		 "background":"images/city-san_francisco.jpg",
- 		 "rsvp":"YES",
-
- 		 "notes":[
- 		 {
-			"title": "Keynote Takeaways",
-			"description": "All pharmas are currently actively pursuing cancer immunotherapy approaches. Attrition rate at 90% - as high as ever. Costs $1.8 Bn/approved drug.",
-			"author":"Dimitri",
-    		"time": "04/13/2015 4:55PM",
-    		"type":"in-network"
-			},
-		  {
-		    "title": "Oncology Deal Room",
-		    "description": "Genentech MPDL3280A drug looks promising in PhIII.",
-		    "author":"Dimitri",
-		    "time": "04/11/2015 4:55PM",
-		    "type":"in-network"
-		  }
-		  ],
-
- 		 "matches":[
- 		 	{
- 		 		"firstName":"John",
- 		 		"lastName":"Doe",
- 		 		"title":"CSO",
- 		 		"company":"Genentech",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			     "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 82
-			 },
-
-  		 	{
-  		 		"firstName":null,
-  		 		"lastName":null,
- 		 		"title":"CBO",
- 		 		"company":"Genentech",
- 		 		"interests":["cancer","collaborations","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			     "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 82
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Novartis",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 50,
-			     "match": 75
- 		 	},
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"5 Prime Therapeutics",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 100,
-			     "match": 90
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Merck",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 100,
-			     "match": 93
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Pfizer",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 100,
-			     "match": 77
- 		 	}
-		 	
-
- 		 ],
-
- 		 "contacts":[
-			{
-				"firstName": "Dimitri",
-				"lastName": "Arges",
-				"title":"CEO",
-				"company":"QuikIntro",
-				"mobile":"555-123-4569",
-				"email":"darges@quikintro.com",
-				"address": "425 Broadway Street, Redwood City, CA 94063",
-				"skills":"business development, investor relations",
-				"avatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
-				"interests":["startups", "social media"],
-				"score":4,
-				"notes":"Remember to ask him about new personalized medicine startups."
-			},
-
-			{
-				"firstName": "John",
-				"lastName": "Smith",
-				"title":"VP",
-				"company":"Genentech",
-				"mobile":"555-123-4567",
-				"email":"john.smith@gene.com",
-				"address": "123 Elm Street, San Francisco, CA 95123",
-				"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"notes":"Interested in Drug Pipeline dashboard",
-				"score": 5,
-				"rating":4
-			},
-
-			{
-				"firstName": "Jane",
-				"lastName": "Doe",
-				"title":"VP",
-				"company":"Mirati Therapeutics",
-				"mobile":"555-123-4567",
-				"email":"jane.doe@mirati.com",
-				"address": "123 Elm Street, San Diego, CA 95123",
-				"interests":["cancer","immunotherapy"],
-				"tags":["biotech","cancer"],
-				"notes":"Interested in Drug Cocktail application",
-				"score": 5,
-				"rating":4
-			},
-
-			{
-				"firstName": "Jane",
-				"lastName": "Smith",
-				"title":"VP",
-				"company":"Mirati Therapeutics",
-				"mobile":"555-123-4567",
-				"email":"jane.doe@mirati.com",
-				"address": "123 Elm Street, San Diego, CA 95123",
-				"interests":["cancer","immunotherapy"],
-				"tags":["biotech","cancer"],
-				"notes":"Interested in Drug Cocktail application",
-				"score": 9,
-				"rating":4
-			}
-
- 		 ],
- 		 "meetings":[
- 		 {
- 		 	"date": "11-Jan-2015",
- 		 	"time": "0900",
- 		 	"location":"Suite 3",
- 		 	"title":"ADC Partner Discussion",
- 		 	"invitees":[1,2,3],
- 		 	"description":"A meeting to discuss current antibody-drug conjugate programs and potential partnership opportunities."
- 		 },
- 		 {
- 		 	"date": "12-Jan-2015",
- 		 	"time": "0900",
- 		 	"location":"Suite 3",
- 		 	"title":"Immunoncology Partner Discussion",
- 		 	"invitees":[1,2,3],
- 		 	"description":"A meeting to discuss current CAR-T programs and potential partnership opportunities"
- 		 }
-
- 		 ]
-	},
-	{
-		"title":"AACR",
-		"startTime":"18-Apr-2015",
-		"endTime":"22 Apr 2015",
-		"location":"Pennsylvania Convention Center 1103-1131 Arch Street, Philadelphia, PA 19107, USA",
-		"coordinates":{
- 		 	"latitude": 39.948421,
- 		 	"longitude": -75.192167
- 		 },
- 		 "description":"The AACR Annual Meeting highlights the latest, most exciting discoveries in every area of cancer research and provides a unique opportunity for investigators from all over the world to meet, interact, and share their insights. ",
- 		 "registrantCount":33000,
- 		 "newMatches":50,
- 		 "numExistingContacts":15,
- 		 "numMeetings":10,
- 		 "numOnsiteMeetings":15,
-		"notification":"15 minutes before",
-		"cloakingMode":true,
-		"hashtag":"#aacr15",
-		"tweetUrl":"qi_components/data/aacr15.tweets.json",
-		"persona":"Cancer Biologist",
-		"background":"images/city-philadelphia.jpg",
-		"rsvp":"YES",
-
-		 "notes":[
- 		 {
-			"title": "Keynote Takeaways",
-			"description": "Interesting talk on mutational signatures from Michael Stratton @ Sanger Inst. Tyler Jacks on 'Engineering the cancer genome'.",
-			"author":"Dimitri",
-    		"time": "04/13/2015 4:55PM",
-    		"type":"in-network"
-			}
-		 
-		  ],
-
- 		"matches":[
- 		 	{
- 		 		"firstName":"John",
- 		 		"lastName":"Doe",
- 		 		"title":"CSO",
- 		 		"company":"Genentech",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 82
- 		 	},
-
-		 	
-		 	{
- 		 		"firstName":"Adam",
- 		 		"lastName":"Richardson",
- 		 		"title":"Director, Cancer Metabolism Resources",
- 		 		"company":"SBMRI",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/5/005/03c/2f9/20d9bb8.jpg",
-			     "distanceAway" : 100,
-			     "match": 77
- 		 	}
- 		 ],
-
-		"contacts":[
-
-
-			{
-				"firstName": "John",
-				"lastName": "Smith",
-				"title":"VP",
-				"company":"Genentech",
-				"mobile":"555-123-4567",
-				"email":"john.smith@gene.com",
-				"address": "123 Elm Street, San Francisco, CA 95123",
-				"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"notes":"Interested in Drug Pipeline dashboard",
-				"score": 5,
-				"rating":4
-			},
-
-			{
-				"firstName": "Jane",
-				"lastName": "Doe",
-				"title":"VP",
-				"company":"Mirati Therapeutics",
-				"mobile":"555-123-4567",
-				"email":"jane.doe@mirati.com",
-				"address": "123 Elm Street, San Diego, CA 95123",
-				"interests":["cancer","immunotherapy"],
-				"tags":["biotech","cancer"],
-				"notes":"Interested in Drug Cocktail application",
-				"score": 5,
-				"rating":4
-			},
-
-			{
-				"firstName": "Jane",
-				"lastName": "Smith",
-				"title":"VP",
-				"company":"Mirati Therapeutics",
-				"mobile":"555-123-4567",
-				"email":"jane.doe@mirati.com",
-				"address": "123 Elm Street, San Diego, CA 95123",
-				"interests":["cancer","immunotherapy"],
-				"tags":["biotech","cancer"],
-				"notes":"Interested in Drug Cocktail application",
-				"score": 9,
-				"rating":4
-			}
-
-		]
-	},
-
-	{
- 		"title":"ASCO",
- 		"startTime":"29 May 2015",
- 		 "endTime":"02 Jun 2015",
- 		 "location":"McCormick Place",
- 		 "coordinates":{
- 		 	"latitude": 41.851389,
- 		 	"longitude": -87.616389
- 		 },
- 		 "registrantCount":31000,
- 		 "newMatches":100,
- 		 "numExistingContacts":5,
- 		 "numMeetings":6,
- 		 "numOnsiteMeetings":3,
- 		 "hashtag" : "#asco15",
- 		 "tweetUrl":"qi_components/data/asco15.tweets.json",
- 		 "cloakingMode":true,
- 		 "persona":"Cancer Biologist",
- 		 "background":"images/city-chicago.jpg",
- 		 "rsvp":"MAYBE",
-
- 		 "description":"The Annual Meeting brings together 30,000 oncology professionals from around the world. Education sessions feature world-renowned faculty discussing state-of-the-art treatment modalities, new therapies, and ongoing controversies in the field. Science sessions present the latest ground-breaking research in oral and poster format. The Meeting offers opportunities to meet colleagues, make connections, and bring back new ideas to your practices and hospitals.",
-
-
- 		"matches":[
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Genentech",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			     "distanceAway" : 10,
-			     "match": 82
- 		 	},
-
-  		 	{
-  		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CBO",
- 		 		"company":"Genentech",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 82
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Novartis",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 75
- 		 	},
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"5 Prime Therapeutics",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 100,
-			     "match": 90
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Merck",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 100,
-			     "match": 93
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Pfizer",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 100,
-			     "match": 77
- 		 	}
-		 	
-
- 		 ],
-
- 		 "contacts":[
-			{
-				"firstName": "Dimitri",
-				"lastName": "Arges",
-				"title":"",
-				"company":"QuikIntro",
-				"mobile":"555-123-4569",
-				"email":"darges@aspenbiosciences.com",
-				"address": "123 Elm Street, San Jose, CA 95123",
-				"skills":"business development, investor relations",
-				"avatar":"https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
-				"interests":"startups",
-				"score":4
-			}
-
- 		 ]
-	},
-
-	 {         
-	 	"title":"Google IO",
-	 	"startTime":"28 May 2015",
-	 	"endTime":"29 May 2015",
-	 	"location":"Moscone Center West, San Francisco, CA",
-	 	"coordinates":{
- 		 	"latitude": 37.784173,
- 		 	"longitude": -122.401557
- 		 },
- 		 "registrantCount":6100,
- 		 "newMatches":50,
- 		 "numExistingContacts":15,
- 		 "numMeetings":10,
- 		 "numOnsiteMeetings":15,
-	 	"hashtag":"#io2015",
-	 	"tweetUrl":"qi_components/data/io2015.tweets.json",
-	 	"cloakingMode":false,
-	 	"persona":"Developer Persona",
-	 	"background":"images/city-san_francisco.jpg",
-	 	"rsvp":null,
-
-	 	"notes":[
- 		 {
-			"title": "Keynote Takeaways",
-			"description": "Interesting talk on polymer by Rob Dodson.",
-			"author":"Dimitri",
-    		"time": "04/13/2015 4:55PM",
-    		"type":"in-network"
-			}
-		 
-		  ],
-
-	 	 "matches":[
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CTO",
- 		 		"company":"Genentech",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 82
- 		 	},
-
-  		 	{
-  		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CTO",
- 		 		"company":"Merck",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 82
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CTO",
- 		 		"company":"Novartis",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 75
- 		 	},
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CTO",
- 		 		"company":"5 Prime Therapeutics",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 10,
-			     "match": 90
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CTO",
- 		 		"company":"Merck",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 100,
-			     "match": 93
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CTO",
- 		 		"company":"Pfizer",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 100,
-			     "match": 77
- 		 	}
-		 	
-
- 		 ]
-	 },
-
-     {
-     	"title":"JavaOne",
-     	"startTime":"25 Oct 2015",
-     	"endTime":"29 Oct 2015",
-     	"location":"Moscone Center, San Francisco, CA",
-     	"coordinates":{
- 		 	"latitude": 37.784173,
- 		 	"longitude": -122.401557
- 		 },
- 		 "registrantCount":30000,
- 		 "newMatches":210,
- 		 "numExistingContacts":5,
- 		 "numMeetings":6,
- 		 "numOnsiteMeetings":3,
-     	"hashtag":"#javaone15",
-     	"tweetUrl":"qi_components/data/javaone15.tweets.json",
-     	"cloakingMode":false,
-     	"persona":"Developer Persona",
-     	"background":"images/city-san_francisco.jpg",
-     	"rsvp":null,
-
-     	"notes":[
- 		 {
-			"title": "Keynote Takeaways",
-			"description": "Interesting talk on the use of JavaFX as a platform for cross-platform mobile development.",
-			"author":"Dimitri",
-    		"time": "04/13/2015 4:55PM",
-    		"type":"private"
-			}
-		 
-		  ],
-
-     	 "matches":[
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"Sr Software Engineer",
- 		 		"company":"Facebook",
- 		 		"interests":["graph databases","cassandra", "hadoop","neo4j"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 15,
-			     "match": 82
- 		 	},
-
-  		 	{
-  		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CBO",
- 		 		"company":"Genentech",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 15,
-			     "match": 82
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Novartis",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 15,
-			     "match": 75
- 		 	},
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"5 Prime Therapeutics",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 15,
-			     "match": 90
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CSO",
- 		 		"company":"Merck",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 15,
-			     "match": 93
- 		 	},
-
- 		 	{
- 		 		"firstName":null,
- 		 		"lastName":null,
- 		 		"title":"CTO",
- 		 		"company":"Pfizer",
- 		 		"interests":["cancer","ADCs", "immunotherapy","cocktails"],
-				"tags": ["biotech", "cancer", "product/pipeline", "followup"],
-				"industry": "Biotechnology",
-				"location":  {
-			        "country":  {
-			          "code": "us"
-			        },
-			        "name": "Greater San Diego Area"
-			     },
-			      "avatar":null,
-			     "distanceAway" : 15,
-			     "match": 77
- 		 	}
-		 	
-
- 		 ]
-
-     } 
+
+        "meetings": [{
+            "date": "26-May-2015",
+            "time": {
+                "start": "1900",
+                "end": "2100"
+            },
+            "location": {
+                "name": "Westin St. Francis",
+                "address": "335 Powell Street San Francisco, California 94102",
+                "room": "California Ballroom"
+            },
+            "keywords": ["Cancer"],
+            "accepted": true,
+
+            "speakers": ["Chris Griffith"],
+            "title": "Ionic Framework",
+            "invitees": [{
+                    "firstName": "Tom",
+                    "lastName": "Sanford",
+                    "title": "VP",
+                    "company": "GSK",
+                    "mobile": "555-123-4567",
+                    "email": "tom.sanford@gsk.com",
+                    "address": "",
+                    "interests": ["Game of Thrones", "CAR-Ts", "Cancer", "Drug Development"],
+                    "tags": ["biotech", "cancer", "product/pipeine", "followup"],
+                    "notes": "CD-19 CAR-T program",
+                    "rating": 4,
+                    "id": 6,
+                    "food": ["chinese", "thai", "steak"],
+                    "drink": ["merlot", "chardonnay"],
+                    "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/005/0aa/275/242b0e8.jpg",
+                    "organizer": false,
+                    "isAContact": false
+                },
+
+                {
+                    "firstName": "James",
+                    "lastName": "Tobin",
+                    "title": "VP",
+                    "company": "Janssen Pharmaceuticals",
+                    "mobile": "555-123-4567",
+                    "email": "jtobin@jnj.com",
+                    "address": "",
+                    "interests": ["Game of Thrones", "CAR-Ts", "Cancer", "Drug Development"],
+                    "tags": ["biotech", "cancer", "product/pipeine", "followup"],
+                    "notes": "ARN-509 for prostate cancer",
+                    "rating": 4,
+                    "id": 7,
+                    "food": ["chinese", "thai", "steak"],
+                    "drink": ["merlot", "chardonnay"],
+                    "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/005/0aa/275/242b0e8.jpg",
+                    "organizer": false,
+                    "isAContact": false
+                }
+            ],
+            "description": "Chris Griffith will introduce you to the Ionic framework (http://ionicframework.com). What is the Ionic Framework? The Ionic Framework combines Google's AngularJS with Apache's Cordova to create fast and beautiful cross-platform mobile apps for iOS and Android. In this talk we will explore Ionic, show how to install it, and finally build a quick and dirty app and deploy it to both iOS and Android. "
+        }],
+        "matches": [{
+                "id": 171694432,
+                "firstName": "Aditya",
+                "lastName": "Degwekar",
+                "title": "Web Developer",
+                "interests": ["web development", "javascript", "angularjs"],
+                "company": "Walmart",
+                "distanceAway": 10,
+                "match": 50,
+                "avatar": "http://photos4.meetupstatic.com/photos/member/a/b/e/2/member_227504002.jpeg"
+            }, {
+                "id": 186135724,
+                "firstName": "Anil",
+                "lastName": "Singh",
+                "title": "Sr. Software Engineer",
+                "avatar": "http://photos3.meetupstatic.com/photos/member/5/e/3/6/member_245364118.jpeg",
+                "distanceAway": 10,
+                "match": 50
+            }, {
+                "id": 4125176,
+
+                "firstName": "Attila",
+                "lastName": "",
+                "title": "Web Developer",
+                "interests": ["web development", "javascript", "angularjs"],
+                "avatar": "http://photos3.meetupstatic.com/photos/member/6/0/a/6/member_240744742.jpeg",
+                "company": "Walmart",
+                "distanceAway": 10,
+                "match": 50
+            }, {
+                "member_id": 5807820,
+
+                "firstName": "Basil",
+                "lastName": "Maloney",
+                "interests": ["web development", "javascript", "angularjs"],
+                "avatar": "http://photos2.meetupstatic.com/photos/member/5/d/3/6/member_196703862.jpeg",
+                "company": "Walmart",
+                "distanceAway": 10,
+                "match": 50
+
+            }, {
+                "member_id": 76273272,
+
+                "firstName": "Brian",
+                "lastName": "Manning",
+                "interests": ["web development", "javascript", "angularjs"],
+                "avatar": "http://photos4.meetupstatic.com/photos/member/7/8/c/a/member_94410922.jpeg",
+                "company": "Walmart",
+                "distanceAway": 10,
+                "match": 50
+
+            }, {
+                "member_id": 7274805,
+                "firstName": "Che",
+                "lastName": "Carsner",
+                "interests": ["web development", "javascript", "angularjs"],
+                "avatar": "http://photos4.meetupstatic.com/photos/member/6/e/3/1/member_3988209.jpeg",
+                "company": "Walmart",
+                "distanceAway": 10,
+                "match": 50
+
+            }, {
+                "member_id": 68342152,
+                "firstName": "Chris",
+                "lastName": "Baily",
+                "interests": ["web development", "javascript", "angularjs"],
+
+                "avatar": "http://photos3.meetupstatic.com/photos/member/9/e/e/member_80282542.jpeg",
+                "company": "Walmart",
+                "distanceAway": 10,
+                "match": 50
+
+            }, {
+                "member_id": 48430552,
+
+                "firstName": "Cory",
+                "lastName": "Silva",
+                "interests": ["web development", "javascript", "angularjs"],
+                "avatar": "http://photos2.meetupstatic.com/photos/member/4/0/4/e/member_91096462.jpeg",
+                "company": "Walmart",
+                "distanceAway": 10,
+                "match": 50
+
+            }
+
+        ]
+
+    },
+
+    {
+        "title": "JP Morgan Healthcare",
+        "time": {
+            "start": "12 Jan 2015",
+            "end": "15 Jan 2015"
+        },
+        "location": "Four Seasons Hotel",
+        "coordinates": {
+            "latitude": 37.786471,
+            "longitude": -122.40372
+        },
+
+
+        "numOnsiteMeetings": 3,
+        "registrantCount": 30000,
+        "hashtag": "#jpm15",
+        "persona": "Cancer Biologist",
+        "notification": "15 minutes before",
+        "cloakingMode": true,
+        "tweetUrl": "qi_components/data/jpm15.tweets.json",
+        "background": "images/city-san_francisco.jpg",
+        "rsvp": "YES",
+
+        "notes": [{
+            "title": "Keynote Takeaways",
+            "description": "All pharmas are currently actively pursuing cancer immunotherapy approaches. Attrition rate at 90% - as high as ever. Costs $1.8 Bn/approved drug.",
+            "author": "Dimitri",
+            "time": "04/13/2015 4:55PM",
+            "type": "in-network"
+        }, {
+            "title": "Oncology Deal Room",
+            "description": "Genentech MPDL3280A drug looks promising in PhIII.",
+            "author": "Dimitri",
+            "time": "04/11/2015 4:55PM",
+            "type": "in-network"
+        }],
+
+        "matches": [{
+                "firstName": "John",
+                "lastName": "Doe",
+                "title": "CSO",
+                "company": "Genentech",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 10,
+                "match": 82
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CBO",
+                "company": "Genentech",
+                "interests": ["cancer", "collaborations", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 10,
+                "match": 82
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "Novartis",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 50,
+                "match": 75
+            }, {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "5 Prime Therapeutics",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 100,
+                "match": 90
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "Merck",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 100,
+                "match": 93
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "Pfizer",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 100,
+                "match": 77
+            }
+
+
+        ],
+
+        "contacts": [{
+                "firstName": "Dimitri",
+                "lastName": "Arges",
+                "title": "CEO",
+                "company": "QuikIntro",
+                "mobile": "555-123-4569",
+                "email": "darges@quikintro.com",
+                "address": "425 Broadway Street, Redwood City, CA 94063",
+                "skills": "business development, investor relations",
+                "avatar": "https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+                "interests": ["startups", "social media"],
+                "score": 4,
+                "notes": "Remember to ask him about new personalized medicine startups."
+            },
+
+            {
+                "firstName": "John",
+                "lastName": "Smith",
+                "title": "VP",
+                "company": "Genentech",
+                "mobile": "555-123-4567",
+                "email": "john.smith@gene.com",
+                "address": "123 Elm Street, San Francisco, CA 95123",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "notes": "Interested in Drug Pipeline dashboard",
+                "score": 5,
+                "rating": 4
+            },
+
+            {
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "title": "VP",
+                "company": "Mirati Therapeutics",
+                "mobile": "555-123-4567",
+                "email": "jane.doe@mirati.com",
+                "address": "123 Elm Street, San Diego, CA 95123",
+                "interests": ["cancer", "immunotherapy"],
+                "tags": ["biotech", "cancer"],
+                "notes": "Interested in Drug Cocktail application",
+                "score": 5,
+                "rating": 4
+            },
+
+            {
+                "firstName": "Jane",
+                "lastName": "Smith",
+                "title": "VP",
+                "company": "Mirati Therapeutics",
+                "mobile": "555-123-4567",
+                "email": "jane.doe@mirati.com",
+                "address": "123 Elm Street, San Diego, CA 95123",
+                "interests": ["cancer", "immunotherapy"],
+                "tags": ["biotech", "cancer"],
+                "notes": "Interested in Drug Cocktail application",
+                "score": 9,
+                "rating": 4
+            }
+
+        ],
+        "meetings": [{
+                "date": "11-Jan-2015",
+                "time": "0900",
+                "location": "Suite 3",
+                "title": "ADC Partner Discussion",
+                "invitees": [1, 2, 3],
+                "description": "A meeting to discuss current antibody-drug conjugate programs and potential partnership opportunities."
+            }, {
+                "date": "12-Jan-2015",
+                "time": "0900",
+                "location": "Suite 3",
+                "title": "Immunoncology Partner Discussion",
+                "invitees": [1, 2, 3],
+                "description": "A meeting to discuss current CAR-T programs and potential partnership opportunities"
+            }
+
+        ]
+    }, {
+        "title": "AACR",
+        "time": {
+            "start": "18-Apr-2015",
+            "end": "22 Apr 2015"
+        },
+        "location": "Pennsylvania Convention Center 1103-1131 Arch Street, Philadelphia, PA 19107, USA",
+        "coordinates": {
+            "latitude": 39.948421,
+            "longitude": -75.192167
+        },
+        "description": "The AACR Annual Meeting highlights the latest, most exciting discoveries in every area of cancer research and provides a unique opportunity for investigators from all over the world to meet, interact, and share their insights. ",
+        "registrantCount": 33000,
+        "newMatches": 50,
+        "numExistingContacts": 15,
+        "numMeetings": 10,
+        "numOnsiteMeetings": 15,
+        "notification": "15 minutes before",
+        "cloakingMode": true,
+        "hashtag": "#aacr15",
+        "tweetUrl": "qi_components/data/aacr15.tweets.json",
+        "persona": "Cancer Biologist",
+        "background": "images/city-philadelphia.jpg",
+        "rsvp": "YES",
+
+        "notes": [{
+                "title": "Keynote Takeaways",
+                "description": "Interesting talk on mutational signatures from Michael Stratton @ Sanger Inst. Tyler Jacks on 'Engineering the cancer genome'.",
+                "author": "Dimitri",
+                "time": "04/13/2015 4:55PM",
+                "type": "in-network"
+            }
+
+        ],
+
+        "matches": [{
+                "firstName": "John",
+                "lastName": "Doe",
+                "title": "CSO",
+                "company": "Genentech",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 10,
+                "match": 82
+            },
+
+
+            {
+                "firstName": "Adam",
+                "lastName": "Richardson",
+                "title": "Director, Cancer Metabolism Resources",
+                "company": "SBMRI",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": "https://media.licdn.com/mpr/mpr/shrink_200_200/p/5/005/03c/2f9/20d9bb8.jpg",
+                "distanceAway": 100,
+                "match": 77
+            }
+        ],
+
+        "contacts": [
+
+
+            {
+                "firstName": "John",
+                "lastName": "Smith",
+                "title": "VP",
+                "company": "Genentech",
+                "mobile": "555-123-4567",
+                "email": "john.smith@gene.com",
+                "address": "123 Elm Street, San Francisco, CA 95123",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "notes": "Interested in Drug Pipeline dashboard",
+                "score": 5,
+                "rating": 4
+            },
+
+            {
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "title": "VP",
+                "company": "Mirati Therapeutics",
+                "mobile": "555-123-4567",
+                "email": "jane.doe@mirati.com",
+                "address": "123 Elm Street, San Diego, CA 95123",
+                "interests": ["cancer", "immunotherapy"],
+                "tags": ["biotech", "cancer"],
+                "notes": "Interested in Drug Cocktail application",
+                "score": 5,
+                "rating": 4
+            },
+
+            {
+                "firstName": "Jane",
+                "lastName": "Smith",
+                "title": "VP",
+                "company": "Mirati Therapeutics",
+                "mobile": "555-123-4567",
+                "email": "jane.doe@mirati.com",
+                "address": "123 Elm Street, San Diego, CA 95123",
+                "interests": ["cancer", "immunotherapy"],
+                "tags": ["biotech", "cancer"],
+                "notes": "Interested in Drug Cocktail application",
+                "score": 9,
+                "rating": 4
+            }
+
+        ],
+                "meetings": [{
+                "date": "11-Jan-2015",
+                "time": "0900",
+                "location": "Suite 3",
+                "title": "ADC Partner Discussion",
+                "invitees": [1, 2, 3],
+                "description": "A meeting to discuss current antibody-drug conjugate programs and potential partnership opportunities."
+            }, {
+                "date": "12-Jan-2015",
+                "time": "0900",
+                "location": "Suite 3",
+                "title": "Immunoncology Partner Discussion",
+                "invitees": [1, 2, 3],
+                "description": "A meeting to discuss current CAR-T programs and potential partnership opportunities"
+            }
+
+        ]
+    },
+
+    {
+        "title": "ASCO",
+        "time": {
+            "start": "29 May 2015",
+            "end": "02 Jun 2015"
+        },
+        "location": "McCormick Place",
+        "coordinates": {
+            "latitude": 41.851389,
+            "longitude": -87.616389
+        },
+        "registrantCount": 31000,
+        "newMatches": 100,
+        "numExistingContacts": 5,
+        "numMeetings": 6,
+        "numOnsiteMeetings": 3,
+        "hashtag": "#asco15",
+        "tweetUrl": "qi_components/data/asco15.tweets.json",
+        "cloakingMode": true,
+        "persona": "Cancer Biologist",
+        "background": "images/city-chicago.jpg",
+        "rsvp": "MAYBE",
+
+        "description": "The Annual Meeting brings together 30,000 oncology professionals from around the world. Education sessions feature world-renowned faculty discussing state-of-the-art treatment modalities, new therapies, and ongoing controversies in the field. Science sessions present the latest ground-breaking research in oral and poster format. The Meeting offers opportunities to meet colleagues, make connections, and bring back new ideas to your practices and hospitals.",
+
+
+        "matches": [{
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "Genentech",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "distanceAway": 10,
+                "match": 82
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CBO",
+                "company": "Genentech",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 10,
+                "match": 82
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "Novartis",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 10,
+                "match": 75
+            }, {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "5 Prime Therapeutics",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 100,
+                "match": 90
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "Merck",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 100,
+                "match": 93
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "Pfizer",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 100,
+                "match": 77
+            }
+
+
+        ],
+
+        "contacts": [{
+                "firstName": "Dimitri",
+                "lastName": "Arges",
+                "title": "",
+                "company": "QuikIntro",
+                "mobile": "555-123-4569",
+                "email": "darges@aspenbiosciences.com",
+                "address": "123 Elm Street, San Jose, CA 95123",
+                "skills": "business development, investor relations",
+                "avatar": "https://media.licdn.com/mpr/mpr/shrink_50_50/p/1/000/0b3/182/0a3ff01.jpg",
+                "interests": "startups",
+                "score": 4
+            }
+
+        ]
+
+    },
+
+    {
+        "title": "Google IO",
+        "time": {
+            "start": "28 May 2015",
+            "end": "29 May 2015"
+        },
+        "location": "Moscone Center West, San Francisco, CA",
+        "coordinates": {
+            "latitude": 37.784173,
+            "longitude": -122.401557
+        },
+        "registrantCount": 6100,
+        "newMatches": 50,
+        "numExistingContacts": 15,
+        "numMeetings": 10,
+        "numOnsiteMeetings": 15,
+        "hashtag": "#io2015",
+        "tweetUrl": "qi_components/data/io2015.tweets.json",
+        "cloakingMode": false,
+        "persona": "Developer Persona",
+        "background": "images/city-san_francisco.jpg",
+        "rsvp": null,
+
+        "notes": [{
+                "title": "Keynote Takeaways",
+                "description": "Interesting talk on polymer by Rob Dodson.",
+                "author": "Dimitri",
+                "time": "04/13/2015 4:55PM",
+                "type": "in-network"
+            }
+
+        ],
+
+        "matches": [{
+                "firstName": null,
+                "lastName": null,
+                "title": "CTO",
+                "company": "Genentech",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 10,
+                "match": 82
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CTO",
+                "company": "Merck",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 10,
+                "match": 82
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CTO",
+                "company": "Novartis",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 10,
+                "match": 75
+            }, {
+                "firstName": null,
+                "lastName": null,
+                "title": "CTO",
+                "company": "5 Prime Therapeutics",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 10,
+                "match": 90
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CTO",
+                "company": "Merck",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 100,
+                "match": 93
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CTO",
+                "company": "Pfizer",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 100,
+                "match": 77
+            }
+
+
+        ]
+    },
+
+    {
+        "title": "JavaOne",
+        "time": {
+            "start": "25 Oct 2015",
+            "end": "29 Oct 2015"
+        },
+        "location": "Moscone Center, San Francisco, CA",
+        "coordinates": {
+            "latitude": 37.784173,
+            "longitude": -122.401557
+        },
+        "registrantCount": 30000,
+        "newMatches": 210,
+        "numExistingContacts": 5,
+        "numMeetings": 6,
+        "numOnsiteMeetings": 3,
+        "hashtag": "#javaone15",
+        "tweetUrl": "qi_components/data/javaone15.tweets.json",
+        "cloakingMode": false,
+        "persona": "Developer Persona",
+        "background": "images/city-san_francisco.jpg",
+        "rsvp": null,
+
+        "notes": [{
+                "title": "Keynote Takeaways",
+                "description": "Interesting talk on the use of JavaFX as a platform for cross-platform mobile development.",
+                "author": "Dimitri",
+                "time": "04/13/2015 4:55PM",
+                "type": "private"
+            }
+
+        ],
+
+        "matches": [{
+                "firstName": null,
+                "lastName": null,
+                "title": "Sr Software Engineer",
+                "company": "Facebook",
+                "interests": ["graph databases", "cassandra", "hadoop", "neo4j"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 15,
+                "match": 82
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CBO",
+                "company": "Genentech",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 15,
+                "match": 82
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "Novartis",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 15,
+                "match": 75
+            }, {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "5 Prime Therapeutics",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 15,
+                "match": 90
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CSO",
+                "company": "Merck",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 15,
+                "match": 93
+            },
+
+            {
+                "firstName": null,
+                "lastName": null,
+                "title": "CTO",
+                "company": "Pfizer",
+                "interests": ["cancer", "ADCs", "immunotherapy", "cocktails"],
+                "tags": ["biotech", "cancer", "product/pipeline", "followup"],
+                "industry": "Biotechnology",
+                "location": {
+                    "country": {
+                        "code": "us"
+                    },
+                    "name": "Greater San Diego Area"
+                },
+                "avatar": null,
+                "distanceAway": 15,
+                "match": 77
+            }
+
+
+        ]
+
+    }
 
 ]
