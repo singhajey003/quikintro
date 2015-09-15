@@ -32,12 +32,14 @@
 <link rel="import" href="qi-event-notes-panel.html">
 
 <link rel="import" href="../qi-trait/qi-trait-panel.html">
-
+<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 
 <dom-module id='qi-event-detail'>
 
   <template>
+
+  <iron-localstorage name="mtgs" value="{{mtgs}}"></iron-localstorage>
 
   <div>
 
@@ -75,7 +77,7 @@
         </template>
 
 
-        <qi-mtg-tray model="[[meetings]]"></qi-mtg-tray>
+              <qi-mtg-tray model="[[event.meetings]]"></qi-mtg-tray>
 
       </div>
 
