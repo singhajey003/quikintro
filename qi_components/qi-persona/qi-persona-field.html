@@ -7,33 +7,26 @@ This component displays a dropdown list of personas.
 
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
-
-<link rel="import" href="../../bower_components/mat-dropdown/mat-dropdown.html">
-<link rel="import" href="../../bower_components/mat-option/mat-option.html">
-
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
 
 <link rel="import" href="../qi-field/qi-field-decorator.html">
-
-<style>
-.personaBar{
-	padding-left:10px;
-}
-
-</style>
-
 
 <dom-module id="qi-persona-field">
 
 	<template>
 
-		<qi-field-decorator id="personaField" label="[[label]]" class="settings-row horizontal justified layout center" > 
+		<qi-field-decorator id="personaField" label="Persona" >
 
+		<paper-dropdown-menu >
+			<paper-menu class="dropdown-content" selected="0">
+				<template is="dom-repeat" items="[[model]]"  as="currmodel">
+					<paper-item selected>[[currmodel.name]]</paper-item>
+				</template>
+			</paper-menu>
 
-            <mat-dropdown id="persona" model="{{persona}}" class=" personaBar" >
-                <template is="dom-repeat" items="[[model]]"  as="currmodel">
-                    <mat-option value="[[currmodel.name]]" label="[[currmodel.name]]"></mat-option>
-                </template>
-             </mat-dropdown>
+		</paper-dropdown-menu>
 
         </qi-field-decorator>
 	</template>
