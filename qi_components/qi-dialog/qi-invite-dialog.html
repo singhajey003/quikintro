@@ -7,37 +7,25 @@
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
-
-<link rel="import" href="../../bower_components/mat-dropdown/mat-dropdown.html">
-<link rel="import" href="../../bower_components/mat-option/mat-option.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
 
 <link rel="import" href="../qi-trait/qi-traitlist.html">
 <link rel="import" href="../qi-config/qi-config-behavior.html">
 
 <dom-module id='qi-invite-dialog'  > 
 
-	<link rel="stylesheet" href="../quikintro.css" > 
 	<link rel="stylesheet" href="dialog.css"> 
 
 	<template>
-		<paper-dialog id="dialog" transition="core-transition-bottom" backdrop>
+		<paper-dialog id="dialog" backdrop>
 		    <h2>Introduce Yourself</h2>
 		    <div>
 	
 			<div >
-<!--
-				<mat-dropdown id="msgTemplate" model="{{persona.msgTemplates}}" label="Message Type" floating-label="true" xp-select="selectedTemplateChanged">
-					<template is="dom-repeat" items="{{persona.msgTemplates}}" as="msgTemplate">
-						<mat-option value="{{msgTemplate}}" label="{{msgTemplate.title}}"></mat-option>
-					</template>
-                   
-              	</mat-dropdown>
--->
-              	<select id="msgTemplate" on-select="_handleSelect">
-              		<template is="dom-repeat" items="{{persona.msgTemplates}}" as="msgTemplate">
-						<option value="{{msgTemplate}}">{{msgTemplate.title}}</option>
-					</template>
-              	</select>
+
+
 
 				</div>
 
@@ -68,13 +56,17 @@
 
    		properties:{
 			contacts: {type: Array, value: JSON.parse(localStorage.getItem("contacts"))},
-			persona: {type: Object}
+			persona: {type: Object},
+			selectedTemplateId:{
+				type: Number,
+				value: 0
+			}
 		},
 
 
-		selectedTemplateChanged: function(newValue, oldValue){
-			var selectedObj = newValue;
-			this.$.msg.value = selectedObj.template;
+		selectedTemplateIdChanged: function(newValue, oldValue){
+			var template = this.persona.msgTemplates[newValue];
+			this.$.msg.value = template.template;
 		},
 
 		sendAction: function(e){
@@ -115,14 +107,9 @@
 
 		close: function(){
 			this.$.dialog.close();
-		},
-
-		ready: function(){
-			this.$.msgTemplate.addEventListener('xp-select', function(e){
-				var selectedObj = e.detail.item;
-				this.$.msg.value = selectedObj.template;
-			});
 		}
+
+
 
 	});
 
