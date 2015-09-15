@@ -152,28 +152,29 @@
                 "food": ["chinese", "thai", "steak"],
                 "drink": ["merlot", "chardonnay"],
                 "interests": ["recruiting"]
-              }
-              ],
-              "meetings": [{
-                      "date": "6-Jan-2015",
-                                  "time": {
-                "start": "900",
-                "end": "1100"
-            },
-                      "location": "Suite 3",
-                      "title": "Low Power Partner Discussion",
-                      "invitees": [1, 2, 3],
-                      "description": "A meeting to discuss low power RF programs and potential partnership opportunities."
-                  }, {
-                      "date": "7-Jan-2015",
-                                  "time": {
-                "start": "900",
-                "end": "1100"
-            },                      "location": "Suite 3",
-                      "title": "Wearable API Discussion",
-                      "invitees": [1, 2, 3],
-                      "description": "A meeting to discuss HealthKit, and Google Fit APIs."
-                  }
+            }
+        ],
+        "meetings": [{
+                "date": "6-Jan-2015",
+                "time": {
+                    "start": "900",
+                    "end": "1100"
+                },
+                "location": "Suite 3",
+                "title": "Low Power Partner Discussion",
+                "invitees": [1, 2, 3],
+                "description": "A meeting to discuss low power RF programs and potential partnership opportunities."
+            }, {
+                "date": "7-Jan-2015",
+                "time": {
+                    "start": "900",
+                    "end": "1100"
+                },
+                "location": "Suite 3",
+                "title": "Wearable API Discussion",
+                "invitees": [1, 2, 3],
+                "description": "A meeting to discuss HealthKit, and Google Fit APIs."
+            }
 
         ]
     },
@@ -626,14 +627,20 @@
         ],
         "meetings": [{
                 "date": "11-Jan-2015",
-                "time": "0900",
+                "time": {
+                    "start": "900",
+                    "end": "1100"
+                },
                 "location": "Suite 3",
                 "title": "ADC Partner Discussion",
                 "invitees": [1, 2, 3],
                 "description": "A meeting to discuss current antibody-drug conjugate programs and potential partnership opportunities."
             }, {
                 "date": "12-Jan-2015",
-                "time": "0900",
+                "time": {
+                    "start": "900",
+                    "end": "1100"
+                },
                 "location": "Suite 3",
                 "title": "Immunoncology Partner Discussion",
                 "invitees": [1, 2, 3],
@@ -765,16 +772,22 @@
             }
 
         ],
-                "meetings": [{
+        "meetings": [{
                 "date": "11-Jan-2015",
-                "time": "0900",
+                "time": {
+                    "start": "900",
+                    "end": "1100"
+                },
                 "location": "Suite 3",
                 "title": "ADC Partner Discussion",
                 "invitees": [1, 2, 3],
                 "description": "A meeting to discuss current antibody-drug conjugate programs and potential partnership opportunities."
             }, {
                 "date": "12-Jan-2015",
-                "time": "0900",
+                "time": {
+                    "start": "900",
+                    "end": "1100"
+                },
                 "location": "Suite 3",
                 "title": "Immunoncology Partner Discussion",
                 "invitees": [1, 2, 3],
