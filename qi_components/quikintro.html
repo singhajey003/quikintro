@@ -78,7 +78,7 @@ point at which all quikintro components are integrated.
           <div class="centered">
             <div class="row">
 
-            <paper-menu selected="{{page}}" valueattr="pageId"  class="fit">
+            <paper-menu selected="{{page}}" valueattr="pageId" >
 
               <paper-button id="home" pageId="home" class="primary">Home</paper-button>
               <paper-button id="events" pageId="events" class="primary">Events</paper-button>
@@ -105,7 +105,7 @@ point at which all quikintro components are integrated.
 
 
 
-      <paper-header-panel class="fit flex" main>
+      <paper-header-panel class="flex" main>
 
         <paper-toolbar id="core_toolbar" class="horizontal layout">
            <paper-icon-button id="menuButton" icon="qi:logo" paper-drawer-toggle></paper-icon-button>
@@ -113,7 +113,7 @@ point at which all quikintro components are integrated.
            <qi-toggle class="anonToggle horizontal end-justified layout" openicon="social:person" closedicon="social:person-outline"></qi-toggle>
         </paper-toolbar>
 
-        <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="fit flex" >
+        <iron-pages id="pages" selected="{{page}}" valueattr="pageId" class="flex" >
 
           <section id="Home" pageId="home">
             <qi-home></qi-home>

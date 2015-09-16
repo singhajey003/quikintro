@@ -12,7 +12,7 @@
 html /deep/, body /deep/ {
   margin: 0px;
   padding: 0px;
-  min-height: 100%;
+  /*min-height: 100%;*/
   color: #424540;
   background-color: #ffffff;
   font-family: "museo-sans",sans-serif;
@@ -797,9 +797,6 @@ html /deep/ .eventCard .info #registrants {
 
 /* EVENT SUMMARY */
 
-html /deep/ #mainContainer.paper-scroll-header-panel {
-background:#fff;
-  }
 
 .qi-field-decorator {
   justify-content: center;
@@ -1031,7 +1028,7 @@ $photo-card-height:
 .card.card-photo {
   height: $photo-card-height;
 
-  /deep/ .photo, /deep/ core-icon.photo {
+  /deep/ .photo {
     background-color: $qi-gray;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1052,14 +1049,6 @@ $photo-card-height:
     top: $photo-card-actions-position-top;
   }
 
-  core-collapse {
-    background-color: $trait-wrapper-background;
-    border: 5px solid $white;
-    border-top: 0;
-    font-size: 12pt;
-    padding: $card-padding-top-bottom $card-padding-left-right;
-    margin-top: $base-height;
-  }
   .matchPercentage {
     font-size: 18pt;
     display: inline;
@@ -1092,12 +1081,7 @@ $notice-card-height: 60px;
     background-color: $qi-gray;
     text-align: center;
   }
-  core-icon{
-    height: $notice-card-height*0.6;
-    width: $notice-card-height*0.6;
-    color: $white;
-    margin-top: $card-padding-left-right;
-  }
+
   .noticeContent {
     height: $notice-card-height;
     padding: $card-padding-top-bottom $card-padding-left-right;
@@ -1247,25 +1231,8 @@ $tweet-card-height:
     position: relative;
     top: 0;
 
-    core-icon {
-      width: 20px;
-      height: 20px;
-      margin: 15px;
-    }
-  }
+   }
 
-  core-collapse {
-    background-color: $trait-wrapper-background;
-    border: 5px solid $white;
-    border-top: 0;
-    font-size: 12pt;
-    padding: $card-padding-top-bottom $card-padding-left-right;
-    margin-top: 5px;
-
-    h4 {
-      margin-top: $page-padding;
-    }
-  }
 
 }
 
@@ -1318,16 +1285,6 @@ section{
     max-height: 250px;
   }
 
-  paper-autogrow-textarea::shadow ::content textarea.profile {
-    font-size: 9pt;
-    line-height: 1.5;
-    max-height: 250px;
-    background-color: darken($qi-gray-dark2, 7%);
-    border: 0;
-    color: $white;
-    padding: $page-padding;
-    border-bottom: 5px solid darken($qi-gray-dark2, 11%);
-  }
 
 }
 
@@ -1379,12 +1336,6 @@ section{
   margin-left: 5px;
  }
 
- paper-autogrow-textarea{
-  width: 100%;
- }
- paper-autogrow-textarea > textarea{
-  padding: 5px;
- }
 
 
 </style>
