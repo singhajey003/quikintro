@@ -9,8 +9,8 @@ This component is responsible for displaying Floating Action Buttons (FABs).
 	.fab-tray{
 		transition: 0.4s;
 		width: 100vw;
-		max-height: 54px;
-		min-height: 54px;
+		max-height: 58px;
+		min-height: 58px;
 		bottom: -54px;
 		position: fixed;
 		background-color: rgba(255, 255, 255, 0.17);
@@ -66,7 +66,7 @@ This component is responsible for displaying Floating Action Buttons (FABs).
 			 * @param traystyle
 			 */
 			_computestyle: function(selected, traystyle){
-					var style = traystyle; 
+					var style = traystyle;
 					style += (selected)? " selectedFab":"";
 					//console.log("style: " + style);
 					return style;
