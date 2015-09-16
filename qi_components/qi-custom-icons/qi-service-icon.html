@@ -29,8 +29,8 @@ This component represents a service icon.
 		}
 
 		paper-badge{
-			--paper-badge-margin-bottom:-15vh;
-			--paper-badge-margin-left: -5vh; 
+			--paper-badge-margin-bottom: 6vh;
+			--paper-badge-margin-left: 8vh; 
 			--paper-badge-background: #000000;
 		}
 
@@ -53,8 +53,8 @@ This component represents a service icon.
 
 	<template>
 		<div class$="{{divStyle}}" id="icon">
-			<iron-icon class="icon" icon="[[icon]]"></iron-icon>
-			<paper-badge label="✓" class$="{{badgeStyle}}" for="icon"></paper-badge>
+			<iron-icon id="iron" class="icon" icon="[[icon]]"></iron-icon>
+			<paper-badge label="✓" class$="{{badgeStyle}}" for="iron"></paper-badge>
 		</div>
 	</template>
 

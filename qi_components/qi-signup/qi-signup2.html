@@ -79,6 +79,25 @@
 	paper-dialog{
 		max-height: 250px;
 	}
+
+	.imgs{
+		height: 70vh;
+	}
+
+	.inst{
+		top: 25px;
+	    position: relative;
+	    padding-left: 20px;
+	    padding-right: 20px;
+	    padding-bottom: 10px;
+	    font-size: 10pt;
+	}
+
+	.buttons{
+		bottom: 0px;
+		position: fixed;
+		width: 100%;
+	}
   
 	</style>
 	<template>
@@ -88,13 +107,18 @@
 			<div class="status2 end-justified">2/4</div>
 		</div>
 
-		<div class="imgs vertical center-justified layout">
+		<div class="flex imgs vertical center-justified layout">
+
+			<div class="inst">Click the icons below to import profile and contact data from these services.</div>
 
 			<qi-service-icon icon="qi:linkedin" id="linkedin-icon" selected="{{selected}}" on-click="_handleLinkedin"></qi-service-icon>
 
 			<qi-service-icon icon="qi:twitter" id="twitter-icon" on-click="_handleTwitter" selected="{{selected}}"></qi-service-icon>
 			
-			<qi-service-icon icon="qi:meetup" id="meetup-icon" on-click="_handleMeetup" selected="{{selected}}"></qi-service-icon>
+			
+			<qi-service-icon icon="qi:gmail" id="meetup-icon" on-click="_handleGmail" selected="{{selected}}"></qi-service-icon>
+
+			
 		
 		</div>
 
@@ -150,9 +174,9 @@
 				document.querySelector("#dialogBox").open();
 			},
 
-			_handleMeetup: function(){
-				this.heading="Meetup Login";
-				this.head = "meetup-icon";
+			_handleGmail: function(){
+				this.heading="Gmail Login";
+				this.head = "gmail-icon";
 				document.querySelector("#dialogBox").open();
 			},
 
