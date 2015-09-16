@@ -55,19 +55,19 @@
 
 
 		qi-avatar{
-			--avatar-width: 30vh;
-			--avatar-height: 30vh;
+			--avatar-width: 20vh;
+			--avatar-height: 20vh;
 		}
 
 		paper-badge{
-			--paper-badge-width: 10vh;
-			--paper-badge-height: 10vh;
-			--paper-badge-margin-bottom:-10vh;
-			--paper-badge-margin-left: -10vh; 
+			--paper-badge-width: 5vh;
+			--paper-badge-height: 5vh;
+			--paper-badge-margin-bottom:-5vh;
+			--paper-badge-margin-left: -5vh; 
 		}
 
 		.avatarIcon{
-		 	background-size: 30vh;
+		 	background-size: 20vh;
 		 	position: relative;
 		}
 
@@ -88,9 +88,10 @@
 		}
 
 		.wrapper {
-		  /*max-width: 300px;*/
-		  min-height: 40vh;
-		  padding: 20px; 
+		  max-height: 55vh;
+		  padding-left: 20px; 
+		  padding-right: 20px;
+		  padding-bottom: 20px;
 		}
 
 		.signin {
@@ -98,38 +99,51 @@
 		  display: inline-block;
 		  margin: auto;
 		  text-align: center;
-		  font-size: 10px; 
+		  font-size: 10px;
+		}
+
+		.footer{
+			bottom: 0px;
+			position: fixed;
+			width: 100%;
 		}
 
 	</style>
 
 	<template>
-		<div class="panel fit">
+		<div class="panel">
 			<div class="heading horizontal layout">
 				<div class="closeButton start-justified" on-click="_handleSignIn"><iron-icon icon="close"></div>
 				<div class="text flex center-justified"><p>Sign Up</p></div>
 				<div class="status end-justified">1/4</div>
 			</div>
 
+			<!--
 			<div class="avatarIcon flex center-justified horizontal layout">
 				<qi-avatar id="avatar1"></qi-avatar>
 				<paper-badge label="+" class="paperbadge" for="avatar1" on-click="_handleAvatar"></paper-badge>
 			</div>
 
+			-->
+
 			<div class="wrapper flex"> 
-			<paper-input class="splash flex" label="FULL NAME" alwaysFloatLabel="true"></paper-input><br/>
-			<paper-input class="splash flex" label="EMAIL" alwaysFloatLabel="true"></paper-input><br/>  
+			<paper-input class="splash flex" label="First Name" alwaysFloatLabel="true"></paper-input><br/>
+			<paper-input class="splash flex" label="Last Last" alwaysFloatLabel="true"></paper-input><br/>
+			<paper-input class="splash flex" label="Email" alwaysFloatLabel="true"></paper-input><br/> 
+			<paper-input class="splash flex" label="User Name" alwaysFloatLabel="true"></paper-input><br/>   
 			<paper-input-container class="splash flex" alwaysFloatLabel="true" id="password"> 
 				<label>Password:</label>
 				<input is="iron-input" type="password" name="password">
 			</paper-input-container>
-			<paper-input class="splash flex" label="BIRTHDAY" alwaysFloatLabel="true"></paper-input><br/>    
+	 
 			</div>
 
+			<div class="footer">
 			<paper-button class="next flex noink primary raised" on-click="_handleNext">Next</paper-button> 
 
 			<div class="signin">
 				<p>ALREADY HAVE AN ACCOUNT?<paper-button class="splash" on-click="_handleSignIn">Sign In</paper-button></p>
+			</div>
 			</div>
 		</div>
 
