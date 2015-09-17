@@ -4,7 +4,7 @@ This component is responsible for displaying a minimal amount of contact-related
 	@group QI Elements
 	@element qi-contact-mini-card
 -->
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 <link rel="import" href="../qi-card/qi-swipe-card.html">
@@ -15,41 +15,9 @@ This component is responsible for displaying a minimal amount of contact-related
 
 <dom-module id="qi-contact-mini-card">
 	<style>
-		.name{
-			padding-left: 10px;
-		}
-
-		.fullname{
-			font-size: 12px;
-			padding-left: 70px;
-
-		}
-
-		.selectedCard{
-			background-color: #ADD8ED;
-		}
 
 
-		header {
-			margin-left: 10px;
-			overflow-x: visible;
-		}
 
-
-		header > h3{
-			font-family: Verdana;
-			font-size: 10pt;
-		}
-		.title{
-			font-family: Verdana;
-			color: #707070;
-			font-size: 8pt;
-			line-height: normal;
-		}
-
-		.mini-card{
-			min-height: 60px;
-		}
 
 	</style>
 
@@ -58,9 +26,9 @@ This component is responsible for displaying a minimal amount of contact-related
 
 			<div class="mini-card horizontal layout">
 			<qi-avatar url="[[model.avatar]]"></qi-avatar>
-		
+
 			<header>
-				<h3><span>[[fullName]]</span></h3>
+				<h3>[[fullName]]</h3>
 				<p class="title">[[extTitle]]</p>
 			</header>
 			</div>
