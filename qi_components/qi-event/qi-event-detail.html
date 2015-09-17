@@ -123,21 +123,6 @@
          */
         selected:{type: Number, value: 0},
 
-<<<<<<< HEAD
-
-        /**
-         * The URL for the event-related tweets.
-         */
-        tweetUrl:{
-          type: String,
-          computed: '_computeTweetUrl(event.tweetUrl)'
-        }
-      },
-
-      /**
-       * This method gets the URL for the tweets.
-       */
-=======
         tweetUrl:{
           type: String,
           computed: '_computeTweetUrl(event.tweetUrl)'
@@ -162,7 +147,6 @@
         return meetingArray;
       },
 
->>>>>>> c16d12de60bfc373fc23ee87ecb0fcc15a0ebbb8
       _computeTweetUrl: function(url){
         return url;
       },
