@@ -4,10 +4,10 @@
 
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
 
@@ -18,13 +18,14 @@
 
 	<link rel="stylesheet" href="dialog.css"> 
 
+
 	<template>
 		<paper-dialog id="dialog" backdrop>
 		    <h2>Introduce Yourself</h2>
 		    <div>
 	
 			<div >
-
+				<qi-select-field value-attr-name="title" model="[[persona.msgTemplates]]" selected-index="{{selectedTemplateIndex}}"></qi-select-field>
 
 
 				</div>
@@ -57,16 +58,24 @@
    		properties:{
 			contacts: {type: Array, value: JSON.parse(localStorage.getItem("contacts"))},
 			persona: {type: Object},
-			selectedTemplateId:{
+			selectedTemplateIndex:{
 				type: Number,
-				value: 0
-			}
+				value: 0,
+				notify: true,
+				observer: '_selectedTemplateIndexChanged'
+			},
 		},
 
 
-		selectedTemplateIdChanged: function(newValue, oldValue){
-			var template = this.persona.msgTemplates[newValue];
-			this.$.msg.value = template.template;
+		_selectedTemplateIndexChanged: function(newValue, oldValue){
+			this.setTemplate(newValue)
+		},
+
+		setTemplate: function(index){
+			if(this.persona !== undefined){
+				var template = this.persona.msgTemplates[index];
+				this.$.msg.value = template.template;
+			}
 		},
 
 		sendAction: function(e){
@@ -108,8 +117,6 @@
 		close: function(){
 			this.$.dialog.close();
 		}
-
-
 
 	});
 

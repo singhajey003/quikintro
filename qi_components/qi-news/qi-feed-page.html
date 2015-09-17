@@ -1,0 +1,36 @@
+<!--
+This component is responsible for displaying the details of an RSS feed, and the current associated articles.
+
+	@group QI Elements
+	@element qi-feed-page
+
+TODO finish implementing me
+-->
+<link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
+<link rel="import" href="../qi-field/qi-field.html">
+<dom-module id="qi-feed-page">
+	<style>
+		:host {
+			display: block;
+		}
+	</style>
+	<template>
+		<div>
+			<qi-field model="[[model.name]]" label="Name"></qi-field>
+			<!-- display the description -->
+			<!-- display the keywords -->
+			<!-- display the articles -->
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-feed-page',
+			behaviors:[QiSwipePageBehavior],
+			properties:{
+				model: {
+					type: Object
+				}
+			}
+		});
+	</script>
+</dom-module>
