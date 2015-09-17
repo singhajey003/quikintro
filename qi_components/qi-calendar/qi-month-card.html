@@ -30,20 +30,12 @@ for a specific month.
 
 	<template>
 
-		<div class="month-wrapper">
-		   <div class="month"><span>[[month]]</span></div>
-
-
-		   <div class="layout vertical">
-		   <!-- TODO: Fix this so that we are iterating through days -->
-
 		<iron-pages selected="{{selectedCalPage}}">
 			<section>
 				<div class="month-wrapper">
 				   <div class="month"><span>[[month]]</span></div>
 
 				   <div class="layout vertical">
-				   <!-- TODO: Fix this so that we are iterating through days -->
 
 			   		<template is="dom-repeat" items="[[model]]" as="day">
 			   			<qi-day-card model="[[day]]"></qi-day-card>
@@ -65,10 +57,8 @@ for a specific month.
 			properties:{
 
 				/**
-				 * The name of the month as it will appear at the top
-				 * of the card.
+				 * A string containing the month to be displayed.
 				 */
-
 				month: {
 					type: String,
 					value: ''

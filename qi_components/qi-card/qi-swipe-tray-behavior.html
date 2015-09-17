@@ -83,7 +83,6 @@ QiSwipeTrayBehavior = {
         		throw "The detail page id was not set";
         	}
             
-            var detailTemp = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
 
             var tray = this._getComponentRoot(e);
             
@@ -97,7 +96,7 @@ QiSwipeTrayBehavior = {
             // set the detail page model, and switch to the detail page.
             detailPage.model = e.detail.model;
             this.selectedPage = 1;
-            //e.stopPropagation();
+            e.stopPropagation();
             
         });
 

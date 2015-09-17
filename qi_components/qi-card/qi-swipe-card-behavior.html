@@ -6,12 +6,12 @@ This behavior is used for swipeable cards.
 <script>
 	QiSwipeCardBehavior={
 
+
 		/**
 		 * This method handles the swiping gesture on a card.
 		 * @param e the gesture event.
 		 */
 		handleCardSwipe: function(e){
-
 			if(e.detail.state == 'start' || e.detail.state == "track"){
 	  			this.fire('card-swipe', {model: this.model});
 	  			e.stopPropagation();

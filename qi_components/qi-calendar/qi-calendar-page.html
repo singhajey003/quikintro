@@ -11,16 +11,12 @@ This component is responsible for displaying meeting information.
 <link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 
-
-<link rel="import" href="../qi-field/qi-icon-field.html">
-
 <link rel="import" href="../qi-custom-icons/qi-icons.html">
 <link rel="import" href="../qi-field/qi-date-field.html">
+<link rel="import" href="../qi-field/qi-field-decorator.html">
 
 <link rel="import" href="../qi-field/qi-collapse-field.html">
 <link rel="import" href="../qi-file/qi-file-tray.html">
-
-<link rel="import" href="../qi-card/">
 
 <link rel="import" href="qi-guest-card.html">
 
@@ -53,7 +49,12 @@ This component is responsible for displaying meeting information.
 			text-align: center;
 		}
 
-		.services > iron-icon{
+		.services > div{
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.services > div > iron-icon{
 			--iron-icon-width: 40px;
 			--iron-icon-height: 40px;
 			color: #707070;
@@ -77,6 +78,7 @@ This component is responsible for displaying meeting information.
 			font-size: 8pt;
 		}
 
+
 		#work{
 			margin-bottom: 50px;
 		}
@@ -88,7 +90,10 @@ This component is responsible for displaying meeting information.
 
 	</style>
 	<template>
-		<div class="flex" on-track="handlePageSwipe">
+
+		<iron-localstorage name="actionItems" value="{{actionItems}}"></iron-localstorage>
+		<div class="flex" on-track="handlePageSwipe" >
+
 		<header>
 			<span>[[model.title]]</span>
 		</header>
@@ -99,10 +104,13 @@ This component is responsible for displaying meeting information.
 			<span>[[model.description]]</span>
 		</div>
 
-		<div class="services center horizontal layout">
+
+		<div class="services horizontal layout">
+			<div>
 			<iron-icon icon="qi:uber"></iron-icon>
-			<iron-icon icon="qi:opentable"></iron-icon>
+			<iron-icon class="opentable" icon="qi:opentable"></iron-icon>
 			<iron-icon icon="qi:grubhub"></iron-icon>
+			</div>
 		</div>
 
 		<template is="dom-if" if="{{model.invitees.length > 0}}">
@@ -114,7 +122,8 @@ This component is responsible for displaying meeting information.
 		</qi-collapse-field>
 		</template>
 
-		<qi-field-decorator icon="work" label="Documents">
+
+		<qi-field-decorator id="work" icon="work" label="Documents" is-stacked="true">
 			<iron-localstorage name="files" value="{{files}}"></iron-localstorage>
 			<qi-file-tray model="{{files}}"></qi-file-tray>
 		</qi-field-decorator>
@@ -162,7 +171,6 @@ This component is responsible for displaying meeting information.
 
 		</qi-field-decorator>
 
-
 		</div>
 	</template>
 	<script>
@@ -197,6 +205,7 @@ This component is responsible for displaying meeting information.
 			_concatTime: function(start, end){
 				return start + " - " + end;
 			}
+
 		});
 	</script>
 </dom-module>

@@ -8,8 +8,8 @@ for a given day.
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 
-<link rel="import" href="qi-cal-behavior.html">
 
+<link rel="import" href="qi-cal-behavior.html">
 <link rel="import" href="qi-mtg-mini-card.html">
 
 <dom-module id="qi-day-card">
@@ -39,7 +39,8 @@ for a given day.
 		}
 
 		.mtg-tray{
-			overflow: scroll;
+			display: table-cell;
+			border-bottom: 1px solid #909090;
 		}
 	</style>
 
@@ -65,8 +66,7 @@ for a given day.
 				model:{
 					type: Object,
 					notify: true,
-					value: null,
-					observer: '_modelChanged'
+					value: null
 				},
 				date: {
 					type: Date,
@@ -80,11 +80,6 @@ for a given day.
 				day:{
 					type: Number,
 					computed: '_computeDay(date)'
-				}
-			},
-
-			_modelChanged: function(newValue, oldValue){
-				console.log("new day card model: " + newValue);
 				},
 				today:{
 					type: String,
@@ -97,6 +92,7 @@ for a given day.
 				return  (date.getDate() == 7) ? "background-color: rgba(23, 170, 207, 0.26)":"";
 			},
 
+
 			_computeDayOfWeek: function(date){
 				return this.dayOfWeek(date.getDay());
 			},
@@ -107,11 +103,9 @@ for a given day.
 
 			_computeDate: function(dateStr){
 				return new Date(dateStr);
-			},
-
-			ready: function(){
-				console.log("day card model: " + this.model);
 			}
+
+
 		});
 	</script>
 </dom-module>

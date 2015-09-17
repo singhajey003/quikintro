@@ -32,8 +32,26 @@ It's typically used as follows:
 
 	</style>
 
+
+	<style>
+	.labelCell{
+		font-family: var(--label-font, Verdana);
+		font-size: var(--label-size, 10pt);
+		font-weight: bold;
+		color: var(--label-color, #17aacf);
+		text-align: left;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.fldValue{
+		min-height: 40px;
+	}
+
+
+	</style>
+
 	<template>
-		<link rel="stylesheet" href="qi-field.css"> 
+		
 
 
 		<template is="dom-if" if="{{!isStacked}}">

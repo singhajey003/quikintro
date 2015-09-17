@@ -74,8 +74,7 @@
           <label>No Meetings Scheduled</label>
         </template>
 
-          <qi-mtg-tray model="[[event.meetings]]"></qi-mtg-tray>
-
+        <qi-mtg-tray model="[[event.meetings]]"></qi-mtg-tray>
 
       </div>
 
@@ -84,13 +83,12 @@
        <qi-twitter-panel dataUrl="[[tweetUrl]]" hashtag="[[event.hashtag]]"></qi-twitter-panel>
       </div>
 
-
       <div id="traits">
-       <qi-trait-panel event="{{event}}"></qi-trait-panel>
+       <qi-trait-panel event="[[event]]"></qi-trait-panel>
       </div>
 
       <div id="notes">
-       <qi-event-notes-panel notes="{{event.notes}}"></qi-event-notes-panel>
+       <qi-event-notes-panel notes="[[event.notes]]"></qi-event-notes-panel>
       </div>
 
     </iron-pages>
@@ -125,6 +123,7 @@
          */
         selected:{type: Number, value: 0},
 
+<<<<<<< HEAD
 
         /**
          * The URL for the event-related tweets.
@@ -138,6 +137,32 @@
       /**
        * This method gets the URL for the tweets.
        */
+=======
+        tweetUrl:{
+          type: String,
+          computed: '_computeTweetUrl(event.tweetUrl)'
+        },
+
+        meetings: {
+          type: Array,
+          computed: '_collapseMtgs(event.meetings)'
+        }
+      },
+
+      _collapseMtgs: function(meetings){
+        var meetingArray = [];
+        if(meetings !== undefined){
+          for(var i=0; i < meetings.length; i++){
+            var currMtgs = meetings[i].meetings;
+            for(var j=0; j < currMtgs; j++ ){
+              meetingArray.push(currMtgs.meetings[j]);
+            }
+          }
+        }
+        return meetingArray;
+      },
+
+>>>>>>> c16d12de60bfc373fc23ee87ecb0fcc15a0ebbb8
       _computeTweetUrl: function(url){
         return url;
       },

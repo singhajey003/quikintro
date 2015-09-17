@@ -19,7 +19,6 @@
 
 <dom-module id='qi-invite-card' > 
 
-
 	<style is="custom-style">
 	.senderName{
 		font-size: 15px;
@@ -37,7 +36,6 @@
 		color: #707070;
     position: absolute;
     right: 0px;
-
 	}
 
 	.score{
@@ -53,12 +51,19 @@
   .mainPanel{
     margin-left: 7px;
   }
-  .senderBlock{
 
-}
   .avatarBlock{
     margin-right: 3px;
 
+  }
+
+  .senderBlock{
+    line-height: normal;
+  }
+
+  qi-avatar{
+    --avatar-height: 44px;
+    --avatar-width: 44px;
   }
 
   .senderBlock{
@@ -74,7 +79,6 @@
 
 	<template>
 		
-
      <qi-swipe-card model="{{model}}">
       <div class= "senderBlock flex horizontal layout">
 

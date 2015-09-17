@@ -1,13 +1,26 @@
+<!--
+This behavior defines properties and methods for calendars.
+
+	@polymerBehavior QiCalBehavior
+-->
+
 <script>
 QiCalBehavior={
 
 	properties:{
+
+		/**
+		 * An array of weekdays.
+		 */
 		weekDays:{
 			type: Array,
 			value: ['Sun','Mon','Tue','Wed','Th','Fri','Sat'],
 			readonly: true
 		},
 
+		/**
+		 * An array of months.
+		 */
 		months:{
 			type: Array,
 			value: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'],
@@ -31,7 +44,7 @@ QiCalBehavior={
 	 * @param the index of the day into the 'weekDays' array (declared above)
 	 */
 	dayOfWeek: function(val){
-		return weekDays[val];
+		return this.weekDays[val];
 	},
 
 	/**
@@ -39,7 +52,7 @@ QiCalBehavior={
 	 * @param monthIndex an index into the 'months' array
 	 */
 	getMonth: function(monthIndex){
-		return months[monthIndex];
+		return this.months[monthIndex];
 	}
 
 

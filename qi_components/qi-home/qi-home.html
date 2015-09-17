@@ -14,14 +14,13 @@ point from which the user can access the functionality of the app.
 
 <link rel="import" href="../qi-global/global.html">
 <link rel="import" href="../qi-event/qi-event-notice.html">
-<link rel="import" href="../../bower_components/iron-localstorage/iron-localstorage.html">
 
 <link rel="import" href="../qi-custom-icons/qi-icons.html">
 <link rel="import" href="../qi-icon/qi-icon.html">
 
 <dom-module id='qi-home' >
 
-  <style>
+  <style is="custom-style">
   .dashboard{
     overflow: auto;
     background-color: #17aacf;
@@ -52,6 +51,8 @@ point from which the user can access the functionality of the app.
 
 
         <div class="dashboard fit vertical layout">
+
+        <div class="icon-row center-justified horizontal layout">
           <qi-icon icon="qi:events" label="Events" count="2" id="events" on-click="_handleClick"></qi-icon>
           <qi-icon class="right-icon" icon="qi:around" label="Around me" count="5" id="aroundme" on-click="_handleClick"></qi-icon>
         </div>
@@ -68,6 +69,8 @@ point from which the user can access the functionality of the app.
 
         <div class="icon-row center horizontal layout">
           <qi-icon icon="qi:settings" label="Settings" id="settings" on-click="_handleClick"></qi-icon>
+        </div>
+
         </div>
 
 

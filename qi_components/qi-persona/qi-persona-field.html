@@ -14,13 +14,11 @@ This component displays a dropdown list of personas.
 <dom-module id="qi-persona-field">
 
 	<template>
-
 		<qi-field-decorator id="personaField" label="Persona" >
-
-		<qi-select-field id="personaSelect" model="[[model]]" value-attr-name="name" selected-index="0"></qi-select-field>
-
+			<qi-select-field id="personaSelect" model="[[model]]" value-attr-name="name" selected-index="0"></qi-select-field>
         </qi-field-decorator>
 	</template>
+
 	<script>
 		Polymer({
 			is: 'qi-persona-field',
@@ -49,7 +47,7 @@ This component displays a dropdown list of personas.
 					type: Array,
 					notify: true
 				}
-			},
+			}
 
 
 		});

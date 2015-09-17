@@ -15,14 +15,11 @@ This component displays a list of invitations
 <dom-module id="qi-invite-tray">
 
 	<style is="custom-style">
-	qi-card-tray{
-		--tray-width: 100%;
-		background-color: var(--tray-bgcolor);
-	}
-
-
+		qi-card-tray{
+			--tray-width: 100%;
+			background-color: var(--tray-bgcolor);
+		}
 	</style>
-
 
 
 	<template>
@@ -36,9 +33,7 @@ This component displays a list of invitations
 			<paper-fab class="selectable" icon="check" on-click="accept" mini></paper-fab>
 			<paper-fab class="selectable" icon="close" on-click="decline" mini></paper-fab>
 
-
 			<qi-invite-page id="invite-page" class="detail-page"></qi-invite-page>
-
 
 		</qi-swipe-card-tray>
 
@@ -61,6 +56,7 @@ This component displays a list of invitations
 			}
 		},
 
+
 		_removeCards: function(){
 
 		},
@@ -72,7 +68,7 @@ This component displays a list of invitations
 		},
 
 		decline: function(){
-			_removeCards();
+			this._removeCards();
 			this.fire('show-toast', {text: 'Invitation(s) Declined'});
 		}
 

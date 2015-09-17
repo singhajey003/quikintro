@@ -34,7 +34,8 @@
 		}
 	</style>
 	<template>
-		<qi-swipe-card model="[[model]]">
+
+		<qi-swipe-card model="{{model}}">
 			<div class="layout horizontal doc-card">
 				<div class="icon">
 					<iron-icon icon="[[icon]]"></iron-icon>
@@ -44,37 +45,46 @@
 
 			</div>
 		</qi-swipe-card>
+
 	</template>
 	
 	<script>
 		Polymer({
 			is: 'qi-file-card',
-			behaviors:[QiCardBehavior, QiSwipeCardBehavior],
-			properties:{
-				model:{
-					type: Object
+
+			behaviors: [QiSwipeCardBehavior],
+
+			properties: {
+
+				/**
+				 * A map of file types and the icon names used to represent them.
+				 */
+				typemap:{
+					type: Object,
+					value:{
+						bookmark:"bookmark",
+						doc:"description",
+						pdf:"description",
+						video:"av:movie",
+						image:"image:camera",
+						spreadsheet:"view-list",
+						slides:"image:slideshow"
+					}
 				},
+
+
+				/**
+				 * This computed property gets the name of the icon for the file type.
+				 */
 				icon:{
 					type: String,
 					computed: '_getIcon(model.type)'
-				},
-				typemap:{
-					type: Object,
-					readonly: true,
-					value:{
-						"bookmark":"bookmark",
-						"doc":"description",
-						"pdf":"description",
-						"video":"av:movie",
-						"image":"image:camera",
-						"spreadsheet":"view-list",
-						"slides":"image:slideshow"
-					}
 				}
+
 			},
 
-			_getIcon: function(mimishtype){
-				return this.typemap[mimishtype];
+			_getIcon: function(filetype){
+				return this.typemap[filetype];
 			}
 		});
 	</script>

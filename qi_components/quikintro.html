@@ -41,6 +41,7 @@ point at which all quikintro components are integrated.
 <link rel="import" href="qi-scaffold/qi-scaffold.html">
 <link rel="import" href="qi-home/qi-home.html">
 <link rel="import" href="qi-news/qi-news-panel.html">
+<link rel="import" href="qi-calendar/qi-calendar-panel.html"
 
 <link rel="import" href="qi-custom-icons/qi-icons.html">
 <link rel="import" href="qi-theme.html">
@@ -73,7 +74,7 @@ point at which all quikintro components are integrated.
       <paper-drawer-panel narrow="true" forceNarrow="true" mode="waterfall" id="coreScaffold">
 
         <paper-header-panel drawer>
-
+ 
           <div class="centered">
             <div class="row">
 
@@ -95,9 +96,7 @@ point at which all quikintro components are integrated.
             </div>
           </div>
 
-
         </paper-header-panel>
-
 
 
       <paper-header-panel class="flex" main>
@@ -115,8 +114,13 @@ point at which all quikintro components are integrated.
           </section>
 
           <section id="Event Stream" pageId="events" >
-            <qi-event-stream id="eventStream" events="{{eventList}}" personas="{{personas}}"></qi-event-stream>
+            <qi-event-panel id="eventStream" ></qi-event-panel>
           </section>
+
+          <section id="Calendar" pageId="calendar">
+            <qi-calendar-panel></qi-calendar-panel>
+          </section>
+
           <section id="Around Me" pageId="aroundme" >
             <qi-aroundme-panel id="aroundMe" ></qi-aroundme-panel>
           </section>

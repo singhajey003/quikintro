@@ -24,7 +24,7 @@ it can be easily accessed by other components.
         <iron-ajax auto="true" url="files/files.json" on-response="handleFiles" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="matches.json" on-response="handleMatches" handle-as="json"></iron-ajax>
         <iron-ajax auto="true" url="files/files.json" on-response="handleFiles" handle-as="json"></iron-ajax>
-
+        <iron-ajax auto="true" url="action-items.json" on-response="handleActionItems" handle-as="json"></iron-ajax>
 
         <iron-localstorage name="invites" value="{{invites}}"></iron-localstorage>
         <iron-localstorage name="msgs" value="{{msgs}}"></iron-localstorage>
@@ -36,12 +36,10 @@ it can be easily accessed by other components.
         <iron-localstorage name="news" value="{{news}}"></iron-localstorage>
         <iron-localstorage name="feeds" value="{{feeds}}"></iron-localstorage>
         <iron-localstorage name="mtgs" value="{{mtgs}}"></iron-localstorage>
-
         <iron-localstorage name="calendar" value="{{mtgs2}}"></iron-localstorage>
-
         <iron-localstorage name="files" value="{{files}}"></iron-localstorage>
-
         <iron-localstorage name="matches" value="{{matches}}"></iron-localstorage>
+        <iron-localstorage name="actionItems" value="{{actionItems}}"></iron-localstorage>
 
 
     </template>
@@ -81,7 +79,16 @@ it can be easily accessed by other components.
                 type: Array
             },
 
+            mtgs2:{
+                type: Array
+            },
+
+            files:{
+                type: Array
+            },
+
             matches:{
+
                 type: Array
             }
             mtgs2:{
@@ -139,7 +146,12 @@ it can be easily accessed by other components.
 
         handleMatches: function(e){
             this.matches = e.detail.response;
+        },
+
+        handleActionItems: function(e){
+            this.actionItems = e.detail.response;
         }
+
 
     });
     </script>
