@@ -66,15 +66,22 @@
     				observer: '_dataUrlChanged'
     			},
 
+    			/**
+    			 * The hashtag for the event.
+    			 */
     			hashtag: {
     				type: String
     			},
 
+    			/**
+    			 * The response object containing the tweets.
+    			 */
     			response: {
     				type: Object,
     				notify: true
     			}
     		},
+
 
     		/**
     		 * This observer checks to see if the new URL is valid before making the AJAX call.

@@ -7,11 +7,9 @@ This component displays a dropdown list of personas.
 
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
-<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
-<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
-<link rel="import" href="../../bower_components/paper-item/paper-item.html">
 
 <link rel="import" href="../qi-field/qi-field-decorator.html">
+<link rel="import" href="../qi-field/qi-select-field.html">
 
 <dom-module id="qi-persona-field">
 
@@ -19,14 +17,7 @@ This component displays a dropdown list of personas.
 
 		<qi-field-decorator id="personaField" label="Persona" >
 
-		<paper-dropdown-menu >
-			<paper-menu class="dropdown-content" selected="0">
-				<template is="dom-repeat" items="[[model]]"  as="currmodel">
-					<paper-item selected>[[currmodel.name]]</paper-item>
-				</template>
-			</paper-menu>
-
-		</paper-dropdown-menu>
+		<qi-select-field id="personaSelect" model="[[model]]" value-attr-name="name" selected-index="0"></qi-select-field>
 
         </qi-field-decorator>
 	</template>

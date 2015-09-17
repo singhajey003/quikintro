@@ -1,22 +1,122 @@
 <!--
-
+  This component is a wrapper for a select field.
 
 	@group QI Elements
 	@element qi-select-field
 -->
-
+<link rel="import" href="/bower_components/polymer/polymer.html">
 <dom-module id="qi-select-field">
 	<style>
 		:host {
 			display: block;
 		}
+
+		.selectFld{
+			width: 95%;
+			font-size: 12pt;
+			padding-left: 5px;
+		}
+
+
 	</style>
 	<template>
+
+		<select id="[[id]]" class="selectFld" on-change="_handleSelect">
+			<template is="dom-repeat" items="[[model]]" index-as="index">
+				<option>[[_computeValue(index, model, valueAttrName)]]</option>
+			</template>
+		</select>
 		
 	</template>
 	<script>
 		Polymer({
-			is: 'qi-select-field'
+			is: 'qi-select-field',
+
+			properties:{
+
+				/**
+				 * The ID of the element.
+				 */
+				id: {
+					type: String,
+					value: 'defaultId'
+				},
+
+				/**
+				 * An array of objects representing the options in the select box.
+				 */
+				model:{
+					type: Array,
+					value:[]
+				}, 
+
+				/**
+				 * If the array is an array of objects, this is the name of the attribute
+				 * that you want to display in the options.
+				 */
+				valueAttrName:{
+					type: String,
+					value: null
+				},
+
+				/**
+				 * The index of the selected option.
+				 */
+				selectedIndex:{
+					type: Number,
+					value: 0,
+					notify: true
+				},
+
+				/**
+				 * The selected value.
+				 */
+				selectedValue:{
+					type: Object,
+					computed: '_getSelectedValue(selectedIndex)'
+				}
+			},
+
+			/**
+			 * This method computes an option value.
+			 * @param index  the current index of the option
+			 * @param model the model 
+			 * @param valueAttrName  The name of the attribute to be displayed.
+			 */
+			_computeValue: function(index, model, valueAttrName){
+				var value = null;
+
+				if(valueAttrName != null){
+					var obj = "model[index]." + valueAttrName;
+					value = eval(obj);
+				}else {
+					value = model[index];
+				}
+
+				return value;
+			},
+
+			/**
+			 * This method gets the selected value.
+			 * @param index  the index
+			 */
+			_getSelectedValue: function(index){
+				return this.model[index];
+			},
+
+			/**
+			 * This method
+			 * @param e  The event object.
+			 */
+			_handleSelect: function(e){
+				console.log(e);
+				var select = e.srcElement;
+				this.selectedIndex = select.selectedIndex;
+			}
+
+
+
+
 		});
 	</script>
 </dom-module>

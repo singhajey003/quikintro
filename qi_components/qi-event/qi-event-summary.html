@@ -11,7 +11,6 @@
 <link rel="import" href="../../bower_components/iron-input/iron-input.html">
 
 
-<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
 
@@ -20,7 +19,12 @@
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
 <link rel="import" href="../qi-field/qi-field-decorator.html">
+<link rel="import" href="../qi-field/qi-select-field.html">
+
 <link rel="import" href="../qi-persona/qi-persona-field.html">
+
+
+<link rel="import" href="../qi-calendar/qi-cal-behavior.html">
 
 <dom-module id='qi-event-summary'  >
 
@@ -66,10 +70,6 @@
         </div>
 
 
-
-
-
-
         </div>
 
         <div class="eventSettings layout flex">
@@ -94,36 +94,14 @@
 
 
         <h4>Settings</h4>
-              <qi-field-decorator id="rsvpField" label="Going?" class="horizontal justified layout" >
-
-                <paper-dropdown-menu selected="0">
-                    <paper-menu class="dropdown-content">
-                        <paper-item>Yes</paper-item>
-                        <paper-item>No</paper-item>
-                        <paper-item>Maybe</paper-item>
-                                            
-                    </paper-menu>
-
-                </paper-dropdown-menu>
-
-
+              <qi-field-decorator id="rsvpField" label="Going?"  >
+                <qi-select-field model="[[rsvpValues]]" selected-index="0"></qi-select-field>
              </qi-field-decorator>
 
              <qi-persona-field persona="{{event.persona}}" model="{{personas}}"></qi-persona-field>
 
              <qi-field-decorator label="Alert" class="horizontal justified layout" >
-
-                <paper-dropdown-menu selected="0">
-                    <paper-menu class="dropdown-content">
-                        <paper-item>15 minutes before</paper-item>
-                        <paper-item>1 hour before</paper-item>
-                        <paper-item>1 day before</paper-item>
-                        <paper-item>Don't notify me</paper-item>
-                    </paper-menu>
-
-                </paper-dropdown-menu>
-
-
+                <qi-select-field id="eventAlert" model="[[alertValues]]" selected-index="0"></qi-select-field>
              </qi-field-decorator>
 
         </div>
@@ -151,6 +129,24 @@
             },
 
             /**
+             * The options for the alert dropdown
+             */
+            alertValues:{
+                type: Array,
+                value: ["15 minutes before", "1 hour before", '1 day before',"Don't notify me"],
+                readOnly: true
+            },
+
+            /**
+             * The option for the RSVP dropdown.
+             */
+            rsvpValues:{
+                type: Array,
+                value: ["Yes","No","Maybe"],
+                readOnly: true
+            },
+
+            /**
              * An array of Persona objects.
              */
             personas: {type: Array},
@@ -161,6 +157,15 @@
             background: {
                 type: String,
                 computed: '_computeBackground(event.background)'
+
+            },
+
+            /**
+             * The start and end date for the event.
+             */
+            date: {
+                type: String,
+                computed: 'startEndTime(event.time.start, event.time.end)'
             }
         },
 
