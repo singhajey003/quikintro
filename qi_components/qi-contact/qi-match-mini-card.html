@@ -4,7 +4,7 @@ This component is used to display a minimal amount of match information.
     @group QI Elements
     @element qi-match-mini-card
 -->
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link rel="import" href="../qi-avatar/qi-avatar.html">
 
@@ -21,35 +21,6 @@ This component is used to display a minimal amount of match information.
 			border-left: 5px solid #3ea1e6;
 		}
 
-		.match{
-			font-size:14pt;
-			color: #17aacf;
-			max-width: 30vw;
-			position: absolute;
-			right: 3px;
-		}
-		.mini-card{
-			min-height: 60px;
-		}
-
-		header {
-			margin-left: 20px;
-			max-width: 60vw;
-		}
-
-		header > h3{
-			font-family: Verdana;
-			font-size: 10pt;
-		}
-
-		.title{
-			font-family: Verdana;
-			color: #707070;
-			font-size: 8pt;
-			line-height: normal;
-		}
-
-
 	</style>
 
 	<template>
@@ -58,15 +29,15 @@ This component is used to display a minimal amount of match information.
 
 			<qi-avatar url="[[model.avatar]]"></qi-avatar>
 
-			<header>
+			<header class="flex">
 				<h3><span>[[fullName]]</span></h3>
 				<p class="title">[[extTitle]]</p>
 			</header>
 
-			<div class="match"><span>[[model.match]]</span>%</div>
+			<div class="match"><span>[[model.match]]</span><span class="perc">%</span></div>
 
 			</div>
-	
+
 		</qi-swipe-card>
 	</template>
 

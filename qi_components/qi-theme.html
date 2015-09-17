@@ -380,7 +380,6 @@ html /deep/ .centered .close iron-icon {
   height:30px;
 }
 
-paper-icon-button {background-color:red !important;}
 
 /*TOOLBAR*/
 
@@ -907,6 +906,66 @@ html /deep/ .qi-twitter-panel .hashtagBanner span {
   font-weight: 600;
   font-size:16px;
 }
+
+
+/*********** AROUND ME ***********/
+
+/* SLIDER */
+
+html /deep/ .paper-progress-0 #progressContainer.paper-progress, html /deep/ .paper-progress-0 .indeterminate.paper-progress:after {
+    background-color: rgba(255,255,255,0.4);
+}
+
+/* MATCH - CONTACT MINI CARD */
+
+html /deep/ .mini-card{
+      min-height: 60px;
+      padding:1em;
+    }
+
+html /deep/ .mini-card .selectedCard{
+      background-color: #ADD8ED;
+    }
+
+
+html /deep/ .mini-card header {
+      margin-left: 10px;
+      overflow-x: visible;
+    }
+
+
+html /deep/ .mini-card header > h3{
+      font-size: 1.2em;
+      color: #1d1d26;
+      font-weight:100;
+      line-height: normal;
+      margin:0.4em 0 0 0;
+    }
+
+html /deep/ .mini-card .title{
+      color: #1d1d26;
+      font-size: 0.8em;
+      font-weight:300;
+      line-height: normal;
+      opacity:0.6;
+      margin:0.4em 0 0 0;
+    }
+
+html /deep/ .mini-card .match {
+  font-size:1.6em;
+  font-weight:100;
+  color:#17aacf;
+  margin:0.22em 0 0 0;
+}
+
+html /deep/ .mini-card .match .perc {
+  font-size:0.6em;
+  font-weight:300;
+
+}
+
+
+
 
 /* TRANSFERRED QI-CARDS STYLES */
 
