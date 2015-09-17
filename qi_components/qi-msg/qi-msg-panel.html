@@ -14,6 +14,7 @@
 
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="qi-msg-card.html">
 
 
 
@@ -55,8 +56,8 @@
     <iron-pages selected="{{selected}}" >
 
       <div id="msgTray" class="demotray layout vertical">
+<!--<qi-msg-dialog id="msgDialog"></qi-msg-dialog>-->
         <qi-msg-tray model="[[msgs]]"></qi-msg-tray>
-        <qi-msg-dialog id="msgDialog"></qi-msg-dialog>
       </div>
 
       <div id="invTray" >
@@ -117,26 +118,55 @@
         // add a message card in response to a msg-sent event
         window.addEventListener('msg-sent', function(e){
           
+
           var msgObj = new MsgCard();
           msgObj.msg = e.detail.msg;
 
-          msgTray.appendChild(msgObj);
+          /*add the class attributes to the appended child*/
+          var att = document.createAttribute("class");   
+          att.value = "selectable-card style-scope qi-msg-tray";
+          msgObj.setAttributeNode(att);
+          /*append it in the right place*/
+          var cardTray = msgTray.firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+
+          cardTray.appendChild(msgObj);
+
+         // msgObj.querySelectorAll(".msgBlock").innerHTML = e.detail.msg.msg;
+         // console.log(msgObj.querySelectorAll(".msgBlock").innerHTML);
 
 
-        });
+        }); 
 
         // add a meeting card in response to a mtg-sent event
         window.addEventListener('mtg-sent', function(e){
           var mtgObj = new MtgCard();
           mtgObj.mtg = e.detail.mtg;
-          mtgTray.appendChild(mtgObj);
+
+          /*add the class attributes to the appended child*/
+          var att = document.createAttribute("class");   
+          att.value = "selectable-card style-scope qi-mtg-tray";
+          mtgObj.setAttributeNode(att);
+          /*append it in the right place*/
+          var cardTray = mtgTray.firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+
+          cardTray.appendChild(mtgObj);
         });
 
         // add an invitation card in response to an invite-sent event
         window.addEventListener('invite-sent', function(e){
           var invObj = new InvCard();
           invObj.invite = e.detail.invite;
-          invTray.appendChild(invObj);
+
+          /*add the class attributes to the appended child*/
+          var att = document.createAttribute("class");   
+          att.value = "selectable-card style-scope qi-invite-tray";
+          invObj.setAttributeNode(att);
+          /*append it in the right place*/
+          var cardTray = invTray.firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+
+
+          cardTray.appendChild(invObj);
+
 
         });
 
