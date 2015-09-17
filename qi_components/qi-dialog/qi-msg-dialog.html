@@ -78,6 +78,7 @@
 			localStorage.setItem("msgs", JSON.stringify(msgs));
 
 			this.fire('msg-sent', {msg: msg});
+			
 			this.$.ajax.url=QiConfigBehavior.getURL(true, "sendMsg");
 	       	this.$.ajax.generateRequest();
 		},
