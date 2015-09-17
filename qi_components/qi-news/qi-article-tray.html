@@ -102,7 +102,7 @@ Polymer({
 	ready: function(){
 
 		this.addEventListener('card-selected', function(e){
-			var txt = this.cleanMessageText(e.detail.model);
+			var txt = this.cleanMessageText(e.detail.model.title + ". " + e.detail.model.abstract);
 			this.msgs.push(txt);
 		});
 
