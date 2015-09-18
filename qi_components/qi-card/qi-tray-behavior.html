@@ -84,10 +84,6 @@ QiTrayBehavior = {
 		// change the fab tray style whenever a card is selected.
 		this.addEventListener('card-selected', function(e){
 
-			if(this.fabtrayid == null){
-				throw "The fabtray id was not set";
-			}
-			
 			if(e.srcElement.selected){
 				fabtray.selected = true;
 				this.selectedCards.push(e.srcElement);
@@ -95,7 +91,7 @@ QiTrayBehavior = {
 				fabtray.selected = this.hasSelectedCards()
 			}
 			
-			e.stopPropagation();
+			//e.stopPropagation();
 		});
 	}
 

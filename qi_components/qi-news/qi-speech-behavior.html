@@ -40,7 +40,12 @@ QiSpeechBehavior = {
 		 */
 		voice:{
 			type: Object,
-			computed: '_getVoice(voiceName)'
+			value: null
+		},
+
+		voices:{
+			type: Array,
+			value: []
 		},
 
 
@@ -69,9 +74,19 @@ QiSpeechBehavior = {
 	 * @param name the name of the voice
 	 */
 	_getVoice: function(name){
-		var voice = window.speechSynthesis.getVoices().filter(function(currVoice){
-			return currVoice.name = name;
-		});
+		
+		var voice = null;
+		for(var i=0; i < this.voices.length; i++){
+			console.log(this.voices[i].name);
+			if(this.voices[i].name == name){
+				voice = voices[i];
+				break;
+			}
+		}
+
+		if(voice == null){
+			throw "Voice: '" + name + "' not found";
+		}
 
 		return voice;
 	},
@@ -81,6 +96,7 @@ QiSpeechBehavior = {
 	 * This method 'plays' the current article.
 	 */
 	play: function(){
+		this.speech.lang = 'en-GB';
 		this.speech.text = this.msgs[this.currIndex];
 		console.log(this.speech.text);
 		window.speechSynthesis.cancel();
