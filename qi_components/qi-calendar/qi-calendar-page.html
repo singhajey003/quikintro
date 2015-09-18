@@ -108,13 +108,11 @@ This component is responsible for displaying meeting information.
 			</div>
 		</div>
 
-		<template is="dom-if" if="{{model.invitees.length > 0}}">
 		<qi-collapse-field icon="social:people" label="Attendees">
 			<template is="dom-repeat" items="[[model.invitees]" as="guest">
 				<qi-guest-card model="[[guest]]"></qi-guest-card>
 			</template>
 		</qi-collapse-field>
-		</template>
 
 		<qi-field-decorator id="work" icon="work" label="Documents" is-stacked="true">
 			<iron-localstorage name="files" value="{{files}}"></iron-localstorage>
