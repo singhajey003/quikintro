@@ -1,0 +1,68 @@
+
+<!--
+  This component displays the match score.
+
+  @group QI Elements
+  @element qi-match-score
+-->
+
+<dom-module id="qi-match-score">
+	<link rel="import" type="css" href=".css">
+
+	<style>
+		.red{
+			color: #FF0000;
+		}
+
+		.orange{
+			color: #FF8000;
+		}
+
+		.green{
+			color: #00ff00;
+		}
+
+	</style>
+
+	<template>
+
+		<p class$="{{scoreColor}}">[[model]]</p>
+		
+	</template>
+	<script>
+		Polymer({
+			is: 'qi-match-score',
+
+			properties:{
+
+				model:{
+					type: Object
+				},
+				/**
+				  * This computed property concatenates the first and 
+				  * last name of the model.
+				  */
+				scoreColor: {
+					type: String,
+					value: 'green',
+					computed: '_computeColor(model)' 
+				}
+
+			},
+
+			_computeColor: function(score){
+				if(score < 75){
+					return "red";
+				}
+				else if(score < 51){
+					return "orange";
+				}
+				else{
+					return "green";
+				}
+
+
+			}
+		});
+	</script>
+</dom-module>
