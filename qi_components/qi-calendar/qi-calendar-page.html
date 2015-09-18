@@ -115,7 +115,7 @@ This component is responsible for displaying meeting information.
 
 		<qi-collapse-field icon="social:people" label="Attendees">
 
-			<template is="dom-repeat" items="[[model.invitees]" as="guest">
+			<template is="dom-repeat" items="[[model.invitees]]" as="guest">
 				<qi-guest-card model="[[guest]]"></qi-guest-card>
 			</template>
 		</qi-collapse-field>

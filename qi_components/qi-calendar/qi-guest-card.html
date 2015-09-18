@@ -14,10 +14,11 @@ model:>
 		:host {
 			display: block;
 		}
+		/*
 		:host > qi-card{
 			height: 50px;
 		}
-
+		
 		:host > p.title{
 			margin-left: 5px;
 			font-size: 10pt;
@@ -29,19 +30,26 @@ model:>
 			font-size: 10pt;
 			color: rgb(146, 144, 144);
 		}
+		*/
+
+		:host > span{
+			color: rgb(146, 144, 144);
+			font-size: 10pt;
+		}
 
 	</style>
 	<template>
 		<qi-card model="{{model}}">
-		
-			<qi-avatar url="[[model.avatar]]"></qi-avatar>
+			<div class="mini-card horizontal layout">
+				<qi-avatar url="[[model.avatar]]"></qi-avatar>
 
-			<header>
-				<h3>[[fullName]]</h3>
-				<p class="title">[[model.title]]</p>
-				<p class="company">[[model.company]]</p>
-				<p></p>
-			</header>
+				<header>
+					<h3>[[fullName]]</h3>
+					<span class="title">[[model.title]]</span>
+					<span> at </span>
+					<span class="company">[[model.company]]</span>
+				</header>
+			</div>
 		</qi-card>
 	</template>
 	<script>
