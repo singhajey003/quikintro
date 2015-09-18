@@ -26,7 +26,7 @@
 
 	<template>
 
-		<p class$="{{scoreColor}}">[[model]]</p>
+		<span class$="{{scoreColor}}"><span>[[model]]</span><span>%</span></span>
 		
 	</template>
 	<script>
@@ -35,12 +35,16 @@
 
 			properties:{
 
+				/**
+				 * This is the score model of the object.
+				 * Pass in the actual score in the parent
+				 * source
+				 */
 				model:{
 					type: Object
 				},
 				/**
-				  * This computed property concatenates the first and 
-				  * last name of the model.
+				  * This computed property returns the style of the score
 				  */
 				scoreColor: {
 					type: String,

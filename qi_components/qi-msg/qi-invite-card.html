@@ -16,6 +16,7 @@
 <link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
 
 <link rel="import" href="../qi-card/qi-swipe-card.html">
+<link rel="import" href="../qi-contact/qi-match-score.html">
 
 <dom-module id='qi-invite-card' > 
 
@@ -95,10 +96,16 @@
 
 
           </div>
+
+          
           <div class="pctBlock">
+            <qi-match-score model="[[model.sender.score]]"></qi-match-score>
+            <!--
               <span class="score">[[model.sender.score]]</span>
-              <span class="pct">%</span>
+              <span class="pct">%</span> 
+            -->
           </div>
+      
 
       </div>
      </qi-swipe-card>
