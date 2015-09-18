@@ -8,6 +8,8 @@ of a meeting.
 -->
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html"> 
 <link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
+<link rel="import" href="../qi-field/qi-collapse-field.html">
+<link rel="import" href="../qi-calendar/qi-guest-card.html">
 
 <dom-module id="qi-mtg-page">
 	<style>
@@ -26,6 +28,12 @@ of a meeting.
 		<div class="detail-page" on-track="handlePageSwipe">
 			<div>This is a meeting.</div>
 		</div>
+
+		<qi-collapse-field icon="social:people" label="Attendees" scrollable >
+			<template is="dom-repeat" items="[[model.invitees]]" as="guest">
+				<qi-guest-card model="[[guest]]"></qi-guest-card>
+			</template>
+		</qi-collapse-field>
 	</template>
 
 
