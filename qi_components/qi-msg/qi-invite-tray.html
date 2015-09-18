@@ -23,7 +23,7 @@ This component displays a list of invitations
 
 
 	<template>
-		<qi-swipe-card-tray id="invite-tray" fabtrayid="invite-fab-tray" detailpageid="invite-page">
+		<qi-swipe-card-tray id="invitetray" fabtrayid="invite-fab-tray" detailpageid="invite-page">
 
 			<template is="dom-repeat" items="[[model]]" index-as"id" as="invite">
 				<qi-invite-card class="selectable-card" model="[[invite]]"></qi-invite-card>
@@ -45,6 +45,8 @@ This component displays a list of invitations
 	Polymer({
 		is: 'qi-invite-tray',
 
+		behaviors:[QiTrayBehavior],
+
 		properties:{
 
 			/**
@@ -58,10 +60,14 @@ This component displays a list of invitations
 
 
 		_removeCards: function(){
-
+			//var cards = this.$.invite-tray.getElementsByClassName("selectedCard");	
+			var cardsSel = this.selectedCards;
+			console.log("true: "+ cardsSel[0]==cardsSel[0] );
+			console.log("false: "+ cardsSel[0]==cardsSel[1] );
 		},
 
 		accept: function(){
+			//add the invitation to calendar
 			this._removeCards();
 			this.fire('show-toast',{text: 'Invitation(s) Accepted'});
 
@@ -70,6 +76,12 @@ This component displays a list of invitations
 		decline: function(){
 			this._removeCards();
 			this.fire('show-toast', {text: 'Invitation(s) Declined'});
+		},
+
+		ready: function(){
+			window.addEventListener('card-selected', function(e){
+
+			});
 		}
 
 

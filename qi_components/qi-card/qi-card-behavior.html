@@ -107,7 +107,7 @@ QiCardBehavior = {
 	 */
 	select: function(){
 		this.selected = !this.selected;
-		console.log("card selected");
+		//console.log("card selected "+ this.id + this.model + this.selected);
 		this.fire('card-selected',{id: this.id, model: this.model, selected: this.selected});
 	},
 

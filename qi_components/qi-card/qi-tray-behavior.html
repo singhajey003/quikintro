@@ -90,6 +90,7 @@ QiTrayBehavior = {
 			
 			if(e.srcElement.selected){
 				fabtray.selected = true;
+				this.selectedCards.push(e.srcElement);
 			}else{
 				fabtray.selected = this.hasSelectedCards()
 			}

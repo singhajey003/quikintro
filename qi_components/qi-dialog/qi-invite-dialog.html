@@ -101,7 +101,7 @@
 				meetLater: this.$.meetLater.checked
 			};
 
-			invites.push(msg);
+			//invites.push(msg);
 			localStorage.setItem("invites", JSON.stringify(invites));
 
 			this.fire('invite-sent', {invite: msg});

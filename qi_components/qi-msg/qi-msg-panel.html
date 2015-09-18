@@ -150,19 +150,19 @@
 
         // add an invitation card in response to an invite-sent event
         window.addEventListener('invite-sent', function(e){
+          /*
           var invObj = new InvCard();
           invObj.invite = e.detail.invite;
 
-          /*add the class attributes to the appended child*/
           var att = document.createAttribute("class");   
           att.value = "selectable-card style-scope qi-invite-tray";
           invObj.setAttributeNode(att);
-          /*append it in the right place*/
+          //append it in the right place
           var cardTray = invTray.firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
 
 
           cardTray.appendChild(invObj);
-
+*/
 
         });
 
