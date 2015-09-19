@@ -18,6 +18,7 @@
 <link rel="import" href="../qi-contact/qi-contact-tray.html">
 <link rel="import" href="../qi-twitter/qi-twitter-panel.html">
 <link rel="import" href="../qi-twitter/qi-tweet-tray.html">
+<link rel="import" href="../qi-contact/qi-match-score.html">
 
 
 <dom-module id="qi-invite-page">
@@ -60,14 +61,9 @@
 		
 	}
 	.score{
-		color: #5c91cc;
 		max-width: 50px;
-		margin-right: 1px;
 	}
-	.pct{
-		color: #5c91cc;
-		max-width: 30px;
-	}
+
 	.centerLabel{
 		text-align: center;
 		font-size: 12px;
@@ -153,9 +149,8 @@
 
 			<div class="flex layout vertical">
 				<label class="centerLabel">Persona Match</label>
-				<div class="center-justified layout horizontal match">
-					<span class="score">[[model.sender.score]]</span><span class="pct">%</span>
-				</div>
+				<qi-match-score class="center-justified layout horizontal match" model="[[model.sender.score]]"></qi-match-score>
+				
 			</div>
 
 		</div>

@@ -13,6 +13,7 @@ This component is used to display a minimal amount of match information.
 <link rel="import" href="../qi-card/qi-swipe-card-behavior.html">
 
 <link rel="import" href="qi-contact-behavior.html">
+<link rel="import" href="qi-match-score.html">
 
 <dom-module id="qi-match-mini-card">
 
@@ -34,7 +35,7 @@ This component is used to display a minimal amount of match information.
 				<p class="title">[[extTitle]]</p>
 			</header>
 
-			<div class="match"><span>[[model.match]]</span><span class="perc">%</span></div>
+			<div class="match"><qi-match-score model="[[model.match]]"><qi-match-score></div>
 
 			</div>
 

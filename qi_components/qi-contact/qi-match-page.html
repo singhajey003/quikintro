@@ -8,6 +8,9 @@ This component displays the detailed contents of a contact.
 <link rel="import" href="../qi-card/qi-swipe-page-behavior.html">
 
 <link rel="import" href="qi-contact-behavior.html">
+<link rel="import" href="qi-match-score.html">
+
+
 
 <dom-module id="qi-match-page">
 
@@ -90,7 +93,6 @@ This component displays the detailed contents of a contact.
 		}
 
 		.persona-match{
-			color: #17aacf;
 			text-align: center;
 		}
 		.summary{
@@ -126,7 +128,7 @@ This component displays the detailed contents of a contact.
 
 				<div class="stats-row">
 					<div class="data-cell contact-count">[[model.contactCount]]</div>
-					<div class="data-cell persona-match">[[model.match]]</div>
+					<div class="data-cell persona-match"><qi-match-score model="[[model.match]]"></qi-match-score></div>
 				</div>
 			</div>
 
