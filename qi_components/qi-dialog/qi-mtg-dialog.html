@@ -69,12 +69,62 @@
 
                };
 
+
+
+
                mtgs.push(mtg);
                localStorage.setItem("mtgs",JSON.stringify(mtgs));
 
                this.fire('mtg-sent', {mtg: mtg});
                this.$.ajax.url=QiConfigBehavior.getURL(true, "sendMtg");
                this.$.ajax.generateRequest();
+
+
+               var cal = JSON.parse(localStorage.getItem("calendar"));
+               var meetingInfo = {
+                    time: {
+                        start: this.$.time.value,
+                        end: ""
+                   },
+                   title: this.$.title.value,
+                   location: this.$.location.value,
+                   keywords: [],
+                   description: this.$.msg.value
+               };
+/*
+               var calendarMtg = {
+                    date: this.$.date.value,
+                    meetings: [{
+                         time: {
+                              start: this.$.time.value,
+                              end: ""
+                         },
+                         title: this.$.title.value,
+                         location: this.$.location.value
+                    }]
+               };
+               */
+               //check if the date alreay exists and add meeting to it 
+               for(var i = 0; i < cal.length; i++){
+                    var calendarDates = cal[i].date;
+                    var meetingDate = this.$.date.value;
+                    //found a date that already exists
+                    if(calendarDates.localeCompare(meetingDate) == 0 ){
+                        cal[i].meetings.push(meetingInfo); 
+                        break;
+                    }
+                    else if(i == cal.length -1){
+                         var newMeeting = {
+                              date: this.$.date.value,
+                              meetings: [meetingInfo]
+                         }
+                         cal.push(newMeeting);
+                         break;
+                    }
+               }
+               localStorage.setItem("calendar", JSON.stringify(cal));
+               this.fire('calendar-sent', {cal: meetingInfo} );
+               this.notifyPath('calendar', cal);
 
           },
 

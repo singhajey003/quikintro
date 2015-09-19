@@ -56,14 +56,17 @@ QiTrayBehavior = {
 	 * This method gets the selected cards.
 	 */
 	getSelectedCards: function(){
-		var cards = this.$.cardTray.getElementsByClassName("selectable-card");
+		var cards = this.$.cardTray.getElementsByClassName("selectedCard");
+		/*
 		var cardArray = [];
 		for(var i=0; i < cards.length; i++){
-			if(cards[i].selected){
+			//if(cards[i].selected){
+				console.log("here");
 				cardArray.push(cards[i]);
-			}
+	//		}
 		}
-		return cardArray;
+		*/
+		return cards;
 	},
 
 	/**

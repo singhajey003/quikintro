@@ -51,7 +51,7 @@ for a given day.
 				<span>[[day]]</span>
 			</div>
 
-			<div class="mtg-tray layout vertical">
+			<div id="calTray" class="mtg-tray layout vertical">
 				<template is="dom-repeat" items="[[model.meetings]]" as="mtg">
 					<qi-mtg-mini-card model="[[mtg]]"></qi-mtg-mini-card>
 				</template>
@@ -103,8 +103,15 @@ for a given day.
 
 			_computeDate: function(dateStr){
 				return new Date(dateStr);
-			}
+			},
 
+			ready: function(){
+				var repeat = this.$.repeat;
+				window.addEventListener('calendar-sent', function(e){
+
+					//this.notifyPath('model.meetings', this.model.meetings);
+				});
+			}
 
 		});
 	</script>

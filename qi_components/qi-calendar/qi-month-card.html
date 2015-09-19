@@ -37,7 +37,7 @@ for a specific month.
 
 				   <div class="layout vertical">
 
-			   		<template is="dom-repeat" items="[[model]]" as="day">
+			   		<template id="repeat" is="dom-repeat" items="[[model]]" as="day">
 			   			<qi-day-card model="[[day]]"></qi-day-card>
 			   		</template>
 				   </div>
@@ -87,8 +87,11 @@ for a specific month.
 
 				this.addEventListener('page-swipe', function(){
 					this.selectedCalPage = 0;
-				})
+				});
+
+
 			}
+			
 
 
 		});
