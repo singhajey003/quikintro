@@ -10,6 +10,8 @@
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/iron-input/iron-input.html">
 
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
 
 <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
@@ -24,6 +26,11 @@
 <link rel="import" href="../qi-persona/qi-persona-field.html">
 
 <link rel="import" href="../qi-calendar/qi-cal-behavior.html">
+
+<link rel="import" href="../qi-contact/qi-contact-tray.html">
+<link rel="import" href="../qi-contact/qi-match-tray.html">
+<link rel="import" href="../qi-msg/qi-mtg-tray.html">
+
 
 <dom-module id='qi-event-summary'  >
 
@@ -51,27 +58,24 @@
 
         <div class="summary horizontal around-justified layout">
 
-            <div class="eventMatches">
+            <div class="eventMatches" on-click="_handleMatches">
                 <div class="bottomLabel">Matches</div>
                 <div class="count turqoize">[[event.matches.length]]</div>
             </div>
 
-            <div class="eventContacts">
+            <div class="eventContacts" on-click="_handleContacts">
                 <div class="bottomLabel">Contacts</div>
                 <div class="count">[[event.contacts.length]]</div>
             </div>
 
-            <div class="eventMeetings">
+            <div class="eventMeetings" on-click="_handleMeetings">
                 <div class="bottomLabel">Meetings</div>
                 <div class="count green">[[event.meetings.length]]</div>
             </div>
 
         </div>
 
-
-        </div>
-
-        <div class="eventSettings layout flex">
+        <div class="eventSettings layout flex" selected="{{selected}}">
 
         <div class="horizontal around-justified layout">
             <div class="eventDate">
@@ -166,6 +170,11 @@
             date: {
                 type: String,
                 computed: 'startEndTime(event.time.start, event.time.end)'
+            },
+
+            chosen: {
+                type: Number,
+                notify: true
             }
 
         },
@@ -226,6 +235,18 @@
 
         eventChanged: function(newValue, oldValue){
             //this.fixMap(newValue);
+        },
+
+        _handleMatches: function(){
+            this.fire('event-page-selected', {index: 1});
+        }, 
+
+        _handleContacts: function(){
+            this.fire('event-page-selected', {index: 2});
+        },
+
+        _handleMeetings: function(){
+            this.fire('event-page-selected', {index: 3});
         }
 
     });
